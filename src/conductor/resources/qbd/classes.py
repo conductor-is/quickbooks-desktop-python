@@ -265,7 +265,7 @@ class ClassesResource(SyncAPIResource):
               query parameters for this request.
 
               **NOTE**: If any of the values you specify in this parameter are not found, the
-              request will fail.
+              request will return an error.
 
           ids: Filter for specific classes by their QuickBooks-assigned unique identifier(s).
 
@@ -273,7 +273,7 @@ class ClassesResource(SyncAPIResource):
               query parameters for this request.
 
               **NOTE**: If any of the values you specify in this parameter are not found, the
-              request will fail.
+              request will return an error.
 
           limit: The maximum number of objects to return.
 
@@ -589,7 +589,7 @@ class AsyncClassesResource(AsyncAPIResource):
               query parameters for this request.
 
               **NOTE**: If any of the values you specify in this parameter are not found, the
-              request will fail.
+              request will return an error.
 
           ids: Filter for specific classes by their QuickBooks-assigned unique identifier(s).
 
@@ -597,7 +597,7 @@ class AsyncClassesResource(AsyncAPIResource):
               query parameters for this request.
 
               **NOTE**: If any of the values you specify in this parameter are not found, the
-              request will fail.
+              request will return an error.
 
           limit: The maximum number of objects to return.
 

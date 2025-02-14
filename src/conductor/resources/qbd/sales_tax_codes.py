@@ -285,7 +285,7 @@ class SalesTaxCodesResource(SyncAPIResource):
               query parameters for this request.
 
               **NOTE**: If any of the values you specify in this parameter are not found, the
-              request will fail.
+              request will return an error.
 
           limit: The maximum number of objects to return.
 
@@ -316,7 +316,7 @@ class SalesTaxCodesResource(SyncAPIResource):
               query parameters for this request.
 
               **NOTE**: If any of the values you specify in this parameter are not found, the
-              request will fail.
+              request will return an error.
 
           name_starts_with: Filter for sales-tax codes whose `name` starts with this substring,
               case-insensitive. NOTE: If you use this parameter, you cannot also use
@@ -629,7 +629,7 @@ class AsyncSalesTaxCodesResource(AsyncAPIResource):
               query parameters for this request.
 
               **NOTE**: If any of the values you specify in this parameter are not found, the
-              request will fail.
+              request will return an error.
 
           limit: The maximum number of objects to return.
 
@@ -660,7 +660,7 @@ class AsyncSalesTaxCodesResource(AsyncAPIResource):
               query parameters for this request.
 
               **NOTE**: If any of the values you specify in this parameter are not found, the
-              request will fail.
+              request will return an error.
 
           name_starts_with: Filter for sales-tax codes whose `name` starts with this substring,
               case-insensitive. NOTE: If you use this parameter, you cannot also use

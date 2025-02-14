@@ -283,7 +283,7 @@ class SubtotalItemsResource(SyncAPIResource):
               query parameters for this request.
 
               **NOTE**: If any of the values you specify in this parameter are not found, the
-              request will fail.
+              request will return an error.
 
           limit: The maximum number of objects to return. Accepts values ranging from 1 to 150,
               defaults to 150. When used with cursor-based pagination, this parameter controls
@@ -310,7 +310,7 @@ class SubtotalItemsResource(SyncAPIResource):
               query parameters for this request.
 
               **NOTE**: If any of the values you specify in this parameter are not found, the
-              request will fail.
+              request will return an error.
 
           name_starts_with: Filter for subtotal items whose `name` starts with this substring,
               case-insensitive. NOTE: If you use this parameter, you cannot also use
@@ -623,7 +623,7 @@ class AsyncSubtotalItemsResource(AsyncAPIResource):
               query parameters for this request.
 
               **NOTE**: If any of the values you specify in this parameter are not found, the
-              request will fail.
+              request will return an error.
 
           limit: The maximum number of objects to return. Accepts values ranging from 1 to 150,
               defaults to 150. When used with cursor-based pagination, this parameter controls
@@ -650,7 +650,7 @@ class AsyncSubtotalItemsResource(AsyncAPIResource):
               query parameters for this request.
 
               **NOTE**: If any of the values you specify in this parameter are not found, the
-              request will fail.
+              request will return an error.
 
           name_starts_with: Filter for subtotal items whose `name` starts with this substring,
               case-insensitive. NOTE: If you use this parameter, you cannot also use

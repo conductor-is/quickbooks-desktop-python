@@ -34,7 +34,7 @@ class PayrollWageItemListParams(TypedDict, total=False):
     query parameters for this request.
 
     **NOTE**: If any of the values you specify in this parameter are not found, the
-    request will fail.
+    request will return an error.
     """
 
     limit: int
@@ -76,7 +76,7 @@ class PayrollWageItemListParams(TypedDict, total=False):
     query parameters for this request.
 
     **NOTE**: If any of the values you specify in this parameter are not found, the
-    request will fail.
+    request will return an error.
     """
 
     name_starts_with: Annotated[str, PropertyInfo(alias="nameStartsWith")]

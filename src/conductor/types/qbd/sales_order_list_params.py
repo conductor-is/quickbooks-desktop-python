@@ -41,7 +41,7 @@ class SalesOrderListParams(TypedDict, total=False):
     query parameters for this request.
 
     **NOTE**: If any of the values you specify in this parameter are not found, the
-    request will fail.
+    request will return an error.
     """
 
     include_line_items: Annotated[bool, PropertyInfo(alias="includeLineItems")]
@@ -97,7 +97,7 @@ class SalesOrderListParams(TypedDict, total=False):
     query parameters for this request.
 
     **NOTE**: If any of the values you specify in this parameter are not found, the
-    request will fail.
+    request will return an error.
     """
 
     ref_number_starts_with: Annotated[str, PropertyInfo(alias="refNumberStartsWith")]
