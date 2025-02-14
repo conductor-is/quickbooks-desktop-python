@@ -43,7 +43,7 @@ class InventoryItemListParams(TypedDict, total=False):
     query parameters for this request.
 
     **NOTE**: If any of the values you specify in this parameter are not found, the
-    request will fail.
+    request will return an error.
     """
 
     ids: List[str]
@@ -55,7 +55,7 @@ class InventoryItemListParams(TypedDict, total=False):
     query parameters for this request.
 
     **NOTE**: If any of the values you specify in this parameter are not found, the
-    request will fail.
+    request will return an error.
     """
 
     limit: int
