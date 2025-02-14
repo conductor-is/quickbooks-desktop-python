@@ -338,6 +338,9 @@ class InventoryAdjustmentsResource(SyncAPIResource):
               **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
               query parameters for this request.
 
+              **NOTE**: If any of the values you specify in this parameter are not found, the
+              request will fail.
+
           include_line_items: Whether to include line items in the response. Defaults to `true`.
 
           item_ids: Filter for inventory adjustments containing these inventory items.
@@ -372,6 +375,9 @@ class InventoryAdjustmentsResource(SyncAPIResource):
 
               **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
               query parameters for this request.
+
+              **NOTE**: If any of the values you specify in this parameter are not found, the
+              request will fail.
 
           ref_number_starts_with: Filter for inventory adjustments whose `refNumber` starts with this substring.
               NOTE: If you use this parameter, you cannot also use `refNumberContains` or
@@ -786,6 +792,9 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
               **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
               query parameters for this request.
 
+              **NOTE**: If any of the values you specify in this parameter are not found, the
+              request will fail.
+
           include_line_items: Whether to include line items in the response. Defaults to `true`.
 
           item_ids: Filter for inventory adjustments containing these inventory items.
@@ -820,6 +829,9 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
 
               **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
               query parameters for this request.
+
+              **NOTE**: If any of the values you specify in this parameter are not found, the
+              request will fail.
 
           ref_number_starts_with: Filter for inventory adjustments whose `refNumber` starts with this substring.
               NOTE: If you use this parameter, you cannot also use `refNumberContains` or

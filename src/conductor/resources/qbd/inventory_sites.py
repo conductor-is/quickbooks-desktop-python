@@ -293,6 +293,9 @@ class InventorySitesResource(SyncAPIResource):
               **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
               query parameters for this request.
 
+              **NOTE**: If any of the values you specify in this parameter are not found, the
+              request will fail.
+
           name_contains: Filter for inventory sites whose `name` contains this substring,
               case-insensitive. NOTE: If you use this parameter, you cannot also use
               `nameStartsWith` or `nameEndsWith`.
@@ -309,6 +312,9 @@ class InventorySitesResource(SyncAPIResource):
 
               **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
               query parameters for this request.
+
+              **NOTE**: If any of the values you specify in this parameter are not found, the
+              request will fail.
 
           name_starts_with: Filter for inventory sites whose `name` starts with this substring,
               case-insensitive. NOTE: If you use this parameter, you cannot also use
@@ -628,6 +634,9 @@ class AsyncInventorySitesResource(AsyncAPIResource):
               **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
               query parameters for this request.
 
+              **NOTE**: If any of the values you specify in this parameter are not found, the
+              request will fail.
+
           name_contains: Filter for inventory sites whose `name` contains this substring,
               case-insensitive. NOTE: If you use this parameter, you cannot also use
               `nameStartsWith` or `nameEndsWith`.
@@ -644,6 +653,9 @@ class AsyncInventorySitesResource(AsyncAPIResource):
 
               **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
               query parameters for this request.
+
+              **NOTE**: If any of the values you specify in this parameter are not found, the
+              request will fail.
 
           name_starts_with: Filter for inventory sites whose `name` starts with this substring,
               case-insensitive. NOTE: If you use this parameter, you cannot also use

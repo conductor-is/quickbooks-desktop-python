@@ -362,6 +362,9 @@ class BillCheckPaymentsResource(SyncAPIResource):
               **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
               query parameters for this request.
 
+              **NOTE**: If any of the values you specify in this parameter are not found, the
+              request will fail.
+
           include_line_items: Whether to include line items in the response. Defaults to `true`.
 
           limit: The maximum number of objects to return. Accepts values ranging from 1 to 150,
@@ -390,6 +393,9 @@ class BillCheckPaymentsResource(SyncAPIResource):
 
               **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
               query parameters for this request.
+
+              **NOTE**: If any of the values you specify in this parameter are not found, the
+              request will fail.
 
           ref_number_starts_with: Filter for bill check payments whose `refNumber` starts with this substring.
               (For checks, this field is the check number.) NOTE: If you use this parameter,
@@ -833,6 +839,9 @@ class AsyncBillCheckPaymentsResource(AsyncAPIResource):
               **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
               query parameters for this request.
 
+              **NOTE**: If any of the values you specify in this parameter are not found, the
+              request will fail.
+
           include_line_items: Whether to include line items in the response. Defaults to `true`.
 
           limit: The maximum number of objects to return. Accepts values ranging from 1 to 150,
@@ -861,6 +870,9 @@ class AsyncBillCheckPaymentsResource(AsyncAPIResource):
 
               **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
               query parameters for this request.
+
+              **NOTE**: If any of the values you specify in this parameter are not found, the
+              request will fail.
 
           ref_number_starts_with: Filter for bill check payments whose `refNumber` starts with this substring.
               (For checks, this field is the check number.) NOTE: If you use this parameter,

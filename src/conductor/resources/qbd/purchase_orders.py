@@ -556,6 +556,9 @@ class PurchaseOrdersResource(SyncAPIResource):
               **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
               query parameters for this request.
 
+              **NOTE**: If any of the values you specify in this parameter are not found, the
+              request will fail.
+
           include_line_items: Whether to include line items in the response. Defaults to `true`.
 
           include_linked_transactions: Whether to include linked transactions in the response. Defaults to `false`. For
@@ -587,6 +590,9 @@ class PurchaseOrdersResource(SyncAPIResource):
 
               **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
               query parameters for this request.
+
+              **NOTE**: If any of the values you specify in this parameter are not found, the
+              request will fail.
 
           ref_number_starts_with:
               Filter for purchase orders whose `refNumber` starts with this substring. NOTE:
@@ -1228,6 +1234,9 @@ class AsyncPurchaseOrdersResource(AsyncAPIResource):
               **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
               query parameters for this request.
 
+              **NOTE**: If any of the values you specify in this parameter are not found, the
+              request will fail.
+
           include_line_items: Whether to include line items in the response. Defaults to `true`.
 
           include_linked_transactions: Whether to include linked transactions in the response. Defaults to `false`. For
@@ -1259,6 +1268,9 @@ class AsyncPurchaseOrdersResource(AsyncAPIResource):
 
               **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
               query parameters for this request.
+
+              **NOTE**: If any of the values you specify in this parameter are not found, the
+              request will fail.
 
           ref_number_starts_with:
               Filter for purchase orders whose `refNumber` starts with this substring. NOTE:

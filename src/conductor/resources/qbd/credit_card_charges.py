@@ -411,6 +411,9 @@ class CreditCardChargesResource(SyncAPIResource):
               **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
               query parameters for this request.
 
+              **NOTE**: If any of the values you specify in this parameter are not found, the
+              request will fail.
+
           include_line_items: Whether to include line items in the response. Defaults to `true`.
 
           limit: The maximum number of objects to return. Accepts values ranging from 1 to 150,
@@ -445,6 +448,9 @@ class CreditCardChargesResource(SyncAPIResource):
 
               **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
               query parameters for this request.
+
+              **NOTE**: If any of the values you specify in this parameter are not found, the
+              request will fail.
 
           ref_number_starts_with: Filter for credit card charges whose `refNumber` starts with this substring.
               NOTE: If you use this parameter, you cannot also use `refNumberContains` or
@@ -933,6 +939,9 @@ class AsyncCreditCardChargesResource(AsyncAPIResource):
               **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
               query parameters for this request.
 
+              **NOTE**: If any of the values you specify in this parameter are not found, the
+              request will fail.
+
           include_line_items: Whether to include line items in the response. Defaults to `true`.
 
           limit: The maximum number of objects to return. Accepts values ranging from 1 to 150,
@@ -967,6 +976,9 @@ class AsyncCreditCardChargesResource(AsyncAPIResource):
 
               **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
               query parameters for this request.
+
+              **NOTE**: If any of the values you specify in this parameter are not found, the
+              request will fail.
 
           ref_number_starts_with: Filter for credit card charges whose `refNumber` starts with this substring.
               NOTE: If you use this parameter, you cannot also use `refNumberContains` or

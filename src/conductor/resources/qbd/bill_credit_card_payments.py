@@ -251,6 +251,9 @@ class BillCreditCardPaymentsResource(SyncAPIResource):
               **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
               query parameters for this request.
 
+              **NOTE**: If any of the values you specify in this parameter are not found, the
+              request will fail.
+
           include_line_items: Whether to include line items in the response. Defaults to `true`.
 
           limit: The maximum number of objects to return. Accepts values ranging from 1 to 150,
@@ -279,6 +282,9 @@ class BillCreditCardPaymentsResource(SyncAPIResource):
 
               **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
               query parameters for this request.
+
+              **NOTE**: If any of the values you specify in this parameter are not found, the
+              request will fail.
 
           ref_number_starts_with: Filter for bill credit card payments whose `refNumber` starts with this
               substring. NOTE: If you use this parameter, you cannot also use
@@ -616,6 +622,9 @@ class AsyncBillCreditCardPaymentsResource(AsyncAPIResource):
               **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
               query parameters for this request.
 
+              **NOTE**: If any of the values you specify in this parameter are not found, the
+              request will fail.
+
           include_line_items: Whether to include line items in the response. Defaults to `true`.
 
           limit: The maximum number of objects to return. Accepts values ranging from 1 to 150,
@@ -644,6 +653,9 @@ class AsyncBillCreditCardPaymentsResource(AsyncAPIResource):
 
               **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
               query parameters for this request.
+
+              **NOTE**: If any of the values you specify in this parameter are not found, the
+              request will fail.
 
           ref_number_starts_with: Filter for bill credit card payments whose `refNumber` starts with this
               substring. NOTE: If you use this parameter, you cannot also use

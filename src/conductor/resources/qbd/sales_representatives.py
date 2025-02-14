@@ -251,6 +251,9 @@ class SalesRepresentativesResource(SyncAPIResource):
               **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
               query parameters for this request.
 
+              **NOTE**: If any of the values you specify in this parameter are not found, the
+              request will fail.
+
           limit: The maximum number of objects to return.
 
               **IMPORTANT**: QuickBooks Desktop does not support cursor-based pagination for
@@ -278,6 +281,9 @@ class SalesRepresentativesResource(SyncAPIResource):
 
               **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
               query parameters for this request.
+
+              **NOTE**: If any of the values you specify in this parameter are not found, the
+              request will fail.
 
           name_starts_with: Filter for sales representatives whose `name` starts with this substring,
               case-insensitive. NOTE: If you use this parameter, you cannot also use
@@ -552,6 +558,9 @@ class AsyncSalesRepresentativesResource(AsyncAPIResource):
               **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
               query parameters for this request.
 
+              **NOTE**: If any of the values you specify in this parameter are not found, the
+              request will fail.
+
           limit: The maximum number of objects to return.
 
               **IMPORTANT**: QuickBooks Desktop does not support cursor-based pagination for
@@ -579,6 +588,9 @@ class AsyncSalesRepresentativesResource(AsyncAPIResource):
 
               **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
               query parameters for this request.
+
+              **NOTE**: If any of the values you specify in this parameter are not found, the
+              request will fail.
 
           name_starts_with: Filter for sales representatives whose `name` starts with this substring,
               case-insensitive. NOTE: If you use this parameter, you cannot also use

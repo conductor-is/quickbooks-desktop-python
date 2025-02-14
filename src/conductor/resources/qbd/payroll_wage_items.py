@@ -208,6 +208,9 @@ class PayrollWageItemsResource(SyncAPIResource):
               **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
               query parameters for this request.
 
+              **NOTE**: If any of the values you specify in this parameter are not found, the
+              request will fail.
+
           limit: The maximum number of objects to return. Accepts values ranging from 1 to 150,
               defaults to 150. When used with cursor-based pagination, this parameter controls
               how many results are returned per page. To paginate through results, combine
@@ -231,6 +234,9 @@ class PayrollWageItemsResource(SyncAPIResource):
 
               **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
               query parameters for this request.
+
+              **NOTE**: If any of the values you specify in this parameter are not found, the
+              request will fail.
 
           name_starts_with: Filter for payroll wage items whose `name` starts with this substring,
               case-insensitive. NOTE: If you use this parameter, you cannot also use
@@ -468,6 +474,9 @@ class AsyncPayrollWageItemsResource(AsyncAPIResource):
               **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
               query parameters for this request.
 
+              **NOTE**: If any of the values you specify in this parameter are not found, the
+              request will fail.
+
           limit: The maximum number of objects to return. Accepts values ranging from 1 to 150,
               defaults to 150. When used with cursor-based pagination, this parameter controls
               how many results are returned per page. To paginate through results, combine
@@ -491,6 +500,9 @@ class AsyncPayrollWageItemsResource(AsyncAPIResource):
 
               **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
               query parameters for this request.
+
+              **NOTE**: If any of the values you specify in this parameter are not found, the
+              request will fail.
 
           name_starts_with: Filter for payroll wage items whose `name` starts with this substring,
               case-insensitive. NOTE: If you use this parameter, you cannot also use
