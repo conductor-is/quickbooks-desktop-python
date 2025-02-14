@@ -407,7 +407,7 @@ class NonInventoryItemsResource(SyncAPIResource):
               query parameters for this request.
 
               **NOTE**: If any of the values you specify in this parameter are not found, the
-              request will fail.
+              request will return an error.
 
           ids: Filter for specific non-inventory items by their QuickBooks-assigned unique
               identifier(s).
@@ -416,7 +416,7 @@ class NonInventoryItemsResource(SyncAPIResource):
               query parameters for this request.
 
               **NOTE**: If any of the values you specify in this parameter are not found, the
-              request will fail.
+              request will return an error.
 
           limit: The maximum number of objects to return. Accepts values ranging from 1 to 150,
               defaults to 150. When used with cursor-based pagination, this parameter controls
@@ -868,7 +868,7 @@ class AsyncNonInventoryItemsResource(AsyncAPIResource):
               query parameters for this request.
 
               **NOTE**: If any of the values you specify in this parameter are not found, the
-              request will fail.
+              request will return an error.
 
           ids: Filter for specific non-inventory items by their QuickBooks-assigned unique
               identifier(s).
@@ -877,7 +877,7 @@ class AsyncNonInventoryItemsResource(AsyncAPIResource):
               query parameters for this request.
 
               **NOTE**: If any of the values you specify in this parameter are not found, the
-              request will fail.
+              request will return an error.
 
           limit: The maximum number of objects to return. Accepts values ranging from 1 to 150,
               defaults to 150. When used with cursor-based pagination, this parameter controls

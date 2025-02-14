@@ -294,7 +294,7 @@ class InventorySitesResource(SyncAPIResource):
               query parameters for this request.
 
               **NOTE**: If any of the values you specify in this parameter are not found, the
-              request will fail.
+              request will return an error.
 
           name_contains: Filter for inventory sites whose `name` contains this substring,
               case-insensitive. NOTE: If you use this parameter, you cannot also use
@@ -314,7 +314,7 @@ class InventorySitesResource(SyncAPIResource):
               query parameters for this request.
 
               **NOTE**: If any of the values you specify in this parameter are not found, the
-              request will fail.
+              request will return an error.
 
           name_starts_with: Filter for inventory sites whose `name` starts with this substring,
               case-insensitive. NOTE: If you use this parameter, you cannot also use
@@ -635,7 +635,7 @@ class AsyncInventorySitesResource(AsyncAPIResource):
               query parameters for this request.
 
               **NOTE**: If any of the values you specify in this parameter are not found, the
-              request will fail.
+              request will return an error.
 
           name_contains: Filter for inventory sites whose `name` contains this substring,
               case-insensitive. NOTE: If you use this parameter, you cannot also use
@@ -655,7 +655,7 @@ class AsyncInventorySitesResource(AsyncAPIResource):
               query parameters for this request.
 
               **NOTE**: If any of the values you specify in this parameter are not found, the
-              request will fail.
+              request will return an error.
 
           name_starts_with: Filter for inventory sites whose `name` starts with this substring,
               case-insensitive. NOTE: If you use this parameter, you cannot also use
