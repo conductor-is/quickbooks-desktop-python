@@ -412,7 +412,7 @@ class VendorCreditsResource(SyncAPIResource):
               query parameters for this request.
 
               **NOTE**: If any of the values you specify in this parameter are not found, the
-              request will fail.
+              request will return an error.
 
           include_line_items: Whether to include line items in the response. Defaults to `true`.
 
@@ -447,7 +447,7 @@ class VendorCreditsResource(SyncAPIResource):
               query parameters for this request.
 
               **NOTE**: If any of the values you specify in this parameter are not found, the
-              request will fail.
+              request will return an error.
 
           ref_number_starts_with: Filter for vendor credits whose `refNumber` starts with this substring. NOTE: If
               you use this parameter, you cannot also use `refNumberContains` or
@@ -945,7 +945,7 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
               query parameters for this request.
 
               **NOTE**: If any of the values you specify in this parameter are not found, the
-              request will fail.
+              request will return an error.
 
           include_line_items: Whether to include line items in the response. Defaults to `true`.
 
@@ -980,7 +980,7 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
               query parameters for this request.
 
               **NOTE**: If any of the values you specify in this parameter are not found, the
-              request will fail.
+              request will return an error.
 
           ref_number_starts_with: Filter for vendor credits whose `refNumber` starts with this substring. NOTE: If
               you use this parameter, you cannot also use `refNumberContains` or

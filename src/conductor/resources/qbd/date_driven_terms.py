@@ -205,7 +205,7 @@ class DateDrivenTermsResource(SyncAPIResource):
               query parameters for this request.
 
               **NOTE**: If any of the values you specify in this parameter are not found, the
-              request will fail.
+              request will return an error.
 
           limit: The maximum number of objects to return.
 
@@ -236,7 +236,7 @@ class DateDrivenTermsResource(SyncAPIResource):
               query parameters for this request.
 
               **NOTE**: If any of the values you specify in this parameter are not found, the
-              request will fail.
+              request will return an error.
 
           name_starts_with: Filter for date-driven terms whose `name` starts with this substring,
               case-insensitive. NOTE: If you use this parameter, you cannot also use
@@ -469,7 +469,7 @@ class AsyncDateDrivenTermsResource(AsyncAPIResource):
               query parameters for this request.
 
               **NOTE**: If any of the values you specify in this parameter are not found, the
-              request will fail.
+              request will return an error.
 
           limit: The maximum number of objects to return.
 
@@ -500,7 +500,7 @@ class AsyncDateDrivenTermsResource(AsyncAPIResource):
               query parameters for this request.
 
               **NOTE**: If any of the values you specify in this parameter are not found, the
-              request will fail.
+              request will return an error.
 
           name_starts_with: Filter for date-driven terms whose `name` starts with this substring,
               case-insensitive. NOTE: If you use this parameter, you cannot also use
