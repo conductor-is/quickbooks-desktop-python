@@ -26,7 +26,7 @@ class TestInvoices:
     def test_method_create(self, client: Conductor) -> None:
         invoice = client.qbd.invoices.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2019-12-27"),
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(Invoice, invoice, path=["response"])
@@ -35,7 +35,7 @@ class TestInvoices:
     def test_method_create_with_all_params(self, client: Conductor) -> None:
         invoice = client.qbd.invoices.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2019-12-27"),
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
             apply_credits=[
                 {
@@ -59,7 +59,7 @@ class TestInvoices:
             class_id="80000001-1234567890",
             customer_message_id="80000001-1234567890",
             document_template_id="80000001-1234567890",
-            due_date=parse_date("2019-12-27"),
+            due_date=parse_date("2021-10-31"),
             exchange_rate=1.2345,
             external_id="12345678-abcd-1234-abcd-1234567890ab",
             is_finance_charge=True,
@@ -112,7 +112,7 @@ class TestInvoices:
                     "rate_percent": "10.5",
                     "sales_tax_code_id": "80000001-1234567890",
                     "serial_number": "SN1234567890",
-                    "service_date": parse_date("2019-12-27"),
+                    "service_date": parse_date("2024-03-15"),
                     "unit_of_measure": "Each",
                 }
             ],
@@ -138,7 +138,7 @@ class TestInvoices:
                 "postal_code": "94110",
                 "state": "CA",
             },
-            shipping_date=parse_date("2019-12-27"),
+            shipping_date=parse_date("2021-10-01"),
             shipping_method_id="80000001-1234567890",
             terms_id="80000001-1234567890",
         )
@@ -148,7 +148,7 @@ class TestInvoices:
     def test_raw_response_create(self, client: Conductor) -> None:
         response = client.qbd.invoices.with_raw_response.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2019-12-27"),
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -161,7 +161,7 @@ class TestInvoices:
     def test_streaming_response_create(self, client: Conductor) -> None:
         with client.qbd.invoices.with_streaming_response.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2019-12-27"),
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -252,7 +252,7 @@ class TestInvoices:
             customer_id="80000001-1234567890",
             customer_message_id="80000001-1234567890",
             document_template_id="80000001-1234567890",
-            due_date=parse_date("2019-12-27"),
+            due_date=parse_date("2021-10-31"),
             exchange_rate=1.2345,
             is_pending=False,
             is_queued_for_email=True,
@@ -282,7 +282,7 @@ class TestInvoices:
                             "rate_percent": "10.5",
                             "sales_tax_code_id": "80000001-1234567890",
                             "serial_number": "SN1234567890",
-                            "service_date": parse_date("2019-12-27"),
+                            "service_date": parse_date("2024-03-15"),
                             "unit_of_measure": "Each",
                         }
                     ],
@@ -312,7 +312,7 @@ class TestInvoices:
                     "rate_percent": "10.5",
                     "sales_tax_code_id": "80000001-1234567890",
                     "serial_number": "SN1234567890",
-                    "service_date": parse_date("2019-12-27"),
+                    "service_date": parse_date("2024-03-15"),
                     "unit_of_measure": "Each",
                 }
             ],
@@ -337,10 +337,10 @@ class TestInvoices:
                 "postal_code": "94110",
                 "state": "CA",
             },
-            shipping_date=parse_date("2019-12-27"),
+            shipping_date=parse_date("2021-10-01"),
             shipping_method_id="80000001-1234567890",
             terms_id="80000001-1234567890",
-            transaction_date=parse_date("2019-12-27"),
+            transaction_date=parse_date("2021-10-01"),
         )
         assert_matches_type(Invoice, invoice, path=["response"])
 
@@ -407,10 +407,10 @@ class TestInvoices:
             ref_numbers=["INVOICE-1234"],
             ref_number_starts_with="INV",
             ref_number_to="INV-9999",
-            transaction_date_from=parse_date("2019-12-27"),
-            transaction_date_to=parse_date("2019-12-27"),
-            updated_after="updatedAfter",
-            updated_before="updatedBefore",
+            transaction_date_from=parse_date("2021-01-01"),
+            transaction_date_to=parse_date("2021-02-01"),
+            updated_after="2021-01-01T12:34:56",
+            updated_before="2021-02-01T12:34:56",
         )
         assert_matches_type(SyncCursorPage[Invoice], invoice, path=["response"])
 
@@ -488,7 +488,7 @@ class TestAsyncInvoices:
     async def test_method_create(self, async_client: AsyncConductor) -> None:
         invoice = await async_client.qbd.invoices.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2019-12-27"),
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(Invoice, invoice, path=["response"])
@@ -497,7 +497,7 @@ class TestAsyncInvoices:
     async def test_method_create_with_all_params(self, async_client: AsyncConductor) -> None:
         invoice = await async_client.qbd.invoices.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2019-12-27"),
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
             apply_credits=[
                 {
@@ -521,7 +521,7 @@ class TestAsyncInvoices:
             class_id="80000001-1234567890",
             customer_message_id="80000001-1234567890",
             document_template_id="80000001-1234567890",
-            due_date=parse_date("2019-12-27"),
+            due_date=parse_date("2021-10-31"),
             exchange_rate=1.2345,
             external_id="12345678-abcd-1234-abcd-1234567890ab",
             is_finance_charge=True,
@@ -574,7 +574,7 @@ class TestAsyncInvoices:
                     "rate_percent": "10.5",
                     "sales_tax_code_id": "80000001-1234567890",
                     "serial_number": "SN1234567890",
-                    "service_date": parse_date("2019-12-27"),
+                    "service_date": parse_date("2024-03-15"),
                     "unit_of_measure": "Each",
                 }
             ],
@@ -600,7 +600,7 @@ class TestAsyncInvoices:
                 "postal_code": "94110",
                 "state": "CA",
             },
-            shipping_date=parse_date("2019-12-27"),
+            shipping_date=parse_date("2021-10-01"),
             shipping_method_id="80000001-1234567890",
             terms_id="80000001-1234567890",
         )
@@ -610,7 +610,7 @@ class TestAsyncInvoices:
     async def test_raw_response_create(self, async_client: AsyncConductor) -> None:
         response = await async_client.qbd.invoices.with_raw_response.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2019-12-27"),
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -623,7 +623,7 @@ class TestAsyncInvoices:
     async def test_streaming_response_create(self, async_client: AsyncConductor) -> None:
         async with async_client.qbd.invoices.with_streaming_response.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2019-12-27"),
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -714,7 +714,7 @@ class TestAsyncInvoices:
             customer_id="80000001-1234567890",
             customer_message_id="80000001-1234567890",
             document_template_id="80000001-1234567890",
-            due_date=parse_date("2019-12-27"),
+            due_date=parse_date("2021-10-31"),
             exchange_rate=1.2345,
             is_pending=False,
             is_queued_for_email=True,
@@ -744,7 +744,7 @@ class TestAsyncInvoices:
                             "rate_percent": "10.5",
                             "sales_tax_code_id": "80000001-1234567890",
                             "serial_number": "SN1234567890",
-                            "service_date": parse_date("2019-12-27"),
+                            "service_date": parse_date("2024-03-15"),
                             "unit_of_measure": "Each",
                         }
                     ],
@@ -774,7 +774,7 @@ class TestAsyncInvoices:
                     "rate_percent": "10.5",
                     "sales_tax_code_id": "80000001-1234567890",
                     "serial_number": "SN1234567890",
-                    "service_date": parse_date("2019-12-27"),
+                    "service_date": parse_date("2024-03-15"),
                     "unit_of_measure": "Each",
                 }
             ],
@@ -799,10 +799,10 @@ class TestAsyncInvoices:
                 "postal_code": "94110",
                 "state": "CA",
             },
-            shipping_date=parse_date("2019-12-27"),
+            shipping_date=parse_date("2021-10-01"),
             shipping_method_id="80000001-1234567890",
             terms_id="80000001-1234567890",
-            transaction_date=parse_date("2019-12-27"),
+            transaction_date=parse_date("2021-10-01"),
         )
         assert_matches_type(Invoice, invoice, path=["response"])
 
@@ -869,10 +869,10 @@ class TestAsyncInvoices:
             ref_numbers=["INVOICE-1234"],
             ref_number_starts_with="INV",
             ref_number_to="INV-9999",
-            transaction_date_from=parse_date("2019-12-27"),
-            transaction_date_to=parse_date("2019-12-27"),
-            updated_after="updatedAfter",
-            updated_before="updatedBefore",
+            transaction_date_from=parse_date("2021-01-01"),
+            transaction_date_to=parse_date("2021-02-01"),
+            updated_after="2021-01-01T12:34:56",
+            updated_before="2021-02-01T12:34:56",
         )
         assert_matches_type(AsyncCursorPage[Invoice], invoice, path=["response"])
 

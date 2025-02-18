@@ -239,8 +239,8 @@ class TestServiceItems:
             name_starts_with="ABC",
             name_to="Z",
             status="active",
-            updated_after="updatedAfter",
-            updated_before="updatedBefore",
+            updated_after="2021-01-01T12:34:56",
+            updated_before="2021-02-01T12:34:56",
         )
         assert_matches_type(SyncCursorPage[ServiceItem], service_item, path=["response"])
 
@@ -491,8 +491,8 @@ class TestAsyncServiceItems:
             name_starts_with="ABC",
             name_to="Z",
             status="active",
-            updated_after="updatedAfter",
-            updated_before="updatedBefore",
+            updated_after="2021-01-01T12:34:56",
+            updated_before="2021-02-01T12:34:56",
         )
         assert_matches_type(AsyncCursorPage[ServiceItem], service_item, path=["response"])
 

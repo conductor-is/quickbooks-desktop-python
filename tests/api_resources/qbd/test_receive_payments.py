@@ -27,7 +27,7 @@ class TestReceivePayments:
         receive_payment = client.qbd.receive_payments.create(
             customer_id="80000001-1234567890",
             total_amount="1000.00",
-            transaction_date=parse_date("2019-12-27"),
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(ReceivePayment, receive_payment, path=["response"])
@@ -37,7 +37,7 @@ class TestReceivePayments:
         receive_payment = client.qbd.receive_payments.create(
             customer_id="80000001-1234567890",
             total_amount="1000.00",
-            transaction_date=parse_date("2019-12-27"),
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
             apply_to_transactions=[
                 {
@@ -73,7 +73,7 @@ class TestReceivePayments:
                     "payment_status": "completed",
                     "status_code": 0,
                     "status_message": "Success",
-                    "transaction_authorized_at": "transactionAuthorizedAt",
+                    "transaction_authorized_at": "2024-01-01T12:34:56Z",
                     "authorization_code": "1234567890",
                     "avs_street_status": "fail",
                     "avs_zip_status": "fail",
@@ -100,7 +100,7 @@ class TestReceivePayments:
         response = client.qbd.receive_payments.with_raw_response.create(
             customer_id="80000001-1234567890",
             total_amount="1000.00",
-            transaction_date=parse_date("2019-12-27"),
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -114,7 +114,7 @@ class TestReceivePayments:
         with client.qbd.receive_payments.with_streaming_response.create(
             customer_id="80000001-1234567890",
             total_amount="1000.00",
-            transaction_date=parse_date("2019-12-27"),
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -224,7 +224,7 @@ class TestReceivePayments:
                     "status_code": 0,
                     "status_message": "Success",
                     "transaction_authorization_stamp": 2,
-                    "transaction_authorized_at": "transactionAuthorizedAt",
+                    "transaction_authorized_at": "2024-01-01T12:34:56Z",
                 },
             },
             customer_id="80000001-1234567890",
@@ -235,7 +235,7 @@ class TestReceivePayments:
             receivables_account_id="80000001-1234567890",
             ref_number="PAYMENT-1234",
             total_amount="1000.00",
-            transaction_date=parse_date("2019-12-27"),
+            transaction_date=parse_date("2021-10-01"),
         )
         assert_matches_type(ReceivePayment, receive_payment, path=["response"])
 
@@ -300,10 +300,10 @@ class TestReceivePayments:
             ref_numbers=["RECEIVE-PAYMENT-1234"],
             ref_number_starts_with="PAYMENT",
             ref_number_to="PAYMENT-9999",
-            transaction_date_from=parse_date("2019-12-27"),
-            transaction_date_to=parse_date("2019-12-27"),
-            updated_after="updatedAfter",
-            updated_before="updatedBefore",
+            transaction_date_from=parse_date("2021-01-01"),
+            transaction_date_to=parse_date("2021-02-01"),
+            updated_after="2021-01-01T12:34:56",
+            updated_before="2021-02-01T12:34:56",
         )
         assert_matches_type(SyncCursorPage[ReceivePayment], receive_payment, path=["response"])
 
@@ -382,7 +382,7 @@ class TestAsyncReceivePayments:
         receive_payment = await async_client.qbd.receive_payments.create(
             customer_id="80000001-1234567890",
             total_amount="1000.00",
-            transaction_date=parse_date("2019-12-27"),
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(ReceivePayment, receive_payment, path=["response"])
@@ -392,7 +392,7 @@ class TestAsyncReceivePayments:
         receive_payment = await async_client.qbd.receive_payments.create(
             customer_id="80000001-1234567890",
             total_amount="1000.00",
-            transaction_date=parse_date("2019-12-27"),
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
             apply_to_transactions=[
                 {
@@ -428,7 +428,7 @@ class TestAsyncReceivePayments:
                     "payment_status": "completed",
                     "status_code": 0,
                     "status_message": "Success",
-                    "transaction_authorized_at": "transactionAuthorizedAt",
+                    "transaction_authorized_at": "2024-01-01T12:34:56Z",
                     "authorization_code": "1234567890",
                     "avs_street_status": "fail",
                     "avs_zip_status": "fail",
@@ -455,7 +455,7 @@ class TestAsyncReceivePayments:
         response = await async_client.qbd.receive_payments.with_raw_response.create(
             customer_id="80000001-1234567890",
             total_amount="1000.00",
-            transaction_date=parse_date("2019-12-27"),
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -469,7 +469,7 @@ class TestAsyncReceivePayments:
         async with async_client.qbd.receive_payments.with_streaming_response.create(
             customer_id="80000001-1234567890",
             total_amount="1000.00",
-            transaction_date=parse_date("2019-12-27"),
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -579,7 +579,7 @@ class TestAsyncReceivePayments:
                     "status_code": 0,
                     "status_message": "Success",
                     "transaction_authorization_stamp": 2,
-                    "transaction_authorized_at": "transactionAuthorizedAt",
+                    "transaction_authorized_at": "2024-01-01T12:34:56Z",
                 },
             },
             customer_id="80000001-1234567890",
@@ -590,7 +590,7 @@ class TestAsyncReceivePayments:
             receivables_account_id="80000001-1234567890",
             ref_number="PAYMENT-1234",
             total_amount="1000.00",
-            transaction_date=parse_date("2019-12-27"),
+            transaction_date=parse_date("2021-10-01"),
         )
         assert_matches_type(ReceivePayment, receive_payment, path=["response"])
 
@@ -655,10 +655,10 @@ class TestAsyncReceivePayments:
             ref_numbers=["RECEIVE-PAYMENT-1234"],
             ref_number_starts_with="PAYMENT",
             ref_number_to="PAYMENT-9999",
-            transaction_date_from=parse_date("2019-12-27"),
-            transaction_date_to=parse_date("2019-12-27"),
-            updated_after="updatedAfter",
-            updated_before="updatedBefore",
+            transaction_date_from=parse_date("2021-01-01"),
+            transaction_date_to=parse_date("2021-02-01"),
+            updated_after="2021-01-01T12:34:56",
+            updated_before="2021-02-01T12:34:56",
         )
         assert_matches_type(AsyncCursorPage[ReceivePayment], receive_payment, path=["response"])
 

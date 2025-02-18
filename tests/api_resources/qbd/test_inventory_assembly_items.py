@@ -48,7 +48,7 @@ class TestInventoryAssemblyItems:
             build_notification_threshold=10,
             class_id="80000001-1234567890",
             external_id="12345678-abcd-1234-abcd-1234567890ab",
-            inventory_date=parse_date("2019-12-27"),
+            inventory_date=parse_date("2021-01-01"),
             is_active=True,
             lines=[
                 {
@@ -254,8 +254,8 @@ class TestInventoryAssemblyItems:
             name_starts_with="ABC",
             name_to="Z",
             status="active",
-            updated_after="updatedAfter",
-            updated_before="updatedBefore",
+            updated_after="2021-01-01T12:34:56",
+            updated_before="2021-02-01T12:34:56",
         )
         assert_matches_type(SyncCursorPage[InventoryAssemblyItem], inventory_assembly_item, path=["response"])
 
@@ -314,7 +314,7 @@ class TestAsyncInventoryAssemblyItems:
             build_notification_threshold=10,
             class_id="80000001-1234567890",
             external_id="12345678-abcd-1234-abcd-1234567890ab",
-            inventory_date=parse_date("2019-12-27"),
+            inventory_date=parse_date("2021-01-01"),
             is_active=True,
             lines=[
                 {
@@ -520,8 +520,8 @@ class TestAsyncInventoryAssemblyItems:
             name_starts_with="ABC",
             name_to="Z",
             status="active",
-            updated_after="updatedAfter",
-            updated_before="updatedBefore",
+            updated_after="2021-01-01T12:34:56",
+            updated_before="2021-02-01T12:34:56",
         )
         assert_matches_type(AsyncCursorPage[InventoryAssemblyItem], inventory_assembly_item, path=["response"])
 
