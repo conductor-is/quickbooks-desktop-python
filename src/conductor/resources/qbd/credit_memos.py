@@ -36,7 +36,7 @@ class CreditMemosResource(SyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/conductor-is/conductor-python#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/conductor-is/quickbooks-desktop-python#accessing-raw-response-data-eg-headers
         """
         return CreditMemosResourceWithRawResponse(self)
 
@@ -45,7 +45,7 @@ class CreditMemosResource(SyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/conductor-is/conductor-python#with_streaming_response
+        For more information, see https://www.github.com/conductor-is/quickbooks-desktop-python#with_streaming_response
         """
         return CreditMemosResourceWithStreamingResponse(self)
 
@@ -736,7 +736,7 @@ class AsyncCreditMemosResource(AsyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/conductor-is/conductor-python#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/conductor-is/quickbooks-desktop-python#accessing-raw-response-data-eg-headers
         """
         return AsyncCreditMemosResourceWithRawResponse(self)
 
@@ -745,7 +745,7 @@ class AsyncCreditMemosResource(AsyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/conductor-is/conductor-python#with_streaming_response
+        For more information, see https://www.github.com/conductor-is/quickbooks-desktop-python#with_streaming_response
         """
         return AsyncCreditMemosResourceWithStreamingResponse(self)
 
