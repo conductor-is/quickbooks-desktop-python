@@ -1,6 +1,6 @@
 [project]
 name = "conductor-py"
-version = "1.10.0"
+version = "1.11.0"
 description = "The official Python library for the conductor API"
 dynamic = ["readme"]
 license = "Apache-2.0"

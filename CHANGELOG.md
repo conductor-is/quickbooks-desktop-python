@@ -1,5 +1,25 @@
 # Changelog
 
+## 1.11.0 (2025-02-18)
+
+Full Changelog: [v1.10.0...v1.11.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.10.0...v1.11.0)
+
+### Features
+
+* **api:** api update ([#565](https://github.com/conductor-is/quickbooks-desktop-python/issues/565)) ([cd9d0f6](https://github.com/conductor-is/quickbooks-desktop-python/commit/cd9d0f6a442a50a5bcbeb533385d97aa01de3848))
+* **api:** api update ([#568](https://github.com/conductor-is/quickbooks-desktop-python/issues/568)) ([a936bc7](https://github.com/conductor-is/quickbooks-desktop-python/commit/a936bc7f8a92d4aeab53d72bc82414300e15cbf4))
+* **api:** api update ([#569](https://github.com/conductor-is/quickbooks-desktop-python/issues/569)) ([2374d08](https://github.com/conductor-is/quickbooks-desktop-python/commit/2374d0849ed255fa356a0fbfa5189571bd4f71c9))
+
+
+### Bug Fixes
+
+* asyncify on non-asyncio runtimes ([#567](https://github.com/conductor-is/quickbooks-desktop-python/issues/567)) ([aa8f795](https://github.com/conductor-is/quickbooks-desktop-python/commit/aa8f795c224a52873c40c9cc0f93e7e01a21d840))
+
+
+### Chores
+
+* **internal:** codegen related update ([#570](https://github.com/conductor-is/quickbooks-desktop-python/issues/570)) ([2bd484e](https://github.com/conductor-is/quickbooks-desktop-python/commit/2bd484e2f4a59813f5c0ea7f0c8d2451a35c9593))
+
 ## 1.10.0 (2025-02-13)
 
 Full Changelog: [v1.9.1...v1.10.0](https://github.com/conductor-is/conductor-python/compare/v1.9.1...v1.10.0)
