@@ -47,7 +47,7 @@ class TestInventoryItems:
             },
             class_id="80000001-1234567890",
             external_id="12345678-abcd-1234-abcd-1234567890ab",
-            inventory_date=parse_date("2019-12-27"),
+            inventory_date=parse_date("2021-01-01"),
             is_active=True,
             maximum_quantity_on_hand=200,
             parent_id="80000001-1234567890",
@@ -243,8 +243,8 @@ class TestInventoryItems:
             name_starts_with="ABC",
             name_to="Z",
             status="active",
-            updated_after="updatedAfter",
-            updated_before="updatedBefore",
+            updated_after="2021-01-01T12:34:56",
+            updated_before="2021-02-01T12:34:56",
         )
         assert_matches_type(SyncCursorPage[InventoryItem], inventory_item, path=["response"])
 
@@ -302,7 +302,7 @@ class TestAsyncInventoryItems:
             },
             class_id="80000001-1234567890",
             external_id="12345678-abcd-1234-abcd-1234567890ab",
-            inventory_date=parse_date("2019-12-27"),
+            inventory_date=parse_date("2021-01-01"),
             is_active=True,
             maximum_quantity_on_hand=200,
             parent_id="80000001-1234567890",
@@ -498,8 +498,8 @@ class TestAsyncInventoryItems:
             name_starts_with="ABC",
             name_to="Z",
             status="active",
-            updated_after="updatedAfter",
-            updated_before="updatedBefore",
+            updated_after="2021-01-01T12:34:56",
+            updated_before="2021-02-01T12:34:56",
         )
         assert_matches_type(AsyncCursorPage[InventoryItem], inventory_item, path=["response"])
 

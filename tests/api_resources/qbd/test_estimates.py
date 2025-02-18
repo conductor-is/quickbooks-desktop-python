@@ -26,7 +26,7 @@ class TestEstimates:
     def test_method_create(self, client: Conductor) -> None:
         estimate = client.qbd.estimates.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2019-12-27"),
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(Estimate, estimate, path=["response"])
@@ -35,7 +35,7 @@ class TestEstimates:
     def test_method_create_with_all_params(self, client: Conductor) -> None:
         estimate = client.qbd.estimates.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2019-12-27"),
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
             billing_address={
                 "city": "San Francisco",
@@ -52,7 +52,7 @@ class TestEstimates:
             class_id="80000001-1234567890",
             customer_message_id="80000001-1234567890",
             document_template_id="80000001-1234567890",
-            due_date=parse_date("2019-12-27"),
+            due_date=parse_date("2021-10-31"),
             exchange_rate=1.2345,
             external_id="12345678-abcd-1234-abcd-1234567890ab",
             is_active=True,
@@ -130,7 +130,7 @@ class TestEstimates:
     def test_raw_response_create(self, client: Conductor) -> None:
         response = client.qbd.estimates.with_raw_response.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2019-12-27"),
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -143,7 +143,7 @@ class TestEstimates:
     def test_streaming_response_create(self, client: Conductor) -> None:
         with client.qbd.estimates.with_streaming_response.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2019-12-27"),
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -228,7 +228,7 @@ class TestEstimates:
             customer_id="80000001-1234567890",
             customer_message_id="80000001-1234567890",
             document_template_id="80000001-1234567890",
-            due_date=parse_date("2019-12-27"),
+            due_date=parse_date("2021-10-31"),
             exchange_rate=1.2345,
             is_active=True,
             is_queued_for_email=True,
@@ -308,7 +308,7 @@ class TestEstimates:
                 "state": "CA",
             },
             terms_id="80000001-1234567890",
-            transaction_date=parse_date("2019-12-27"),
+            transaction_date=parse_date("2021-10-01"),
         )
         assert_matches_type(Estimate, estimate, path=["response"])
 
@@ -374,10 +374,10 @@ class TestEstimates:
             ref_numbers=["ESTIMATE-1234"],
             ref_number_starts_with="EST",
             ref_number_to="EST-9999",
-            transaction_date_from=parse_date("2019-12-27"),
-            transaction_date_to=parse_date("2019-12-27"),
-            updated_after="updatedAfter",
-            updated_before="updatedBefore",
+            transaction_date_from=parse_date("2021-01-01"),
+            transaction_date_to=parse_date("2021-02-01"),
+            updated_after="2021-01-01T12:34:56",
+            updated_before="2021-02-01T12:34:56",
         )
         assert_matches_type(SyncCursorPage[Estimate], estimate, path=["response"])
 
@@ -455,7 +455,7 @@ class TestAsyncEstimates:
     async def test_method_create(self, async_client: AsyncConductor) -> None:
         estimate = await async_client.qbd.estimates.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2019-12-27"),
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(Estimate, estimate, path=["response"])
@@ -464,7 +464,7 @@ class TestAsyncEstimates:
     async def test_method_create_with_all_params(self, async_client: AsyncConductor) -> None:
         estimate = await async_client.qbd.estimates.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2019-12-27"),
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
             billing_address={
                 "city": "San Francisco",
@@ -481,7 +481,7 @@ class TestAsyncEstimates:
             class_id="80000001-1234567890",
             customer_message_id="80000001-1234567890",
             document_template_id="80000001-1234567890",
-            due_date=parse_date("2019-12-27"),
+            due_date=parse_date("2021-10-31"),
             exchange_rate=1.2345,
             external_id="12345678-abcd-1234-abcd-1234567890ab",
             is_active=True,
@@ -559,7 +559,7 @@ class TestAsyncEstimates:
     async def test_raw_response_create(self, async_client: AsyncConductor) -> None:
         response = await async_client.qbd.estimates.with_raw_response.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2019-12-27"),
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -572,7 +572,7 @@ class TestAsyncEstimates:
     async def test_streaming_response_create(self, async_client: AsyncConductor) -> None:
         async with async_client.qbd.estimates.with_streaming_response.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2019-12-27"),
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -657,7 +657,7 @@ class TestAsyncEstimates:
             customer_id="80000001-1234567890",
             customer_message_id="80000001-1234567890",
             document_template_id="80000001-1234567890",
-            due_date=parse_date("2019-12-27"),
+            due_date=parse_date("2021-10-31"),
             exchange_rate=1.2345,
             is_active=True,
             is_queued_for_email=True,
@@ -737,7 +737,7 @@ class TestAsyncEstimates:
                 "state": "CA",
             },
             terms_id="80000001-1234567890",
-            transaction_date=parse_date("2019-12-27"),
+            transaction_date=parse_date("2021-10-01"),
         )
         assert_matches_type(Estimate, estimate, path=["response"])
 
@@ -803,10 +803,10 @@ class TestAsyncEstimates:
             ref_numbers=["ESTIMATE-1234"],
             ref_number_starts_with="EST",
             ref_number_to="EST-9999",
-            transaction_date_from=parse_date("2019-12-27"),
-            transaction_date_to=parse_date("2019-12-27"),
-            updated_after="updatedAfter",
-            updated_before="updatedBefore",
+            transaction_date_from=parse_date("2021-01-01"),
+            transaction_date_to=parse_date("2021-02-01"),
+            updated_after="2021-01-01T12:34:56",
+            updated_before="2021-02-01T12:34:56",
         )
         assert_matches_type(AsyncCursorPage[Estimate], estimate, path=["response"])
 

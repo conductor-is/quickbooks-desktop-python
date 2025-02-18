@@ -191,8 +191,8 @@ class TestSalesTaxCodes:
             name_starts_with="ABC",
             name_to="Z",
             status="active",
-            updated_after="updatedAfter",
-            updated_before="updatedBefore",
+            updated_after="2021-01-01T12:34:56",
+            updated_before="2021-02-01T12:34:56",
         )
         assert_matches_type(SalesTaxCodeListResponse, sales_tax_code, path=["response"])
 
@@ -395,8 +395,8 @@ class TestAsyncSalesTaxCodes:
             name_starts_with="ABC",
             name_to="Z",
             status="active",
-            updated_after="updatedAfter",
-            updated_before="updatedBefore",
+            updated_after="2021-01-01T12:34:56",
+            updated_before="2021-02-01T12:34:56",
         )
         assert_matches_type(SalesTaxCodeListResponse, sales_tax_code, path=["response"])
 
