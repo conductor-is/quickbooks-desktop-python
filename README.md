@@ -1,10 +1,36 @@
-# QuickBooks Desktop Python API library
+<!-- markdownlint-disable MD033 MD041 -->
+<div align="center">
+  <a href="https://conductor.is">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/conductor-is/quickbooks-desktop-api/assets/170023/162ee6a9-75ac-41e9-9f1e-2ecc1d88f841">
+      <img alt="Conductor logo" src="https://github.com/conductor-is/quickbooks-desktop-api/assets/170023/d67464b8-53a7-4d33-afeb-05a2efde1fa8" width="325">
+    </picture>
+  </a>
+  <h3>QuickBooks Desktop/Enterprise real-time API for Python, Node.js, and REST</h3>
+  <a href="https://docs.conductor.is/quickstart">Quickstart</a>
+  <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+  <a href="https://conductor.is">Website</a>
+  <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+  <a href="https://docs.conductor.is">Docs</a>
+  <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+  <a href="https://docs.conductor.is/qbd-api">Examples</a>
+  <br />
+  <br />
+  <a href="https://pypi.org/project/conductor-py"><img src="https://img.shields.io/pypi/dm/conductor-py.svg?logo=pypi" alt="PyPI download count"></a>
+  <a href="https://pypi.org/project/conductor-py"><img src="https://img.shields.io/pypi/v/conductor-py.svg?logo=pypi" alt="PyPI version"></a>
+  <img src="https://img.shields.io/badge/coverage-100%25-brightgreen" alt="Code coverage">
+  <a href="LICENSE"><img src="https://img.shields.io/pypi/l/conductor-py.svg?color=blue&logo=github" alt="License" /></a>
+  <hr />
+</div>
 
-[![PyPI version](https://img.shields.io/pypi/v/conductor-py.svg)](https://pypi.org/project/conductor-py/)
+[Conductor](https://conductor.is) is a real-time, fully-typed API for **QuickBooks Desktop** (sometimes called QuickBooks Enterprise). In just a few lines, get real-time access to fetch, create, or update _any_ QuickBooks Desktop object type and receive a fully-typed response.
 
-The QuickBooks Desktop Python library provides convenient access to the Conductor REST API from any Python 3.8+
-application. The library includes type definitions for all request params and response fields,
+⭐ **Follow our [Quickstart guide](https://docs.conductor.is/quickstart) to get started.**
+
+This repository is for our Python library. The library works with any Python 3.8+ application, includes type definitions for all request params and response fields,
 and offers both synchronous and asynchronous clients powered by [httpx](https://github.com/encode/httpx).
+
+For Node.js (TypeScript/JavaScript), see [conductor-node](https://github.com/conductor-is/quickbooks-desktop-node).
 
 ## Documentation
 
@@ -17,19 +43,34 @@ The REST API documentation can be found on [docs.conductor.is](https://docs.cond
 pip install conductor-py
 ```
 
+## Key features
+
+- **Any data type**: Query, create, or update any QuickBooks Desktop data type.
+- **Real-time**: Get real-time updates on your QuickBooks Desktop data. No queues, no jobs, no cache layer -- just direct access to the data.
+- **Modern API**: JSON-based REST API, replacing the old XML-based SOAP model.
+- **Typed client libraries**: Fully typed libraries in Node.js and Python with autocomplete, inline docs, and type validation for endpoints, parameters, and responses.
+- **Request handling**: Invisibly manages queues, timeouts, retries, and pagination.
+- **Auto-pagination**: Automatically handles paginated responses to retrieve complete datasets.
+- **Multi-company support**: Connects to multiple QuickBooks Desktop company files.
+- **Validation**: Sanitizes and validates all inputs and outputs.
+- **Unified error handling**: Streamlines error handling across the QuickBooks stack.
+- **Authentication flow UI**: Simple UI for securely connecting QuickBooks Desktop accounts.
+- **Dashboard**: UI to monitor and manage your QuickBooks Desktop connections and data.
+- **Error resolution**: Detailed guides and instructions for resolving errors and handling edge cases.
+
 ## Usage
 
-The full API of this library can be found in [api.md](api.md).
+The full API of this library can be found with code samples at [docs.conductor.is/qbd-api](https://docs.conductor.is/qbd-api).
 
 ```python
 import os
 from conductor import Conductor
 
-client = Conductor(
+conductor = Conductor(
     api_key=os.environ.get("CONDUCTOR_SECRET_KEY"),  # This is the default and can be omitted
 )
 
-page = client.qbd.invoices.list(
+page = conductor.qbd.invoices.list(
     conductor_end_user_id="YOUR_END_USER_ID",
 )
 print(page.data)
@@ -49,13 +90,13 @@ import os
 import asyncio
 from conductor import AsyncConductor
 
-client = AsyncConductor(
+conductor = AsyncConductor(
     api_key=os.environ.get("CONDUCTOR_SECRET_KEY"),  # This is the default and can be omitted
 )
 
 
 async def main() -> None:
-    page = await client.qbd.invoices.list(
+    page = await conductor.qbd.invoices.list(
         conductor_end_user_id="YOUR_END_USER_ID",
     )
     print(page.data)
@@ -84,11 +125,11 @@ This library provides auto-paginating iterators with each list response, so you 
 ```python
 from conductor import Conductor
 
-client = Conductor()
+conductor = Conductor()
 
 all_invoices = []
 # Automatically fetches more pages as needed.
-for invoice in client.qbd.invoices.list(
+for invoice in conductor.qbd.invoices.list(
     conductor_end_user_id="YOUR_END_USER_ID",
 ):
     # Do something with invoice here
@@ -102,13 +143,13 @@ Or, asynchronously:
 import asyncio
 from conductor import AsyncConductor
 
-client = AsyncConductor()
+conductor = AsyncConductor()
 
 
 async def main() -> None:
     all_invoices = []
     # Iterate through items across all pages, issuing requests as needed.
-    async for invoice in client.qbd.invoices.list(
+    async for invoice in conductor.qbd.invoices.list(
         conductor_end_user_id="YOUR_END_USER_ID",
     ):
         all_invoices.append(invoice)
@@ -121,7 +162,7 @@ asyncio.run(main())
 Alternatively, you can use the `.has_next_page()`, `.next_page_info()`, or `.get_next_page()` methods for more granular control working with pages:
 
 ```python
-first_page = await client.qbd.invoices.list(
+first_page = await conductor.qbd.invoices.list(
     conductor_end_user_id="YOUR_END_USER_ID",
 )
 if first_page.has_next_page():
@@ -135,7 +176,7 @@ if first_page.has_next_page():
 Or just work directly with the returned data:
 
 ```python
-first_page = await client.qbd.invoices.list(
+first_page = await conductor.qbd.invoices.list(
     conductor_end_user_id="YOUR_END_USER_ID",
 )
 
@@ -159,10 +200,10 @@ All errors inherit from `conductor.APIError`.
 import conductor
 from conductor import Conductor
 
-client = Conductor()
+conductor = Conductor()
 
 try:
-    client.qbd.invoices.list(
+    conductor.qbd.invoices.list(
         conductor_end_user_id="YOUR_END_USER_ID",
     )
 except conductor.APIConnectionError as e:
@@ -201,13 +242,13 @@ You can use the `max_retries` option to configure or disable retry settings:
 from conductor import Conductor
 
 # Configure the default for all requests:
-client = Conductor(
+conductor = Conductor(
     # default is 2
     max_retries=0,
 )
 
 # Or, configure per-request:
-client.with_options(max_retries=5).qbd.invoices.list(
+conductor.with_options(max_retries=5).qbd.invoices.list(
     conductor_end_user_id="YOUR_END_USER_ID",
 )
 ```
@@ -221,18 +262,18 @@ which accepts a float or an [`httpx.Timeout`](https://www.python-httpx.org/advan
 from conductor import Conductor
 
 # Configure the default for all requests:
-client = Conductor(
+conductor = Conductor(
     # 20 seconds (default is 2 minutes)
     timeout=20.0,
 )
 
 # More granular control:
-client = Conductor(
+conductor = Conductor(
     timeout=httpx.Timeout(60.0, read=5.0, write=10.0, connect=2.0),
 )
 
 # Override per-request:
-client.with_options(timeout=5.0).qbd.invoices.list(
+conductor.with_options(timeout=5.0).qbd.invoices.list(
     conductor_end_user_id="YOUR_END_USER_ID",
 )
 ```
@@ -274,8 +315,8 @@ The "raw" Response object can be accessed by prefixing `.with_raw_response.` to 
 ```py
 from conductor import Conductor
 
-client = Conductor()
-response = client.qbd.invoices.with_raw_response.list(
+conductor = Conductor()
+response = conductor.qbd.invoices.with_raw_response.list(
     conductor_end_user_id="YOUR_END_USER_ID",
 )
 print(response.headers.get('X-My-Header'))
@@ -295,7 +336,7 @@ The above interface eagerly reads the full response body when you make the reque
 To stream the response body, use `.with_streaming_response` instead, which requires a context manager and only reads the response body once you call `.read()`, `.text()`, `.json()`, `.iter_bytes()`, `.iter_text()`, `.iter_lines()` or `.parse()`. In the async client, these are async methods.
 
 ```python
-with client.qbd.invoices.with_streaming_response.list(
+with conductor.qbd.invoices.with_streaming_response.list(
     conductor_end_user_id="YOUR_END_USER_ID",
 ) as response:
     print(response.headers.get("X-My-Header"))
@@ -314,13 +355,13 @@ If you need to access undocumented endpoints, params, or response properties, th
 
 #### Undocumented endpoints
 
-To make requests to undocumented endpoints, you can make requests using `client.get`, `client.post`, and other
+To make requests to undocumented endpoints, you can make requests using `conductor.get`, `conductor.post`, and other
 http verbs. Options on the client will be respected (such as retries) when making this request.
 
 ```py
 import httpx
 
-response = client.post(
+response = conductor.post(
     "/foo",
     cast_to=httpx.Response,
     body={"my_param": True},
@@ -352,7 +393,7 @@ You can directly override the [httpx client](https://www.python-httpx.org/api/#c
 import httpx
 from conductor import Conductor, DefaultHttpxClient
 
-client = Conductor(
+conductor = Conductor(
     # Or use the `CONDUCTOR_BASE_URL` env var
     base_url="http://my.test.server.example.com:8083",
     http_client=DefaultHttpxClient(
@@ -365,7 +406,7 @@ client = Conductor(
 You can also customize the client on a per-request basis by using `with_options()`:
 
 ```python
-client.with_options(http_client=DefaultHttpxClient(...))
+conductor.with_options(http_client=DefaultHttpxClient(...))
 ```
 
 ### Managing HTTP resources
@@ -375,7 +416,7 @@ By default the library closes underlying HTTP connections whenever the client is
 ```py
 from conductor import Conductor
 
-with Conductor() as client:
+with Conductor() as conductor:
   # make requests here
   ...
 
