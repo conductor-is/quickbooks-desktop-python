@@ -42,7 +42,7 @@ class TestAccounts:
             description="Accounts-payable are the amounts owed to suppliers for goods and services purchased on credit.",
             is_active=True,
             opening_balance="1000.00",
-            opening_balance_date=parse_date("2019-12-27"),
+            opening_balance_date=parse_date("2023-01-01"),
             parent_id="80000001-1234567890",
             sales_tax_code_id="80000001-1234567890",
             tax_line_id=123,
@@ -142,7 +142,7 @@ class TestAccounts:
             is_active=True,
             name="Accounts-Payable",
             opening_balance="1000.00",
-            opening_balance_date=parse_date("2019-12-27"),
+            opening_balance_date=parse_date("2023-01-01"),
             parent_id="80000001-1234567890",
             sales_tax_code_id="80000001-1234567890",
             tax_line_id=123,
@@ -208,8 +208,8 @@ class TestAccounts:
             name_starts_with="ABC",
             name_to="Z",
             status="active",
-            updated_after="updatedAfter",
-            updated_before="updatedBefore",
+            updated_after="2021-01-01T12:34:56",
+            updated_before="2021-02-01T12:34:56",
         )
         assert_matches_type(AccountListResponse, account, path=["response"])
 
@@ -262,7 +262,7 @@ class TestAsyncAccounts:
             description="Accounts-payable are the amounts owed to suppliers for goods and services purchased on credit.",
             is_active=True,
             opening_balance="1000.00",
-            opening_balance_date=parse_date("2019-12-27"),
+            opening_balance_date=parse_date("2023-01-01"),
             parent_id="80000001-1234567890",
             sales_tax_code_id="80000001-1234567890",
             tax_line_id=123,
@@ -362,7 +362,7 @@ class TestAsyncAccounts:
             is_active=True,
             name="Accounts-Payable",
             opening_balance="1000.00",
-            opening_balance_date=parse_date("2019-12-27"),
+            opening_balance_date=parse_date("2023-01-01"),
             parent_id="80000001-1234567890",
             sales_tax_code_id="80000001-1234567890",
             tax_line_id=123,
@@ -428,8 +428,8 @@ class TestAsyncAccounts:
             name_starts_with="ABC",
             name_to="Z",
             status="active",
-            updated_after="updatedAfter",
-            updated_before="updatedBefore",
+            updated_after="2021-01-01T12:34:56",
+            updated_before="2021-02-01T12:34:56",
         )
         assert_matches_type(AccountListResponse, account, path=["response"])
 
