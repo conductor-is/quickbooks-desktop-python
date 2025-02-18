@@ -93,7 +93,7 @@ class TestVendors:
             name_on_check="Acme Supplies Ltd.",
             note="Preferred vendor for office supplies.",
             opening_balance="1000.00",
-            opening_balance_date=parse_date("2019-12-27"),
+            opening_balance_date=parse_date("2023-01-01"),
             phone="+1-555-123-4567",
             purchase_tax_account_id="80000001-1234567890",
             reporting_period="monthly",
@@ -363,8 +363,8 @@ class TestVendors:
             total_balance_greater_than_or_equal_to="123.45",
             total_balance_less_than="123.45",
             total_balance_less_than_or_equal_to="123.45",
-            updated_after="updatedAfter",
-            updated_before="updatedBefore",
+            updated_after="2021-01-01T12:34:56",
+            updated_before="2021-02-01T12:34:56",
         )
         assert_matches_type(SyncCursorPage[Vendor], vendor, path=["response"])
 
@@ -470,7 +470,7 @@ class TestAsyncVendors:
             name_on_check="Acme Supplies Ltd.",
             note="Preferred vendor for office supplies.",
             opening_balance="1000.00",
-            opening_balance_date=parse_date("2019-12-27"),
+            opening_balance_date=parse_date("2023-01-01"),
             phone="+1-555-123-4567",
             purchase_tax_account_id="80000001-1234567890",
             reporting_period="monthly",
@@ -740,8 +740,8 @@ class TestAsyncVendors:
             total_balance_greater_than_or_equal_to="123.45",
             total_balance_less_than="123.45",
             total_balance_less_than_or_equal_to="123.45",
-            updated_after="updatedAfter",
-            updated_before="updatedBefore",
+            updated_after="2021-01-01T12:34:56",
+            updated_before="2021-02-01T12:34:56",
         )
         assert_matches_type(AsyncCursorPage[Vendor], vendor, path=["response"])
 
