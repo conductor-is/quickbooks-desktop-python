@@ -385,7 +385,7 @@ class InventoryAssemblyItem(BaseModel):
     directly.
     """
 
-    quantity_on_order: Optional[float] = FieldInfo(alias="quantityOnOrder", default=None)
+    quantity_on_purchase_order: Optional[float] = FieldInfo(alias="quantityOnPurchaseOrder", default=None)
     """
     The number of units of this inventory assembly item that have been ordered from
     vendors (as recorded in purchase orders) but not yet received.
