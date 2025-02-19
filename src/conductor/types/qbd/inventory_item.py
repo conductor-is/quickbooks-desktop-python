@@ -334,7 +334,7 @@ class InventoryItem(BaseModel):
     inventory-adjustment instead of updating this inventory item directly.
     """
 
-    quantity_on_order: Optional[float] = FieldInfo(alias="quantityOnOrder", default=None)
+    quantity_on_purchase_order: Optional[float] = FieldInfo(alias="quantityOnPurchaseOrder", default=None)
     """
     The number of units of this inventory item that have been ordered from vendors
     (as recorded in purchase orders) but not yet received.
