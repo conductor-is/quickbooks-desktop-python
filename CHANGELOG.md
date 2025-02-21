@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.13.0 (2025-02-21)
+
+Full Changelog: [v1.12.0...v1.13.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.12.0...v1.13.0)
+
+### Features
+
+* **api:** api update ([#577](https://github.com/conductor-is/quickbooks-desktop-python/issues/577)) ([92da576](https://github.com/conductor-is/quickbooks-desktop-python/commit/92da576ad25f877dd5e8fa2688c875d1544475cf))
+* **client:** allow passing `NotGiven` for body ([#575](https://github.com/conductor-is/quickbooks-desktop-python/issues/575)) ([bc4bd33](https://github.com/conductor-is/quickbooks-desktop-python/commit/bc4bd33de2fbbb709b7a9a3b2f742516f4f22d7f))
+
+
+### Bug Fixes
+
+* **client:** mark some request bodies as optional ([bc4bd33](https://github.com/conductor-is/quickbooks-desktop-python/commit/bc4bd33de2fbbb709b7a9a3b2f742516f4f22d7f))
+
 ## 1.12.0 (2025-02-19)
 
 Full Changelog: [v1.11.0...v1.12.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.11.0...v1.12.0)
