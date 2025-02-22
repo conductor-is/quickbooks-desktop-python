@@ -276,6 +276,14 @@ from .inventory_assembly_items import (
     InventoryAssemblyItemsResourceWithStreamingResponse,
     AsyncInventoryAssemblyItemsResourceWithStreamingResponse,
 )
+from .time_tracking_activities import (
+    TimeTrackingActivitiesResource,
+    AsyncTimeTrackingActivitiesResource,
+    TimeTrackingActivitiesResourceWithRawResponse,
+    AsyncTimeTrackingActivitiesResourceWithRawResponse,
+    TimeTrackingActivitiesResourceWithStreamingResponse,
+    AsyncTimeTrackingActivitiesResourceWithStreamingResponse,
+)
 from .bill_credit_card_payments import (
     BillCreditCardPaymentsResource,
     AsyncBillCreditCardPaymentsResource,
@@ -416,6 +424,10 @@ class QbdResource(SyncAPIResource):
     @cached_property
     def subtotal_items(self) -> SubtotalItemsResource:
         return SubtotalItemsResource(self._client)
+
+    @cached_property
+    def time_tracking_activities(self) -> TimeTrackingActivitiesResource:
+        return TimeTrackingActivitiesResource(self._client)
 
     @cached_property
     def transfers(self) -> TransfersResource:
@@ -577,6 +589,10 @@ class AsyncQbdResource(AsyncAPIResource):
     @cached_property
     def subtotal_items(self) -> AsyncSubtotalItemsResource:
         return AsyncSubtotalItemsResource(self._client)
+
+    @cached_property
+    def time_tracking_activities(self) -> AsyncTimeTrackingActivitiesResource:
+        return AsyncTimeTrackingActivitiesResource(self._client)
 
     @cached_property
     def transfers(self) -> AsyncTransfersResource:
@@ -743,6 +759,10 @@ class QbdResourceWithRawResponse:
         return SubtotalItemsResourceWithRawResponse(self._qbd.subtotal_items)
 
     @cached_property
+    def time_tracking_activities(self) -> TimeTrackingActivitiesResourceWithRawResponse:
+        return TimeTrackingActivitiesResourceWithRawResponse(self._qbd.time_tracking_activities)
+
+    @cached_property
     def transfers(self) -> TransfersResourceWithRawResponse:
         return TransfersResourceWithRawResponse(self._qbd.transfers)
 
@@ -886,6 +906,10 @@ class AsyncQbdResourceWithRawResponse:
     @cached_property
     def subtotal_items(self) -> AsyncSubtotalItemsResourceWithRawResponse:
         return AsyncSubtotalItemsResourceWithRawResponse(self._qbd.subtotal_items)
+
+    @cached_property
+    def time_tracking_activities(self) -> AsyncTimeTrackingActivitiesResourceWithRawResponse:
+        return AsyncTimeTrackingActivitiesResourceWithRawResponse(self._qbd.time_tracking_activities)
 
     @cached_property
     def transfers(self) -> AsyncTransfersResourceWithRawResponse:
@@ -1033,6 +1057,10 @@ class QbdResourceWithStreamingResponse:
         return SubtotalItemsResourceWithStreamingResponse(self._qbd.subtotal_items)
 
     @cached_property
+    def time_tracking_activities(self) -> TimeTrackingActivitiesResourceWithStreamingResponse:
+        return TimeTrackingActivitiesResourceWithStreamingResponse(self._qbd.time_tracking_activities)
+
+    @cached_property
     def transfers(self) -> TransfersResourceWithStreamingResponse:
         return TransfersResourceWithStreamingResponse(self._qbd.transfers)
 
@@ -1176,6 +1204,10 @@ class AsyncQbdResourceWithStreamingResponse:
     @cached_property
     def subtotal_items(self) -> AsyncSubtotalItemsResourceWithStreamingResponse:
         return AsyncSubtotalItemsResourceWithStreamingResponse(self._qbd.subtotal_items)
+
+    @cached_property
+    def time_tracking_activities(self) -> AsyncTimeTrackingActivitiesResourceWithStreamingResponse:
+        return AsyncTimeTrackingActivitiesResourceWithStreamingResponse(self._qbd.time_tracking_activities)
 
     @cached_property
     def transfers(self) -> AsyncTransfersResourceWithStreamingResponse:

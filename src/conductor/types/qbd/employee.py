@@ -286,19 +286,32 @@ class EmployeePayrollSickHours(BaseModel):
     """
 
     hours_accrued_per_period: Optional[str] = FieldInfo(alias="hoursAccruedPerPeriod", default=None)
-    """The number of sick hours the employee will accrue per accrual period."""
+    """
+    The number of sick hours the employee will accrue per accrual period, in ISO
+    8601 format for time intervals (PTnHnMnS). For example, 1 hour and 30 minutes is
+    represented as PT1H30M.
+    """
 
     hours_available: Optional[str] = FieldInfo(alias="hoursAvailable", default=None)
-    """The total number of sick hours currently available for the employee to use.
-
-    Defaults to 0.
+    """
+    The total number of sick hours currently available for the employee to use, in
+    ISO 8601 format for time intervals (PTnHnMnS). For example, 1 hour and 30
+    minutes is represented as PT1H30M. Defaults to 0.
     """
 
     hours_used: Optional[str] = FieldInfo(alias="hoursUsed", default=None)
-    """The number of sick hours the employee has used."""
+    """
+    The number of sick hours the employee has used, in ISO 8601 format for time
+    intervals (PTnHnMnS). For example, 1 hour and 30 minutes is represented as
+    PT1H30M.
+    """
 
     maximum_hours: Optional[str] = FieldInfo(alias="maximumHours", default=None)
-    """The maximum number of sick hours the employee can accrue."""
+    """
+    The maximum number of sick hours the employee can accrue, in ISO 8601 format for
+    time intervals (PTnHnMnS). For example, 1 hour and 30 minutes is represented as
+    PT1H30M.
+    """
 
     resets_hours_each_year: Optional[bool] = FieldInfo(alias="resetsHoursEachYear", default=None)
     """
@@ -320,19 +333,32 @@ class EmployeePayrollVacationHours(BaseModel):
     """
 
     hours_accrued_per_period: Optional[str] = FieldInfo(alias="hoursAccruedPerPeriod", default=None)
-    """The number of vacation hours the employee will accrue per accrual period."""
+    """
+    The number of vacation hours the employee will accrue per accrual period, in ISO
+    8601 format for time intervals (PTnHnMnS). For example, 1 hour and 30 minutes is
+    represented as PT1H30M.
+    """
 
     hours_available: Optional[str] = FieldInfo(alias="hoursAvailable", default=None)
-    """The total number of vacation hours currently available for the employee to use.
-
-    Defaults to 0.
+    """
+    The total number of vacation hours currently available for the employee to use,
+    in ISO 8601 format for time intervals (PTnHnMnS). For example, 1 hour and 30
+    minutes is represented as PT1H30M. Defaults to 0.
     """
 
     hours_used: Optional[str] = FieldInfo(alias="hoursUsed", default=None)
-    """The number of vacation hours the employee has used."""
+    """
+    The number of vacation hours the employee has used, in ISO 8601 format for time
+    intervals (PTnHnMnS). For example, 1 hour and 30 minutes is represented as
+    PT1H30M.
+    """
 
     maximum_hours: Optional[str] = FieldInfo(alias="maximumHours", default=None)
-    """The maximum number of vacation hours the employee can accrue."""
+    """
+    The maximum number of vacation hours the employee can accrue, in ISO 8601 format
+    for time intervals (PTnHnMnS). For example, 1 hour and 30 minutes is represented
+    as PT1H30M.
+    """
 
     resets_hours_each_year: Optional[bool] = FieldInfo(alias="resetsHoursEachYear", default=None)
     """
