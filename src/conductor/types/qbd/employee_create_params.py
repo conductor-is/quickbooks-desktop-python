@@ -434,19 +434,32 @@ class EmployeePayrollSickHours(TypedDict, total=False):
     """
 
     hours_accrued_per_period: Annotated[str, PropertyInfo(alias="hoursAccruedPerPeriod")]
-    """The number of sick hours the employee will accrue per accrual period."""
+    """
+    The number of sick hours the employee will accrue per accrual period, in ISO
+    8601 format for time intervals (PTnHnMnS). For example, 1 hour and 30 minutes is
+    represented as PT1H30M.
+    """
 
     hours_available: Annotated[str, PropertyInfo(alias="hoursAvailable")]
-    """The total number of sick hours currently available for the employee to use.
-
-    Defaults to 0.
+    """
+    The total number of sick hours currently available for the employee to use, in
+    ISO 8601 format for time intervals (PTnHnMnS). For example, 1 hour and 30
+    minutes is represented as PT1H30M. Defaults to 0.
     """
 
     hours_used: Annotated[str, PropertyInfo(alias="hoursUsed")]
-    """The number of sick hours the employee has used."""
+    """
+    The number of sick hours the employee has used, in ISO 8601 format for time
+    intervals (PTnHnMnS). For example, 1 hour and 30 minutes is represented as
+    PT1H30M.
+    """
 
     maximum_hours: Annotated[str, PropertyInfo(alias="maximumHours")]
-    """The maximum number of sick hours the employee can accrue."""
+    """
+    The maximum number of sick hours the employee can accrue, in ISO 8601 format for
+    time intervals (PTnHnMnS). For example, 1 hour and 30 minutes is represented as
+    PT1H30M.
+    """
 
     resets_hours_each_year: Annotated[bool, PropertyInfo(alias="resetsHoursEachYear")]
     """
@@ -468,19 +481,32 @@ class EmployeePayrollVacationHours(TypedDict, total=False):
     """
 
     hours_accrued_per_period: Annotated[str, PropertyInfo(alias="hoursAccruedPerPeriod")]
-    """The number of vacation hours the employee will accrue per accrual period."""
+    """
+    The number of vacation hours the employee will accrue per accrual period, in ISO
+    8601 format for time intervals (PTnHnMnS). For example, 1 hour and 30 minutes is
+    represented as PT1H30M.
+    """
 
     hours_available: Annotated[str, PropertyInfo(alias="hoursAvailable")]
-    """The total number of vacation hours currently available for the employee to use.
-
-    Defaults to 0.
+    """
+    The total number of vacation hours currently available for the employee to use,
+    in ISO 8601 format for time intervals (PTnHnMnS). For example, 1 hour and 30
+    minutes is represented as PT1H30M. Defaults to 0.
     """
 
     hours_used: Annotated[str, PropertyInfo(alias="hoursUsed")]
-    """The number of vacation hours the employee has used."""
+    """
+    The number of vacation hours the employee has used, in ISO 8601 format for time
+    intervals (PTnHnMnS). For example, 1 hour and 30 minutes is represented as
+    PT1H30M.
+    """
 
     maximum_hours: Annotated[str, PropertyInfo(alias="maximumHours")]
-    """The maximum number of vacation hours the employee can accrue."""
+    """
+    The maximum number of vacation hours the employee can accrue, in ISO 8601 format
+    for time intervals (PTnHnMnS). For example, 1 hour and 30 minutes is represented
+    as PT1H30M.
+    """
 
     resets_hours_each_year: Annotated[bool, PropertyInfo(alias="resetsHoursEachYear")]
     """
