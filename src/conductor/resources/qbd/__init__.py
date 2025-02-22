@@ -280,6 +280,14 @@ from .inventory_assembly_items import (
     InventoryAssemblyItemsResourceWithStreamingResponse,
     AsyncInventoryAssemblyItemsResourceWithStreamingResponse,
 )
+from .time_tracking_activities import (
+    TimeTrackingActivitiesResource,
+    AsyncTimeTrackingActivitiesResource,
+    TimeTrackingActivitiesResourceWithRawResponse,
+    AsyncTimeTrackingActivitiesResourceWithRawResponse,
+    TimeTrackingActivitiesResourceWithStreamingResponse,
+    AsyncTimeTrackingActivitiesResourceWithStreamingResponse,
+)
 from .bill_credit_card_payments import (
     BillCreditCardPaymentsResource,
     AsyncBillCreditCardPaymentsResource,
@@ -482,6 +490,12 @@ __all__ = [
     "AsyncSubtotalItemsResourceWithRawResponse",
     "SubtotalItemsResourceWithStreamingResponse",
     "AsyncSubtotalItemsResourceWithStreamingResponse",
+    "TimeTrackingActivitiesResource",
+    "AsyncTimeTrackingActivitiesResource",
+    "TimeTrackingActivitiesResourceWithRawResponse",
+    "AsyncTimeTrackingActivitiesResourceWithRawResponse",
+    "TimeTrackingActivitiesResourceWithStreamingResponse",
+    "AsyncTimeTrackingActivitiesResourceWithStreamingResponse",
     "TransfersResource",
     "AsyncTransfersResource",
     "TransfersResourceWithRawResponse",

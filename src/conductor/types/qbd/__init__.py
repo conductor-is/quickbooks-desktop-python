@@ -67,6 +67,7 @@ from .employee_create_params import EmployeeCreateParams as EmployeeCreateParams
 from .employee_update_params import EmployeeUpdateParams as EmployeeUpdateParams
 from .estimate_create_params import EstimateCreateParams as EstimateCreateParams
 from .estimate_update_params import EstimateUpdateParams as EstimateUpdateParams
+from .time_tracking_activity import TimeTrackingActivity as TimeTrackingActivity
 from .transfer_create_params import TransferCreateParams as TransferCreateParams
 from .transfer_update_params import TransferUpdateParams as TransferUpdateParams
 from .credit_memo_list_params import CreditMemoListParams as CreditMemoListParams
@@ -155,9 +156,12 @@ from .inventory_adjustment_update_params import InventoryAdjustmentUpdateParams 
 from .sales_representative_create_params import SalesRepresentativeCreateParams as SalesRepresentativeCreateParams
 from .sales_representative_list_response import SalesRepresentativeListResponse as SalesRepresentativeListResponse
 from .sales_representative_update_params import SalesRepresentativeUpdateParams as SalesRepresentativeUpdateParams
+from .time_tracking_activity_list_params import TimeTrackingActivityListParams as TimeTrackingActivityListParams
 from .inventory_assembly_item_list_params import InventoryAssemblyItemListParams as InventoryAssemblyItemListParams
 from .bill_credit_card_payment_list_params import BillCreditCardPaymentListParams as BillCreditCardPaymentListParams
 from .inventory_adjustment_delete_response import InventoryAdjustmentDeleteResponse as InventoryAdjustmentDeleteResponse
+from .time_tracking_activity_create_params import TimeTrackingActivityCreateParams as TimeTrackingActivityCreateParams
+from .time_tracking_activity_update_params import TimeTrackingActivityUpdateParams as TimeTrackingActivityUpdateParams
 from .inventory_assembly_item_create_params import (
     InventoryAssemblyItemCreateParams as InventoryAssemblyItemCreateParams,
 )
@@ -166,6 +170,9 @@ from .inventory_assembly_item_update_params import (
 )
 from .bill_credit_card_payment_create_params import (
     BillCreditCardPaymentCreateParams as BillCreditCardPaymentCreateParams,
+)
+from .time_tracking_activity_delete_response import (
+    TimeTrackingActivityDeleteResponse as TimeTrackingActivityDeleteResponse,
 )
 from .bill_credit_card_payment_delete_response import (
     BillCreditCardPaymentDeleteResponse as BillCreditCardPaymentDeleteResponse,

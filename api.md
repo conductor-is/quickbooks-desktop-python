@@ -531,6 +531,22 @@ Methods:
 - <code title="post /quickbooks-desktop/subtotal-items/{id}">client.qbd.subtotal_items.<a href="./src/conductor/resources/qbd/subtotal_items.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/subtotal_item_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/subtotal_item.py">SubtotalItem</a></code>
 - <code title="get /quickbooks-desktop/subtotal-items">client.qbd.subtotal_items.<a href="./src/conductor/resources/qbd/subtotal_items.py">list</a>(\*\*<a href="src/conductor/types/qbd/subtotal_item_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/subtotal_item.py">SyncCursorPage[SubtotalItem]</a></code>
 
+## TimeTrackingActivities
+
+Types:
+
+```python
+from conductor.types.qbd import TimeTrackingActivity, TimeTrackingActivityDeleteResponse
+```
+
+Methods:
+
+- <code title="post /quickbooks-desktop/time-tracking-activities">client.qbd.time_tracking_activities.<a href="./src/conductor/resources/qbd/time_tracking_activities.py">create</a>(\*\*<a href="src/conductor/types/qbd/time_tracking_activity_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/time_tracking_activity.py">TimeTrackingActivity</a></code>
+- <code title="get /quickbooks-desktop/time-tracking-activities/{id}">client.qbd.time_tracking_activities.<a href="./src/conductor/resources/qbd/time_tracking_activities.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/time_tracking_activity.py">TimeTrackingActivity</a></code>
+- <code title="post /quickbooks-desktop/time-tracking-activities/{id}">client.qbd.time_tracking_activities.<a href="./src/conductor/resources/qbd/time_tracking_activities.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/time_tracking_activity_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/time_tracking_activity.py">TimeTrackingActivity</a></code>
+- <code title="get /quickbooks-desktop/time-tracking-activities">client.qbd.time_tracking_activities.<a href="./src/conductor/resources/qbd/time_tracking_activities.py">list</a>(\*\*<a href="src/conductor/types/qbd/time_tracking_activity_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/time_tracking_activity.py">SyncCursorPage[TimeTrackingActivity]</a></code>
+- <code title="delete /quickbooks-desktop/time-tracking-activities/{id}">client.qbd.time_tracking_activities.<a href="./src/conductor/resources/qbd/time_tracking_activities.py">delete</a>(id) -> <a href="./src/conductor/types/qbd/time_tracking_activity_delete_response.py">TimeTrackingActivityDeleteResponse</a></code>
+
 ## Transfers
 
 Types:
