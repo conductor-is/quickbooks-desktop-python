@@ -101,41 +101,6 @@ class AuthSessionsResource(SyncAPIResource):
             cast_to=AuthSession,
         )
 
-    def retrieve(
-        self,
-        id: str,
-        *,
-        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
-        # The extra values given here take precedence over values defined on the client or passed to this method.
-        extra_headers: Headers | None = None,
-        extra_query: Query | None = None,
-        extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AuthSession:
-        """
-        Retrieves the details of an AuthSession that has previously been created.
-
-        Args:
-          id: The ID of the AuthSession to retrieve.
-
-          extra_headers: Send extra headers
-
-          extra_query: Add additional query parameters to the request
-
-          extra_body: Add additional JSON properties to the request
-
-          timeout: Override the client-level default timeout for this request, in seconds
-        """
-        if not id:
-            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
-        return self._get(
-            f"/auth-sessions/{id}",
-            options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
-            ),
-            cast_to=AuthSession,
-        )
-
 
 class AsyncAuthSessionsResource(AsyncAPIResource):
     @cached_property
@@ -214,41 +179,6 @@ class AsyncAuthSessionsResource(AsyncAPIResource):
             cast_to=AuthSession,
         )
 
-    async def retrieve(
-        self,
-        id: str,
-        *,
-        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
-        # The extra values given here take precedence over values defined on the client or passed to this method.
-        extra_headers: Headers | None = None,
-        extra_query: Query | None = None,
-        extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AuthSession:
-        """
-        Retrieves the details of an AuthSession that has previously been created.
-
-        Args:
-          id: The ID of the AuthSession to retrieve.
-
-          extra_headers: Send extra headers
-
-          extra_query: Add additional query parameters to the request
-
-          extra_body: Add additional JSON properties to the request
-
-          timeout: Override the client-level default timeout for this request, in seconds
-        """
-        if not id:
-            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
-        return await self._get(
-            f"/auth-sessions/{id}",
-            options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
-            ),
-            cast_to=AuthSession,
-        )
-
 
 class AuthSessionsResourceWithRawResponse:
     def __init__(self, auth_sessions: AuthSessionsResource) -> None:
@@ -256,9 +186,6 @@ class AuthSessionsResourceWithRawResponse:
 
         self.create = to_raw_response_wrapper(
             auth_sessions.create,
-        )
-        self.retrieve = to_raw_response_wrapper(
-            auth_sessions.retrieve,
         )
 
 
@@ -269,9 +196,6 @@ class AsyncAuthSessionsResourceWithRawResponse:
         self.create = async_to_raw_response_wrapper(
             auth_sessions.create,
         )
-        self.retrieve = async_to_raw_response_wrapper(
-            auth_sessions.retrieve,
-        )
 
 
 class AuthSessionsResourceWithStreamingResponse:
@@ -281,9 +205,6 @@ class AuthSessionsResourceWithStreamingResponse:
         self.create = to_streamed_response_wrapper(
             auth_sessions.create,
         )
-        self.retrieve = to_streamed_response_wrapper(
-            auth_sessions.retrieve,
-        )
 
 
 class AsyncAuthSessionsResourceWithStreamingResponse:
@@ -292,7 +213,4 @@ class AsyncAuthSessionsResourceWithStreamingResponse:
 
         self.create = async_to_streamed_response_wrapper(
             auth_sessions.create,
-        )
-        self.retrieve = async_to_streamed_response_wrapper(
-            auth_sessions.retrieve,
         )
