@@ -138,6 +138,9 @@ class TimeTrackingActivity(BaseModel):
     **NOTE**: Although seconds can be specified when creating a time tracking
     activity, they are not returned in responses since QuickBooks Desktop's UI does
     not display seconds.
+
+    **NOTE**: This field is required for every update request, even if it is not
+    being updated, because of a bug in QuickBooks itself.
     """
 
     entity: Entity

@@ -87,6 +87,9 @@ class TimeTrackingActivitiesResource(SyncAPIResource):
               activity, they are not returned in responses since QuickBooks Desktop's UI does
               not display seconds.
 
+              **NOTE**: This field is required for every update request, even if it is not
+              being updated, because of a bug in QuickBooks itself.
+
           entity_id: The employee, vendor, or person on QuickBooks's “Other Names” list whose time is
               being tracked in this time tracking activity. This cannot refer to a customer -
               use the `customer` field to associate a customer or customer-job with this time
@@ -209,12 +212,12 @@ class TimeTrackingActivitiesResource(SyncAPIResource):
         self,
         id: str,
         *,
+        duration: str,
         revision_number: str,
         conductor_end_user_id: str,
         billing_status: Literal["billable", "has_been_billed", "not_billable"] | NotGiven = NOT_GIVEN,
         class_id: str | NotGiven = NOT_GIVEN,
         customer_id: str | NotGiven = NOT_GIVEN,
-        duration: str | NotGiven = NOT_GIVEN,
         entity_id: str | NotGiven = NOT_GIVEN,
         note: str | NotGiven = NOT_GIVEN,
         payroll_wage_item_id: str | NotGiven = NOT_GIVEN,
@@ -233,6 +236,17 @@ class TimeTrackingActivitiesResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the time tracking activity to
               update.
+
+          duration: The time spent performing the service during this time tracking activity, in ISO
+              8601 format for time intervals (PTnHnMnS). For example, 1 hour and 30 minutes is
+              represented as PT1H30M.
+
+              **NOTE**: Although seconds can be specified when creating a time tracking
+              activity, they are not returned in responses since QuickBooks Desktop's UI does
+              not display seconds.
+
+              **NOTE**: This field is required for every update request, even if it is not
+              being updated, because of a bug in QuickBooks itself.
 
           revision_number: The current QuickBooks-assigned revision number of the time tracking activity
               object you are updating, which you can get by fetching the object first. Provide
@@ -254,14 +268,6 @@ class TimeTrackingActivitiesResource(SyncAPIResource):
 
           customer_id: The customer or customer-job to which this time could be billed. If
               `billingStatus` is set to "billable", this field is required.
-
-          duration: The time spent performing the service during this time tracking activity, in ISO
-              8601 format for time intervals (PTnHnMnS). For example, 1 hour and 30 minutes is
-              represented as PT1H30M.
-
-              **NOTE**: Although seconds can be specified when creating a time tracking
-              activity, they are not returned in responses since QuickBooks Desktop's UI does
-              not display seconds.
 
           entity_id: The employee, vendor, or person on QuickBooks's “Other Names” list whose time is
               being tracked in this time tracking activity. This cannot refer to a customer -
@@ -300,11 +306,11 @@ class TimeTrackingActivitiesResource(SyncAPIResource):
             f"/quickbooks-desktop/time-tracking-activities/{id}",
             body=maybe_transform(
                 {
+                    "duration": duration,
                     "revision_number": revision_number,
                     "billing_status": billing_status,
                     "class_id": class_id,
                     "customer_id": customer_id,
-                    "duration": duration,
                     "entity_id": entity_id,
                     "note": note,
                     "payroll_wage_item_id": payroll_wage_item_id,
@@ -517,6 +523,9 @@ class AsyncTimeTrackingActivitiesResource(AsyncAPIResource):
               activity, they are not returned in responses since QuickBooks Desktop's UI does
               not display seconds.
 
+              **NOTE**: This field is required for every update request, even if it is not
+              being updated, because of a bug in QuickBooks itself.
+
           entity_id: The employee, vendor, or person on QuickBooks's “Other Names” list whose time is
               being tracked in this time tracking activity. This cannot refer to a customer -
               use the `customer` field to associate a customer or customer-job with this time
@@ -639,12 +648,12 @@ class AsyncTimeTrackingActivitiesResource(AsyncAPIResource):
         self,
         id: str,
         *,
+        duration: str,
         revision_number: str,
         conductor_end_user_id: str,
         billing_status: Literal["billable", "has_been_billed", "not_billable"] | NotGiven = NOT_GIVEN,
         class_id: str | NotGiven = NOT_GIVEN,
         customer_id: str | NotGiven = NOT_GIVEN,
-        duration: str | NotGiven = NOT_GIVEN,
         entity_id: str | NotGiven = NOT_GIVEN,
         note: str | NotGiven = NOT_GIVEN,
         payroll_wage_item_id: str | NotGiven = NOT_GIVEN,
@@ -663,6 +672,17 @@ class AsyncTimeTrackingActivitiesResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the time tracking activity to
               update.
+
+          duration: The time spent performing the service during this time tracking activity, in ISO
+              8601 format for time intervals (PTnHnMnS). For example, 1 hour and 30 minutes is
+              represented as PT1H30M.
+
+              **NOTE**: Although seconds can be specified when creating a time tracking
+              activity, they are not returned in responses since QuickBooks Desktop's UI does
+              not display seconds.
+
+              **NOTE**: This field is required for every update request, even if it is not
+              being updated, because of a bug in QuickBooks itself.
 
           revision_number: The current QuickBooks-assigned revision number of the time tracking activity
               object you are updating, which you can get by fetching the object first. Provide
@@ -684,14 +704,6 @@ class AsyncTimeTrackingActivitiesResource(AsyncAPIResource):
 
           customer_id: The customer or customer-job to which this time could be billed. If
               `billingStatus` is set to "billable", this field is required.
-
-          duration: The time spent performing the service during this time tracking activity, in ISO
-              8601 format for time intervals (PTnHnMnS). For example, 1 hour and 30 minutes is
-              represented as PT1H30M.
-
-              **NOTE**: Although seconds can be specified when creating a time tracking
-              activity, they are not returned in responses since QuickBooks Desktop's UI does
-              not display seconds.
 
           entity_id: The employee, vendor, or person on QuickBooks's “Other Names” list whose time is
               being tracked in this time tracking activity. This cannot refer to a customer -
@@ -730,11 +742,11 @@ class AsyncTimeTrackingActivitiesResource(AsyncAPIResource):
             f"/quickbooks-desktop/time-tracking-activities/{id}",
             body=await async_maybe_transform(
                 {
+                    "duration": duration,
                     "revision_number": revision_number,
                     "billing_status": billing_status,
                     "class_id": class_id,
                     "customer_id": customer_id,
-                    "duration": duration,
                     "entity_id": entity_id,
                     "note": note,
                     "payroll_wage_item_id": payroll_wage_item_id,
