@@ -140,7 +140,7 @@ class TimeTrackingActivity(BaseModel):
     not display seconds.
 
     **IMPORTANT**: This field is required for updating time tracking activities,
-    even if the field is not being updated, because of a bug in QuickBooks itself.
+    even if the field is not being modified, because of a bug in QuickBooks itself.
     """
 
     entity: Entity
