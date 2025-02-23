@@ -9,7 +9,6 @@ from conductor.types import AuthSession
 Methods:
 
 - <code title="post /auth-sessions">client.auth_sessions.<a href="./src/conductor/resources/auth_sessions.py">create</a>(\*\*<a href="src/conductor/types/auth_session_create_params.py">params</a>) -> <a href="./src/conductor/types/auth_session.py">AuthSession</a></code>
-- <code title="get /auth-sessions/{id}">client.auth_sessions.<a href="./src/conductor/resources/auth_sessions.py">retrieve</a>(id) -> <a href="./src/conductor/types/auth_session.py">AuthSession</a></code>
 
 # EndUsers
 
