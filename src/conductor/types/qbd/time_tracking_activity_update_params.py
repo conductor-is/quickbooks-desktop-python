@@ -12,6 +12,20 @@ __all__ = ["TimeTrackingActivityUpdateParams"]
 
 
 class TimeTrackingActivityUpdateParams(TypedDict, total=False):
+    duration: Required[str]
+    """
+    The time spent performing the service during this time tracking activity, in ISO
+    8601 format for time intervals (PTnHnMnS). For example, 1 hour and 30 minutes is
+    represented as PT1H30M.
+
+    **NOTE**: Although seconds can be specified when creating a time tracking
+    activity, they are not returned in responses since QuickBooks Desktop's UI does
+    not display seconds.
+
+    **NOTE**: This field is required for every update request, even if it is not
+    being updated, because of a bug in QuickBooks itself.
+    """
+
     revision_number: Required[Annotated[str, PropertyInfo(alias="revisionNumber")]]
     """
     The current QuickBooks-assigned revision number of the time tracking activity
@@ -48,17 +62,6 @@ class TimeTrackingActivityUpdateParams(TypedDict, total=False):
     """The customer or customer-job to which this time could be billed.
 
     If `billingStatus` is set to "billable", this field is required.
-    """
-
-    duration: str
-    """
-    The time spent performing the service during this time tracking activity, in ISO
-    8601 format for time intervals (PTnHnMnS). For example, 1 hour and 30 minutes is
-    represented as PT1H30M.
-
-    **NOTE**: Although seconds can be specified when creating a time tracking
-    activity, they are not returned in responses since QuickBooks Desktop's UI does
-    not display seconds.
     """
 
     entity_id: Annotated[str, PropertyInfo(alias="entityId")]
