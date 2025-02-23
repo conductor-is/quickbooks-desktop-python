@@ -126,6 +126,7 @@ class TestTimeTrackingActivities:
         time_tracking_activity = client.qbd.time_tracking_activities.update(
             id="123ABC-1234567890",
             duration="PT1H30M",
+            entity_id="80000001-1234567890",
             revision_number="1721172183",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
@@ -136,12 +137,12 @@ class TestTimeTrackingActivities:
         time_tracking_activity = client.qbd.time_tracking_activities.update(
             id="123ABC-1234567890",
             duration="PT1H30M",
+            entity_id="80000001-1234567890",
             revision_number="1721172183",
             conductor_end_user_id="end_usr_1234567abcdefg",
             billing_status="billable",
             class_id="80000001-1234567890",
             customer_id="80000001-1234567890",
-            entity_id="80000001-1234567890",
             note="Project planning meeting with client.",
             payroll_wage_item_id="80000001-1234567890",
             service_item_id="80000001-1234567890",
@@ -154,6 +155,7 @@ class TestTimeTrackingActivities:
         response = client.qbd.time_tracking_activities.with_raw_response.update(
             id="123ABC-1234567890",
             duration="PT1H30M",
+            entity_id="80000001-1234567890",
             revision_number="1721172183",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
@@ -168,6 +170,7 @@ class TestTimeTrackingActivities:
         with client.qbd.time_tracking_activities.with_streaming_response.update(
             id="123ABC-1234567890",
             duration="PT1H30M",
+            entity_id="80000001-1234567890",
             revision_number="1721172183",
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
@@ -185,6 +188,7 @@ class TestTimeTrackingActivities:
             client.qbd.time_tracking_activities.with_raw_response.update(
                 id="",
                 duration="PT1H30M",
+                entity_id="80000001-1234567890",
                 revision_number="1721172183",
                 conductor_end_user_id="end_usr_1234567abcdefg",
             )
@@ -385,6 +389,7 @@ class TestAsyncTimeTrackingActivities:
         time_tracking_activity = await async_client.qbd.time_tracking_activities.update(
             id="123ABC-1234567890",
             duration="PT1H30M",
+            entity_id="80000001-1234567890",
             revision_number="1721172183",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
@@ -395,12 +400,12 @@ class TestAsyncTimeTrackingActivities:
         time_tracking_activity = await async_client.qbd.time_tracking_activities.update(
             id="123ABC-1234567890",
             duration="PT1H30M",
+            entity_id="80000001-1234567890",
             revision_number="1721172183",
             conductor_end_user_id="end_usr_1234567abcdefg",
             billing_status="billable",
             class_id="80000001-1234567890",
             customer_id="80000001-1234567890",
-            entity_id="80000001-1234567890",
             note="Project planning meeting with client.",
             payroll_wage_item_id="80000001-1234567890",
             service_item_id="80000001-1234567890",
@@ -413,6 +418,7 @@ class TestAsyncTimeTrackingActivities:
         response = await async_client.qbd.time_tracking_activities.with_raw_response.update(
             id="123ABC-1234567890",
             duration="PT1H30M",
+            entity_id="80000001-1234567890",
             revision_number="1721172183",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
@@ -427,6 +433,7 @@ class TestAsyncTimeTrackingActivities:
         async with async_client.qbd.time_tracking_activities.with_streaming_response.update(
             id="123ABC-1234567890",
             duration="PT1H30M",
+            entity_id="80000001-1234567890",
             revision_number="1721172183",
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
@@ -444,6 +451,7 @@ class TestAsyncTimeTrackingActivities:
             await async_client.qbd.time_tracking_activities.with_raw_response.update(
                 id="",
                 duration="PT1H30M",
+                entity_id="80000001-1234567890",
                 revision_number="1721172183",
                 conductor_end_user_id="end_usr_1234567abcdefg",
             )

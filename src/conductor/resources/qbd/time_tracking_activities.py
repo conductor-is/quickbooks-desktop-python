@@ -87,10 +87,10 @@ class TimeTrackingActivitiesResource(SyncAPIResource):
               activity, they are not returned in responses since QuickBooks Desktop's UI does
               not display seconds.
 
-              **NOTE**: This field is required for every update request, even if it is not
-              being updated, because of a bug in QuickBooks itself.
+              **NOTE**: This field is required for updating time tracking activities, even if
+              the field is not being updated, because of a bug in QuickBooks itself.
 
-          entity_id: The employee, vendor, or person on QuickBooks's “Other Names” list whose time is
+          entity_id: The employee, vendor, or person on QuickBooks's "Other Names" list whose time is
               being tracked in this time tracking activity. This cannot refer to a customer -
               use the `customer` field to associate a customer or customer-job with this time
               tracking activity.
@@ -213,12 +213,12 @@ class TimeTrackingActivitiesResource(SyncAPIResource):
         id: str,
         *,
         duration: str,
+        entity_id: str,
         revision_number: str,
         conductor_end_user_id: str,
         billing_status: Literal["billable", "has_been_billed", "not_billable"] | NotGiven = NOT_GIVEN,
         class_id: str | NotGiven = NOT_GIVEN,
         customer_id: str | NotGiven = NOT_GIVEN,
-        entity_id: str | NotGiven = NOT_GIVEN,
         note: str | NotGiven = NOT_GIVEN,
         payroll_wage_item_id: str | NotGiven = NOT_GIVEN,
         service_item_id: str | NotGiven = NOT_GIVEN,
@@ -245,8 +245,16 @@ class TimeTrackingActivitiesResource(SyncAPIResource):
               activity, they are not returned in responses since QuickBooks Desktop's UI does
               not display seconds.
 
-              **NOTE**: This field is required for every update request, even if it is not
-              being updated, because of a bug in QuickBooks itself.
+              **NOTE**: This field is required for updating time tracking activities, even if
+              the field is not being updated, because of a bug in QuickBooks itself.
+
+          entity_id: The employee, vendor, or person on QuickBooks's "Other Names" list whose time is
+              being tracked in this time tracking activity. This cannot refer to a customer -
+              use the `customer` field to associate a customer or customer-job with this time
+              tracking activity.
+
+              **NOTE**: This field is required for updating time tracking activities, even if
+              the field is not being updated, because of a bug in QuickBooks itself.
 
           revision_number: The current QuickBooks-assigned revision number of the time tracking activity
               object you are updating, which you can get by fetching the object first. Provide
@@ -268,11 +276,6 @@ class TimeTrackingActivitiesResource(SyncAPIResource):
 
           customer_id: The customer or customer-job to which this time could be billed. If
               `billingStatus` is set to "billable", this field is required.
-
-          entity_id: The employee, vendor, or person on QuickBooks's “Other Names” list whose time is
-              being tracked in this time tracking activity. This cannot refer to a customer -
-              use the `customer` field to associate a customer or customer-job with this time
-              tracking activity.
 
           note: A note or comment about this time tracking activity.
 
@@ -307,11 +310,11 @@ class TimeTrackingActivitiesResource(SyncAPIResource):
             body=maybe_transform(
                 {
                     "duration": duration,
+                    "entity_id": entity_id,
                     "revision_number": revision_number,
                     "billing_status": billing_status,
                     "class_id": class_id,
                     "customer_id": customer_id,
-                    "entity_id": entity_id,
                     "note": note,
                     "payroll_wage_item_id": payroll_wage_item_id,
                     "service_item_id": service_item_id,
@@ -523,10 +526,10 @@ class AsyncTimeTrackingActivitiesResource(AsyncAPIResource):
               activity, they are not returned in responses since QuickBooks Desktop's UI does
               not display seconds.
 
-              **NOTE**: This field is required for every update request, even if it is not
-              being updated, because of a bug in QuickBooks itself.
+              **NOTE**: This field is required for updating time tracking activities, even if
+              the field is not being updated, because of a bug in QuickBooks itself.
 
-          entity_id: The employee, vendor, or person on QuickBooks's “Other Names” list whose time is
+          entity_id: The employee, vendor, or person on QuickBooks's "Other Names" list whose time is
               being tracked in this time tracking activity. This cannot refer to a customer -
               use the `customer` field to associate a customer or customer-job with this time
               tracking activity.
@@ -649,12 +652,12 @@ class AsyncTimeTrackingActivitiesResource(AsyncAPIResource):
         id: str,
         *,
         duration: str,
+        entity_id: str,
         revision_number: str,
         conductor_end_user_id: str,
         billing_status: Literal["billable", "has_been_billed", "not_billable"] | NotGiven = NOT_GIVEN,
         class_id: str | NotGiven = NOT_GIVEN,
         customer_id: str | NotGiven = NOT_GIVEN,
-        entity_id: str | NotGiven = NOT_GIVEN,
         note: str | NotGiven = NOT_GIVEN,
         payroll_wage_item_id: str | NotGiven = NOT_GIVEN,
         service_item_id: str | NotGiven = NOT_GIVEN,
@@ -681,8 +684,16 @@ class AsyncTimeTrackingActivitiesResource(AsyncAPIResource):
               activity, they are not returned in responses since QuickBooks Desktop's UI does
               not display seconds.
 
-              **NOTE**: This field is required for every update request, even if it is not
-              being updated, because of a bug in QuickBooks itself.
+              **NOTE**: This field is required for updating time tracking activities, even if
+              the field is not being updated, because of a bug in QuickBooks itself.
+
+          entity_id: The employee, vendor, or person on QuickBooks's "Other Names" list whose time is
+              being tracked in this time tracking activity. This cannot refer to a customer -
+              use the `customer` field to associate a customer or customer-job with this time
+              tracking activity.
+
+              **NOTE**: This field is required for updating time tracking activities, even if
+              the field is not being updated, because of a bug in QuickBooks itself.
 
           revision_number: The current QuickBooks-assigned revision number of the time tracking activity
               object you are updating, which you can get by fetching the object first. Provide
@@ -704,11 +715,6 @@ class AsyncTimeTrackingActivitiesResource(AsyncAPIResource):
 
           customer_id: The customer or customer-job to which this time could be billed. If
               `billingStatus` is set to "billable", this field is required.
-
-          entity_id: The employee, vendor, or person on QuickBooks's “Other Names” list whose time is
-              being tracked in this time tracking activity. This cannot refer to a customer -
-              use the `customer` field to associate a customer or customer-job with this time
-              tracking activity.
 
           note: A note or comment about this time tracking activity.
 
@@ -743,11 +749,11 @@ class AsyncTimeTrackingActivitiesResource(AsyncAPIResource):
             body=await async_maybe_transform(
                 {
                     "duration": duration,
+                    "entity_id": entity_id,
                     "revision_number": revision_number,
                     "billing_status": billing_status,
                     "class_id": class_id,
                     "customer_id": customer_id,
-                    "entity_id": entity_id,
                     "note": note,
                     "payroll_wage_item_id": payroll_wage_item_id,
                     "service_item_id": service_item_id,
