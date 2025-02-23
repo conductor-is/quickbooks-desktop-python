@@ -125,6 +125,7 @@ class TestTimeTrackingActivities:
     def test_method_update(self, client: Conductor) -> None:
         time_tracking_activity = client.qbd.time_tracking_activities.update(
             id="123ABC-1234567890",
+            duration="PT1H30M",
             revision_number="1721172183",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
@@ -134,12 +135,12 @@ class TestTimeTrackingActivities:
     def test_method_update_with_all_params(self, client: Conductor) -> None:
         time_tracking_activity = client.qbd.time_tracking_activities.update(
             id="123ABC-1234567890",
+            duration="PT1H30M",
             revision_number="1721172183",
             conductor_end_user_id="end_usr_1234567abcdefg",
             billing_status="billable",
             class_id="80000001-1234567890",
             customer_id="80000001-1234567890",
-            duration="PT1H30M",
             entity_id="80000001-1234567890",
             note="Project planning meeting with client.",
             payroll_wage_item_id="80000001-1234567890",
@@ -152,6 +153,7 @@ class TestTimeTrackingActivities:
     def test_raw_response_update(self, client: Conductor) -> None:
         response = client.qbd.time_tracking_activities.with_raw_response.update(
             id="123ABC-1234567890",
+            duration="PT1H30M",
             revision_number="1721172183",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
@@ -165,6 +167,7 @@ class TestTimeTrackingActivities:
     def test_streaming_response_update(self, client: Conductor) -> None:
         with client.qbd.time_tracking_activities.with_streaming_response.update(
             id="123ABC-1234567890",
+            duration="PT1H30M",
             revision_number="1721172183",
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
@@ -181,6 +184,7 @@ class TestTimeTrackingActivities:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
             client.qbd.time_tracking_activities.with_raw_response.update(
                 id="",
+                duration="PT1H30M",
                 revision_number="1721172183",
                 conductor_end_user_id="end_usr_1234567abcdefg",
             )
@@ -380,6 +384,7 @@ class TestAsyncTimeTrackingActivities:
     async def test_method_update(self, async_client: AsyncConductor) -> None:
         time_tracking_activity = await async_client.qbd.time_tracking_activities.update(
             id="123ABC-1234567890",
+            duration="PT1H30M",
             revision_number="1721172183",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
@@ -389,12 +394,12 @@ class TestAsyncTimeTrackingActivities:
     async def test_method_update_with_all_params(self, async_client: AsyncConductor) -> None:
         time_tracking_activity = await async_client.qbd.time_tracking_activities.update(
             id="123ABC-1234567890",
+            duration="PT1H30M",
             revision_number="1721172183",
             conductor_end_user_id="end_usr_1234567abcdefg",
             billing_status="billable",
             class_id="80000001-1234567890",
             customer_id="80000001-1234567890",
-            duration="PT1H30M",
             entity_id="80000001-1234567890",
             note="Project planning meeting with client.",
             payroll_wage_item_id="80000001-1234567890",
@@ -407,6 +412,7 @@ class TestAsyncTimeTrackingActivities:
     async def test_raw_response_update(self, async_client: AsyncConductor) -> None:
         response = await async_client.qbd.time_tracking_activities.with_raw_response.update(
             id="123ABC-1234567890",
+            duration="PT1H30M",
             revision_number="1721172183",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
@@ -420,6 +426,7 @@ class TestAsyncTimeTrackingActivities:
     async def test_streaming_response_update(self, async_client: AsyncConductor) -> None:
         async with async_client.qbd.time_tracking_activities.with_streaming_response.update(
             id="123ABC-1234567890",
+            duration="PT1H30M",
             revision_number="1721172183",
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
@@ -436,6 +443,7 @@ class TestAsyncTimeTrackingActivities:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
             await async_client.qbd.time_tracking_activities.with_raw_response.update(
                 id="",
+                duration="PT1H30M",
                 revision_number="1721172183",
                 conductor_end_user_id="end_usr_1234567abcdefg",
             )
