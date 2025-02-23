@@ -139,13 +139,13 @@ class TimeTrackingActivity(BaseModel):
     activity, they are not returned in responses since QuickBooks Desktop's UI does
     not display seconds.
 
-    **NOTE**: This field is required for every update request, even if it is not
-    being updated, because of a bug in QuickBooks itself.
+    **NOTE**: This field is required for updating time tracking activities, even if
+    the field is not being updated, because of a bug in QuickBooks itself.
     """
 
     entity: Entity
     """
-    The employee, vendor, or person on QuickBooks's “Other Names” list whose time is
+    The employee, vendor, or person on QuickBooks's "Other Names" list whose time is
     being tracked in this time tracking activity. This cannot refer to a customer -
     use the `customer` field to associate a customer or customer-job with this time
     tracking activity.
