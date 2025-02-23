@@ -23,7 +23,7 @@ class TimeTrackingActivityUpdateParams(TypedDict, total=False):
     not display seconds.
 
     **IMPORTANT**: This field is required for updating time tracking activities,
-    even if the field is not being updated, because of a bug in QuickBooks itself.
+    even if the field is not being modified, because of a bug in QuickBooks itself.
     """
 
     entity_id: Required[Annotated[str, PropertyInfo(alias="entityId")]]
@@ -34,7 +34,7 @@ class TimeTrackingActivityUpdateParams(TypedDict, total=False):
     tracking activity.
 
     **IMPORTANT**: This field is required for updating time tracking activities,
-    even if the field is not being updated, because of a bug in QuickBooks itself.
+    even if the field is not being modified, because of a bug in QuickBooks itself.
     """
 
     revision_number: Required[Annotated[str, PropertyInfo(alias="revisionNumber")]]

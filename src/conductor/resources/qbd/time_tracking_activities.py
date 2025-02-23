@@ -88,7 +88,7 @@ class TimeTrackingActivitiesResource(SyncAPIResource):
               not display seconds.
 
               **IMPORTANT**: This field is required for updating time tracking activities,
-              even if the field is not being updated, because of a bug in QuickBooks itself.
+              even if the field is not being modified, because of a bug in QuickBooks itself.
 
           entity_id: The employee, vendor, or person on QuickBooks's "Other Names" list whose time is
               being tracked in this time tracking activity. This cannot refer to a customer -
@@ -246,7 +246,7 @@ class TimeTrackingActivitiesResource(SyncAPIResource):
               not display seconds.
 
               **IMPORTANT**: This field is required for updating time tracking activities,
-              even if the field is not being updated, because of a bug in QuickBooks itself.
+              even if the field is not being modified, because of a bug in QuickBooks itself.
 
           entity_id: The employee, vendor, or person on QuickBooks's "Other Names" list whose time is
               being tracked in this time tracking activity. This cannot refer to a customer -
@@ -254,7 +254,7 @@ class TimeTrackingActivitiesResource(SyncAPIResource):
               tracking activity.
 
               **IMPORTANT**: This field is required for updating time tracking activities,
-              even if the field is not being updated, because of a bug in QuickBooks itself.
+              even if the field is not being modified, because of a bug in QuickBooks itself.
 
           revision_number: The current QuickBooks-assigned revision number of the time tracking activity
               object you are updating, which you can get by fetching the object first. Provide
@@ -527,7 +527,7 @@ class AsyncTimeTrackingActivitiesResource(AsyncAPIResource):
               not display seconds.
 
               **IMPORTANT**: This field is required for updating time tracking activities,
-              even if the field is not being updated, because of a bug in QuickBooks itself.
+              even if the field is not being modified, because of a bug in QuickBooks itself.
 
           entity_id: The employee, vendor, or person on QuickBooks's "Other Names" list whose time is
               being tracked in this time tracking activity. This cannot refer to a customer -
@@ -685,7 +685,7 @@ class AsyncTimeTrackingActivitiesResource(AsyncAPIResource):
               not display seconds.
 
               **IMPORTANT**: This field is required for updating time tracking activities,
-              even if the field is not being updated, because of a bug in QuickBooks itself.
+              even if the field is not being modified, because of a bug in QuickBooks itself.
 
           entity_id: The employee, vendor, or person on QuickBooks's "Other Names" list whose time is
               being tracked in this time tracking activity. This cannot refer to a customer -
@@ -693,7 +693,7 @@ class AsyncTimeTrackingActivitiesResource(AsyncAPIResource):
               tracking activity.
 
               **IMPORTANT**: This field is required for updating time tracking activities,
-              even if the field is not being updated, because of a bug in QuickBooks itself.
+              even if the field is not being modified, because of a bug in QuickBooks itself.
 
           revision_number: The current QuickBooks-assigned revision number of the time tracking activity
               object you are updating, which you can get by fetching the object first. Provide
