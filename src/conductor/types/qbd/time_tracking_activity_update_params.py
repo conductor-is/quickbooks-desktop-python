@@ -22,8 +22,8 @@ class TimeTrackingActivityUpdateParams(TypedDict, total=False):
     activity, they are not returned in responses since QuickBooks Desktop's UI does
     not display seconds.
 
-    **NOTE**: This field is required for updating time tracking activities, even if
-    the field is not being updated, because of a bug in QuickBooks itself.
+    **IMPORTANT**: This field is required for updating time tracking activities,
+    even if the field is not being updated, because of a bug in QuickBooks itself.
     """
 
     entity_id: Required[Annotated[str, PropertyInfo(alias="entityId")]]
@@ -33,8 +33,8 @@ class TimeTrackingActivityUpdateParams(TypedDict, total=False):
     use the `customer` field to associate a customer or customer-job with this time
     tracking activity.
 
-    **NOTE**: This field is required for updating time tracking activities, even if
-    the field is not being updated, because of a bug in QuickBooks itself.
+    **IMPORTANT**: This field is required for updating time tracking activities,
+    even if the field is not being updated, because of a bug in QuickBooks itself.
     """
 
     revision_number: Required[Annotated[str, PropertyInfo(alias="revisionNumber")]]
