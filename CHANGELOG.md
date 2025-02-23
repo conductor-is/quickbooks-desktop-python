@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.14.0 (2025-02-23)
+
+Full Changelog: [v1.13.0...v1.14.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.13.0...v1.14.0)
+
+### Features
+
+* **api:** api update ([#579](https://github.com/conductor-is/quickbooks-desktop-python/issues/579)) ([c5a335b](https://github.com/conductor-is/quickbooks-desktop-python/commit/c5a335bb6ec56021c6017f12886c1ead602bee52))
+* **api:** api update ([#582](https://github.com/conductor-is/quickbooks-desktop-python/issues/582)) ([5b88938](https://github.com/conductor-is/quickbooks-desktop-python/commit/5b8893859d6567f7014bdde5eb69a87ca825bded))
+* **api:** api update ([#583](https://github.com/conductor-is/quickbooks-desktop-python/issues/583)) ([ceb33c5](https://github.com/conductor-is/quickbooks-desktop-python/commit/ceb33c573012d1188dc1b7a7f177f711e74661fa))
+* **api:** api update ([#584](https://github.com/conductor-is/quickbooks-desktop-python/issues/584)) ([ee0bef1](https://github.com/conductor-is/quickbooks-desktop-python/commit/ee0bef199a5879574e67944956bb807e23236386))
+
+
+### Chores
+
+* **internal:** fix devcontainers setup ([#581](https://github.com/conductor-is/quickbooks-desktop-python/issues/581)) ([b9eca66](https://github.com/conductor-is/quickbooks-desktop-python/commit/b9eca660c89c0806310a3bf62657aec000a8041f))
+
 ## 1.13.0 (2025-02-21)
 
 Full Changelog: [v1.12.0...v1.13.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.12.0...v1.13.0)
