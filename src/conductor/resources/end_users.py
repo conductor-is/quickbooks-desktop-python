@@ -65,7 +65,7 @@ class EndUsersResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> EndUser:
         """
-        Creates an EndUser.
+        Creates an end-user.
 
         Args:
           company_name: The end-user's company name that will be shown elsewhere in Conductor.
@@ -113,10 +113,10 @@ class EndUsersResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> EndUser:
         """
-        Retrieves an EndUser object.
+        Retrieves an end-user object.
 
         Args:
-          id: The ID of the EndUser to retrieve.
+          id: The ID of the end-user to retrieve.
 
           extra_headers: Send extra headers
 
@@ -146,7 +146,7 @@ class EndUsersResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> EndUserListResponse:
-        """Returns a list of your EndUsers."""
+        """Returns a list of your end-users."""
         return self._get(
             "/end-users",
             options=make_request_options(
@@ -167,10 +167,10 @@ class EndUsersResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> EndUserDeleteResponse:
         """
-        Permanently deletes an EndUser object and all of its connections.
+        Permanently deletes an end-user object and all of its connections.
 
         Args:
-          id: The ID of the EndUser to delete.
+          id: The ID of the end-user to delete.
 
           extra_headers: Send extra headers
 
@@ -208,9 +208,9 @@ class EndUsersResource(SyncAPIResource):
         QuickBooks Desktop) on behalf of the end-user.
 
         Args:
-          id: The ID of the EndUser who owns the integration connection.
+          id: The ID of the end-user who owns the integration connection.
 
-          integration_slug: The integration identifier for the EndUser's connection.
+          integration_slug: The integration identifier for the end-user's connection.
 
           qbd_payload: The request body to send to the integration connection.
 
@@ -248,14 +248,14 @@ class EndUsersResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> EndUserPingResponse:
         """
-        Checks whether the specified IntegrationConnection can connect and process
+        Checks whether the specified integration connection can connect and process
         requests end-to-end. This is useful for showing a "connection status" indicator
         in your app.
 
         Args:
-          id: The ID of the EndUser to ping.
+          id: The ID of the end-user to ping.
 
-          integration_slug: The integration identifier for the EndUser's connection to ping.
+          integration_slug: The integration identifier for the end-user's connection to ping.
 
           extra_headers: Send extra headers
 
@@ -312,7 +312,7 @@ class AsyncEndUsersResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> EndUser:
         """
-        Creates an EndUser.
+        Creates an end-user.
 
         Args:
           company_name: The end-user's company name that will be shown elsewhere in Conductor.
@@ -360,10 +360,10 @@ class AsyncEndUsersResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> EndUser:
         """
-        Retrieves an EndUser object.
+        Retrieves an end-user object.
 
         Args:
-          id: The ID of the EndUser to retrieve.
+          id: The ID of the end-user to retrieve.
 
           extra_headers: Send extra headers
 
@@ -393,7 +393,7 @@ class AsyncEndUsersResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> EndUserListResponse:
-        """Returns a list of your EndUsers."""
+        """Returns a list of your end-users."""
         return await self._get(
             "/end-users",
             options=make_request_options(
@@ -414,10 +414,10 @@ class AsyncEndUsersResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> EndUserDeleteResponse:
         """
-        Permanently deletes an EndUser object and all of its connections.
+        Permanently deletes an end-user object and all of its connections.
 
         Args:
-          id: The ID of the EndUser to delete.
+          id: The ID of the end-user to delete.
 
           extra_headers: Send extra headers
 
@@ -455,9 +455,9 @@ class AsyncEndUsersResource(AsyncAPIResource):
         QuickBooks Desktop) on behalf of the end-user.
 
         Args:
-          id: The ID of the EndUser who owns the integration connection.
+          id: The ID of the end-user who owns the integration connection.
 
-          integration_slug: The integration identifier for the EndUser's connection.
+          integration_slug: The integration identifier for the end-user's connection.
 
           qbd_payload: The request body to send to the integration connection.
 
@@ -495,14 +495,14 @@ class AsyncEndUsersResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> EndUserPingResponse:
         """
-        Checks whether the specified IntegrationConnection can connect and process
+        Checks whether the specified integration connection can connect and process
         requests end-to-end. This is useful for showing a "connection status" indicator
         in your app.
 
         Args:
-          id: The ID of the EndUser to ping.
+          id: The ID of the end-user to ping.
 
-          integration_slug: The integration identifier for the EndUser's connection to ping.
+          integration_slug: The integration identifier for the end-user's connection to ping.
 
           extra_headers: Send extra headers
 

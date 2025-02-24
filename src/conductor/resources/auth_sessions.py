@@ -59,17 +59,17 @@ class AuthSessionsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> AuthSession:
         """
-        To launch the authentication flow, create an AuthSession and pass the returned
-        session’s `authFlowUrl` to the client for your end-user to visit in their
+        To launch the authentication flow, create an auth session and pass the returned
+        session's `authFlowUrl` to the client for your end-user to visit in their
         browser.
 
         Args:
-          end_user_id: The ID of the EndUser for whom to create the IntegrationConnection.
+          end_user_id: The ID of the end-user for whom to create the integration connection.
 
-          publishable_key: Your Conductor publishable key, which we use to create the session’s
+          publishable_key: Your Conductor publishable key, which we use to create the auth session's
               `authFlowUrl`.
 
-          link_expiry_mins: The number of minutes after which the AuthSession will expire. Must be at least
+          link_expiry_mins: The number of minutes after which the auth session will expire. Must be at least
               15 minutes and no more than 7 days. If not provided, defaults to 30 minutes.
 
           redirect_url: The URL to which Conductor will redirect the end-user to return to your app
@@ -137,17 +137,17 @@ class AsyncAuthSessionsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> AuthSession:
         """
-        To launch the authentication flow, create an AuthSession and pass the returned
-        session’s `authFlowUrl` to the client for your end-user to visit in their
+        To launch the authentication flow, create an auth session and pass the returned
+        session's `authFlowUrl` to the client for your end-user to visit in their
         browser.
 
         Args:
-          end_user_id: The ID of the EndUser for whom to create the IntegrationConnection.
+          end_user_id: The ID of the end-user for whom to create the integration connection.
 
-          publishable_key: Your Conductor publishable key, which we use to create the session’s
+          publishable_key: Your Conductor publishable key, which we use to create the auth session's
               `authFlowUrl`.
 
-          link_expiry_mins: The number of minutes after which the AuthSession will expire. Must be at least
+          link_expiry_mins: The number of minutes after which the auth session will expire. Must be at least
               15 minutes and no more than 7 days. If not provided, defaults to 30 minutes.
 
           redirect_url: The URL to which Conductor will redirect the end-user to return to your app

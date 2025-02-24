@@ -10,7 +10,7 @@ __all__ = ["EndUserPassthroughParams"]
 
 class EndUserPassthroughParams(TypedDict, total=False):
     id: Required[str]
-    """The ID of the EndUser who owns the integration connection."""
+    """The ID of the end-user who owns the integration connection."""
 
     qbd_payload: Required[Dict[str, object]]
     """The request body to send to the integration connection."""
