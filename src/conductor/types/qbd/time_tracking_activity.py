@@ -124,9 +124,9 @@ class TimeTrackingActivity(BaseModel):
     """
 
     customer: Optional[Customer] = None
-    """The customer or customer-job to which this time could be billed.
-
-    If `billingStatus` is set to "billable", this field is required.
+    """
+    The customer or customer-job to which this time tracking activity could be
+    billed. If `billingStatus` is set to "billable", this field is required.
     """
 
     duration: str
