@@ -13,7 +13,7 @@ __all__ = ["EndUserListResponse"]
 
 class EndUserListResponse(BaseModel):
     data: List[EndUser]
-    """The array of EndUsers."""
+    """The array of end-users."""
 
     object_type: Literal["list"] = FieldInfo(alias="objectType")
     """The type of object. This value is always `"list"`."""
