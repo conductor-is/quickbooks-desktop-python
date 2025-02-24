@@ -11,16 +11,16 @@ __all__ = ["AuthSessionCreateParams"]
 
 class AuthSessionCreateParams(TypedDict, total=False):
     end_user_id: Required[Annotated[str, PropertyInfo(alias="endUserId")]]
-    """The ID of the EndUser for whom to create the IntegrationConnection."""
+    """The ID of the end-user for whom to create the integration connection."""
 
     publishable_key: Required[Annotated[str, PropertyInfo(alias="publishableKey")]]
     """
-    Your Conductor publishable key, which we use to create the session’s
+    Your Conductor publishable key, which we use to create the auth session's
     `authFlowUrl`.
     """
 
     link_expiry_mins: Annotated[float, PropertyInfo(alias="linkExpiryMins")]
-    """The number of minutes after which the AuthSession will expire.
+    """The number of minutes after which the auth session will expire.
 
     Must be at least 15 minutes and no more than 7 days. If not provided, defaults
     to 30 minutes.
