@@ -110,8 +110,8 @@ class TimeTrackingActivitiesResource(SyncAPIResource):
               into meaningful segments, such as department, location, or type of work. In
               QuickBooks, class tracking is off by default.
 
-          customer_id: The customer or customer-job to which this time could be billed. If
-              `billingStatus` is set to "billable", this field is required.
+          customer_id: The customer or customer-job to which this time tracking activity could be
+              billed. If `billingStatus` is set to "billable", this field is required.
 
           external_id: A globally unique identifier (GUID) you, the developer, can provide for tracking
               this object in your external system. This field is immutable and can only be set
@@ -274,8 +274,8 @@ class TimeTrackingActivitiesResource(SyncAPIResource):
               into meaningful segments, such as department, location, or type of work. In
               QuickBooks, class tracking is off by default.
 
-          customer_id: The customer or customer-job to which this time could be billed. If
-              `billingStatus` is set to "billable", this field is required.
+          customer_id: The customer or customer-job to which this time tracking activity could be
+              billed. If `billingStatus` is set to "billable", this field is required.
 
           note: A note or comment about this time tracking activity.
 
@@ -549,8 +549,8 @@ class AsyncTimeTrackingActivitiesResource(AsyncAPIResource):
               into meaningful segments, such as department, location, or type of work. In
               QuickBooks, class tracking is off by default.
 
-          customer_id: The customer or customer-job to which this time could be billed. If
-              `billingStatus` is set to "billable", this field is required.
+          customer_id: The customer or customer-job to which this time tracking activity could be
+              billed. If `billingStatus` is set to "billable", this field is required.
 
           external_id: A globally unique identifier (GUID) you, the developer, can provide for tracking
               this object in your external system. This field is immutable and can only be set
@@ -713,8 +713,8 @@ class AsyncTimeTrackingActivitiesResource(AsyncAPIResource):
               into meaningful segments, such as department, location, or type of work. In
               QuickBooks, class tracking is off by default.
 
-          customer_id: The customer or customer-job to which this time could be billed. If
-              `billingStatus` is set to "billable", this field is required.
+          customer_id: The customer or customer-job to which this time tracking activity could be
+              billed. If `billingStatus` is set to "billable", this field is required.
 
           note: A note or comment about this time tracking activity.
 
