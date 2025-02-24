@@ -26,6 +26,12 @@ class TimeTrackingActivityListParams(TypedDict, total=False):
     results.
     """
 
+    entity_ids: Annotated[List[str], PropertyInfo(alias="entityIds")]
+    """
+    Filter for time tracking activities tracking the time of these employees,
+    vendors, or persons on QuickBooks's "Other Names" list.
+    """
+
     ids: List[str]
     """
     Filter for specific time tracking activities by their QuickBooks-assigned unique
@@ -46,12 +52,6 @@ class TimeTrackingActivityListParams(TypedDict, total=False):
     per page. To paginate through results, combine this with the `cursor` parameter.
     Each response will include a `nextCursor` value that can be passed to subsequent
     requests to retrieve the next page of results.
-    """
-
-    time_tracking_entity_ids: Annotated[List[str], PropertyInfo(alias="timeTrackingEntityIds")]
-    """
-    Filter for time tracking activities tracking the time of these employees,
-    vendors, or persons on QuickBooks's "Other Names" list.
     """
 
     transaction_date_from: Annotated[Union[str, date], PropertyInfo(alias="transactionDateFrom", format="iso8601")]
