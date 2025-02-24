@@ -333,9 +333,9 @@ class TimeTrackingActivitiesResource(SyncAPIResource):
         *,
         conductor_end_user_id: str,
         cursor: str | NotGiven = NOT_GIVEN,
+        entity_ids: List[str] | NotGiven = NOT_GIVEN,
         ids: List[str] | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
-        time_tracking_entity_ids: List[str] | NotGiven = NOT_GIVEN,
         transaction_date_from: Union[str, date] | NotGiven = NOT_GIVEN,
         transaction_date_to: Union[str, date] | NotGiven = NOT_GIVEN,
         updated_after: str | NotGiven = NOT_GIVEN,
@@ -361,6 +361,9 @@ class TimeTrackingActivitiesResource(SyncAPIResource):
               `nextCursor` value returned in the previous response to request subsequent
               results.
 
+          entity_ids: Filter for time tracking activities tracking the time of these employees,
+              vendors, or persons on QuickBooks's "Other Names" list.
+
           ids: Filter for specific time tracking activities by their QuickBooks-assigned unique
               identifier(s).
 
@@ -376,9 +379,6 @@ class TimeTrackingActivitiesResource(SyncAPIResource):
               this with the `cursor` parameter. Each response will include a `nextCursor`
               value that can be passed to subsequent requests to retrieve the next page of
               results.
-
-          time_tracking_entity_ids: Filter for time tracking activities tracking the time of these employees,
-              vendors, or persons on QuickBooks's "Other Names" list.
 
           transaction_date_from: Filter for time tracking activities created on or after this date, in ISO 8601
               format (YYYY-MM-DD).
@@ -414,9 +414,9 @@ class TimeTrackingActivitiesResource(SyncAPIResource):
                 query=maybe_transform(
                     {
                         "cursor": cursor,
+                        "entity_ids": entity_ids,
                         "ids": ids,
                         "limit": limit,
-                        "time_tracking_entity_ids": time_tracking_entity_ids,
                         "transaction_date_from": transaction_date_from,
                         "transaction_date_to": transaction_date_to,
                         "updated_after": updated_after,
@@ -772,9 +772,9 @@ class AsyncTimeTrackingActivitiesResource(AsyncAPIResource):
         *,
         conductor_end_user_id: str,
         cursor: str | NotGiven = NOT_GIVEN,
+        entity_ids: List[str] | NotGiven = NOT_GIVEN,
         ids: List[str] | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
-        time_tracking_entity_ids: List[str] | NotGiven = NOT_GIVEN,
         transaction_date_from: Union[str, date] | NotGiven = NOT_GIVEN,
         transaction_date_to: Union[str, date] | NotGiven = NOT_GIVEN,
         updated_after: str | NotGiven = NOT_GIVEN,
@@ -800,6 +800,9 @@ class AsyncTimeTrackingActivitiesResource(AsyncAPIResource):
               `nextCursor` value returned in the previous response to request subsequent
               results.
 
+          entity_ids: Filter for time tracking activities tracking the time of these employees,
+              vendors, or persons on QuickBooks's "Other Names" list.
+
           ids: Filter for specific time tracking activities by their QuickBooks-assigned unique
               identifier(s).
 
@@ -815,9 +818,6 @@ class AsyncTimeTrackingActivitiesResource(AsyncAPIResource):
               this with the `cursor` parameter. Each response will include a `nextCursor`
               value that can be passed to subsequent requests to retrieve the next page of
               results.
-
-          time_tracking_entity_ids: Filter for time tracking activities tracking the time of these employees,
-              vendors, or persons on QuickBooks's "Other Names" list.
 
           transaction_date_from: Filter for time tracking activities created on or after this date, in ISO 8601
               format (YYYY-MM-DD).
@@ -853,9 +853,9 @@ class AsyncTimeTrackingActivitiesResource(AsyncAPIResource):
                 query=maybe_transform(
                     {
                         "cursor": cursor,
+                        "entity_ids": entity_ids,
                         "ids": ids,
                         "limit": limit,
-                        "time_tracking_entity_ids": time_tracking_entity_ids,
                         "transaction_date_from": transaction_date_from,
                         "transaction_date_to": transaction_date_to,
                         "updated_after": updated_after,

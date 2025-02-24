@@ -205,9 +205,9 @@ class TestTimeTrackingActivities:
         time_tracking_activity = client.qbd.time_tracking_activities.list(
             conductor_end_user_id="end_usr_1234567abcdefg",
             cursor="12345678-abcd-abcd-example-1234567890ab",
+            entity_ids=["80000001-1234567890"],
             ids=["123ABC-1234567890"],
             limit=150,
-            time_tracking_entity_ids=["80000001-1234567890"],
             transaction_date_from=parse_date("2021-01-01"),
             transaction_date_to=parse_date("2021-02-01"),
             updated_after="2021-01-01T12:34:56",
@@ -468,9 +468,9 @@ class TestAsyncTimeTrackingActivities:
         time_tracking_activity = await async_client.qbd.time_tracking_activities.list(
             conductor_end_user_id="end_usr_1234567abcdefg",
             cursor="12345678-abcd-abcd-example-1234567890ab",
+            entity_ids=["80000001-1234567890"],
             ids=["123ABC-1234567890"],
             limit=150,
-            time_tracking_entity_ids=["80000001-1234567890"],
             transaction_date_from=parse_date("2021-01-01"),
             transaction_date_to=parse_date("2021-02-01"),
             updated_after="2021-01-01T12:34:56",
