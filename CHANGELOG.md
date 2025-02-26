@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.18.1 (2025-02-26)
+
+Full Changelog: [v1.18.0...v1.18.1](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.18.0...v1.18.1)
+
+### Chores
+
+* **internal:** properly set __pydantic_private__ ([#600](https://github.com/conductor-is/quickbooks-desktop-python/issues/600)) ([c1bc69c](https://github.com/conductor-is/quickbooks-desktop-python/commit/c1bc69c5771f816e450daa09b3f6565934a570f5))
+
 ## 1.18.0 (2025-02-24)
 
 Full Changelog: [v1.17.0...v1.18.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.17.0...v1.18.0)
