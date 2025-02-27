@@ -485,9 +485,10 @@ class QbdResource(SyncAPIResource):
         """
         Checks whether the specified QuickBooks Desktop connection is active and can
         process requests end-to-end. This is useful for showing a "connection status"
-        indicator in your app. As with any request to QuickBooks Desktop, the health
-        check may fail if the application is not running, the wrong company file is
-        open, or if a modal dialog is open. Timeout is 60 seconds.
+        indicator in your app. If an error occurs, the typical Conductor error response
+        will be returned. As with any request to QuickBooks Desktop, the health check
+        may fail if the application is not running, the wrong company file is open, or
+        if a modal dialog is open. Timeout is 60 seconds.
 
         Args:
           conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
@@ -689,9 +690,10 @@ class AsyncQbdResource(AsyncAPIResource):
         """
         Checks whether the specified QuickBooks Desktop connection is active and can
         process requests end-to-end. This is useful for showing a "connection status"
-        indicator in your app. As with any request to QuickBooks Desktop, the health
-        check may fail if the application is not running, the wrong company file is
-        open, or if a modal dialog is open. Timeout is 60 seconds.
+        indicator in your app. If an error occurs, the typical Conductor error response
+        will be returned. As with any request to QuickBooks Desktop, the health check
+        may fail if the application is not running, the wrong company file is open, or
+        if a modal dialog is open. Timeout is 60 seconds.
 
         Args:
           conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
