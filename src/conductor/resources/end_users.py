@@ -24,7 +24,6 @@ from .._response import (
 from .._base_client import make_request_options
 from ..types.end_user import EndUser
 from ..types.end_user_list_response import EndUserListResponse
-from ..types.end_user_ping_response import EndUserPingResponse
 from ..types.end_user_delete_response import EndUserDeleteResponse
 from ..types.end_user_passthrough_response import EndUserPassthroughResponse
 
@@ -235,48 +234,6 @@ class EndUsersResource(SyncAPIResource):
             cast_to=EndUserPassthroughResponse,
         )
 
-    def ping(
-        self,
-        integration_slug: Literal["quickbooks_desktop"],
-        *,
-        id: str,
-        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
-        # The extra values given here take precedence over values defined on the client or passed to this method.
-        extra_headers: Headers | None = None,
-        extra_query: Query | None = None,
-        extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> EndUserPingResponse:
-        """
-        Checks whether the specified integration connection can connect and process
-        requests end-to-end. This is useful for showing a "connection status" indicator
-        in your app.
-
-        Args:
-          id: The ID of the end-user to ping.
-
-          integration_slug: The integration identifier for the end-user's connection to ping.
-
-          extra_headers: Send extra headers
-
-          extra_query: Add additional query parameters to the request
-
-          extra_body: Add additional JSON properties to the request
-
-          timeout: Override the client-level default timeout for this request, in seconds
-        """
-        if not id:
-            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
-        if not integration_slug:
-            raise ValueError(f"Expected a non-empty value for `integration_slug` but received {integration_slug!r}")
-        return self._get(
-            f"/end-users/{id}/ping/{integration_slug}",
-            options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
-            ),
-            cast_to=EndUserPingResponse,
-        )
-
 
 class AsyncEndUsersResource(AsyncAPIResource):
     @cached_property
@@ -482,48 +439,6 @@ class AsyncEndUsersResource(AsyncAPIResource):
             cast_to=EndUserPassthroughResponse,
         )
 
-    async def ping(
-        self,
-        integration_slug: Literal["quickbooks_desktop"],
-        *,
-        id: str,
-        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
-        # The extra values given here take precedence over values defined on the client or passed to this method.
-        extra_headers: Headers | None = None,
-        extra_query: Query | None = None,
-        extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> EndUserPingResponse:
-        """
-        Checks whether the specified integration connection can connect and process
-        requests end-to-end. This is useful for showing a "connection status" indicator
-        in your app.
-
-        Args:
-          id: The ID of the end-user to ping.
-
-          integration_slug: The integration identifier for the end-user's connection to ping.
-
-          extra_headers: Send extra headers
-
-          extra_query: Add additional query parameters to the request
-
-          extra_body: Add additional JSON properties to the request
-
-          timeout: Override the client-level default timeout for this request, in seconds
-        """
-        if not id:
-            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
-        if not integration_slug:
-            raise ValueError(f"Expected a non-empty value for `integration_slug` but received {integration_slug!r}")
-        return await self._get(
-            f"/end-users/{id}/ping/{integration_slug}",
-            options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
-            ),
-            cast_to=EndUserPingResponse,
-        )
-
 
 class EndUsersResourceWithRawResponse:
     def __init__(self, end_users: EndUsersResource) -> None:
@@ -543,9 +458,6 @@ class EndUsersResourceWithRawResponse:
         )
         self.passthrough = to_raw_response_wrapper(
             end_users.passthrough,
-        )
-        self.ping = to_raw_response_wrapper(
-            end_users.ping,
         )
 
 
@@ -568,9 +480,6 @@ class AsyncEndUsersResourceWithRawResponse:
         self.passthrough = async_to_raw_response_wrapper(
             end_users.passthrough,
         )
-        self.ping = async_to_raw_response_wrapper(
-            end_users.ping,
-        )
 
 
 class EndUsersResourceWithStreamingResponse:
@@ -592,9 +501,6 @@ class EndUsersResourceWithStreamingResponse:
         self.passthrough = to_streamed_response_wrapper(
             end_users.passthrough,
         )
-        self.ping = to_streamed_response_wrapper(
-            end_users.ping,
-        )
 
 
 class AsyncEndUsersResourceWithStreamingResponse:
@@ -615,7 +521,4 @@ class AsyncEndUsersResourceWithStreamingResponse:
         )
         self.passthrough = async_to_streamed_response_wrapper(
             end_users.passthrough,
-        )
-        self.ping = async_to_streamed_response_wrapper(
-            end_users.ping,
         )

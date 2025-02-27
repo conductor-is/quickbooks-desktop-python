@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import httpx
+
 from .bills import (
     BillsResource,
     AsyncBillsResource,
@@ -34,6 +36,7 @@ from .vendors import (
     VendorsResourceWithStreamingResponse,
     AsyncVendorsResourceWithStreamingResponse,
 )
+from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
 from .accounts import (
     AccountsResource,
     AsyncAccountsResource,
@@ -84,6 +87,12 @@ from .transfers import (
     AsyncTransfersResourceWithStreamingResponse,
 )
 from ..._resource import SyncAPIResource, AsyncAPIResource
+from ..._response import (
+    to_raw_response_wrapper,
+    to_streamed_response_wrapper,
+    async_to_raw_response_wrapper,
+    async_to_streamed_response_wrapper,
+)
 from .credit_memos import (
     CreditMemosResource,
     AsyncCreditMemosResource,
@@ -108,6 +117,7 @@ from .service_items import (
     ServiceItemsResourceWithStreamingResponse,
     AsyncServiceItemsResourceWithStreamingResponse,
 )
+from ..._base_client import make_request_options
 from .discount_items import (
     DiscountItemsResource,
     AsyncDiscountItemsResource,
@@ -292,6 +302,7 @@ from .bill_credit_card_payments import (
     BillCreditCardPaymentsResourceWithStreamingResponse,
     AsyncBillCreditCardPaymentsResourceWithStreamingResponse,
 )
+from ...types.qbd_health_check_response import QbdHealthCheckResponse
 
 __all__ = ["QbdResource", "AsyncQbdResource"]
 
@@ -460,6 +471,45 @@ class QbdResource(SyncAPIResource):
         """
         return QbdResourceWithStreamingResponse(self)
 
+    def health_check(
+        self,
+        *,
+        conductor_end_user_id: str,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> QbdHealthCheckResponse:
+        """
+        Checks whether the specified QuickBooks Desktop connection is active and can
+        process requests end-to-end. This is useful for showing a "connection status"
+        indicator in your app. As with any request to QuickBooks Desktop, the health
+        check may fail if QuickBooks Desktop is not running, the wrong company file is
+        open, or if a modal dialog is open. Timeout is 60 seconds.
+
+        Args:
+          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
+              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return self._get(
+            "/quickbooks-desktop/health-check",
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=QbdHealthCheckResponse,
+        )
+
 
 class AsyncQbdResource(AsyncAPIResource):
     @cached_property
@@ -625,10 +675,53 @@ class AsyncQbdResource(AsyncAPIResource):
         """
         return AsyncQbdResourceWithStreamingResponse(self)
 
+    async def health_check(
+        self,
+        *,
+        conductor_end_user_id: str,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> QbdHealthCheckResponse:
+        """
+        Checks whether the specified QuickBooks Desktop connection is active and can
+        process requests end-to-end. This is useful for showing a "connection status"
+        indicator in your app. As with any request to QuickBooks Desktop, the health
+        check may fail if QuickBooks Desktop is not running, the wrong company file is
+        open, or if a modal dialog is open. Timeout is 60 seconds.
+
+        Args:
+          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
+              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return await self._get(
+            "/quickbooks-desktop/health-check",
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=QbdHealthCheckResponse,
+        )
+
 
 class QbdResourceWithRawResponse:
     def __init__(self, qbd: QbdResource) -> None:
         self._qbd = qbd
+
+        self.health_check = to_raw_response_wrapper(
+            qbd.health_check,
+        )
 
     @cached_property
     def accounts(self) -> AccountsResourceWithRawResponse:
@@ -779,6 +872,10 @@ class AsyncQbdResourceWithRawResponse:
     def __init__(self, qbd: AsyncQbdResource) -> None:
         self._qbd = qbd
 
+        self.health_check = async_to_raw_response_wrapper(
+            qbd.health_check,
+        )
+
     @cached_property
     def accounts(self) -> AsyncAccountsResourceWithRawResponse:
         return AsyncAccountsResourceWithRawResponse(self._qbd.accounts)
@@ -928,6 +1025,10 @@ class QbdResourceWithStreamingResponse:
     def __init__(self, qbd: QbdResource) -> None:
         self._qbd = qbd
 
+        self.health_check = to_streamed_response_wrapper(
+            qbd.health_check,
+        )
+
     @cached_property
     def accounts(self) -> AccountsResourceWithStreamingResponse:
         return AccountsResourceWithStreamingResponse(self._qbd.accounts)
@@ -1076,6 +1177,10 @@ class QbdResourceWithStreamingResponse:
 class AsyncQbdResourceWithStreamingResponse:
     def __init__(self, qbd: AsyncQbdResource) -> None:
         self._qbd = qbd
+
+        self.health_check = async_to_streamed_response_wrapper(
+            qbd.health_check,
+        )
 
     @cached_property
     def accounts(self) -> AsyncAccountsResourceWithStreamingResponse:

@@ -20,7 +20,6 @@ from conductor.types import (
     EndUserListResponse,
     EndUserDeleteResponse,
     EndUserPassthroughResponse,
-    EndUserPingResponse,
 )
 ```
 
@@ -31,9 +30,18 @@ Methods:
 - <code title="get /end-users">client.end_users.<a href="./src/conductor/resources/end_users.py">list</a>() -> <a href="./src/conductor/types/end_user_list_response.py">EndUserListResponse</a></code>
 - <code title="delete /end-users/{id}">client.end_users.<a href="./src/conductor/resources/end_users.py">delete</a>(id) -> <a href="./src/conductor/types/end_user_delete_response.py">EndUserDeleteResponse</a></code>
 - <code title="post /end-users/{id}/passthrough/{integrationSlug}">client.end_users.<a href="./src/conductor/resources/end_users.py">passthrough</a>(integration_slug, \*, id, \*\*<a href="src/conductor/types/end_user_passthrough_params.py">params</a>) -> <a href="./src/conductor/types/end_user_passthrough_response.py">EndUserPassthroughResponse</a></code>
-- <code title="get /end-users/{id}/ping/{integrationSlug}">client.end_users.<a href="./src/conductor/resources/end_users.py">ping</a>(integration_slug, \*, id) -> <a href="./src/conductor/types/end_user_ping_response.py">EndUserPingResponse</a></code>
 
 # Qbd
+
+Types:
+
+```python
+from conductor.types import QbdHealthCheckResponse
+```
+
+Methods:
+
+- <code title="get /quickbooks-desktop/health-check">client.qbd.<a href="./src/conductor/resources/qbd/qbd.py">health_check</a>() -> <a href="./src/conductor/types/qbd_health_check_response.py">QbdHealthCheckResponse</a></code>
 
 ## Accounts
 
