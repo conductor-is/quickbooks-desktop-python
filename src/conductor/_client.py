@@ -79,7 +79,7 @@ class Conductor(SyncAPIClient):
         # part of our public interface in the future.
         _strict_response_validation: bool = False,
     ) -> None:
-        """Construct a new synchronous conductor client instance.
+        """Construct a new synchronous Conductor client instance.
 
         This automatically infers the `api_key` argument from the `CONDUCTOR_SECRET_KEY` environment variable if it is not provided.
         """
@@ -251,7 +251,7 @@ class AsyncConductor(AsyncAPIClient):
         # part of our public interface in the future.
         _strict_response_validation: bool = False,
     ) -> None:
-        """Construct a new async conductor client instance.
+        """Construct a new async AsyncConductor client instance.
 
         This automatically infers the `api_key` argument from the `CONDUCTOR_SECRET_KEY` environment variable if it is not provided.
         """
