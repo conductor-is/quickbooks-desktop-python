@@ -116,14 +116,14 @@ class JournalEntryListParams(TypedDict, total=False):
 
     transaction_date_from: Annotated[Union[str, date], PropertyInfo(alias="transactionDateFrom", format="iso8601")]
     """
-    Filter for journal entries created on or after this date, in ISO 8601 format
-    (YYYY-MM-DD).
+    Filter for journal entries whose `date` field is on or after this date, in ISO
+    8601 format (YYYY-MM-DD).
     """
 
     transaction_date_to: Annotated[Union[str, date], PropertyInfo(alias="transactionDateTo", format="iso8601")]
     """
-    Filter for journal entries created on or before this date, in ISO 8601 format
-    (YYYY-MM-DD).
+    Filter for journal entries whose `date` field is on or before this date, in ISO
+    8601 format (YYYY-MM-DD).
     """
 
     updated_after: Annotated[str, PropertyInfo(alias="updatedAfter")]
