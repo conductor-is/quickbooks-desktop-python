@@ -72,7 +72,7 @@ class EmployeeUpdateParams(TypedDict, total=False):
     billing_rate_id: Annotated[str, PropertyInfo(alias="billingRateId")]
     """
     The employee's billing rate, used to override service item rates in time
-    tracking transactions.
+    tracking activities.
     """
 
     birth_date: Annotated[Union[str, date], PropertyInfo(alias="birthDate", format="iso8601")]

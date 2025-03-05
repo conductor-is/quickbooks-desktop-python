@@ -433,7 +433,7 @@ class Vendor(BaseModel):
     billing_rate: Optional[BillingRate] = FieldInfo(alias="billingRate", default=None)
     """
     The vendor's billing rate, used to override service item rates in time tracking
-    transactions.
+    activities.
     """
 
     cc_email: Optional[str] = FieldInfo(alias="ccEmail", default=None)

@@ -139,7 +139,7 @@ class VendorsResource(SyncAPIResource):
           billing_address: The vendor's billing address.
 
           billing_rate_id: The vendor's billing rate, used to override service item rates in time tracking
-              transactions.
+              activities.
 
           cc_email: An email address to carbon copy (CC) on communications with this vendor.
 
@@ -451,7 +451,7 @@ class VendorsResource(SyncAPIResource):
           billing_address: The vendor's billing address.
 
           billing_rate_id: The vendor's billing rate, used to override service item rates in time tracking
-              transactions.
+              activities.
 
           cc_email: An email address to carbon copy (CC) on communications with this vendor.
 
@@ -906,7 +906,7 @@ class AsyncVendorsResource(AsyncAPIResource):
           billing_address: The vendor's billing address.
 
           billing_rate_id: The vendor's billing rate, used to override service item rates in time tracking
-              transactions.
+              activities.
 
           cc_email: An email address to carbon copy (CC) on communications with this vendor.
 
@@ -1218,7 +1218,7 @@ class AsyncVendorsResource(AsyncAPIResource):
           billing_address: The vendor's billing address.
 
           billing_rate_id: The vendor's billing rate, used to override service item rates in time tracking
-              transactions.
+              activities.
 
           cc_email: An email address to carbon copy (CC) on communications with this vendor.
 
