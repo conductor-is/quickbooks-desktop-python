@@ -68,16 +68,16 @@ class TransactionListParams(TypedDict, total=False):
     Filter for specific transactions by their QuickBooks-assigned unique
     identifier(s).
 
-    **NOTE**: You cannot supply the ID of a time tracking activity to this request.
-    If you do, you get an error stating that no such record could be found, even
-    though the transaction is in QuickBooks. This limitation is enforced by
-    QuickBooks.
-
     **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
     query parameters for this request.
 
     **NOTE**: If any of the values you specify in this parameter are not found, the
     request will return an error.
+
+    **NOTE**: You cannot supply the ID of a time tracking activity to this request.
+    If you do, you get an error stating that no such record could be found, even
+    though the transaction is in QuickBooks. This limitation is enforced by
+    QuickBooks.
     """
 
     item_ids: Annotated[List[str], PropertyInfo(alias="itemIds")]
