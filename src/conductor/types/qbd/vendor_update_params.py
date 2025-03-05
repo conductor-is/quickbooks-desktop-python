@@ -61,7 +61,7 @@ class VendorUpdateParams(TypedDict, total=False):
     billing_rate_id: Annotated[str, PropertyInfo(alias="billingRateId")]
     """
     The vendor's billing rate, used to override service item rates in time tracking
-    transactions.
+    activities.
     """
 
     cc_email: Annotated[str, PropertyInfo(alias="ccEmail")]

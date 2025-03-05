@@ -554,6 +554,19 @@ Methods:
 - <code title="get /quickbooks-desktop/time-tracking-activities">client.qbd.time_tracking_activities.<a href="./src/conductor/resources/qbd/time_tracking_activities.py">list</a>(\*\*<a href="src/conductor/types/qbd/time_tracking_activity_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/time_tracking_activity.py">SyncCursorPage[TimeTrackingActivity]</a></code>
 - <code title="delete /quickbooks-desktop/time-tracking-activities/{id}">client.qbd.time_tracking_activities.<a href="./src/conductor/resources/qbd/time_tracking_activities.py">delete</a>(id) -> <a href="./src/conductor/types/qbd/time_tracking_activity_delete_response.py">TimeTrackingActivityDeleteResponse</a></code>
 
+## Transactions
+
+Types:
+
+```python
+from conductor.types.qbd import Transaction
+```
+
+Methods:
+
+- <code title="get /quickbooks-desktop/transactions/{id}">client.qbd.transactions.<a href="./src/conductor/resources/qbd/transactions.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/transaction.py">Transaction</a></code>
+- <code title="get /quickbooks-desktop/transactions">client.qbd.transactions.<a href="./src/conductor/resources/qbd/transactions.py">list</a>(\*\*<a href="src/conductor/types/qbd/transaction_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/transaction.py">SyncCursorPage[Transaction]</a></code>
+
 ## Transfers
 
 Types:
