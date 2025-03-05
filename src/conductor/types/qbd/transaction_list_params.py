@@ -213,7 +213,8 @@ class TransactionListParams(TypedDict, total=False):
 
     You can specify one or more transaction types.
 
-    **NOTE**: Filtering for time tracking activities is not supported.
+    **NOTE**: Filtering for time tracking activities is not supported by QuickBooks
+    for this endpoint.
     """
 
     updated_after: Annotated[str, PropertyInfo(alias="updatedAfter")]
