@@ -112,6 +112,18 @@ class Transaction(BaseModel):
     transaction_date: date = FieldInfo(alias="transactionDate")
     """The date of this transaction, in ISO 8601 format (YYYY-MM-DD)."""
 
+    transaction_id: Optional[str] = FieldInfo(alias="transactionId", default=None)
+    """
+    The QuickBooks-assigned unique identifier of this transaction (if this is a
+    transaction line object, this field will be `null`).
+    """
+
+    transaction_line_id: Optional[str] = FieldInfo(alias="transactionLineId", default=None)
+    """
+    The QuickBooks-assigned unique identifier of this transaction line (if this is a
+    transaction object, this field will be `null`).
+    """
+
     transaction_type: Literal[
         "ar_refund_credit_card",
         "bill",
@@ -141,23 +153,11 @@ class Transaction(BaseModel):
         "vendor_credit",
         "ytd_adjustment",
     ] = FieldInfo(alias="transactionType")
-    """The type of transaction for this transaction."""
+    """The type of transaction."""
 
     updated_at: str = FieldInfo(alias="updatedAt")
     """
     The date and time when this transaction was last updated, in ISO 8601 format
     (YYYY-MM-DDThh:mm:ss±hh:mm). The time zone is the same as the user's time zone
     in QuickBooks.
-    """
-
-    transaction_id: Optional[str] = FieldInfo(alias="transactionId", default=None)
-    """
-    The QuickBooks-assigned unique identifier of this transaction (if this is a
-    transaction line object, this field will be `null`).
-    """
-
-    transaction_line_id: Optional[str] = FieldInfo(alias="transactionLineId", default=None)
-    """
-    The QuickBooks-assigned unique identifier of this transaction line (if this is a
-    transaction object, this field will be `null`).
     """
