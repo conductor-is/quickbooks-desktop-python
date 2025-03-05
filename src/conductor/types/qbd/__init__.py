@@ -14,6 +14,7 @@ from .estimate import Estimate as Estimate
 from .transfer import Transfer as Transfer
 from .credit_memo import CreditMemo as CreditMemo
 from .sales_order import SalesOrder as SalesOrder
+from .transaction import Transaction as Transaction
 from .service_item import ServiceItem as ServiceItem
 from .discount_item import DiscountItem as DiscountItem
 from .journal_entry import JournalEntry as JournalEntry
@@ -74,6 +75,7 @@ from .credit_memo_list_params import CreditMemoListParams as CreditMemoListParam
 from .inventory_assembly_item import InventoryAssemblyItem as InventoryAssemblyItem
 from .invoice_delete_response import InvoiceDeleteResponse as InvoiceDeleteResponse
 from .sales_order_list_params import SalesOrderListParams as SalesOrderListParams
+from .transaction_list_params import TransactionListParams as TransactionListParams
 from .bill_credit_card_payment import BillCreditCardPayment as BillCreditCardPayment
 from .estimate_delete_response import EstimateDeleteResponse as EstimateDeleteResponse
 from .service_item_list_params import ServiceItemListParams as ServiceItemListParams

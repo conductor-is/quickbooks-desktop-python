@@ -136,7 +136,7 @@ class EmployeesResource(SyncAPIResource):
           alternate_phone: The employee's alternate telephone number.
 
           billing_rate_id: The employee's billing rate, used to override service item rates in time
-              tracking transactions.
+              tracking activities.
 
           birth_date: This employee's date of birth, in ISO 8601 format (YYYY-MM-DD).
 
@@ -446,7 +446,7 @@ class EmployeesResource(SyncAPIResource):
           alternate_phone: The employee's alternate telephone number.
 
           billing_rate_id: The employee's billing rate, used to override service item rates in time
-              tracking transactions.
+              tracking activities.
 
           birth_date: This employee's date of birth, in ISO 8601 format (YYYY-MM-DD).
 
@@ -845,7 +845,7 @@ class AsyncEmployeesResource(AsyncAPIResource):
           alternate_phone: The employee's alternate telephone number.
 
           billing_rate_id: The employee's billing rate, used to override service item rates in time
-              tracking transactions.
+              tracking activities.
 
           birth_date: This employee's date of birth, in ISO 8601 format (YYYY-MM-DD).
 
@@ -1155,7 +1155,7 @@ class AsyncEmployeesResource(AsyncAPIResource):
           alternate_phone: The employee's alternate telephone number.
 
           billing_rate_id: The employee's billing rate, used to override service item rates in time
-              tracking transactions.
+              tracking activities.
 
           birth_date: This employee's date of birth, in ISO 8601 format (YYYY-MM-DD).
 

@@ -465,7 +465,7 @@ class Employee(BaseModel):
     billing_rate: Optional[BillingRate] = FieldInfo(alias="billingRate", default=None)
     """
     The employee's billing rate, used to override service item rates in time
-    tracking transactions.
+    tracking activities.
     """
 
     birth_date: Optional[datetime.date] = FieldInfo(alias="birthDate", default=None)
