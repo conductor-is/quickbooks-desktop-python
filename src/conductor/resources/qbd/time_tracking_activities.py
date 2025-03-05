@@ -380,11 +380,11 @@ class TimeTrackingActivitiesResource(SyncAPIResource):
               value that can be passed to subsequent requests to retrieve the next page of
               results.
 
-          transaction_date_from: Filter for time tracking activities created on or after this date, in ISO 8601
-              format (YYYY-MM-DD).
+          transaction_date_from: Filter for time tracking activities whose `date` field is on or after this date,
+              in ISO 8601 format (YYYY-MM-DD).
 
-          transaction_date_to: Filter for time tracking activities created on or before this date, in ISO 8601
-              format (YYYY-MM-DD).
+          transaction_date_to: Filter for time tracking activities whose `date` field is on or before this
+              date, in ISO 8601 format (YYYY-MM-DD).
 
           updated_after: Filter for time tracking activities updated on or after this date and time, in
               ISO 8601 format (YYYY-MM-DDTHH:mm:ss). If you only provide a date (YYYY-MM-DD),
@@ -819,11 +819,11 @@ class AsyncTimeTrackingActivitiesResource(AsyncAPIResource):
               value that can be passed to subsequent requests to retrieve the next page of
               results.
 
-          transaction_date_from: Filter for time tracking activities created on or after this date, in ISO 8601
-              format (YYYY-MM-DD).
+          transaction_date_from: Filter for time tracking activities whose `date` field is on or after this date,
+              in ISO 8601 format (YYYY-MM-DD).
 
-          transaction_date_to: Filter for time tracking activities created on or before this date, in ISO 8601
-              format (YYYY-MM-DD).
+          transaction_date_to: Filter for time tracking activities whose `date` field is on or before this
+              date, in ISO 8601 format (YYYY-MM-DD).
 
           updated_after: Filter for time tracking activities updated on or after this date and time, in
               ISO 8601 format (YYYY-MM-DDTHH:mm:ss). If you only provide a date (YYYY-MM-DD),
