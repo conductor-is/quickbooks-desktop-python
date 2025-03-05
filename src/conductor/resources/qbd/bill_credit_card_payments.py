@@ -295,11 +295,11 @@ class BillCreditCardPaymentsResource(SyncAPIResource):
               Uses a numerical comparison for values that contain only digits; otherwise, uses
               a lexicographical comparison.
 
-          transaction_date_from: Filter for bill credit card payments created on or after this date, in ISO 8601
-              format (YYYY-MM-DD).
+          transaction_date_from: Filter for bill credit card payments whose `date` field is on or after this
+              date, in ISO 8601 format (YYYY-MM-DD).
 
-          transaction_date_to: Filter for bill credit card payments created on or before this date, in ISO 8601
-              format (YYYY-MM-DD).
+          transaction_date_to: Filter for bill credit card payments whose `date` field is on or before this
+              date, in ISO 8601 format (YYYY-MM-DD).
 
           updated_after: Filter for bill credit card payments updated on or after this date and time, in
               ISO 8601 format (YYYY-MM-DDTHH:mm:ss). If you only provide a date (YYYY-MM-DD),
@@ -666,11 +666,11 @@ class AsyncBillCreditCardPaymentsResource(AsyncAPIResource):
               Uses a numerical comparison for values that contain only digits; otherwise, uses
               a lexicographical comparison.
 
-          transaction_date_from: Filter for bill credit card payments created on or after this date, in ISO 8601
-              format (YYYY-MM-DD).
+          transaction_date_from: Filter for bill credit card payments whose `date` field is on or after this
+              date, in ISO 8601 format (YYYY-MM-DD).
 
-          transaction_date_to: Filter for bill credit card payments created on or before this date, in ISO 8601
-              format (YYYY-MM-DD).
+          transaction_date_to: Filter for bill credit card payments whose `date` field is on or before this
+              date, in ISO 8601 format (YYYY-MM-DD).
 
           updated_after: Filter for bill credit card payments updated on or after this date and time, in
               ISO 8601 format (YYYY-MM-DDTHH:mm:ss). If you only provide a date (YYYY-MM-DD),

@@ -279,11 +279,11 @@ class TransfersResource(SyncAPIResource):
               value that can be passed to subsequent requests to retrieve the next page of
               results.
 
-          transaction_date_from: Filter for transfers created on or after this date, in ISO 8601 format
-              (YYYY-MM-DD).
+          transaction_date_from: Filter for transfers whose `date` field is on or after this date, in ISO 8601
+              format (YYYY-MM-DD).
 
-          transaction_date_to: Filter for transfers created on or before this date, in ISO 8601 format
-              (YYYY-MM-DD).
+          transaction_date_to: Filter for transfers whose `date` field is on or before this date, in ISO 8601
+              format (YYYY-MM-DD).
 
           updated_after: Filter for transfers updated on or after this date and time, in ISO 8601 format
               (YYYY-MM-DDTHH:mm:ss). If you only provide a date (YYYY-MM-DD), the time is
@@ -578,11 +578,11 @@ class AsyncTransfersResource(AsyncAPIResource):
               value that can be passed to subsequent requests to retrieve the next page of
               results.
 
-          transaction_date_from: Filter for transfers created on or after this date, in ISO 8601 format
-              (YYYY-MM-DD).
+          transaction_date_from: Filter for transfers whose `date` field is on or after this date, in ISO 8601
+              format (YYYY-MM-DD).
 
-          transaction_date_to: Filter for transfers created on or before this date, in ISO 8601 format
-              (YYYY-MM-DD).
+          transaction_date_to: Filter for transfers whose `date` field is on or before this date, in ISO 8601
+              format (YYYY-MM-DD).
 
           updated_after: Filter for transfers updated on or after this date and time, in ISO 8601 format
               (YYYY-MM-DDTHH:mm:ss). If you only provide a date (YYYY-MM-DD), the time is

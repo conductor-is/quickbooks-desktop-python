@@ -628,11 +628,11 @@ class CreditMemosResource(SyncAPIResource):
               numerical comparison for values that contain only digits; otherwise, uses a
               lexicographical comparison.
 
-          transaction_date_from: Filter for credit memos created on or after this date, in ISO 8601 format
-              (YYYY-MM-DD).
+          transaction_date_from: Filter for credit memos whose `date` field is on or after this date, in ISO 8601
+              format (YYYY-MM-DD).
 
-          transaction_date_to: Filter for credit memos created on or before this date, in ISO 8601 format
-              (YYYY-MM-DD).
+          transaction_date_to: Filter for credit memos whose `date` field is on or before this date, in ISO
+              8601 format (YYYY-MM-DD).
 
           updated_after: Filter for credit memos updated on or after this date and time, in ISO 8601
               format (YYYY-MM-DDTHH:mm:ss). If you only provide a date (YYYY-MM-DD), the time
@@ -1328,11 +1328,11 @@ class AsyncCreditMemosResource(AsyncAPIResource):
               numerical comparison for values that contain only digits; otherwise, uses a
               lexicographical comparison.
 
-          transaction_date_from: Filter for credit memos created on or after this date, in ISO 8601 format
-              (YYYY-MM-DD).
+          transaction_date_from: Filter for credit memos whose `date` field is on or after this date, in ISO 8601
+              format (YYYY-MM-DD).
 
-          transaction_date_to: Filter for credit memos created on or before this date, in ISO 8601 format
-              (YYYY-MM-DD).
+          transaction_date_to: Filter for credit memos whose `date` field is on or before this date, in ISO
+              8601 format (YYYY-MM-DD).
 
           updated_after: Filter for credit memos updated on or after this date and time, in ISO 8601
               format (YYYY-MM-DDTHH:mm:ss). If you only provide a date (YYYY-MM-DD), the time
