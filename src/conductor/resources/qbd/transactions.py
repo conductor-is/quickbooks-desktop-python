@@ -151,7 +151,7 @@ class TransactionsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> SyncCursorPage[Transaction]:
-        """Search across all transaction types.
+        """Searches across all transaction types.
 
         Unlike transaction-specific queries, this
         endpoint only returns fields common to all transaction types, such as ID, type,
@@ -451,7 +451,7 @@ class AsyncTransactionsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> AsyncPaginator[Transaction, AsyncCursorPage[Transaction]]:
-        """Search across all transaction types.
+        """Searches across all transaction types.
 
         Unlike transaction-specific queries, this
         endpoint only returns fields common to all transaction types, such as ID, type,
