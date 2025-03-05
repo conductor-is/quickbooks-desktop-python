@@ -1,5 +1,30 @@
 # Changelog
 
+## 1.20.0 (2025-03-05)
+
+Full Changelog: [v1.19.0...v1.20.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.19.0...v1.20.0)
+
+### Features
+
+* **api:** api update ([#612](https://github.com/conductor-is/quickbooks-desktop-python/issues/612)) ([61ff441](https://github.com/conductor-is/quickbooks-desktop-python/commit/61ff441284518d0d27ec2f5ea815f3c8a1a6ce2f))
+* **api:** api update ([#613](https://github.com/conductor-is/quickbooks-desktop-python/issues/613)) ([182c4a2](https://github.com/conductor-is/quickbooks-desktop-python/commit/182c4a20e56deedcf7386211ba4a4b89d4bbbb87))
+* **api:** api update ([#614](https://github.com/conductor-is/quickbooks-desktop-python/issues/614)) ([af7ef39](https://github.com/conductor-is/quickbooks-desktop-python/commit/af7ef3917206411ad9b635e9b81dd75e5020073a))
+* **api:** api update ([#615](https://github.com/conductor-is/quickbooks-desktop-python/issues/615)) ([babbb51](https://github.com/conductor-is/quickbooks-desktop-python/commit/babbb51b96603044e583e263f525baf6894265ee))
+* **api:** api update ([#616](https://github.com/conductor-is/quickbooks-desktop-python/issues/616)) ([c8e212b](https://github.com/conductor-is/quickbooks-desktop-python/commit/c8e212bb69a78f7bf82d29a88a81ba99bee30f47))
+* **api:** api update ([#617](https://github.com/conductor-is/quickbooks-desktop-python/issues/617)) ([e23af32](https://github.com/conductor-is/quickbooks-desktop-python/commit/e23af32667a5e304c90c78f1424a51aeecfe05ac))
+* **api:** api update ([#618](https://github.com/conductor-is/quickbooks-desktop-python/issues/618)) ([87ef281](https://github.com/conductor-is/quickbooks-desktop-python/commit/87ef28134d06da323b1f75488202ac6d98539788))
+
+
+### Chores
+
+* **docs:** update client docstring ([#609](https://github.com/conductor-is/quickbooks-desktop-python/issues/609)) ([e4b587b](https://github.com/conductor-is/quickbooks-desktop-python/commit/e4b587bfb96745094fd1b38f68343e6ed53367b0))
+* **internal:** remove unused http client options forwarding ([#611](https://github.com/conductor-is/quickbooks-desktop-python/issues/611)) ([66fe818](https://github.com/conductor-is/quickbooks-desktop-python/commit/66fe8185276b32555ef21e379665cafee0bb9545))
+
+
+### Documentation
+
+* update URLs from stainlessapi.com to stainless.com ([#608](https://github.com/conductor-is/quickbooks-desktop-python/issues/608)) ([9f76b5e](https://github.com/conductor-is/quickbooks-desktop-python/commit/9f76b5e77b212ca34bd3d6a97dd26c39c4fa9c39))
+
 ## 1.19.0 (2025-02-27)
 
 Full Changelog: [v1.18.1...v1.19.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.18.1...v1.19.0)
