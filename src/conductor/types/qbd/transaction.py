@@ -115,13 +115,15 @@ class Transaction(BaseModel):
     transaction_id: Optional[str] = FieldInfo(alias="transactionId", default=None)
     """The QuickBooks-assigned unique identifier of this transaction.
 
-    **NOTE:** If this is a transaction line object, this field will be `null`.
+    **NOTE:** If `null`, this is a transaction line object and `transactionLineId`
+    will be defined instead.
     """
 
     transaction_line_id: Optional[str] = FieldInfo(alias="transactionLineId", default=None)
     """The QuickBooks-assigned unique identifier of this transaction line.
 
-    **NOTE:** If this is a transaction object, this field will be `null`.
+    **NOTE:** If `null`, this is a transaction object and `transactionId` will be
+    defined instead.
     """
 
     transaction_type: Literal[
