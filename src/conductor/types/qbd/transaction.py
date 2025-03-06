@@ -112,18 +112,17 @@ class Transaction(BaseModel):
     transaction_date: date = FieldInfo(alias="transactionDate")
     """The date of this transaction, in ISO 8601 format (YYYY-MM-DD)."""
 
-    transaction_id: Optional[str] = FieldInfo(alias="transactionId", default=None)
+    transaction_id: str = FieldInfo(alias="transactionId")
     """The QuickBooks-assigned unique identifier of this transaction.
 
-    **NOTE:** If `null`, this is a transaction line object and `transactionLineId`
-    will be defined instead.
+    If `transactionLineId` is also defined, this is the identifier of the line's
+    parent transaction object.
     """
 
     transaction_line_id: Optional[str] = FieldInfo(alias="transactionLineId", default=None)
     """The QuickBooks-assigned unique identifier of this transaction line.
 
-    **NOTE:** If `null`, this is a transaction object and `transactionId` will be
-    defined instead.
+    If `null`, this result is a transaction object.
     """
 
     transaction_type: Literal[
