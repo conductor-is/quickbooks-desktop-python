@@ -63,7 +63,7 @@ class Transaction(BaseModel):
     account: Optional[Account] = None
     """The account associated with this transaction."""
 
-    amount: Optional[str] = None
+    amount: str
     """The monetary amount of this transaction, represented as a decimal string."""
 
     amount_in_home_currency: Optional[str] = FieldInfo(alias="amountInHomeCurrency", default=None)
