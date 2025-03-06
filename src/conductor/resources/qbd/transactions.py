@@ -157,9 +157,8 @@ class TransactionsResource(SyncAPIResource):
         endpoint only returns fields common to all transaction types, such as ID, type,
         dates, account, and reference numbers. For more details specific to that
         transaction type, make a subsequent call to the relevant transaction-specific
-        endpoint (such as invoices, bills, etc.)
-
-        NOTE: This endpoint does not support time tracking activities.
+        endpoint (such as invoices, bills, etc.). NOTE: This endpoint does not support
+        time tracking activities.
 
         Args:
           conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
@@ -458,9 +457,8 @@ class AsyncTransactionsResource(AsyncAPIResource):
         endpoint only returns fields common to all transaction types, such as ID, type,
         dates, account, and reference numbers. For more details specific to that
         transaction type, make a subsequent call to the relevant transaction-specific
-        endpoint (such as invoices, bills, etc.)
-
-        NOTE: This endpoint does not support time tracking activities.
+        endpoint (such as invoices, bills, etc.). NOTE: This endpoint does not support
+        time tracking activities.
 
         Args:
           conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
