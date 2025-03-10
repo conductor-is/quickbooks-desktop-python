@@ -202,8 +202,9 @@ class TransactionsResource(SyncAPIResource):
               request will return an error.
 
               **NOTE**: You cannot supply the ID of a time tracking activity to this request.
-              If you do, QuickBooks will return an error stating that no such record could be
-              found, even though the transaction exists.
+              If you do, you get an error stating that no such record could be found, even
+              though the transaction is in QuickBooks. This limitation is enforced by
+              QuickBooks.
 
           item_ids: Filter for transactions associated with these items.
 
@@ -501,8 +502,9 @@ class AsyncTransactionsResource(AsyncAPIResource):
               request will return an error.
 
               **NOTE**: You cannot supply the ID of a time tracking activity to this request.
-              If you do, QuickBooks will return an error stating that no such record could be
-              found, even though the transaction exists.
+              If you do, you get an error stating that no such record could be found, even
+              though the transaction is in QuickBooks. This limitation is enforced by
+              QuickBooks.
 
           item_ids: Filter for transactions associated with these items.
 
