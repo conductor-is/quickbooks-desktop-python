@@ -146,6 +146,37 @@ for invoice in first_page.data:
 # Remove `await` for non-async usage.
 ```
 
+from conductor.\_utils import parse_date
+
+## Nested params
+
+Nested parameters are dictionaries, typed using `TypedDict`, for example:
+
+```python
+from conductor import Conductor
+
+client = Conductor()
+
+bill = client.qbd.bills.create(
+    transaction_date=parse_date("2021-10-01"),
+    vendor_id="80000001-1234567890",
+    conductor_end_user_id="end_usr_1234567abcdefg",
+    vendor_address={
+        "city": "San Francisco",
+        "country": "United States",
+        "line1": "Conductor Labs Inc.",
+        "line2": "540 Market St.",
+        "line3": "Suite 100",
+        "line4": "",
+        "line5": "",
+        "note": "Conductor HQ",
+        "postal_code": "94110",
+        "state": "CA",
+    },
+)
+print(bill.vendor_address)
+```
+
 ## Handling errors
 
 When the library is unable to connect to the API (for example, due to network connection problems or a timeout), a subclass of `conductor.APIConnectionError` is raised.
