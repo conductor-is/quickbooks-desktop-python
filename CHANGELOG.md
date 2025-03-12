@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.23.0 (2025-03-12)
+
+Full Changelog: [v1.22.0...v1.23.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.22.0...v1.23.0)
+
+### Features
+
+* **api:** api update ([#628](https://github.com/conductor-is/quickbooks-desktop-python/issues/628)) ([9af9db8](https://github.com/conductor-is/quickbooks-desktop-python/commit/9af9db844d225e10d178e1ac91d24e464178fe2e))
+* **api:** api update ([#630](https://github.com/conductor-is/quickbooks-desktop-python/issues/630)) ([0a67aec](https://github.com/conductor-is/quickbooks-desktop-python/commit/0a67aec3f90358f6b43671e9340f000fc8164419))
+* **api:** api update ([#633](https://github.com/conductor-is/quickbooks-desktop-python/issues/633)) ([43d3b1b](https://github.com/conductor-is/quickbooks-desktop-python/commit/43d3b1b7697ed6e9d6beb0e99274ff99134ff9aa))
+
+
+### Documentation
+
+* revise readme docs about nested params ([#631](https://github.com/conductor-is/quickbooks-desktop-python/issues/631)) ([4401218](https://github.com/conductor-is/quickbooks-desktop-python/commit/4401218fef26cc4a07ac753b4e037ae7d59f85d7))
+
 ## 1.22.0 (2025-03-06)
 
 Full Changelog: [v1.21.0...v1.22.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.21.0...v1.22.0)
