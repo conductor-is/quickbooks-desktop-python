@@ -567,7 +567,7 @@ class ReceivePayment(BaseModel):
     latest data; otherwise, the update will return an error.
     """
 
-    total_amount: str = FieldInfo(alias="totalAmount")
+    total_amount: Optional[str] = FieldInfo(alias="totalAmount", default=None)
     """
     The total monetary amount of this receive-payment, represented as a decimal
     string.
