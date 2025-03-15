@@ -516,8 +516,19 @@ class EmployeePayroll(TypedDict, total=False):
     default.
     """
 
+    delete_all_earnings: Annotated[bool, PropertyInfo(alias="deleteAllEarnings")]
+    """When `true`, deletes all earnings records for this employee."""
+
     earnings: Iterable[EmployeePayrollEarning]
-    """The employee's earnings."""
+    """The employee's earnings.
+
+    **IMPORTANT**: When updating employees, if you include any earnings records in
+    your update request, QuickBooks will delete all existing earnings records for
+    this employee and replace them with the new records you provide. If you do not
+    include any earnings records, the existing earnings records will remain
+    unchanged. To delete all earnings records without adding new ones, set the
+    `deleteAllEarnings` field to `true`.
+    """
 
     pay_period: Annotated[
         Literal["biweekly", "daily", "monthly", "quarterly", "semimonthly", "weekly", "yearly"],
