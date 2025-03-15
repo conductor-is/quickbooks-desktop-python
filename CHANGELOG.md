@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.24.0 (2025-03-15)
+
+Full Changelog: [v1.23.0...v1.24.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.23.0...v1.24.0)
+
+### Features
+
+* **api:** api update ([#637](https://github.com/conductor-is/quickbooks-desktop-python/issues/637)) ([e397035](https://github.com/conductor-is/quickbooks-desktop-python/commit/e3970358873e70a1398f31e6c6518e2505146fa0))
+* **api:** api update ([#638](https://github.com/conductor-is/quickbooks-desktop-python/issues/638)) ([b2ba46e](https://github.com/conductor-is/quickbooks-desktop-python/commit/b2ba46e93a6a1d96e7f599879ee9e6cf198842d2))
+
+
+### Chores
+
+* **internal:** remove extra empty newlines ([#635](https://github.com/conductor-is/quickbooks-desktop-python/issues/635)) ([68f9162](https://github.com/conductor-is/quickbooks-desktop-python/commit/68f9162514b12315325d0c0e860ca2ffac1b3053))
+
 ## 1.23.0 (2025-03-12)
 
 Full Changelog: [v1.22.0...v1.23.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.22.0...v1.23.0)
