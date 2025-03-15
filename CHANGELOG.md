@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.24.1 (2025-03-15)
+
+Full Changelog: [v1.24.0...v1.24.1](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.24.0...v1.24.1)
+
+### Bug Fixes
+
+* **types:** handle more discriminated union shapes ([#642](https://github.com/conductor-is/quickbooks-desktop-python/issues/642)) ([35cf4fd](https://github.com/conductor-is/quickbooks-desktop-python/commit/35cf4fd4e328944c48011f6111349d8df8efdce5))
+
+
+### Chores
+
+* **internal:** bump rye to 0.44.0 ([#640](https://github.com/conductor-is/quickbooks-desktop-python/issues/640)) ([d5b4822](https://github.com/conductor-is/quickbooks-desktop-python/commit/d5b4822633f715b4320896c6ed3482d74dbfdd7e))
+
 ## 1.24.0 (2025-03-15)
 
 Full Changelog: [v1.23.0...v1.24.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.23.0...v1.24.0)
