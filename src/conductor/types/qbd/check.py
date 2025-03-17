@@ -1206,7 +1206,7 @@ class Check(BaseModel):
     address: Optional[Address] = None
     """The address that is printed on the check."""
 
-    amount: Optional[str] = None
+    amount: str
     """The total monetary amount of this check, represented as a decimal string.
 
     This equals the sum of the amounts in the check's expense lines, item lines, and
