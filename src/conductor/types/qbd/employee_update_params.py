@@ -245,7 +245,7 @@ class AdditionalNote(TypedDict, total=False):
     id: Required[float]
     """The ID of the note to update."""
 
-    note: str
+    note: Required[str]
     """The text of this note."""
 
 
