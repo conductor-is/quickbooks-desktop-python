@@ -1,5 +1,25 @@
 # Changelog
 
+## 1.25.0 (2025-03-17)
+
+Full Changelog: [v1.24.0...v1.25.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.24.0...v1.25.0)
+
+### Features
+
+* **api:** api update ([#645](https://github.com/conductor-is/quickbooks-desktop-python/issues/645)) ([f916bdc](https://github.com/conductor-is/quickbooks-desktop-python/commit/f916bdcec756d0d58899292769a141818698516d))
+
+
+### Bug Fixes
+
+* **ci:** ensure pip is always available ([#643](https://github.com/conductor-is/quickbooks-desktop-python/issues/643)) ([52c3fae](https://github.com/conductor-is/quickbooks-desktop-python/commit/52c3fae17b7865ef56aecfa759de4d9a2c3e931c))
+* **ci:** remove publishing patch ([#644](https://github.com/conductor-is/quickbooks-desktop-python/issues/644)) ([4399c6b](https://github.com/conductor-is/quickbooks-desktop-python/commit/4399c6b15f6e4c71caac506627ca39b6d2748a7c))
+* **types:** handle more discriminated union shapes ([#642](https://github.com/conductor-is/quickbooks-desktop-python/issues/642)) ([35cf4fd](https://github.com/conductor-is/quickbooks-desktop-python/commit/35cf4fd4e328944c48011f6111349d8df8efdce5))
+
+
+### Chores
+
+* **internal:** bump rye to 0.44.0 ([#640](https://github.com/conductor-is/quickbooks-desktop-python/issues/640)) ([d5b4822](https://github.com/conductor-is/quickbooks-desktop-python/commit/d5b4822633f715b4320896c6ed3482d74dbfdd7e))
+
 ## 1.24.0 (2025-03-15)
 
 Full Changelog: [v1.23.0...v1.24.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.23.0...v1.24.0)
