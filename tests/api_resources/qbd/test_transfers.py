@@ -25,7 +25,7 @@ class TestTransfers:
             amount="1000.00",
             source_account_id="80000001-1234567890",
             target_account_id="80000001-1234567890",
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(Transfer, transfer, path=["response"])
@@ -36,7 +36,7 @@ class TestTransfers:
             amount="1000.00",
             source_account_id="80000001-1234567890",
             target_account_id="80000001-1234567890",
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
             class_id="80000001-1234567890",
             memo="Monthly transfer to savings",
@@ -49,7 +49,7 @@ class TestTransfers:
             amount="1000.00",
             source_account_id="80000001-1234567890",
             target_account_id="80000001-1234567890",
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -64,7 +64,7 @@ class TestTransfers:
             amount="1000.00",
             source_account_id="80000001-1234567890",
             target_account_id="80000001-1234567890",
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -137,7 +137,7 @@ class TestTransfers:
             memo="Monthly transfer to savings",
             source_account_id="80000001-1234567890",
             target_account_id="80000001-1234567890",
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
         )
         assert_matches_type(Transfer, transfer, path=["response"])
 
@@ -233,7 +233,7 @@ class TestAsyncTransfers:
             amount="1000.00",
             source_account_id="80000001-1234567890",
             target_account_id="80000001-1234567890",
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(Transfer, transfer, path=["response"])
@@ -244,7 +244,7 @@ class TestAsyncTransfers:
             amount="1000.00",
             source_account_id="80000001-1234567890",
             target_account_id="80000001-1234567890",
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
             class_id="80000001-1234567890",
             memo="Monthly transfer to savings",
@@ -257,7 +257,7 @@ class TestAsyncTransfers:
             amount="1000.00",
             source_account_id="80000001-1234567890",
             target_account_id="80000001-1234567890",
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -272,7 +272,7 @@ class TestAsyncTransfers:
             amount="1000.00",
             source_account_id="80000001-1234567890",
             target_account_id="80000001-1234567890",
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -345,7 +345,7 @@ class TestAsyncTransfers:
             memo="Monthly transfer to savings",
             source_account_id="80000001-1234567890",
             target_account_id="80000001-1234567890",
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
         )
         assert_matches_type(Transfer, transfer, path=["response"])
 

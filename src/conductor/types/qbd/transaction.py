@@ -1,6 +1,7 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 from typing import Optional
+from datetime import date
 from typing_extensions import Literal
 
 from pydantic import Field as FieldInfo
@@ -108,7 +109,7 @@ class Transaction(BaseModel):
     be unique and can be arbitrarily changed by the QuickBooks user.
     """
 
-    transaction_date: str = FieldInfo(alias="transactionDate")
+    transaction_date: date = FieldInfo(alias="transactionDate")
     """The date of this transaction, in ISO 8601 format (YYYY-MM-DD)."""
 
     transaction_id: str = FieldInfo(alias="transactionId")

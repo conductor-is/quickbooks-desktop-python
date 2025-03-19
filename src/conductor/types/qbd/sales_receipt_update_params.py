@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 
-from typing import Iterable
+from typing import Union, Iterable
+from datetime import date
 from typing_extensions import Literal, Required, Annotated, TypedDict
 
 from ..._utils import PropertyInfo
@@ -61,7 +62,7 @@ class SalesReceiptUpdateParams(TypedDict, total=False):
     for this sales receipt when printed or displayed.
     """
 
-    due_date: Annotated[str, PropertyInfo(alias="dueDate")]
+    due_date: Annotated[Union[str, date], PropertyInfo(alias="dueDate", format="iso8601")]
     """
     The date by which this sales receipt must be paid, in ISO 8601 format
     (YYYY-MM-DD).
@@ -204,7 +205,7 @@ class SalesReceiptUpdateParams(TypedDict, total=False):
     shipping_address: Annotated[ShippingAddress, PropertyInfo(alias="shippingAddress")]
     """The sales receipt's shipping address."""
 
-    shipping_date: Annotated[str, PropertyInfo(alias="shippingDate")]
+    shipping_date: Annotated[Union[str, date], PropertyInfo(alias="shippingDate", format="iso8601")]
     """
     The date when the products or services for this sales receipt were shipped or
     are expected to be shipped, in ISO 8601 format (YYYY-MM-DD).
@@ -216,7 +217,7 @@ class SalesReceiptUpdateParams(TypedDict, total=False):
     overnight delivery.
     """
 
-    transaction_date: Annotated[str, PropertyInfo(alias="transactionDate")]
+    transaction_date: Annotated[Union[str, date], PropertyInfo(alias="transactionDate", format="iso8601")]
     """The date of this sales receipt, in ISO 8601 format (YYYY-MM-DD)."""
 
 
@@ -434,7 +435,7 @@ class LineGroupLine(TypedDict, total=False):
     This is used for tracking individual units of serialized inventory items.
     """
 
-    service_date: Annotated[str, PropertyInfo(alias="serviceDate")]
+    service_date: Annotated[Union[str, date], PropertyInfo(alias="serviceDate", format="iso8601")]
     """
     The date on which the service for this sales receipt line was or will be
     performed, in ISO 8601 format (YYYY-MM-DD). This is particularly relevant for
@@ -663,7 +664,7 @@ class Line(TypedDict, total=False):
     This is used for tracking individual units of serialized inventory items.
     """
 
-    service_date: Annotated[str, PropertyInfo(alias="serviceDate")]
+    service_date: Annotated[Union[str, date], PropertyInfo(alias="serviceDate", format="iso8601")]
     """
     The date on which the service for this sales receipt line was or will be
     performed, in ISO 8601 format (YYYY-MM-DD). This is particularly relevant for

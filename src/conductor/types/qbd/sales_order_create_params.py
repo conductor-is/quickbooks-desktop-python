@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 
-from typing import Iterable
+from typing import Union, Iterable
+from datetime import date
 from typing_extensions import Literal, Required, Annotated, TypedDict
 
 from ..._utils import PropertyInfo
@@ -22,7 +23,7 @@ class SalesOrderCreateParams(TypedDict, total=False):
     customer_id: Required[Annotated[str, PropertyInfo(alias="customerId")]]
     """The customer or customer-job associated with this sales order."""
 
-    transaction_date: Required[Annotated[str, PropertyInfo(alias="transactionDate")]]
+    transaction_date: Required[Annotated[Union[str, date], PropertyInfo(alias="transactionDate", format="iso8601")]]
     """The date of this sales order, in ISO 8601 format (YYYY-MM-DD)."""
 
     conductor_end_user_id: Required[Annotated[str, PropertyInfo(alias="Conductor-End-User-Id")]]
@@ -52,7 +53,7 @@ class SalesOrderCreateParams(TypedDict, total=False):
     for this sales order when printed or displayed.
     """
 
-    due_date: Annotated[str, PropertyInfo(alias="dueDate")]
+    due_date: Annotated[Union[str, date], PropertyInfo(alias="dueDate", format="iso8601")]
     """
     The date by which this sales order must be paid, in ISO 8601 format
     (YYYY-MM-DD).
@@ -187,7 +188,7 @@ class SalesOrderCreateParams(TypedDict, total=False):
     shipping_address: Annotated[ShippingAddress, PropertyInfo(alias="shippingAddress")]
     """The sales order's shipping address."""
 
-    shipping_date: Annotated[str, PropertyInfo(alias="shippingDate")]
+    shipping_date: Annotated[Union[str, date], PropertyInfo(alias="shippingDate", format="iso8601")]
     """
     The date when the products or services for this sales order were shipped or are
     expected to be shipped, in ISO 8601 format (YYYY-MM-DD).

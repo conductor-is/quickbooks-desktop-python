@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 
-from typing import Iterable
+from typing import Union, Iterable
+from datetime import date
 from typing_extensions import Required, Annotated, TypedDict
 
 from ..._utils import PropertyInfo
@@ -77,7 +78,7 @@ class InventoryAssemblyItemCreateParams(TypedDict, total=False):
     QuickBooks will return an error.
     """
 
-    inventory_date: Annotated[str, PropertyInfo(alias="inventoryDate")]
+    inventory_date: Annotated[Union[str, date], PropertyInfo(alias="inventoryDate", format="iso8601")]
     """
     The date when this inventory assembly item was converted into an inventory item
     from some other type of item, in ISO 8601 format (YYYY-MM-DD).

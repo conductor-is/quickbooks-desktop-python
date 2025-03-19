@@ -22,7 +22,7 @@ class TestBills:
     @parametrize
     def test_method_create(self, client: Conductor) -> None:
         bill = client.qbd.bills.create(
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
             vendor_id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
@@ -31,10 +31,10 @@ class TestBills:
     @parametrize
     def test_method_create_with_all_params(self, client: Conductor) -> None:
         bill = client.qbd.bills.create(
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
             vendor_id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
-            due_date="2021-10-31",
+            due_date=parse_date("2021-10-31"),
             exchange_rate=1.2345,
             expense_lines=[
                 {
@@ -87,7 +87,7 @@ class TestBills:
                         }
                     ],
                     "description": "High-quality widget with custom engraving",
-                    "expiration_date": "2025-12-31",
+                    "expiration_date": parse_date("2025-12-31"),
                     "inventory_site_id": "80000001-1234567890",
                     "inventory_site_location_id": "80000001-1234567890",
                     "item_id": "80000001-1234567890",
@@ -128,7 +128,7 @@ class TestBills:
     @parametrize
     def test_raw_response_create(self, client: Conductor) -> None:
         response = client.qbd.bills.with_raw_response.create(
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
             vendor_id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
@@ -141,7 +141,7 @@ class TestBills:
     @parametrize
     def test_streaming_response_create(self, client: Conductor) -> None:
         with client.qbd.bills.with_streaming_response.create(
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
             vendor_id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
@@ -212,7 +212,7 @@ class TestBills:
             conductor_end_user_id="end_usr_1234567abcdefg",
             clear_expense_lines=False,
             clear_item_lines=False,
-            due_date="2021-10-31",
+            due_date=parse_date("2021-10-31"),
             exchange_rate=1.2345,
             expense_lines=[
                 {
@@ -240,7 +240,7 @@ class TestBills:
                             "cost": "1000.00",
                             "customer_id": "80000001-1234567890",
                             "description": "High-quality widget with custom engraving",
-                            "expiration_date": "2025-12-31",
+                            "expiration_date": parse_date("2025-12-31"),
                             "inventory_site_id": "80000001-1234567890",
                             "inventory_site_location_id": "80000001-1234567890",
                             "item_id": "80000001-1234567890",
@@ -268,7 +268,7 @@ class TestBills:
                     "cost": "1000.00",
                     "customer_id": "80000001-1234567890",
                     "description": "High-quality widget with custom engraving",
-                    "expiration_date": "2025-12-31",
+                    "expiration_date": parse_date("2025-12-31"),
                     "inventory_site_id": "80000001-1234567890",
                     "inventory_site_location_id": "80000001-1234567890",
                     "item_id": "80000001-1234567890",
@@ -287,7 +287,7 @@ class TestBills:
             ref_number="BILL-1234",
             sales_tax_code_id="80000001-1234567890",
             terms_id="80000001-1234567890",
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
             vendor_address={
                 "city": "San Francisco",
                 "country": "United States",
@@ -447,7 +447,7 @@ class TestAsyncBills:
     @parametrize
     async def test_method_create(self, async_client: AsyncConductor) -> None:
         bill = await async_client.qbd.bills.create(
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
             vendor_id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
@@ -456,10 +456,10 @@ class TestAsyncBills:
     @parametrize
     async def test_method_create_with_all_params(self, async_client: AsyncConductor) -> None:
         bill = await async_client.qbd.bills.create(
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
             vendor_id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
-            due_date="2021-10-31",
+            due_date=parse_date("2021-10-31"),
             exchange_rate=1.2345,
             expense_lines=[
                 {
@@ -512,7 +512,7 @@ class TestAsyncBills:
                         }
                     ],
                     "description": "High-quality widget with custom engraving",
-                    "expiration_date": "2025-12-31",
+                    "expiration_date": parse_date("2025-12-31"),
                     "inventory_site_id": "80000001-1234567890",
                     "inventory_site_location_id": "80000001-1234567890",
                     "item_id": "80000001-1234567890",
@@ -553,7 +553,7 @@ class TestAsyncBills:
     @parametrize
     async def test_raw_response_create(self, async_client: AsyncConductor) -> None:
         response = await async_client.qbd.bills.with_raw_response.create(
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
             vendor_id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
@@ -566,7 +566,7 @@ class TestAsyncBills:
     @parametrize
     async def test_streaming_response_create(self, async_client: AsyncConductor) -> None:
         async with async_client.qbd.bills.with_streaming_response.create(
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
             vendor_id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
@@ -637,7 +637,7 @@ class TestAsyncBills:
             conductor_end_user_id="end_usr_1234567abcdefg",
             clear_expense_lines=False,
             clear_item_lines=False,
-            due_date="2021-10-31",
+            due_date=parse_date("2021-10-31"),
             exchange_rate=1.2345,
             expense_lines=[
                 {
@@ -665,7 +665,7 @@ class TestAsyncBills:
                             "cost": "1000.00",
                             "customer_id": "80000001-1234567890",
                             "description": "High-quality widget with custom engraving",
-                            "expiration_date": "2025-12-31",
+                            "expiration_date": parse_date("2025-12-31"),
                             "inventory_site_id": "80000001-1234567890",
                             "inventory_site_location_id": "80000001-1234567890",
                             "item_id": "80000001-1234567890",
@@ -693,7 +693,7 @@ class TestAsyncBills:
                     "cost": "1000.00",
                     "customer_id": "80000001-1234567890",
                     "description": "High-quality widget with custom engraving",
-                    "expiration_date": "2025-12-31",
+                    "expiration_date": parse_date("2025-12-31"),
                     "inventory_site_id": "80000001-1234567890",
                     "inventory_site_location_id": "80000001-1234567890",
                     "item_id": "80000001-1234567890",
@@ -712,7 +712,7 @@ class TestAsyncBills:
             ref_number="BILL-1234",
             sales_tax_code_id="80000001-1234567890",
             terms_id="80000001-1234567890",
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
             vendor_address={
                 "city": "San Francisco",
                 "country": "United States",

@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 
-from typing import Iterable
+from typing import Union, Iterable
+from datetime import date
 from typing_extensions import Required, Annotated, TypedDict
 
 from ..._utils import PropertyInfo
@@ -32,7 +33,7 @@ class BillCheckPaymentCreateParams(TypedDict, total=False):
     balance of this account.
     """
 
-    transaction_date: Required[Annotated[str, PropertyInfo(alias="transactionDate")]]
+    transaction_date: Required[Annotated[Union[str, date], PropertyInfo(alias="transactionDate", format="iso8601")]]
     """The date of this bill check payment, in ISO 8601 format (YYYY-MM-DD)."""
 
     vendor_id: Required[Annotated[str, PropertyInfo(alias="vendorId")]]

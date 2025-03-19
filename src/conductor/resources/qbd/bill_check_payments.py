@@ -58,7 +58,7 @@ class BillCheckPaymentsResource(SyncAPIResource):
         *,
         apply_to_transactions: Iterable[bill_check_payment_create_params.ApplyToTransaction],
         bank_account_id: str,
-        transaction_date: str,
+        transaction_date: Union[str, date],
         vendor_id: str,
         conductor_end_user_id: str,
         exchange_rate: float | NotGiven = NOT_GIVEN,
@@ -221,7 +221,7 @@ class BillCheckPaymentsResource(SyncAPIResource):
         is_queued_for_print: bool | NotGiven = NOT_GIVEN,
         memo: str | NotGiven = NOT_GIVEN,
         ref_number: str | NotGiven = NOT_GIVEN,
-        transaction_date: str | NotGiven = NOT_GIVEN,
+        transaction_date: Union[str, date] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -535,7 +535,7 @@ class AsyncBillCheckPaymentsResource(AsyncAPIResource):
         *,
         apply_to_transactions: Iterable[bill_check_payment_create_params.ApplyToTransaction],
         bank_account_id: str,
-        transaction_date: str,
+        transaction_date: Union[str, date],
         vendor_id: str,
         conductor_end_user_id: str,
         exchange_rate: float | NotGiven = NOT_GIVEN,
@@ -698,7 +698,7 @@ class AsyncBillCheckPaymentsResource(AsyncAPIResource):
         is_queued_for_print: bool | NotGiven = NOT_GIVEN,
         memo: str | NotGiven = NOT_GIVEN,
         ref_number: str | NotGiven = NOT_GIVEN,
-        transaction_date: str | NotGiven = NOT_GIVEN,
+        transaction_date: Union[str, date] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,

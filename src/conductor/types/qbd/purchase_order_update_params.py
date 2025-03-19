@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 
-from typing import Iterable
+from typing import Union, Iterable
+from datetime import date
 from typing_extensions import Required, Annotated, TypedDict
 
 from ..._utils import PropertyInfo
@@ -40,7 +41,7 @@ class PurchaseOrderUpdateParams(TypedDict, total=False):
     for this purchase order when printed or displayed.
     """
 
-    due_date: Annotated[str, PropertyInfo(alias="dueDate")]
+    due_date: Annotated[Union[str, date], PropertyInfo(alias="dueDate", format="iso8601")]
     """
     The date by which this purchase order must be paid, in ISO 8601 format
     (YYYY-MM-DD).
@@ -53,7 +54,7 @@ class PurchaseOrderUpdateParams(TypedDict, total=False):
     value (e.g., 1.2345 for 1 EUR = 1.2345 USD if USD is the home currency).
     """
 
-    expected_date: Annotated[str, PropertyInfo(alias="expectedDate")]
+    expected_date: Annotated[Union[str, date], PropertyInfo(alias="expectedDate", format="iso8601")]
     """
     The date on which shipment of this purchase order is expected to be completed,
     in ISO 8601 format (YYYY-MM-DD).
@@ -197,7 +198,7 @@ class PurchaseOrderUpdateParams(TypedDict, total=False):
     applicable discounts.
     """
 
-    transaction_date: Annotated[str, PropertyInfo(alias="transactionDate")]
+    transaction_date: Annotated[Union[str, date], PropertyInfo(alias="transactionDate", format="iso8601")]
     """The date of this purchase order, in ISO 8601 format (YYYY-MM-DD)."""
 
     vendor_address: Annotated[VendorAddress, PropertyInfo(alias="vendorAddress")]
@@ -339,7 +340,7 @@ class LineGroupLine(TypedDict, total=False):
     non-taxable code to all sales.
     """
 
-    service_date: Annotated[str, PropertyInfo(alias="serviceDate")]
+    service_date: Annotated[Union[str, date], PropertyInfo(alias="serviceDate", format="iso8601")]
     """
     The date on which the service for this purchase order line was or will be
     performed, in ISO 8601 format (YYYY-MM-DD). This is particularly relevant for
@@ -550,7 +551,7 @@ class Line(TypedDict, total=False):
     non-taxable code to all sales.
     """
 
-    service_date: Annotated[str, PropertyInfo(alias="serviceDate")]
+    service_date: Annotated[Union[str, date], PropertyInfo(alias="serviceDate", format="iso8601")]
     """
     The date on which the service for this purchase order line was or will be
     performed, in ISO 8601 format (YYYY-MM-DD). This is particularly relevant for

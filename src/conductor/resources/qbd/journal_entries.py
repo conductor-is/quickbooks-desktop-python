@@ -52,7 +52,7 @@ class JournalEntriesResource(SyncAPIResource):
     def create(
         self,
         *,
-        transaction_date: str,
+        transaction_date: Union[str, date],
         conductor_end_user_id: str,
         are_amounts_entered_in_home_currency: bool | NotGiven = NOT_GIVEN,
         credit_lines: Iterable[journal_entry_create_params.CreditLine] | NotGiven = NOT_GIVEN,
@@ -199,7 +199,7 @@ class JournalEntriesResource(SyncAPIResource):
         is_adjustment: bool | NotGiven = NOT_GIVEN,
         lines: Iterable[journal_entry_update_params.Line] | NotGiven = NOT_GIVEN,
         ref_number: str | NotGiven = NOT_GIVEN,
-        transaction_date: str | NotGiven = NOT_GIVEN,
+        transaction_date: Union[str, date] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -506,7 +506,7 @@ class AsyncJournalEntriesResource(AsyncAPIResource):
     async def create(
         self,
         *,
-        transaction_date: str,
+        transaction_date: Union[str, date],
         conductor_end_user_id: str,
         are_amounts_entered_in_home_currency: bool | NotGiven = NOT_GIVEN,
         credit_lines: Iterable[journal_entry_create_params.CreditLine] | NotGiven = NOT_GIVEN,
@@ -653,7 +653,7 @@ class AsyncJournalEntriesResource(AsyncAPIResource):
         is_adjustment: bool | NotGiven = NOT_GIVEN,
         lines: Iterable[journal_entry_update_params.Line] | NotGiven = NOT_GIVEN,
         ref_number: str | NotGiven = NOT_GIVEN,
-        transaction_date: str | NotGiven = NOT_GIVEN,
+        transaction_date: Union[str, date] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
