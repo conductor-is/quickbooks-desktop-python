@@ -2,8 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Union, Iterable
-from datetime import date
+from typing import Iterable
 from typing_extensions import Required, Annotated, TypedDict
 
 from ..._utils import PropertyInfo
@@ -20,7 +19,7 @@ __all__ = [
 
 
 class PurchaseOrderCreateParams(TypedDict, total=False):
-    transaction_date: Required[Annotated[Union[str, date], PropertyInfo(alias="transactionDate", format="iso8601")]]
+    transaction_date: Required[Annotated[str, PropertyInfo(alias="transactionDate")]]
     """The date of this purchase order, in ISO 8601 format (YYYY-MM-DD)."""
 
     conductor_end_user_id: Required[Annotated[str, PropertyInfo(alias="Conductor-End-User-Id")]]
@@ -44,7 +43,7 @@ class PurchaseOrderCreateParams(TypedDict, total=False):
     for this purchase order when printed or displayed.
     """
 
-    due_date: Annotated[Union[str, date], PropertyInfo(alias="dueDate", format="iso8601")]
+    due_date: Annotated[str, PropertyInfo(alias="dueDate")]
     """
     The date by which this purchase order must be paid, in ISO 8601 format
     (YYYY-MM-DD).
@@ -57,7 +56,7 @@ class PurchaseOrderCreateParams(TypedDict, total=False):
     value (e.g., 1.2345 for 1 EUR = 1.2345 USD if USD is the home currency).
     """
 
-    expected_date: Annotated[Union[str, date], PropertyInfo(alias="expectedDate", format="iso8601")]
+    expected_date: Annotated[str, PropertyInfo(alias="expectedDate")]
     """
     The date on which shipment of this purchase order is expected to be completed,
     in ISO 8601 format (YYYY-MM-DD).
@@ -387,7 +386,7 @@ class Line(TypedDict, total=False):
     non-taxable code to all sales.
     """
 
-    service_date: Annotated[Union[str, date], PropertyInfo(alias="serviceDate", format="iso8601")]
+    service_date: Annotated[str, PropertyInfo(alias="serviceDate")]
     """
     The date on which the service for this purchase order line was or will be
     performed, in ISO 8601 format (YYYY-MM-DD). This is particularly relevant for

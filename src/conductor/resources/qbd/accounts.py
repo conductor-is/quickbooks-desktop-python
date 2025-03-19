@@ -2,8 +2,7 @@
 
 from __future__ import annotations
 
-from typing import List, Union
-from datetime import date
+from typing import List
 from typing_extensions import Literal
 
 import httpx
@@ -78,7 +77,7 @@ class AccountsResource(SyncAPIResource):
         description: str | NotGiven = NOT_GIVEN,
         is_active: bool | NotGiven = NOT_GIVEN,
         opening_balance: str | NotGiven = NOT_GIVEN,
-        opening_balance_date: Union[str, date] | NotGiven = NOT_GIVEN,
+        opening_balance_date: str | NotGiven = NOT_GIVEN,
         parent_id: str | NotGiven = NOT_GIVEN,
         sales_tax_code_id: str | NotGiven = NOT_GIVEN,
         tax_line_id: float | NotGiven = NOT_GIVEN,
@@ -257,7 +256,7 @@ class AccountsResource(SyncAPIResource):
         is_active: bool | NotGiven = NOT_GIVEN,
         name: str | NotGiven = NOT_GIVEN,
         opening_balance: str | NotGiven = NOT_GIVEN,
-        opening_balance_date: Union[str, date] | NotGiven = NOT_GIVEN,
+        opening_balance_date: str | NotGiven = NOT_GIVEN,
         parent_id: str | NotGiven = NOT_GIVEN,
         sales_tax_code_id: str | NotGiven = NOT_GIVEN,
         tax_line_id: float | NotGiven = NOT_GIVEN,
@@ -577,7 +576,7 @@ class AsyncAccountsResource(AsyncAPIResource):
         description: str | NotGiven = NOT_GIVEN,
         is_active: bool | NotGiven = NOT_GIVEN,
         opening_balance: str | NotGiven = NOT_GIVEN,
-        opening_balance_date: Union[str, date] | NotGiven = NOT_GIVEN,
+        opening_balance_date: str | NotGiven = NOT_GIVEN,
         parent_id: str | NotGiven = NOT_GIVEN,
         sales_tax_code_id: str | NotGiven = NOT_GIVEN,
         tax_line_id: float | NotGiven = NOT_GIVEN,
@@ -756,7 +755,7 @@ class AsyncAccountsResource(AsyncAPIResource):
         is_active: bool | NotGiven = NOT_GIVEN,
         name: str | NotGiven = NOT_GIVEN,
         opening_balance: str | NotGiven = NOT_GIVEN,
-        opening_balance_date: Union[str, date] | NotGiven = NOT_GIVEN,
+        opening_balance_date: str | NotGiven = NOT_GIVEN,
         parent_id: str | NotGiven = NOT_GIVEN,
         sales_tax_code_id: str | NotGiven = NOT_GIVEN,
         tax_line_id: float | NotGiven = NOT_GIVEN,

@@ -9,7 +9,6 @@ import pytest
 
 from conductor import Conductor, AsyncConductor
 from tests.utils import assert_matches_type
-from conductor._utils import parse_date
 from conductor.types.qbd import Vendor
 from conductor.pagination import SyncCursorPage, AsyncCursorPage
 
@@ -93,7 +92,7 @@ class TestVendors:
             name_on_check="Acme Supplies Ltd.",
             note="Preferred vendor for office supplies.",
             opening_balance="1000.00",
-            opening_balance_date=parse_date("2023-01-01"),
+            opening_balance_date="2023-01-01",
             phone="+1-555-123-4567",
             purchase_tax_account_id="80000001-1234567890",
             reporting_period="monthly",
@@ -470,7 +469,7 @@ class TestAsyncVendors:
             name_on_check="Acme Supplies Ltd.",
             note="Preferred vendor for office supplies.",
             opening_balance="1000.00",
-            opening_balance_date=parse_date("2023-01-01"),
+            opening_balance_date="2023-01-01",
             phone="+1-555-123-4567",
             purchase_tax_account_id="80000001-1234567890",
             reporting_period="monthly",

@@ -57,7 +57,7 @@ class CreditCardCreditsResource(SyncAPIResource):
         self,
         *,
         account_id: str,
-        transaction_date: Union[str, date],
+        transaction_date: str,
         conductor_end_user_id: str,
         exchange_rate: float | NotGiven = NOT_GIVEN,
         expense_lines: Iterable[credit_card_credit_create_params.ExpenseLine] | NotGiven = NOT_GIVEN,
@@ -217,7 +217,7 @@ class CreditCardCreditsResource(SyncAPIResource):
         payee_id: str | NotGiven = NOT_GIVEN,
         ref_number: str | NotGiven = NOT_GIVEN,
         sales_tax_code_id: str | NotGiven = NOT_GIVEN,
-        transaction_date: Union[str, date] | NotGiven = NOT_GIVEN,
+        transaction_date: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -582,7 +582,7 @@ class AsyncCreditCardCreditsResource(AsyncAPIResource):
         self,
         *,
         account_id: str,
-        transaction_date: Union[str, date],
+        transaction_date: str,
         conductor_end_user_id: str,
         exchange_rate: float | NotGiven = NOT_GIVEN,
         expense_lines: Iterable[credit_card_credit_create_params.ExpenseLine] | NotGiven = NOT_GIVEN,
@@ -742,7 +742,7 @@ class AsyncCreditCardCreditsResource(AsyncAPIResource):
         payee_id: str | NotGiven = NOT_GIVEN,
         ref_number: str | NotGiven = NOT_GIVEN,
         sales_tax_code_id: str | NotGiven = NOT_GIVEN,
-        transaction_date: Union[str, date] | NotGiven = NOT_GIVEN,
+        transaction_date: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
