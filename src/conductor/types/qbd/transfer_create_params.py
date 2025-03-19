@@ -2,8 +2,6 @@
 
 from __future__ import annotations
 
-from typing import Union
-from datetime import date
 from typing_extensions import Required, Annotated, TypedDict
 
 from ..._utils import PropertyInfo
@@ -21,7 +19,7 @@ class TransferCreateParams(TypedDict, total=False):
     target_account_id: Required[Annotated[str, PropertyInfo(alias="targetAccountId")]]
     """The account to which money will be transferred."""
 
-    transaction_date: Required[Annotated[Union[str, date], PropertyInfo(alias="transactionDate", format="iso8601")]]
+    transaction_date: Required[Annotated[str, PropertyInfo(alias="transactionDate")]]
     """The date of this transfer, in ISO 8601 format (YYYY-MM-DD)."""
 
     conductor_end_user_id: Required[Annotated[str, PropertyInfo(alias="Conductor-End-User-Id")]]

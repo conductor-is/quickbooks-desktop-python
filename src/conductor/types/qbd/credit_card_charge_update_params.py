@@ -2,8 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Union, Iterable
-from datetime import date
+from typing import Iterable
 from typing_extensions import Literal, Required, Annotated, TypedDict
 
 from ..._utils import PropertyInfo
@@ -137,7 +136,7 @@ class CreditCardChargeUpdateParams(TypedDict, total=False):
     non-taxable code to all sales.
     """
 
-    transaction_date: Annotated[Union[str, date], PropertyInfo(alias="transactionDate", format="iso8601")]
+    transaction_date: Annotated[str, PropertyInfo(alias="transactionDate")]
     """The date of this credit card charge, in ISO 8601 format (YYYY-MM-DD)."""
 
 
@@ -251,7 +250,7 @@ class ItemLineGroupItemLine(TypedDict, total=False):
     description: str
     """A description of this item line."""
 
-    expiration_date: Annotated[Union[str, date], PropertyInfo(alias="expirationDate", format="iso8601")]
+    expiration_date: Annotated[str, PropertyInfo(alias="expirationDate")]
     """
     The expiration date for the serial number or lot number of the item associated
     with this item line, in ISO 8601 format (YYYY-MM-DD). This is particularly
@@ -448,7 +447,7 @@ class ItemLine(TypedDict, total=False):
     description: str
     """A description of this item line."""
 
-    expiration_date: Annotated[Union[str, date], PropertyInfo(alias="expirationDate", format="iso8601")]
+    expiration_date: Annotated[str, PropertyInfo(alias="expirationDate")]
     """
     The expiration date for the serial number or lot number of the item associated
     with this item line, in ISO 8601 format (YYYY-MM-DD). This is particularly

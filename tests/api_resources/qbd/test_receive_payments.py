@@ -27,7 +27,7 @@ class TestReceivePayments:
         receive_payment = client.qbd.receive_payments.create(
             customer_id="80000001-1234567890",
             total_amount="1000.00",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(ReceivePayment, receive_payment, path=["response"])
@@ -37,7 +37,7 @@ class TestReceivePayments:
         receive_payment = client.qbd.receive_payments.create(
             customer_id="80000001-1234567890",
             total_amount="1000.00",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
             conductor_end_user_id="end_usr_1234567abcdefg",
             apply_to_transactions=[
                 {
@@ -100,7 +100,7 @@ class TestReceivePayments:
         response = client.qbd.receive_payments.with_raw_response.create(
             customer_id="80000001-1234567890",
             total_amount="1000.00",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -114,7 +114,7 @@ class TestReceivePayments:
         with client.qbd.receive_payments.with_streaming_response.create(
             customer_id="80000001-1234567890",
             total_amount="1000.00",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -235,7 +235,7 @@ class TestReceivePayments:
             receivables_account_id="80000001-1234567890",
             ref_number="PAYMENT-1234",
             total_amount="1000.00",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
         )
         assert_matches_type(ReceivePayment, receive_payment, path=["response"])
 
@@ -382,7 +382,7 @@ class TestAsyncReceivePayments:
         receive_payment = await async_client.qbd.receive_payments.create(
             customer_id="80000001-1234567890",
             total_amount="1000.00",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(ReceivePayment, receive_payment, path=["response"])
@@ -392,7 +392,7 @@ class TestAsyncReceivePayments:
         receive_payment = await async_client.qbd.receive_payments.create(
             customer_id="80000001-1234567890",
             total_amount="1000.00",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
             conductor_end_user_id="end_usr_1234567abcdefg",
             apply_to_transactions=[
                 {
@@ -455,7 +455,7 @@ class TestAsyncReceivePayments:
         response = await async_client.qbd.receive_payments.with_raw_response.create(
             customer_id="80000001-1234567890",
             total_amount="1000.00",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -469,7 +469,7 @@ class TestAsyncReceivePayments:
         async with async_client.qbd.receive_payments.with_streaming_response.create(
             customer_id="80000001-1234567890",
             total_amount="1000.00",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -590,7 +590,7 @@ class TestAsyncReceivePayments:
             receivables_account_id="80000001-1234567890",
             ref_number="PAYMENT-1234",
             total_amount="1000.00",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
         )
         assert_matches_type(ReceivePayment, receive_payment, path=["response"])
 

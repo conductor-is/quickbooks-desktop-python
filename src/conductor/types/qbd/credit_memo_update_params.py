@@ -2,8 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Union, Iterable
-from datetime import date
+from typing import Iterable
 from typing_extensions import Required, Annotated, TypedDict
 
 from ..._utils import PropertyInfo
@@ -50,7 +49,7 @@ class CreditMemoUpdateParams(TypedDict, total=False):
     for this credit memo when printed or displayed.
     """
 
-    due_date: Annotated[Union[str, date], PropertyInfo(alias="dueDate", format="iso8601")]
+    due_date: Annotated[str, PropertyInfo(alias="dueDate")]
     """
     The date by which this credit memo must be paid, in ISO 8601 format
     (YYYY-MM-DD).
@@ -195,7 +194,7 @@ class CreditMemoUpdateParams(TypedDict, total=False):
     shipping_address: Annotated[ShippingAddress, PropertyInfo(alias="shippingAddress")]
     """The credit memo's shipping address."""
 
-    shipping_date: Annotated[Union[str, date], PropertyInfo(alias="shippingDate", format="iso8601")]
+    shipping_date: Annotated[str, PropertyInfo(alias="shippingDate")]
     """
     The date when the products or services for this credit memo were shipped or are
     expected to be shipped, in ISO 8601 format (YYYY-MM-DD).
@@ -213,7 +212,7 @@ class CreditMemoUpdateParams(TypedDict, total=False):
     discounts.
     """
 
-    transaction_date: Annotated[Union[str, date], PropertyInfo(alias="transactionDate", format="iso8601")]
+    transaction_date: Annotated[str, PropertyInfo(alias="transactionDate")]
     """The date of this credit memo, in ISO 8601 format (YYYY-MM-DD)."""
 
 
@@ -421,7 +420,7 @@ class LineGroupLine(TypedDict, total=False):
     This is used for tracking individual units of serialized inventory items.
     """
 
-    service_date: Annotated[Union[str, date], PropertyInfo(alias="serviceDate", format="iso8601")]
+    service_date: Annotated[str, PropertyInfo(alias="serviceDate")]
     """
     The date on which the service for this credit memo line was or will be
     performed, in ISO 8601 format (YYYY-MM-DD). This is particularly relevant for
@@ -640,7 +639,7 @@ class Line(TypedDict, total=False):
     This is used for tracking individual units of serialized inventory items.
     """
 
-    service_date: Annotated[Union[str, date], PropertyInfo(alias="serviceDate", format="iso8601")]
+    service_date: Annotated[str, PropertyInfo(alias="serviceDate")]
     """
     The date on which the service for this credit memo line was or will be
     performed, in ISO 8601 format (YYYY-MM-DD). This is particularly relevant for

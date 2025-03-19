@@ -2,8 +2,6 @@
 
 from __future__ import annotations
 
-from typing import Union
-from datetime import date
 from typing_extensions import Literal, Required, Annotated, TypedDict
 
 from ..._utils import PropertyInfo
@@ -34,7 +32,7 @@ class TimeTrackingActivityCreateParams(TypedDict, total=False):
     tracking activity.
     """
 
-    transaction_date: Required[Annotated[Union[str, date], PropertyInfo(alias="transactionDate", format="iso8601")]]
+    transaction_date: Required[Annotated[str, PropertyInfo(alias="transactionDate")]]
     """The date of this time tracking activity, in ISO 8601 format (YYYY-MM-DD)."""
 
     conductor_end_user_id: Required[Annotated[str, PropertyInfo(alias="Conductor-End-User-Id")]]

@@ -54,7 +54,7 @@ class ReceivePaymentsResource(SyncAPIResource):
         *,
         customer_id: str,
         total_amount: str,
-        transaction_date: Union[str, date],
+        transaction_date: str,
         conductor_end_user_id: str,
         apply_to_transactions: Iterable[receive_payment_create_params.ApplyToTransaction] | NotGiven = NOT_GIVEN,
         credit_card_transaction: receive_payment_create_params.CreditCardTransaction | NotGiven = NOT_GIVEN,
@@ -249,7 +249,7 @@ class ReceivePaymentsResource(SyncAPIResource):
         receivables_account_id: str | NotGiven = NOT_GIVEN,
         ref_number: str | NotGiven = NOT_GIVEN,
         total_amount: str | NotGiven = NOT_GIVEN,
-        transaction_date: Union[str, date] | NotGiven = NOT_GIVEN,
+        transaction_date: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -583,7 +583,7 @@ class AsyncReceivePaymentsResource(AsyncAPIResource):
         *,
         customer_id: str,
         total_amount: str,
-        transaction_date: Union[str, date],
+        transaction_date: str,
         conductor_end_user_id: str,
         apply_to_transactions: Iterable[receive_payment_create_params.ApplyToTransaction] | NotGiven = NOT_GIVEN,
         credit_card_transaction: receive_payment_create_params.CreditCardTransaction | NotGiven = NOT_GIVEN,
@@ -778,7 +778,7 @@ class AsyncReceivePaymentsResource(AsyncAPIResource):
         receivables_account_id: str | NotGiven = NOT_GIVEN,
         ref_number: str | NotGiven = NOT_GIVEN,
         total_amount: str | NotGiven = NOT_GIVEN,
-        transaction_date: Union[str, date] | NotGiven = NOT_GIVEN,
+        transaction_date: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,

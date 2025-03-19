@@ -1,7 +1,6 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 from typing import List, Optional
-from datetime import date
 from typing_extensions import Literal
 
 from pydantic import Field as FieldInfo
@@ -563,7 +562,7 @@ class ItemLineGroupItemLine(BaseModel):
     description: Optional[str] = None
     """A description of this item line."""
 
-    expiration_date: Optional[date] = FieldInfo(alias="expirationDate", default=None)
+    expiration_date: Optional[str] = FieldInfo(alias="expirationDate", default=None)
     """
     The expiration date for the serial number or lot number of the item associated
     with this item line, in ISO 8601 format (YYYY-MM-DD). This is particularly
@@ -954,7 +953,7 @@ class ItemLine(BaseModel):
     description: Optional[str] = None
     """A description of this item line."""
 
-    expiration_date: Optional[date] = FieldInfo(alias="expirationDate", default=None)
+    expiration_date: Optional[str] = FieldInfo(alias="expirationDate", default=None)
     """
     The expiration date for the serial number or lot number of the item associated
     with this item line, in ISO 8601 format (YYYY-MM-DD). This is particularly
@@ -1076,7 +1075,7 @@ class LinkedTransaction(BaseModel):
     required to be unique and can be arbitrarily changed by the QuickBooks user.
     """
 
-    transaction_date: date = FieldInfo(alias="transactionDate")
+    transaction_date: str = FieldInfo(alias="transactionDate")
     """The date of this linked transaction, in ISO 8601 format (YYYY-MM-DD)."""
 
     transaction_type: Literal[
@@ -1253,7 +1252,7 @@ class Bill(BaseModel):
     not included in the standard QuickBooks object.
     """
 
-    due_date: Optional[date] = FieldInfo(alias="dueDate", default=None)
+    due_date: Optional[str] = FieldInfo(alias="dueDate", default=None)
     """The date by which this bill must be paid, in ISO 8601 format (YYYY-MM-DD)."""
 
     exchange_rate: Optional[float] = FieldInfo(alias="exchangeRate", default=None)
@@ -1363,7 +1362,7 @@ class Bill(BaseModel):
     discounts.
     """
 
-    transaction_date: date = FieldInfo(alias="transactionDate")
+    transaction_date: str = FieldInfo(alias="transactionDate")
     """The date of this bill, in ISO 8601 format (YYYY-MM-DD)."""
 
     updated_at: str = FieldInfo(alias="updatedAt")
