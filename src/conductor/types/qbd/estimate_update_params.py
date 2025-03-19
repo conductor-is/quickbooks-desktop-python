@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 
-from typing import Iterable
+from typing import Union, Iterable
+from datetime import date
 from typing_extensions import Literal, Required, Annotated, TypedDict
 
 from ..._utils import PropertyInfo
@@ -57,7 +58,7 @@ class EstimateUpdateParams(TypedDict, total=False):
     for this estimate when printed or displayed.
     """
 
-    due_date: Annotated[str, PropertyInfo(alias="dueDate")]
+    due_date: Annotated[Union[str, date], PropertyInfo(alias="dueDate", format="iso8601")]
     """The date by which this estimate must be paid, in ISO 8601 format (YYYY-MM-DD)."""
 
     exchange_rate: Annotated[float, PropertyInfo(alias="exchangeRate")]
@@ -189,7 +190,7 @@ class EstimateUpdateParams(TypedDict, total=False):
     discounts.
     """
 
-    transaction_date: Annotated[str, PropertyInfo(alias="transactionDate")]
+    transaction_date: Annotated[Union[str, date], PropertyInfo(alias="transactionDate", format="iso8601")]
     """The date of this estimate, in ISO 8601 format (YYYY-MM-DD)."""
 
 

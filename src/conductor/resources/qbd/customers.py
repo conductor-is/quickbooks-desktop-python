@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 
-from typing import List, Iterable
+from typing import List, Union, Iterable
+from datetime import date
 from typing_extensions import Literal
 
 import httpx
@@ -75,9 +76,9 @@ class CustomersResource(SyncAPIResource):
         first_name: str | NotGiven = NOT_GIVEN,
         is_active: bool | NotGiven = NOT_GIVEN,
         job_description: str | NotGiven = NOT_GIVEN,
-        job_end_date: str | NotGiven = NOT_GIVEN,
-        job_projected_end_date: str | NotGiven = NOT_GIVEN,
-        job_start_date: str | NotGiven = NOT_GIVEN,
+        job_end_date: Union[str, date] | NotGiven = NOT_GIVEN,
+        job_projected_end_date: Union[str, date] | NotGiven = NOT_GIVEN,
+        job_start_date: Union[str, date] | NotGiven = NOT_GIVEN,
         job_status: Literal["awarded", "closed", "in_progress", "none", "not_awarded", "pending"]
         | NotGiven = NOT_GIVEN,
         job_title: str | NotGiven = NOT_GIVEN,
@@ -86,7 +87,7 @@ class CustomersResource(SyncAPIResource):
         middle_name: str | NotGiven = NOT_GIVEN,
         note: str | NotGiven = NOT_GIVEN,
         opening_balance: str | NotGiven = NOT_GIVEN,
-        opening_balance_date: str | NotGiven = NOT_GIVEN,
+        opening_balance_date: Union[str, date] | NotGiven = NOT_GIVEN,
         parent_id: str | NotGiven = NOT_GIVEN,
         phone: str | NotGiven = NOT_GIVEN,
         preferred_delivery_method: Literal["email", "mail", "none"] | NotGiven = NOT_GIVEN,
@@ -412,9 +413,9 @@ class CustomersResource(SyncAPIResource):
         first_name: str | NotGiven = NOT_GIVEN,
         is_active: bool | NotGiven = NOT_GIVEN,
         job_description: str | NotGiven = NOT_GIVEN,
-        job_end_date: str | NotGiven = NOT_GIVEN,
-        job_projected_end_date: str | NotGiven = NOT_GIVEN,
-        job_start_date: str | NotGiven = NOT_GIVEN,
+        job_end_date: Union[str, date] | NotGiven = NOT_GIVEN,
+        job_projected_end_date: Union[str, date] | NotGiven = NOT_GIVEN,
+        job_start_date: Union[str, date] | NotGiven = NOT_GIVEN,
         job_status: Literal["awarded", "closed", "in_progress", "none", "not_awarded", "pending"]
         | NotGiven = NOT_GIVEN,
         job_title: str | NotGiven = NOT_GIVEN,
@@ -891,9 +892,9 @@ class AsyncCustomersResource(AsyncAPIResource):
         first_name: str | NotGiven = NOT_GIVEN,
         is_active: bool | NotGiven = NOT_GIVEN,
         job_description: str | NotGiven = NOT_GIVEN,
-        job_end_date: str | NotGiven = NOT_GIVEN,
-        job_projected_end_date: str | NotGiven = NOT_GIVEN,
-        job_start_date: str | NotGiven = NOT_GIVEN,
+        job_end_date: Union[str, date] | NotGiven = NOT_GIVEN,
+        job_projected_end_date: Union[str, date] | NotGiven = NOT_GIVEN,
+        job_start_date: Union[str, date] | NotGiven = NOT_GIVEN,
         job_status: Literal["awarded", "closed", "in_progress", "none", "not_awarded", "pending"]
         | NotGiven = NOT_GIVEN,
         job_title: str | NotGiven = NOT_GIVEN,
@@ -902,7 +903,7 @@ class AsyncCustomersResource(AsyncAPIResource):
         middle_name: str | NotGiven = NOT_GIVEN,
         note: str | NotGiven = NOT_GIVEN,
         opening_balance: str | NotGiven = NOT_GIVEN,
-        opening_balance_date: str | NotGiven = NOT_GIVEN,
+        opening_balance_date: Union[str, date] | NotGiven = NOT_GIVEN,
         parent_id: str | NotGiven = NOT_GIVEN,
         phone: str | NotGiven = NOT_GIVEN,
         preferred_delivery_method: Literal["email", "mail", "none"] | NotGiven = NOT_GIVEN,
@@ -1228,9 +1229,9 @@ class AsyncCustomersResource(AsyncAPIResource):
         first_name: str | NotGiven = NOT_GIVEN,
         is_active: bool | NotGiven = NOT_GIVEN,
         job_description: str | NotGiven = NOT_GIVEN,
-        job_end_date: str | NotGiven = NOT_GIVEN,
-        job_projected_end_date: str | NotGiven = NOT_GIVEN,
-        job_start_date: str | NotGiven = NOT_GIVEN,
+        job_end_date: Union[str, date] | NotGiven = NOT_GIVEN,
+        job_projected_end_date: Union[str, date] | NotGiven = NOT_GIVEN,
+        job_start_date: Union[str, date] | NotGiven = NOT_GIVEN,
         job_status: Literal["awarded", "closed", "in_progress", "none", "not_awarded", "pending"]
         | NotGiven = NOT_GIVEN,
         job_title: str | NotGiven = NOT_GIVEN,

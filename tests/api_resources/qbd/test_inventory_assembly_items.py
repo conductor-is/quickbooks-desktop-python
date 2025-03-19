@@ -9,6 +9,7 @@ import pytest
 
 from conductor import Conductor, AsyncConductor
 from tests.utils import assert_matches_type
+from conductor._utils import parse_date
 from conductor.types.qbd import (
     InventoryAssemblyItem,
 )
@@ -47,7 +48,7 @@ class TestInventoryAssemblyItems:
             build_notification_threshold=10,
             class_id="80000001-1234567890",
             external_id="12345678-abcd-1234-abcd-1234567890ab",
-            inventory_date="2021-01-01",
+            inventory_date=parse_date("2021-01-01"),
             is_active=True,
             lines=[
                 {
@@ -313,7 +314,7 @@ class TestAsyncInventoryAssemblyItems:
             build_notification_threshold=10,
             class_id="80000001-1234567890",
             external_id="12345678-abcd-1234-abcd-1234567890ab",
-            inventory_date="2021-01-01",
+            inventory_date=parse_date("2021-01-01"),
             is_active=True,
             lines=[
                 {

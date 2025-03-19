@@ -1,5 +1,6 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
+import datetime
 from typing import List, Optional
 from typing_extensions import Literal
 
@@ -105,7 +106,7 @@ class AdditionalNote(BaseModel):
     id: float
     """The auto-incrementing identifier assigned by QuickBooks to this note."""
 
-    date: Optional[str] = None
+    date: Optional[datetime.date] = None
     """The date this note was last updated, in ISO 8601 format (YYYY-MM-DD)."""
 
     note: str
@@ -636,19 +637,19 @@ class Customer(BaseModel):
     sub-customer).
     """
 
-    job_end_date: Optional[str] = FieldInfo(alias="jobEndDate", default=None)
+    job_end_date: Optional[datetime.date] = FieldInfo(alias="jobEndDate", default=None)
     """
     The actual completion date of this customer's job, if applicable, in ISO 8601
     format (YYYY-MM-DD).
     """
 
-    job_projected_end_date: Optional[str] = FieldInfo(alias="jobProjectedEndDate", default=None)
+    job_projected_end_date: Optional[datetime.date] = FieldInfo(alias="jobProjectedEndDate", default=None)
     """
     The projected completion date for this customer's job, if applicable, in ISO
     8601 format (YYYY-MM-DD).
     """
 
-    job_start_date: Optional[str] = FieldInfo(alias="jobStartDate", default=None)
+    job_start_date: Optional[datetime.date] = FieldInfo(alias="jobStartDate", default=None)
     """
     The date when work on this customer's job began, if applicable, in ISO 8601
     format (YYYY-MM-DD).

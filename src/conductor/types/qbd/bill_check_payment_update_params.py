@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 
-from typing import Iterable
+from typing import Union, Iterable
+from datetime import date
 from typing_extensions import Required, Annotated, TypedDict
 
 from ..._utils import PropertyInfo
@@ -76,7 +77,7 @@ class BillCheckPaymentUpdateParams(TypedDict, total=False):
     **IMPORTANT**: For checks, this field is the check number.
     """
 
-    transaction_date: Annotated[str, PropertyInfo(alias="transactionDate")]
+    transaction_date: Annotated[Union[str, date], PropertyInfo(alias="transactionDate", format="iso8601")]
     """The date of this bill check payment, in ISO 8601 format (YYYY-MM-DD)."""
 
 

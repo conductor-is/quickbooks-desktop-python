@@ -27,7 +27,7 @@ class TestTimeTrackingActivities:
         time_tracking_activity = client.qbd.time_tracking_activities.create(
             duration="PT1H30M",
             entity_id="80000001-1234567890",
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(TimeTrackingActivity, time_tracking_activity, path=["response"])
@@ -37,7 +37,7 @@ class TestTimeTrackingActivities:
         time_tracking_activity = client.qbd.time_tracking_activities.create(
             duration="PT1H30M",
             entity_id="80000001-1234567890",
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
             billing_status="billable",
             class_id="80000001-1234567890",
@@ -54,7 +54,7 @@ class TestTimeTrackingActivities:
         response = client.qbd.time_tracking_activities.with_raw_response.create(
             duration="PT1H30M",
             entity_id="80000001-1234567890",
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -68,7 +68,7 @@ class TestTimeTrackingActivities:
         with client.qbd.time_tracking_activities.with_streaming_response.create(
             duration="PT1H30M",
             entity_id="80000001-1234567890",
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -146,7 +146,7 @@ class TestTimeTrackingActivities:
             note="Project planning meeting with client.",
             payroll_wage_item_id="80000001-1234567890",
             service_item_id="80000001-1234567890",
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
         )
         assert_matches_type(TimeTrackingActivity, time_tracking_activity, path=["response"])
 
@@ -290,7 +290,7 @@ class TestAsyncTimeTrackingActivities:
         time_tracking_activity = await async_client.qbd.time_tracking_activities.create(
             duration="PT1H30M",
             entity_id="80000001-1234567890",
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(TimeTrackingActivity, time_tracking_activity, path=["response"])
@@ -300,7 +300,7 @@ class TestAsyncTimeTrackingActivities:
         time_tracking_activity = await async_client.qbd.time_tracking_activities.create(
             duration="PT1H30M",
             entity_id="80000001-1234567890",
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
             billing_status="billable",
             class_id="80000001-1234567890",
@@ -317,7 +317,7 @@ class TestAsyncTimeTrackingActivities:
         response = await async_client.qbd.time_tracking_activities.with_raw_response.create(
             duration="PT1H30M",
             entity_id="80000001-1234567890",
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -331,7 +331,7 @@ class TestAsyncTimeTrackingActivities:
         async with async_client.qbd.time_tracking_activities.with_streaming_response.create(
             duration="PT1H30M",
             entity_id="80000001-1234567890",
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -409,7 +409,7 @@ class TestAsyncTimeTrackingActivities:
             note="Project planning meeting with client.",
             payroll_wage_item_id="80000001-1234567890",
             service_item_id="80000001-1234567890",
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
         )
         assert_matches_type(TimeTrackingActivity, time_tracking_activity, path=["response"])
 

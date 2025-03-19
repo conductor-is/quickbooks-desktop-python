@@ -1,6 +1,7 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 from typing import List, Optional
+from datetime import date
 from typing_extensions import Literal
 
 from pydantic import Field as FieldInfo
@@ -471,7 +472,7 @@ class LineGroupLine(BaseModel):
     non-taxable code to all sales.
     """
 
-    service_date: Optional[str] = FieldInfo(alias="serviceDate", default=None)
+    service_date: Optional[date] = FieldInfo(alias="serviceDate", default=None)
     """
     The date on which the service for this purchase order line was or will be
     performed, in ISO 8601 format (YYYY-MM-DD). This is particularly relevant for
@@ -855,7 +856,7 @@ class Line(BaseModel):
     non-taxable code to all sales.
     """
 
-    service_date: Optional[str] = FieldInfo(alias="serviceDate", default=None)
+    service_date: Optional[date] = FieldInfo(alias="serviceDate", default=None)
     """
     The date on which the service for this purchase order line was or will be
     performed, in ISO 8601 format (YYYY-MM-DD). This is particularly relevant for
@@ -908,7 +909,7 @@ class LinkedTransaction(BaseModel):
     required to be unique and can be arbitrarily changed by the QuickBooks user.
     """
 
-    transaction_date: str = FieldInfo(alias="transactionDate")
+    transaction_date: date = FieldInfo(alias="transactionDate")
     """The date of this linked transaction, in ISO 8601 format (YYYY-MM-DD)."""
 
     transaction_type: Literal[
@@ -1141,7 +1142,7 @@ class PurchaseOrder(BaseModel):
     for this purchase order when printed or displayed.
     """
 
-    due_date: Optional[str] = FieldInfo(alias="dueDate", default=None)
+    due_date: Optional[date] = FieldInfo(alias="dueDate", default=None)
     """
     The date by which this purchase order must be paid, in ISO 8601 format
     (YYYY-MM-DD).
@@ -1154,7 +1155,7 @@ class PurchaseOrder(BaseModel):
     value (e.g., 1.2345 for 1 EUR = 1.2345 USD if USD is the home currency).
     """
 
-    expected_date: Optional[str] = FieldInfo(alias="expectedDate", default=None)
+    expected_date: Optional[date] = FieldInfo(alias="expectedDate", default=None)
     """
     The date on which shipment of this purchase order is expected to be completed,
     in ISO 8601 format (YYYY-MM-DD).
@@ -1319,7 +1320,7 @@ class PurchaseOrder(BaseModel):
     of the QuickBooks company file. Represented as a decimal string.
     """
 
-    transaction_date: str = FieldInfo(alias="transactionDate")
+    transaction_date: date = FieldInfo(alias="transactionDate")
     """The date of this purchase order, in ISO 8601 format (YYYY-MM-DD)."""
 
     updated_at: str = FieldInfo(alias="updatedAt")
