@@ -2,8 +2,7 @@
 
 from __future__ import annotations
 
-from typing import List, Union, Iterable
-from datetime import date
+from typing import List, Iterable
 from typing_extensions import Literal
 
 import httpx
@@ -85,7 +84,7 @@ class VendorsResource(SyncAPIResource):
         name_on_check: str | NotGiven = NOT_GIVEN,
         note: str | NotGiven = NOT_GIVEN,
         opening_balance: str | NotGiven = NOT_GIVEN,
-        opening_balance_date: Union[str, date] | NotGiven = NOT_GIVEN,
+        opening_balance_date: str | NotGiven = NOT_GIVEN,
         phone: str | NotGiven = NOT_GIVEN,
         purchase_tax_account_id: str | NotGiven = NOT_GIVEN,
         reporting_period: Literal["monthly", "quarterly"] | NotGiven = NOT_GIVEN,
@@ -852,7 +851,7 @@ class AsyncVendorsResource(AsyncAPIResource):
         name_on_check: str | NotGiven = NOT_GIVEN,
         note: str | NotGiven = NOT_GIVEN,
         opening_balance: str | NotGiven = NOT_GIVEN,
-        opening_balance_date: Union[str, date] | NotGiven = NOT_GIVEN,
+        opening_balance_date: str | NotGiven = NOT_GIVEN,
         phone: str | NotGiven = NOT_GIVEN,
         purchase_tax_account_id: str | NotGiven = NOT_GIVEN,
         reporting_period: Literal["monthly", "quarterly"] | NotGiven = NOT_GIVEN,

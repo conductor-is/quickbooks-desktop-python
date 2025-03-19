@@ -2,8 +2,7 @@
 
 from __future__ import annotations
 
-from typing import List, Union
-from datetime import date
+from typing import List
 from typing_extensions import Literal
 
 import httpx
@@ -60,7 +59,7 @@ class InventoryItemsResource(SyncAPIResource):
         barcode: inventory_item_create_params.Barcode | NotGiven = NOT_GIVEN,
         class_id: str | NotGiven = NOT_GIVEN,
         external_id: str | NotGiven = NOT_GIVEN,
-        inventory_date: Union[str, date] | NotGiven = NOT_GIVEN,
+        inventory_date: str | NotGiven = NOT_GIVEN,
         is_active: bool | NotGiven = NOT_GIVEN,
         maximum_quantity_on_hand: float | NotGiven = NOT_GIVEN,
         parent_id: str | NotGiven = NOT_GIVEN,
@@ -627,7 +626,7 @@ class AsyncInventoryItemsResource(AsyncAPIResource):
         barcode: inventory_item_create_params.Barcode | NotGiven = NOT_GIVEN,
         class_id: str | NotGiven = NOT_GIVEN,
         external_id: str | NotGiven = NOT_GIVEN,
-        inventory_date: Union[str, date] | NotGiven = NOT_GIVEN,
+        inventory_date: str | NotGiven = NOT_GIVEN,
         is_active: bool | NotGiven = NOT_GIVEN,
         maximum_quantity_on_hand: float | NotGiven = NOT_GIVEN,
         parent_id: str | NotGiven = NOT_GIVEN,

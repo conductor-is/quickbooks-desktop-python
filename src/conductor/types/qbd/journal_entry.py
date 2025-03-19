@@ -1,7 +1,6 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 from typing import List, Optional
-from datetime import date
 from typing_extensions import Literal
 
 from pydantic import Field as FieldInfo
@@ -414,7 +413,7 @@ class JournalEntry(BaseModel):
     latest data; otherwise, the update will return an error.
     """
 
-    transaction_date: date = FieldInfo(alias="transactionDate")
+    transaction_date: str = FieldInfo(alias="transactionDate")
     """The date of this journal entry, in ISO 8601 format (YYYY-MM-DD)."""
 
     updated_at: str = FieldInfo(alias="updatedAt")

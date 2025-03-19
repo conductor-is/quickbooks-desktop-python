@@ -2,8 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Union, Iterable
-from datetime import date
+from typing import Iterable
 from typing_extensions import Literal, Required, Annotated, TypedDict
 
 from ..._utils import PropertyInfo
@@ -12,7 +11,7 @@ __all__ = ["JournalEntryCreateParams", "CreditLine", "DebitLine"]
 
 
 class JournalEntryCreateParams(TypedDict, total=False):
-    transaction_date: Required[Annotated[Union[str, date], PropertyInfo(alias="transactionDate", format="iso8601")]]
+    transaction_date: Required[Annotated[str, PropertyInfo(alias="transactionDate")]]
     """The date of this journal entry, in ISO 8601 format (YYYY-MM-DD)."""
 
     conductor_end_user_id: Required[Annotated[str, PropertyInfo(alias="Conductor-End-User-Id")]]

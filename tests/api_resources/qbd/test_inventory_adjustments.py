@@ -26,7 +26,7 @@ class TestInventoryAdjustments:
     def test_method_create(self, client: Conductor) -> None:
         inventory_adjustment = client.qbd.inventory_adjustments.create(
             account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(InventoryAdjustment, inventory_adjustment, path=["response"])
@@ -35,7 +35,7 @@ class TestInventoryAdjustments:
     def test_method_create_with_all_params(self, client: Conductor) -> None:
         inventory_adjustment = client.qbd.inventory_adjustments.create(
             account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
             conductor_end_user_id="end_usr_1234567abcdefg",
             class_id="80000001-1234567890",
             customer_id="80000001-1234567890",
@@ -45,12 +45,12 @@ class TestInventoryAdjustments:
                 {
                     "adjust_lot_number": {
                         "adjust_count": 2,
-                        "expiration_date": parse_date("2025-12-31"),
+                        "expiration_date": "2025-12-31",
                         "inventory_site_location_id": "80000001-1234567890",
                         "lot_number": "LOT2023-001",
                     },
                     "adjust_quantity": {
-                        "expiration_date": parse_date("2025-12-31"),
+                        "expiration_date": "2025-12-31",
                         "inventory_site_location_id": "80000001-1234567890",
                         "lot_number": "LOT2023-001",
                         "new_quantity": 10,
@@ -59,7 +59,7 @@ class TestInventoryAdjustments:
                     },
                     "adjust_serial_number": {
                         "add_serial_number": "123456",
-                        "expiration_date": parse_date("2025-12-31"),
+                        "expiration_date": "2025-12-31",
                         "inventory_site_location_id": "80000001-1234567890",
                         "remove_serial_number": "123456",
                     },
@@ -81,7 +81,7 @@ class TestInventoryAdjustments:
     def test_raw_response_create(self, client: Conductor) -> None:
         response = client.qbd.inventory_adjustments.with_raw_response.create(
             account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -94,7 +94,7 @@ class TestInventoryAdjustments:
     def test_streaming_response_create(self, client: Conductor) -> None:
         with client.qbd.inventory_adjustments.with_streaming_response.create(
             account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -170,7 +170,7 @@ class TestInventoryAdjustments:
                 {
                     "id": "456DEF-1234567890",
                     "adjust_count": 2,
-                    "expiration_date": parse_date("2025-12-31"),
+                    "expiration_date": "2025-12-31",
                     "inventory_site_location_id": "80000001-1234567890",
                     "item_id": "80000001-1234567890",
                     "lot_number": "LOT2023-001",
@@ -181,7 +181,7 @@ class TestInventoryAdjustments:
             ],
             memo="Adjusted quantity due to physical count discrepancy",
             ref_number="INVADJ-1234",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
         )
         assert_matches_type(InventoryAdjustment, inventory_adjustment, path=["response"])
 
@@ -326,7 +326,7 @@ class TestAsyncInventoryAdjustments:
     async def test_method_create(self, async_client: AsyncConductor) -> None:
         inventory_adjustment = await async_client.qbd.inventory_adjustments.create(
             account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(InventoryAdjustment, inventory_adjustment, path=["response"])
@@ -335,7 +335,7 @@ class TestAsyncInventoryAdjustments:
     async def test_method_create_with_all_params(self, async_client: AsyncConductor) -> None:
         inventory_adjustment = await async_client.qbd.inventory_adjustments.create(
             account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
             conductor_end_user_id="end_usr_1234567abcdefg",
             class_id="80000001-1234567890",
             customer_id="80000001-1234567890",
@@ -345,12 +345,12 @@ class TestAsyncInventoryAdjustments:
                 {
                     "adjust_lot_number": {
                         "adjust_count": 2,
-                        "expiration_date": parse_date("2025-12-31"),
+                        "expiration_date": "2025-12-31",
                         "inventory_site_location_id": "80000001-1234567890",
                         "lot_number": "LOT2023-001",
                     },
                     "adjust_quantity": {
-                        "expiration_date": parse_date("2025-12-31"),
+                        "expiration_date": "2025-12-31",
                         "inventory_site_location_id": "80000001-1234567890",
                         "lot_number": "LOT2023-001",
                         "new_quantity": 10,
@@ -359,7 +359,7 @@ class TestAsyncInventoryAdjustments:
                     },
                     "adjust_serial_number": {
                         "add_serial_number": "123456",
-                        "expiration_date": parse_date("2025-12-31"),
+                        "expiration_date": "2025-12-31",
                         "inventory_site_location_id": "80000001-1234567890",
                         "remove_serial_number": "123456",
                     },
@@ -381,7 +381,7 @@ class TestAsyncInventoryAdjustments:
     async def test_raw_response_create(self, async_client: AsyncConductor) -> None:
         response = await async_client.qbd.inventory_adjustments.with_raw_response.create(
             account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -394,7 +394,7 @@ class TestAsyncInventoryAdjustments:
     async def test_streaming_response_create(self, async_client: AsyncConductor) -> None:
         async with async_client.qbd.inventory_adjustments.with_streaming_response.create(
             account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -470,7 +470,7 @@ class TestAsyncInventoryAdjustments:
                 {
                     "id": "456DEF-1234567890",
                     "adjust_count": 2,
-                    "expiration_date": parse_date("2025-12-31"),
+                    "expiration_date": "2025-12-31",
                     "inventory_site_location_id": "80000001-1234567890",
                     "item_id": "80000001-1234567890",
                     "lot_number": "LOT2023-001",
@@ -481,7 +481,7 @@ class TestAsyncInventoryAdjustments:
             ],
             memo="Adjusted quantity due to physical count discrepancy",
             ref_number="INVADJ-1234",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
         )
         assert_matches_type(InventoryAdjustment, inventory_adjustment, path=["response"])
 

@@ -1,7 +1,6 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 from typing import List, Optional
-from datetime import date
 from typing_extensions import Literal
 
 from pydantic import Field as FieldInfo
@@ -84,7 +83,7 @@ class AppliedToTransactionLinkedTransaction(BaseModel):
     required to be unique and can be arbitrarily changed by the QuickBooks user.
     """
 
-    transaction_date: date = FieldInfo(alias="transactionDate")
+    transaction_date: str = FieldInfo(alias="transactionDate")
     """The date of this linked transaction, in ISO 8601 format (YYYY-MM-DD)."""
 
     transaction_type: Literal[
@@ -162,7 +161,7 @@ class AppliedToTransaction(BaseModel):
     QuickBooks user.
     """
 
-    transaction_date: date = FieldInfo(alias="transactionDate")
+    transaction_date: str = FieldInfo(alias="transactionDate")
     """The date of this receivable transaction, in ISO 8601 format (YYYY-MM-DD)."""
 
     transaction_id: str = FieldInfo(alias="transactionId")
@@ -397,7 +396,7 @@ class BillCreditCardPayment(BaseModel):
     working with the latest data; otherwise, the update will return an error.
     """
 
-    transaction_date: date = FieldInfo(alias="transactionDate")
+    transaction_date: str = FieldInfo(alias="transactionDate")
     """The date of this bill credit card payment, in ISO 8601 format (YYYY-MM-DD)."""
 
     updated_at: str = FieldInfo(alias="updatedAt")
