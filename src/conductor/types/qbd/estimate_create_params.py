@@ -2,8 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Union, Iterable
-from datetime import date
+from typing import Iterable
 from typing_extensions import Literal, Required, Annotated, TypedDict
 
 from ..._utils import PropertyInfo
@@ -23,7 +22,7 @@ class EstimateCreateParams(TypedDict, total=False):
     customer_id: Required[Annotated[str, PropertyInfo(alias="customerId")]]
     """The customer or customer-job associated with this estimate."""
 
-    transaction_date: Required[Annotated[Union[str, date], PropertyInfo(alias="transactionDate", format="iso8601")]]
+    transaction_date: Required[Annotated[str, PropertyInfo(alias="transactionDate")]]
     """The date of this estimate, in ISO 8601 format (YYYY-MM-DD)."""
 
     conductor_end_user_id: Required[Annotated[str, PropertyInfo(alias="Conductor-End-User-Id")]]
@@ -53,7 +52,7 @@ class EstimateCreateParams(TypedDict, total=False):
     for this estimate when printed or displayed.
     """
 
-    due_date: Annotated[Union[str, date], PropertyInfo(alias="dueDate", format="iso8601")]
+    due_date: Annotated[str, PropertyInfo(alias="dueDate")]
     """The date by which this estimate must be paid, in ISO 8601 format (YYYY-MM-DD)."""
 
     exchange_rate: Annotated[float, PropertyInfo(alias="exchangeRate")]

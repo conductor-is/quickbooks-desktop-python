@@ -2,8 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Union, Iterable
-from datetime import date
+from typing import Iterable
 from typing_extensions import Literal, Required, Annotated, TypedDict
 
 from ..._utils import PropertyInfo
@@ -110,7 +109,7 @@ class ReceivePaymentUpdateParams(TypedDict, total=False):
     array cannot exceed the `totalAmount`, or you will receive an error.
     """
 
-    transaction_date: Annotated[Union[str, date], PropertyInfo(alias="transactionDate", format="iso8601")]
+    transaction_date: Annotated[str, PropertyInfo(alias="transactionDate")]
     """The date of this receive-payment, in ISO 8601 format (YYYY-MM-DD)."""
 
 

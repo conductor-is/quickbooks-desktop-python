@@ -26,7 +26,7 @@ class TestCreditCardCharges:
     def test_method_create(self, client: Conductor) -> None:
         credit_card_charge = client.qbd.credit_card_charges.create(
             account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(CreditCardCharge, credit_card_charge, path=["response"])
@@ -35,7 +35,7 @@ class TestCreditCardCharges:
     def test_method_create_with_all_params(self, client: Conductor) -> None:
         credit_card_charge = client.qbd.credit_card_charges.create(
             account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
             conductor_end_user_id="end_usr_1234567abcdefg",
             exchange_rate=1.2345,
             expense_lines=[
@@ -89,7 +89,7 @@ class TestCreditCardCharges:
                         }
                     ],
                     "description": "High-quality widget with custom engraving",
-                    "expiration_date": parse_date("2025-12-31"),
+                    "expiration_date": "2025-12-31",
                     "inventory_site_id": "80000001-1234567890",
                     "inventory_site_location_id": "80000001-1234567890",
                     "item_id": "80000001-1234567890",
@@ -117,7 +117,7 @@ class TestCreditCardCharges:
     def test_raw_response_create(self, client: Conductor) -> None:
         response = client.qbd.credit_card_charges.with_raw_response.create(
             account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -130,7 +130,7 @@ class TestCreditCardCharges:
     def test_streaming_response_create(self, client: Conductor) -> None:
         with client.qbd.credit_card_charges.with_streaming_response.create(
             account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -228,7 +228,7 @@ class TestCreditCardCharges:
                             "cost": "1000.00",
                             "customer_id": "80000001-1234567890",
                             "description": "High-quality widget with custom engraving",
-                            "expiration_date": parse_date("2025-12-31"),
+                            "expiration_date": "2025-12-31",
                             "inventory_site_id": "80000001-1234567890",
                             "inventory_site_location_id": "80000001-1234567890",
                             "item_id": "80000001-1234567890",
@@ -256,7 +256,7 @@ class TestCreditCardCharges:
                     "cost": "1000.00",
                     "customer_id": "80000001-1234567890",
                     "description": "High-quality widget with custom engraving",
-                    "expiration_date": parse_date("2025-12-31"),
+                    "expiration_date": "2025-12-31",
                     "inventory_site_id": "80000001-1234567890",
                     "inventory_site_location_id": "80000001-1234567890",
                     "item_id": "80000001-1234567890",
@@ -274,7 +274,7 @@ class TestCreditCardCharges:
             payee_id="80000001-1234567890",
             ref_number="CARD-1234",
             sales_tax_code_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
         )
         assert_matches_type(CreditCardCharge, credit_card_charge, path=["response"])
 
@@ -420,7 +420,7 @@ class TestAsyncCreditCardCharges:
     async def test_method_create(self, async_client: AsyncConductor) -> None:
         credit_card_charge = await async_client.qbd.credit_card_charges.create(
             account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(CreditCardCharge, credit_card_charge, path=["response"])
@@ -429,7 +429,7 @@ class TestAsyncCreditCardCharges:
     async def test_method_create_with_all_params(self, async_client: AsyncConductor) -> None:
         credit_card_charge = await async_client.qbd.credit_card_charges.create(
             account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
             conductor_end_user_id="end_usr_1234567abcdefg",
             exchange_rate=1.2345,
             expense_lines=[
@@ -483,7 +483,7 @@ class TestAsyncCreditCardCharges:
                         }
                     ],
                     "description": "High-quality widget with custom engraving",
-                    "expiration_date": parse_date("2025-12-31"),
+                    "expiration_date": "2025-12-31",
                     "inventory_site_id": "80000001-1234567890",
                     "inventory_site_location_id": "80000001-1234567890",
                     "item_id": "80000001-1234567890",
@@ -511,7 +511,7 @@ class TestAsyncCreditCardCharges:
     async def test_raw_response_create(self, async_client: AsyncConductor) -> None:
         response = await async_client.qbd.credit_card_charges.with_raw_response.create(
             account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -524,7 +524,7 @@ class TestAsyncCreditCardCharges:
     async def test_streaming_response_create(self, async_client: AsyncConductor) -> None:
         async with async_client.qbd.credit_card_charges.with_streaming_response.create(
             account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -622,7 +622,7 @@ class TestAsyncCreditCardCharges:
                             "cost": "1000.00",
                             "customer_id": "80000001-1234567890",
                             "description": "High-quality widget with custom engraving",
-                            "expiration_date": parse_date("2025-12-31"),
+                            "expiration_date": "2025-12-31",
                             "inventory_site_id": "80000001-1234567890",
                             "inventory_site_location_id": "80000001-1234567890",
                             "item_id": "80000001-1234567890",
@@ -650,7 +650,7 @@ class TestAsyncCreditCardCharges:
                     "cost": "1000.00",
                     "customer_id": "80000001-1234567890",
                     "description": "High-quality widget with custom engraving",
-                    "expiration_date": parse_date("2025-12-31"),
+                    "expiration_date": "2025-12-31",
                     "inventory_site_id": "80000001-1234567890",
                     "inventory_site_location_id": "80000001-1234567890",
                     "item_id": "80000001-1234567890",
@@ -668,7 +668,7 @@ class TestAsyncCreditCardCharges:
             payee_id="80000001-1234567890",
             ref_number="CARD-1234",
             sales_tax_code_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
         )
         assert_matches_type(CreditCardCharge, credit_card_charge, path=["response"])
 

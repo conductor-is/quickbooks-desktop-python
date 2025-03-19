@@ -1,6 +1,5 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import datetime
 from typing import List, Optional
 from typing_extensions import Literal
 
@@ -103,7 +102,7 @@ class AdditionalNote(BaseModel):
     id: float
     """The auto-incrementing identifier assigned by QuickBooks to this note."""
 
-    date: Optional[datetime.date] = None
+    date: Optional[str] = None
     """The date this note was last updated, in ISO 8601 format (YYYY-MM-DD)."""
 
     note: str

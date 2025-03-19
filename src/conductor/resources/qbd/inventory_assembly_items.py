@@ -2,8 +2,7 @@
 
 from __future__ import annotations
 
-from typing import List, Union, Iterable
-from datetime import date
+from typing import List, Iterable
 from typing_extensions import Literal
 
 import httpx
@@ -65,7 +64,7 @@ class InventoryAssemblyItemsResource(SyncAPIResource):
         build_notification_threshold: float | NotGiven = NOT_GIVEN,
         class_id: str | NotGiven = NOT_GIVEN,
         external_id: str | NotGiven = NOT_GIVEN,
-        inventory_date: Union[str, date] | NotGiven = NOT_GIVEN,
+        inventory_date: str | NotGiven = NOT_GIVEN,
         is_active: bool | NotGiven = NOT_GIVEN,
         lines: Iterable[inventory_assembly_item_create_params.Line] | NotGiven = NOT_GIVEN,
         maximum_quantity_on_hand: float | NotGiven = NOT_GIVEN,
@@ -649,7 +648,7 @@ class AsyncInventoryAssemblyItemsResource(AsyncAPIResource):
         build_notification_threshold: float | NotGiven = NOT_GIVEN,
         class_id: str | NotGiven = NOT_GIVEN,
         external_id: str | NotGiven = NOT_GIVEN,
-        inventory_date: Union[str, date] | NotGiven = NOT_GIVEN,
+        inventory_date: str | NotGiven = NOT_GIVEN,
         is_active: bool | NotGiven = NOT_GIVEN,
         lines: Iterable[inventory_assembly_item_create_params.Line] | NotGiven = NOT_GIVEN,
         maximum_quantity_on_hand: float | NotGiven = NOT_GIVEN,

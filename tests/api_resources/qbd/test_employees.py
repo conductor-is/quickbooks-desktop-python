@@ -9,7 +9,6 @@ import pytest
 
 from conductor import Conductor, AsyncConductor
 from tests.utils import assert_matches_type
-from conductor._utils import parse_date
 from conductor.types.qbd import Employee
 from conductor.pagination import SyncCursorPage, AsyncCursorPage
 
@@ -42,10 +41,10 @@ class TestEmployees:
                 "postal_code": "94110",
                 "state": "none",
             },
-            adjusted_service_date=parse_date("2024-01-01"),
+            adjusted_service_date="2024-01-01",
             alternate_phone="+1-555-987-6543",
             billing_rate_id="80000001-1234567890",
-            birth_date=parse_date("1990-01-01"),
+            birth_date="1990-01-01",
             custom_contact_fields=[
                 {
                     "name": "Main Phone",
@@ -81,7 +80,7 @@ class TestEmployees:
                 "pay_period": "biweekly",
                 "sick_hours": {
                     "accrual_period": "accrues_annually",
-                    "accrual_start_date": parse_date("2024-01-01"),
+                    "accrual_start_date": "2024-01-01",
                     "hours_accrued_per_period": "PT8H0M",
                     "hours_available": "PT8H30M",
                     "hours_used": "PT2H45M",
@@ -91,7 +90,7 @@ class TestEmployees:
                 "use_time_data_to_create_paychecks": "does_not_use_time_data",
                 "vacation_hours": {
                     "accrual_period": "accrues_annually",
-                    "accrual_start_date": parse_date("2024-01-01"),
+                    "accrual_start_date": "2024-01-01",
                     "hours_accrued_per_period": "PT8H0M",
                     "hours_available": "PT8H30M",
                     "hours_used": "PT2H45M",
@@ -106,7 +105,7 @@ class TestEmployees:
             fax="+1-555-555-1212",
             first_name="John",
             gender="male",
-            hired_date=parse_date("2024-01-01"),
+            hired_date="2024-01-01",
             i9_on_file_status="on_file",
             is_active=True,
             job_title="Purchasing Manager",
@@ -116,7 +115,7 @@ class TestEmployees:
             military_status="active",
             mobile="+1-555-555-1212",
             note="This employee is a key employee.",
-            original_hire_date=parse_date("2024-01-01"),
+            original_hire_date="2024-01-01",
             overtime_exempt_status="exempt",
             pager="+1-555-555-1212",
             pager_pin="1234",
@@ -126,10 +125,10 @@ class TestEmployees:
             ssn="123-45-6789",
             supervisor_id="80000001-1234567890",
             target_bonus="10000.00",
-            termination_date=parse_date("2024-01-01"),
+            termination_date="2024-01-01",
             us_citizenship_status="citizen",
             us_veteran_status="veteran",
-            work_authorization_expiration_date=parse_date("2024-01-01"),
+            work_authorization_expiration_date="2024-01-01",
         )
         assert_matches_type(Employee, employee, path=["response"])
 
@@ -231,10 +230,10 @@ class TestEmployees:
                 "postal_code": "94110",
                 "state": "none",
             },
-            adjusted_service_date=parse_date("2024-01-01"),
+            adjusted_service_date="2024-01-01",
             alternate_phone="+1-555-987-6543",
             billing_rate_id="80000001-1234567890",
-            birth_date=parse_date("1990-01-01"),
+            birth_date="1990-01-01",
             custom_contact_fields=[
                 {
                     "name": "Main Phone",
@@ -271,7 +270,7 @@ class TestEmployees:
                 "pay_period": "biweekly",
                 "sick_hours": {
                     "accrual_period": "accrues_annually",
-                    "accrual_start_date": parse_date("2024-01-01"),
+                    "accrual_start_date": "2024-01-01",
                     "hours_accrued_per_period": "PT8H0M",
                     "hours_available": "PT8H30M",
                     "hours_used": "PT2H45M",
@@ -281,7 +280,7 @@ class TestEmployees:
                 "use_time_data_to_create_paychecks": "does_not_use_time_data",
                 "vacation_hours": {
                     "accrual_period": "accrues_annually",
-                    "accrual_start_date": parse_date("2024-01-01"),
+                    "accrual_start_date": "2024-01-01",
                     "hours_accrued_per_period": "PT8H0M",
                     "hours_available": "PT8H30M",
                     "hours_used": "PT2H45M",
@@ -294,7 +293,7 @@ class TestEmployees:
             ethnicity="american_indian",
             fax="+1-555-555-1212",
             first_name="John",
-            hired_date=parse_date("2024-01-01"),
+            hired_date="2024-01-01",
             i9_on_file_status="on_file",
             is_active=True,
             job_title="Purchasing Manager",
@@ -304,7 +303,7 @@ class TestEmployees:
             military_status="active",
             mobile="+1-555-555-1212",
             note="This employee is a key employee.",
-            original_hire_date=parse_date("2024-01-01"),
+            original_hire_date="2024-01-01",
             overtime_exempt_status="exempt",
             pager="+1-555-555-1212",
             pager_pin="1234",
@@ -313,10 +312,10 @@ class TestEmployees:
             salutation="Dr.",
             supervisor_id="80000001-1234567890",
             target_bonus="10000.00",
-            termination_date=parse_date("2024-01-01"),
+            termination_date="2024-01-01",
             us_citizenship_status="citizen",
             us_veteran_status="veteran",
-            work_authorization_expiration_date=parse_date("2024-01-01"),
+            work_authorization_expiration_date="2024-01-01",
         )
         assert_matches_type(Employee, employee, path=["response"])
 
@@ -434,10 +433,10 @@ class TestAsyncEmployees:
                 "postal_code": "94110",
                 "state": "none",
             },
-            adjusted_service_date=parse_date("2024-01-01"),
+            adjusted_service_date="2024-01-01",
             alternate_phone="+1-555-987-6543",
             billing_rate_id="80000001-1234567890",
-            birth_date=parse_date("1990-01-01"),
+            birth_date="1990-01-01",
             custom_contact_fields=[
                 {
                     "name": "Main Phone",
@@ -473,7 +472,7 @@ class TestAsyncEmployees:
                 "pay_period": "biweekly",
                 "sick_hours": {
                     "accrual_period": "accrues_annually",
-                    "accrual_start_date": parse_date("2024-01-01"),
+                    "accrual_start_date": "2024-01-01",
                     "hours_accrued_per_period": "PT8H0M",
                     "hours_available": "PT8H30M",
                     "hours_used": "PT2H45M",
@@ -483,7 +482,7 @@ class TestAsyncEmployees:
                 "use_time_data_to_create_paychecks": "does_not_use_time_data",
                 "vacation_hours": {
                     "accrual_period": "accrues_annually",
-                    "accrual_start_date": parse_date("2024-01-01"),
+                    "accrual_start_date": "2024-01-01",
                     "hours_accrued_per_period": "PT8H0M",
                     "hours_available": "PT8H30M",
                     "hours_used": "PT2H45M",
@@ -498,7 +497,7 @@ class TestAsyncEmployees:
             fax="+1-555-555-1212",
             first_name="John",
             gender="male",
-            hired_date=parse_date("2024-01-01"),
+            hired_date="2024-01-01",
             i9_on_file_status="on_file",
             is_active=True,
             job_title="Purchasing Manager",
@@ -508,7 +507,7 @@ class TestAsyncEmployees:
             military_status="active",
             mobile="+1-555-555-1212",
             note="This employee is a key employee.",
-            original_hire_date=parse_date("2024-01-01"),
+            original_hire_date="2024-01-01",
             overtime_exempt_status="exempt",
             pager="+1-555-555-1212",
             pager_pin="1234",
@@ -518,10 +517,10 @@ class TestAsyncEmployees:
             ssn="123-45-6789",
             supervisor_id="80000001-1234567890",
             target_bonus="10000.00",
-            termination_date=parse_date("2024-01-01"),
+            termination_date="2024-01-01",
             us_citizenship_status="citizen",
             us_veteran_status="veteran",
-            work_authorization_expiration_date=parse_date("2024-01-01"),
+            work_authorization_expiration_date="2024-01-01",
         )
         assert_matches_type(Employee, employee, path=["response"])
 
@@ -623,10 +622,10 @@ class TestAsyncEmployees:
                 "postal_code": "94110",
                 "state": "none",
             },
-            adjusted_service_date=parse_date("2024-01-01"),
+            adjusted_service_date="2024-01-01",
             alternate_phone="+1-555-987-6543",
             billing_rate_id="80000001-1234567890",
-            birth_date=parse_date("1990-01-01"),
+            birth_date="1990-01-01",
             custom_contact_fields=[
                 {
                     "name": "Main Phone",
@@ -663,7 +662,7 @@ class TestAsyncEmployees:
                 "pay_period": "biweekly",
                 "sick_hours": {
                     "accrual_period": "accrues_annually",
-                    "accrual_start_date": parse_date("2024-01-01"),
+                    "accrual_start_date": "2024-01-01",
                     "hours_accrued_per_period": "PT8H0M",
                     "hours_available": "PT8H30M",
                     "hours_used": "PT2H45M",
@@ -673,7 +672,7 @@ class TestAsyncEmployees:
                 "use_time_data_to_create_paychecks": "does_not_use_time_data",
                 "vacation_hours": {
                     "accrual_period": "accrues_annually",
-                    "accrual_start_date": parse_date("2024-01-01"),
+                    "accrual_start_date": "2024-01-01",
                     "hours_accrued_per_period": "PT8H0M",
                     "hours_available": "PT8H30M",
                     "hours_used": "PT2H45M",
@@ -686,7 +685,7 @@ class TestAsyncEmployees:
             ethnicity="american_indian",
             fax="+1-555-555-1212",
             first_name="John",
-            hired_date=parse_date("2024-01-01"),
+            hired_date="2024-01-01",
             i9_on_file_status="on_file",
             is_active=True,
             job_title="Purchasing Manager",
@@ -696,7 +695,7 @@ class TestAsyncEmployees:
             military_status="active",
             mobile="+1-555-555-1212",
             note="This employee is a key employee.",
-            original_hire_date=parse_date("2024-01-01"),
+            original_hire_date="2024-01-01",
             overtime_exempt_status="exempt",
             pager="+1-555-555-1212",
             pager_pin="1234",
@@ -705,10 +704,10 @@ class TestAsyncEmployees:
             salutation="Dr.",
             supervisor_id="80000001-1234567890",
             target_bonus="10000.00",
-            termination_date=parse_date("2024-01-01"),
+            termination_date="2024-01-01",
             us_citizenship_status="citizen",
             us_veteran_status="veteran",
-            work_authorization_expiration_date=parse_date("2024-01-01"),
+            work_authorization_expiration_date="2024-01-01",
         )
         assert_matches_type(Employee, employee, path=["response"])
 

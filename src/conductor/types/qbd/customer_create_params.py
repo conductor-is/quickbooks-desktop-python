@@ -2,8 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Union, Iterable
-from datetime import date
+from typing import Iterable
 from typing_extensions import Literal, Required, Annotated, TypedDict
 
 from ..._utils import PropertyInfo
@@ -160,19 +159,19 @@ class CustomerCreateParams(TypedDict, total=False):
     sub-customer).
     """
 
-    job_end_date: Annotated[Union[str, date], PropertyInfo(alias="jobEndDate", format="iso8601")]
+    job_end_date: Annotated[str, PropertyInfo(alias="jobEndDate")]
     """
     The actual completion date of this customer's job, if applicable, in ISO 8601
     format (YYYY-MM-DD).
     """
 
-    job_projected_end_date: Annotated[Union[str, date], PropertyInfo(alias="jobProjectedEndDate", format="iso8601")]
+    job_projected_end_date: Annotated[str, PropertyInfo(alias="jobProjectedEndDate")]
     """
     The projected completion date for this customer's job, if applicable, in ISO
     8601 format (YYYY-MM-DD).
     """
 
-    job_start_date: Annotated[Union[str, date], PropertyInfo(alias="jobStartDate", format="iso8601")]
+    job_start_date: Annotated[str, PropertyInfo(alias="jobStartDate")]
     """
     The date when work on this customer's job began, if applicable, in ISO 8601
     format (YYYY-MM-DD).
@@ -216,7 +215,7 @@ class CustomerCreateParams(TypedDict, total=False):
     this customer, represented as a decimal string.
     """
 
-    opening_balance_date: Annotated[Union[str, date], PropertyInfo(alias="openingBalanceDate", format="iso8601")]
+    opening_balance_date: Annotated[str, PropertyInfo(alias="openingBalanceDate")]
     """
     The date of the opening balance of this customer, in ISO 8601 format
     (YYYY-MM-DD).

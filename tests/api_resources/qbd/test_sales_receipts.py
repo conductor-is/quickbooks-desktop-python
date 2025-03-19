@@ -26,7 +26,7 @@ class TestSalesReceipts:
     def test_method_create(self, client: Conductor) -> None:
         sales_receipt = client.qbd.sales_receipts.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(SalesReceipt, sales_receipt, path=["response"])
@@ -35,7 +35,7 @@ class TestSalesReceipts:
     def test_method_create_with_all_params(self, client: Conductor) -> None:
         sales_receipt = client.qbd.sales_receipts.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
             conductor_end_user_id="end_usr_1234567abcdefg",
             billing_address={
                 "city": "San Francisco",
@@ -83,7 +83,7 @@ class TestSalesReceipts:
             customer_message_id="80000001-1234567890",
             deposit_to_account_id="80000001-1234567890",
             document_template_id="80000001-1234567890",
-            due_date=parse_date("2021-10-31"),
+            due_date="2021-10-31",
             exchange_rate=1.2345,
             external_id="12345678-abcd-1234-abcd-1234567890ab",
             is_pending=False,
@@ -160,7 +160,7 @@ class TestSalesReceipts:
                     "rate_percent": "10.5",
                     "sales_tax_code_id": "80000001-1234567890",
                     "serial_number": "SN1234567890",
-                    "service_date": parse_date("2024-03-15"),
+                    "service_date": "2024-03-15",
                     "unit_of_measure": "Each",
                 }
             ],
@@ -184,7 +184,7 @@ class TestSalesReceipts:
                 "postal_code": "94110",
                 "state": "CA",
             },
-            shipping_date=parse_date("2021-10-01"),
+            shipping_date="2021-10-01",
             shipping_method_id="80000001-1234567890",
         )
         assert_matches_type(SalesReceipt, sales_receipt, path=["response"])
@@ -193,7 +193,7 @@ class TestSalesReceipts:
     def test_raw_response_create(self, client: Conductor) -> None:
         response = client.qbd.sales_receipts.with_raw_response.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -206,7 +206,7 @@ class TestSalesReceipts:
     def test_streaming_response_create(self, client: Conductor) -> None:
         with client.qbd.sales_receipts.with_streaming_response.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -292,7 +292,7 @@ class TestSalesReceipts:
             customer_message_id="80000001-1234567890",
             deposit_to_account_id="80000001-1234567890",
             document_template_id="80000001-1234567890",
-            due_date=parse_date("2021-10-31"),
+            due_date="2021-10-31",
             exchange_rate=1.2345,
             is_pending=False,
             is_queued_for_email=True,
@@ -322,7 +322,7 @@ class TestSalesReceipts:
                             "rate_percent": "10.5",
                             "sales_tax_code_id": "80000001-1234567890",
                             "serial_number": "SN1234567890",
-                            "service_date": parse_date("2024-03-15"),
+                            "service_date": "2024-03-15",
                             "unit_of_measure": "Each",
                         }
                     ],
@@ -352,7 +352,7 @@ class TestSalesReceipts:
                     "rate_percent": "10.5",
                     "sales_tax_code_id": "80000001-1234567890",
                     "serial_number": "SN1234567890",
-                    "service_date": parse_date("2024-03-15"),
+                    "service_date": "2024-03-15",
                     "unit_of_measure": "Each",
                 }
             ],
@@ -376,9 +376,9 @@ class TestSalesReceipts:
                 "postal_code": "94110",
                 "state": "CA",
             },
-            shipping_date=parse_date("2021-10-01"),
+            shipping_date="2021-10-01",
             shipping_method_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
         )
         assert_matches_type(SalesReceipt, sales_receipt, path=["response"])
 
@@ -524,7 +524,7 @@ class TestAsyncSalesReceipts:
     async def test_method_create(self, async_client: AsyncConductor) -> None:
         sales_receipt = await async_client.qbd.sales_receipts.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(SalesReceipt, sales_receipt, path=["response"])
@@ -533,7 +533,7 @@ class TestAsyncSalesReceipts:
     async def test_method_create_with_all_params(self, async_client: AsyncConductor) -> None:
         sales_receipt = await async_client.qbd.sales_receipts.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
             conductor_end_user_id="end_usr_1234567abcdefg",
             billing_address={
                 "city": "San Francisco",
@@ -581,7 +581,7 @@ class TestAsyncSalesReceipts:
             customer_message_id="80000001-1234567890",
             deposit_to_account_id="80000001-1234567890",
             document_template_id="80000001-1234567890",
-            due_date=parse_date("2021-10-31"),
+            due_date="2021-10-31",
             exchange_rate=1.2345,
             external_id="12345678-abcd-1234-abcd-1234567890ab",
             is_pending=False,
@@ -658,7 +658,7 @@ class TestAsyncSalesReceipts:
                     "rate_percent": "10.5",
                     "sales_tax_code_id": "80000001-1234567890",
                     "serial_number": "SN1234567890",
-                    "service_date": parse_date("2024-03-15"),
+                    "service_date": "2024-03-15",
                     "unit_of_measure": "Each",
                 }
             ],
@@ -682,7 +682,7 @@ class TestAsyncSalesReceipts:
                 "postal_code": "94110",
                 "state": "CA",
             },
-            shipping_date=parse_date("2021-10-01"),
+            shipping_date="2021-10-01",
             shipping_method_id="80000001-1234567890",
         )
         assert_matches_type(SalesReceipt, sales_receipt, path=["response"])
@@ -691,7 +691,7 @@ class TestAsyncSalesReceipts:
     async def test_raw_response_create(self, async_client: AsyncConductor) -> None:
         response = await async_client.qbd.sales_receipts.with_raw_response.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -704,7 +704,7 @@ class TestAsyncSalesReceipts:
     async def test_streaming_response_create(self, async_client: AsyncConductor) -> None:
         async with async_client.qbd.sales_receipts.with_streaming_response.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -790,7 +790,7 @@ class TestAsyncSalesReceipts:
             customer_message_id="80000001-1234567890",
             deposit_to_account_id="80000001-1234567890",
             document_template_id="80000001-1234567890",
-            due_date=parse_date("2021-10-31"),
+            due_date="2021-10-31",
             exchange_rate=1.2345,
             is_pending=False,
             is_queued_for_email=True,
@@ -820,7 +820,7 @@ class TestAsyncSalesReceipts:
                             "rate_percent": "10.5",
                             "sales_tax_code_id": "80000001-1234567890",
                             "serial_number": "SN1234567890",
-                            "service_date": parse_date("2024-03-15"),
+                            "service_date": "2024-03-15",
                             "unit_of_measure": "Each",
                         }
                     ],
@@ -850,7 +850,7 @@ class TestAsyncSalesReceipts:
                     "rate_percent": "10.5",
                     "sales_tax_code_id": "80000001-1234567890",
                     "serial_number": "SN1234567890",
-                    "service_date": parse_date("2024-03-15"),
+                    "service_date": "2024-03-15",
                     "unit_of_measure": "Each",
                 }
             ],
@@ -874,9 +874,9 @@ class TestAsyncSalesReceipts:
                 "postal_code": "94110",
                 "state": "CA",
             },
-            shipping_date=parse_date("2021-10-01"),
+            shipping_date="2021-10-01",
             shipping_method_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date="2021-10-01",
         )
         assert_matches_type(SalesReceipt, sales_receipt, path=["response"])
 
