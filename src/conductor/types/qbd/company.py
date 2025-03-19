@@ -203,9 +203,7 @@ class SubscribedServicesService(BaseModel):
     service_status: Optional[Literal["active", "expired", "never", "pending", "suspended", "terminated", "trial"]] = (
         FieldInfo(alias="serviceStatus", default=None)
     )
-    """
-    The status of this company's Intuit services, for example, Intuit Payroll, QBMS.
-    """
+    """The status of this service's subscription."""
 
 
 class SubscribedServices(BaseModel):
