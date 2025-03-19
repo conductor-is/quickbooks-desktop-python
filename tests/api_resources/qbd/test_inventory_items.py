@@ -9,6 +9,7 @@ import pytest
 
 from conductor import Conductor, AsyncConductor
 from tests.utils import assert_matches_type
+from conductor._utils import parse_date
 from conductor.types.qbd import (
     InventoryItem,
 )
@@ -46,7 +47,7 @@ class TestInventoryItems:
             },
             class_id="80000001-1234567890",
             external_id="12345678-abcd-1234-abcd-1234567890ab",
-            inventory_date="2021-01-01",
+            inventory_date=parse_date("2021-01-01"),
             is_active=True,
             maximum_quantity_on_hand=200,
             parent_id="80000001-1234567890",
@@ -301,7 +302,7 @@ class TestAsyncInventoryItems:
             },
             class_id="80000001-1234567890",
             external_id="12345678-abcd-1234-abcd-1234567890ab",
-            inventory_date="2021-01-01",
+            inventory_date=parse_date("2021-01-01"),
             is_active=True,
             maximum_quantity_on_hand=200,
             parent_id="80000001-1234567890",

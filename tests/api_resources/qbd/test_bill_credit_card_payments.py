@@ -27,7 +27,7 @@ class TestBillCreditCardPayments:
         bill_credit_card_payment = client.qbd.bill_credit_card_payments.create(
             apply_to_transactions=[{"transaction_id": "123ABC-1234567890"}],
             credit_card_account_id="80000001-1234567890",
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
             vendor_id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
@@ -53,7 +53,7 @@ class TestBillCreditCardPayments:
                 }
             ],
             credit_card_account_id="80000001-1234567890",
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
             vendor_id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
             exchange_rate=1.2345,
@@ -69,7 +69,7 @@ class TestBillCreditCardPayments:
         response = client.qbd.bill_credit_card_payments.with_raw_response.create(
             apply_to_transactions=[{"transaction_id": "123ABC-1234567890"}],
             credit_card_account_id="80000001-1234567890",
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
             vendor_id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
@@ -84,7 +84,7 @@ class TestBillCreditCardPayments:
         with client.qbd.bill_credit_card_payments.with_streaming_response.create(
             apply_to_transactions=[{"transaction_id": "123ABC-1234567890"}],
             credit_card_account_id="80000001-1234567890",
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
             vendor_id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
@@ -244,7 +244,7 @@ class TestAsyncBillCreditCardPayments:
         bill_credit_card_payment = await async_client.qbd.bill_credit_card_payments.create(
             apply_to_transactions=[{"transaction_id": "123ABC-1234567890"}],
             credit_card_account_id="80000001-1234567890",
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
             vendor_id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
@@ -270,7 +270,7 @@ class TestAsyncBillCreditCardPayments:
                 }
             ],
             credit_card_account_id="80000001-1234567890",
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
             vendor_id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
             exchange_rate=1.2345,
@@ -286,7 +286,7 @@ class TestAsyncBillCreditCardPayments:
         response = await async_client.qbd.bill_credit_card_payments.with_raw_response.create(
             apply_to_transactions=[{"transaction_id": "123ABC-1234567890"}],
             credit_card_account_id="80000001-1234567890",
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
             vendor_id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
@@ -301,7 +301,7 @@ class TestAsyncBillCreditCardPayments:
         async with async_client.qbd.bill_credit_card_payments.with_streaming_response.create(
             apply_to_transactions=[{"transaction_id": "123ABC-1234567890"}],
             credit_card_account_id="80000001-1234567890",
-            transaction_date="2021-10-01",
+            transaction_date=parse_date("2021-10-01"),
             vendor_id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:

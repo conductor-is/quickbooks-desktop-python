@@ -1,6 +1,7 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 from typing import List, Optional
+from datetime import date
 from typing_extensions import Literal
 
 from pydantic import Field as FieldInfo
@@ -423,7 +424,7 @@ class LineGroupLine(BaseModel):
     description: Optional[str] = None
     """A description of this invoice line."""
 
-    expiration_date: Optional[str] = FieldInfo(alias="expirationDate", default=None)
+    expiration_date: Optional[date] = FieldInfo(alias="expirationDate", default=None)
     """
     The expiration date for the serial number or lot number of the item associated
     with this invoice line, in ISO 8601 format (YYYY-MM-DD). This is particularly
@@ -537,7 +538,7 @@ class LineGroupLine(BaseModel):
     This is used for tracking individual units of serialized inventory items.
     """
 
-    service_date: Optional[str] = FieldInfo(alias="serviceDate", default=None)
+    service_date: Optional[date] = FieldInfo(alias="serviceDate", default=None)
     """
     The date on which the service for this invoice line was or will be performed, in
     ISO 8601 format (YYYY-MM-DD). This is particularly relevant for service items.
@@ -807,7 +808,7 @@ class Line(BaseModel):
     description: Optional[str] = None
     """A description of this invoice line."""
 
-    expiration_date: Optional[str] = FieldInfo(alias="expirationDate", default=None)
+    expiration_date: Optional[date] = FieldInfo(alias="expirationDate", default=None)
     """
     The expiration date for the serial number or lot number of the item associated
     with this invoice line, in ISO 8601 format (YYYY-MM-DD). This is particularly
@@ -921,7 +922,7 @@ class Line(BaseModel):
     This is used for tracking individual units of serialized inventory items.
     """
 
-    service_date: Optional[str] = FieldInfo(alias="serviceDate", default=None)
+    service_date: Optional[date] = FieldInfo(alias="serviceDate", default=None)
     """
     The date on which the service for this invoice line was or will be performed, in
     ISO 8601 format (YYYY-MM-DD). This is particularly relevant for service items.
@@ -964,7 +965,7 @@ class LinkedTransaction(BaseModel):
     required to be unique and can be arbitrarily changed by the QuickBooks user.
     """
 
-    transaction_date: str = FieldInfo(alias="transactionDate")
+    transaction_date: date = FieldInfo(alias="transactionDate")
     """The date of this linked transaction, in ISO 8601 format (YYYY-MM-DD)."""
 
     transaction_type: Literal[
@@ -1204,7 +1205,7 @@ class Invoice(BaseModel):
     for this invoice when printed or displayed.
     """
 
-    due_date: Optional[str] = FieldInfo(alias="dueDate", default=None)
+    due_date: Optional[date] = FieldInfo(alias="dueDate", default=None)
     """The date by which this invoice must be paid, in ISO 8601 format (YYYY-MM-DD)."""
 
     exchange_rate: Optional[float] = FieldInfo(alias="exchangeRate", default=None)
@@ -1380,7 +1381,7 @@ class Invoice(BaseModel):
     shipping_address: Optional[ShippingAddress] = FieldInfo(alias="shippingAddress", default=None)
     """The invoice's shipping address."""
 
-    shipping_date: Optional[str] = FieldInfo(alias="shippingDate", default=None)
+    shipping_date: Optional[date] = FieldInfo(alias="shippingDate", default=None)
     """
     The date when the products or services for this invoice were shipped or are
     expected to be shipped, in ISO 8601 format (YYYY-MM-DD).
@@ -1403,7 +1404,7 @@ class Invoice(BaseModel):
     The suggested discount amount for this invoice, represented as a decimal string.
     """
 
-    suggested_discount_date: Optional[str] = FieldInfo(alias="suggestedDiscountDate", default=None)
+    suggested_discount_date: Optional[date] = FieldInfo(alias="suggestedDiscountDate", default=None)
     """
     The date when the `suggestedDiscountAmount` for this invoice would apply, in ISO
     8601 format (YYYY-MM-DD).
@@ -1415,7 +1416,7 @@ class Invoice(BaseModel):
     discounts.
     """
 
-    transaction_date: str = FieldInfo(alias="transactionDate")
+    transaction_date: date = FieldInfo(alias="transactionDate")
     """The date of this invoice, in ISO 8601 format (YYYY-MM-DD)."""
 
     updated_at: str = FieldInfo(alias="updatedAt")

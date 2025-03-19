@@ -52,7 +52,7 @@ class VendorCreditsResource(SyncAPIResource):
     def create(
         self,
         *,
-        transaction_date: str,
+        transaction_date: Union[str, date],
         vendor_id: str,
         conductor_end_user_id: str,
         exchange_rate: float | NotGiven = NOT_GIVEN,
@@ -215,7 +215,7 @@ class VendorCreditsResource(SyncAPIResource):
         payables_account_id: str | NotGiven = NOT_GIVEN,
         ref_number: str | NotGiven = NOT_GIVEN,
         sales_tax_code_id: str | NotGiven = NOT_GIVEN,
-        transaction_date: str | NotGiven = NOT_GIVEN,
+        transaction_date: Union[str, date] | NotGiven = NOT_GIVEN,
         vendor_id: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -585,7 +585,7 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
     async def create(
         self,
         *,
-        transaction_date: str,
+        transaction_date: Union[str, date],
         vendor_id: str,
         conductor_end_user_id: str,
         exchange_rate: float | NotGiven = NOT_GIVEN,
@@ -748,7 +748,7 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
         payables_account_id: str | NotGiven = NOT_GIVEN,
         ref_number: str | NotGiven = NOT_GIVEN,
         sales_tax_code_id: str | NotGiven = NOT_GIVEN,
-        transaction_date: str | NotGiven = NOT_GIVEN,
+        transaction_date: Union[str, date] | NotGiven = NOT_GIVEN,
         vendor_id: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.

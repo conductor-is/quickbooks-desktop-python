@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 
-from typing import Iterable
+from typing import Union, Iterable
+from datetime import date
 from typing_extensions import Required, Annotated, TypedDict
 
 from ..._utils import PropertyInfo
@@ -24,7 +25,7 @@ class InventoryAdjustmentCreateParams(TypedDict, total=False):
     value changes.
     """
 
-    transaction_date: Required[Annotated[str, PropertyInfo(alias="transactionDate")]]
+    transaction_date: Required[Annotated[Union[str, date], PropertyInfo(alias="transactionDate", format="iso8601")]]
     """The date of this inventory adjustment, in ISO 8601 format (YYYY-MM-DD)."""
 
     conductor_end_user_id: Required[Annotated[str, PropertyInfo(alias="Conductor-End-User-Id")]]
@@ -87,7 +88,7 @@ class LineAdjustLotNumber(TypedDict, total=False):
     inventory adjustment line.
     """
 
-    expiration_date: Annotated[str, PropertyInfo(alias="expirationDate")]
+    expiration_date: Annotated[Union[str, date], PropertyInfo(alias="expirationDate", format="iso8601")]
     """
     The expiration date for the serial number or lot number of the item associated
     with this inventory adjustment line, in ISO 8601 format (YYYY-MM-DD). This is
@@ -110,7 +111,7 @@ class LineAdjustLotNumber(TypedDict, total=False):
 
 
 class LineAdjustQuantity(TypedDict, total=False):
-    expiration_date: Annotated[str, PropertyInfo(alias="expirationDate")]
+    expiration_date: Annotated[Union[str, date], PropertyInfo(alias="expirationDate", format="iso8601")]
     """
     The expiration date for the serial number or lot number of the item associated
     with this inventory adjustment line, in ISO 8601 format (YYYY-MM-DD). This is
@@ -158,7 +159,7 @@ class LineAdjustSerialNumber(TypedDict, total=False):
     associated with this inventory adjustment line, to add to inventory.
     """
 
-    expiration_date: Annotated[str, PropertyInfo(alias="expirationDate")]
+    expiration_date: Annotated[Union[str, date], PropertyInfo(alias="expirationDate", format="iso8601")]
     """
     The expiration date for the serial number or lot number of the item associated
     with this inventory adjustment line, in ISO 8601 format (YYYY-MM-DD). This is

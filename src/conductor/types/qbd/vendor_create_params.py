@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 
-from typing import List, Iterable
+from typing import List, Union, Iterable
+from datetime import date
 from typing_extensions import Literal, Required, Annotated, TypedDict
 
 from ..._utils import PropertyInfo
@@ -193,7 +194,7 @@ class VendorCreateParams(TypedDict, total=False):
     vendor, represented as a decimal string.
     """
 
-    opening_balance_date: Annotated[str, PropertyInfo(alias="openingBalanceDate")]
+    opening_balance_date: Annotated[Union[str, date], PropertyInfo(alias="openingBalanceDate", format="iso8601")]
     """
     The date of the opening balance of this vendor, in ISO 8601 format (YYYY-MM-DD).
     """

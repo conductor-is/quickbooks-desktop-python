@@ -185,6 +185,8 @@ for invoice in first_page.data:
 # Remove `await` for non-async usage.
 ```
 
+from conductor.\_utils import parse_date
+
 ## Nested params
 
 Nested parameters are dictionaries, typed using `TypedDict`, for example:
@@ -195,7 +197,7 @@ from conductor import Conductor
 client = Conductor()
 
 bill = client.qbd.bills.create(
-    transaction_date="2021-10-01",
+    transaction_date=parse_date("2021-10-01"),
     vendor_id="80000001-1234567890",
     conductor_end_user_id="end_usr_1234567abcdefg",
     vendor_address={
