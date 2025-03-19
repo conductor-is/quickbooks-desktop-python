@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 
-from typing import Iterable
+from typing import Union, Iterable
+from datetime import date
 from typing_extensions import Literal, Required, Annotated, TypedDict
 
 from ..._utils import PropertyInfo
@@ -145,19 +146,19 @@ class CustomerUpdateParams(TypedDict, total=False):
     sub-customer).
     """
 
-    job_end_date: Annotated[str, PropertyInfo(alias="jobEndDate")]
+    job_end_date: Annotated[Union[str, date], PropertyInfo(alias="jobEndDate", format="iso8601")]
     """
     The actual completion date of this customer's job, if applicable, in ISO 8601
     format (YYYY-MM-DD).
     """
 
-    job_projected_end_date: Annotated[str, PropertyInfo(alias="jobProjectedEndDate")]
+    job_projected_end_date: Annotated[Union[str, date], PropertyInfo(alias="jobProjectedEndDate", format="iso8601")]
     """
     The projected completion date for this customer's job, if applicable, in ISO
     8601 format (YYYY-MM-DD).
     """
 
-    job_start_date: Annotated[str, PropertyInfo(alias="jobStartDate")]
+    job_start_date: Annotated[Union[str, date], PropertyInfo(alias="jobStartDate", format="iso8601")]
     """
     The date when work on this customer's job began, if applicable, in ISO 8601
     format (YYYY-MM-DD).

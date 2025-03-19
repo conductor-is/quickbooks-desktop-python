@@ -1,6 +1,7 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 from typing import List, Optional
+from datetime import date
 from typing_extensions import Literal
 
 from pydantic import Field as FieldInfo
@@ -745,7 +746,7 @@ class LineGroupLine(BaseModel):
     description: Optional[str] = None
     """A description of this sales receipt line."""
 
-    expiration_date: Optional[str] = FieldInfo(alias="expirationDate", default=None)
+    expiration_date: Optional[date] = FieldInfo(alias="expirationDate", default=None)
     """
     The expiration date for the serial number or lot number of the item associated
     with this sales receipt line, in ISO 8601 format (YYYY-MM-DD). This is
@@ -859,7 +860,7 @@ class LineGroupLine(BaseModel):
     This is used for tracking individual units of serialized inventory items.
     """
 
-    service_date: Optional[str] = FieldInfo(alias="serviceDate", default=None)
+    service_date: Optional[date] = FieldInfo(alias="serviceDate", default=None)
     """
     The date on which the service for this sales receipt line was or will be
     performed, in ISO 8601 format (YYYY-MM-DD). This is particularly relevant for
@@ -1283,7 +1284,7 @@ class Line(BaseModel):
     description: Optional[str] = None
     """A description of this sales receipt line."""
 
-    expiration_date: Optional[str] = FieldInfo(alias="expirationDate", default=None)
+    expiration_date: Optional[date] = FieldInfo(alias="expirationDate", default=None)
     """
     The expiration date for the serial number or lot number of the item associated
     with this sales receipt line, in ISO 8601 format (YYYY-MM-DD). This is
@@ -1397,7 +1398,7 @@ class Line(BaseModel):
     This is used for tracking individual units of serialized inventory items.
     """
 
-    service_date: Optional[str] = FieldInfo(alias="serviceDate", default=None)
+    service_date: Optional[date] = FieldInfo(alias="serviceDate", default=None)
     """
     The date on which the service for this sales receipt line was or will be
     performed, in ISO 8601 format (YYYY-MM-DD). This is particularly relevant for
@@ -1598,7 +1599,7 @@ class SalesReceipt(BaseModel):
     for this sales receipt when printed or displayed.
     """
 
-    due_date: Optional[str] = FieldInfo(alias="dueDate", default=None)
+    due_date: Optional[date] = FieldInfo(alias="dueDate", default=None)
     """
     The date by which this sales receipt must be paid, in ISO 8601 format
     (YYYY-MM-DD).
@@ -1746,7 +1747,7 @@ class SalesReceipt(BaseModel):
     shipping_address: Optional[ShippingAddress] = FieldInfo(alias="shippingAddress", default=None)
     """The sales receipt's shipping address."""
 
-    shipping_date: Optional[str] = FieldInfo(alias="shippingDate", default=None)
+    shipping_date: Optional[date] = FieldInfo(alias="shippingDate", default=None)
     """
     The date when the products or services for this sales receipt were shipped or
     are expected to be shipped, in ISO 8601 format (YYYY-MM-DD).
@@ -1776,7 +1777,7 @@ class SalesReceipt(BaseModel):
     of the QuickBooks company file. Represented as a decimal string.
     """
 
-    transaction_date: str = FieldInfo(alias="transactionDate")
+    transaction_date: date = FieldInfo(alias="transactionDate")
     """The date of this sales receipt, in ISO 8601 format (YYYY-MM-DD)."""
 
     updated_at: str = FieldInfo(alias="updatedAt")

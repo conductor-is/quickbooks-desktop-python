@@ -1,6 +1,7 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 from typing import List, Optional
+from datetime import date
 from typing_extensions import Literal
 
 from pydantic import Field as FieldInfo
@@ -160,7 +161,7 @@ class Line(BaseModel):
     This ID is unique across all transaction line types.
     """
 
-    expiration_date: Optional[str] = FieldInfo(alias="expirationDate", default=None)
+    expiration_date: Optional[date] = FieldInfo(alias="expirationDate", default=None)
     """
     The expiration date for the serial number or lot number of the item associated
     with this inventory adjustment line, in ISO 8601 format (YYYY-MM-DD). This is
@@ -295,7 +296,7 @@ class InventoryAdjustment(BaseModel):
     working with the latest data; otherwise, the update will return an error.
     """
 
-    transaction_date: str = FieldInfo(alias="transactionDate")
+    transaction_date: date = FieldInfo(alias="transactionDate")
     """The date of this inventory adjustment, in ISO 8601 format (YYYY-MM-DD)."""
 
     updated_at: str = FieldInfo(alias="updatedAt")

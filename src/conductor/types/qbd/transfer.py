@@ -1,6 +1,7 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 from typing import Optional
+from datetime import date
 from typing_extensions import Literal
 
 from pydantic import Field as FieldInfo
@@ -109,7 +110,7 @@ class Transfer(BaseModel):
     target_account_balance: Optional[str] = FieldInfo(alias="targetAccountBalance", default=None)
     """The balance of the account to which money will be transferred."""
 
-    transaction_date: str = FieldInfo(alias="transactionDate")
+    transaction_date: date = FieldInfo(alias="transactionDate")
     """The date of this transfer, in ISO 8601 format (YYYY-MM-DD)."""
 
     updated_at: str = FieldInfo(alias="updatedAt")

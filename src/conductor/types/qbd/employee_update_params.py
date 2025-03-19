@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 
-from typing import Iterable
+from typing import Union, Iterable
+from datetime import date
 from typing_extensions import Literal, Required, Annotated, TypedDict
 
 from ..._utils import PropertyInfo
@@ -58,7 +59,7 @@ class EmployeeUpdateParams(TypedDict, total=False):
     least one line of the street address.
     """
 
-    adjusted_service_date: Annotated[str, PropertyInfo(alias="adjustedServiceDate")]
+    adjusted_service_date: Annotated[Union[str, date], PropertyInfo(alias="adjustedServiceDate", format="iso8601")]
     """The adjusted service date for this employee, in ISO 8601 format (YYYY-MM-DD).
 
     This date accounts for previous employment periods or leaves that affect
@@ -74,7 +75,7 @@ class EmployeeUpdateParams(TypedDict, total=False):
     tracking activities.
     """
 
-    birth_date: Annotated[str, PropertyInfo(alias="birthDate")]
+    birth_date: Annotated[Union[str, date], PropertyInfo(alias="birthDate", format="iso8601")]
     """This employee's date of birth, in ISO 8601 format (YYYY-MM-DD)."""
 
     custom_contact_fields: Annotated[Iterable[CustomContactField], PropertyInfo(alias="customContactFields")]
@@ -135,7 +136,7 @@ class EmployeeUpdateParams(TypedDict, total=False):
     Maximum length: 25 characters.
     """
 
-    hired_date: Annotated[str, PropertyInfo(alias="hiredDate")]
+    hired_date: Annotated[Union[str, date], PropertyInfo(alias="hiredDate", format="iso8601")]
     """The date this employee was hired, in ISO 8601 format (YYYY-MM-DD)."""
 
     i9_on_file_status: Annotated[Literal["on_file", "not_on_file"], PropertyInfo(alias="i9OnFileStatus")]
@@ -175,7 +176,7 @@ class EmployeeUpdateParams(TypedDict, total=False):
     note: str
     """A note or comment about this employee."""
 
-    original_hire_date: Annotated[str, PropertyInfo(alias="originalHireDate")]
+    original_hire_date: Annotated[Union[str, date], PropertyInfo(alias="originalHireDate", format="iso8601")]
     """The original hire date for this employee, in ISO 8601 format (YYYY-MM-DD)."""
 
     overtime_exempt_status: Annotated[Literal["exempt", "non_exempt"], PropertyInfo(alias="overtimeExemptStatus")]
@@ -219,7 +220,7 @@ class EmployeeUpdateParams(TypedDict, total=False):
     QuickBooks.
     """
 
-    termination_date: Annotated[str, PropertyInfo(alias="terminationDate")]
+    termination_date: Annotated[Union[str, date], PropertyInfo(alias="terminationDate", format="iso8601")]
     """
     The date this employee's employment ended with the company, in ISO 8601 format
     (YYYY-MM-DD). This is also known as the released date or separation date.
@@ -231,7 +232,9 @@ class EmployeeUpdateParams(TypedDict, total=False):
     us_veteran_status: Annotated[Literal["veteran", "non_veteran"], PropertyInfo(alias="usVeteranStatus")]
     """Indicates whether this employee is a U.S. veteran."""
 
-    work_authorization_expiration_date: Annotated[str, PropertyInfo(alias="workAuthorizationExpirationDate")]
+    work_authorization_expiration_date: Annotated[
+        Union[str, date], PropertyInfo(alias="workAuthorizationExpirationDate", format="iso8601")
+    ]
     """
     The date this employee's work authorization expires, in ISO 8601 format
     (YYYY-MM-DD).
@@ -416,7 +419,7 @@ class EmployeePayrollSickHours(TypedDict, total=False):
     ]
     """How frequently the employee's sick hours are accrued."""
 
-    accrual_start_date: Annotated[str, PropertyInfo(alias="accrualStartDate")]
+    accrual_start_date: Annotated[Union[str, date], PropertyInfo(alias="accrualStartDate", format="iso8601")]
     """
     The date the employee's sick hours began to accrue, in ISO 8601 format
     (YYYY-MM-DD).
@@ -463,7 +466,7 @@ class EmployeePayrollVacationHours(TypedDict, total=False):
     ]
     """How frequently the employee's vacation hours are accrued."""
 
-    accrual_start_date: Annotated[str, PropertyInfo(alias="accrualStartDate")]
+    accrual_start_date: Annotated[Union[str, date], PropertyInfo(alias="accrualStartDate", format="iso8601")]
     """
     The date the employee's vacation hours began to accrue, in ISO 8601 format
     (YYYY-MM-DD).

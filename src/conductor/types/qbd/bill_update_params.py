@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 
-from typing import Iterable
+from typing import Union, Iterable
+from datetime import date
 from typing_extensions import Literal, Required, Annotated, TypedDict
 
 from ..._utils import PropertyInfo
@@ -37,7 +38,7 @@ class BillUpdateParams(TypedDict, total=False):
     To modify or add individual item lines, use the field `itemLines` instead.
     """
 
-    due_date: Annotated[str, PropertyInfo(alias="dueDate")]
+    due_date: Annotated[Union[str, date], PropertyInfo(alias="dueDate", format="iso8601")]
     """The date by which this bill must be paid, in ISO 8601 format (YYYY-MM-DD)."""
 
     exchange_rate: Annotated[float, PropertyInfo(alias="exchangeRate")]
@@ -142,7 +143,7 @@ class BillUpdateParams(TypedDict, total=False):
     discounts.
     """
 
-    transaction_date: Annotated[str, PropertyInfo(alias="transactionDate")]
+    transaction_date: Annotated[Union[str, date], PropertyInfo(alias="transactionDate", format="iso8601")]
     """The date of this bill, in ISO 8601 format (YYYY-MM-DD)."""
 
     vendor_address: Annotated[VendorAddress, PropertyInfo(alias="vendorAddress")]
@@ -262,7 +263,7 @@ class ItemLineGroupItemLine(TypedDict, total=False):
     description: str
     """A description of this item line."""
 
-    expiration_date: Annotated[str, PropertyInfo(alias="expirationDate")]
+    expiration_date: Annotated[Union[str, date], PropertyInfo(alias="expirationDate", format="iso8601")]
     """
     The expiration date for the serial number or lot number of the item associated
     with this item line, in ISO 8601 format (YYYY-MM-DD). This is particularly
@@ -459,7 +460,7 @@ class ItemLine(TypedDict, total=False):
     description: str
     """A description of this item line."""
 
-    expiration_date: Annotated[str, PropertyInfo(alias="expirationDate")]
+    expiration_date: Annotated[Union[str, date], PropertyInfo(alias="expirationDate", format="iso8601")]
     """
     The expiration date for the serial number or lot number of the item associated
     with this item line, in ISO 8601 format (YYYY-MM-DD). This is particularly

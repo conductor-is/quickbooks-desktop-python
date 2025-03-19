@@ -1,5 +1,6 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
+import datetime
 from typing import List, Optional
 from typing_extensions import Literal
 
@@ -31,7 +32,7 @@ class AdditionalNote(BaseModel):
     id: float
     """The auto-incrementing identifier assigned by QuickBooks to this note."""
 
-    date: Optional[str] = None
+    date: Optional[datetime.date] = None
     """The date this note was last updated, in ISO 8601 format (YYYY-MM-DD)."""
 
     note: str
@@ -278,7 +279,7 @@ class EmployeePayrollSickHours(BaseModel):
     )
     """How frequently the employee's sick hours are accrued."""
 
-    accrual_start_date: Optional[str] = FieldInfo(alias="accrualStartDate", default=None)
+    accrual_start_date: Optional[datetime.date] = FieldInfo(alias="accrualStartDate", default=None)
     """
     The date the employee's sick hours began to accrue, in ISO 8601 format
     (YYYY-MM-DD).
@@ -325,7 +326,7 @@ class EmployeePayrollVacationHours(BaseModel):
     )
     """How frequently the employee's vacation hours are accrued."""
 
-    accrual_start_date: Optional[str] = FieldInfo(alias="accrualStartDate", default=None)
+    accrual_start_date: Optional[datetime.date] = FieldInfo(alias="accrualStartDate", default=None)
     """
     The date the employee's vacation hours began to accrue, in ISO 8601 format
     (YYYY-MM-DD).
@@ -451,7 +452,7 @@ class Employee(BaseModel):
     least one line of the street address.
     """
 
-    adjusted_service_date: Optional[str] = FieldInfo(alias="adjustedServiceDate", default=None)
+    adjusted_service_date: Optional[datetime.date] = FieldInfo(alias="adjustedServiceDate", default=None)
     """The adjusted service date for this employee, in ISO 8601 format (YYYY-MM-DD).
 
     This date accounts for previous employment periods or leaves that affect
@@ -467,7 +468,7 @@ class Employee(BaseModel):
     tracking activities.
     """
 
-    birth_date: Optional[str] = FieldInfo(alias="birthDate", default=None)
+    birth_date: Optional[datetime.date] = FieldInfo(alias="birthDate", default=None)
     """This employee's date of birth, in ISO 8601 format (YYYY-MM-DD)."""
 
     created_at: str = FieldInfo(alias="createdAt")
@@ -552,7 +553,7 @@ class Employee(BaseModel):
     gender: Optional[Literal["male", "female"]] = None
     """This employee's gender."""
 
-    hired_date: Optional[str] = FieldInfo(alias="hiredDate", default=None)
+    hired_date: Optional[datetime.date] = FieldInfo(alias="hiredDate", default=None)
     """The date this employee was hired, in ISO 8601 format (YYYY-MM-DD)."""
 
     i9_on_file_status: Optional[Literal["on_file", "not_on_file"]] = FieldInfo(alias="i9OnFileStatus", default=None)
@@ -602,7 +603,7 @@ class Employee(BaseModel):
     object_type: Literal["qbd_employee"] = FieldInfo(alias="objectType")
     """The type of object. This value is always `"qbd_employee"`."""
 
-    original_hire_date: Optional[str] = FieldInfo(alias="originalHireDate", default=None)
+    original_hire_date: Optional[datetime.date] = FieldInfo(alias="originalHireDate", default=None)
     """The original hire date for this employee, in ISO 8601 format (YYYY-MM-DD)."""
 
     overtime_exempt_status: Optional[Literal["exempt", "non_exempt"]] = FieldInfo(
@@ -662,7 +663,7 @@ class Employee(BaseModel):
     QuickBooks.
     """
 
-    termination_date: Optional[str] = FieldInfo(alias="terminationDate", default=None)
+    termination_date: Optional[datetime.date] = FieldInfo(alias="terminationDate", default=None)
     """
     The date this employee's employment ended with the company, in ISO 8601 format
     (YYYY-MM-DD). This is also known as the released date or separation date.
@@ -683,7 +684,9 @@ class Employee(BaseModel):
     us_veteran_status: Optional[Literal["veteran", "non_veteran"]] = FieldInfo(alias="usVeteranStatus", default=None)
     """Indicates whether this employee is a U.S. veteran."""
 
-    work_authorization_expiration_date: Optional[str] = FieldInfo(alias="workAuthorizationExpirationDate", default=None)
+    work_authorization_expiration_date: Optional[datetime.date] = FieldInfo(
+        alias="workAuthorizationExpirationDate", default=None
+    )
     """
     The date this employee's work authorization expires, in ISO 8601 format
     (YYYY-MM-DD).
