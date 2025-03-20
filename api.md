@@ -36,14 +36,12 @@ Methods:
 Types:
 
 ```python
-from conductor.types import CompanyInfo, CompanyPreferences, QbdHealthCheckResponse
+from conductor.types import QbdHealthCheckResponse
 ```
 
 Methods:
 
 - <code title="get /quickbooks-desktop/health-check">client.qbd.<a href="./src/conductor/resources/qbd/qbd.py">health_check</a>() -> <a href="./src/conductor/types/qbd_health_check_response.py">QbdHealthCheckResponse</a></code>
-- <code title="get /quickbooks-desktop/company-info">client.qbd.<a href="./src/conductor/resources/qbd/qbd.py">retrieve_company_info</a>() -> <a href="./src/conductor/types/company_info.py">CompanyInfo</a></code>
-- <code title="get /quickbooks-desktop/company-preferences">client.qbd.<a href="./src/conductor/resources/qbd/qbd.py">retrieve_company_preferences</a>() -> <a href="./src/conductor/types/company_preferences.py">CompanyPreferences</a></code>
 
 ## Accounts
 
@@ -386,6 +384,18 @@ Methods:
 - <code title="post /quickbooks-desktop/payroll-wage-items">client.qbd.payroll_wage_items.<a href="./src/conductor/resources/qbd/payroll_wage_items.py">create</a>(\*\*<a href="src/conductor/types/qbd/payroll_wage_item_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/payroll_wage_item.py">PayrollWageItem</a></code>
 - <code title="get /quickbooks-desktop/payroll-wage-items/{id}">client.qbd.payroll_wage_items.<a href="./src/conductor/resources/qbd/payroll_wage_items.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/payroll_wage_item.py">PayrollWageItem</a></code>
 - <code title="get /quickbooks-desktop/payroll-wage-items">client.qbd.payroll_wage_items.<a href="./src/conductor/resources/qbd/payroll_wage_items.py">list</a>(\*\*<a href="src/conductor/types/qbd/payroll_wage_item_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/payroll_wage_item.py">SyncCursorPage[PayrollWageItem]</a></code>
+
+## Preferences
+
+Types:
+
+```python
+from conductor.types.qbd import Preferences
+```
+
+Methods:
+
+- <code title="get /quickbooks-desktop/preferences">client.qbd.preferences.<a href="./src/conductor/resources/qbd/preferences.py">retrieve</a>() -> <a href="./src/conductor/types/qbd/preferences.py">Preferences</a></code>
 
 ## PurchaseOrders
 
