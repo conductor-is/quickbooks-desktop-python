@@ -43,6 +43,19 @@ Methods:
 
 - <code title="get /quickbooks-desktop/health-check">client.qbd.<a href="./src/conductor/resources/qbd/qbd.py">health_check</a>() -> <a href="./src/conductor/types/qbd_health_check_response.py">QbdHealthCheckResponse</a></code>
 
+## Company
+
+Types:
+
+```python
+from conductor.types.qbd import Company, Preferences
+```
+
+Methods:
+
+- <code title="get /quickbooks-desktop/company/info">client.qbd.company.<a href="./src/conductor/resources/qbd/company.py">info</a>() -> <a href="./src/conductor/types/qbd/company.py">Company</a></code>
+- <code title="get /quickbooks-desktop/company/preferences">client.qbd.company.<a href="./src/conductor/resources/qbd/company.py">preferences</a>() -> <a href="./src/conductor/types/qbd/preferences.py">Preferences</a></code>
+
 ## Accounts
 
 Types:

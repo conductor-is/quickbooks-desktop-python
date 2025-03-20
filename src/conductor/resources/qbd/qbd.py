@@ -28,6 +28,14 @@ from .classes import (
     ClassesResourceWithStreamingResponse,
     AsyncClassesResourceWithStreamingResponse,
 )
+from .company import (
+    CompanyResource,
+    AsyncCompanyResource,
+    CompanyResourceWithRawResponse,
+    AsyncCompanyResourceWithRawResponse,
+    CompanyResourceWithStreamingResponse,
+    AsyncCompanyResourceWithStreamingResponse,
+)
 from .vendors import (
     VendorsResource,
     AsyncVendorsResource,
@@ -317,6 +325,10 @@ __all__ = ["QbdResource", "AsyncQbdResource"]
 
 class QbdResource(SyncAPIResource):
     @cached_property
+    def company(self) -> CompanyResource:
+        return CompanyResource(self._client)
+
+    @cached_property
     def accounts(self) -> AccountsResource:
         return AccountsResource(self._client)
 
@@ -525,6 +537,10 @@ class QbdResource(SyncAPIResource):
 
 
 class AsyncQbdResource(AsyncAPIResource):
+    @cached_property
+    def company(self) -> AsyncCompanyResource:
+        return AsyncCompanyResource(self._client)
+
     @cached_property
     def accounts(self) -> AsyncAccountsResource:
         return AsyncAccountsResource(self._client)
@@ -742,6 +758,10 @@ class QbdResourceWithRawResponse:
         )
 
     @cached_property
+    def company(self) -> CompanyResourceWithRawResponse:
+        return CompanyResourceWithRawResponse(self._qbd.company)
+
+    @cached_property
     def accounts(self) -> AccountsResourceWithRawResponse:
         return AccountsResourceWithRawResponse(self._qbd.accounts)
 
@@ -897,6 +917,10 @@ class AsyncQbdResourceWithRawResponse:
         self.health_check = async_to_raw_response_wrapper(
             qbd.health_check,
         )
+
+    @cached_property
+    def company(self) -> AsyncCompanyResourceWithRawResponse:
+        return AsyncCompanyResourceWithRawResponse(self._qbd.company)
 
     @cached_property
     def accounts(self) -> AsyncAccountsResourceWithRawResponse:
@@ -1056,6 +1080,10 @@ class QbdResourceWithStreamingResponse:
         )
 
     @cached_property
+    def company(self) -> CompanyResourceWithStreamingResponse:
+        return CompanyResourceWithStreamingResponse(self._qbd.company)
+
+    @cached_property
     def accounts(self) -> AccountsResourceWithStreamingResponse:
         return AccountsResourceWithStreamingResponse(self._qbd.accounts)
 
@@ -1211,6 +1239,10 @@ class AsyncQbdResourceWithStreamingResponse:
         self.health_check = async_to_streamed_response_wrapper(
             qbd.health_check,
         )
+
+    @cached_property
+    def company(self) -> AsyncCompanyResourceWithStreamingResponse:
+        return AsyncCompanyResourceWithStreamingResponse(self._qbd.company)
 
     @cached_property
     def accounts(self) -> AsyncAccountsResourceWithStreamingResponse:
