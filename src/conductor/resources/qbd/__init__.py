@@ -88,6 +88,14 @@ from .transfers import (
     TransfersResourceWithStreamingResponse,
     AsyncTransfersResourceWithStreamingResponse,
 )
+from .preferences import (
+    PreferencesResource,
+    AsyncPreferencesResource,
+    PreferencesResourceWithRawResponse,
+    AsyncPreferencesResourceWithRawResponse,
+    PreferencesResourceWithStreamingResponse,
+    AsyncPreferencesResourceWithStreamingResponse,
+)
 from .credit_memos import (
     CreditMemosResource,
     AsyncCreditMemosResource,
@@ -438,6 +446,12 @@ __all__ = [
     "AsyncPayrollWageItemsResourceWithRawResponse",
     "PayrollWageItemsResourceWithStreamingResponse",
     "AsyncPayrollWageItemsResourceWithStreamingResponse",
+    "PreferencesResource",
+    "AsyncPreferencesResource",
+    "PreferencesResourceWithRawResponse",
+    "AsyncPreferencesResourceWithRawResponse",
+    "PreferencesResourceWithStreamingResponse",
+    "AsyncPreferencesResourceWithStreamingResponse",
     "PurchaseOrdersResource",
     "AsyncPurchaseOrdersResource",
     "PurchaseOrdersResourceWithRawResponse",
