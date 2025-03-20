@@ -6,10 +6,10 @@ from typing_extensions import Literal
 
 from pydantic import Field as FieldInfo
 
-from .._models import BaseModel
+from ..._models import BaseModel
 
 __all__ = [
-    "CompanyPreferences",
+    "Preferences",
     "Accounting",
     "AppAccessRights",
     "FinanceCharges",
@@ -535,7 +535,7 @@ class TimeTracking(BaseModel):
     """The first day of a weekly timesheet period for this company file."""
 
 
-class CompanyPreferences(BaseModel):
+class Preferences(BaseModel):
     accounting: Accounting
     """The accounting preferences for this company file."""
 
