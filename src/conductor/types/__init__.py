@@ -4,6 +4,8 @@ from __future__ import annotations
 
 from .end_user import EndUser as EndUser
 from .auth_session import AuthSession as AuthSession
+from .company_info import CompanyInfo as CompanyInfo
+from .company_preferences import CompanyPreferences as CompanyPreferences
 from .end_user_create_params import EndUserCreateParams as EndUserCreateParams
 from .end_user_list_response import EndUserListResponse as EndUserListResponse
 from .end_user_delete_response import EndUserDeleteResponse as EndUserDeleteResponse
