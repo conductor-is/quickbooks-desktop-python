@@ -190,7 +190,7 @@ class LegalAddress(BaseModel):
 
 class SubscribedServicesService(BaseModel):
     domain: Optional[str] = None
-    """The provider of this subscribed service, such as Intuit."""
+    """The domain of this subscribed service"""
 
     name: str
     """The case-insensitive unique name of this service, unique across all services.
