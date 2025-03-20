@@ -270,6 +270,7 @@ from .non_inventory_items import (
     NonInventoryItemsResourceWithStreamingResponse,
     AsyncNonInventoryItemsResourceWithStreamingResponse,
 )
+from ...types.company_info import CompanyInfo
 from .inventory_adjustments import (
     InventoryAdjustmentsResource,
     AsyncInventoryAdjustmentsResource,
@@ -310,6 +311,7 @@ from .bill_credit_card_payments import (
     BillCreditCardPaymentsResourceWithStreamingResponse,
     AsyncBillCreditCardPaymentsResourceWithStreamingResponse,
 )
+from ...types.company_preferences import CompanyPreferences
 from ...types.qbd_health_check_response import QbdHealthCheckResponse
 
 __all__ = ["QbdResource", "AsyncQbdResource"]
@@ -523,6 +525,81 @@ class QbdResource(SyncAPIResource):
             cast_to=QbdHealthCheckResponse,
         )
 
+    def retrieve_company_info(
+        self,
+        *,
+        conductor_end_user_id: str,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> CompanyInfo:
+        """
+        Returns detailed information about the connected QuickBooks company file,
+        including company address, legal name, preferences, and subscribed services.
+        Note that company information cannot be modified through the API, only through
+        the QuickBooks Desktop user interface.
+
+        Args:
+          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
+              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return self._get(
+            "/quickbooks-desktop/company-info",
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=CompanyInfo,
+        )
+
+    def retrieve_company_preferences(
+        self,
+        *,
+        conductor_end_user_id: str,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> CompanyPreferences:
+        """
+        Returns the preferences that the QuickBooks administrator has set for all users
+        of the connected company file. Note that preferences cannot be modified through
+        the API, only through the QuickBooks Desktop user interface.
+
+        Args:
+          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
+              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return self._get(
+            "/quickbooks-desktop/company-preferences",
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=CompanyPreferences,
+        )
+
 
 class AsyncQbdResource(AsyncAPIResource):
     @cached_property
@@ -732,6 +809,81 @@ class AsyncQbdResource(AsyncAPIResource):
             cast_to=QbdHealthCheckResponse,
         )
 
+    async def retrieve_company_info(
+        self,
+        *,
+        conductor_end_user_id: str,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> CompanyInfo:
+        """
+        Returns detailed information about the connected QuickBooks company file,
+        including company address, legal name, preferences, and subscribed services.
+        Note that company information cannot be modified through the API, only through
+        the QuickBooks Desktop user interface.
+
+        Args:
+          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
+              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return await self._get(
+            "/quickbooks-desktop/company-info",
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=CompanyInfo,
+        )
+
+    async def retrieve_company_preferences(
+        self,
+        *,
+        conductor_end_user_id: str,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> CompanyPreferences:
+        """
+        Returns the preferences that the QuickBooks administrator has set for all users
+        of the connected company file. Note that preferences cannot be modified through
+        the API, only through the QuickBooks Desktop user interface.
+
+        Args:
+          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
+              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return await self._get(
+            "/quickbooks-desktop/company-preferences",
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=CompanyPreferences,
+        )
+
 
 class QbdResourceWithRawResponse:
     def __init__(self, qbd: QbdResource) -> None:
@@ -739,6 +891,12 @@ class QbdResourceWithRawResponse:
 
         self.health_check = to_raw_response_wrapper(
             qbd.health_check,
+        )
+        self.retrieve_company_info = to_raw_response_wrapper(
+            qbd.retrieve_company_info,
+        )
+        self.retrieve_company_preferences = to_raw_response_wrapper(
+            qbd.retrieve_company_preferences,
         )
 
     @cached_property
@@ -897,6 +1055,12 @@ class AsyncQbdResourceWithRawResponse:
         self.health_check = async_to_raw_response_wrapper(
             qbd.health_check,
         )
+        self.retrieve_company_info = async_to_raw_response_wrapper(
+            qbd.retrieve_company_info,
+        )
+        self.retrieve_company_preferences = async_to_raw_response_wrapper(
+            qbd.retrieve_company_preferences,
+        )
 
     @cached_property
     def accounts(self) -> AsyncAccountsResourceWithRawResponse:
@@ -1054,6 +1218,12 @@ class QbdResourceWithStreamingResponse:
         self.health_check = to_streamed_response_wrapper(
             qbd.health_check,
         )
+        self.retrieve_company_info = to_streamed_response_wrapper(
+            qbd.retrieve_company_info,
+        )
+        self.retrieve_company_preferences = to_streamed_response_wrapper(
+            qbd.retrieve_company_preferences,
+        )
 
     @cached_property
     def accounts(self) -> AccountsResourceWithStreamingResponse:
@@ -1210,6 +1380,12 @@ class AsyncQbdResourceWithStreamingResponse:
 
         self.health_check = async_to_streamed_response_wrapper(
             qbd.health_check,
+        )
+        self.retrieve_company_info = async_to_streamed_response_wrapper(
+            qbd.retrieve_company_info,
+        )
+        self.retrieve_company_preferences = async_to_streamed_response_wrapper(
+            qbd.retrieve_company_preferences,
         )
 
     @cached_property
