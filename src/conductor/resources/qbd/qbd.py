@@ -28,6 +28,14 @@ from .classes import (
     ClassesResourceWithStreamingResponse,
     AsyncClassesResourceWithStreamingResponse,
 )
+from .company import (
+    CompanyResource,
+    AsyncCompanyResource,
+    CompanyResourceWithRawResponse,
+    AsyncCompanyResourceWithRawResponse,
+    CompanyResourceWithStreamingResponse,
+    AsyncCompanyResourceWithStreamingResponse,
+)
 from .vendors import (
     VendorsResource,
     AsyncVendorsResource,
@@ -100,14 +108,6 @@ from .preferences import (
     AsyncPreferencesResourceWithRawResponse,
     PreferencesResourceWithStreamingResponse,
     AsyncPreferencesResourceWithStreamingResponse,
-)
-from .company_info import (
-    CompanyInfoResource,
-    AsyncCompanyInfoResource,
-    CompanyInfoResourceWithRawResponse,
-    AsyncCompanyInfoResourceWithRawResponse,
-    CompanyInfoResourceWithStreamingResponse,
-    AsyncCompanyInfoResourceWithStreamingResponse,
 )
 from .credit_memos import (
     CreditMemosResource,
@@ -357,8 +357,8 @@ class QbdResource(SyncAPIResource):
         return ClassesResource(self._client)
 
     @cached_property
-    def company_info(self) -> CompanyInfoResource:
-        return CompanyInfoResource(self._client)
+    def company(self) -> CompanyResource:
+        return CompanyResource(self._client)
 
     @cached_property
     def credit_card_charges(self) -> CreditCardChargesResource:
@@ -574,8 +574,8 @@ class AsyncQbdResource(AsyncAPIResource):
         return AsyncClassesResource(self._client)
 
     @cached_property
-    def company_info(self) -> AsyncCompanyInfoResource:
-        return AsyncCompanyInfoResource(self._client)
+    def company(self) -> AsyncCompanyResource:
+        return AsyncCompanyResource(self._client)
 
     @cached_property
     def credit_card_charges(self) -> AsyncCreditCardChargesResource:
@@ -798,8 +798,8 @@ class QbdResourceWithRawResponse:
         return ClassesResourceWithRawResponse(self._qbd.classes)
 
     @cached_property
-    def company_info(self) -> CompanyInfoResourceWithRawResponse:
-        return CompanyInfoResourceWithRawResponse(self._qbd.company_info)
+    def company(self) -> CompanyResourceWithRawResponse:
+        return CompanyResourceWithRawResponse(self._qbd.company)
 
     @cached_property
     def credit_card_charges(self) -> CreditCardChargesResourceWithRawResponse:
@@ -963,8 +963,8 @@ class AsyncQbdResourceWithRawResponse:
         return AsyncClassesResourceWithRawResponse(self._qbd.classes)
 
     @cached_property
-    def company_info(self) -> AsyncCompanyInfoResourceWithRawResponse:
-        return AsyncCompanyInfoResourceWithRawResponse(self._qbd.company_info)
+    def company(self) -> AsyncCompanyResourceWithRawResponse:
+        return AsyncCompanyResourceWithRawResponse(self._qbd.company)
 
     @cached_property
     def credit_card_charges(self) -> AsyncCreditCardChargesResourceWithRawResponse:
@@ -1128,8 +1128,8 @@ class QbdResourceWithStreamingResponse:
         return ClassesResourceWithStreamingResponse(self._qbd.classes)
 
     @cached_property
-    def company_info(self) -> CompanyInfoResourceWithStreamingResponse:
-        return CompanyInfoResourceWithStreamingResponse(self._qbd.company_info)
+    def company(self) -> CompanyResourceWithStreamingResponse:
+        return CompanyResourceWithStreamingResponse(self._qbd.company)
 
     @cached_property
     def credit_card_charges(self) -> CreditCardChargesResourceWithStreamingResponse:
@@ -1293,8 +1293,8 @@ class AsyncQbdResourceWithStreamingResponse:
         return AsyncClassesResourceWithStreamingResponse(self._qbd.classes)
 
     @cached_property
-    def company_info(self) -> AsyncCompanyInfoResourceWithStreamingResponse:
-        return AsyncCompanyInfoResourceWithStreamingResponse(self._qbd.company_info)
+    def company(self) -> AsyncCompanyResourceWithStreamingResponse:
+        return AsyncCompanyResourceWithStreamingResponse(self._qbd.company)
 
     @cached_property
     def credit_card_charges(self) -> AsyncCreditCardChargesResourceWithStreamingResponse:

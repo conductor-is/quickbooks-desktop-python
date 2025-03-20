@@ -8,7 +8,7 @@ from pydantic import Field as FieldInfo
 from ..._models import BaseModel
 
 __all__ = [
-    "CompanyInfo",
+    "Company",
     "AccountantCopy",
     "Address",
     "AddressForCustomer",
@@ -214,7 +214,7 @@ class SubscribedServices(BaseModel):
     """
 
 
-class CompanyInfo(BaseModel):
+class Company(BaseModel):
     accountant_copy: Optional[AccountantCopy] = FieldInfo(alias="accountantCopy", default=None)
     """Information about the accountant's copy for this company file.
 

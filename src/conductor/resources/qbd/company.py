@@ -14,30 +14,30 @@ from ..._response import (
     async_to_streamed_response_wrapper,
 )
 from ..._base_client import make_request_options
-from ...types.qbd.company_info import CompanyInfo
+from ...types.qbd.company import Company
 
-__all__ = ["CompanyInfoResource", "AsyncCompanyInfoResource"]
+__all__ = ["CompanyResource", "AsyncCompanyResource"]
 
 
-class CompanyInfoResource(SyncAPIResource):
+class CompanyResource(SyncAPIResource):
     @cached_property
-    def with_raw_response(self) -> CompanyInfoResourceWithRawResponse:
+    def with_raw_response(self) -> CompanyResourceWithRawResponse:
         """
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
         For more information, see https://www.github.com/conductor-is/quickbooks-desktop-python#accessing-raw-response-data-eg-headers
         """
-        return CompanyInfoResourceWithRawResponse(self)
+        return CompanyResourceWithRawResponse(self)
 
     @cached_property
-    def with_streaming_response(self) -> CompanyInfoResourceWithStreamingResponse:
+    def with_streaming_response(self) -> CompanyResourceWithStreamingResponse:
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
         For more information, see https://www.github.com/conductor-is/quickbooks-desktop-python#with_streaming_response
         """
-        return CompanyInfoResourceWithStreamingResponse(self)
+        return CompanyResourceWithStreamingResponse(self)
 
     def retrieve(
         self,
@@ -49,7 +49,7 @@ class CompanyInfoResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> CompanyInfo:
+    ) -> Company:
         """
         Returns detailed information about the connected QuickBooks company file,
         including company address, legal name, preferences, and subscribed services.
@@ -70,33 +70,33 @@ class CompanyInfoResource(SyncAPIResource):
         """
         extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
         return self._get(
-            "/quickbooks-desktop/company-info",
+            "/quickbooks-desktop/company",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=CompanyInfo,
+            cast_to=Company,
         )
 
 
-class AsyncCompanyInfoResource(AsyncAPIResource):
+class AsyncCompanyResource(AsyncAPIResource):
     @cached_property
-    def with_raw_response(self) -> AsyncCompanyInfoResourceWithRawResponse:
+    def with_raw_response(self) -> AsyncCompanyResourceWithRawResponse:
         """
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
         For more information, see https://www.github.com/conductor-is/quickbooks-desktop-python#accessing-raw-response-data-eg-headers
         """
-        return AsyncCompanyInfoResourceWithRawResponse(self)
+        return AsyncCompanyResourceWithRawResponse(self)
 
     @cached_property
-    def with_streaming_response(self) -> AsyncCompanyInfoResourceWithStreamingResponse:
+    def with_streaming_response(self) -> AsyncCompanyResourceWithStreamingResponse:
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
         For more information, see https://www.github.com/conductor-is/quickbooks-desktop-python#with_streaming_response
         """
-        return AsyncCompanyInfoResourceWithStreamingResponse(self)
+        return AsyncCompanyResourceWithStreamingResponse(self)
 
     async def retrieve(
         self,
@@ -108,7 +108,7 @@ class AsyncCompanyInfoResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> CompanyInfo:
+    ) -> Company:
         """
         Returns detailed information about the connected QuickBooks company file,
         including company address, legal name, preferences, and subscribed services.
@@ -129,45 +129,45 @@ class AsyncCompanyInfoResource(AsyncAPIResource):
         """
         extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
         return await self._get(
-            "/quickbooks-desktop/company-info",
+            "/quickbooks-desktop/company",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=CompanyInfo,
+            cast_to=Company,
         )
 
 
-class CompanyInfoResourceWithRawResponse:
-    def __init__(self, company_info: CompanyInfoResource) -> None:
-        self._company_info = company_info
+class CompanyResourceWithRawResponse:
+    def __init__(self, company: CompanyResource) -> None:
+        self._company = company
 
         self.retrieve = to_raw_response_wrapper(
-            company_info.retrieve,
+            company.retrieve,
         )
 
 
-class AsyncCompanyInfoResourceWithRawResponse:
-    def __init__(self, company_info: AsyncCompanyInfoResource) -> None:
-        self._company_info = company_info
+class AsyncCompanyResourceWithRawResponse:
+    def __init__(self, company: AsyncCompanyResource) -> None:
+        self._company = company
 
         self.retrieve = async_to_raw_response_wrapper(
-            company_info.retrieve,
+            company.retrieve,
         )
 
 
-class CompanyInfoResourceWithStreamingResponse:
-    def __init__(self, company_info: CompanyInfoResource) -> None:
-        self._company_info = company_info
+class CompanyResourceWithStreamingResponse:
+    def __init__(self, company: CompanyResource) -> None:
+        self._company = company
 
         self.retrieve = to_streamed_response_wrapper(
-            company_info.retrieve,
+            company.retrieve,
         )
 
 
-class AsyncCompanyInfoResourceWithStreamingResponse:
-    def __init__(self, company_info: AsyncCompanyInfoResource) -> None:
-        self._company_info = company_info
+class AsyncCompanyResourceWithStreamingResponse:
+    def __init__(self, company: AsyncCompanyResource) -> None:
+        self._company = company
 
         self.retrieve = async_to_streamed_response_wrapper(
-            company_info.retrieve,
+            company.retrieve,
         )
