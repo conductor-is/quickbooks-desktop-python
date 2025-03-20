@@ -32,14 +32,6 @@ from .classes import (
     ClassesResourceWithStreamingResponse,
     AsyncClassesResourceWithStreamingResponse,
 )
-from .company import (
-    CompanyResource,
-    AsyncCompanyResource,
-    CompanyResourceWithRawResponse,
-    AsyncCompanyResourceWithRawResponse,
-    CompanyResourceWithStreamingResponse,
-    AsyncCompanyResourceWithStreamingResponse,
-)
 from .vendors import (
     VendorsResource,
     AsyncVendorsResource,
@@ -314,12 +306,6 @@ from .bill_credit_card_payments import (
 )
 
 __all__ = [
-    "CompanyResource",
-    "AsyncCompanyResource",
-    "CompanyResourceWithRawResponse",
-    "AsyncCompanyResourceWithRawResponse",
-    "CompanyResourceWithStreamingResponse",
-    "AsyncCompanyResourceWithStreamingResponse",
     "AccountsResource",
     "AsyncAccountsResource",
     "AccountsResourceWithRawResponse",
