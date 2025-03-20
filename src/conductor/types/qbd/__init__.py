@@ -7,7 +7,6 @@ from .check import Check as Check
 from .class_ import Class as Class
 from .vendor import Vendor as Vendor
 from .account import Account as Account
-from .company import Company as Company
 from .invoice import Invoice as Invoice
 from .customer import Customer as Customer
 from .employee import Employee as Employee
