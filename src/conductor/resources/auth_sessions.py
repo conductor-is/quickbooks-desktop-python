@@ -61,7 +61,7 @@ class AuthSessionsResource(SyncAPIResource):
         """
         To launch the authentication flow, create an auth session and pass the returned
         session's `authFlowUrl` to the client for your end-user to visit in their
-        browser.
+        browser. Demo: https://connect.conductor.is/qbd/demo
 
         Args:
           end_user_id: The ID of the end-user for whom to create the integration connection.
@@ -139,7 +139,7 @@ class AsyncAuthSessionsResource(AsyncAPIResource):
         """
         To launch the authentication flow, create an auth session and pass the returned
         session's `authFlowUrl` to the client for your end-user to visit in their
-        browser.
+        browser. Demo: https://connect.conductor.is/qbd/demo
 
         Args:
           end_user_id: The ID of the end-user for whom to create the integration connection.
