@@ -1,5 +1,28 @@
 # Changelog
 
+## 1.26.0 (2025-03-20)
+
+Full Changelog: [v1.25.0...v1.26.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.25.0...v1.26.0)
+
+### Features
+
+* **api:** api update ([#647](https://github.com/conductor-is/quickbooks-desktop-python/issues/647)) ([3652590](https://github.com/conductor-is/quickbooks-desktop-python/commit/3652590a0a9fc1fccaa7daab036d4ee81df760a2))
+* **api:** api update ([#649](https://github.com/conductor-is/quickbooks-desktop-python/issues/649)) ([869747b](https://github.com/conductor-is/quickbooks-desktop-python/commit/869747bfff91a45d347e743f10036d6d8cf56374))
+* **api:** api update ([#650](https://github.com/conductor-is/quickbooks-desktop-python/issues/650)) ([229fd19](https://github.com/conductor-is/quickbooks-desktop-python/commit/229fd1951a19ad670844074a6669b53d45d86ffd))
+* **api:** api update ([#651](https://github.com/conductor-is/quickbooks-desktop-python/issues/651)) ([5524c3a](https://github.com/conductor-is/quickbooks-desktop-python/commit/5524c3a3445c2e80702c736fe0a10233f8728dba))
+* **api:** api update ([#652](https://github.com/conductor-is/quickbooks-desktop-python/issues/652)) ([8088ff0](https://github.com/conductor-is/quickbooks-desktop-python/commit/8088ff06ecd451947d1e36063778a65c1025eb18))
+* **api:** api update ([#653](https://github.com/conductor-is/quickbooks-desktop-python/issues/653)) ([35f6b93](https://github.com/conductor-is/quickbooks-desktop-python/commit/35f6b93b725d448eabfbd194f20521cde8dce37e))
+* **api:** api update ([#654](https://github.com/conductor-is/quickbooks-desktop-python/issues/654)) ([82ffbcb](https://github.com/conductor-is/quickbooks-desktop-python/commit/82ffbcbdff19cbfbcf649bd3de83b42d43cb3aa8))
+* **api:** api update ([#655](https://github.com/conductor-is/quickbooks-desktop-python/issues/655)) ([077a06d](https://github.com/conductor-is/quickbooks-desktop-python/commit/077a06d09e413343b1de1b8c8fbf96579af75d28))
+* **api:** api update ([#656](https://github.com/conductor-is/quickbooks-desktop-python/issues/656)) ([68df2d5](https://github.com/conductor-is/quickbooks-desktop-python/commit/68df2d5b70a7a0c2d55efefae3c1f3f36df6da39))
+* **api:** api update ([#657](https://github.com/conductor-is/quickbooks-desktop-python/issues/657)) ([203283b](https://github.com/conductor-is/quickbooks-desktop-python/commit/203283b46d283e135bbd1e911c66c69677568c1f))
+* **api:** api update ([#658](https://github.com/conductor-is/quickbooks-desktop-python/issues/658)) ([67c50ee](https://github.com/conductor-is/quickbooks-desktop-python/commit/67c50eefc1b92d45f3f019f7b92d9f64d6f3501a))
+* **api:** api update ([#659](https://github.com/conductor-is/quickbooks-desktop-python/issues/659)) ([af01e64](https://github.com/conductor-is/quickbooks-desktop-python/commit/af01e643192ba7d30af13d3e38417fa91e7b48a3))
+* **api:** api update ([#660](https://github.com/conductor-is/quickbooks-desktop-python/issues/660)) ([e6f0f4e](https://github.com/conductor-is/quickbooks-desktop-python/commit/e6f0f4e398504775853984169a7420101a860ab5))
+* **api:** api update ([#661](https://github.com/conductor-is/quickbooks-desktop-python/issues/661)) ([41782f9](https://github.com/conductor-is/quickbooks-desktop-python/commit/41782f9dd755fe25f80a4814844cc5c93fec68eb))
+* **api:** api update ([#662](https://github.com/conductor-is/quickbooks-desktop-python/issues/662)) ([a3b41ca](https://github.com/conductor-is/quickbooks-desktop-python/commit/a3b41ca94dc79179623f52fe1f7463874384b529))
+* **api:** api update ([#663](https://github.com/conductor-is/quickbooks-desktop-python/issues/663)) ([79fa993](https://github.com/conductor-is/quickbooks-desktop-python/commit/79fa9935ee616e1f1317ddea47285642443a3eef))
+
 ## 1.25.0 (2025-03-17)
 
 Full Changelog: [v1.24.0...v1.25.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.24.0...v1.25.0)
