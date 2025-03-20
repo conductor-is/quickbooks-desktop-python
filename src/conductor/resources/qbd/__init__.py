@@ -32,6 +32,14 @@ from .classes import (
     ClassesResourceWithStreamingResponse,
     AsyncClassesResourceWithStreamingResponse,
 )
+from .company import (
+    CompanyResource,
+    AsyncCompanyResource,
+    CompanyResourceWithRawResponse,
+    AsyncCompanyResourceWithRawResponse,
+    CompanyResourceWithStreamingResponse,
+    AsyncCompanyResourceWithStreamingResponse,
+)
 from .vendors import (
     VendorsResource,
     AsyncVendorsResource,
@@ -95,14 +103,6 @@ from .preferences import (
     AsyncPreferencesResourceWithRawResponse,
     PreferencesResourceWithStreamingResponse,
     AsyncPreferencesResourceWithStreamingResponse,
-)
-from .company_info import (
-    CompanyInfoResource,
-    AsyncCompanyInfoResource,
-    CompanyInfoResourceWithRawResponse,
-    AsyncCompanyInfoResourceWithRawResponse,
-    CompanyInfoResourceWithStreamingResponse,
-    AsyncCompanyInfoResourceWithStreamingResponse,
 )
 from .credit_memos import (
     CreditMemosResource,
@@ -358,12 +358,12 @@ __all__ = [
     "AsyncClassesResourceWithRawResponse",
     "ClassesResourceWithStreamingResponse",
     "AsyncClassesResourceWithStreamingResponse",
-    "CompanyInfoResource",
-    "AsyncCompanyInfoResource",
-    "CompanyInfoResourceWithRawResponse",
-    "AsyncCompanyInfoResourceWithRawResponse",
-    "CompanyInfoResourceWithStreamingResponse",
-    "AsyncCompanyInfoResourceWithStreamingResponse",
+    "CompanyResource",
+    "AsyncCompanyResource",
+    "CompanyResourceWithRawResponse",
+    "AsyncCompanyResourceWithRawResponse",
+    "CompanyResourceWithStreamingResponse",
+    "AsyncCompanyResourceWithStreamingResponse",
     "CreditCardChargesResource",
     "AsyncCreditCardChargesResource",
     "CreditCardChargesResourceWithRawResponse",
