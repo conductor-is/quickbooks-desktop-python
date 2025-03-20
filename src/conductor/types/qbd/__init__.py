@@ -7,6 +7,7 @@ from .check import Check as Check
 from .class_ import Class as Class
 from .vendor import Vendor as Vendor
 from .account import Account as Account
+from .company import Company as Company
 from .invoice import Invoice as Invoice
 from .customer import Customer as Customer
 from .employee import Employee as Employee
@@ -16,7 +17,6 @@ from .credit_memo import CreditMemo as CreditMemo
 from .preferences import Preferences as Preferences
 from .sales_order import SalesOrder as SalesOrder
 from .transaction import Transaction as Transaction
-from .company_info import CompanyInfo as CompanyInfo
 from .service_item import ServiceItem as ServiceItem
 from .discount_item import DiscountItem as DiscountItem
 from .journal_entry import JournalEntry as JournalEntry
