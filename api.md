@@ -136,17 +136,17 @@ Methods:
 - <code title="post /quickbooks-desktop/classes/{id}">client.qbd.classes.<a href="./src/conductor/resources/qbd/classes.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/class_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/class_.py">Class</a></code>
 - <code title="get /quickbooks-desktop/classes">client.qbd.classes.<a href="./src/conductor/resources/qbd/classes.py">list</a>(\*\*<a href="src/conductor/types/qbd/class_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/class_list_response.py">ClassListResponse</a></code>
 
-## CompanyInfo
+## Company
 
 Types:
 
 ```python
-from conductor.types.qbd import CompanyInfo
+from conductor.types.qbd import Company
 ```
 
 Methods:
 
-- <code title="get /quickbooks-desktop/company-info">client.qbd.company_info.<a href="./src/conductor/resources/qbd/company_info.py">retrieve</a>() -> <a href="./src/conductor/types/qbd/company_info.py">CompanyInfo</a></code>
+- <code title="get /quickbooks-desktop/company">client.qbd.company.<a href="./src/conductor/resources/qbd/company.py">retrieve</a>() -> <a href="./src/conductor/types/qbd/company.py">Company</a></code>
 
 ## CreditCardCharges
 
