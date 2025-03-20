@@ -16,6 +16,7 @@ from .credit_memo import CreditMemo as CreditMemo
 from .preferences import Preferences as Preferences
 from .sales_order import SalesOrder as SalesOrder
 from .transaction import Transaction as Transaction
+from .company_info import CompanyInfo as CompanyInfo
 from .service_item import ServiceItem as ServiceItem
 from .discount_item import DiscountItem as DiscountItem
 from .journal_entry import JournalEntry as JournalEntry
