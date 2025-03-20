@@ -96,6 +96,14 @@ from .preferences import (
     PreferencesResourceWithStreamingResponse,
     AsyncPreferencesResourceWithStreamingResponse,
 )
+from .company_info import (
+    CompanyInfoResource,
+    AsyncCompanyInfoResource,
+    CompanyInfoResourceWithRawResponse,
+    AsyncCompanyInfoResourceWithRawResponse,
+    CompanyInfoResourceWithStreamingResponse,
+    AsyncCompanyInfoResourceWithStreamingResponse,
+)
 from .credit_memos import (
     CreditMemosResource,
     AsyncCreditMemosResource,
@@ -350,6 +358,12 @@ __all__ = [
     "AsyncClassesResourceWithRawResponse",
     "ClassesResourceWithStreamingResponse",
     "AsyncClassesResourceWithStreamingResponse",
+    "CompanyInfoResource",
+    "AsyncCompanyInfoResource",
+    "CompanyInfoResourceWithRawResponse",
+    "AsyncCompanyInfoResourceWithRawResponse",
+    "CompanyInfoResourceWithStreamingResponse",
+    "AsyncCompanyInfoResourceWithStreamingResponse",
     "CreditCardChargesResource",
     "AsyncCreditCardChargesResource",
     "CreditCardChargesResourceWithRawResponse",
