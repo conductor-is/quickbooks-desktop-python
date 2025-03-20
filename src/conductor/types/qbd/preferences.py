@@ -537,41 +537,41 @@ class TimeTracking(BaseModel):
 
 class Preferences(BaseModel):
     accounting: Accounting
-    """The accounting preferences for this preferences."""
+    """The accounting preferences for this company file."""
 
     app_access_rights: AppAccessRights = FieldInfo(alias="appAccessRights")
-    """The current application access rights for this preferences."""
+    """The current application access rights for this company file."""
 
     finance_charges: FinanceCharges = FieldInfo(alias="financeCharges")
-    """The finance charge preferences for this preferences.
+    """The finance charge preferences for this company file.
 
     These settings determine how late payment charges are calculated and applied to
     customer accounts.
     """
 
     items_and_inventory: Optional[ItemsAndInventory] = FieldInfo(alias="itemsAndInventory", default=None)
-    """The item inventory preferences for this preferences."""
+    """The item inventory preferences for this company file."""
 
     jobs_and_estimates: JobsAndEstimates = FieldInfo(alias="jobsAndEstimates")
-    """The jobs and estimates preferences for this preferences."""
+    """The jobs and estimates preferences for this company file."""
 
     multi_currency: Optional[MultiCurrency] = FieldInfo(alias="multiCurrency", default=None)
-    """The multi-currency preferences for this preferences."""
+    """The multi-currency preferences for this company file."""
 
     multi_location_inventory: Optional[MultiLocationInventory] = FieldInfo(alias="multiLocationInventory", default=None)
-    """The multi-location inventory preferences for this preferences."""
+    """The multi-location inventory preferences for this company file."""
 
     purchases_and_vendors: PurchasesAndVendors = FieldInfo(alias="purchasesAndVendors")
-    """The purchases and vendors preferences for this preferences."""
+    """The purchases and vendors preferences for this company file."""
 
     reports: Reports
-    """The reporting preferences for this preferences."""
+    """The reporting preferences for this company file."""
 
     sales_and_customers: SalesAndCustomers = FieldInfo(alias="salesAndCustomers")
-    """The sales and customers preferences for this preferences."""
+    """The sales and customers preferences for this company file."""
 
     sales_tax: Optional[SalesTax] = FieldInfo(alias="salesTax", default=None)
-    """The sales-tax preferences for this preferences.
+    """The sales-tax preferences for this company file.
 
     If sales tax is turned off in the user interface (that is, if "No" is selected
     for "Do You Charge Sales Tax?" in the sales tax preferences), then this field
@@ -579,7 +579,7 @@ class Preferences(BaseModel):
     """
 
     time_tracking: Optional[TimeTracking] = FieldInfo(alias="timeTracking", default=None)
-    """The time-tracking preferences for this preferences.
+    """The time-tracking preferences for this company file.
 
     If time tracking is turned off in the user interface (that is, if "No" is
     selected for "Do You Track Time?" in the time tracking preferences), then this
