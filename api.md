@@ -409,6 +409,21 @@ Methods:
 
 - <code title="get /quickbooks-desktop/preferences">client.qbd.preferences.<a href="./src/conductor/resources/qbd/preferences.py">retrieve</a>() -> <a href="./src/conductor/types/qbd/preferences.py">Preferences</a></code>
 
+## PriceLevels
+
+Types:
+
+```python
+from conductor.types.qbd import PriceLevel, PriceLevelListResponse
+```
+
+Methods:
+
+- <code title="post /quickbooks-desktop/price-levels">client.qbd.price_levels.<a href="./src/conductor/resources/qbd/price_levels.py">create</a>(\*\*<a href="src/conductor/types/qbd/price_level_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/price_level.py">PriceLevel</a></code>
+- <code title="get /quickbooks-desktop/price-levels/{id}">client.qbd.price_levels.<a href="./src/conductor/resources/qbd/price_levels.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/price_level.py">PriceLevel</a></code>
+- <code title="post /quickbooks-desktop/price-levels/{id}">client.qbd.price_levels.<a href="./src/conductor/resources/qbd/price_levels.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/price_level_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/price_level.py">PriceLevel</a></code>
+- <code title="get /quickbooks-desktop/price-levels">client.qbd.price_levels.<a href="./src/conductor/resources/qbd/price_levels.py">list</a>(\*\*<a href="src/conductor/types/qbd/price_level_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/price_level_list_response.py">PriceLevelListResponse</a></code>
+
 ## PurchaseOrders
 
 Types:
