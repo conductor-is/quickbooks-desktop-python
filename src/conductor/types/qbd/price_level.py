@@ -43,24 +43,18 @@ class PerItemPriceLevelItem(BaseModel):
 
 
 class PerItemPriceLevel(BaseModel):
-    adjust_percentage: str = FieldInfo(alias="adjustPercentage")
+    custom_price: Optional[str] = FieldInfo(alias="customPrice", default=None)
     """
-    The percentage adjustment for this per-item price level when using relative
-    pricing. Specifies a percentage to modify pricing, using positive values (e.g.,
-    "20") to increase prices by that percentage, or negative values (e.g., "-10") to
-    apply a discount.
+    The fixed amount custom price for this per-item price level that overrides the
+    standard price for the specified item. Used when setting an absolute price value
+    for the item in this price level.
     """
 
-    adjust_relative_to: Literal["cost", "current_custom_price", "standard_price"] = FieldInfo(alias="adjustRelativeTo")
-    """The base value reference for this per-item price level's percentage adjustment.
-
-    Specifies which price to use as the starting point for the adjustment
-    calculation in the price level.
-
-    **NOTE:** The price level must use either a fixed pricing approach
-    (`customPrice` or `customPricePercent`) or a relative adjustment approach
-    (`adjustPercentage` with `adjustRelativeTo`) when configuring per-item price
-    levels.
+    custom_price_percent: Optional[str] = FieldInfo(alias="customPricePercent", default=None)
+    """
+    The fixed discount percentage for this per-item price level that modifies the
+    specified item's standard price. Used to create a fixed percentage markup or
+    discount specific to this item within this price level.
     """
 
     item: Optional[PerItemPriceLevelItem] = None
