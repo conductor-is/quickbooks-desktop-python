@@ -117,6 +117,14 @@ from .credit_memos import (
     CreditMemosResourceWithStreamingResponse,
     AsyncCreditMemosResourceWithStreamingResponse,
 )
+from .price_levels import (
+    PriceLevelsResource,
+    AsyncPriceLevelsResource,
+    PriceLevelsResourceWithRawResponse,
+    AsyncPriceLevelsResourceWithRawResponse,
+    PriceLevelsResourceWithStreamingResponse,
+    AsyncPriceLevelsResourceWithStreamingResponse,
+)
 from .sales_orders import (
     SalesOrdersResource,
     AsyncSalesOrdersResource,
@@ -429,6 +437,10 @@ class QbdResource(SyncAPIResource):
         return PreferencesResource(self._client)
 
     @cached_property
+    def price_levels(self) -> PriceLevelsResource:
+        return PriceLevelsResource(self._client)
+
+    @cached_property
     def purchase_orders(self) -> PurchaseOrdersResource:
         return PurchaseOrdersResource(self._client)
 
@@ -644,6 +656,10 @@ class AsyncQbdResource(AsyncAPIResource):
     @cached_property
     def preferences(self) -> AsyncPreferencesResource:
         return AsyncPreferencesResource(self._client)
+
+    @cached_property
+    def price_levels(self) -> AsyncPriceLevelsResource:
+        return AsyncPriceLevelsResource(self._client)
 
     @cached_property
     def purchase_orders(self) -> AsyncPurchaseOrdersResource:
@@ -870,6 +886,10 @@ class QbdResourceWithRawResponse:
         return PreferencesResourceWithRawResponse(self._qbd.preferences)
 
     @cached_property
+    def price_levels(self) -> PriceLevelsResourceWithRawResponse:
+        return PriceLevelsResourceWithRawResponse(self._qbd.price_levels)
+
+    @cached_property
     def purchase_orders(self) -> PurchaseOrdersResourceWithRawResponse:
         return PurchaseOrdersResourceWithRawResponse(self._qbd.purchase_orders)
 
@@ -1033,6 +1053,10 @@ class AsyncQbdResourceWithRawResponse:
     @cached_property
     def preferences(self) -> AsyncPreferencesResourceWithRawResponse:
         return AsyncPreferencesResourceWithRawResponse(self._qbd.preferences)
+
+    @cached_property
+    def price_levels(self) -> AsyncPriceLevelsResourceWithRawResponse:
+        return AsyncPriceLevelsResourceWithRawResponse(self._qbd.price_levels)
 
     @cached_property
     def purchase_orders(self) -> AsyncPurchaseOrdersResourceWithRawResponse:
@@ -1200,6 +1224,10 @@ class QbdResourceWithStreamingResponse:
         return PreferencesResourceWithStreamingResponse(self._qbd.preferences)
 
     @cached_property
+    def price_levels(self) -> PriceLevelsResourceWithStreamingResponse:
+        return PriceLevelsResourceWithStreamingResponse(self._qbd.price_levels)
+
+    @cached_property
     def purchase_orders(self) -> PurchaseOrdersResourceWithStreamingResponse:
         return PurchaseOrdersResourceWithStreamingResponse(self._qbd.purchase_orders)
 
@@ -1363,6 +1391,10 @@ class AsyncQbdResourceWithStreamingResponse:
     @cached_property
     def preferences(self) -> AsyncPreferencesResourceWithStreamingResponse:
         return AsyncPreferencesResourceWithStreamingResponse(self._qbd.preferences)
+
+    @cached_property
+    def price_levels(self) -> AsyncPriceLevelsResourceWithStreamingResponse:
+        return AsyncPriceLevelsResourceWithStreamingResponse(self._qbd.price_levels)
 
     @cached_property
     def purchase_orders(self) -> AsyncPurchaseOrdersResourceWithStreamingResponse:
