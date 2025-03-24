@@ -9,7 +9,7 @@ from typing_extensions import Literal, Required, Annotated, TypedDict
 from ..._utils import PropertyInfo
 
 __all__ = [
-    "BillCreateParams",
+    "ItemReceiptCreateParams",
     "ExpenseLine",
     "ExpenseLineCustomField",
     "ItemLineGroup",
@@ -17,16 +17,15 @@ __all__ = [
     "ItemLine",
     "ItemLineCustomField",
     "ItemLineLinkToTransactionLine",
-    "VendorAddress",
 ]
 
 
-class BillCreateParams(TypedDict, total=False):
+class ItemReceiptCreateParams(TypedDict, total=False):
     transaction_date: Required[Annotated[Union[str, date], PropertyInfo(alias="transactionDate", format="iso8601")]]
-    """The date of this bill, in ISO 8601 format (YYYY-MM-DD)."""
+    """The date of this item receipt, in ISO 8601 format (YYYY-MM-DD)."""
 
     vendor_id: Required[Annotated[str, PropertyInfo(alias="vendorId")]]
-    """The vendor who sent this bill for goods or services purchased."""
+    """The vendor who sent this item receipt for goods or services purchased."""
 
     conductor_end_user_id: Required[Annotated[str, PropertyInfo(alias="Conductor-End-User-Id")]]
     """
@@ -34,18 +33,15 @@ class BillCreateParams(TypedDict, total=False):
     `"Conductor-End-User-Id: {{END_USER_ID}}"`).
     """
 
-    due_date: Annotated[Union[str, date], PropertyInfo(alias="dueDate", format="iso8601")]
-    """The date by which this bill must be paid, in ISO 8601 format (YYYY-MM-DD)."""
-
     exchange_rate: Annotated[float, PropertyInfo(alias="exchangeRate")]
     """
-    The market exchange rate between this bill's currency and the home currency in
-    QuickBooks at the time of this transaction. Represented as a decimal value
-    (e.g., 1.2345 for 1 EUR = 1.2345 USD if USD is the home currency).
+    The market exchange rate between this item receipt's currency and the home
+    currency in QuickBooks at the time of this transaction. Represented as a decimal
+    value (e.g., 1.2345 for 1 EUR = 1.2345 USD if USD is the home currency).
     """
 
     expense_lines: Annotated[Iterable[ExpenseLine], PropertyInfo(alias="expenseLines")]
-    """The bill's expense lines, each representing one line in this expense."""
+    """The item receipt's expense lines, each representing one line in this expense."""
 
     external_id: Annotated[str, PropertyInfo(alias="externalId")]
     """
@@ -59,28 +55,28 @@ class BillCreateParams(TypedDict, total=False):
 
     item_line_groups: Annotated[Iterable[ItemLineGroup], PropertyInfo(alias="itemLineGroups")]
     """
-    The bill's item group lines, each representing a predefined set of items bundled
-    together because they are commonly purchased together or grouped for faster
-    entry.
+    The item receipt's item group lines, each representing a predefined set of items
+    bundled together because they are commonly purchased together or grouped for
+    faster entry.
     """
 
     item_lines: Annotated[Iterable[ItemLine], PropertyInfo(alias="itemLines")]
     """
-    The bill's item lines, each representing the purchase of a specific item or
-    service.
+    The item receipt's item lines, each representing the purchase of a specific item
+    or service.
     """
 
     link_to_transaction_ids: Annotated[List[str], PropertyInfo(alias="linkToTransactionIds")]
-    """IDs of existing purchase orders that you wish to link to this bill.
+    """IDs of existing purchase orders that you wish to link to this item receipt.
 
     Note that this links entire transactions, not individual transaction lines. If
     you want to link individual lines in a transaction, instead use the field
-    `linkToTransactionLine` on this bill's lines, if available.
+    `linkToTransactionLine` on this item receipt's lines, if available.
 
-    Transactions can only be linked when creating this bill and cannot be unlinked
-    later.
+    Transactions can only be linked when creating this item receipt and cannot be
+    unlinked later.
 
-    You can use both `linkToTransactionIds` (on this bill) and
+    You can use both `linkToTransactionIds` (on this item receipt) and
     `linkToTransactionLine` (on its transaction lines) as long as they do NOT link
     to the same transaction (otherwise, QuickBooks will return an error). QuickBooks
     will also return an error if you attempt to link a transaction that is empty or
@@ -88,57 +84,45 @@ class BillCreateParams(TypedDict, total=False):
 
     **IMPORTANT**: By default, QuickBooks will not return any information about the
     linked transactions in this endpoint's response even when this request is
-    successful. To see the transactions linked via this field, refetch the bill and
-    check the `linkedTransactions` response field. If fetching a list of bills, you
-    must also specify the parameter `includeLinkedTransactions=true` to see the
-    `linkedTransactions` response field.
+    successful. To see the transactions linked via this field, refetch the item
+    receipt and check the `linkedTransactions` response field. If fetching a list of
+    item receipts, you must also specify the parameter
+    `includeLinkedTransactions=true` to see the `linkedTransactions` response field.
     """
 
     memo: str
-    """
-    A memo or note for this bill that appears in the Accounts-Payable register and
-    in reports that include this bill.
-    """
+    """A memo or note for this item receipt."""
 
     payables_account_id: Annotated[str, PropertyInfo(alias="payablesAccountId")]
     """
-    The Accounts-Payable (A/P) account to which this bill is assigned, used to track
-    the amount owed. If not specified, QuickBooks Desktop will use its default A/P
-    account.
+    The Accounts-Payable (A/P) account to which this item receipt is assigned, used
+    to track the amount owed. If not specified, QuickBooks Desktop will use its
+    default A/P account.
 
-    **IMPORTANT**: If this bill is linked to other transactions, this A/P account
-    must match the `payablesAccount` used in those other transactions.
+    **IMPORTANT**: If this item receipt is linked to other transactions, this A/P
+    account must match the `payablesAccount` used in those other transactions.
     """
 
     ref_number: Annotated[str, PropertyInfo(alias="refNumber")]
     """
-    The case-sensitive user-defined reference number for this bill, which can be
-    used to identify the transaction in QuickBooks. This value is not required to be
-    unique and can be arbitrarily changed by the QuickBooks user. When left blank in
-    this create request, this field will be left blank in QuickBooks (i.e., it does
-    _not_ auto-increment).
+    The case-sensitive user-defined reference number for this item receipt, which
+    can be used to identify the transaction in QuickBooks. This value is not
+    required to be unique and can be arbitrarily changed by the QuickBooks user.
+    When left blank in this create request, this field will be left blank in
+    QuickBooks (i.e., it does _not_ auto-increment).
     """
 
     sales_tax_code_id: Annotated[str, PropertyInfo(alias="salesTaxCodeId")]
     """
-    The sales-tax code for this bill, determining whether it is taxable or
+    The sales-tax code for this item receipt, determining whether it is taxable or
     non-taxable. If set, this overrides any sales-tax codes defined on the vendor.
-    This can be overridden on the bill's individual lines.
+    This can be overridden on the item receipt's individual lines.
 
     Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes
     can also be created in QuickBooks. If QuickBooks is not set up to charge sales
     tax (via the "Do You Charge Sales Tax?" preference), it will assign the default
     non-taxable code to all sales.
     """
-
-    terms_id: Annotated[str, PropertyInfo(alias="termsId")]
-    """
-    The bill's payment terms, defining when payment is due and any applicable
-    discounts.
-    """
-
-    vendor_address: Annotated[VendorAddress, PropertyInfo(alias="vendorAddress")]
-    """The address of the vendor who sent this bill."""
 
 
 class ExpenseLineCustomField(TypedDict, total=False):
@@ -482,65 +466,4 @@ class ItemLine(TypedDict, total=False):
     """The unit-of-measure used for the `quantity` in this item line.
 
     Must be a valid unit within the item's available units of measure.
-    """
-
-
-class VendorAddress(TypedDict, total=False):
-    city: str
-    """The city, district, suburb, town, or village name of the address.
-
-    Maximum length: 31 characters.
-    """
-
-    country: str
-    """The country name of the address."""
-
-    line1: str
-    """The first line of the address (e.g., street, PO Box, or company name).
-
-    Maximum length: 41 characters.
-    """
-
-    line2: str
-    """
-    The second line of the address, if needed (e.g., apartment, suite, unit, or
-    building).
-
-    Maximum length: 41 characters.
-    """
-
-    line3: str
-    """The third line of the address, if needed.
-
-    Maximum length: 41 characters.
-    """
-
-    line4: str
-    """The fourth line of the address, if needed.
-
-    Maximum length: 41 characters.
-    """
-
-    line5: str
-    """The fifth line of the address, if needed.
-
-    Maximum length: 41 characters.
-    """
-
-    note: str
-    """
-    A note written at the bottom of the address in the form in which it appears,
-    such as the invoice form.
-    """
-
-    postal_code: Annotated[str, PropertyInfo(alias="postalCode")]
-    """The postal code or ZIP code of the address.
-
-    Maximum length: 13 characters.
-    """
-
-    state: str
-    """The state, county, province, or region name of the address.
-
-    Maximum length: 21 characters.
     """

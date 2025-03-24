@@ -136,6 +136,14 @@ from .transactions import (
     TransactionsResourceWithStreamingResponse,
     AsyncTransactionsResourceWithStreamingResponse,
 )
+from .item_receipts import (
+    ItemReceiptsResource,
+    AsyncItemReceiptsResource,
+    ItemReceiptsResourceWithRawResponse,
+    AsyncItemReceiptsResourceWithRawResponse,
+    ItemReceiptsResourceWithStreamingResponse,
+    AsyncItemReceiptsResourceWithStreamingResponse,
+)
 from .service_items import (
     ServiceItemsResource,
     AsyncServiceItemsResource,
@@ -450,6 +458,12 @@ __all__ = [
     "AsyncInvoicesResourceWithRawResponse",
     "InvoicesResourceWithStreamingResponse",
     "AsyncInvoicesResourceWithStreamingResponse",
+    "ItemReceiptsResource",
+    "AsyncItemReceiptsResource",
+    "ItemReceiptsResourceWithRawResponse",
+    "AsyncItemReceiptsResourceWithRawResponse",
+    "ItemReceiptsResourceWithStreamingResponse",
+    "AsyncItemReceiptsResourceWithStreamingResponse",
     "JournalEntriesResource",
     "AsyncJournalEntriesResource",
     "JournalEntriesResourceWithRawResponse",
