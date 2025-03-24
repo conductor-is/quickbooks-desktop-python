@@ -18,6 +18,7 @@ from .preferences import Preferences as Preferences
 from .price_level import PriceLevel as PriceLevel
 from .sales_order import SalesOrder as SalesOrder
 from .transaction import Transaction as Transaction
+from .item_receipt import ItemReceipt as ItemReceipt
 from .service_item import ServiceItem as ServiceItem
 from .discount_item import DiscountItem as DiscountItem
 from .journal_entry import JournalEntry as JournalEntry
@@ -82,6 +83,7 @@ from .sales_order_list_params import SalesOrderListParams as SalesOrderListParam
 from .transaction_list_params import TransactionListParams as TransactionListParams
 from .bill_credit_card_payment import BillCreditCardPayment as BillCreditCardPayment
 from .estimate_delete_response import EstimateDeleteResponse as EstimateDeleteResponse
+from .item_receipt_list_params import ItemReceiptListParams as ItemReceiptListParams
 from .service_item_list_params import ServiceItemListParams as ServiceItemListParams
 from .credit_memo_create_params import CreditMemoCreateParams as CreditMemoCreateParams
 from .credit_memo_update_params import CreditMemoUpdateParams as CreditMemoUpdateParams
@@ -98,6 +100,8 @@ from .subtotal_item_list_params import SubtotalItemListParams as SubtotalItemLis
 from .vendor_credit_list_params import VendorCreditListParams as VendorCreditListParams
 from .inventory_item_list_params import InventoryItemListParams as InventoryItemListParams
 from .inventory_site_list_params import InventorySiteListParams as InventorySiteListParams
+from .item_receipt_create_params import ItemReceiptCreateParams as ItemReceiptCreateParams
+from .item_receipt_update_params import ItemReceiptUpdateParams as ItemReceiptUpdateParams
 from .purchase_order_list_params import PurchaseOrderListParams as PurchaseOrderListParams
 from .sales_tax_code_list_params import SalesTaxCodeListParams as SalesTaxCodeListParams
 from .sales_tax_item_list_params import SalesTaxItemListParams as SalesTaxItemListParams
@@ -124,6 +128,7 @@ from .inventory_item_update_params import InventoryItemUpdateParams as Inventory
 from .inventory_site_create_params import InventorySiteCreateParams as InventorySiteCreateParams
 from .inventory_site_list_response import InventorySiteListResponse as InventorySiteListResponse
 from .inventory_site_update_params import InventorySiteUpdateParams as InventorySiteUpdateParams
+from .item_receipt_delete_response import ItemReceiptDeleteResponse as ItemReceiptDeleteResponse
 from .purchase_order_create_params import PurchaseOrderCreateParams as PurchaseOrderCreateParams
 from .purchase_order_update_params import PurchaseOrderUpdateParams as PurchaseOrderUpdateParams
 from .sales_tax_code_create_params import SalesTaxCodeCreateParams as SalesTaxCodeCreateParams

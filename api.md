@@ -352,6 +352,22 @@ Methods:
 - <code title="get /quickbooks-desktop/invoices">client.qbd.invoices.<a href="./src/conductor/resources/qbd/invoices.py">list</a>(\*\*<a href="src/conductor/types/qbd/invoice_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/invoice.py">SyncCursorPage[Invoice]</a></code>
 - <code title="delete /quickbooks-desktop/invoices/{id}">client.qbd.invoices.<a href="./src/conductor/resources/qbd/invoices.py">delete</a>(id) -> <a href="./src/conductor/types/qbd/invoice_delete_response.py">InvoiceDeleteResponse</a></code>
 
+## ItemReceipts
+
+Types:
+
+```python
+from conductor.types.qbd import ItemReceipt, ItemReceiptDeleteResponse
+```
+
+Methods:
+
+- <code title="post /quickbooks-desktop/item-receipts">client.qbd.item_receipts.<a href="./src/conductor/resources/qbd/item_receipts.py">create</a>(\*\*<a href="src/conductor/types/qbd/item_receipt_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/item_receipt.py">ItemReceipt</a></code>
+- <code title="get /quickbooks-desktop/item-receipts/{id}">client.qbd.item_receipts.<a href="./src/conductor/resources/qbd/item_receipts.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/item_receipt.py">ItemReceipt</a></code>
+- <code title="post /quickbooks-desktop/item-receipts/{id}">client.qbd.item_receipts.<a href="./src/conductor/resources/qbd/item_receipts.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/item_receipt_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/item_receipt.py">ItemReceipt</a></code>
+- <code title="get /quickbooks-desktop/item-receipts">client.qbd.item_receipts.<a href="./src/conductor/resources/qbd/item_receipts.py">list</a>(\*\*<a href="src/conductor/types/qbd/item_receipt_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/item_receipt.py">SyncCursorPage[ItemReceipt]</a></code>
+- <code title="delete /quickbooks-desktop/item-receipts/{id}">client.qbd.item_receipts.<a href="./src/conductor/resources/qbd/item_receipts.py">delete</a>(id) -> <a href="./src/conductor/types/qbd/item_receipt_delete_response.py">ItemReceiptDeleteResponse</a></code>
+
 ## JournalEntries
 
 Types:
