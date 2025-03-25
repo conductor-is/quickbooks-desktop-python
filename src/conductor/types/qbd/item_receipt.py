@@ -1231,7 +1231,7 @@ class ItemReceipt(BaseModel):
     or service.
     """
 
-    liability_account: LiabilityAccount = FieldInfo(alias="liabilityAccount")
+    liability_account: Optional[LiabilityAccount] = FieldInfo(alias="liabilityAccount", default=None)
     """The liability account used to track the amount owed for this item receipt."""
 
     linked_transactions: List[LinkedTransaction] = FieldInfo(alias="linkedTransactions")
