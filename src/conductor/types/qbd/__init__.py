@@ -32,6 +32,7 @@ from .purchase_order import PurchaseOrder as PurchaseOrder
 from .sales_tax_code import SalesTaxCode as SalesTaxCode
 from .sales_tax_item import SalesTaxItem as SalesTaxItem
 from .receive_payment import ReceivePayment as ReceivePayment
+from .account_tax_line import AccountTaxLine as AccountTaxLine
 from .bill_list_params import BillListParams as BillListParams
 from .date_driven_term import DateDrivenTerm as DateDrivenTerm
 from .check_list_params import CheckListParams as CheckListParams
@@ -142,6 +143,7 @@ from .receive_payment_create_params import ReceivePaymentCreateParams as Receive
 from .receive_payment_update_params import ReceivePaymentUpdateParams as ReceivePaymentUpdateParams
 from .sales_receipt_delete_response import SalesReceiptDeleteResponse as SalesReceiptDeleteResponse
 from .vendor_credit_delete_response import VendorCreditDeleteResponse as VendorCreditDeleteResponse
+from .account_tax_line_list_response import AccountTaxLineListResponse as AccountTaxLineListResponse
 from .bill_check_payment_list_params import BillCheckPaymentListParams as BillCheckPaymentListParams
 from .credit_card_charge_list_params import CreditCardChargeListParams as CreditCardChargeListParams
 from .credit_card_credit_list_params import CreditCardCreditListParams as CreditCardCreditListParams

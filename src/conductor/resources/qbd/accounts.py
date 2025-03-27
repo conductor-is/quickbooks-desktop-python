@@ -149,7 +149,9 @@ class AccountsResource(SyncAPIResource):
               tax (via the "Do You Charge Sales Tax?" preference), it will assign the default
               non-taxable code to all sales.
 
-          tax_line_id: The identifier of the tax line associated with this account.
+          tax_line_id: The identifier of the tax line associated with this account. You can see a list
+              of all available values for this field by calling the endpoint for account tax
+              lines.
 
           extra_headers: Send extra headers
 
@@ -335,7 +337,9 @@ class AccountsResource(SyncAPIResource):
               tax (via the "Do You Charge Sales Tax?" preference), it will assign the default
               non-taxable code to all sales.
 
-          tax_line_id: The identifier of the tax line associated with this account.
+          tax_line_id: The identifier of the tax line associated with this account. You can see a list
+              of all available values for this field by calling the endpoint for account tax
+              lines.
 
           extra_headers: Send extra headers
 
@@ -648,7 +652,9 @@ class AsyncAccountsResource(AsyncAPIResource):
               tax (via the "Do You Charge Sales Tax?" preference), it will assign the default
               non-taxable code to all sales.
 
-          tax_line_id: The identifier of the tax line associated with this account.
+          tax_line_id: The identifier of the tax line associated with this account. You can see a list
+              of all available values for this field by calling the endpoint for account tax
+              lines.
 
           extra_headers: Send extra headers
 
@@ -834,7 +840,9 @@ class AsyncAccountsResource(AsyncAPIResource):
               tax (via the "Do You Charge Sales Tax?" preference), it will assign the default
               non-taxable code to all sales.
 
-          tax_line_id: The identifier of the tax line associated with this account.
+          tax_line_id: The identifier of the tax line associated with this account. You can see a list
+              of all available values for this field by calling the endpoint for account tax
+              lines.
 
           extra_headers: Send extra headers
 
