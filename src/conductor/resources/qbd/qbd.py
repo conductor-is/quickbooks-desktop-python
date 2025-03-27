@@ -254,6 +254,14 @@ from .receive_payments import (
     ReceivePaymentsResourceWithStreamingResponse,
     AsyncReceivePaymentsResourceWithStreamingResponse,
 )
+from .account_tax_lines import (
+    AccountTaxLinesResource,
+    AsyncAccountTaxLinesResource,
+    AccountTaxLinesResourceWithRawResponse,
+    AsyncAccountTaxLinesResourceWithRawResponse,
+    AccountTaxLinesResourceWithStreamingResponse,
+    AsyncAccountTaxLinesResourceWithStreamingResponse,
+)
 from .date_driven_terms import (
     DateDrivenTermsResource,
     AsyncDateDrivenTermsResource,
@@ -348,6 +356,10 @@ __all__ = ["QbdResource", "AsyncQbdResource"]
 
 
 class QbdResource(SyncAPIResource):
+    @cached_property
+    def account_tax_lines(self) -> AccountTaxLinesResource:
+        return AccountTaxLinesResource(self._client)
+
     @cached_property
     def accounts(self) -> AccountsResource:
         return AccountsResource(self._client)
@@ -573,6 +585,10 @@ class QbdResource(SyncAPIResource):
 
 
 class AsyncQbdResource(AsyncAPIResource):
+    @cached_property
+    def account_tax_lines(self) -> AsyncAccountTaxLinesResource:
+        return AsyncAccountTaxLinesResource(self._client)
+
     @cached_property
     def accounts(self) -> AsyncAccountsResource:
         return AsyncAccountsResource(self._client)
@@ -806,6 +822,10 @@ class QbdResourceWithRawResponse:
         )
 
     @cached_property
+    def account_tax_lines(self) -> AccountTaxLinesResourceWithRawResponse:
+        return AccountTaxLinesResourceWithRawResponse(self._qbd.account_tax_lines)
+
+    @cached_property
     def accounts(self) -> AccountsResourceWithRawResponse:
         return AccountsResourceWithRawResponse(self._qbd.accounts)
 
@@ -977,6 +997,10 @@ class AsyncQbdResourceWithRawResponse:
         self.health_check = async_to_raw_response_wrapper(
             qbd.health_check,
         )
+
+    @cached_property
+    def account_tax_lines(self) -> AsyncAccountTaxLinesResourceWithRawResponse:
+        return AsyncAccountTaxLinesResourceWithRawResponse(self._qbd.account_tax_lines)
 
     @cached_property
     def accounts(self) -> AsyncAccountsResourceWithRawResponse:
@@ -1152,6 +1176,10 @@ class QbdResourceWithStreamingResponse:
         )
 
     @cached_property
+    def account_tax_lines(self) -> AccountTaxLinesResourceWithStreamingResponse:
+        return AccountTaxLinesResourceWithStreamingResponse(self._qbd.account_tax_lines)
+
+    @cached_property
     def accounts(self) -> AccountsResourceWithStreamingResponse:
         return AccountsResourceWithStreamingResponse(self._qbd.accounts)
 
@@ -1323,6 +1351,10 @@ class AsyncQbdResourceWithStreamingResponse:
         self.health_check = async_to_streamed_response_wrapper(
             qbd.health_check,
         )
+
+    @cached_property
+    def account_tax_lines(self) -> AsyncAccountTaxLinesResourceWithStreamingResponse:
+        return AsyncAccountTaxLinesResourceWithStreamingResponse(self._qbd.account_tax_lines)
 
     @cached_property
     def accounts(self) -> AsyncAccountsResourceWithStreamingResponse:
