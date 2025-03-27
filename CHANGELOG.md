@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.31.0 (2025-03-27)
+
+Full Changelog: [v1.30.0...v1.31.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.30.0...v1.31.0)
+
+### Features
+
+* **api:** api update ([#679](https://github.com/conductor-is/quickbooks-desktop-python/issues/679)) ([e725872](https://github.com/conductor-is/quickbooks-desktop-python/commit/e7258720cfdce800751b175ff274a70d35ebce31))
+
+
+### Chores
+
+* fix typos ([#677](https://github.com/conductor-is/quickbooks-desktop-python/issues/677)) ([b595686](https://github.com/conductor-is/quickbooks-desktop-python/commit/b595686c656ff42109ee0f45789f4a8cb243d925))
+
 ## 1.30.0 (2025-03-25)
 
 Full Changelog: [v1.29.0...v1.30.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.29.0...v1.30.0)
