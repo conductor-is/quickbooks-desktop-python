@@ -97,7 +97,11 @@ class SalesTaxCode(BaseModel):
 
 class TaxLineDetails(BaseModel):
     tax_line_id: float = FieldInfo(alias="taxLineId")
-    """The identifier of the tax line associated with this account."""
+    """The identifier of the tax line associated with this account.
+
+    You can see a list of all available values for this field by calling the
+    endpoint for account tax lines.
+    """
 
     tax_line_name: Optional[str] = FieldInfo(alias="taxLineName", default=None)
     """

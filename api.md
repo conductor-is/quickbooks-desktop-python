@@ -43,6 +43,18 @@ Methods:
 
 - <code title="get /quickbooks-desktop/health-check">client.qbd.<a href="./src/conductor/resources/qbd/qbd.py">health_check</a>() -> <a href="./src/conductor/types/qbd_health_check_response.py">QbdHealthCheckResponse</a></code>
 
+## AccountTaxLines
+
+Types:
+
+```python
+from conductor.types.qbd import AccountTaxLine, AccountTaxLineListResponse
+```
+
+Methods:
+
+- <code title="get /quickbooks-desktop/account-tax-lines">client.qbd.account_tax_lines.<a href="./src/conductor/resources/qbd/account_tax_lines.py">list</a>() -> <a href="./src/conductor/types/qbd/account_tax_line_list_response.py">AccountTaxLineListResponse</a></code>
+
 ## Accounts
 
 Types:
