@@ -248,6 +248,14 @@ from .receive_payments import (
     ReceivePaymentsResourceWithStreamingResponse,
     AsyncReceivePaymentsResourceWithStreamingResponse,
 )
+from .account_tax_lines import (
+    AccountTaxLinesResource,
+    AsyncAccountTaxLinesResource,
+    AccountTaxLinesResourceWithRawResponse,
+    AsyncAccountTaxLinesResourceWithRawResponse,
+    AccountTaxLinesResourceWithStreamingResponse,
+    AsyncAccountTaxLinesResourceWithStreamingResponse,
+)
 from .date_driven_terms import (
     DateDrivenTermsResource,
     AsyncDateDrivenTermsResource,
@@ -338,6 +346,12 @@ from .bill_credit_card_payments import (
 )
 
 __all__ = [
+    "AccountTaxLinesResource",
+    "AsyncAccountTaxLinesResource",
+    "AccountTaxLinesResourceWithRawResponse",
+    "AsyncAccountTaxLinesResourceWithRawResponse",
+    "AccountTaxLinesResourceWithStreamingResponse",
+    "AsyncAccountTaxLinesResourceWithStreamingResponse",
     "AccountsResource",
     "AsyncAccountsResource",
     "AccountsResourceWithRawResponse",
