@@ -17,7 +17,10 @@ class SalesRepresentativeCreateParams(TypedDict, total=False):
     """
 
     initial: Required[str]
-    """The initials of this sales representative's name."""
+    """The initials of this sales representative's name.
+
+    Maximum length: 5 characters.
+    """
 
     conductor_end_user_id: Required[Annotated[str, PropertyInfo(alias="Conductor-End-User-Id")]]
     """
