@@ -165,6 +165,14 @@ class TestEndUsers:
         end_user = client.end_users.passthrough(
             integration_slug="quickbooks_desktop",
             id="end_usr_1234567abcdefg",
+        )
+        assert_matches_type(EndUserPassthroughResponse, end_user, path=["response"])
+
+    @parametrize
+    def test_method_passthrough_with_all_params(self, client: Conductor) -> None:
+        end_user = client.end_users.passthrough(
+            integration_slug="quickbooks_desktop",
+            id="end_usr_1234567abcdefg",
             qbd_payload={"foo": "bar"},
         )
         assert_matches_type(EndUserPassthroughResponse, end_user, path=["response"])
@@ -174,7 +182,6 @@ class TestEndUsers:
         response = client.end_users.with_raw_response.passthrough(
             integration_slug="quickbooks_desktop",
             id="end_usr_1234567abcdefg",
-            qbd_payload={"foo": "bar"},
         )
 
         assert response.is_closed is True
@@ -187,7 +194,6 @@ class TestEndUsers:
         with client.end_users.with_streaming_response.passthrough(
             integration_slug="quickbooks_desktop",
             id="end_usr_1234567abcdefg",
-            qbd_payload={"foo": "bar"},
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -203,7 +209,6 @@ class TestEndUsers:
             client.end_users.with_raw_response.passthrough(
                 integration_slug="quickbooks_desktop",
                 id="",
-                qbd_payload={"foo": "bar"},
             )
 
 
@@ -353,6 +358,14 @@ class TestAsyncEndUsers:
         end_user = await async_client.end_users.passthrough(
             integration_slug="quickbooks_desktop",
             id="end_usr_1234567abcdefg",
+        )
+        assert_matches_type(EndUserPassthroughResponse, end_user, path=["response"])
+
+    @parametrize
+    async def test_method_passthrough_with_all_params(self, async_client: AsyncConductor) -> None:
+        end_user = await async_client.end_users.passthrough(
+            integration_slug="quickbooks_desktop",
+            id="end_usr_1234567abcdefg",
             qbd_payload={"foo": "bar"},
         )
         assert_matches_type(EndUserPassthroughResponse, end_user, path=["response"])
@@ -362,7 +375,6 @@ class TestAsyncEndUsers:
         response = await async_client.end_users.with_raw_response.passthrough(
             integration_slug="quickbooks_desktop",
             id="end_usr_1234567abcdefg",
-            qbd_payload={"foo": "bar"},
         )
 
         assert response.is_closed is True
@@ -375,7 +387,6 @@ class TestAsyncEndUsers:
         async with async_client.end_users.with_streaming_response.passthrough(
             integration_slug="quickbooks_desktop",
             id="end_usr_1234567abcdefg",
-            qbd_payload={"foo": "bar"},
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -391,5 +402,4 @@ class TestAsyncEndUsers:
             await async_client.end_users.with_raw_response.passthrough(
                 integration_slug="quickbooks_desktop",
                 id="",
-                qbd_payload={"foo": "bar"},
             )

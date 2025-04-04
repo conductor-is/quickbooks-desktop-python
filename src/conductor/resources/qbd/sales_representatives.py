@@ -75,6 +75,8 @@ class SalesRepresentativesResource(SyncAPIResource):
 
           initial: The initials of this sales representative's name.
 
+              Maximum length: 5 characters.
+
           conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
               `"Conductor-End-User-Id: {{END_USER_ID}}"`).
 
@@ -181,6 +183,8 @@ class SalesRepresentativesResource(SyncAPIResource):
               either an employee, vendor, or other-name entry.
 
           initial: The initials of this sales representative's name.
+
+              Maximum length: 5 characters.
 
           is_active: Indicates whether this sales representative is active. Inactive objects are
               typically hidden from views and reports in QuickBooks. Defaults to `true`.
@@ -382,6 +386,8 @@ class AsyncSalesRepresentativesResource(AsyncAPIResource):
 
           initial: The initials of this sales representative's name.
 
+              Maximum length: 5 characters.
+
           conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
               `"Conductor-End-User-Id: {{END_USER_ID}}"`).
 
@@ -488,6 +494,8 @@ class AsyncSalesRepresentativesResource(AsyncAPIResource):
               either an employee, vendor, or other-name entry.
 
           initial: The initials of this sales representative's name.
+
+              Maximum length: 5 characters.
 
           is_active: Indicates whether this sales representative is active. Inactive objects are
               typically hidden from views and reports in QuickBooks. Defaults to `true`.
