@@ -1546,7 +1546,7 @@ class TestAsyncConductor:
         import threading
 
         from conductor._utils import asyncify
-        from conductor._base_client import get_platform 
+        from conductor._base_client import get_platform
 
         async def test_main() -> None:
             result = await asyncify(get_platform)()
