@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.32.0 (2025-04-04)
+
+Full Changelog: [v1.31.0...v1.32.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.31.0...v1.32.0)
+
+### Features
+
+* **api:** api update ([#681](https://github.com/conductor-is/quickbooks-desktop-python/issues/681)) ([1592110](https://github.com/conductor-is/quickbooks-desktop-python/commit/1592110f682d11be03d66e171b8fb3e3aa702284))
+
+
+### Chores
+
+* **internal:** codegen related update ([#683](https://github.com/conductor-is/quickbooks-desktop-python/issues/683)) ([5234f2a](https://github.com/conductor-is/quickbooks-desktop-python/commit/5234f2a30784f4b688548c9ff5b6cf3f60629867))
+* **internal:** remove trailing character ([#684](https://github.com/conductor-is/quickbooks-desktop-python/issues/684)) ([39f751c](https://github.com/conductor-is/quickbooks-desktop-python/commit/39f751cf1d6fc39b8b75f3aee83842a0d4226c0f))
+
 ## 1.31.0 (2025-03-27)
 
 Full Changelog: [v1.30.0...v1.31.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.30.0...v1.31.0)
