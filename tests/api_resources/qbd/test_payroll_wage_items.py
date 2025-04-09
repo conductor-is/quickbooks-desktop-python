@@ -23,7 +23,7 @@ class TestPayrollWageItems:
         payroll_wage_item = client.qbd.payroll_wage_items.create(
             expense_account_id="80000001-1234567890",
             name="Regular Pay",
-            wage_type="bonus",
+            wage_type="hourly_regular",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(PayrollWageItem, payroll_wage_item, path=["response"])
@@ -33,7 +33,7 @@ class TestPayrollWageItems:
         payroll_wage_item = client.qbd.payroll_wage_items.create(
             expense_account_id="80000001-1234567890",
             name="Regular Pay",
-            wage_type="bonus",
+            wage_type="hourly_regular",
             conductor_end_user_id="end_usr_1234567abcdefg",
             is_active=True,
         )
@@ -44,7 +44,7 @@ class TestPayrollWageItems:
         response = client.qbd.payroll_wage_items.with_raw_response.create(
             expense_account_id="80000001-1234567890",
             name="Regular Pay",
-            wage_type="bonus",
+            wage_type="hourly_regular",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -58,7 +58,7 @@ class TestPayrollWageItems:
         with client.qbd.payroll_wage_items.with_streaming_response.create(
             expense_account_id="80000001-1234567890",
             name="Regular Pay",
-            wage_type="bonus",
+            wage_type="hourly_regular",
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -170,7 +170,7 @@ class TestAsyncPayrollWageItems:
         payroll_wage_item = await async_client.qbd.payroll_wage_items.create(
             expense_account_id="80000001-1234567890",
             name="Regular Pay",
-            wage_type="bonus",
+            wage_type="hourly_regular",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(PayrollWageItem, payroll_wage_item, path=["response"])
@@ -180,7 +180,7 @@ class TestAsyncPayrollWageItems:
         payroll_wage_item = await async_client.qbd.payroll_wage_items.create(
             expense_account_id="80000001-1234567890",
             name="Regular Pay",
-            wage_type="bonus",
+            wage_type="hourly_regular",
             conductor_end_user_id="end_usr_1234567abcdefg",
             is_active=True,
         )
@@ -191,7 +191,7 @@ class TestAsyncPayrollWageItems:
         response = await async_client.qbd.payroll_wage_items.with_raw_response.create(
             expense_account_id="80000001-1234567890",
             name="Regular Pay",
-            wage_type="bonus",
+            wage_type="hourly_regular",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -205,7 +205,7 @@ class TestAsyncPayrollWageItems:
         async with async_client.qbd.payroll_wage_items.with_streaming_response.create(
             expense_account_id="80000001-1234567890",
             name="Regular Pay",
-            wage_type="bonus",
+            wage_type="hourly_regular",
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
