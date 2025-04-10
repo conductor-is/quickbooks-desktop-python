@@ -24,7 +24,7 @@ class TestAccounts:
     @parametrize
     def test_method_create(self, client: Conductor) -> None:
         account = client.qbd.accounts.create(
-            account_type="accounts_payable",
+            account_type="bank",
             name="Accounts-Payable",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
@@ -33,7 +33,7 @@ class TestAccounts:
     @parametrize
     def test_method_create_with_all_params(self, client: Conductor) -> None:
         account = client.qbd.accounts.create(
-            account_type="accounts_payable",
+            account_type="bank",
             name="Accounts-Payable",
             conductor_end_user_id="end_usr_1234567abcdefg",
             account_number="1010",
@@ -52,7 +52,7 @@ class TestAccounts:
     @parametrize
     def test_raw_response_create(self, client: Conductor) -> None:
         response = client.qbd.accounts.with_raw_response.create(
-            account_type="accounts_payable",
+            account_type="bank",
             name="Accounts-Payable",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
@@ -65,7 +65,7 @@ class TestAccounts:
     @parametrize
     def test_streaming_response_create(self, client: Conductor) -> None:
         with client.qbd.accounts.with_streaming_response.create(
-            account_type="accounts_payable",
+            account_type="bank",
             name="Accounts-Payable",
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
@@ -135,7 +135,7 @@ class TestAccounts:
             revision_number="1721172183",
             conductor_end_user_id="end_usr_1234567abcdefg",
             account_number="1010",
-            account_type="accounts_payable",
+            account_type="bank",
             bank_account_number="123456789",
             currency_id="80000001-1234567890",
             description="Accounts-payable are the amounts owed to suppliers for goods and services purchased on credit.",
@@ -197,7 +197,7 @@ class TestAccounts:
     def test_method_list_with_all_params(self, client: Conductor) -> None:
         account = client.qbd.accounts.list(
             conductor_end_user_id="end_usr_1234567abcdefg",
-            account_type="accounts_payable",
+            account_type="income",
             currency_ids=["80000001-1234567890"],
             full_names=["Corporate:Accounts-Payable"],
             ids=["80000001-1234567890"],
@@ -244,7 +244,7 @@ class TestAsyncAccounts:
     @parametrize
     async def test_method_create(self, async_client: AsyncConductor) -> None:
         account = await async_client.qbd.accounts.create(
-            account_type="accounts_payable",
+            account_type="bank",
             name="Accounts-Payable",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
@@ -253,7 +253,7 @@ class TestAsyncAccounts:
     @parametrize
     async def test_method_create_with_all_params(self, async_client: AsyncConductor) -> None:
         account = await async_client.qbd.accounts.create(
-            account_type="accounts_payable",
+            account_type="bank",
             name="Accounts-Payable",
             conductor_end_user_id="end_usr_1234567abcdefg",
             account_number="1010",
@@ -272,7 +272,7 @@ class TestAsyncAccounts:
     @parametrize
     async def test_raw_response_create(self, async_client: AsyncConductor) -> None:
         response = await async_client.qbd.accounts.with_raw_response.create(
-            account_type="accounts_payable",
+            account_type="bank",
             name="Accounts-Payable",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
@@ -285,7 +285,7 @@ class TestAsyncAccounts:
     @parametrize
     async def test_streaming_response_create(self, async_client: AsyncConductor) -> None:
         async with async_client.qbd.accounts.with_streaming_response.create(
-            account_type="accounts_payable",
+            account_type="bank",
             name="Accounts-Payable",
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
@@ -355,7 +355,7 @@ class TestAsyncAccounts:
             revision_number="1721172183",
             conductor_end_user_id="end_usr_1234567abcdefg",
             account_number="1010",
-            account_type="accounts_payable",
+            account_type="bank",
             bank_account_number="123456789",
             currency_id="80000001-1234567890",
             description="Accounts-payable are the amounts owed to suppliers for goods and services purchased on credit.",
@@ -417,7 +417,7 @@ class TestAsyncAccounts:
     async def test_method_list_with_all_params(self, async_client: AsyncConductor) -> None:
         account = await async_client.qbd.accounts.list(
             conductor_end_user_id="end_usr_1234567abcdefg",
-            account_type="accounts_payable",
+            account_type="income",
             currency_ids=["80000001-1234567890"],
             full_names=["Corporate:Accounts-Payable"],
             ids=["80000001-1234567890"],

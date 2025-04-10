@@ -31,7 +31,10 @@ class SalesRepresentativeUpdateParams(TypedDict, total=False):
     """
 
     initial: str
-    """The initials of this sales representative's name."""
+    """The initials of this sales representative's name.
+
+    Maximum length: 5 characters.
+    """
 
     is_active: Annotated[bool, PropertyInfo(alias="isActive")]
     """Indicates whether this sales representative is active.
