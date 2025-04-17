@@ -1,5 +1,38 @@
 # Changelog
 
+## 1.32.0 (2025-04-17)
+
+Full Changelog: [v1.31.0...v1.32.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.31.0...v1.32.0)
+
+### Features
+
+* **api:** api update ([#681](https://github.com/conductor-is/quickbooks-desktop-python/issues/681)) ([1592110](https://github.com/conductor-is/quickbooks-desktop-python/commit/1592110f682d11be03d66e171b8fb3e3aa702284))
+
+
+### Bug Fixes
+
+* **perf:** optimize some hot paths ([6ab024e](https://github.com/conductor-is/quickbooks-desktop-python/commit/6ab024e509fd7a408991fcf04f5aaf147f7c038e))
+* **perf:** skip traversing types for NotGiven values ([45b9f7b](https://github.com/conductor-is/quickbooks-desktop-python/commit/45b9f7b93e0ce4b585d11ddc5487cd274893c785))
+
+
+### Chores
+
+* **client:** minor internal fixes ([d0d2b5a](https://github.com/conductor-is/quickbooks-desktop-python/commit/d0d2b5aa0645d3ecf23c77cb60a33ceffbbc9d9e))
+* **internal:** base client updates ([6b338b2](https://github.com/conductor-is/quickbooks-desktop-python/commit/6b338b25c4b15c91fb3b672d52cc443b755ed0bb))
+* **internal:** bump pyright version ([2922ba3](https://github.com/conductor-is/quickbooks-desktop-python/commit/2922ba31aaa57bd82d9e7aba9bc2c9d1eeaa57d3))
+* **internal:** codegen related update ([#683](https://github.com/conductor-is/quickbooks-desktop-python/issues/683)) ([5234f2a](https://github.com/conductor-is/quickbooks-desktop-python/commit/5234f2a30784f4b688548c9ff5b6cf3f60629867))
+* **internal:** expand CI branch coverage ([e942c14](https://github.com/conductor-is/quickbooks-desktop-python/commit/e942c148279b2b9021c9bed92e53bcf884eee533))
+* **internal:** reduce CI branch coverage ([1b9bc07](https://github.com/conductor-is/quickbooks-desktop-python/commit/1b9bc07ad468a56554d11222d2b6d8aac2ac3692))
+* **internal:** remove trailing character ([#684](https://github.com/conductor-is/quickbooks-desktop-python/issues/684)) ([39f751c](https://github.com/conductor-is/quickbooks-desktop-python/commit/39f751cf1d6fc39b8b75f3aee83842a0d4226c0f))
+* **internal:** slight transform perf improvement ([#685](https://github.com/conductor-is/quickbooks-desktop-python/issues/685)) ([11d8eb3](https://github.com/conductor-is/quickbooks-desktop-python/commit/11d8eb335f4444543cc87ccc399b7f1197132413))
+* **internal:** update pyright settings ([35c2374](https://github.com/conductor-is/quickbooks-desktop-python/commit/35c237400d10c90f73734e92434bff28911a8843))
+* **tests:** improve enum examples ([#686](https://github.com/conductor-is/quickbooks-desktop-python/issues/686)) ([496fc3a](https://github.com/conductor-is/quickbooks-desktop-python/commit/496fc3aac1f64ffc3a21b38af63f53a25cc44a96))
+
+
+### Documentation
+
+* remove private imports from datetime snippets ([3bbbd77](https://github.com/conductor-is/quickbooks-desktop-python/commit/3bbbd77c64f263ec9b469450d82fca980c4e312c))
+
 ## 1.31.0 (2025-03-27)
 
 Full Changelog: [v1.30.0...v1.31.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.30.0...v1.31.0)
