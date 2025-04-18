@@ -12,8 +12,8 @@ __all__ = [
     "VendorCreditCreateParams",
     "ExpenseLine",
     "ExpenseLineCustomField",
-    "ItemLineGroup",
-    "ItemLineGroupCustomField",
+    "ItemGroupLine",
+    "ItemGroupLineCustomField",
     "ItemLine",
     "ItemLineCustomField",
     "ItemLineLinkToTransactionLine",
@@ -53,7 +53,7 @@ class VendorCreditCreateParams(TypedDict, total=False):
     QuickBooks will return an error.
     """
 
-    item_line_groups: Annotated[Iterable[ItemLineGroup], PropertyInfo(alias="itemLineGroups")]
+    item_group_lines: Annotated[Iterable[ItemGroupLine], PropertyInfo(alias="itemGroupLines")]
     """
     The vendor credit's item group lines, each representing a predefined set of
     items bundled together because they are commonly purchased together or grouped
@@ -188,7 +188,7 @@ class ExpenseLine(TypedDict, total=False):
     """
 
 
-class ItemLineGroupCustomField(TypedDict, total=False):
+class ItemGroupLineCustomField(TypedDict, total=False):
     name: Required[str]
     """The name of the custom field, unique for the specified `ownerId`.
 
@@ -213,33 +213,33 @@ class ItemLineGroupCustomField(TypedDict, total=False):
     """
 
 
-class ItemLineGroup(TypedDict, total=False):
+class ItemGroupLine(TypedDict, total=False):
     item_group_id: Required[Annotated[str, PropertyInfo(alias="itemGroupId")]]
     """
-    The item line group's item group, representing a predefined set of items bundled
+    The item group line's item group, representing a predefined set of items bundled
     because they are commonly purchased together or grouped for faster entry.
     """
 
-    custom_fields: Annotated[Iterable[ItemLineGroupCustomField], PropertyInfo(alias="customFields")]
+    custom_fields: Annotated[Iterable[ItemGroupLineCustomField], PropertyInfo(alias="customFields")]
     """
-    The custom fields for the item line group object, added as user-defined data
+    The custom fields for the item group line object, added as user-defined data
     extensions, not included in the standard QuickBooks object.
     """
 
     inventory_site_id: Annotated[str, PropertyInfo(alias="inventorySiteId")]
     """
     The site location where inventory for the item group associated with this item
-    line group is stored.
+    group line is stored.
     """
 
     inventory_site_location_id: Annotated[str, PropertyInfo(alias="inventorySiteLocationId")]
     """
     The specific location (e.g., bin or shelf) within the inventory site where the
-    item group associated with this item line group is stored.
+    item group associated with this item group line is stored.
     """
 
     quantity: float
-    """The quantity of the item group associated with this item line group.
+    """The quantity of the item group associated with this item group line.
 
     This field cannot be cleared.
 
@@ -248,7 +248,7 @@ class ItemLineGroup(TypedDict, total=False):
     """
 
     unit_of_measure: Annotated[str, PropertyInfo(alias="unitOfMeasure")]
-    """The unit-of-measure used for the `quantity` in this item line group.
+    """The unit-of-measure used for the `quantity` in this item group line.
 
     Must be a valid unit within the item's available units of measure.
     """

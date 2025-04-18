@@ -58,7 +58,7 @@ class VendorCreditsResource(SyncAPIResource):
         exchange_rate: float | NotGiven = NOT_GIVEN,
         expense_lines: Iterable[vendor_credit_create_params.ExpenseLine] | NotGiven = NOT_GIVEN,
         external_id: str | NotGiven = NOT_GIVEN,
-        item_line_groups: Iterable[vendor_credit_create_params.ItemLineGroup] | NotGiven = NOT_GIVEN,
+        item_group_lines: Iterable[vendor_credit_create_params.ItemGroupLine] | NotGiven = NOT_GIVEN,
         item_lines: Iterable[vendor_credit_create_params.ItemLine] | NotGiven = NOT_GIVEN,
         memo: str | NotGiven = NOT_GIVEN,
         payables_account_id: str | NotGiven = NOT_GIVEN,
@@ -95,7 +95,7 @@ class VendorCreditsResource(SyncAPIResource):
               **IMPORTANT**: This field must be formatted as a valid GUID; otherwise,
               QuickBooks will return an error.
 
-          item_line_groups: The vendor credit's item group lines, each representing a predefined set of
+          item_group_lines: The vendor credit's item group lines, each representing a predefined set of
               items bundled together because they are commonly purchased together or grouped
               for faster entry.
 
@@ -144,7 +144,7 @@ class VendorCreditsResource(SyncAPIResource):
                     "exchange_rate": exchange_rate,
                     "expense_lines": expense_lines,
                     "external_id": external_id,
-                    "item_line_groups": item_line_groups,
+                    "item_group_lines": item_group_lines,
                     "item_lines": item_lines,
                     "memo": memo,
                     "payables_account_id": payables_account_id,
@@ -209,7 +209,7 @@ class VendorCreditsResource(SyncAPIResource):
         clear_item_lines: bool | NotGiven = NOT_GIVEN,
         exchange_rate: float | NotGiven = NOT_GIVEN,
         expense_lines: Iterable[vendor_credit_update_params.ExpenseLine] | NotGiven = NOT_GIVEN,
-        item_line_groups: Iterable[vendor_credit_update_params.ItemLineGroup] | NotGiven = NOT_GIVEN,
+        item_group_lines: Iterable[vendor_credit_update_params.ItemGroupLine] | NotGiven = NOT_GIVEN,
         item_lines: Iterable[vendor_credit_update_params.ItemLine] | NotGiven = NOT_GIVEN,
         memo: str | NotGiven = NOT_GIVEN,
         payables_account_id: str | NotGiven = NOT_GIVEN,
@@ -263,7 +263,7 @@ class VendorCreditsResource(SyncAPIResource):
               3. If you do not wish to modify any expense lines, omit this field entirely to
                  keep them unchanged.
 
-          item_line_groups: The vendor credit's item group lines, each representing a predefined set of
+          item_group_lines: The vendor credit's item group lines, each representing a predefined set of
               items bundled together because they are commonly purchased together or grouped
               for faster entry.
 
@@ -341,7 +341,7 @@ class VendorCreditsResource(SyncAPIResource):
                     "clear_item_lines": clear_item_lines,
                     "exchange_rate": exchange_rate,
                     "expense_lines": expense_lines,
-                    "item_line_groups": item_line_groups,
+                    "item_group_lines": item_group_lines,
                     "item_lines": item_lines,
                     "memo": memo,
                     "payables_account_id": payables_account_id,
@@ -591,7 +591,7 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
         exchange_rate: float | NotGiven = NOT_GIVEN,
         expense_lines: Iterable[vendor_credit_create_params.ExpenseLine] | NotGiven = NOT_GIVEN,
         external_id: str | NotGiven = NOT_GIVEN,
-        item_line_groups: Iterable[vendor_credit_create_params.ItemLineGroup] | NotGiven = NOT_GIVEN,
+        item_group_lines: Iterable[vendor_credit_create_params.ItemGroupLine] | NotGiven = NOT_GIVEN,
         item_lines: Iterable[vendor_credit_create_params.ItemLine] | NotGiven = NOT_GIVEN,
         memo: str | NotGiven = NOT_GIVEN,
         payables_account_id: str | NotGiven = NOT_GIVEN,
@@ -628,7 +628,7 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
               **IMPORTANT**: This field must be formatted as a valid GUID; otherwise,
               QuickBooks will return an error.
 
-          item_line_groups: The vendor credit's item group lines, each representing a predefined set of
+          item_group_lines: The vendor credit's item group lines, each representing a predefined set of
               items bundled together because they are commonly purchased together or grouped
               for faster entry.
 
@@ -677,7 +677,7 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
                     "exchange_rate": exchange_rate,
                     "expense_lines": expense_lines,
                     "external_id": external_id,
-                    "item_line_groups": item_line_groups,
+                    "item_group_lines": item_group_lines,
                     "item_lines": item_lines,
                     "memo": memo,
                     "payables_account_id": payables_account_id,
@@ -742,7 +742,7 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
         clear_item_lines: bool | NotGiven = NOT_GIVEN,
         exchange_rate: float | NotGiven = NOT_GIVEN,
         expense_lines: Iterable[vendor_credit_update_params.ExpenseLine] | NotGiven = NOT_GIVEN,
-        item_line_groups: Iterable[vendor_credit_update_params.ItemLineGroup] | NotGiven = NOT_GIVEN,
+        item_group_lines: Iterable[vendor_credit_update_params.ItemGroupLine] | NotGiven = NOT_GIVEN,
         item_lines: Iterable[vendor_credit_update_params.ItemLine] | NotGiven = NOT_GIVEN,
         memo: str | NotGiven = NOT_GIVEN,
         payables_account_id: str | NotGiven = NOT_GIVEN,
@@ -796,7 +796,7 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
               3. If you do not wish to modify any expense lines, omit this field entirely to
                  keep them unchanged.
 
-          item_line_groups: The vendor credit's item group lines, each representing a predefined set of
+          item_group_lines: The vendor credit's item group lines, each representing a predefined set of
               items bundled together because they are commonly purchased together or grouped
               for faster entry.
 
@@ -874,7 +874,7 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
                     "clear_item_lines": clear_item_lines,
                     "exchange_rate": exchange_rate,
                     "expense_lines": expense_lines,
-                    "item_line_groups": item_line_groups,
+                    "item_group_lines": item_group_lines,
                     "item_lines": item_lines,
                     "memo": memo,
                     "payables_account_id": payables_account_id,

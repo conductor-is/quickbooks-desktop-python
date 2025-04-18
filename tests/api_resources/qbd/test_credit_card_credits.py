@@ -58,7 +58,7 @@ class TestCreditCardCredits:
                 }
             ],
             external_id="12345678-abcd-1234-abcd-1234567890ab",
-            item_line_groups=[
+            item_group_lines=[
                 {
                     "item_group_id": "80000001-1234567890",
                     "custom_fields": [
@@ -215,7 +215,7 @@ class TestCreditCardCredits:
                     "sales_tax_code_id": "80000001-1234567890",
                 }
             ],
-            item_line_groups=[
+            item_group_lines=[
                 {
                     "id": "456DEF-1234567890",
                     "item_group_id": "80000001-1234567890",
@@ -452,7 +452,7 @@ class TestAsyncCreditCardCredits:
                 }
             ],
             external_id="12345678-abcd-1234-abcd-1234567890ab",
-            item_line_groups=[
+            item_group_lines=[
                 {
                     "item_group_id": "80000001-1234567890",
                     "custom_fields": [
@@ -609,7 +609,7 @@ class TestAsyncCreditCardCredits:
                     "sales_tax_code_id": "80000001-1234567890",
                 }
             ],
-            item_line_groups=[
+            item_group_lines=[
                 {
                     "id": "456DEF-1234567890",
                     "item_group_id": "80000001-1234567890",
