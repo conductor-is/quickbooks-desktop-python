@@ -62,7 +62,7 @@ class CreditCardCreditsResource(SyncAPIResource):
         exchange_rate: float | NotGiven = NOT_GIVEN,
         expense_lines: Iterable[credit_card_credit_create_params.ExpenseLine] | NotGiven = NOT_GIVEN,
         external_id: str | NotGiven = NOT_GIVEN,
-        item_line_groups: Iterable[credit_card_credit_create_params.ItemLineGroup] | NotGiven = NOT_GIVEN,
+        item_group_lines: Iterable[credit_card_credit_create_params.ItemGroupLine] | NotGiven = NOT_GIVEN,
         item_lines: Iterable[credit_card_credit_create_params.ItemLine] | NotGiven = NOT_GIVEN,
         memo: str | NotGiven = NOT_GIVEN,
         payee_id: str | NotGiven = NOT_GIVEN,
@@ -100,7 +100,7 @@ class CreditCardCreditsResource(SyncAPIResource):
               **IMPORTANT**: This field must be formatted as a valid GUID; otherwise,
               QuickBooks will return an error.
 
-          item_line_groups: The credit card credit's item group lines, each representing a predefined set of
+          item_group_lines: The credit card credit's item group lines, each representing a predefined set of
               items bundled together because they are commonly purchased together or grouped
               for faster entry.
 
@@ -145,7 +145,7 @@ class CreditCardCreditsResource(SyncAPIResource):
                     "exchange_rate": exchange_rate,
                     "expense_lines": expense_lines,
                     "external_id": external_id,
-                    "item_line_groups": item_line_groups,
+                    "item_group_lines": item_group_lines,
                     "item_lines": item_lines,
                     "memo": memo,
                     "payee_id": payee_id,
@@ -211,7 +211,7 @@ class CreditCardCreditsResource(SyncAPIResource):
         clear_item_lines: bool | NotGiven = NOT_GIVEN,
         exchange_rate: float | NotGiven = NOT_GIVEN,
         expense_lines: Iterable[credit_card_credit_update_params.ExpenseLine] | NotGiven = NOT_GIVEN,
-        item_line_groups: Iterable[credit_card_credit_update_params.ItemLineGroup] | NotGiven = NOT_GIVEN,
+        item_group_lines: Iterable[credit_card_credit_update_params.ItemGroupLine] | NotGiven = NOT_GIVEN,
         item_lines: Iterable[credit_card_credit_update_params.ItemLine] | NotGiven = NOT_GIVEN,
         memo: str | NotGiven = NOT_GIVEN,
         payee_id: str | NotGiven = NOT_GIVEN,
@@ -268,7 +268,7 @@ class CreditCardCreditsResource(SyncAPIResource):
               3. If you do not wish to modify any expense lines, omit this field entirely to
                  keep them unchanged.
 
-          item_line_groups: The credit card credit's item group lines, each representing a predefined set of
+          item_group_lines: The credit card credit's item group lines, each representing a predefined set of
               items bundled together because they are commonly purchased together or grouped
               for faster entry.
 
@@ -341,7 +341,7 @@ class CreditCardCreditsResource(SyncAPIResource):
                     "clear_item_lines": clear_item_lines,
                     "exchange_rate": exchange_rate,
                     "expense_lines": expense_lines,
-                    "item_line_groups": item_line_groups,
+                    "item_group_lines": item_group_lines,
                     "item_lines": item_lines,
                     "memo": memo,
                     "payee_id": payee_id,
@@ -587,7 +587,7 @@ class AsyncCreditCardCreditsResource(AsyncAPIResource):
         exchange_rate: float | NotGiven = NOT_GIVEN,
         expense_lines: Iterable[credit_card_credit_create_params.ExpenseLine] | NotGiven = NOT_GIVEN,
         external_id: str | NotGiven = NOT_GIVEN,
-        item_line_groups: Iterable[credit_card_credit_create_params.ItemLineGroup] | NotGiven = NOT_GIVEN,
+        item_group_lines: Iterable[credit_card_credit_create_params.ItemGroupLine] | NotGiven = NOT_GIVEN,
         item_lines: Iterable[credit_card_credit_create_params.ItemLine] | NotGiven = NOT_GIVEN,
         memo: str | NotGiven = NOT_GIVEN,
         payee_id: str | NotGiven = NOT_GIVEN,
@@ -625,7 +625,7 @@ class AsyncCreditCardCreditsResource(AsyncAPIResource):
               **IMPORTANT**: This field must be formatted as a valid GUID; otherwise,
               QuickBooks will return an error.
 
-          item_line_groups: The credit card credit's item group lines, each representing a predefined set of
+          item_group_lines: The credit card credit's item group lines, each representing a predefined set of
               items bundled together because they are commonly purchased together or grouped
               for faster entry.
 
@@ -670,7 +670,7 @@ class AsyncCreditCardCreditsResource(AsyncAPIResource):
                     "exchange_rate": exchange_rate,
                     "expense_lines": expense_lines,
                     "external_id": external_id,
-                    "item_line_groups": item_line_groups,
+                    "item_group_lines": item_group_lines,
                     "item_lines": item_lines,
                     "memo": memo,
                     "payee_id": payee_id,
@@ -736,7 +736,7 @@ class AsyncCreditCardCreditsResource(AsyncAPIResource):
         clear_item_lines: bool | NotGiven = NOT_GIVEN,
         exchange_rate: float | NotGiven = NOT_GIVEN,
         expense_lines: Iterable[credit_card_credit_update_params.ExpenseLine] | NotGiven = NOT_GIVEN,
-        item_line_groups: Iterable[credit_card_credit_update_params.ItemLineGroup] | NotGiven = NOT_GIVEN,
+        item_group_lines: Iterable[credit_card_credit_update_params.ItemGroupLine] | NotGiven = NOT_GIVEN,
         item_lines: Iterable[credit_card_credit_update_params.ItemLine] | NotGiven = NOT_GIVEN,
         memo: str | NotGiven = NOT_GIVEN,
         payee_id: str | NotGiven = NOT_GIVEN,
@@ -793,7 +793,7 @@ class AsyncCreditCardCreditsResource(AsyncAPIResource):
               3. If you do not wish to modify any expense lines, omit this field entirely to
                  keep them unchanged.
 
-          item_line_groups: The credit card credit's item group lines, each representing a predefined set of
+          item_group_lines: The credit card credit's item group lines, each representing a predefined set of
               items bundled together because they are commonly purchased together or grouped
               for faster entry.
 
@@ -866,7 +866,7 @@ class AsyncCreditCardCreditsResource(AsyncAPIResource):
                     "clear_item_lines": clear_item_lines,
                     "exchange_rate": exchange_rate,
                     "expense_lines": expense_lines,
-                    "item_line_groups": item_line_groups,
+                    "item_group_lines": item_group_lines,
                     "item_lines": item_lines,
                     "memo": memo,
                     "payee_id": payee_id,
