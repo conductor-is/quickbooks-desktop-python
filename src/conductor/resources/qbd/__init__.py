@@ -96,6 +96,14 @@ from .transfers import (
     TransfersResourceWithStreamingResponse,
     AsyncTransfersResourceWithStreamingResponse,
 )
+from .item_groups import (
+    ItemGroupsResource,
+    AsyncItemGroupsResource,
+    ItemGroupsResourceWithRawResponse,
+    AsyncItemGroupsResourceWithRawResponse,
+    ItemGroupsResourceWithStreamingResponse,
+    AsyncItemGroupsResourceWithStreamingResponse,
+)
 from .preferences import (
     PreferencesResource,
     AsyncPreferencesResource,
@@ -472,6 +480,12 @@ __all__ = [
     "AsyncInvoicesResourceWithRawResponse",
     "InvoicesResourceWithStreamingResponse",
     "AsyncInvoicesResourceWithStreamingResponse",
+    "ItemGroupsResource",
+    "AsyncItemGroupsResource",
+    "ItemGroupsResourceWithRawResponse",
+    "AsyncItemGroupsResourceWithRawResponse",
+    "ItemGroupsResourceWithStreamingResponse",
+    "AsyncItemGroupsResourceWithStreamingResponse",
     "ItemReceiptsResource",
     "AsyncItemReceiptsResource",
     "ItemReceiptsResourceWithRawResponse",

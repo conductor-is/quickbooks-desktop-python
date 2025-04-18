@@ -101,6 +101,14 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
+from .item_groups import (
+    ItemGroupsResource,
+    AsyncItemGroupsResource,
+    ItemGroupsResourceWithRawResponse,
+    AsyncItemGroupsResourceWithRawResponse,
+    ItemGroupsResourceWithStreamingResponse,
+    AsyncItemGroupsResourceWithStreamingResponse,
+)
 from .preferences import (
     PreferencesResource,
     AsyncPreferencesResource,
@@ -441,6 +449,10 @@ class QbdResource(SyncAPIResource):
         return InvoicesResource(self._client)
 
     @cached_property
+    def item_groups(self) -> ItemGroupsResource:
+        return ItemGroupsResource(self._client)
+
+    @cached_property
     def item_receipts(self) -> ItemReceiptsResource:
         return ItemReceiptsResource(self._client)
 
@@ -668,6 +680,10 @@ class AsyncQbdResource(AsyncAPIResource):
     @cached_property
     def invoices(self) -> AsyncInvoicesResource:
         return AsyncInvoicesResource(self._client)
+
+    @cached_property
+    def item_groups(self) -> AsyncItemGroupsResource:
+        return AsyncItemGroupsResource(self._client)
 
     @cached_property
     def item_receipts(self) -> AsyncItemReceiptsResource:
@@ -906,6 +922,10 @@ class QbdResourceWithRawResponse:
         return InvoicesResourceWithRawResponse(self._qbd.invoices)
 
     @cached_property
+    def item_groups(self) -> ItemGroupsResourceWithRawResponse:
+        return ItemGroupsResourceWithRawResponse(self._qbd.item_groups)
+
+    @cached_property
     def item_receipts(self) -> ItemReceiptsResourceWithRawResponse:
         return ItemReceiptsResourceWithRawResponse(self._qbd.item_receipts)
 
@@ -1081,6 +1101,10 @@ class AsyncQbdResourceWithRawResponse:
     @cached_property
     def invoices(self) -> AsyncInvoicesResourceWithRawResponse:
         return AsyncInvoicesResourceWithRawResponse(self._qbd.invoices)
+
+    @cached_property
+    def item_groups(self) -> AsyncItemGroupsResourceWithRawResponse:
+        return AsyncItemGroupsResourceWithRawResponse(self._qbd.item_groups)
 
     @cached_property
     def item_receipts(self) -> AsyncItemReceiptsResourceWithRawResponse:
@@ -1260,6 +1284,10 @@ class QbdResourceWithStreamingResponse:
         return InvoicesResourceWithStreamingResponse(self._qbd.invoices)
 
     @cached_property
+    def item_groups(self) -> ItemGroupsResourceWithStreamingResponse:
+        return ItemGroupsResourceWithStreamingResponse(self._qbd.item_groups)
+
+    @cached_property
     def item_receipts(self) -> ItemReceiptsResourceWithStreamingResponse:
         return ItemReceiptsResourceWithStreamingResponse(self._qbd.item_receipts)
 
@@ -1435,6 +1463,10 @@ class AsyncQbdResourceWithStreamingResponse:
     @cached_property
     def invoices(self) -> AsyncInvoicesResourceWithStreamingResponse:
         return AsyncInvoicesResourceWithStreamingResponse(self._qbd.invoices)
+
+    @cached_property
+    def item_groups(self) -> AsyncItemGroupsResourceWithStreamingResponse:
+        return AsyncItemGroupsResourceWithStreamingResponse(self._qbd.item_groups)
 
     @cached_property
     def item_receipts(self) -> AsyncItemReceiptsResourceWithStreamingResponse:

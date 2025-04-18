@@ -13,6 +13,7 @@ from .customer import Customer as Customer
 from .employee import Employee as Employee
 from .estimate import Estimate as Estimate
 from .transfer import Transfer as Transfer
+from .item_group import ItemGroup as ItemGroup
 from .credit_memo import CreditMemo as CreditMemo
 from .preferences import Preferences as Preferences
 from .price_level import PriceLevel as PriceLevel
@@ -73,6 +74,7 @@ from .employee_create_params import EmployeeCreateParams as EmployeeCreateParams
 from .employee_update_params import EmployeeUpdateParams as EmployeeUpdateParams
 from .estimate_create_params import EstimateCreateParams as EstimateCreateParams
 from .estimate_update_params import EstimateUpdateParams as EstimateUpdateParams
+from .item_group_list_params import ItemGroupListParams as ItemGroupListParams
 from .time_tracking_activity import TimeTrackingActivity as TimeTrackingActivity
 from .transfer_create_params import TransferCreateParams as TransferCreateParams
 from .transfer_update_params import TransferUpdateParams as TransferUpdateParams
@@ -84,6 +86,8 @@ from .sales_order_list_params import SalesOrderListParams as SalesOrderListParam
 from .transaction_list_params import TransactionListParams as TransactionListParams
 from .bill_credit_card_payment import BillCreditCardPayment as BillCreditCardPayment
 from .estimate_delete_response import EstimateDeleteResponse as EstimateDeleteResponse
+from .item_group_create_params import ItemGroupCreateParams as ItemGroupCreateParams
+from .item_group_update_params import ItemGroupUpdateParams as ItemGroupUpdateParams
 from .item_receipt_list_params import ItemReceiptListParams as ItemReceiptListParams
 from .service_item_list_params import ServiceItemListParams as ServiceItemListParams
 from .credit_memo_create_params import CreditMemoCreateParams as CreditMemoCreateParams
