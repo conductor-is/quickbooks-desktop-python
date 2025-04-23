@@ -130,10 +130,11 @@ class InventoryAssemblyItemCreateParams(TypedDict, total=False):
     """
 
     quantity_on_hand: Annotated[float, PropertyInfo(alias="quantityOnHand")]
-    """The current quantity of this inventory assembly item available in inventory.
+    """The number of units of this inventory assembly item currently in inventory.
 
-    To change the `quantityOnHand` for an inventory assembly item, you must create
-    an inventory-adjustment instead of updating this inventory assembly item
+    `quantityOnHand` multiplied by `averageCost` equals `totalValue` for inventory
+    item lists. To change the `quantityOnHand` for an inventory assembly item, you
+    must use an inventory-adjustment instead of updating the inventory assembly item
     directly.
     """
 
