@@ -328,10 +328,11 @@ class InventoryItem(BaseModel):
     """
 
     quantity_on_hand: Optional[float] = FieldInfo(alias="quantityOnHand", default=None)
-    """The current quantity of this inventory item available in inventory.
+    """The number of units of this inventory item currently in inventory.
 
-    To change the `quantityOnHand` for an inventory item, you must create an
-    inventory-adjustment instead of updating this inventory item directly.
+    `quantityOnHand` multiplied by `averageCost` equals `totalValue` for inventory
+    item lists. To change the `quantityOnHand` for an inventory item, you must use
+    an inventory-adjustment instead of updating the inventory item directly.
     """
 
     quantity_on_purchase_order: Optional[float] = FieldInfo(alias="quantityOnPurchaseOrder", default=None)

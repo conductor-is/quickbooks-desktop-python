@@ -96,6 +96,14 @@ from .transfers import (
     TransfersResourceWithStreamingResponse,
     AsyncTransfersResourceWithStreamingResponse,
 )
+from .item_sites import (
+    ItemSitesResource,
+    AsyncItemSitesResource,
+    ItemSitesResourceWithRawResponse,
+    AsyncItemSitesResourceWithRawResponse,
+    ItemSitesResourceWithStreamingResponse,
+    AsyncItemSitesResourceWithStreamingResponse,
+)
 from .item_groups import (
     ItemGroupsResource,
     AsyncItemGroupsResource,
@@ -492,6 +500,12 @@ __all__ = [
     "AsyncItemReceiptsResourceWithRawResponse",
     "ItemReceiptsResourceWithStreamingResponse",
     "AsyncItemReceiptsResourceWithStreamingResponse",
+    "ItemSitesResource",
+    "AsyncItemSitesResource",
+    "ItemSitesResourceWithRawResponse",
+    "AsyncItemSitesResourceWithRawResponse",
+    "ItemSitesResourceWithStreamingResponse",
+    "AsyncItemSitesResourceWithStreamingResponse",
     "JournalEntriesResource",
     "AsyncJournalEntriesResource",
     "JournalEntriesResourceWithRawResponse",

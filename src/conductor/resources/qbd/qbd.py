@@ -94,6 +94,14 @@ from .transfers import (
     TransfersResourceWithStreamingResponse,
     AsyncTransfersResourceWithStreamingResponse,
 )
+from .item_sites import (
+    ItemSitesResource,
+    AsyncItemSitesResource,
+    ItemSitesResourceWithRawResponse,
+    AsyncItemSitesResourceWithRawResponse,
+    ItemSitesResourceWithStreamingResponse,
+    AsyncItemSitesResourceWithStreamingResponse,
+)
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._response import (
     to_raw_response_wrapper,
@@ -457,6 +465,10 @@ class QbdResource(SyncAPIResource):
         return ItemReceiptsResource(self._client)
 
     @cached_property
+    def item_sites(self) -> ItemSitesResource:
+        return ItemSitesResource(self._client)
+
+    @cached_property
     def journal_entries(self) -> JournalEntriesResource:
         return JournalEntriesResource(self._client)
 
@@ -688,6 +700,10 @@ class AsyncQbdResource(AsyncAPIResource):
     @cached_property
     def item_receipts(self) -> AsyncItemReceiptsResource:
         return AsyncItemReceiptsResource(self._client)
+
+    @cached_property
+    def item_sites(self) -> AsyncItemSitesResource:
+        return AsyncItemSitesResource(self._client)
 
     @cached_property
     def journal_entries(self) -> AsyncJournalEntriesResource:
@@ -930,6 +946,10 @@ class QbdResourceWithRawResponse:
         return ItemReceiptsResourceWithRawResponse(self._qbd.item_receipts)
 
     @cached_property
+    def item_sites(self) -> ItemSitesResourceWithRawResponse:
+        return ItemSitesResourceWithRawResponse(self._qbd.item_sites)
+
+    @cached_property
     def journal_entries(self) -> JournalEntriesResourceWithRawResponse:
         return JournalEntriesResourceWithRawResponse(self._qbd.journal_entries)
 
@@ -1109,6 +1129,10 @@ class AsyncQbdResourceWithRawResponse:
     @cached_property
     def item_receipts(self) -> AsyncItemReceiptsResourceWithRawResponse:
         return AsyncItemReceiptsResourceWithRawResponse(self._qbd.item_receipts)
+
+    @cached_property
+    def item_sites(self) -> AsyncItemSitesResourceWithRawResponse:
+        return AsyncItemSitesResourceWithRawResponse(self._qbd.item_sites)
 
     @cached_property
     def journal_entries(self) -> AsyncJournalEntriesResourceWithRawResponse:
@@ -1292,6 +1316,10 @@ class QbdResourceWithStreamingResponse:
         return ItemReceiptsResourceWithStreamingResponse(self._qbd.item_receipts)
 
     @cached_property
+    def item_sites(self) -> ItemSitesResourceWithStreamingResponse:
+        return ItemSitesResourceWithStreamingResponse(self._qbd.item_sites)
+
+    @cached_property
     def journal_entries(self) -> JournalEntriesResourceWithStreamingResponse:
         return JournalEntriesResourceWithStreamingResponse(self._qbd.journal_entries)
 
@@ -1471,6 +1499,10 @@ class AsyncQbdResourceWithStreamingResponse:
     @cached_property
     def item_receipts(self) -> AsyncItemReceiptsResourceWithStreamingResponse:
         return AsyncItemReceiptsResourceWithStreamingResponse(self._qbd.item_receipts)
+
+    @cached_property
+    def item_sites(self) -> AsyncItemSitesResourceWithStreamingResponse:
+        return AsyncItemSitesResourceWithStreamingResponse(self._qbd.item_sites)
 
     @cached_property
     def journal_entries(self) -> AsyncJournalEntriesResourceWithStreamingResponse:
