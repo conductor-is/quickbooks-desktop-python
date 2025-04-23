@@ -395,6 +395,19 @@ Methods:
 - <code title="get /quickbooks-desktop/item-receipts">client.qbd.item_receipts.<a href="./src/conductor/resources/qbd/item_receipts.py">list</a>(\*\*<a href="src/conductor/types/qbd/item_receipt_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/item_receipt.py">SyncCursorPage[ItemReceipt]</a></code>
 - <code title="delete /quickbooks-desktop/item-receipts/{id}">client.qbd.item_receipts.<a href="./src/conductor/resources/qbd/item_receipts.py">delete</a>(id) -> <a href="./src/conductor/types/qbd/item_receipt_delete_response.py">ItemReceiptDeleteResponse</a></code>
 
+## ItemSites
+
+Types:
+
+```python
+from conductor.types.qbd import ItemSite
+```
+
+Methods:
+
+- <code title="get /quickbooks-desktop/item-sites/{id}">client.qbd.item_sites.<a href="./src/conductor/resources/qbd/item_sites.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/item_site.py">ItemSite</a></code>
+- <code title="get /quickbooks-desktop/item-sites">client.qbd.item_sites.<a href="./src/conductor/resources/qbd/item_sites.py">list</a>(\*\*<a href="src/conductor/types/qbd/item_site_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/item_site.py">SyncCursorPage[ItemSite]</a></code>
+
 ## JournalEntries
 
 Types:

@@ -143,9 +143,10 @@ class InventoryItemsResource(SyncAPIResource):
           purchase_tax_code_id: The tax code applied to purchases of this inventory item. Applicable in regions
               where purchase taxes are used, such as Canada or the UK.
 
-          quantity_on_hand: The current quantity of this inventory item available in inventory. To change
-              the `quantityOnHand` for an inventory item, you must create an
-              inventory-adjustment instead of updating this inventory item directly.
+          quantity_on_hand: The number of units of this inventory item currently in inventory.
+              `quantityOnHand` multiplied by `averageCost` equals `totalValue` for inventory
+              item lists. To change the `quantityOnHand` for an inventory item, you must use
+              an inventory-adjustment instead of updating the inventory item directly.
 
           reorder_point: The minimum quantity of this inventory item at which QuickBooks prompts for
               reordering.
@@ -710,9 +711,10 @@ class AsyncInventoryItemsResource(AsyncAPIResource):
           purchase_tax_code_id: The tax code applied to purchases of this inventory item. Applicable in regions
               where purchase taxes are used, such as Canada or the UK.
 
-          quantity_on_hand: The current quantity of this inventory item available in inventory. To change
-              the `quantityOnHand` for an inventory item, you must create an
-              inventory-adjustment instead of updating this inventory item directly.
+          quantity_on_hand: The number of units of this inventory item currently in inventory.
+              `quantityOnHand` multiplied by `averageCost` equals `totalValue` for inventory
+              item lists. To change the `quantityOnHand` for an inventory item, you must use
+              an inventory-adjustment instead of updating the inventory item directly.
 
           reorder_point: The minimum quantity of this inventory item at which QuickBooks prompts for
               reordering.
