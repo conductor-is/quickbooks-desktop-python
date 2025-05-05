@@ -1,5 +1,29 @@
 # Changelog
 
+## 1.35.0 (2025-05-05)
+
+Full Changelog: [v1.34.0...v1.35.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.34.0...v1.35.0)
+
+### Features
+
+* **api:** api update ([e001b4f](https://github.com/conductor-is/quickbooks-desktop-python/commit/e001b4fea9ba279c70b06ab4294c659961a72c42))
+
+
+### Bug Fixes
+
+* **pydantic v1:** more robust ModelField.annotation check ([024926b](https://github.com/conductor-is/quickbooks-desktop-python/commit/024926b582330cc9a75435f89c250988fe7158f4))
+
+
+### Chores
+
+* broadly detect json family of content-type headers ([001a1ba](https://github.com/conductor-is/quickbooks-desktop-python/commit/001a1ba69fa31a80bc1f81885592867f17a3c2cb))
+* **ci:** add timeout thresholds for CI jobs ([5757fae](https://github.com/conductor-is/quickbooks-desktop-python/commit/5757fae231a11728d1e9278153dc4bd5ab2b098a))
+* **ci:** only use depot for staging repos ([8a4509c](https://github.com/conductor-is/quickbooks-desktop-python/commit/8a4509c31acf4c0d95fa105f5042c85f5fffaa1c))
+* **internal:** codegen related update ([26e32a5](https://github.com/conductor-is/quickbooks-desktop-python/commit/26e32a5475b5299b1db70f50d8c842e24fda2e96))
+* **internal:** fix list file params ([be07999](https://github.com/conductor-is/quickbooks-desktop-python/commit/be079990b68669ea54cdab53966feb8f563eef42))
+* **internal:** import reformatting ([ee7884c](https://github.com/conductor-is/quickbooks-desktop-python/commit/ee7884c22c3ea949591f0f612e9efcfc9c3f5c1b))
+* **internal:** refactor retries to not use recursion ([32f6ed4](https://github.com/conductor-is/quickbooks-desktop-python/commit/32f6ed4adfd21a863c80b4d0e2c125a72b4e28ac))
+
 ## 1.34.0 (2025-04-23)
 
 Full Changelog: [v1.33.0...v1.34.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.33.0...v1.34.0)
