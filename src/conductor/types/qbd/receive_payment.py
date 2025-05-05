@@ -222,7 +222,7 @@ class CreditCardTransactionRequest(BaseModel):
     expiration_year: float = FieldInfo(alias="expirationYear")
     """The year when the credit card expires."""
 
-    name: str
+    name: Optional[str] = None
     """The cardholder's name on the card."""
 
     number: str
