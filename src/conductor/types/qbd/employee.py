@@ -64,71 +64,15 @@ class Address(BaseModel):
     postal_code: Optional[str] = FieldInfo(alias="postalCode", default=None)
     """The postal code or ZIP code of the employee address."""
 
-    state: Optional[
-        Literal[
-            "none",
-            "armed_forces_americas",
-            "armed_forces_europe",
-            "armed_forces_pacific",
-            "AK",
-            "AL",
-            "AR",
-            "AZ",
-            "CA",
-            "CO",
-            "CT",
-            "DC",
-            "DE",
-            "FL",
-            "GA",
-            "HI",
-            "IA",
-            "ID",
-            "IL",
-            "IN",
-            "KS",
-            "KY",
-            "LA",
-            "MA",
-            "MD",
-            "ME",
-            "MI",
-            "MN",
-            "MO",
-            "MS",
-            "MT",
-            "NB",
-            "NC",
-            "ND",
-            "NE",
-            "NH",
-            "NJ",
-            "NM",
-            "NV",
-            "NY",
-            "OH",
-            "OK",
-            "OR",
-            "PA",
-            "PR",
-            "RI",
-            "SC",
-            "SD",
-            "TN",
-            "TX",
-            "UT",
-            "VA",
-            "VT",
-            "WA",
-            "WI",
-            "WV",
-            "WY",
-        ]
-    ] = None
-    """The U.S.
+    state: Optional[str] = None
+    """The state, county, province, or region name of the employee address.
 
-    state of the employee address. QuickBooks requires this field to be a U.S. state
-    abbreviation (e.g., "CA" for California). See enum for all possible values.
+    **NOTE:** This `state` field is an enum when creating or updating an employee,
+    but a plain string when returning an employee. On input, QuickBooks Desktop
+    rejects any non-standard state values for employee addresses; hence, we must use
+    an enum for the input. However, when returning an employee address, we have seen
+    QuickBooks return non-standard state values (like 'ON') that do not conform to
+    the enum; hence, we use a plain string on return to support unexpected values.
     """
 
 
