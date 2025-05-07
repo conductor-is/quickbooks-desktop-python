@@ -41,7 +41,7 @@ class PayrollWageItem(BaseModel):
     in QuickBooks.
     """
 
-    expense_account: ExpenseAccount = FieldInfo(alias="expenseAccount")
+    expense_account: Optional[ExpenseAccount] = FieldInfo(alias="expenseAccount", default=None)
     """
     The expense account used to track wage expenses paid through this payroll wage
     item.
