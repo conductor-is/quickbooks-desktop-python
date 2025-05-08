@@ -37,7 +37,7 @@ class AdditionalContactCustomContactField(BaseModel):
     name: str
     """The name of the contact field (e.g., "old address", "secondary phone")."""
 
-    value: str
+    value: Optional[str] = None
     """The value of the contact field."""
 
 
@@ -258,7 +258,7 @@ class CustomContactField(BaseModel):
     name: str
     """The name of the contact field (e.g., "old address", "secondary phone")."""
 
-    value: str
+    value: Optional[str] = None
     """The value of the contact field."""
 
 
