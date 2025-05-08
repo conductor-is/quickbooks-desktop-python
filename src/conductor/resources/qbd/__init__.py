@@ -232,6 +232,14 @@ from .journal_entries import (
     JournalEntriesResourceWithStreamingResponse,
     AsyncJournalEntriesResourceWithStreamingResponse,
 )
+from .payment_methods import (
+    PaymentMethodsResource,
+    AsyncPaymentMethodsResource,
+    PaymentMethodsResourceWithRawResponse,
+    AsyncPaymentMethodsResourceWithRawResponse,
+    PaymentMethodsResourceWithStreamingResponse,
+    AsyncPaymentMethodsResourceWithStreamingResponse,
+)
 from .purchase_orders import (
     PurchaseOrdersResource,
     AsyncPurchaseOrdersResource,
@@ -518,6 +526,12 @@ __all__ = [
     "AsyncNonInventoryItemsResourceWithRawResponse",
     "NonInventoryItemsResourceWithStreamingResponse",
     "AsyncNonInventoryItemsResourceWithStreamingResponse",
+    "PaymentMethodsResource",
+    "AsyncPaymentMethodsResource",
+    "PaymentMethodsResourceWithRawResponse",
+    "AsyncPaymentMethodsResourceWithRawResponse",
+    "PaymentMethodsResourceWithStreamingResponse",
+    "AsyncPaymentMethodsResourceWithStreamingResponse",
     "PayrollWageItemsResource",
     "AsyncPayrollWageItemsResource",
     "PayrollWageItemsResourceWithRawResponse",
