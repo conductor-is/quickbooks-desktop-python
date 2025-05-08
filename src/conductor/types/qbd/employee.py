@@ -96,7 +96,7 @@ class CustomContactField(BaseModel):
     name: str
     """The name of the contact field (e.g., "old address", "secondary phone")."""
 
-    value: str
+    value: Optional[str] = None
     """The value of the contact field."""
 
 
@@ -146,7 +146,7 @@ class EmergencyContactPrimaryContact(BaseModel):
     ] = None
     """The relationship of the employee to the employee."""
 
-    value: str
+    value: Optional[str] = None
     """The value of the contact field."""
 
 
@@ -159,7 +159,7 @@ class EmergencyContactSecondaryContact(BaseModel):
     ] = None
     """The relationship of the employee to the employee."""
 
-    value: str
+    value: Optional[str] = None
     """The value of the contact field."""
 
 
