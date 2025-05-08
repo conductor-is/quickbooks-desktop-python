@@ -439,6 +439,20 @@ Methods:
 - <code title="post /quickbooks-desktop/non-inventory-items/{id}">client.qbd.non_inventory_items.<a href="./src/conductor/resources/qbd/non_inventory_items.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/non_inventory_item_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/non_inventory_item.py">NonInventoryItem</a></code>
 - <code title="get /quickbooks-desktop/non-inventory-items">client.qbd.non_inventory_items.<a href="./src/conductor/resources/qbd/non_inventory_items.py">list</a>(\*\*<a href="src/conductor/types/qbd/non_inventory_item_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/non_inventory_item.py">SyncCursorPage[NonInventoryItem]</a></code>
 
+## PaymentMethods
+
+Types:
+
+```python
+from conductor.types.qbd import PaymentMethod
+```
+
+Methods:
+
+- <code title="post /quickbooks-desktop/payment-methods">client.qbd.payment_methods.<a href="./src/conductor/resources/qbd/payment_methods.py">create</a>(\*\*<a href="src/conductor/types/qbd/payment_method_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/payment_method.py">PaymentMethod</a></code>
+- <code title="get /quickbooks-desktop/payment-methods/{id}">client.qbd.payment_methods.<a href="./src/conductor/resources/qbd/payment_methods.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/payment_method.py">PaymentMethod</a></code>
+- <code title="get /quickbooks-desktop/payment-methods">client.qbd.payment_methods.<a href="./src/conductor/resources/qbd/payment_methods.py">list</a>(\*\*<a href="src/conductor/types/qbd/payment_method_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/payment_method.py">SyncCursorPage[PaymentMethod]</a></code>
+
 ## PayrollWageItems
 
 Types:
