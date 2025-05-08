@@ -30,6 +30,7 @@ from .subtotal_item import SubtotalItem as SubtotalItem
 from .vendor_credit import VendorCredit as VendorCredit
 from .inventory_item import InventoryItem as InventoryItem
 from .inventory_site import InventorySite as InventorySite
+from .payment_method import PaymentMethod as PaymentMethod
 from .purchase_order import PurchaseOrder as PurchaseOrder
 from .sales_tax_code import SalesTaxCode as SalesTaxCode
 from .sales_tax_item import SalesTaxItem as SalesTaxItem
@@ -109,6 +110,7 @@ from .inventory_item_list_params import InventoryItemListParams as InventoryItem
 from .inventory_site_list_params import InventorySiteListParams as InventorySiteListParams
 from .item_receipt_create_params import ItemReceiptCreateParams as ItemReceiptCreateParams
 from .item_receipt_update_params import ItemReceiptUpdateParams as ItemReceiptUpdateParams
+from .payment_method_list_params import PaymentMethodListParams as PaymentMethodListParams
 from .purchase_order_list_params import PurchaseOrderListParams as PurchaseOrderListParams
 from .sales_tax_code_list_params import SalesTaxCodeListParams as SalesTaxCodeListParams
 from .sales_tax_item_list_params import SalesTaxItemListParams as SalesTaxItemListParams
@@ -136,6 +138,7 @@ from .inventory_site_create_params import InventorySiteCreateParams as Inventory
 from .inventory_site_list_response import InventorySiteListResponse as InventorySiteListResponse
 from .inventory_site_update_params import InventorySiteUpdateParams as InventorySiteUpdateParams
 from .item_receipt_delete_response import ItemReceiptDeleteResponse as ItemReceiptDeleteResponse
+from .payment_method_create_params import PaymentMethodCreateParams as PaymentMethodCreateParams
 from .purchase_order_create_params import PurchaseOrderCreateParams as PurchaseOrderCreateParams
 from .purchase_order_update_params import PurchaseOrderUpdateParams as PurchaseOrderUpdateParams
 from .sales_tax_code_create_params import SalesTaxCodeCreateParams as SalesTaxCodeCreateParams

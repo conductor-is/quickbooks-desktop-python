@@ -238,6 +238,14 @@ from .journal_entries import (
     JournalEntriesResourceWithStreamingResponse,
     AsyncJournalEntriesResourceWithStreamingResponse,
 )
+from .payment_methods import (
+    PaymentMethodsResource,
+    AsyncPaymentMethodsResource,
+    PaymentMethodsResourceWithRawResponse,
+    AsyncPaymentMethodsResourceWithRawResponse,
+    PaymentMethodsResourceWithStreamingResponse,
+    AsyncPaymentMethodsResourceWithStreamingResponse,
+)
 from .purchase_orders import (
     PurchaseOrdersResource,
     AsyncPurchaseOrdersResource,
@@ -477,6 +485,10 @@ class QbdResource(SyncAPIResource):
         return NonInventoryItemsResource(self._client)
 
     @cached_property
+    def payment_methods(self) -> PaymentMethodsResource:
+        return PaymentMethodsResource(self._client)
+
+    @cached_property
     def payroll_wage_items(self) -> PayrollWageItemsResource:
         return PayrollWageItemsResource(self._client)
 
@@ -712,6 +724,10 @@ class AsyncQbdResource(AsyncAPIResource):
     @cached_property
     def non_inventory_items(self) -> AsyncNonInventoryItemsResource:
         return AsyncNonInventoryItemsResource(self._client)
+
+    @cached_property
+    def payment_methods(self) -> AsyncPaymentMethodsResource:
+        return AsyncPaymentMethodsResource(self._client)
 
     @cached_property
     def payroll_wage_items(self) -> AsyncPayrollWageItemsResource:
@@ -958,6 +974,10 @@ class QbdResourceWithRawResponse:
         return NonInventoryItemsResourceWithRawResponse(self._qbd.non_inventory_items)
 
     @cached_property
+    def payment_methods(self) -> PaymentMethodsResourceWithRawResponse:
+        return PaymentMethodsResourceWithRawResponse(self._qbd.payment_methods)
+
+    @cached_property
     def payroll_wage_items(self) -> PayrollWageItemsResourceWithRawResponse:
         return PayrollWageItemsResourceWithRawResponse(self._qbd.payroll_wage_items)
 
@@ -1141,6 +1161,10 @@ class AsyncQbdResourceWithRawResponse:
     @cached_property
     def non_inventory_items(self) -> AsyncNonInventoryItemsResourceWithRawResponse:
         return AsyncNonInventoryItemsResourceWithRawResponse(self._qbd.non_inventory_items)
+
+    @cached_property
+    def payment_methods(self) -> AsyncPaymentMethodsResourceWithRawResponse:
+        return AsyncPaymentMethodsResourceWithRawResponse(self._qbd.payment_methods)
 
     @cached_property
     def payroll_wage_items(self) -> AsyncPayrollWageItemsResourceWithRawResponse:
@@ -1328,6 +1352,10 @@ class QbdResourceWithStreamingResponse:
         return NonInventoryItemsResourceWithStreamingResponse(self._qbd.non_inventory_items)
 
     @cached_property
+    def payment_methods(self) -> PaymentMethodsResourceWithStreamingResponse:
+        return PaymentMethodsResourceWithStreamingResponse(self._qbd.payment_methods)
+
+    @cached_property
     def payroll_wage_items(self) -> PayrollWageItemsResourceWithStreamingResponse:
         return PayrollWageItemsResourceWithStreamingResponse(self._qbd.payroll_wage_items)
 
@@ -1511,6 +1539,10 @@ class AsyncQbdResourceWithStreamingResponse:
     @cached_property
     def non_inventory_items(self) -> AsyncNonInventoryItemsResourceWithStreamingResponse:
         return AsyncNonInventoryItemsResourceWithStreamingResponse(self._qbd.non_inventory_items)
+
+    @cached_property
+    def payment_methods(self) -> AsyncPaymentMethodsResourceWithStreamingResponse:
+        return AsyncPaymentMethodsResourceWithStreamingResponse(self._qbd.payment_methods)
 
     @cached_property
     def payroll_wage_items(self) -> AsyncPayrollWageItemsResourceWithStreamingResponse:
