@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.39.1 (2025-05-10)
+
+Full Changelog: [v1.39.0...v1.39.1](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.39.0...v1.39.1)
+
+### Bug Fixes
+
+* **package:** support direct resource imports ([fe33d5f](https://github.com/conductor-is/quickbooks-desktop-python/commit/fe33d5f6bf376409cabe985ba2262d54b632f3cd))
+
+
+### Chores
+
+* **internal:** avoid errors for isinstance checks on proxies ([2f8fd83](https://github.com/conductor-is/quickbooks-desktop-python/commit/2f8fd8317964df9144ff877384072af02cc9253d))
+
 ## 1.39.0 (2025-05-08)
 
 Full Changelog: [v1.38.0...v1.39.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.38.0...v1.39.0)
