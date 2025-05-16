@@ -18,9 +18,9 @@ from ..._response import (
     async_to_streamed_response_wrapper,
 )
 from ...types.qbd import payment_method_list_params, payment_method_create_params
-from ...pagination import SyncCursorPage, AsyncCursorPage
-from ..._base_client import AsyncPaginator, make_request_options
+from ..._base_client import make_request_options
 from ...types.qbd.payment_method import PaymentMethod
+from ...types.qbd.payment_method_list_response import PaymentMethodListResponse
 
 __all__ = ["PaymentMethodsResource", "AsyncPaymentMethodsResource"]
 
@@ -161,7 +161,6 @@ class PaymentMethodsResource(SyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
-        cursor: str | NotGiven = NOT_GIVEN,
         ids: List[str] | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         name_contains: str | NotGiven = NOT_GIVEN,
@@ -193,20 +192,16 @@ class PaymentMethodsResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncCursorPage[PaymentMethod]:
+    ) -> PaymentMethodListResponse:
         """Returns a list of payment methods.
 
-        Use the `cursor` parameter to paginate
-        through the results.
+        NOTE: QuickBooks Desktop does not support
+        pagination for payment methods; hence, there is no `cursor` parameter. Users
+        typically have few payment methods.
 
         Args:
           conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
               `"Conductor-End-User-Id: {{END_USER_ID}}"`).
-
-          cursor: The pagination token to fetch the next set of results when paginating with the
-              `limit` parameter. Do not include this parameter on the first call. Use the
-              `nextCursor` value returned in the previous response to request subsequent
-              results.
 
           ids: Filter for specific payment methods by their QuickBooks-assigned unique
               identifier(s).
@@ -217,12 +212,16 @@ class PaymentMethodsResource(SyncAPIResource):
               **NOTE**: If any of the values you specify in this parameter are not found, the
               request will return an error.
 
-          limit: The maximum number of objects to return. Accepts values ranging from 1 to 150,
-              defaults to 150. When used with cursor-based pagination, this parameter controls
-              how many results are returned per page. To paginate through results, combine
-              this with the `cursor` parameter. Each response will include a `nextCursor`
-              value that can be passed to subsequent requests to retrieve the next page of
-              results.
+          limit: The maximum number of objects to return.
+
+              **IMPORTANT**: QuickBooks Desktop does not support cursor-based pagination for
+              payment methods. This parameter will limit the response size, but you cannot
+              fetch subsequent results using a cursor. For pagination, use the name-range
+              parameters instead (e.g., `nameFrom=A&nameTo=B`).
+
+              When this parameter is omitted, the endpoint returns all payment methods without
+              limit, unlike paginated endpoints which default to 150 records. This is
+              acceptable because payment methods typically have low record counts.
 
           name_contains: Filter for payment methods whose `name` contains this substring,
               case-insensitive. NOTE: If you use this parameter, you cannot also use
@@ -272,9 +271,8 @@ class PaymentMethodsResource(SyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
-        return self._get_api_list(
+        return self._get(
             "/quickbooks-desktop/payment-methods",
-            page=SyncCursorPage[PaymentMethod],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -282,7 +280,6 @@ class PaymentMethodsResource(SyncAPIResource):
                 timeout=timeout,
                 query=maybe_transform(
                     {
-                        "cursor": cursor,
                         "ids": ids,
                         "limit": limit,
                         "name_contains": name_contains,
@@ -299,7 +296,7 @@ class PaymentMethodsResource(SyncAPIResource):
                     payment_method_list_params.PaymentMethodListParams,
                 ),
             ),
-            model=PaymentMethod,
+            cast_to=PaymentMethodListResponse,
         )
 
 
@@ -435,11 +432,10 @@ class AsyncPaymentMethodsResource(AsyncAPIResource):
             cast_to=PaymentMethod,
         )
 
-    def list(
+    async def list(
         self,
         *,
         conductor_end_user_id: str,
-        cursor: str | NotGiven = NOT_GIVEN,
         ids: List[str] | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         name_contains: str | NotGiven = NOT_GIVEN,
@@ -471,20 +467,16 @@ class AsyncPaymentMethodsResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[PaymentMethod, AsyncCursorPage[PaymentMethod]]:
+    ) -> PaymentMethodListResponse:
         """Returns a list of payment methods.
 
-        Use the `cursor` parameter to paginate
-        through the results.
+        NOTE: QuickBooks Desktop does not support
+        pagination for payment methods; hence, there is no `cursor` parameter. Users
+        typically have few payment methods.
 
         Args:
           conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
               `"Conductor-End-User-Id: {{END_USER_ID}}"`).
-
-          cursor: The pagination token to fetch the next set of results when paginating with the
-              `limit` parameter. Do not include this parameter on the first call. Use the
-              `nextCursor` value returned in the previous response to request subsequent
-              results.
 
           ids: Filter for specific payment methods by their QuickBooks-assigned unique
               identifier(s).
@@ -495,12 +487,16 @@ class AsyncPaymentMethodsResource(AsyncAPIResource):
               **NOTE**: If any of the values you specify in this parameter are not found, the
               request will return an error.
 
-          limit: The maximum number of objects to return. Accepts values ranging from 1 to 150,
-              defaults to 150. When used with cursor-based pagination, this parameter controls
-              how many results are returned per page. To paginate through results, combine
-              this with the `cursor` parameter. Each response will include a `nextCursor`
-              value that can be passed to subsequent requests to retrieve the next page of
-              results.
+          limit: The maximum number of objects to return.
+
+              **IMPORTANT**: QuickBooks Desktop does not support cursor-based pagination for
+              payment methods. This parameter will limit the response size, but you cannot
+              fetch subsequent results using a cursor. For pagination, use the name-range
+              parameters instead (e.g., `nameFrom=A&nameTo=B`).
+
+              When this parameter is omitted, the endpoint returns all payment methods without
+              limit, unlike paginated endpoints which default to 150 records. This is
+              acceptable because payment methods typically have low record counts.
 
           name_contains: Filter for payment methods whose `name` contains this substring,
               case-insensitive. NOTE: If you use this parameter, you cannot also use
@@ -550,17 +546,15 @@ class AsyncPaymentMethodsResource(AsyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
-        return self._get_api_list(
+        return await self._get(
             "/quickbooks-desktop/payment-methods",
-            page=AsyncCursorPage[PaymentMethod],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=maybe_transform(
+                query=await async_maybe_transform(
                     {
-                        "cursor": cursor,
                         "ids": ids,
                         "limit": limit,
                         "name_contains": name_contains,
@@ -577,7 +571,7 @@ class AsyncPaymentMethodsResource(AsyncAPIResource):
                     payment_method_list_params.PaymentMethodListParams,
                 ),
             ),
-            model=PaymentMethod,
+            cast_to=PaymentMethodListResponse,
         )
 
 
