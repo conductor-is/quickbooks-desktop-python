@@ -117,6 +117,14 @@ from .item_groups import (
     ItemGroupsResourceWithStreamingResponse,
     AsyncItemGroupsResourceWithStreamingResponse,
 )
+from .other_names import (
+    OtherNamesResource,
+    AsyncOtherNamesResource,
+    OtherNamesResourceWithRawResponse,
+    AsyncOtherNamesResourceWithRawResponse,
+    OtherNamesResourceWithStreamingResponse,
+    AsyncOtherNamesResourceWithStreamingResponse,
+)
 from .preferences import (
     PreferencesResource,
     AsyncPreferencesResource,
@@ -485,6 +493,10 @@ class QbdResource(SyncAPIResource):
         return NonInventoryItemsResource(self._client)
 
     @cached_property
+    def other_names(self) -> OtherNamesResource:
+        return OtherNamesResource(self._client)
+
+    @cached_property
     def payment_methods(self) -> PaymentMethodsResource:
         return PaymentMethodsResource(self._client)
 
@@ -724,6 +736,10 @@ class AsyncQbdResource(AsyncAPIResource):
     @cached_property
     def non_inventory_items(self) -> AsyncNonInventoryItemsResource:
         return AsyncNonInventoryItemsResource(self._client)
+
+    @cached_property
+    def other_names(self) -> AsyncOtherNamesResource:
+        return AsyncOtherNamesResource(self._client)
 
     @cached_property
     def payment_methods(self) -> AsyncPaymentMethodsResource:
@@ -974,6 +990,10 @@ class QbdResourceWithRawResponse:
         return NonInventoryItemsResourceWithRawResponse(self._qbd.non_inventory_items)
 
     @cached_property
+    def other_names(self) -> OtherNamesResourceWithRawResponse:
+        return OtherNamesResourceWithRawResponse(self._qbd.other_names)
+
+    @cached_property
     def payment_methods(self) -> PaymentMethodsResourceWithRawResponse:
         return PaymentMethodsResourceWithRawResponse(self._qbd.payment_methods)
 
@@ -1161,6 +1181,10 @@ class AsyncQbdResourceWithRawResponse:
     @cached_property
     def non_inventory_items(self) -> AsyncNonInventoryItemsResourceWithRawResponse:
         return AsyncNonInventoryItemsResourceWithRawResponse(self._qbd.non_inventory_items)
+
+    @cached_property
+    def other_names(self) -> AsyncOtherNamesResourceWithRawResponse:
+        return AsyncOtherNamesResourceWithRawResponse(self._qbd.other_names)
 
     @cached_property
     def payment_methods(self) -> AsyncPaymentMethodsResourceWithRawResponse:
@@ -1352,6 +1376,10 @@ class QbdResourceWithStreamingResponse:
         return NonInventoryItemsResourceWithStreamingResponse(self._qbd.non_inventory_items)
 
     @cached_property
+    def other_names(self) -> OtherNamesResourceWithStreamingResponse:
+        return OtherNamesResourceWithStreamingResponse(self._qbd.other_names)
+
+    @cached_property
     def payment_methods(self) -> PaymentMethodsResourceWithStreamingResponse:
         return PaymentMethodsResourceWithStreamingResponse(self._qbd.payment_methods)
 
@@ -1539,6 +1567,10 @@ class AsyncQbdResourceWithStreamingResponse:
     @cached_property
     def non_inventory_items(self) -> AsyncNonInventoryItemsResourceWithStreamingResponse:
         return AsyncNonInventoryItemsResourceWithStreamingResponse(self._qbd.non_inventory_items)
+
+    @cached_property
+    def other_names(self) -> AsyncOtherNamesResourceWithStreamingResponse:
+        return AsyncOtherNamesResourceWithStreamingResponse(self._qbd.other_names)
 
     @cached_property
     def payment_methods(self) -> AsyncPaymentMethodsResourceWithStreamingResponse:

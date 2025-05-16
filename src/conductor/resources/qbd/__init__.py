@@ -112,6 +112,14 @@ from .item_groups import (
     ItemGroupsResourceWithStreamingResponse,
     AsyncItemGroupsResourceWithStreamingResponse,
 )
+from .other_names import (
+    OtherNamesResource,
+    AsyncOtherNamesResource,
+    OtherNamesResourceWithRawResponse,
+    AsyncOtherNamesResourceWithRawResponse,
+    OtherNamesResourceWithStreamingResponse,
+    AsyncOtherNamesResourceWithStreamingResponse,
+)
 from .preferences import (
     PreferencesResource,
     AsyncPreferencesResource,
@@ -526,6 +534,12 @@ __all__ = [
     "AsyncNonInventoryItemsResourceWithRawResponse",
     "NonInventoryItemsResourceWithStreamingResponse",
     "AsyncNonInventoryItemsResourceWithStreamingResponse",
+    "OtherNamesResource",
+    "AsyncOtherNamesResource",
+    "OtherNamesResourceWithRawResponse",
+    "AsyncOtherNamesResourceWithRawResponse",
+    "OtherNamesResourceWithStreamingResponse",
+    "AsyncOtherNamesResourceWithStreamingResponse",
     "PaymentMethodsResource",
     "AsyncPaymentMethodsResource",
     "PaymentMethodsResourceWithRawResponse",

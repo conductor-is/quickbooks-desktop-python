@@ -15,6 +15,7 @@ from .estimate import Estimate as Estimate
 from .transfer import Transfer as Transfer
 from .item_site import ItemSite as ItemSite
 from .item_group import ItemGroup as ItemGroup
+from .other_name import OtherName as OtherName
 from .credit_memo import CreditMemo as CreditMemo
 from .preferences import Preferences as Preferences
 from .price_level import PriceLevel as PriceLevel
@@ -78,6 +79,7 @@ from .employee_update_params import EmployeeUpdateParams as EmployeeUpdateParams
 from .estimate_create_params import EstimateCreateParams as EstimateCreateParams
 from .estimate_update_params import EstimateUpdateParams as EstimateUpdateParams
 from .item_group_list_params import ItemGroupListParams as ItemGroupListParams
+from .other_name_list_params import OtherNameListParams as OtherNameListParams
 from .time_tracking_activity import TimeTrackingActivity as TimeTrackingActivity
 from .transfer_create_params import TransferCreateParams as TransferCreateParams
 from .transfer_update_params import TransferUpdateParams as TransferUpdateParams
@@ -92,6 +94,9 @@ from .estimate_delete_response import EstimateDeleteResponse as EstimateDeleteRe
 from .item_group_create_params import ItemGroupCreateParams as ItemGroupCreateParams
 from .item_group_update_params import ItemGroupUpdateParams as ItemGroupUpdateParams
 from .item_receipt_list_params import ItemReceiptListParams as ItemReceiptListParams
+from .other_name_create_params import OtherNameCreateParams as OtherNameCreateParams
+from .other_name_list_response import OtherNameListResponse as OtherNameListResponse
+from .other_name_update_params import OtherNameUpdateParams as OtherNameUpdateParams
 from .service_item_list_params import ServiceItemListParams as ServiceItemListParams
 from .credit_memo_create_params import CreditMemoCreateParams as CreditMemoCreateParams
 from .credit_memo_update_params import CreditMemoUpdateParams as CreditMemoUpdateParams
@@ -139,6 +144,7 @@ from .inventory_site_list_response import InventorySiteListResponse as Inventory
 from .inventory_site_update_params import InventorySiteUpdateParams as InventorySiteUpdateParams
 from .item_receipt_delete_response import ItemReceiptDeleteResponse as ItemReceiptDeleteResponse
 from .payment_method_create_params import PaymentMethodCreateParams as PaymentMethodCreateParams
+from .payment_method_list_response import PaymentMethodListResponse as PaymentMethodListResponse
 from .purchase_order_create_params import PurchaseOrderCreateParams as PurchaseOrderCreateParams
 from .purchase_order_update_params import PurchaseOrderUpdateParams as PurchaseOrderUpdateParams
 from .sales_tax_code_create_params import SalesTaxCodeCreateParams as SalesTaxCodeCreateParams
