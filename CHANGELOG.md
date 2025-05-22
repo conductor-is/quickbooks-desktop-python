@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.40.1 (2025-05-22)
+
+Full Changelog: [v1.40.0...v1.40.1](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.40.0...v1.40.1)
+
+### Chores
+
+* **docs:** grammar improvements ([408eb35](https://github.com/conductor-is/quickbooks-desktop-python/commit/408eb3521c15dfddff4c413aaaf5dd39008d2e77))
+
 ## 1.40.0 (2025-05-16)
 
 Full Changelog: [v1.39.0...v1.40.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.39.0...v1.40.0)
