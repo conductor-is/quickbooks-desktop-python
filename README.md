@@ -161,18 +161,7 @@ bill = client.qbd.bills.create(
     transaction_date=date.fromisoformat("2021-10-01"),
     vendor_id="80000001-1234567890",
     conductor_end_user_id="end_usr_1234567abcdefg",
-    vendor_address={
-        "city": "San Francisco",
-        "country": "United States",
-        "line1": "Conductor Labs Inc.",
-        "line2": "540 Market St.",
-        "line3": "Suite 100",
-        "line4": "",
-        "line5": "",
-        "note": "Conductor HQ",
-        "postal_code": "94110",
-        "state": "CA",
-    },
+    vendor_address={},
 )
 print(bill.vendor_address)
 ```
