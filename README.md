@@ -194,9 +194,9 @@ Nested parameters are dictionaries, typed using `TypedDict`, for example:
 ```python
 from conductor import Conductor
 
-client = Conductor()
+conductor = Conductor()
 
-bill = client.qbd.bills.create(
+bill = conductor.qbd.bills.create(
     transaction_date=date.fromisoformat("2021-10-01"),
     vendor_id="80000001-1234567890",
     conductor_end_user_id="end_usr_1234567abcdefg",
