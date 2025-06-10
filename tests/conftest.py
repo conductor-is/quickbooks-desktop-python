@@ -37,8 +37,8 @@ def client(request: FixtureRequest) -> Iterator[Conductor]:
     if not isinstance(strict, bool):
         raise TypeError(f"Unexpected fixture parameter type {type(strict)}, expected {bool}")
 
-    with Conductor(base_url=base_url, api_key=api_key, _strict_response_validation=strict) as client:
-        yield client
+    with Conductor(base_url=base_url, api_key=api_key, _strict_response_validation=strict) as conductor:
+        yield conductor
 
 
 @pytest.fixture(scope="session")
@@ -47,5 +47,5 @@ async def async_client(request: FixtureRequest) -> AsyncIterator[AsyncConductor]
     if not isinstance(strict, bool):
         raise TypeError(f"Unexpected fixture parameter type {type(strict)}, expected {bool}")
 
-    async with AsyncConductor(base_url=base_url, api_key=api_key, _strict_response_validation=strict) as client:
-        yield client
+    async with AsyncConductor(base_url=base_url, api_key=api_key, _strict_response_validation=strict) as conductor:
+        yield conductor
