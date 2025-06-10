@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.41.0 (2025-06-10)
+
+Full Changelog: [v1.40.0...v1.41.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.40.0...v1.41.0)
+
+### Features
+
+* **api:** api update ([57ecc43](https://github.com/conductor-is/quickbooks-desktop-python/commit/57ecc43922b210afd71b771fd60bc1626833601c))
+* **client:** add follow_redirects request option ([c76d62a](https://github.com/conductor-is/quickbooks-desktop-python/commit/c76d62a469dc960b757c1f2c1f7944fb3eedc90e))
+
+
+### Chores
+
+* **docs:** grammar improvements ([408eb35](https://github.com/conductor-is/quickbooks-desktop-python/commit/408eb3521c15dfddff4c413aaaf5dd39008d2e77))
+* **docs:** remove reference to rye shell ([9209782](https://github.com/conductor-is/quickbooks-desktop-python/commit/9209782cc1479d2a57084a2e090b0d09ed090fa4))
+* **docs:** remove unnecessary param examples ([cf2e05b](https://github.com/conductor-is/quickbooks-desktop-python/commit/cf2e05b32e4f08fc9f905956c0235cc46349b920))
+
 ## 1.40.0 (2025-05-16)
 
 Full Changelog: [v1.39.0...v1.40.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.39.0...v1.40.0)
