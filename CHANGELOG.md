@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.41.1 (2025-06-13)
+
+Full Changelog: [v1.41.0...v1.41.1](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.41.0...v1.41.1)
+
+### Bug Fixes
+
+* **client:** correctly parse binary response | stream ([ff3e590](https://github.com/conductor-is/quickbooks-desktop-python/commit/ff3e590a7f74562f6f157d572347aef3be51b897))
+
+
+### Chores
+
+* **tests:** run tests in parallel ([58dde0e](https://github.com/conductor-is/quickbooks-desktop-python/commit/58dde0ec89210d597817651319a0a5f81ebc0673))
+
 ## 1.41.0 (2025-06-10)
 
 Full Changelog: [v1.40.0...v1.41.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.40.0...v1.41.0)
