@@ -113,7 +113,7 @@ class Conductor(SyncAPIClient):
     @property
     @override
     def qs(self) -> Querystring:
-        return Querystring(nested_format="dots", array_format="comma")
+        return Querystring(nested_format="dots", array_format="repeat")
 
     @property
     @override
@@ -285,7 +285,7 @@ class AsyncConductor(AsyncAPIClient):
     @property
     @override
     def qs(self) -> Querystring:
-        return Querystring(nested_format="dots", array_format="comma")
+        return Querystring(nested_format="dots", array_format="repeat")
 
     @property
     @override
