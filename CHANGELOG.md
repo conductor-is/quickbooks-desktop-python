@@ -1,5 +1,32 @@
 # Changelog
 
+## 1.42.0 (2025-06-19)
+
+Full Changelog: [v1.41.0...v1.42.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.41.0...v1.42.0)
+
+### Features
+
+* **api:** api update ([d73b209](https://github.com/conductor-is/quickbooks-desktop-python/commit/d73b209ea6cccac0d2c00a9e7143499bb15426dc))
+
+
+### Bug Fixes
+
+* **client:** correctly parse binary response | stream ([ff3e590](https://github.com/conductor-is/quickbooks-desktop-python/commit/ff3e590a7f74562f6f157d572347aef3be51b897))
+
+
+### Chores
+
+* **ci:** enable for pull requests ([259dcd8](https://github.com/conductor-is/quickbooks-desktop-python/commit/259dcd89b886ec14be07197b1738983b680b8850))
+* **internal:** update conftest.py ([1db5923](https://github.com/conductor-is/quickbooks-desktop-python/commit/1db59237859be3a5143527b06a1be7a6ffa48cb4))
+* **readme:** update badges ([c37e361](https://github.com/conductor-is/quickbooks-desktop-python/commit/c37e361650ee5d781f0b1739715470e88f86cd51))
+* **tests:** add tests for httpx client instantiation & proxies ([e41fa25](https://github.com/conductor-is/quickbooks-desktop-python/commit/e41fa25447e7cd80e98137bf378b793bc5efa249))
+* **tests:** run tests in parallel ([58dde0e](https://github.com/conductor-is/quickbooks-desktop-python/commit/58dde0ec89210d597817651319a0a5f81ebc0673))
+
+
+### Documentation
+
+* **client:** fix httpx.Timeout documentation reference ([457ad1e](https://github.com/conductor-is/quickbooks-desktop-python/commit/457ad1e81fd87881831c2db5dcbbb8413fd0fd0d))
+
 ## 1.41.0 (2025-06-10)
 
 Full Changelog: [v1.40.0...v1.41.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.40.0...v1.41.0)
