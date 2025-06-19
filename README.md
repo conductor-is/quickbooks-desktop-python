@@ -274,7 +274,7 @@ conductor.with_options(max_retries=5).qbd.invoices.list(
 ### Timeouts
 
 By default requests time out after 2 minutes. You can configure this with a `timeout` option,
-which accepts a float or an [`httpx.Timeout`](https://www.python-httpx.org/advanced/#fine-tuning-the-configuration) object:
+which accepts a float or an [`httpx.Timeout`](https://www.python-httpx.org/advanced/timeouts/#fine-tuning-the-configuration) object:
 
 ```python
 from conductor import Conductor
