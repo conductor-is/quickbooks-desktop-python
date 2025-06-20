@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.43.0 (2025-06-20)
+
+Full Changelog: [v1.42.0...v1.43.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.42.0...v1.43.0)
+
+### Features
+
+* **client:** add support for aiohttp ([fa886b5](https://github.com/conductor-is/quickbooks-desktop-python/commit/fa886b5e097bbdc15db5bd13b3e6ec139ac80666))
+
 ## 1.42.0 (2025-06-19)
 
 Full Changelog: [v1.41.0...v1.42.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.41.0...v1.42.0)
