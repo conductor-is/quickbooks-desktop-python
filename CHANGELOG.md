@@ -1,5 +1,24 @@
 # Changelog
 
+## 1.43.0 (2025-06-27)
+
+Full Changelog: [v1.42.0...v1.43.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.42.0...v1.43.0)
+
+### Features
+
+* **api:** api update ([7bff10f](https://github.com/conductor-is/quickbooks-desktop-python/commit/7bff10ff10eb2398072a409955f7c3fbc8ac788f))
+* **client:** add support for aiohttp ([fa886b5](https://github.com/conductor-is/quickbooks-desktop-python/commit/fa886b5e097bbdc15db5bd13b3e6ec139ac80666))
+
+
+### Bug Fixes
+
+* **ci:** release-doctor — report correct token name ([42ef854](https://github.com/conductor-is/quickbooks-desktop-python/commit/42ef85421254b9e6bbaba12ef1f8d5ee8215b37b))
+
+
+### Chores
+
+* **tests:** skip some failing tests on the latest python versions ([1586ccb](https://github.com/conductor-is/quickbooks-desktop-python/commit/1586ccb8991c3b854a20010823ef65849d0a7d18))
+
 ## 1.42.0 (2025-06-19)
 
 Full Changelog: [v1.41.0...v1.42.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.41.0...v1.42.0)
