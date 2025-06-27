@@ -225,12 +225,14 @@ class TransactionsResource(SyncAPIResource):
           posting_status: Filter for transactions that are posting, non-posting, or either. Posting status
               refers to whether QuickBooks records the transaction in an account register.
 
-          ref_number_contains: Filter for transactions whose `refNumber` contains this substring. NOTE: If you
-              use this parameter, you cannot also use `refNumberStartsWith` or
-              `refNumberEndsWith`.
+          ref_number_contains: Filter for transactions whose `refNumber` contains this substring.
 
-          ref_number_ends_with: Filter for transactions whose `refNumber` ends with this substring. NOTE: If you
-              use this parameter, you cannot also use `refNumberContains` or
+              **NOTE**: If you use this parameter, you cannot also use `refNumberStartsWith`
+              or `refNumberEndsWith`.
+
+          ref_number_ends_with: Filter for transactions whose `refNumber` ends with this substring.
+
+              **NOTE**: If you use this parameter, you cannot also use `refNumberContains` or
               `refNumberStartsWith`.
 
           ref_number_from: Filter for transactions whose `refNumber` is greater than or equal to this
@@ -248,8 +250,9 @@ class TransactionsResource(SyncAPIResource):
               **NOTE**: If any of the values you specify in this parameter are not found, the
               request will return an error.
 
-          ref_number_starts_with: Filter for transactions whose `refNumber` starts with this substring. NOTE: If
-              you use this parameter, you cannot also use `refNumberContains` or
+          ref_number_starts_with: Filter for transactions whose `refNumber` starts with this substring.
+
+              **NOTE**: If you use this parameter, you cannot also use `refNumberContains` or
               `refNumberEndsWith`.
 
           ref_number_to: Filter for transactions whose `refNumber` is less than or equal to this value.
@@ -525,12 +528,14 @@ class AsyncTransactionsResource(AsyncAPIResource):
           posting_status: Filter for transactions that are posting, non-posting, or either. Posting status
               refers to whether QuickBooks records the transaction in an account register.
 
-          ref_number_contains: Filter for transactions whose `refNumber` contains this substring. NOTE: If you
-              use this parameter, you cannot also use `refNumberStartsWith` or
-              `refNumberEndsWith`.
+          ref_number_contains: Filter for transactions whose `refNumber` contains this substring.
 
-          ref_number_ends_with: Filter for transactions whose `refNumber` ends with this substring. NOTE: If you
-              use this parameter, you cannot also use `refNumberContains` or
+              **NOTE**: If you use this parameter, you cannot also use `refNumberStartsWith`
+              or `refNumberEndsWith`.
+
+          ref_number_ends_with: Filter for transactions whose `refNumber` ends with this substring.
+
+              **NOTE**: If you use this parameter, you cannot also use `refNumberContains` or
               `refNumberStartsWith`.
 
           ref_number_from: Filter for transactions whose `refNumber` is greater than or equal to this
@@ -548,8 +553,9 @@ class AsyncTransactionsResource(AsyncAPIResource):
               **NOTE**: If any of the values you specify in this parameter are not found, the
               request will return an error.
 
-          ref_number_starts_with: Filter for transactions whose `refNumber` starts with this substring. NOTE: If
-              you use this parameter, you cannot also use `refNumberContains` or
+          ref_number_starts_with: Filter for transactions whose `refNumber` starts with this substring.
+
+              **NOTE**: If you use this parameter, you cannot also use `refNumberContains` or
               `refNumberEndsWith`.
 
           ref_number_to: Filter for transactions whose `refNumber` is less than or equal to this value.

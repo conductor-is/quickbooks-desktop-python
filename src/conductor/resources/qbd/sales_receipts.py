@@ -610,12 +610,14 @@ class SalesReceiptsResource(SyncAPIResource):
               value that can be passed to subsequent requests to retrieve the next page of
               results.
 
-          ref_number_contains: Filter for sales receipts whose `refNumber` contains this substring. NOTE: If
-              you use this parameter, you cannot also use `refNumberStartsWith` or
-              `refNumberEndsWith`.
+          ref_number_contains: Filter for sales receipts whose `refNumber` contains this substring.
 
-          ref_number_ends_with: Filter for sales receipts whose `refNumber` ends with this substring. NOTE: If
-              you use this parameter, you cannot also use `refNumberContains` or
+              **NOTE**: If you use this parameter, you cannot also use `refNumberStartsWith`
+              or `refNumberEndsWith`.
+
+          ref_number_ends_with: Filter for sales receipts whose `refNumber` ends with this substring.
+
+              **NOTE**: If you use this parameter, you cannot also use `refNumberContains` or
               `refNumberStartsWith`.
 
           ref_number_from: Filter for sales receipts whose `refNumber` is greater than or equal to this
@@ -633,8 +635,9 @@ class SalesReceiptsResource(SyncAPIResource):
               **NOTE**: If any of the values you specify in this parameter are not found, the
               request will return an error.
 
-          ref_number_starts_with: Filter for sales receipts whose `refNumber` starts with this substring. NOTE: If
-              you use this parameter, you cannot also use `refNumberContains` or
+          ref_number_starts_with: Filter for sales receipts whose `refNumber` starts with this substring.
+
+              **NOTE**: If you use this parameter, you cannot also use `refNumberContains` or
               `refNumberEndsWith`.
 
           ref_number_to: Filter for sales receipts whose `refNumber` is less than or equal to this value.
@@ -1326,12 +1329,14 @@ class AsyncSalesReceiptsResource(AsyncAPIResource):
               value that can be passed to subsequent requests to retrieve the next page of
               results.
 
-          ref_number_contains: Filter for sales receipts whose `refNumber` contains this substring. NOTE: If
-              you use this parameter, you cannot also use `refNumberStartsWith` or
-              `refNumberEndsWith`.
+          ref_number_contains: Filter for sales receipts whose `refNumber` contains this substring.
 
-          ref_number_ends_with: Filter for sales receipts whose `refNumber` ends with this substring. NOTE: If
-              you use this parameter, you cannot also use `refNumberContains` or
+              **NOTE**: If you use this parameter, you cannot also use `refNumberStartsWith`
+              or `refNumberEndsWith`.
+
+          ref_number_ends_with: Filter for sales receipts whose `refNumber` ends with this substring.
+
+              **NOTE**: If you use this parameter, you cannot also use `refNumberContains` or
               `refNumberStartsWith`.
 
           ref_number_from: Filter for sales receipts whose `refNumber` is greater than or equal to this
@@ -1349,8 +1354,9 @@ class AsyncSalesReceiptsResource(AsyncAPIResource):
               **NOTE**: If any of the values you specify in this parameter are not found, the
               request will return an error.
 
-          ref_number_starts_with: Filter for sales receipts whose `refNumber` starts with this substring. NOTE: If
-              you use this parameter, you cannot also use `refNumberContains` or
+          ref_number_starts_with: Filter for sales receipts whose `refNumber` starts with this substring.
+
+              **NOTE**: If you use this parameter, you cannot also use `refNumberContains` or
               `refNumberEndsWith`.
 
           ref_number_to: Filter for sales receipts whose `refNumber` is less than or equal to this value.

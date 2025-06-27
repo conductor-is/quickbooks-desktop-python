@@ -372,12 +372,16 @@ class BillCheckPaymentsResource(SyncAPIResource):
               results.
 
           ref_number_contains: Filter for bill check payments whose `refNumber` contains this substring. (For
-              checks, this field is the check number.) NOTE: If you use this parameter, you
-              cannot also use `refNumberStartsWith` or `refNumberEndsWith`.
+              checks, this field is the check number.)
+
+              **NOTE**: If you use this parameter, you cannot also use `refNumberStartsWith`
+              or `refNumberEndsWith`.
 
           ref_number_ends_with: Filter for bill check payments whose `refNumber` ends with this substring. (For
-              checks, this field is the check number.) NOTE: If you use this parameter, you
-              cannot also use `refNumberContains` or `refNumberStartsWith`.
+              checks, this field is the check number.)
+
+              **NOTE**: If you use this parameter, you cannot also use `refNumberContains` or
+              `refNumberStartsWith`.
 
           ref_number_from: Filter for bill check payments whose `refNumber` is greater than or equal to
               this value. (For checks, this field is the check number.) If omitted, the range
@@ -395,8 +399,10 @@ class BillCheckPaymentsResource(SyncAPIResource):
               request will return an error.
 
           ref_number_starts_with: Filter for bill check payments whose `refNumber` starts with this substring.
-              (For checks, this field is the check number.) NOTE: If you use this parameter,
-              you cannot also use `refNumberContains` or `refNumberEndsWith`.
+              (For checks, this field is the check number.)
+
+              **NOTE**: If you use this parameter, you cannot also use `refNumberContains` or
+              `refNumberEndsWith`.
 
           ref_number_to: Filter for bill check payments whose `refNumber` is less than or equal to this
               value. (For checks, this field is the check number.) If omitted, the range will
@@ -849,12 +855,16 @@ class AsyncBillCheckPaymentsResource(AsyncAPIResource):
               results.
 
           ref_number_contains: Filter for bill check payments whose `refNumber` contains this substring. (For
-              checks, this field is the check number.) NOTE: If you use this parameter, you
-              cannot also use `refNumberStartsWith` or `refNumberEndsWith`.
+              checks, this field is the check number.)
+
+              **NOTE**: If you use this parameter, you cannot also use `refNumberStartsWith`
+              or `refNumberEndsWith`.
 
           ref_number_ends_with: Filter for bill check payments whose `refNumber` ends with this substring. (For
-              checks, this field is the check number.) NOTE: If you use this parameter, you
-              cannot also use `refNumberContains` or `refNumberStartsWith`.
+              checks, this field is the check number.)
+
+              **NOTE**: If you use this parameter, you cannot also use `refNumberContains` or
+              `refNumberStartsWith`.
 
           ref_number_from: Filter for bill check payments whose `refNumber` is greater than or equal to
               this value. (For checks, this field is the check number.) If omitted, the range
@@ -872,8 +882,10 @@ class AsyncBillCheckPaymentsResource(AsyncAPIResource):
               request will return an error.
 
           ref_number_starts_with: Filter for bill check payments whose `refNumber` starts with this substring.
-              (For checks, this field is the check number.) NOTE: If you use this parameter,
-              you cannot also use `refNumberContains` or `refNumberEndsWith`.
+              (For checks, this field is the check number.)
+
+              **NOTE**: If you use this parameter, you cannot also use `refNumberContains` or
+              `refNumberEndsWith`.
 
           ref_number_to: Filter for bill check payments whose `refNumber` is less than or equal to this
               value. (For checks, this field is the check number.) If omitted, the range will
