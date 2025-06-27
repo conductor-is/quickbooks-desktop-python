@@ -84,14 +84,14 @@ class AccountListParams(TypedDict, total=False):
     name_contains: Annotated[str, PropertyInfo(alias="nameContains")]
     """Filter for accounts whose `name` contains this substring, case-insensitive.
 
-    NOTE: If you use this parameter, you cannot also use `nameStartsWith` or
+    **NOTE**: If you use this parameter, you cannot also use `nameStartsWith` or
     `nameEndsWith`.
     """
 
     name_ends_with: Annotated[str, PropertyInfo(alias="nameEndsWith")]
     """Filter for accounts whose `name` ends with this substring, case-insensitive.
 
-    NOTE: If you use this parameter, you cannot also use `nameContains` or
+    **NOTE**: If you use this parameter, you cannot also use `nameContains` or
     `nameStartsWith`.
     """
 
@@ -104,7 +104,7 @@ class AccountListParams(TypedDict, total=False):
     name_starts_with: Annotated[str, PropertyInfo(alias="nameStartsWith")]
     """Filter for accounts whose `name` starts with this substring, case-insensitive.
 
-    NOTE: If you use this parameter, you cannot also use `nameContains` or
+    **NOTE**: If you use this parameter, you cannot also use `nameContains` or
     `nameEndsWith`.
     """
 

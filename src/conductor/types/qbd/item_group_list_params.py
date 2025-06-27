@@ -50,14 +50,14 @@ class ItemGroupListParams(TypedDict, total=False):
     name_contains: Annotated[str, PropertyInfo(alias="nameContains")]
     """Filter for item groups whose `name` contains this substring, case-insensitive.
 
-    NOTE: If you use this parameter, you cannot also use `nameStartsWith` or
+    **NOTE**: If you use this parameter, you cannot also use `nameStartsWith` or
     `nameEndsWith`.
     """
 
     name_ends_with: Annotated[str, PropertyInfo(alias="nameEndsWith")]
     """Filter for item groups whose `name` ends with this substring, case-insensitive.
 
-    NOTE: If you use this parameter, you cannot also use `nameContains` or
+    **NOTE**: If you use this parameter, you cannot also use `nameContains` or
     `nameStartsWith`.
     """
 
@@ -80,10 +80,11 @@ class ItemGroupListParams(TypedDict, total=False):
     """
 
     name_starts_with: Annotated[str, PropertyInfo(alias="nameStartsWith")]
-    """Filter for item groups whose `name` starts with this substring,
+    """
+    Filter for item groups whose `name` starts with this substring,
     case-insensitive.
 
-    NOTE: If you use this parameter, you cannot also use `nameContains` or
+    **NOTE**: If you use this parameter, you cannot also use `nameContains` or
     `nameEndsWith`.
     """
 

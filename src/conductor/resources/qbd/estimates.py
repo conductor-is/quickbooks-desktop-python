@@ -542,12 +542,14 @@ class EstimatesResource(SyncAPIResource):
               value that can be passed to subsequent requests to retrieve the next page of
               results.
 
-          ref_number_contains: Filter for estimates whose `refNumber` contains this substring. NOTE: If you use
-              this parameter, you cannot also use `refNumberStartsWith` or
-              `refNumberEndsWith`.
+          ref_number_contains: Filter for estimates whose `refNumber` contains this substring.
 
-          ref_number_ends_with: Filter for estimates whose `refNumber` ends with this substring. NOTE: If you
-              use this parameter, you cannot also use `refNumberContains` or
+              **NOTE**: If you use this parameter, you cannot also use `refNumberStartsWith`
+              or `refNumberEndsWith`.
+
+          ref_number_ends_with: Filter for estimates whose `refNumber` ends with this substring.
+
+              **NOTE**: If you use this parameter, you cannot also use `refNumberContains` or
               `refNumberStartsWith`.
 
           ref_number_from: Filter for estimates whose `refNumber` is greater than or equal to this value.
@@ -565,8 +567,9 @@ class EstimatesResource(SyncAPIResource):
               **NOTE**: If any of the values you specify in this parameter are not found, the
               request will return an error.
 
-          ref_number_starts_with: Filter for estimates whose `refNumber` starts with this substring. NOTE: If you
-              use this parameter, you cannot also use `refNumberContains` or
+          ref_number_starts_with: Filter for estimates whose `refNumber` starts with this substring.
+
+              **NOTE**: If you use this parameter, you cannot also use `refNumberContains` or
               `refNumberEndsWith`.
 
           ref_number_to: Filter for estimates whose `refNumber` is less than or equal to this value. If
@@ -1191,12 +1194,14 @@ class AsyncEstimatesResource(AsyncAPIResource):
               value that can be passed to subsequent requests to retrieve the next page of
               results.
 
-          ref_number_contains: Filter for estimates whose `refNumber` contains this substring. NOTE: If you use
-              this parameter, you cannot also use `refNumberStartsWith` or
-              `refNumberEndsWith`.
+          ref_number_contains: Filter for estimates whose `refNumber` contains this substring.
 
-          ref_number_ends_with: Filter for estimates whose `refNumber` ends with this substring. NOTE: If you
-              use this parameter, you cannot also use `refNumberContains` or
+              **NOTE**: If you use this parameter, you cannot also use `refNumberStartsWith`
+              or `refNumberEndsWith`.
+
+          ref_number_ends_with: Filter for estimates whose `refNumber` ends with this substring.
+
+              **NOTE**: If you use this parameter, you cannot also use `refNumberContains` or
               `refNumberStartsWith`.
 
           ref_number_from: Filter for estimates whose `refNumber` is greater than or equal to this value.
@@ -1214,8 +1219,9 @@ class AsyncEstimatesResource(AsyncAPIResource):
               **NOTE**: If any of the values you specify in this parameter are not found, the
               request will return an error.
 
-          ref_number_starts_with: Filter for estimates whose `refNumber` starts with this substring. NOTE: If you
-              use this parameter, you cannot also use `refNumberContains` or
+          ref_number_starts_with: Filter for estimates whose `refNumber` starts with this substring.
+
+              **NOTE**: If you use this parameter, you cannot also use `refNumberContains` or
               `refNumberEndsWith`.
 
           ref_number_to: Filter for estimates whose `refNumber` is less than or equal to this value. If

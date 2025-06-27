@@ -294,12 +294,16 @@ class InventorySitesResource(SyncAPIResource):
               request will return an error.
 
           name_contains: Filter for inventory sites whose `name` contains this substring,
-              case-insensitive. NOTE: If you use this parameter, you cannot also use
-              `nameStartsWith` or `nameEndsWith`.
+              case-insensitive.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameStartsWith` or
+              `nameEndsWith`.
 
           name_ends_with: Filter for inventory sites whose `name` ends with this substring,
-              case-insensitive. NOTE: If you use this parameter, you cannot also use
-              `nameContains` or `nameStartsWith`.
+              case-insensitive.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains` or
+              `nameStartsWith`.
 
           name_from: Filter for inventory sites whose `name` is alphabetically greater than or equal
               to this value.
@@ -314,8 +318,10 @@ class InventorySitesResource(SyncAPIResource):
               request will return an error.
 
           name_starts_with: Filter for inventory sites whose `name` starts with this substring,
-              case-insensitive. NOTE: If you use this parameter, you cannot also use
-              `nameContains` or `nameEndsWith`.
+              case-insensitive.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains` or
+              `nameEndsWith`.
 
           name_to: Filter for inventory sites whose `name` is alphabetically less than or equal to
               this value.
@@ -635,12 +641,16 @@ class AsyncInventorySitesResource(AsyncAPIResource):
               request will return an error.
 
           name_contains: Filter for inventory sites whose `name` contains this substring,
-              case-insensitive. NOTE: If you use this parameter, you cannot also use
-              `nameStartsWith` or `nameEndsWith`.
+              case-insensitive.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameStartsWith` or
+              `nameEndsWith`.
 
           name_ends_with: Filter for inventory sites whose `name` ends with this substring,
-              case-insensitive. NOTE: If you use this parameter, you cannot also use
-              `nameContains` or `nameStartsWith`.
+              case-insensitive.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains` or
+              `nameStartsWith`.
 
           name_from: Filter for inventory sites whose `name` is alphabetically greater than or equal
               to this value.
@@ -655,8 +665,10 @@ class AsyncInventorySitesResource(AsyncAPIResource):
               request will return an error.
 
           name_starts_with: Filter for inventory sites whose `name` starts with this substring,
-              case-insensitive. NOTE: If you use this parameter, you cannot also use
-              `nameContains` or `nameEndsWith`.
+              case-insensitive.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains` or
+              `nameEndsWith`.
 
           name_to: Filter for inventory sites whose `name` is alphabetically less than or equal to
               this value.

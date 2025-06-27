@@ -463,12 +463,16 @@ class ChecksResource(SyncAPIResource):
               who will receive these checks.
 
           ref_number_contains: Filter for checks whose `refNumber` contains this substring. (For checks, this
-              field is the check number.) NOTE: If you use this parameter, you cannot also use
-              `refNumberStartsWith` or `refNumberEndsWith`.
+              field is the check number.)
+
+              **NOTE**: If you use this parameter, you cannot also use `refNumberStartsWith`
+              or `refNumberEndsWith`.
 
           ref_number_ends_with: Filter for checks whose `refNumber` ends with this substring. (For checks, this
-              field is the check number.) NOTE: If you use this parameter, you cannot also use
-              `refNumberContains` or `refNumberStartsWith`.
+              field is the check number.)
+
+              **NOTE**: If you use this parameter, you cannot also use `refNumberContains` or
+              `refNumberStartsWith`.
 
           ref_number_from: Filter for checks whose `refNumber` is greater than or equal to this value. (For
               checks, this field is the check number.) If omitted, the range will begin with
@@ -486,8 +490,10 @@ class ChecksResource(SyncAPIResource):
               request will return an error.
 
           ref_number_starts_with: Filter for checks whose `refNumber` starts with this substring. (For checks,
-              this field is the check number.) NOTE: If you use this parameter, you cannot
-              also use `refNumberContains` or `refNumberEndsWith`.
+              this field is the check number.)
+
+              **NOTE**: If you use this parameter, you cannot also use `refNumberContains` or
+              `refNumberEndsWith`.
 
           ref_number_to: Filter for checks whose `refNumber` is less than or equal to this value. (For
               checks, this field is the check number.) If omitted, the range will end with the
@@ -1032,12 +1038,16 @@ class AsyncChecksResource(AsyncAPIResource):
               who will receive these checks.
 
           ref_number_contains: Filter for checks whose `refNumber` contains this substring. (For checks, this
-              field is the check number.) NOTE: If you use this parameter, you cannot also use
-              `refNumberStartsWith` or `refNumberEndsWith`.
+              field is the check number.)
+
+              **NOTE**: If you use this parameter, you cannot also use `refNumberStartsWith`
+              or `refNumberEndsWith`.
 
           ref_number_ends_with: Filter for checks whose `refNumber` ends with this substring. (For checks, this
-              field is the check number.) NOTE: If you use this parameter, you cannot also use
-              `refNumberContains` or `refNumberStartsWith`.
+              field is the check number.)
+
+              **NOTE**: If you use this parameter, you cannot also use `refNumberContains` or
+              `refNumberStartsWith`.
 
           ref_number_from: Filter for checks whose `refNumber` is greater than or equal to this value. (For
               checks, this field is the check number.) If omitted, the range will begin with
@@ -1055,8 +1065,10 @@ class AsyncChecksResource(AsyncAPIResource):
               request will return an error.
 
           ref_number_starts_with: Filter for checks whose `refNumber` starts with this substring. (For checks,
-              this field is the check number.) NOTE: If you use this parameter, you cannot
-              also use `refNumberContains` or `refNumberEndsWith`.
+              this field is the check number.)
+
+              **NOTE**: If you use this parameter, you cannot also use `refNumberContains` or
+              `refNumberEndsWith`.
 
           ref_number_to: Filter for checks whose `refNumber` is less than or equal to this value. (For
               checks, this field is the check number.) If omitted, the range will end with the

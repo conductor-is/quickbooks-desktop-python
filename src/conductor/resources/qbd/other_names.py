@@ -409,11 +409,13 @@ class OtherNamesResource(SyncAPIResource):
               acceptable because other-names typically have low record counts.
 
           name_contains: Filter for other-names whose `name` contains this substring, case-insensitive.
-              NOTE: If you use this parameter, you cannot also use `nameStartsWith` or
+
+              **NOTE**: If you use this parameter, you cannot also use `nameStartsWith` or
               `nameEndsWith`.
 
           name_ends_with: Filter for other-names whose `name` ends with this substring, case-insensitive.
-              NOTE: If you use this parameter, you cannot also use `nameContains` or
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameStartsWith`.
 
           name_from: Filter for other-names whose `name` is alphabetically greater than or equal to
@@ -429,8 +431,10 @@ class OtherNamesResource(SyncAPIResource):
               request will return an error.
 
           name_starts_with: Filter for other-names whose `name` starts with this substring,
-              case-insensitive. NOTE: If you use this parameter, you cannot also use
-              `nameContains` or `nameEndsWith`.
+              case-insensitive.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains` or
+              `nameEndsWith`.
 
           name_to: Filter for other-names whose `name` is alphabetically less than or equal to this
               value.
@@ -866,11 +870,13 @@ class AsyncOtherNamesResource(AsyncAPIResource):
               acceptable because other-names typically have low record counts.
 
           name_contains: Filter for other-names whose `name` contains this substring, case-insensitive.
-              NOTE: If you use this parameter, you cannot also use `nameStartsWith` or
+
+              **NOTE**: If you use this parameter, you cannot also use `nameStartsWith` or
               `nameEndsWith`.
 
           name_ends_with: Filter for other-names whose `name` ends with this substring, case-insensitive.
-              NOTE: If you use this parameter, you cannot also use `nameContains` or
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameStartsWith`.
 
           name_from: Filter for other-names whose `name` is alphabetically greater than or equal to
@@ -886,8 +892,10 @@ class AsyncOtherNamesResource(AsyncAPIResource):
               request will return an error.
 
           name_starts_with: Filter for other-names whose `name` starts with this substring,
-              case-insensitive. NOTE: If you use this parameter, you cannot also use
-              `nameContains` or `nameEndsWith`.
+              case-insensitive.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains` or
+              `nameEndsWith`.
 
           name_to: Filter for other-names whose `name` is alphabetically less than or equal to this
               value.

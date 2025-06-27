@@ -216,12 +216,16 @@ class PayrollWageItemsResource(SyncAPIResource):
               results.
 
           name_contains: Filter for payroll wage items whose `name` contains this substring,
-              case-insensitive. NOTE: If you use this parameter, you cannot also use
-              `nameStartsWith` or `nameEndsWith`.
+              case-insensitive.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameStartsWith` or
+              `nameEndsWith`.
 
           name_ends_with: Filter for payroll wage items whose `name` ends with this substring,
-              case-insensitive. NOTE: If you use this parameter, you cannot also use
-              `nameContains` or `nameStartsWith`.
+              case-insensitive.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains` or
+              `nameStartsWith`.
 
           name_from: Filter for payroll wage items whose `name` is alphabetically greater than or
               equal to this value.
@@ -236,8 +240,10 @@ class PayrollWageItemsResource(SyncAPIResource):
               request will return an error.
 
           name_starts_with: Filter for payroll wage items whose `name` starts with this substring,
-              case-insensitive. NOTE: If you use this parameter, you cannot also use
-              `nameContains` or `nameEndsWith`.
+              case-insensitive.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains` or
+              `nameEndsWith`.
 
           name_to: Filter for payroll wage items whose `name` is alphabetically less than or equal
               to this value.
@@ -482,12 +488,16 @@ class AsyncPayrollWageItemsResource(AsyncAPIResource):
               results.
 
           name_contains: Filter for payroll wage items whose `name` contains this substring,
-              case-insensitive. NOTE: If you use this parameter, you cannot also use
-              `nameStartsWith` or `nameEndsWith`.
+              case-insensitive.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameStartsWith` or
+              `nameEndsWith`.
 
           name_ends_with: Filter for payroll wage items whose `name` ends with this substring,
-              case-insensitive. NOTE: If you use this parameter, you cannot also use
-              `nameContains` or `nameStartsWith`.
+              case-insensitive.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains` or
+              `nameStartsWith`.
 
           name_from: Filter for payroll wage items whose `name` is alphabetically greater than or
               equal to this value.
@@ -502,8 +512,10 @@ class AsyncPayrollWageItemsResource(AsyncAPIResource):
               request will return an error.
 
           name_starts_with: Filter for payroll wage items whose `name` starts with this substring,
-              case-insensitive. NOTE: If you use this parameter, you cannot also use
-              `nameContains` or `nameEndsWith`.
+              case-insensitive.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains` or
+              `nameEndsWith`.
 
           name_to: Filter for payroll wage items whose `name` is alphabetically less than or equal
               to this value.

@@ -751,18 +751,21 @@ class CustomersResource(SyncAPIResource):
               results.
 
           name_contains: Filter for customers whose `name` contains this substring, case-insensitive.
-              NOTE: If you use this parameter, you cannot also use `nameStartsWith` or
+
+              **NOTE**: If you use this parameter, you cannot also use `nameStartsWith` or
               `nameEndsWith`.
 
           name_ends_with: Filter for customers whose `name` ends with this substring, case-insensitive.
-              NOTE: If you use this parameter, you cannot also use `nameContains` or
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameStartsWith`.
 
           name_from: Filter for customers whose `name` is alphabetically greater than or equal to
               this value.
 
           name_starts_with: Filter for customers whose `name` starts with this substring, case-insensitive.
-              NOTE: If you use this parameter, you cannot also use `nameContains` or
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameEndsWith`.
 
           name_to: Filter for customers whose `name` is alphabetically less than or equal to this
@@ -1567,18 +1570,21 @@ class AsyncCustomersResource(AsyncAPIResource):
               results.
 
           name_contains: Filter for customers whose `name` contains this substring, case-insensitive.
-              NOTE: If you use this parameter, you cannot also use `nameStartsWith` or
+
+              **NOTE**: If you use this parameter, you cannot also use `nameStartsWith` or
               `nameEndsWith`.
 
           name_ends_with: Filter for customers whose `name` ends with this substring, case-insensitive.
-              NOTE: If you use this parameter, you cannot also use `nameContains` or
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameStartsWith`.
 
           name_from: Filter for customers whose `name` is alphabetically greater than or equal to
               this value.
 
           name_starts_with: Filter for customers whose `name` starts with this substring, case-insensitive.
-              NOTE: If you use this parameter, you cannot also use `nameContains` or
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameEndsWith`.
 
           name_to: Filter for customers whose `name` is alphabetically less than or equal to this

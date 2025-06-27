@@ -208,12 +208,16 @@ class StandardTermsResource(SyncAPIResource):
               acceptable because standard terms typically have low record counts.
 
           name_contains: Filter for standard terms whose `name` contains this substring,
-              case-insensitive. NOTE: If you use this parameter, you cannot also use
-              `nameStartsWith` or `nameEndsWith`.
+              case-insensitive.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameStartsWith` or
+              `nameEndsWith`.
 
           name_ends_with: Filter for standard terms whose `name` ends with this substring,
-              case-insensitive. NOTE: If you use this parameter, you cannot also use
-              `nameContains` or `nameStartsWith`.
+              case-insensitive.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains` or
+              `nameStartsWith`.
 
           name_from: Filter for standard terms whose `name` is alphabetically greater than or equal
               to this value.
@@ -228,8 +232,10 @@ class StandardTermsResource(SyncAPIResource):
               request will return an error.
 
           name_starts_with: Filter for standard terms whose `name` starts with this substring,
-              case-insensitive. NOTE: If you use this parameter, you cannot also use
-              `nameContains` or `nameEndsWith`.
+              case-insensitive.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains` or
+              `nameEndsWith`.
 
           name_to: Filter for standard terms whose `name` is alphabetically less than or equal to
               this value.
@@ -464,12 +470,16 @@ class AsyncStandardTermsResource(AsyncAPIResource):
               acceptable because standard terms typically have low record counts.
 
           name_contains: Filter for standard terms whose `name` contains this substring,
-              case-insensitive. NOTE: If you use this parameter, you cannot also use
-              `nameStartsWith` or `nameEndsWith`.
+              case-insensitive.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameStartsWith` or
+              `nameEndsWith`.
 
           name_ends_with: Filter for standard terms whose `name` ends with this substring,
-              case-insensitive. NOTE: If you use this parameter, you cannot also use
-              `nameContains` or `nameStartsWith`.
+              case-insensitive.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains` or
+              `nameStartsWith`.
 
           name_from: Filter for standard terms whose `name` is alphabetically greater than or equal
               to this value.
@@ -484,8 +494,10 @@ class AsyncStandardTermsResource(AsyncAPIResource):
               request will return an error.
 
           name_starts_with: Filter for standard terms whose `name` starts with this substring,
-              case-insensitive. NOTE: If you use this parameter, you cannot also use
-              `nameContains` or `nameEndsWith`.
+              case-insensitive.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains` or
+              `nameEndsWith`.
 
           name_to: Filter for standard terms whose `name` is alphabetically less than or equal to
               this value.

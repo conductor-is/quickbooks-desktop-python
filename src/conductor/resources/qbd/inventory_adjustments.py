@@ -354,11 +354,13 @@ class InventoryAdjustmentsResource(SyncAPIResource):
               acceptable because inventory adjustments typically have low record counts.
 
           ref_number_contains: Filter for inventory adjustments whose `refNumber` contains this substring.
-              NOTE: If you use this parameter, you cannot also use `refNumberStartsWith` or
-              `refNumberEndsWith`.
+
+              **NOTE**: If you use this parameter, you cannot also use `refNumberStartsWith`
+              or `refNumberEndsWith`.
 
           ref_number_ends_with: Filter for inventory adjustments whose `refNumber` ends with this substring.
-              NOTE: If you use this parameter, you cannot also use `refNumberContains` or
+
+              **NOTE**: If you use this parameter, you cannot also use `refNumberContains` or
               `refNumberStartsWith`.
 
           ref_number_from: Filter for inventory adjustments whose `refNumber` is greater than or equal to
@@ -377,7 +379,8 @@ class InventoryAdjustmentsResource(SyncAPIResource):
               request will return an error.
 
           ref_number_starts_with: Filter for inventory adjustments whose `refNumber` starts with this substring.
-              NOTE: If you use this parameter, you cannot also use `refNumberContains` or
+
+              **NOTE**: If you use this parameter, you cannot also use `refNumberContains` or
               `refNumberEndsWith`.
 
           ref_number_to: Filter for inventory adjustments whose `refNumber` is less than or equal to this
@@ -808,11 +811,13 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
               acceptable because inventory adjustments typically have low record counts.
 
           ref_number_contains: Filter for inventory adjustments whose `refNumber` contains this substring.
-              NOTE: If you use this parameter, you cannot also use `refNumberStartsWith` or
-              `refNumberEndsWith`.
+
+              **NOTE**: If you use this parameter, you cannot also use `refNumberStartsWith`
+              or `refNumberEndsWith`.
 
           ref_number_ends_with: Filter for inventory adjustments whose `refNumber` ends with this substring.
-              NOTE: If you use this parameter, you cannot also use `refNumberContains` or
+
+              **NOTE**: If you use this parameter, you cannot also use `refNumberContains` or
               `refNumberStartsWith`.
 
           ref_number_from: Filter for inventory adjustments whose `refNumber` is greater than or equal to
@@ -831,7 +836,8 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
               request will return an error.
 
           ref_number_starts_with: Filter for inventory adjustments whose `refNumber` starts with this substring.
-              NOTE: If you use this parameter, you cannot also use `refNumberContains` or
+
+              **NOTE**: If you use this parameter, you cannot also use `refNumberContains` or
               `refNumberEndsWith`.
 
           ref_number_to: Filter for inventory adjustments whose `refNumber` is less than or equal to this

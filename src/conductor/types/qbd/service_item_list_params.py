@@ -71,15 +71,16 @@ class ServiceItemListParams(TypedDict, total=False):
     name_contains: Annotated[str, PropertyInfo(alias="nameContains")]
     """Filter for service items whose `name` contains this substring, case-insensitive.
 
-    NOTE: If you use this parameter, you cannot also use `nameStartsWith` or
+    **NOTE**: If you use this parameter, you cannot also use `nameStartsWith` or
     `nameEndsWith`.
     """
 
     name_ends_with: Annotated[str, PropertyInfo(alias="nameEndsWith")]
-    """Filter for service items whose `name` ends with this substring,
+    """
+    Filter for service items whose `name` ends with this substring,
     case-insensitive.
 
-    NOTE: If you use this parameter, you cannot also use `nameContains` or
+    **NOTE**: If you use this parameter, you cannot also use `nameContains` or
     `nameStartsWith`.
     """
 
@@ -92,8 +93,10 @@ class ServiceItemListParams(TypedDict, total=False):
     name_starts_with: Annotated[str, PropertyInfo(alias="nameStartsWith")]
     """
     Filter for service items whose `name` starts with this substring,
-    case-insensitive. NOTE: If you use this parameter, you cannot also use
-    `nameContains` or `nameEndsWith`.
+    case-insensitive.
+
+    **NOTE**: If you use this parameter, you cannot also use `nameContains` or
+    `nameEndsWith`.
     """
 
     name_to: Annotated[str, PropertyInfo(alias="nameTo")]

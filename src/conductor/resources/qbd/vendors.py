@@ -692,13 +692,14 @@ class VendorsResource(SyncAPIResource):
               value that can be passed to subsequent requests to retrieve the next page of
               results.
 
-          name_contains:
-              Filter for vendors whose `name` contains this substring, case-insensitive. NOTE:
-              If you use this parameter, you cannot also use `nameStartsWith` or
+          name_contains: Filter for vendors whose `name` contains this substring, case-insensitive.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameStartsWith` or
               `nameEndsWith`.
 
           name_ends_with: Filter for vendors whose `name` ends with this substring, case-insensitive.
-              NOTE: If you use this parameter, you cannot also use `nameContains` or
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameStartsWith`.
 
           name_from: Filter for vendors whose `name` is alphabetically greater than or equal to this
@@ -714,7 +715,8 @@ class VendorsResource(SyncAPIResource):
               request will return an error.
 
           name_starts_with: Filter for vendors whose `name` starts with this substring, case-insensitive.
-              NOTE: If you use this parameter, you cannot also use `nameContains` or
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameEndsWith`.
 
           name_to: Filter for vendors whose `name` is alphabetically less than or equal to this
@@ -1459,13 +1461,14 @@ class AsyncVendorsResource(AsyncAPIResource):
               value that can be passed to subsequent requests to retrieve the next page of
               results.
 
-          name_contains:
-              Filter for vendors whose `name` contains this substring, case-insensitive. NOTE:
-              If you use this parameter, you cannot also use `nameStartsWith` or
+          name_contains: Filter for vendors whose `name` contains this substring, case-insensitive.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameStartsWith` or
               `nameEndsWith`.
 
           name_ends_with: Filter for vendors whose `name` ends with this substring, case-insensitive.
-              NOTE: If you use this parameter, you cannot also use `nameContains` or
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameStartsWith`.
 
           name_from: Filter for vendors whose `name` is alphabetically greater than or equal to this
@@ -1481,7 +1484,8 @@ class AsyncVendorsResource(AsyncAPIResource):
               request will return an error.
 
           name_starts_with: Filter for vendors whose `name` starts with this substring, case-insensitive.
-              NOTE: If you use this parameter, you cannot also use `nameContains` or
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameEndsWith`.
 
           name_to: Filter for vendors whose `name` is alphabetically less than or equal to this

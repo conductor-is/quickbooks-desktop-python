@@ -73,14 +73,14 @@ class CreditMemoListParams(TypedDict, total=False):
     ref_number_contains: Annotated[str, PropertyInfo(alias="refNumberContains")]
     """Filter for credit memos whose `refNumber` contains this substring.
 
-    NOTE: If you use this parameter, you cannot also use `refNumberStartsWith` or
-    `refNumberEndsWith`.
+    **NOTE**: If you use this parameter, you cannot also use `refNumberStartsWith`
+    or `refNumberEndsWith`.
     """
 
     ref_number_ends_with: Annotated[str, PropertyInfo(alias="refNumberEndsWith")]
     """Filter for credit memos whose `refNumber` ends with this substring.
 
-    NOTE: If you use this parameter, you cannot also use `refNumberContains` or
+    **NOTE**: If you use this parameter, you cannot also use `refNumberContains` or
     `refNumberStartsWith`.
     """
 
@@ -109,7 +109,7 @@ class CreditMemoListParams(TypedDict, total=False):
     ref_number_starts_with: Annotated[str, PropertyInfo(alias="refNumberStartsWith")]
     """Filter for credit memos whose `refNumber` starts with this substring.
 
-    NOTE: If you use this parameter, you cannot also use `refNumberContains` or
+    **NOTE**: If you use this parameter, you cannot also use `refNumberContains` or
     `refNumberEndsWith`.
     """
 
