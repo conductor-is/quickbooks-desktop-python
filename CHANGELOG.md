@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.43.1 (2025-07-02)
+
+Full Changelog: [v1.43.0...v1.43.1](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.43.0...v1.43.1)
+
+### Bug Fixes
+
+* **ci:** correct conditional ([87462db](https://github.com/conductor-is/quickbooks-desktop-python/commit/87462db3c1434b0ed1718a55fc274a4aa61dbd84))
+
+
+### Chores
+
+* **ci:** change upload type ([d1325f0](https://github.com/conductor-is/quickbooks-desktop-python/commit/d1325f0c663b1213f9097291f6bec83f6776b02b))
+* **ci:** only run for pushes and fork pull requests ([6a4b7a6](https://github.com/conductor-is/quickbooks-desktop-python/commit/6a4b7a62caf82f3892265e88196dbb4bb2f717f5))
+
 ## 1.43.0 (2025-06-27)
 
 Full Changelog: [v1.42.0...v1.43.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.42.0...v1.43.0)
