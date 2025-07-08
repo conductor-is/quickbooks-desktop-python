@@ -1,5 +1,25 @@
 # Changelog
 
+## 1.44.0 (2025-07-08)
+
+Full Changelog: [v1.43.0...v1.44.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.43.0...v1.44.0)
+
+### Features
+
+* **api:** api update ([ac819f7](https://github.com/conductor-is/quickbooks-desktop-python/commit/ac819f753e81ceb64843a4a66b5a2e9d9723fd58))
+
+
+### Bug Fixes
+
+* **ci:** correct conditional ([87462db](https://github.com/conductor-is/quickbooks-desktop-python/commit/87462db3c1434b0ed1718a55fc274a4aa61dbd84))
+
+
+### Chores
+
+* **ci:** change upload type ([d1325f0](https://github.com/conductor-is/quickbooks-desktop-python/commit/d1325f0c663b1213f9097291f6bec83f6776b02b))
+* **ci:** only run for pushes and fork pull requests ([6a4b7a6](https://github.com/conductor-is/quickbooks-desktop-python/commit/6a4b7a62caf82f3892265e88196dbb4bb2f717f5))
+* **internal:** codegen related update ([8078db3](https://github.com/conductor-is/quickbooks-desktop-python/commit/8078db3fbb7c2b5801e49497ad71fde6f16f1864))
+
 ## 1.43.0 (2025-06-27)
 
 Full Changelog: [v1.42.0...v1.43.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.42.0...v1.43.0)
