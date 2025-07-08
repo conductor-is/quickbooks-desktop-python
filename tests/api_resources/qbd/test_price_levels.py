@@ -40,9 +40,9 @@ class TestPriceLevels:
                 {
                     "adjust_percentage": "-10.0",
                     "adjust_relative_to": "standard_price",
+                    "item_id": "80000001-1234567890",
                     "custom_price": "19.99",
                     "custom_price_percent": "15.0",
-                    "item_id": "80000001-1234567890",
                 }
             ],
         )
@@ -139,9 +139,9 @@ class TestPriceLevels:
                 {
                     "adjust_percentage": "-10.0",
                     "adjust_relative_to": "standard_price",
+                    "item_id": "80000001-1234567890",
                     "custom_price": "19.99",
                     "custom_price_percent": "15.0",
-                    "item_id": "80000001-1234567890",
                 }
             ],
         )
@@ -261,9 +261,9 @@ class TestAsyncPriceLevels:
                 {
                     "adjust_percentage": "-10.0",
                     "adjust_relative_to": "standard_price",
+                    "item_id": "80000001-1234567890",
                     "custom_price": "19.99",
                     "custom_price_percent": "15.0",
-                    "item_id": "80000001-1234567890",
                 }
             ],
         )
@@ -360,9 +360,9 @@ class TestAsyncPriceLevels:
                 {
                     "adjust_percentage": "-10.0",
                     "adjust_relative_to": "standard_price",
+                    "item_id": "80000001-1234567890",
                     "custom_price": "19.99",
                     "custom_price_percent": "15.0",
-                    "item_id": "80000001-1234567890",
                 }
             ],
         )

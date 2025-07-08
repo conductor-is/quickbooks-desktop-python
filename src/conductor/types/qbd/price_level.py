@@ -57,7 +57,7 @@ class PerItemPriceLevel(BaseModel):
     discount specific to this item within this price level.
     """
 
-    item: Optional[PerItemPriceLevelItem] = None
+    item: PerItemPriceLevelItem
     """The item associated with this per-item price level.
 
     This can refer to any good or service that the business buys or sells, including

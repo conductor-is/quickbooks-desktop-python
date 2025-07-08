@@ -124,12 +124,7 @@ class ItemSite(BaseModel):
     """The type of object. This value is always `"qbd_item_site"`."""
 
     quantity_on_hand: Optional[float] = FieldInfo(alias="quantityOnHand", default=None)
-    """The number of units of this item site currently in inventory.
-
-    `quantityOnHand` multiplied by `averageCost` equals `totalValue` for inventory
-    item lists. To change the `quantityOnHand` for an item site, you must use an
-    inventory-adjustment instead of updating the item site directly.
-    """
+    """The number of units of this item site currently in inventory."""
 
     quantity_on_pending_transfers: Optional[float] = FieldInfo(alias="quantityOnPendingTransfers", default=None)
     """
