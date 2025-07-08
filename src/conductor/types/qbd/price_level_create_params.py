@@ -83,6 +83,14 @@ class PerItemPriceLevel(TypedDict, total=False):
     levels.
     """
 
+    item_id: Required[Annotated[str, PropertyInfo(alias="itemId")]]
+    """The item associated with this per-item price level.
+
+    This can refer to any good or service that the business buys or sells, including
+    item types such as a service item, inventory item, or special calculation item
+    like a discount item or sales-tax item.
+    """
+
     custom_price: Annotated[str, PropertyInfo(alias="customPrice")]
     """
     The fixed amount custom price for this per-item price level that overrides the
@@ -95,12 +103,4 @@ class PerItemPriceLevel(TypedDict, total=False):
     The fixed discount percentage for this per-item price level that modifies the
     specified item's standard price. Used to create a fixed percentage markup or
     discount specific to this item within this price level.
-    """
-
-    item_id: Annotated[str, PropertyInfo(alias="itemId")]
-    """The item associated with this per-item price level.
-
-    This can refer to any good or service that the business buys or sells, including
-    item types such as a service item, inventory item, or special calculation item
-    like a discount item or sales-tax item.
     """

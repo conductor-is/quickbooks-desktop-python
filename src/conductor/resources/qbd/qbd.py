@@ -278,6 +278,14 @@ from .sales_tax_items import (
     SalesTaxItemsResourceWithStreamingResponse,
     AsyncSalesTaxItemsResourceWithStreamingResponse,
 )
+from .build_assemblies import (
+    BuildAssembliesResource,
+    AsyncBuildAssembliesResource,
+    BuildAssembliesResourceWithRawResponse,
+    AsyncBuildAssembliesResourceWithRawResponse,
+    BuildAssembliesResourceWithStreamingResponse,
+    AsyncBuildAssembliesResourceWithStreamingResponse,
+)
 from .receive_payments import (
     ReceivePaymentsResource,
     AsyncReceivePaymentsResource,
@@ -407,6 +415,10 @@ class QbdResource(SyncAPIResource):
     @cached_property
     def bills(self) -> BillsResource:
         return BillsResource(self._client)
+
+    @cached_property
+    def build_assemblies(self) -> BuildAssembliesResource:
+        return BuildAssembliesResource(self._client)
 
     @cached_property
     def checks(self) -> ChecksResource:
@@ -652,6 +664,10 @@ class AsyncQbdResource(AsyncAPIResource):
     @cached_property
     def bills(self) -> AsyncBillsResource:
         return AsyncBillsResource(self._client)
+
+    @cached_property
+    def build_assemblies(self) -> AsyncBuildAssembliesResource:
+        return AsyncBuildAssembliesResource(self._client)
 
     @cached_property
     def checks(self) -> AsyncChecksResource:
@@ -906,6 +922,10 @@ class QbdResourceWithRawResponse:
         return BillsResourceWithRawResponse(self._qbd.bills)
 
     @cached_property
+    def build_assemblies(self) -> BuildAssembliesResourceWithRawResponse:
+        return BuildAssembliesResourceWithRawResponse(self._qbd.build_assemblies)
+
+    @cached_property
     def checks(self) -> ChecksResourceWithRawResponse:
         return ChecksResourceWithRawResponse(self._qbd.checks)
 
@@ -1097,6 +1117,10 @@ class AsyncQbdResourceWithRawResponse:
     @cached_property
     def bills(self) -> AsyncBillsResourceWithRawResponse:
         return AsyncBillsResourceWithRawResponse(self._qbd.bills)
+
+    @cached_property
+    def build_assemblies(self) -> AsyncBuildAssembliesResourceWithRawResponse:
+        return AsyncBuildAssembliesResourceWithRawResponse(self._qbd.build_assemblies)
 
     @cached_property
     def checks(self) -> AsyncChecksResourceWithRawResponse:
@@ -1292,6 +1316,10 @@ class QbdResourceWithStreamingResponse:
         return BillsResourceWithStreamingResponse(self._qbd.bills)
 
     @cached_property
+    def build_assemblies(self) -> BuildAssembliesResourceWithStreamingResponse:
+        return BuildAssembliesResourceWithStreamingResponse(self._qbd.build_assemblies)
+
+    @cached_property
     def checks(self) -> ChecksResourceWithStreamingResponse:
         return ChecksResourceWithStreamingResponse(self._qbd.checks)
 
@@ -1483,6 +1511,10 @@ class AsyncQbdResourceWithStreamingResponse:
     @cached_property
     def bills(self) -> AsyncBillsResourceWithStreamingResponse:
         return AsyncBillsResourceWithStreamingResponse(self._qbd.bills)
+
+    @cached_property
+    def build_assemblies(self) -> AsyncBuildAssembliesResourceWithStreamingResponse:
+        return AsyncBuildAssembliesResourceWithStreamingResponse(self._qbd.build_assemblies)
 
     @cached_property
     def checks(self) -> AsyncChecksResourceWithStreamingResponse:

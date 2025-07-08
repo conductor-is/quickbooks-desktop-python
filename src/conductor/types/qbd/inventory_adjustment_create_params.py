@@ -213,6 +213,9 @@ class LineAdjustValue(TypedDict, total=False):
 
 
 class Line(TypedDict, total=False):
+    item_id: Required[Annotated[str, PropertyInfo(alias="itemId")]]
+    """The inventory item associated with this inventory adjustment line."""
+
     adjust_lot_number: Annotated[LineAdjustLotNumber, PropertyInfo(alias="adjustLotNumber")]
     """Adjusts the lot number of this inventory adjustment line."""
 
@@ -233,6 +236,3 @@ class Line(TypedDict, total=False):
     Adjusts the total value of the entire stock of this inventory item by setting a
     new monetary value, and optionally by setting a new quantity.
     """
-
-    item_id: Annotated[str, PropertyInfo(alias="itemId")]
-    """The inventory item associated with this inventory adjustment line."""

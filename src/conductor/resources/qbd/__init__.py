@@ -272,6 +272,14 @@ from .sales_tax_items import (
     SalesTaxItemsResourceWithStreamingResponse,
     AsyncSalesTaxItemsResourceWithStreamingResponse,
 )
+from .build_assemblies import (
+    BuildAssembliesResource,
+    AsyncBuildAssembliesResource,
+    BuildAssembliesResourceWithRawResponse,
+    AsyncBuildAssembliesResourceWithRawResponse,
+    BuildAssembliesResourceWithStreamingResponse,
+    AsyncBuildAssembliesResourceWithStreamingResponse,
+)
 from .receive_payments import (
     ReceivePaymentsResource,
     AsyncReceivePaymentsResource,
@@ -408,6 +416,12 @@ __all__ = [
     "AsyncBillsResourceWithRawResponse",
     "BillsResourceWithStreamingResponse",
     "AsyncBillsResourceWithStreamingResponse",
+    "BuildAssembliesResource",
+    "AsyncBuildAssembliesResource",
+    "BuildAssembliesResourceWithRawResponse",
+    "AsyncBuildAssembliesResourceWithRawResponse",
+    "BuildAssembliesResourceWithStreamingResponse",
+    "AsyncBuildAssembliesResourceWithStreamingResponse",
     "ChecksResource",
     "AsyncChecksResource",
     "ChecksResourceWithRawResponse",
