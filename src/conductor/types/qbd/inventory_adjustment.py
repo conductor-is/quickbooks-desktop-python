@@ -177,7 +177,7 @@ class Line(BaseModel):
     item associated with this inventory adjustment line is stored.
     """
 
-    item: Optional[LineItem] = None
+    item: LineItem
     """The inventory item associated with this inventory adjustment line."""
 
     lot_number: Optional[str] = FieldInfo(alias="lotNumber", default=None)

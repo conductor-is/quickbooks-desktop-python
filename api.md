@@ -117,6 +117,22 @@ Methods:
 - <code title="get /quickbooks-desktop/bills">conductor.qbd.bills.<a href="./src/conductor/resources/qbd/bills.py">list</a>(\*\*<a href="src/conductor/types/qbd/bill_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/bill.py">SyncCursorPage[Bill]</a></code>
 - <code title="delete /quickbooks-desktop/bills/{id}">conductor.qbd.bills.<a href="./src/conductor/resources/qbd/bills.py">delete</a>(id) -> <a href="./src/conductor/types/qbd/bill_delete_response.py">BillDeleteResponse</a></code>
 
+## BuildAssemblies
+
+Types:
+
+```python
+from conductor.types.qbd import BuildAssembly, BuildAssemblyDeleteResponse
+```
+
+Methods:
+
+- <code title="post /quickbooks-desktop/build-assemblies">conductor.qbd.build_assemblies.<a href="./src/conductor/resources/qbd/build_assemblies.py">create</a>(\*\*<a href="src/conductor/types/qbd/build_assembly_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/build_assembly.py">BuildAssembly</a></code>
+- <code title="get /quickbooks-desktop/build-assemblies/{id}">conductor.qbd.build_assemblies.<a href="./src/conductor/resources/qbd/build_assemblies.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/build_assembly.py">BuildAssembly</a></code>
+- <code title="post /quickbooks-desktop/build-assemblies/{id}">conductor.qbd.build_assemblies.<a href="./src/conductor/resources/qbd/build_assemblies.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/build_assembly_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/build_assembly.py">BuildAssembly</a></code>
+- <code title="get /quickbooks-desktop/build-assemblies">conductor.qbd.build_assemblies.<a href="./src/conductor/resources/qbd/build_assemblies.py">list</a>(\*\*<a href="src/conductor/types/qbd/build_assembly_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/build_assembly.py">SyncCursorPage[BuildAssembly]</a></code>
+- <code title="delete /quickbooks-desktop/build-assemblies/{id}">conductor.qbd.build_assemblies.<a href="./src/conductor/resources/qbd/build_assemblies.py">delete</a>(id) -> <a href="./src/conductor/types/qbd/build_assembly_delete_response.py">BuildAssemblyDeleteResponse</a></code>
+
 ## Checks
 
 Types:

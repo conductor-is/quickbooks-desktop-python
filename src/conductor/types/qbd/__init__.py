@@ -29,6 +29,7 @@ from .sales_receipt import SalesReceipt as SalesReceipt
 from .standard_term import StandardTerm as StandardTerm
 from .subtotal_item import SubtotalItem as SubtotalItem
 from .vendor_credit import VendorCredit as VendorCredit
+from .build_assembly import BuildAssembly as BuildAssembly
 from .inventory_item import InventoryItem as InventoryItem
 from .inventory_site import InventorySite as InventorySite
 from .payment_method import PaymentMethod as PaymentMethod
@@ -111,6 +112,7 @@ from .sales_receipt_list_params import SalesReceiptListParams as SalesReceiptLis
 from .standard_term_list_params import StandardTermListParams as StandardTermListParams
 from .subtotal_item_list_params import SubtotalItemListParams as SubtotalItemListParams
 from .vendor_credit_list_params import VendorCreditListParams as VendorCreditListParams
+from .build_assembly_list_params import BuildAssemblyListParams as BuildAssemblyListParams
 from .inventory_item_list_params import InventoryItemListParams as InventoryItemListParams
 from .inventory_site_list_params import InventorySiteListParams as InventorySiteListParams
 from .item_receipt_create_params import ItemReceiptCreateParams as ItemReceiptCreateParams
@@ -136,6 +138,8 @@ from .subtotal_item_create_params import SubtotalItemCreateParams as SubtotalIte
 from .subtotal_item_update_params import SubtotalItemUpdateParams as SubtotalItemUpdateParams
 from .vendor_credit_create_params import VendorCreditCreateParams as VendorCreditCreateParams
 from .vendor_credit_update_params import VendorCreditUpdateParams as VendorCreditUpdateParams
+from .build_assembly_create_params import BuildAssemblyCreateParams as BuildAssemblyCreateParams
+from .build_assembly_update_params import BuildAssemblyUpdateParams as BuildAssemblyUpdateParams
 from .date_driven_term_list_params import DateDrivenTermListParams as DateDrivenTermListParams
 from .inventory_item_create_params import InventoryItemCreateParams as InventoryItemCreateParams
 from .inventory_item_update_params import InventoryItemUpdateParams as InventoryItemUpdateParams
@@ -160,6 +164,7 @@ from .sales_receipt_delete_response import SalesReceiptDeleteResponse as SalesRe
 from .vendor_credit_delete_response import VendorCreditDeleteResponse as VendorCreditDeleteResponse
 from .account_tax_line_list_response import AccountTaxLineListResponse as AccountTaxLineListResponse
 from .bill_check_payment_list_params import BillCheckPaymentListParams as BillCheckPaymentListParams
+from .build_assembly_delete_response import BuildAssemblyDeleteResponse as BuildAssemblyDeleteResponse
 from .credit_card_charge_list_params import CreditCardChargeListParams as CreditCardChargeListParams
 from .credit_card_credit_list_params import CreditCardCreditListParams as CreditCardCreditListParams
 from .date_driven_term_create_params import DateDrivenTermCreateParams as DateDrivenTermCreateParams
