@@ -23,6 +23,7 @@
   <hr />
 </div>
 
+<!-- prettier-ignore -->
 [Conductor](https://conductor.is) is a real-time, fully-typed API for **QuickBooks Desktop** (sometimes called QuickBooks Enterprise). In just a few lines, get real-time access to fetch, create, or update _any_ QuickBooks Desktop object type and receive a fully-typed response.
 
 ⭐ **Follow our [Quickstart guide](https://docs.conductor.is/quickstart) to get started.**
