@@ -120,7 +120,6 @@ pip install conductor-py[aiohttp]
 Then you can enable it by instantiating the client with `http_client=DefaultAioHttpClient()`:
 
 ```python
-import os
 import asyncio
 from conductor import DefaultAioHttpClient
 from conductor import AsyncConductor
@@ -128,7 +127,7 @@ from conductor import AsyncConductor
 
 async def main() -> None:
     async with AsyncConductor(
-        api_key=os.environ.get("CONDUCTOR_SECRET_KEY"),  # This is the default and can be omitted
+        api_key="My API Key",
         http_client=DefaultAioHttpClient(),
     ) as conductor:
         page = await conductor.qbd.invoices.list(
