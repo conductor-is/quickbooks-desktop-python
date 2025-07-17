@@ -271,6 +271,8 @@ class SalesOrdersResource(SyncAPIResource):
         """
         Retrieves a sales order by ID.
 
+        NOTE: The response automatically includes any linked transactions.
+
         Args:
           id: The QuickBooks-assigned unique identifier of the sales order to retrieve.
 
@@ -970,6 +972,8 @@ class AsyncSalesOrdersResource(AsyncAPIResource):
     ) -> SalesOrder:
         """
         Retrieves a sales order by ID.
+
+        NOTE: The response automatically includes any linked transactions.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the sales order to retrieve.

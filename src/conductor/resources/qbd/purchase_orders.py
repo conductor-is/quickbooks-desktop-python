@@ -254,6 +254,8 @@ class PurchaseOrdersResource(SyncAPIResource):
         """
         Retrieves a purchase order by ID.
 
+        NOTE: The response automatically includes any linked transactions.
+
         Args:
           id: The QuickBooks-assigned unique identifier of the purchase order to retrieve.
 
@@ -933,6 +935,8 @@ class AsyncPurchaseOrdersResource(AsyncAPIResource):
     ) -> PurchaseOrder:
         """
         Retrieves a purchase order by ID.
+
+        NOTE: The response automatically includes any linked transactions.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the purchase order to retrieve.
