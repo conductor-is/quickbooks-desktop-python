@@ -315,6 +315,8 @@ class InvoicesResource(SyncAPIResource):
         """
         Retrieves an invoice by ID.
 
+        NOTE: The response automatically includes any linked transactions.
+
         Args:
           id: The QuickBooks-assigned unique identifier of the invoice to retrieve.
 
@@ -1083,6 +1085,8 @@ class AsyncInvoicesResource(AsyncAPIResource):
     ) -> Invoice:
         """
         Retrieves an invoice by ID.
+
+        NOTE: The response automatically includes any linked transactions.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the invoice to retrieve.

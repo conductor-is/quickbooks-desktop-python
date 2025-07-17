@@ -190,6 +190,8 @@ class ChecksResource(SyncAPIResource):
         """
         Retrieves a check by ID.
 
+        NOTE: The response automatically includes any linked transactions.
+
         Args:
           id: The QuickBooks-assigned unique identifier of the check to retrieve.
 
@@ -764,6 +766,8 @@ class AsyncChecksResource(AsyncAPIResource):
     ) -> Check:
         """
         Retrieves a check by ID.
+
+        NOTE: The response automatically includes any linked transactions.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the check to retrieve.

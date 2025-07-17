@@ -269,6 +269,8 @@ class CreditMemosResource(SyncAPIResource):
         """
         Retrieves a credit memo by ID.
 
+        NOTE: The response automatically includes any linked transactions.
+
         Args:
           id: The QuickBooks-assigned unique identifier of the credit memo to retrieve.
 
@@ -971,6 +973,8 @@ class AsyncCreditMemosResource(AsyncAPIResource):
     ) -> CreditMemo:
         """
         Retrieves a credit memo by ID.
+
+        NOTE: The response automatically includes any linked transactions.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the credit memo to retrieve.

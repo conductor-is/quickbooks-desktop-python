@@ -171,6 +171,8 @@ class VendorCreditsResource(SyncAPIResource):
         """
         Retrieves a vendor credit by ID.
 
+        NOTE: The response automatically includes any linked transactions.
+
         Args:
           id: The QuickBooks-assigned unique identifier of the vendor credit to retrieve.
 
@@ -706,6 +708,8 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
     ) -> VendorCredit:
         """
         Retrieves a vendor credit by ID.
+
+        NOTE: The response automatically includes any linked transactions.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the vendor credit to retrieve.
