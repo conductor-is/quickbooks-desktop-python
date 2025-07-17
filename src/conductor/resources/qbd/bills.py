@@ -209,6 +209,8 @@ class BillsResource(SyncAPIResource):
         """
         Retrieves a bill by ID.
 
+        NOTE: The response automatically includes any linked transactions.
+
         Args:
           id: The QuickBooks-assigned unique identifier of the bill to retrieve.
 
@@ -796,6 +798,8 @@ class AsyncBillsResource(AsyncAPIResource):
     ) -> Bill:
         """
         Retrieves a bill by ID.
+
+        NOTE: The response automatically includes any linked transactions.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the bill to retrieve.

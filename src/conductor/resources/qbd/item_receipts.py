@@ -194,6 +194,8 @@ class ItemReceiptsResource(SyncAPIResource):
         """
         Retrieves an item receipt by ID.
 
+        NOTE: The response automatically includes any linked transactions.
+
         Args:
           id: The QuickBooks-assigned unique identifier of the item receipt to retrieve.
 
@@ -751,6 +753,8 @@ class AsyncItemReceiptsResource(AsyncAPIResource):
     ) -> ItemReceipt:
         """
         Retrieves an item receipt by ID.
+
+        NOTE: The response automatically includes any linked transactions.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the item receipt to retrieve.

@@ -241,6 +241,8 @@ class EstimatesResource(SyncAPIResource):
         """
         Retrieves an estimate by ID.
 
+        NOTE: The response automatically includes any linked transactions.
+
         Args:
           id: The QuickBooks-assigned unique identifier of the estimate to retrieve.
 
@@ -892,6 +894,8 @@ class AsyncEstimatesResource(AsyncAPIResource):
     ) -> Estimate:
         """
         Retrieves an estimate by ID.
+
+        NOTE: The response automatically includes any linked transactions.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the estimate to retrieve.
