@@ -1,5 +1,24 @@
 # Changelog
 
+## 1.45.0 (2025-07-18)
+
+Full Changelog: [v1.44.1...v1.45.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.44.1...v1.45.0)
+
+### Features
+
+* **api:** api update ([8e86019](https://github.com/conductor-is/quickbooks-desktop-python/commit/8e86019d44279acc9c3dd8779905cca636b23ff3))
+* clean up environment call outs ([10c53db](https://github.com/conductor-is/quickbooks-desktop-python/commit/10c53db09277343344371351c171bba3e8c6faed))
+
+
+### Bug Fixes
+
+* **client:** don't send Content-Type header on GET requests ([e01c352](https://github.com/conductor-is/quickbooks-desktop-python/commit/e01c352e460e25eb647cc8edf030068585dc5c35))
+
+
+### Chores
+
+* **readme:** fix version rendering on pypi ([8317c58](https://github.com/conductor-is/quickbooks-desktop-python/commit/8317c58e8468ce8f16b28283759330adfefccfba))
+
 ## 1.44.1 (2025-07-11)
 
 Full Changelog: [v1.44.0...v1.44.1](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.44.0...v1.44.1)
