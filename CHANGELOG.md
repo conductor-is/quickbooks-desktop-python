@@ -8,12 +8,11 @@ Full Changelog: [v1.44.0...v1.44.1](https://github.com/conductor-is/quickbooks-d
 
 * **parsing:** correctly handle nested discriminated unions ([e9bf1ed](https://github.com/conductor-is/quickbooks-desktop-python/commit/e9bf1ed9844b5de8d382cef959f2fecf372db84c))
 
-
 ### Chores
 
 * **internal:** bump pinned h11 dep ([723555a](https://github.com/conductor-is/quickbooks-desktop-python/commit/723555a9e7b9386fb43231b2a32731ade2fa54b8))
-* **package:** mark python 3.13 as supported ([db30310](https://github.com/conductor-is/quickbooks-desktop-python/commit/db30310480b267d89997b8642bda2f47a66920fa))
-* **readme:** fix version rendering on pypi ([906b22a](https://github.com/conductor-is/quickbooks-desktop-python/commit/906b22a5da3caf8af905eacc55e479c781076d47))
+* **package:** mark python 3.13 as supported ([db30310](https://github.com/conductor-is/quickbooks-desktop-python/commit/db30310480b267d89997b8642bda2f47a66920fa))
+* **readme:** fix version rendering on PyPI ([906b22a](https://github.com/conductor-is/quickbooks-desktop-python/commit/906b22a5da3caf8af905eacc55e479c781076d47))
 
 ## 1.44.0 (2025-07-08)
 
