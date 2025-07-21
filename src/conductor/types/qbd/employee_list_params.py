@@ -17,14 +17,6 @@ class EmployeeListParams(TypedDict, total=False):
     `"Conductor-End-User-Id: {{END_USER_ID}}"`).
     """
 
-    cursor: str
-    """
-    The pagination token to fetch the next set of results when paginating with the
-    `limit` parameter. Do not include this parameter on the first call. Use the
-    `nextCursor` value returned in the previous response to request subsequent
-    results.
-    """
-
     ids: List[str]
     """Filter for specific employees by their QuickBooks-assigned unique identifier(s).
 
@@ -38,11 +30,14 @@ class EmployeeListParams(TypedDict, total=False):
     limit: int
     """The maximum number of objects to return.
 
-    Accepts values ranging from 1 to 150, defaults to 150. When used with
-    cursor-based pagination, this parameter controls how many results are returned
-    per page. To paginate through results, combine this with the `cursor` parameter.
-    Each response will include a `nextCursor` value that can be passed to subsequent
-    requests to retrieve the next page of results.
+    **IMPORTANT**: QuickBooks Desktop does not support cursor-based pagination for
+    employees. This parameter will limit the response size, but you cannot fetch
+    subsequent results using a cursor. For pagination, use the name-range parameters
+    instead (e.g., `nameFrom=A&nameTo=B`).
+
+    When this parameter is omitted, the endpoint returns all employees without
+    limit, unlike paginated endpoints which default to 150 records. This is
+    acceptable because employees typically have low record counts.
     """
 
     name_contains: Annotated[str, PropertyInfo(alias="nameContains")]

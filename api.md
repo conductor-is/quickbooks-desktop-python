@@ -273,7 +273,7 @@ Methods:
 Types:
 
 ```python
-from conductor.types.qbd import Employee
+from conductor.types.qbd import Employee, EmployeeListResponse
 ```
 
 Methods:
@@ -281,7 +281,7 @@ Methods:
 - <code title="post /quickbooks-desktop/employees">conductor.qbd.employees.<a href="./src/conductor/resources/qbd/employees.py">create</a>(\*\*<a href="src/conductor/types/qbd/employee_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/employee.py">Employee</a></code>
 - <code title="get /quickbooks-desktop/employees/{id}">conductor.qbd.employees.<a href="./src/conductor/resources/qbd/employees.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/employee.py">Employee</a></code>
 - <code title="post /quickbooks-desktop/employees/{id}">conductor.qbd.employees.<a href="./src/conductor/resources/qbd/employees.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/employee_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/employee.py">Employee</a></code>
-- <code title="get /quickbooks-desktop/employees">conductor.qbd.employees.<a href="./src/conductor/resources/qbd/employees.py">list</a>(\*\*<a href="src/conductor/types/qbd/employee_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/employee.py">SyncCursorPage[Employee]</a></code>
+- <code title="get /quickbooks-desktop/employees">conductor.qbd.employees.<a href="./src/conductor/resources/qbd/employees.py">list</a>(\*\*<a href="src/conductor/types/qbd/employee_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/employee_list_response.py">EmployeeListResponse</a></code>
 
 ## Estimates
 
