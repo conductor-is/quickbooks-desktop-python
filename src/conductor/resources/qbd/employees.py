@@ -19,9 +19,9 @@ from ..._response import (
     async_to_streamed_response_wrapper,
 )
 from ...types.qbd import employee_list_params, employee_create_params, employee_update_params
-from ...pagination import SyncCursorPage, AsyncCursorPage
-from ..._base_client import AsyncPaginator, make_request_options
+from ..._base_client import make_request_options
 from ...types.qbd.employee import Employee
+from ...types.qbd.employee_list_response import EmployeeListResponse
 
 __all__ = ["EmployeesResource", "AsyncEmployeesResource"]
 
@@ -611,7 +611,6 @@ class EmployeesResource(SyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
-        cursor: str | NotGiven = NOT_GIVEN,
         ids: List[str] | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         name_contains: str | NotGiven = NOT_GIVEN,
@@ -629,20 +628,16 @@ class EmployeesResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncCursorPage[Employee]:
+    ) -> EmployeeListResponse:
         """Returns a list of employees.
 
-        Use the `cursor` parameter to paginate through the
-        results.
+        NOTE: QuickBooks Desktop does not support
+        pagination for employees; hence, there is no `cursor` parameter. Users typically
+        have few employees.
 
         Args:
           conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
               `"Conductor-End-User-Id: {{END_USER_ID}}"`).
-
-          cursor: The pagination token to fetch the next set of results when paginating with the
-              `limit` parameter. Do not include this parameter on the first call. Use the
-              `nextCursor` value returned in the previous response to request subsequent
-              results.
 
           ids: Filter for specific employees by their QuickBooks-assigned unique identifier(s).
 
@@ -652,12 +647,16 @@ class EmployeesResource(SyncAPIResource):
               **NOTE**: If any of the values you specify in this parameter are not found, the
               request will return an error.
 
-          limit: The maximum number of objects to return. Accepts values ranging from 1 to 150,
-              defaults to 150. When used with cursor-based pagination, this parameter controls
-              how many results are returned per page. To paginate through results, combine
-              this with the `cursor` parameter. Each response will include a `nextCursor`
-              value that can be passed to subsequent requests to retrieve the next page of
-              results.
+          limit: The maximum number of objects to return.
+
+              **IMPORTANT**: QuickBooks Desktop does not support cursor-based pagination for
+              employees. This parameter will limit the response size, but you cannot fetch
+              subsequent results using a cursor. For pagination, use the name-range parameters
+              instead (e.g., `nameFrom=A&nameTo=B`).
+
+              When this parameter is omitted, the endpoint returns all employees without
+              limit, unlike paginated endpoints which default to 150 records. This is
+              acceptable because employees typically have low record counts.
 
           name_contains: Filter for employees whose `name` contains this substring, case-insensitive.
 
@@ -708,9 +707,8 @@ class EmployeesResource(SyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
-        return self._get_api_list(
+        return self._get(
             "/quickbooks-desktop/employees",
-            page=SyncCursorPage[Employee],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -718,7 +716,6 @@ class EmployeesResource(SyncAPIResource):
                 timeout=timeout,
                 query=maybe_transform(
                     {
-                        "cursor": cursor,
                         "ids": ids,
                         "limit": limit,
                         "name_contains": name_contains,
@@ -734,7 +731,7 @@ class EmployeesResource(SyncAPIResource):
                     employee_list_params.EmployeeListParams,
                 ),
             ),
-            model=Employee,
+            cast_to=EmployeeListResponse,
         )
 
 
@@ -1319,11 +1316,10 @@ class AsyncEmployeesResource(AsyncAPIResource):
             cast_to=Employee,
         )
 
-    def list(
+    async def list(
         self,
         *,
         conductor_end_user_id: str,
-        cursor: str | NotGiven = NOT_GIVEN,
         ids: List[str] | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         name_contains: str | NotGiven = NOT_GIVEN,
@@ -1341,20 +1337,16 @@ class AsyncEmployeesResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[Employee, AsyncCursorPage[Employee]]:
+    ) -> EmployeeListResponse:
         """Returns a list of employees.
 
-        Use the `cursor` parameter to paginate through the
-        results.
+        NOTE: QuickBooks Desktop does not support
+        pagination for employees; hence, there is no `cursor` parameter. Users typically
+        have few employees.
 
         Args:
           conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
               `"Conductor-End-User-Id: {{END_USER_ID}}"`).
-
-          cursor: The pagination token to fetch the next set of results when paginating with the
-              `limit` parameter. Do not include this parameter on the first call. Use the
-              `nextCursor` value returned in the previous response to request subsequent
-              results.
 
           ids: Filter for specific employees by their QuickBooks-assigned unique identifier(s).
 
@@ -1364,12 +1356,16 @@ class AsyncEmployeesResource(AsyncAPIResource):
               **NOTE**: If any of the values you specify in this parameter are not found, the
               request will return an error.
 
-          limit: The maximum number of objects to return. Accepts values ranging from 1 to 150,
-              defaults to 150. When used with cursor-based pagination, this parameter controls
-              how many results are returned per page. To paginate through results, combine
-              this with the `cursor` parameter. Each response will include a `nextCursor`
-              value that can be passed to subsequent requests to retrieve the next page of
-              results.
+          limit: The maximum number of objects to return.
+
+              **IMPORTANT**: QuickBooks Desktop does not support cursor-based pagination for
+              employees. This parameter will limit the response size, but you cannot fetch
+              subsequent results using a cursor. For pagination, use the name-range parameters
+              instead (e.g., `nameFrom=A&nameTo=B`).
+
+              When this parameter is omitted, the endpoint returns all employees without
+              limit, unlike paginated endpoints which default to 150 records. This is
+              acceptable because employees typically have low record counts.
 
           name_contains: Filter for employees whose `name` contains this substring, case-insensitive.
 
@@ -1420,17 +1416,15 @@ class AsyncEmployeesResource(AsyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
-        return self._get_api_list(
+        return await self._get(
             "/quickbooks-desktop/employees",
-            page=AsyncCursorPage[Employee],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=maybe_transform(
+                query=await async_maybe_transform(
                     {
-                        "cursor": cursor,
                         "ids": ids,
                         "limit": limit,
                         "name_contains": name_contains,
@@ -1446,7 +1440,7 @@ class AsyncEmployeesResource(AsyncAPIResource):
                     employee_list_params.EmployeeListParams,
                 ),
             ),
-            model=Employee,
+            cast_to=EmployeeListResponse,
         )
 
 

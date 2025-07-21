@@ -10,8 +10,10 @@ import pytest
 from conductor import Conductor, AsyncConductor
 from tests.utils import assert_matches_type
 from conductor._utils import parse_date
-from conductor.types.qbd import Employee
-from conductor.pagination import SyncCursorPage, AsyncCursorPage
+from conductor.types.qbd import (
+    Employee,
+    EmployeeListResponse,
+)
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
@@ -362,15 +364,14 @@ class TestEmployees:
         employee = client.qbd.employees.list(
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
-        assert_matches_type(SyncCursorPage[Employee], employee, path=["response"])
+        assert_matches_type(EmployeeListResponse, employee, path=["response"])
 
     @parametrize
     def test_method_list_with_all_params(self, client: Conductor) -> None:
         employee = client.qbd.employees.list(
             conductor_end_user_id="end_usr_1234567abcdefg",
-            cursor="12345678-abcd-abcd-example-1234567890ab",
             ids=["80000001-1234567890"],
-            limit=150,
+            limit=10,
             name_contains="ABC",
             name_ends_with="ABC",
             name_from="A",
@@ -381,7 +382,7 @@ class TestEmployees:
             updated_after="2021-01-01T12:34:56",
             updated_before="2021-02-01T12:34:56",
         )
-        assert_matches_type(SyncCursorPage[Employee], employee, path=["response"])
+        assert_matches_type(EmployeeListResponse, employee, path=["response"])
 
     @parametrize
     def test_raw_response_list(self, client: Conductor) -> None:
@@ -392,7 +393,7 @@ class TestEmployees:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         employee = response.parse()
-        assert_matches_type(SyncCursorPage[Employee], employee, path=["response"])
+        assert_matches_type(EmployeeListResponse, employee, path=["response"])
 
     @parametrize
     def test_streaming_response_list(self, client: Conductor) -> None:
@@ -403,7 +404,7 @@ class TestEmployees:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             employee = response.parse()
-            assert_matches_type(SyncCursorPage[Employee], employee, path=["response"])
+            assert_matches_type(EmployeeListResponse, employee, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -756,15 +757,14 @@ class TestAsyncEmployees:
         employee = await async_client.qbd.employees.list(
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
-        assert_matches_type(AsyncCursorPage[Employee], employee, path=["response"])
+        assert_matches_type(EmployeeListResponse, employee, path=["response"])
 
     @parametrize
     async def test_method_list_with_all_params(self, async_client: AsyncConductor) -> None:
         employee = await async_client.qbd.employees.list(
             conductor_end_user_id="end_usr_1234567abcdefg",
-            cursor="12345678-abcd-abcd-example-1234567890ab",
             ids=["80000001-1234567890"],
-            limit=150,
+            limit=10,
             name_contains="ABC",
             name_ends_with="ABC",
             name_from="A",
@@ -775,7 +775,7 @@ class TestAsyncEmployees:
             updated_after="2021-01-01T12:34:56",
             updated_before="2021-02-01T12:34:56",
         )
-        assert_matches_type(AsyncCursorPage[Employee], employee, path=["response"])
+        assert_matches_type(EmployeeListResponse, employee, path=["response"])
 
     @parametrize
     async def test_raw_response_list(self, async_client: AsyncConductor) -> None:
@@ -786,7 +786,7 @@ class TestAsyncEmployees:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         employee = await response.parse()
-        assert_matches_type(AsyncCursorPage[Employee], employee, path=["response"])
+        assert_matches_type(EmployeeListResponse, employee, path=["response"])
 
     @parametrize
     async def test_streaming_response_list(self, async_client: AsyncConductor) -> None:
@@ -797,6 +797,6 @@ class TestAsyncEmployees:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             employee = await response.parse()
-            assert_matches_type(AsyncCursorPage[Employee], employee, path=["response"])
+            assert_matches_type(EmployeeListResponse, employee, path=["response"])
 
         assert cast(Any, response.is_closed) is True
