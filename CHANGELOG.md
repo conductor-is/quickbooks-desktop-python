@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.47.0 (2025-07-23)
+
+Full Changelog: [v1.46.0...v1.47.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.46.0...v1.47.0)
+
+### Features
+
+* **api:** api update ([e205c9e](https://github.com/conductor-is/quickbooks-desktop-python/commit/e205c9e685f68581498d6413481921f01fa49d9c))
+
+
+### Bug Fixes
+
+* **parsing:** ignore empty metadata ([2b58924](https://github.com/conductor-is/quickbooks-desktop-python/commit/2b5892426fc9ba4c48c518ec36e5ab541f4ab35d))
+* **parsing:** parse extra field types ([235f6af](https://github.com/conductor-is/quickbooks-desktop-python/commit/235f6af1af18879228161495398e76e17d14bf21))
+
 ## 1.46.0 (2025-07-21)
 
 Full Changelog: [v1.45.0...v1.46.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.45.0...v1.46.0)
