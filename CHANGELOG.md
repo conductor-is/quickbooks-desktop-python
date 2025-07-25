@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.47.1 (2025-07-25)
+
+Full Changelog: [v1.47.0...v1.47.1](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.47.0...v1.47.1)
+
+### Chores
+
+* **project:** add settings file for vscode ([6fd7534](https://github.com/conductor-is/quickbooks-desktop-python/commit/6fd75344923fdf1335b67503ec008706520d8ee6))
+
 ## 1.47.0 (2025-07-23)
 
 Full Changelog: [v1.46.0...v1.47.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.46.0...v1.47.0)
