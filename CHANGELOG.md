@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.48.0 (2025-08-01)
+
+Full Changelog: [v1.47.0...v1.48.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.47.0...v1.48.0)
+
+### Features
+
+* **api:** api update ([db74a07](https://github.com/conductor-is/quickbooks-desktop-python/commit/db74a079235a54760f50f99d2a326e6ebef8b4fb))
+* **client:** support file upload requests ([edd60ef](https://github.com/conductor-is/quickbooks-desktop-python/commit/edd60ef070aea15de6812c3cfcb542b808a4fd9a))
+
+
+### Chores
+
+* **project:** add settings file for vscode ([6fd7534](https://github.com/conductor-is/quickbooks-desktop-python/commit/6fd75344923fdf1335b67503ec008706520d8ee6))
+
 ## 1.47.0 (2025-07-23)
 
 Full Changelog: [v1.46.0...v1.47.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.46.0...v1.47.0)
