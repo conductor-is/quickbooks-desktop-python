@@ -310,6 +310,14 @@ from .date_driven_terms import (
     DateDrivenTermsResourceWithStreamingResponse,
     AsyncDateDrivenTermsResourceWithStreamingResponse,
 )
+from .other_charge_items import (
+    OtherChargeItemsResource,
+    AsyncOtherChargeItemsResource,
+    OtherChargeItemsResourceWithRawResponse,
+    AsyncOtherChargeItemsResourceWithRawResponse,
+    OtherChargeItemsResourceWithStreamingResponse,
+    AsyncOtherChargeItemsResourceWithStreamingResponse,
+)
 from .payroll_wage_items import (
     PayrollWageItemsResource,
     AsyncPayrollWageItemsResource,
@@ -503,6 +511,10 @@ class QbdResource(SyncAPIResource):
     @cached_property
     def non_inventory_items(self) -> NonInventoryItemsResource:
         return NonInventoryItemsResource(self._client)
+
+    @cached_property
+    def other_charge_items(self) -> OtherChargeItemsResource:
+        return OtherChargeItemsResource(self._client)
 
     @cached_property
     def other_names(self) -> OtherNamesResource:
@@ -752,6 +764,10 @@ class AsyncQbdResource(AsyncAPIResource):
     @cached_property
     def non_inventory_items(self) -> AsyncNonInventoryItemsResource:
         return AsyncNonInventoryItemsResource(self._client)
+
+    @cached_property
+    def other_charge_items(self) -> AsyncOtherChargeItemsResource:
+        return AsyncOtherChargeItemsResource(self._client)
 
     @cached_property
     def other_names(self) -> AsyncOtherNamesResource:
@@ -1010,6 +1026,10 @@ class QbdResourceWithRawResponse:
         return NonInventoryItemsResourceWithRawResponse(self._qbd.non_inventory_items)
 
     @cached_property
+    def other_charge_items(self) -> OtherChargeItemsResourceWithRawResponse:
+        return OtherChargeItemsResourceWithRawResponse(self._qbd.other_charge_items)
+
+    @cached_property
     def other_names(self) -> OtherNamesResourceWithRawResponse:
         return OtherNamesResourceWithRawResponse(self._qbd.other_names)
 
@@ -1205,6 +1225,10 @@ class AsyncQbdResourceWithRawResponse:
     @cached_property
     def non_inventory_items(self) -> AsyncNonInventoryItemsResourceWithRawResponse:
         return AsyncNonInventoryItemsResourceWithRawResponse(self._qbd.non_inventory_items)
+
+    @cached_property
+    def other_charge_items(self) -> AsyncOtherChargeItemsResourceWithRawResponse:
+        return AsyncOtherChargeItemsResourceWithRawResponse(self._qbd.other_charge_items)
 
     @cached_property
     def other_names(self) -> AsyncOtherNamesResourceWithRawResponse:
@@ -1404,6 +1428,10 @@ class QbdResourceWithStreamingResponse:
         return NonInventoryItemsResourceWithStreamingResponse(self._qbd.non_inventory_items)
 
     @cached_property
+    def other_charge_items(self) -> OtherChargeItemsResourceWithStreamingResponse:
+        return OtherChargeItemsResourceWithStreamingResponse(self._qbd.other_charge_items)
+
+    @cached_property
     def other_names(self) -> OtherNamesResourceWithStreamingResponse:
         return OtherNamesResourceWithStreamingResponse(self._qbd.other_names)
 
@@ -1599,6 +1627,10 @@ class AsyncQbdResourceWithStreamingResponse:
     @cached_property
     def non_inventory_items(self) -> AsyncNonInventoryItemsResourceWithStreamingResponse:
         return AsyncNonInventoryItemsResourceWithStreamingResponse(self._qbd.non_inventory_items)
+
+    @cached_property
+    def other_charge_items(self) -> AsyncOtherChargeItemsResourceWithStreamingResponse:
+        return AsyncOtherChargeItemsResourceWithStreamingResponse(self._qbd.other_charge_items)
 
     @cached_property
     def other_names(self) -> AsyncOtherNamesResourceWithStreamingResponse:
