@@ -368,6 +368,14 @@ from .sales_representatives import (
     SalesRepresentativesResourceWithStreamingResponse,
     AsyncSalesRepresentativesResourceWithStreamingResponse,
 )
+from .transaction_templates import (
+    TransactionTemplatesResource,
+    AsyncTransactionTemplatesResource,
+    TransactionTemplatesResourceWithRawResponse,
+    AsyncTransactionTemplatesResourceWithRawResponse,
+    TransactionTemplatesResourceWithStreamingResponse,
+    AsyncTransactionTemplatesResourceWithStreamingResponse,
+)
 from .inventory_assembly_items import (
     InventoryAssemblyItemsResource,
     AsyncInventoryAssemblyItemsResource,
@@ -658,6 +666,12 @@ __all__ = [
     "AsyncTimeTrackingActivitiesResourceWithRawResponse",
     "TimeTrackingActivitiesResourceWithStreamingResponse",
     "AsyncTimeTrackingActivitiesResourceWithStreamingResponse",
+    "TransactionTemplatesResource",
+    "AsyncTransactionTemplatesResource",
+    "TransactionTemplatesResourceWithRawResponse",
+    "AsyncTransactionTemplatesResourceWithRawResponse",
+    "TransactionTemplatesResourceWithStreamingResponse",
+    "AsyncTransactionTemplatesResourceWithStreamingResponse",
     "TransactionsResource",
     "AsyncTransactionsResource",
     "TransactionsResourceWithRawResponse",
