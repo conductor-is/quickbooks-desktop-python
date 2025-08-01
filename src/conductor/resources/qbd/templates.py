@@ -14,30 +14,30 @@ from ..._response import (
     async_to_streamed_response_wrapper,
 )
 from ..._base_client import make_request_options
-from ...types.qbd.transaction_template_list_response import TransactionTemplateListResponse
+from ...types.qbd.template_list_response import TemplateListResponse
 
-__all__ = ["TransactionTemplatesResource", "AsyncTransactionTemplatesResource"]
+__all__ = ["TemplatesResource", "AsyncTemplatesResource"]
 
 
-class TransactionTemplatesResource(SyncAPIResource):
+class TemplatesResource(SyncAPIResource):
     @cached_property
-    def with_raw_response(self) -> TransactionTemplatesResourceWithRawResponse:
+    def with_raw_response(self) -> TemplatesResourceWithRawResponse:
         """
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
         For more information, see https://www.github.com/conductor-is/quickbooks-desktop-python#accessing-raw-response-data-eg-headers
         """
-        return TransactionTemplatesResourceWithRawResponse(self)
+        return TemplatesResourceWithRawResponse(self)
 
     @cached_property
-    def with_streaming_response(self) -> TransactionTemplatesResourceWithStreamingResponse:
+    def with_streaming_response(self) -> TemplatesResourceWithStreamingResponse:
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
         For more information, see https://www.github.com/conductor-is/quickbooks-desktop-python#with_streaming_response
         """
-        return TransactionTemplatesResourceWithStreamingResponse(self)
+        return TemplatesResourceWithStreamingResponse(self)
 
     def list(
         self,
@@ -49,11 +49,11 @@ class TransactionTemplatesResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> TransactionTemplateListResponse:
-        """Returns a list of transaction templates.
+    ) -> TemplateListResponse:
+        """Returns a list of templates.
 
-        Use the `cursor` parameter to paginate
-        through the results.
+        Use the `cursor` parameter to paginate through the
+        results.
 
         Args:
           conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
@@ -69,33 +69,33 @@ class TransactionTemplatesResource(SyncAPIResource):
         """
         extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
         return self._get(
-            "/quickbooks-desktop/transaction-templates",
+            "/quickbooks-desktop/templates",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=TransactionTemplateListResponse,
+            cast_to=TemplateListResponse,
         )
 
 
-class AsyncTransactionTemplatesResource(AsyncAPIResource):
+class AsyncTemplatesResource(AsyncAPIResource):
     @cached_property
-    def with_raw_response(self) -> AsyncTransactionTemplatesResourceWithRawResponse:
+    def with_raw_response(self) -> AsyncTemplatesResourceWithRawResponse:
         """
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
         For more information, see https://www.github.com/conductor-is/quickbooks-desktop-python#accessing-raw-response-data-eg-headers
         """
-        return AsyncTransactionTemplatesResourceWithRawResponse(self)
+        return AsyncTemplatesResourceWithRawResponse(self)
 
     @cached_property
-    def with_streaming_response(self) -> AsyncTransactionTemplatesResourceWithStreamingResponse:
+    def with_streaming_response(self) -> AsyncTemplatesResourceWithStreamingResponse:
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
         For more information, see https://www.github.com/conductor-is/quickbooks-desktop-python#with_streaming_response
         """
-        return AsyncTransactionTemplatesResourceWithStreamingResponse(self)
+        return AsyncTemplatesResourceWithStreamingResponse(self)
 
     async def list(
         self,
@@ -107,11 +107,11 @@ class AsyncTransactionTemplatesResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> TransactionTemplateListResponse:
-        """Returns a list of transaction templates.
+    ) -> TemplateListResponse:
+        """Returns a list of templates.
 
-        Use the `cursor` parameter to paginate
-        through the results.
+        Use the `cursor` parameter to paginate through the
+        results.
 
         Args:
           conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
@@ -127,45 +127,45 @@ class AsyncTransactionTemplatesResource(AsyncAPIResource):
         """
         extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
         return await self._get(
-            "/quickbooks-desktop/transaction-templates",
+            "/quickbooks-desktop/templates",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=TransactionTemplateListResponse,
+            cast_to=TemplateListResponse,
         )
 
 
-class TransactionTemplatesResourceWithRawResponse:
-    def __init__(self, transaction_templates: TransactionTemplatesResource) -> None:
-        self._transaction_templates = transaction_templates
+class TemplatesResourceWithRawResponse:
+    def __init__(self, templates: TemplatesResource) -> None:
+        self._templates = templates
 
         self.list = to_raw_response_wrapper(
-            transaction_templates.list,
+            templates.list,
         )
 
 
-class AsyncTransactionTemplatesResourceWithRawResponse:
-    def __init__(self, transaction_templates: AsyncTransactionTemplatesResource) -> None:
-        self._transaction_templates = transaction_templates
+class AsyncTemplatesResourceWithRawResponse:
+    def __init__(self, templates: AsyncTemplatesResource) -> None:
+        self._templates = templates
 
         self.list = async_to_raw_response_wrapper(
-            transaction_templates.list,
+            templates.list,
         )
 
 
-class TransactionTemplatesResourceWithStreamingResponse:
-    def __init__(self, transaction_templates: TransactionTemplatesResource) -> None:
-        self._transaction_templates = transaction_templates
+class TemplatesResourceWithStreamingResponse:
+    def __init__(self, templates: TemplatesResource) -> None:
+        self._templates = templates
 
         self.list = to_streamed_response_wrapper(
-            transaction_templates.list,
+            templates.list,
         )
 
 
-class AsyncTransactionTemplatesResourceWithStreamingResponse:
-    def __init__(self, transaction_templates: AsyncTransactionTemplatesResource) -> None:
-        self._transaction_templates = transaction_templates
+class AsyncTemplatesResourceWithStreamingResponse:
+    def __init__(self, templates: AsyncTemplatesResource) -> None:
+        self._templates = templates
 
         self.list = async_to_streamed_response_wrapper(
-            transaction_templates.list,
+            templates.list,
         )

@@ -88,6 +88,14 @@ from .estimates import (
     EstimatesResourceWithStreamingResponse,
     AsyncEstimatesResourceWithStreamingResponse,
 )
+from .templates import (
+    TemplatesResource,
+    AsyncTemplatesResource,
+    TemplatesResourceWithRawResponse,
+    AsyncTemplatesResourceWithRawResponse,
+    TemplatesResourceWithStreamingResponse,
+    AsyncTemplatesResourceWithStreamingResponse,
+)
 from .transfers import (
     TransfersResource,
     AsyncTransfersResource,
@@ -367,14 +375,6 @@ from .sales_representatives import (
     AsyncSalesRepresentativesResourceWithRawResponse,
     SalesRepresentativesResourceWithStreamingResponse,
     AsyncSalesRepresentativesResourceWithStreamingResponse,
-)
-from .transaction_templates import (
-    TransactionTemplatesResource,
-    AsyncTransactionTemplatesResource,
-    TransactionTemplatesResourceWithRawResponse,
-    AsyncTransactionTemplatesResourceWithRawResponse,
-    TransactionTemplatesResourceWithStreamingResponse,
-    AsyncTransactionTemplatesResourceWithStreamingResponse,
 )
 from .inventory_assembly_items import (
     InventoryAssemblyItemsResource,
@@ -660,18 +660,18 @@ __all__ = [
     "AsyncSubtotalItemsResourceWithRawResponse",
     "SubtotalItemsResourceWithStreamingResponse",
     "AsyncSubtotalItemsResourceWithStreamingResponse",
+    "TemplatesResource",
+    "AsyncTemplatesResource",
+    "TemplatesResourceWithRawResponse",
+    "AsyncTemplatesResourceWithRawResponse",
+    "TemplatesResourceWithStreamingResponse",
+    "AsyncTemplatesResourceWithStreamingResponse",
     "TimeTrackingActivitiesResource",
     "AsyncTimeTrackingActivitiesResource",
     "TimeTrackingActivitiesResourceWithRawResponse",
     "AsyncTimeTrackingActivitiesResourceWithRawResponse",
     "TimeTrackingActivitiesResourceWithStreamingResponse",
     "AsyncTimeTrackingActivitiesResourceWithStreamingResponse",
-    "TransactionTemplatesResource",
-    "AsyncTransactionTemplatesResource",
-    "TransactionTemplatesResourceWithRawResponse",
-    "AsyncTransactionTemplatesResourceWithRawResponse",
-    "TransactionTemplatesResourceWithStreamingResponse",
-    "AsyncTransactionTemplatesResourceWithStreamingResponse",
     "TransactionsResource",
     "AsyncTransactionsResource",
     "TransactionsResourceWithRawResponse",

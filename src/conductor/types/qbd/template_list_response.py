@@ -5,15 +5,15 @@ from typing_extensions import Literal
 
 from pydantic import Field as FieldInfo
 
+from .template import Template
 from ..._models import BaseModel
-from .transaction_template import TransactionTemplate
 
-__all__ = ["TransactionTemplateListResponse"]
+__all__ = ["TemplateListResponse"]
 
 
-class TransactionTemplateListResponse(BaseModel):
-    data: List[TransactionTemplate]
-    """The array of transaction templates."""
+class TemplateListResponse(BaseModel):
+    data: List[Template]
+    """The array of templates."""
 
     has_more: bool = FieldInfo(alias="hasMore")
     """Indicates whether there are more objects to be fetched."""
