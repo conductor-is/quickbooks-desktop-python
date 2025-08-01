@@ -12,6 +12,7 @@ from .invoice import Invoice as Invoice
 from .customer import Customer as Customer
 from .employee import Employee as Employee
 from .estimate import Estimate as Estimate
+from .template import Template as Template
 from .transfer import Transfer as Transfer
 from .item_site import ItemSite as ItemSite
 from .item_group import ItemGroup as ItemGroup
@@ -64,7 +65,6 @@ from .employee_list_params import EmployeeListParams as EmployeeListParams
 from .estimate_list_params import EstimateListParams as EstimateListParams
 from .inventory_adjustment import InventoryAdjustment as InventoryAdjustment
 from .sales_representative import SalesRepresentative as SalesRepresentative
-from .transaction_template import TransactionTemplate as TransactionTemplate
 from .transfer_list_params import TransferListParams as TransferListParams
 from .vendor_create_params import VendorCreateParams as VendorCreateParams
 from .vendor_update_params import VendorUpdateParams as VendorUpdateParams
@@ -84,6 +84,7 @@ from .estimate_create_params import EstimateCreateParams as EstimateCreateParams
 from .estimate_update_params import EstimateUpdateParams as EstimateUpdateParams
 from .item_group_list_params import ItemGroupListParams as ItemGroupListParams
 from .other_name_list_params import OtherNameListParams as OtherNameListParams
+from .template_list_response import TemplateListResponse as TemplateListResponse
 from .time_tracking_activity import TimeTrackingActivity as TimeTrackingActivity
 from .transfer_create_params import TransferCreateParams as TransferCreateParams
 from .transfer_update_params import TransferUpdateParams as TransferUpdateParams
@@ -199,7 +200,6 @@ from .sales_representative_create_params import SalesRepresentativeCreateParams 
 from .sales_representative_list_response import SalesRepresentativeListResponse as SalesRepresentativeListResponse
 from .sales_representative_update_params import SalesRepresentativeUpdateParams as SalesRepresentativeUpdateParams
 from .time_tracking_activity_list_params import TimeTrackingActivityListParams as TimeTrackingActivityListParams
-from .transaction_template_list_response import TransactionTemplateListResponse as TransactionTemplateListResponse
 from .inventory_assembly_item_list_params import InventoryAssemblyItemListParams as InventoryAssemblyItemListParams
 from .bill_credit_card_payment_list_params import BillCreditCardPaymentListParams as BillCreditCardPaymentListParams
 from .inventory_adjustment_delete_response import InventoryAdjustmentDeleteResponse as InventoryAdjustmentDeleteResponse

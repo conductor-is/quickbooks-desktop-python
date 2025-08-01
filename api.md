@@ -693,6 +693,18 @@ Methods:
 - <code title="post /quickbooks-desktop/subtotal-items/{id}">conductor.qbd.subtotal_items.<a href="./src/conductor/resources/qbd/subtotal_items.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/subtotal_item_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/subtotal_item.py">SubtotalItem</a></code>
 - <code title="get /quickbooks-desktop/subtotal-items">conductor.qbd.subtotal_items.<a href="./src/conductor/resources/qbd/subtotal_items.py">list</a>(\*\*<a href="src/conductor/types/qbd/subtotal_item_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/subtotal_item.py">SyncCursorPage[SubtotalItem]</a></code>
 
+## Templates
+
+Types:
+
+```python
+from conductor.types.qbd import Template, TemplateListResponse
+```
+
+Methods:
+
+- <code title="get /quickbooks-desktop/templates">conductor.qbd.templates.<a href="./src/conductor/resources/qbd/templates.py">list</a>() -> <a href="./src/conductor/types/qbd/template_list_response.py">TemplateListResponse</a></code>
+
 ## TimeTrackingActivities
 
 Types:
@@ -708,18 +720,6 @@ Methods:
 - <code title="post /quickbooks-desktop/time-tracking-activities/{id}">conductor.qbd.time_tracking_activities.<a href="./src/conductor/resources/qbd/time_tracking_activities.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/time_tracking_activity_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/time_tracking_activity.py">TimeTrackingActivity</a></code>
 - <code title="get /quickbooks-desktop/time-tracking-activities">conductor.qbd.time_tracking_activities.<a href="./src/conductor/resources/qbd/time_tracking_activities.py">list</a>(\*\*<a href="src/conductor/types/qbd/time_tracking_activity_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/time_tracking_activity.py">SyncCursorPage[TimeTrackingActivity]</a></code>
 - <code title="delete /quickbooks-desktop/time-tracking-activities/{id}">conductor.qbd.time_tracking_activities.<a href="./src/conductor/resources/qbd/time_tracking_activities.py">delete</a>(id) -> <a href="./src/conductor/types/qbd/time_tracking_activity_delete_response.py">TimeTrackingActivityDeleteResponse</a></code>
-
-## TransactionTemplates
-
-Types:
-
-```python
-from conductor.types.qbd import TransactionTemplate, TransactionTemplateListResponse
-```
-
-Methods:
-
-- <code title="get /quickbooks-desktop/transaction-templates">conductor.qbd.transaction_templates.<a href="./src/conductor/resources/qbd/transaction_templates.py">list</a>() -> <a href="./src/conductor/types/qbd/transaction_template_list_response.py">TransactionTemplateListResponse</a></code>
 
 ## Transactions
 
