@@ -374,6 +374,14 @@ from .sales_representatives import (
     SalesRepresentativesResourceWithStreamingResponse,
     AsyncSalesRepresentativesResourceWithStreamingResponse,
 )
+from .transaction_templates import (
+    TransactionTemplatesResource,
+    AsyncTransactionTemplatesResource,
+    TransactionTemplatesResourceWithRawResponse,
+    AsyncTransactionTemplatesResourceWithRawResponse,
+    TransactionTemplatesResourceWithStreamingResponse,
+    AsyncTransactionTemplatesResourceWithStreamingResponse,
+)
 from .inventory_assembly_items import (
     InventoryAssemblyItemsResource,
     AsyncInventoryAssemblyItemsResource,
@@ -579,6 +587,10 @@ class QbdResource(SyncAPIResource):
     @cached_property
     def time_tracking_activities(self) -> TimeTrackingActivitiesResource:
         return TimeTrackingActivitiesResource(self._client)
+
+    @cached_property
+    def transaction_templates(self) -> TransactionTemplatesResource:
+        return TransactionTemplatesResource(self._client)
 
     @cached_property
     def transactions(self) -> TransactionsResource:
@@ -832,6 +844,10 @@ class AsyncQbdResource(AsyncAPIResource):
     @cached_property
     def time_tracking_activities(self) -> AsyncTimeTrackingActivitiesResource:
         return AsyncTimeTrackingActivitiesResource(self._client)
+
+    @cached_property
+    def transaction_templates(self) -> AsyncTransactionTemplatesResource:
+        return AsyncTransactionTemplatesResource(self._client)
 
     @cached_property
     def transactions(self) -> AsyncTransactionsResource:
@@ -1094,6 +1110,10 @@ class QbdResourceWithRawResponse:
         return TimeTrackingActivitiesResourceWithRawResponse(self._qbd.time_tracking_activities)
 
     @cached_property
+    def transaction_templates(self) -> TransactionTemplatesResourceWithRawResponse:
+        return TransactionTemplatesResourceWithRawResponse(self._qbd.transaction_templates)
+
+    @cached_property
     def transactions(self) -> TransactionsResourceWithRawResponse:
         return TransactionsResourceWithRawResponse(self._qbd.transactions)
 
@@ -1293,6 +1313,10 @@ class AsyncQbdResourceWithRawResponse:
     @cached_property
     def time_tracking_activities(self) -> AsyncTimeTrackingActivitiesResourceWithRawResponse:
         return AsyncTimeTrackingActivitiesResourceWithRawResponse(self._qbd.time_tracking_activities)
+
+    @cached_property
+    def transaction_templates(self) -> AsyncTransactionTemplatesResourceWithRawResponse:
+        return AsyncTransactionTemplatesResourceWithRawResponse(self._qbd.transaction_templates)
 
     @cached_property
     def transactions(self) -> AsyncTransactionsResourceWithRawResponse:
@@ -1496,6 +1520,10 @@ class QbdResourceWithStreamingResponse:
         return TimeTrackingActivitiesResourceWithStreamingResponse(self._qbd.time_tracking_activities)
 
     @cached_property
+    def transaction_templates(self) -> TransactionTemplatesResourceWithStreamingResponse:
+        return TransactionTemplatesResourceWithStreamingResponse(self._qbd.transaction_templates)
+
+    @cached_property
     def transactions(self) -> TransactionsResourceWithStreamingResponse:
         return TransactionsResourceWithStreamingResponse(self._qbd.transactions)
 
@@ -1695,6 +1723,10 @@ class AsyncQbdResourceWithStreamingResponse:
     @cached_property
     def time_tracking_activities(self) -> AsyncTimeTrackingActivitiesResourceWithStreamingResponse:
         return AsyncTimeTrackingActivitiesResourceWithStreamingResponse(self._qbd.time_tracking_activities)
+
+    @cached_property
+    def transaction_templates(self) -> AsyncTransactionTemplatesResourceWithStreamingResponse:
+        return AsyncTransactionTemplatesResourceWithStreamingResponse(self._qbd.transaction_templates)
 
     @cached_property
     def transactions(self) -> AsyncTransactionsResourceWithStreamingResponse:
