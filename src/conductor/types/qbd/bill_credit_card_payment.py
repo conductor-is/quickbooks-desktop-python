@@ -162,7 +162,7 @@ class AppliedToTransaction(BaseModel):
     QuickBooks user.
     """
 
-    transaction_date: date = FieldInfo(alias="transactionDate")
+    transaction_date: Optional[date] = FieldInfo(alias="transactionDate", default=None)
     """The date of this receivable transaction, in ISO 8601 format (YYYY-MM-DD)."""
 
     transaction_id: str = FieldInfo(alias="transactionId")
