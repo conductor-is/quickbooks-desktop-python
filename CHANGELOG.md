@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.51.0 (2025-08-12)
+
+Full Changelog: [v1.50.0...v1.51.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.50.0...v1.51.0)
+
+### Features
+
+* **api:** api update ([a1fe919](https://github.com/conductor-is/quickbooks-desktop-python/commit/a1fe91958c1f1029d7d68c6eafa84211ad36c063))
+
+
+### Chores
+
+* **internal:** fix ruff target version ([39741fc](https://github.com/conductor-is/quickbooks-desktop-python/commit/39741fca93e01e0558b3910aaeec7b03167abad1))
+* **internal:** update comment in script ([e6dd8ea](https://github.com/conductor-is/quickbooks-desktop-python/commit/e6dd8ea28004698c120905f0d1f1bd2216cb1711))
+* update @stainless-api/prism-cli to v5.15.0 ([0372289](https://github.com/conductor-is/quickbooks-desktop-python/commit/0372289774ddd8af2aed8adbc830a59b18750981))
+
 ## 1.50.0 (2025-08-04)
 
 Full Changelog: [v1.49.0...v1.50.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.49.0...v1.50.0)
