@@ -360,6 +360,14 @@ from .non_inventory_items import (
     NonInventoryItemsResourceWithStreamingResponse,
     AsyncNonInventoryItemsResourceWithStreamingResponse,
 )
+from .deleted_list_objects import (
+    DeletedListObjectsResource,
+    AsyncDeletedListObjectsResource,
+    DeletedListObjectsResourceWithRawResponse,
+    AsyncDeletedListObjectsResourceWithRawResponse,
+    DeletedListObjectsResourceWithStreamingResponse,
+    AsyncDeletedListObjectsResourceWithStreamingResponse,
+)
 from .deleted_transactions import (
     DeletedTransactionsResource,
     AsyncDeletedTransactionsResource,
@@ -494,6 +502,12 @@ __all__ = [
     "AsyncDateDrivenTermsResourceWithRawResponse",
     "DateDrivenTermsResourceWithStreamingResponse",
     "AsyncDateDrivenTermsResourceWithStreamingResponse",
+    "DeletedListObjectsResource",
+    "AsyncDeletedListObjectsResource",
+    "DeletedListObjectsResourceWithRawResponse",
+    "AsyncDeletedListObjectsResourceWithRawResponse",
+    "DeletedListObjectsResourceWithStreamingResponse",
+    "AsyncDeletedListObjectsResourceWithStreamingResponse",
     "DeletedTransactionsResource",
     "AsyncDeletedTransactionsResource",
     "DeletedTransactionsResourceWithRawResponse",
