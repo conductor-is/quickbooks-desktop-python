@@ -47,7 +47,7 @@ class DeletedTransactionListParams(TypedDict, total=False):
     ]
     """Filter for deleted transactions by their transaction type.
 
-    You can specify one or more types.
+    Specify one or more types.
     """
 
     conductor_end_user_id: Required[Annotated[str, PropertyInfo(alias="Conductor-End-User-Id")]]

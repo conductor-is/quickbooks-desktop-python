@@ -366,6 +366,14 @@ from .non_inventory_items import (
     NonInventoryItemsResourceWithStreamingResponse,
     AsyncNonInventoryItemsResourceWithStreamingResponse,
 )
+from .deleted_list_objects import (
+    DeletedListObjectsResource,
+    AsyncDeletedListObjectsResource,
+    DeletedListObjectsResourceWithRawResponse,
+    AsyncDeletedListObjectsResourceWithRawResponse,
+    DeletedListObjectsResourceWithStreamingResponse,
+    AsyncDeletedListObjectsResourceWithStreamingResponse,
+)
 from .deleted_transactions import (
     DeletedTransactionsResource,
     AsyncDeletedTransactionsResource,
@@ -475,6 +483,10 @@ class QbdResource(SyncAPIResource):
     @cached_property
     def date_driven_terms(self) -> DateDrivenTermsResource:
         return DateDrivenTermsResource(self._client)
+
+    @cached_property
+    def deleted_list_objects(self) -> DeletedListObjectsResource:
+        return DeletedListObjectsResource(self._client)
 
     @cached_property
     def deleted_transactions(self) -> DeletedTransactionsResource:
@@ -736,6 +748,10 @@ class AsyncQbdResource(AsyncAPIResource):
     @cached_property
     def date_driven_terms(self) -> AsyncDateDrivenTermsResource:
         return AsyncDateDrivenTermsResource(self._client)
+
+    @cached_property
+    def deleted_list_objects(self) -> AsyncDeletedListObjectsResource:
+        return AsyncDeletedListObjectsResource(self._client)
 
     @cached_property
     def deleted_transactions(self) -> AsyncDeletedTransactionsResource:
@@ -1006,6 +1022,10 @@ class QbdResourceWithRawResponse:
         return DateDrivenTermsResourceWithRawResponse(self._qbd.date_driven_terms)
 
     @cached_property
+    def deleted_list_objects(self) -> DeletedListObjectsResourceWithRawResponse:
+        return DeletedListObjectsResourceWithRawResponse(self._qbd.deleted_list_objects)
+
+    @cached_property
     def deleted_transactions(self) -> DeletedTransactionsResourceWithRawResponse:
         return DeletedTransactionsResourceWithRawResponse(self._qbd.deleted_transactions)
 
@@ -1213,6 +1233,10 @@ class AsyncQbdResourceWithRawResponse:
     @cached_property
     def date_driven_terms(self) -> AsyncDateDrivenTermsResourceWithRawResponse:
         return AsyncDateDrivenTermsResourceWithRawResponse(self._qbd.date_driven_terms)
+
+    @cached_property
+    def deleted_list_objects(self) -> AsyncDeletedListObjectsResourceWithRawResponse:
+        return AsyncDeletedListObjectsResourceWithRawResponse(self._qbd.deleted_list_objects)
 
     @cached_property
     def deleted_transactions(self) -> AsyncDeletedTransactionsResourceWithRawResponse:
@@ -1424,6 +1448,10 @@ class QbdResourceWithStreamingResponse:
         return DateDrivenTermsResourceWithStreamingResponse(self._qbd.date_driven_terms)
 
     @cached_property
+    def deleted_list_objects(self) -> DeletedListObjectsResourceWithStreamingResponse:
+        return DeletedListObjectsResourceWithStreamingResponse(self._qbd.deleted_list_objects)
+
+    @cached_property
     def deleted_transactions(self) -> DeletedTransactionsResourceWithStreamingResponse:
         return DeletedTransactionsResourceWithStreamingResponse(self._qbd.deleted_transactions)
 
@@ -1631,6 +1659,10 @@ class AsyncQbdResourceWithStreamingResponse:
     @cached_property
     def date_driven_terms(self) -> AsyncDateDrivenTermsResourceWithStreamingResponse:
         return AsyncDateDrivenTermsResourceWithStreamingResponse(self._qbd.date_driven_terms)
+
+    @cached_property
+    def deleted_list_objects(self) -> AsyncDeletedListObjectsResourceWithStreamingResponse:
+        return AsyncDeletedListObjectsResourceWithStreamingResponse(self._qbd.deleted_list_objects)
 
     @cached_property
     def deleted_transactions(self) -> AsyncDeletedTransactionsResourceWithStreamingResponse:
