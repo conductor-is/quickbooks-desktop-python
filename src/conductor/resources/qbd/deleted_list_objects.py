@@ -17,63 +17,76 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ...types.qbd import deleted_transaction_list_params
+from ...types.qbd import deleted_list_object_list_params
 from ..._base_client import make_request_options
-from ...types.qbd.deleted_transaction_list_response import DeletedTransactionListResponse
+from ...types.qbd.deleted_list_object_list_response import DeletedListObjectListResponse
 
-__all__ = ["DeletedTransactionsResource", "AsyncDeletedTransactionsResource"]
+__all__ = ["DeletedListObjectsResource", "AsyncDeletedListObjectsResource"]
 
 
-class DeletedTransactionsResource(SyncAPIResource):
+class DeletedListObjectsResource(SyncAPIResource):
     @cached_property
-    def with_raw_response(self) -> DeletedTransactionsResourceWithRawResponse:
+    def with_raw_response(self) -> DeletedListObjectsResourceWithRawResponse:
         """
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
         For more information, see https://www.github.com/conductor-is/quickbooks-desktop-python#accessing-raw-response-data-eg-headers
         """
-        return DeletedTransactionsResourceWithRawResponse(self)
+        return DeletedListObjectsResourceWithRawResponse(self)
 
     @cached_property
-    def with_streaming_response(self) -> DeletedTransactionsResourceWithStreamingResponse:
+    def with_streaming_response(self) -> DeletedListObjectsResourceWithStreamingResponse:
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
         For more information, see https://www.github.com/conductor-is/quickbooks-desktop-python#with_streaming_response
         """
-        return DeletedTransactionsResourceWithStreamingResponse(self)
+        return DeletedListObjectsResourceWithStreamingResponse(self)
 
     def list(
         self,
         *,
-        transaction_type: List[
+        object_type: List[
             Literal[
-                "ar_refund_credit_card",
-                "bill",
-                "bill_payment_check",
-                "bill_payment_credit_card",
-                "build_assembly",
-                "charge",
-                "check",
-                "credit_card_charge",
-                "credit_card_credit",
-                "credit_memo",
-                "deposit",
-                "estimate",
-                "inventory_adjustment",
-                "invoice",
-                "item_receipt",
-                "journal_entry",
-                "purchase_order",
-                "receive_payment",
-                "sales_order",
-                "sales_receipt",
-                "sales_tax_payment_check",
-                "time_tracking",
-                "transfer_inventory",
-                "vehicle_mileage",
-                "vendor_credit",
+                "account",
+                "billing_rate",
+                "class",
+                "currency",
+                "customer",
+                "customer_message",
+                "customer_type",
+                "date_driven_terms",
+                "employee",
+                "inventory_site",
+                "item_discount",
+                "item_fixed_asset",
+                "item_group",
+                "item_inventory",
+                "item_inventory_assembly",
+                "item_non_inventory",
+                "item_other_charge",
+                "item_payment",
+                "item_sales_tax",
+                "item_sales_tax_group",
+                "item_service",
+                "item_subtotal",
+                "job_type",
+                "other_name",
+                "payment_method",
+                "payroll_item_non_wage",
+                "payroll_item_wage",
+                "price_level",
+                "sales_representative",
+                "sales_tax_code",
+                "ship_method",
+                "standard_terms",
+                "to_do",
+                "unit_of_measure_set",
+                "vehicle",
+                "vendor",
+                "vendor_type",
+                "workers_comp_code",
             ]
         ],
         conductor_end_user_id: str,
@@ -85,28 +98,26 @@ class DeletedTransactionsResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> DeletedTransactionListResponse:
+    ) -> DeletedListObjectListResponse:
         """
-        Lists deleted transactions of the specified type(s) (e.g., invoice, bill,
-        estimate) in the last 90 days. Results are grouped by transaction type and
-        ordered by actual delete time (ascending).
-
-        NOTE: For deleted non-transaction objects (e.g., customer, vendor, employee),
-        see the deleted-objects endpoint.
+        Lists deleted non-transaction list-objects (e.g., customers, vendors, employees,
+        items) from the last 90 days. Results are grouped by list-object type and
+        ordered by actual delete time (ascending). For deleted transactions, see the
+        deleted-transactions endpoint.
 
         Args:
-          transaction_type: Filter for deleted transactions by their transaction type. Specify one or more
+          object_type: Filter for deleted list-objects by their list-object type. Specify one or more
               types.
 
           conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
               `"Conductor-End-User-Id: {{END_USER_ID}}"`).
 
-          deleted_after: Filter for deleted transactions deleted on or after this date and time, within
+          deleted_after: Filter for deleted list-objects deleted on or after this date and time, within
               the last 90 days (QuickBooks limit), in ISO 8601 format (YYYY-MM-DDTHH:mm:ss).
               If you only provide a date (YYYY-MM-DD), the time is assumed to be 00:00:00 of
               that day.
 
-          deleted_before: Filter for deleted transactions deleted on or before this date and time, within
+          deleted_before: Filter for deleted list-objects deleted on or before this date and time, within
               the last 90 days (QuickBooks limit), in ISO 8601 format (YYYY-MM-DDTHH:mm:ss).
               If you only provide a date (YYYY-MM-DD), the time is assumed to be 23:59:59 of
               that day.
@@ -121,7 +132,7 @@ class DeletedTransactionsResource(SyncAPIResource):
         """
         extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
         return self._get(
-            "/quickbooks-desktop/deleted-transactions",
+            "/quickbooks-desktop/deleted-list-objects",
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -129,67 +140,80 @@ class DeletedTransactionsResource(SyncAPIResource):
                 timeout=timeout,
                 query=maybe_transform(
                     {
-                        "transaction_type": transaction_type,
+                        "object_type": object_type,
                         "deleted_after": deleted_after,
                         "deleted_before": deleted_before,
                     },
-                    deleted_transaction_list_params.DeletedTransactionListParams,
+                    deleted_list_object_list_params.DeletedListObjectListParams,
                 ),
             ),
-            cast_to=DeletedTransactionListResponse,
+            cast_to=DeletedListObjectListResponse,
         )
 
 
-class AsyncDeletedTransactionsResource(AsyncAPIResource):
+class AsyncDeletedListObjectsResource(AsyncAPIResource):
     @cached_property
-    def with_raw_response(self) -> AsyncDeletedTransactionsResourceWithRawResponse:
+    def with_raw_response(self) -> AsyncDeletedListObjectsResourceWithRawResponse:
         """
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
         For more information, see https://www.github.com/conductor-is/quickbooks-desktop-python#accessing-raw-response-data-eg-headers
         """
-        return AsyncDeletedTransactionsResourceWithRawResponse(self)
+        return AsyncDeletedListObjectsResourceWithRawResponse(self)
 
     @cached_property
-    def with_streaming_response(self) -> AsyncDeletedTransactionsResourceWithStreamingResponse:
+    def with_streaming_response(self) -> AsyncDeletedListObjectsResourceWithStreamingResponse:
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
         For more information, see https://www.github.com/conductor-is/quickbooks-desktop-python#with_streaming_response
         """
-        return AsyncDeletedTransactionsResourceWithStreamingResponse(self)
+        return AsyncDeletedListObjectsResourceWithStreamingResponse(self)
 
     async def list(
         self,
         *,
-        transaction_type: List[
+        object_type: List[
             Literal[
-                "ar_refund_credit_card",
-                "bill",
-                "bill_payment_check",
-                "bill_payment_credit_card",
-                "build_assembly",
-                "charge",
-                "check",
-                "credit_card_charge",
-                "credit_card_credit",
-                "credit_memo",
-                "deposit",
-                "estimate",
-                "inventory_adjustment",
-                "invoice",
-                "item_receipt",
-                "journal_entry",
-                "purchase_order",
-                "receive_payment",
-                "sales_order",
-                "sales_receipt",
-                "sales_tax_payment_check",
-                "time_tracking",
-                "transfer_inventory",
-                "vehicle_mileage",
-                "vendor_credit",
+                "account",
+                "billing_rate",
+                "class",
+                "currency",
+                "customer",
+                "customer_message",
+                "customer_type",
+                "date_driven_terms",
+                "employee",
+                "inventory_site",
+                "item_discount",
+                "item_fixed_asset",
+                "item_group",
+                "item_inventory",
+                "item_inventory_assembly",
+                "item_non_inventory",
+                "item_other_charge",
+                "item_payment",
+                "item_sales_tax",
+                "item_sales_tax_group",
+                "item_service",
+                "item_subtotal",
+                "job_type",
+                "other_name",
+                "payment_method",
+                "payroll_item_non_wage",
+                "payroll_item_wage",
+                "price_level",
+                "sales_representative",
+                "sales_tax_code",
+                "ship_method",
+                "standard_terms",
+                "to_do",
+                "unit_of_measure_set",
+                "vehicle",
+                "vendor",
+                "vendor_type",
+                "workers_comp_code",
             ]
         ],
         conductor_end_user_id: str,
@@ -201,28 +225,26 @@ class AsyncDeletedTransactionsResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> DeletedTransactionListResponse:
+    ) -> DeletedListObjectListResponse:
         """
-        Lists deleted transactions of the specified type(s) (e.g., invoice, bill,
-        estimate) in the last 90 days. Results are grouped by transaction type and
-        ordered by actual delete time (ascending).
-
-        NOTE: For deleted non-transaction objects (e.g., customer, vendor, employee),
-        see the deleted-objects endpoint.
+        Lists deleted non-transaction list-objects (e.g., customers, vendors, employees,
+        items) from the last 90 days. Results are grouped by list-object type and
+        ordered by actual delete time (ascending). For deleted transactions, see the
+        deleted-transactions endpoint.
 
         Args:
-          transaction_type: Filter for deleted transactions by their transaction type. Specify one or more
+          object_type: Filter for deleted list-objects by their list-object type. Specify one or more
               types.
 
           conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
               `"Conductor-End-User-Id: {{END_USER_ID}}"`).
 
-          deleted_after: Filter for deleted transactions deleted on or after this date and time, within
+          deleted_after: Filter for deleted list-objects deleted on or after this date and time, within
               the last 90 days (QuickBooks limit), in ISO 8601 format (YYYY-MM-DDTHH:mm:ss).
               If you only provide a date (YYYY-MM-DD), the time is assumed to be 00:00:00 of
               that day.
 
-          deleted_before: Filter for deleted transactions deleted on or before this date and time, within
+          deleted_before: Filter for deleted list-objects deleted on or before this date and time, within
               the last 90 days (QuickBooks limit), in ISO 8601 format (YYYY-MM-DDTHH:mm:ss).
               If you only provide a date (YYYY-MM-DD), the time is assumed to be 23:59:59 of
               that day.
@@ -237,7 +259,7 @@ class AsyncDeletedTransactionsResource(AsyncAPIResource):
         """
         extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
         return await self._get(
-            "/quickbooks-desktop/deleted-transactions",
+            "/quickbooks-desktop/deleted-list-objects",
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -245,48 +267,48 @@ class AsyncDeletedTransactionsResource(AsyncAPIResource):
                 timeout=timeout,
                 query=await async_maybe_transform(
                     {
-                        "transaction_type": transaction_type,
+                        "object_type": object_type,
                         "deleted_after": deleted_after,
                         "deleted_before": deleted_before,
                     },
-                    deleted_transaction_list_params.DeletedTransactionListParams,
+                    deleted_list_object_list_params.DeletedListObjectListParams,
                 ),
             ),
-            cast_to=DeletedTransactionListResponse,
+            cast_to=DeletedListObjectListResponse,
         )
 
 
-class DeletedTransactionsResourceWithRawResponse:
-    def __init__(self, deleted_transactions: DeletedTransactionsResource) -> None:
-        self._deleted_transactions = deleted_transactions
+class DeletedListObjectsResourceWithRawResponse:
+    def __init__(self, deleted_list_objects: DeletedListObjectsResource) -> None:
+        self._deleted_list_objects = deleted_list_objects
 
         self.list = to_raw_response_wrapper(
-            deleted_transactions.list,
+            deleted_list_objects.list,
         )
 
 
-class AsyncDeletedTransactionsResourceWithRawResponse:
-    def __init__(self, deleted_transactions: AsyncDeletedTransactionsResource) -> None:
-        self._deleted_transactions = deleted_transactions
+class AsyncDeletedListObjectsResourceWithRawResponse:
+    def __init__(self, deleted_list_objects: AsyncDeletedListObjectsResource) -> None:
+        self._deleted_list_objects = deleted_list_objects
 
         self.list = async_to_raw_response_wrapper(
-            deleted_transactions.list,
+            deleted_list_objects.list,
         )
 
 
-class DeletedTransactionsResourceWithStreamingResponse:
-    def __init__(self, deleted_transactions: DeletedTransactionsResource) -> None:
-        self._deleted_transactions = deleted_transactions
+class DeletedListObjectsResourceWithStreamingResponse:
+    def __init__(self, deleted_list_objects: DeletedListObjectsResource) -> None:
+        self._deleted_list_objects = deleted_list_objects
 
         self.list = to_streamed_response_wrapper(
-            deleted_transactions.list,
+            deleted_list_objects.list,
         )
 
 
-class AsyncDeletedTransactionsResourceWithStreamingResponse:
-    def __init__(self, deleted_transactions: AsyncDeletedTransactionsResource) -> None:
-        self._deleted_transactions = deleted_transactions
+class AsyncDeletedListObjectsResourceWithStreamingResponse:
+    def __init__(self, deleted_list_objects: AsyncDeletedListObjectsResource) -> None:
+        self._deleted_list_objects = deleted_list_objects
 
         self.list = async_to_streamed_response_wrapper(
-            deleted_transactions.list,
+            deleted_list_objects.list,
         )
