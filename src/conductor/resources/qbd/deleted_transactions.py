@@ -47,7 +47,7 @@ class DeletedTransactionsResource(SyncAPIResource):
     def list(
         self,
         *,
-        transaction_type: List[
+        transaction_types: List[
             Literal[
                 "ar_refund_credit_card",
                 "bill",
@@ -89,14 +89,12 @@ class DeletedTransactionsResource(SyncAPIResource):
         """
         Lists deleted transactions of the specified type(s) (e.g., invoice, bill,
         estimate) in the last 90 days. Results are grouped by transaction type and
-        ordered by actual delete time (ascending).
-
-        NOTE: For deleted non-transaction objects (e.g., customer, vendor, employee),
-        see the deleted-objects endpoint.
+        ordered by actual delete time (ascending). NOTE: For deleted non-transaction
+        list-objects (e.g., customer, vendor, employee), see the deleted-list-objects
+        endpoint.
 
         Args:
-          transaction_type: Filter for deleted transactions by their transaction type. Specify one or more
-              types.
+          transaction_types: Filter for deleted transactions by their transaction type(s).
 
           conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
               `"Conductor-End-User-Id: {{END_USER_ID}}"`).
@@ -129,7 +127,7 @@ class DeletedTransactionsResource(SyncAPIResource):
                 timeout=timeout,
                 query=maybe_transform(
                     {
-                        "transaction_type": transaction_type,
+                        "transaction_types": transaction_types,
                         "deleted_after": deleted_after,
                         "deleted_before": deleted_before,
                     },
@@ -163,7 +161,7 @@ class AsyncDeletedTransactionsResource(AsyncAPIResource):
     async def list(
         self,
         *,
-        transaction_type: List[
+        transaction_types: List[
             Literal[
                 "ar_refund_credit_card",
                 "bill",
@@ -205,14 +203,12 @@ class AsyncDeletedTransactionsResource(AsyncAPIResource):
         """
         Lists deleted transactions of the specified type(s) (e.g., invoice, bill,
         estimate) in the last 90 days. Results are grouped by transaction type and
-        ordered by actual delete time (ascending).
-
-        NOTE: For deleted non-transaction objects (e.g., customer, vendor, employee),
-        see the deleted-objects endpoint.
+        ordered by actual delete time (ascending). NOTE: For deleted non-transaction
+        list-objects (e.g., customer, vendor, employee), see the deleted-list-objects
+        endpoint.
 
         Args:
-          transaction_type: Filter for deleted transactions by their transaction type. Specify one or more
-              types.
+          transaction_types: Filter for deleted transactions by their transaction type(s).
 
           conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
               `"Conductor-End-User-Id: {{END_USER_ID}}"`).
@@ -245,7 +241,7 @@ class AsyncDeletedTransactionsResource(AsyncAPIResource):
                 timeout=timeout,
                 query=await async_maybe_transform(
                     {
-                        "transaction_type": transaction_type,
+                        "transaction_types": transaction_types,
                         "deleted_after": deleted_after,
                         "deleted_before": deleted_before,
                     },

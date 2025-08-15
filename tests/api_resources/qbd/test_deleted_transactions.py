@@ -20,7 +20,7 @@ class TestDeletedTransactions:
     @parametrize
     def test_method_list(self, client: Conductor) -> None:
         deleted_transaction = client.qbd.deleted_transactions.list(
-            transaction_type=["invoice"],
+            transaction_types=["invoice"],
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(DeletedTransactionListResponse, deleted_transaction, path=["response"])
@@ -28,7 +28,7 @@ class TestDeletedTransactions:
     @parametrize
     def test_method_list_with_all_params(self, client: Conductor) -> None:
         deleted_transaction = client.qbd.deleted_transactions.list(
-            transaction_type=["invoice"],
+            transaction_types=["invoice"],
             conductor_end_user_id="end_usr_1234567abcdefg",
             deleted_after="2021-01-01T12:34:56",
             deleted_before="2021-02-01T12:34:56",
@@ -38,7 +38,7 @@ class TestDeletedTransactions:
     @parametrize
     def test_raw_response_list(self, client: Conductor) -> None:
         response = client.qbd.deleted_transactions.with_raw_response.list(
-            transaction_type=["invoice"],
+            transaction_types=["invoice"],
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -50,7 +50,7 @@ class TestDeletedTransactions:
     @parametrize
     def test_streaming_response_list(self, client: Conductor) -> None:
         with client.qbd.deleted_transactions.with_streaming_response.list(
-            transaction_type=["invoice"],
+            transaction_types=["invoice"],
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -70,7 +70,7 @@ class TestAsyncDeletedTransactions:
     @parametrize
     async def test_method_list(self, async_client: AsyncConductor) -> None:
         deleted_transaction = await async_client.qbd.deleted_transactions.list(
-            transaction_type=["invoice"],
+            transaction_types=["invoice"],
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(DeletedTransactionListResponse, deleted_transaction, path=["response"])
@@ -78,7 +78,7 @@ class TestAsyncDeletedTransactions:
     @parametrize
     async def test_method_list_with_all_params(self, async_client: AsyncConductor) -> None:
         deleted_transaction = await async_client.qbd.deleted_transactions.list(
-            transaction_type=["invoice"],
+            transaction_types=["invoice"],
             conductor_end_user_id="end_usr_1234567abcdefg",
             deleted_after="2021-01-01T12:34:56",
             deleted_before="2021-02-01T12:34:56",
@@ -88,7 +88,7 @@ class TestAsyncDeletedTransactions:
     @parametrize
     async def test_raw_response_list(self, async_client: AsyncConductor) -> None:
         response = await async_client.qbd.deleted_transactions.with_raw_response.list(
-            transaction_type=["invoice"],
+            transaction_types=["invoice"],
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -100,7 +100,7 @@ class TestAsyncDeletedTransactions:
     @parametrize
     async def test_streaming_response_list(self, async_client: AsyncConductor) -> None:
         async with async_client.qbd.deleted_transactions.with_streaming_response.list(
-            transaction_type=["invoice"],
+            transaction_types=["invoice"],
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed

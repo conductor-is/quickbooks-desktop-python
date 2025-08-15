@@ -11,7 +11,7 @@ __all__ = ["DeletedListObjectListParams"]
 
 
 class DeletedListObjectListParams(TypedDict, total=False):
-    object_type: Required[
+    object_types: Required[
         Annotated[
             List[
                 Literal[
@@ -55,13 +55,10 @@ class DeletedListObjectListParams(TypedDict, total=False):
                     "workers_comp_code",
                 ]
             ],
-            PropertyInfo(alias="objectType"),
+            PropertyInfo(alias="objectTypes"),
         ]
     ]
-    """Filter for deleted list-objects by their list-object type.
-
-    Specify one or more types.
-    """
+    """Filter for deleted list-objects by their list-object type(s)."""
 
     conductor_end_user_id: Required[Annotated[str, PropertyInfo(alias="Conductor-End-User-Id")]]
     """
