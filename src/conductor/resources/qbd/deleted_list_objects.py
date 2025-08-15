@@ -47,7 +47,7 @@ class DeletedListObjectsResource(SyncAPIResource):
     def list(
         self,
         *,
-        object_type: List[
+        object_types: List[
             Literal[
                 "account",
                 "billing_rate",
@@ -102,12 +102,11 @@ class DeletedListObjectsResource(SyncAPIResource):
         """
         Lists deleted non-transaction list-objects (e.g., customers, vendors, employees,
         items) from the last 90 days. Results are grouped by list-object type and
-        ordered by actual delete time (ascending). For deleted transactions, see the
-        deleted-transactions endpoint.
+        ordered by actual delete time (ascending). For deleted transactions (e.g.,
+        invoices, bills, estimates), see the deleted-transactions endpoint.
 
         Args:
-          object_type: Filter for deleted list-objects by their list-object type. Specify one or more
-              types.
+          object_types: Filter for deleted list-objects by their list-object type(s).
 
           conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
               `"Conductor-End-User-Id: {{END_USER_ID}}"`).
@@ -140,7 +139,7 @@ class DeletedListObjectsResource(SyncAPIResource):
                 timeout=timeout,
                 query=maybe_transform(
                     {
-                        "object_type": object_type,
+                        "object_types": object_types,
                         "deleted_after": deleted_after,
                         "deleted_before": deleted_before,
                     },
@@ -174,7 +173,7 @@ class AsyncDeletedListObjectsResource(AsyncAPIResource):
     async def list(
         self,
         *,
-        object_type: List[
+        object_types: List[
             Literal[
                 "account",
                 "billing_rate",
@@ -229,12 +228,11 @@ class AsyncDeletedListObjectsResource(AsyncAPIResource):
         """
         Lists deleted non-transaction list-objects (e.g., customers, vendors, employees,
         items) from the last 90 days. Results are grouped by list-object type and
-        ordered by actual delete time (ascending). For deleted transactions, see the
-        deleted-transactions endpoint.
+        ordered by actual delete time (ascending). For deleted transactions (e.g.,
+        invoices, bills, estimates), see the deleted-transactions endpoint.
 
         Args:
-          object_type: Filter for deleted list-objects by their list-object type. Specify one or more
-              types.
+          object_types: Filter for deleted list-objects by their list-object type(s).
 
           conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
               `"Conductor-End-User-Id: {{END_USER_ID}}"`).
@@ -267,7 +265,7 @@ class AsyncDeletedListObjectsResource(AsyncAPIResource):
                 timeout=timeout,
                 query=await async_maybe_transform(
                     {
-                        "object_type": object_type,
+                        "object_types": object_types,
                         "deleted_after": deleted_after,
                         "deleted_before": deleted_before,
                     },

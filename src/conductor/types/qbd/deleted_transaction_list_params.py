@@ -11,7 +11,7 @@ __all__ = ["DeletedTransactionListParams"]
 
 
 class DeletedTransactionListParams(TypedDict, total=False):
-    transaction_type: Required[
+    transaction_types: Required[
         Annotated[
             List[
                 Literal[
@@ -42,13 +42,10 @@ class DeletedTransactionListParams(TypedDict, total=False):
                     "vendor_credit",
                 ]
             ],
-            PropertyInfo(alias="transactionType"),
+            PropertyInfo(alias="transactionTypes"),
         ]
     ]
-    """Filter for deleted transactions by their transaction type.
-
-    Specify one or more types.
-    """
+    """Filter for deleted transactions by their transaction type(s)."""
 
     conductor_end_user_id: Required[Annotated[str, PropertyInfo(alias="Conductor-End-User-Id")]]
     """
