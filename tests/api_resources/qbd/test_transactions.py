@@ -91,7 +91,7 @@ class TestTransactions:
             ref_number_to="INV-9999",
             transaction_date_from=parse_date("2021-01-01"),
             transaction_date_to=parse_date("2021-02-01"),
-            transaction_type=["invoice"],
+            transaction_types=["invoice"],
             updated_after="2021-01-01T12:34:56",
             updated_before="2021-02-01T12:34:56",
         )
@@ -199,7 +199,7 @@ class TestAsyncTransactions:
             ref_number_to="INV-9999",
             transaction_date_from=parse_date("2021-01-01"),
             transaction_date_to=parse_date("2021-02-01"),
-            transaction_type=["invoice"],
+            transaction_types=["invoice"],
             updated_after="2021-01-01T12:34:56",
             updated_before="2021-02-01T12:34:56",
         )
