@@ -1572,7 +1572,7 @@ class SalesReceipt(BaseModel):
     For user-defined currencies, all values are editable.
     """
 
-    customer: Customer
+    customer: Optional[Customer] = None
     """
     The customer or customer-job to which the payment for this sales receipt is
     credited.

@@ -25,7 +25,6 @@ class TestSalesReceipts:
     @parametrize
     def test_method_create(self, client: Conductor) -> None:
         sales_receipt = client.qbd.sales_receipts.create(
-            customer_id="80000001-1234567890",
             transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
@@ -34,7 +33,6 @@ class TestSalesReceipts:
     @parametrize
     def test_method_create_with_all_params(self, client: Conductor) -> None:
         sales_receipt = client.qbd.sales_receipts.create(
-            customer_id="80000001-1234567890",
             transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
             billing_address={
@@ -80,6 +78,7 @@ class TestSalesReceipts:
                     "transaction_authorization_stamp": 2,
                 },
             },
+            customer_id="80000001-1234567890",
             customer_message_id="80000001-1234567890",
             deposit_to_account_id="80000001-1234567890",
             document_template_id="80000001-1234567890",
@@ -192,7 +191,6 @@ class TestSalesReceipts:
     @parametrize
     def test_raw_response_create(self, client: Conductor) -> None:
         response = client.qbd.sales_receipts.with_raw_response.create(
-            customer_id="80000001-1234567890",
             transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
@@ -205,7 +203,6 @@ class TestSalesReceipts:
     @parametrize
     def test_streaming_response_create(self, client: Conductor) -> None:
         with client.qbd.sales_receipts.with_streaming_response.create(
-            customer_id="80000001-1234567890",
             transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
@@ -525,7 +522,6 @@ class TestAsyncSalesReceipts:
     @parametrize
     async def test_method_create(self, async_client: AsyncConductor) -> None:
         sales_receipt = await async_client.qbd.sales_receipts.create(
-            customer_id="80000001-1234567890",
             transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
@@ -534,7 +530,6 @@ class TestAsyncSalesReceipts:
     @parametrize
     async def test_method_create_with_all_params(self, async_client: AsyncConductor) -> None:
         sales_receipt = await async_client.qbd.sales_receipts.create(
-            customer_id="80000001-1234567890",
             transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
             billing_address={
@@ -580,6 +575,7 @@ class TestAsyncSalesReceipts:
                     "transaction_authorization_stamp": 2,
                 },
             },
+            customer_id="80000001-1234567890",
             customer_message_id="80000001-1234567890",
             deposit_to_account_id="80000001-1234567890",
             document_template_id="80000001-1234567890",
@@ -692,7 +688,6 @@ class TestAsyncSalesReceipts:
     @parametrize
     async def test_raw_response_create(self, async_client: AsyncConductor) -> None:
         response = await async_client.qbd.sales_receipts.with_raw_response.create(
-            customer_id="80000001-1234567890",
             transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
@@ -705,7 +700,6 @@ class TestAsyncSalesReceipts:
     @parametrize
     async def test_streaming_response_create(self, async_client: AsyncConductor) -> None:
         async with async_client.qbd.sales_receipts.with_streaming_response.create(
-            customer_id="80000001-1234567890",
             transaction_date=parse_date("2021-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
