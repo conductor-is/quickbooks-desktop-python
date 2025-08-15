@@ -109,7 +109,7 @@ class TransactionsResource(SyncAPIResource):
         ref_number_to: str | NotGiven = NOT_GIVEN,
         transaction_date_from: Union[str, date] | NotGiven = NOT_GIVEN,
         transaction_date_to: Union[str, date] | NotGiven = NOT_GIVEN,
-        transaction_type: List[
+        transaction_types: List[
             Literal[
                 "all",
                 "ar_refund_credit_card",
@@ -266,8 +266,7 @@ class TransactionsResource(SyncAPIResource):
           transaction_date_to: Filter for transactions whose `date` field is on or before this date, in ISO
               8601 format (YYYY-MM-DD).
 
-          transaction_type: Filter for transactions by their type. You can specify one or more transaction
-              types.
+          transaction_types: Filter for transactions by their transaction type(s).
 
               **NOTE**: Filtering for time tracking activities is not supported by QuickBooks
               for this endpoint.
@@ -318,7 +317,7 @@ class TransactionsResource(SyncAPIResource):
                         "ref_number_to": ref_number_to,
                         "transaction_date_from": transaction_date_from,
                         "transaction_date_to": transaction_date_to,
-                        "transaction_type": transaction_type,
+                        "transaction_types": transaction_types,
                         "updated_after": updated_after,
                         "updated_before": updated_before,
                     },
@@ -412,7 +411,7 @@ class AsyncTransactionsResource(AsyncAPIResource):
         ref_number_to: str | NotGiven = NOT_GIVEN,
         transaction_date_from: Union[str, date] | NotGiven = NOT_GIVEN,
         transaction_date_to: Union[str, date] | NotGiven = NOT_GIVEN,
-        transaction_type: List[
+        transaction_types: List[
             Literal[
                 "all",
                 "ar_refund_credit_card",
@@ -569,8 +568,7 @@ class AsyncTransactionsResource(AsyncAPIResource):
           transaction_date_to: Filter for transactions whose `date` field is on or before this date, in ISO
               8601 format (YYYY-MM-DD).
 
-          transaction_type: Filter for transactions by their type. You can specify one or more transaction
-              types.
+          transaction_types: Filter for transactions by their transaction type(s).
 
               **NOTE**: Filtering for time tracking activities is not supported by QuickBooks
               for this endpoint.
@@ -621,7 +619,7 @@ class AsyncTransactionsResource(AsyncAPIResource):
                         "ref_number_to": ref_number_to,
                         "transaction_date_from": transaction_date_from,
                         "transaction_date_to": transaction_date_to,
-                        "transaction_type": transaction_type,
+                        "transaction_types": transaction_types,
                         "updated_after": updated_after,
                         "updated_before": updated_before,
                     },

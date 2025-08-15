@@ -174,7 +174,7 @@ class TransactionListParams(TypedDict, total=False):
     8601 format (YYYY-MM-DD).
     """
 
-    transaction_type: Annotated[
+    transaction_types: Annotated[
         List[
             Literal[
                 "all",
@@ -207,11 +207,9 @@ class TransactionListParams(TypedDict, total=False):
                 "ytd_adjustment",
             ]
         ],
-        PropertyInfo(alias="transactionType"),
+        PropertyInfo(alias="transactionTypes"),
     ]
-    """Filter for transactions by their type.
-
-    You can specify one or more transaction types.
+    """Filter for transactions by their transaction type(s).
 
     **NOTE**: Filtering for time tracking activities is not supported by QuickBooks
     for this endpoint.
