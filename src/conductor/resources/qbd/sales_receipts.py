@@ -49,13 +49,13 @@ class SalesReceiptsResource(SyncAPIResource):
     def create(
         self,
         *,
-        customer_id: str,
         transaction_date: Union[str, date],
         conductor_end_user_id: str,
         billing_address: sales_receipt_create_params.BillingAddress | NotGiven = NOT_GIVEN,
         check_number: str | NotGiven = NOT_GIVEN,
         class_id: str | NotGiven = NOT_GIVEN,
         credit_card_transaction: sales_receipt_create_params.CreditCardTransaction | NotGiven = NOT_GIVEN,
+        customer_id: str | NotGiven = NOT_GIVEN,
         customer_message_id: str | NotGiven = NOT_GIVEN,
         deposit_to_account_id: str | NotGiven = NOT_GIVEN,
         document_template_id: str | NotGiven = NOT_GIVEN,
@@ -89,9 +89,6 @@ class SalesReceiptsResource(SyncAPIResource):
         Creates a new sales receipt.
 
         Args:
-          customer_id: The customer or customer-job to which the payment for this sales receipt is
-              credited.
-
           transaction_date: The date of this sales receipt, in ISO 8601 format (YYYY-MM-DD).
 
           conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
@@ -110,6 +107,9 @@ class SalesReceiptsResource(SyncAPIResource):
           credit_card_transaction: The credit card transaction data for this sales receipt's payment when using
               QuickBooks Merchant Services (QBMS). If specifying this field, you must also
               specify the `paymentMethod` field.
+
+          customer_id: The customer or customer-job to which the payment for this sales receipt is
+              credited.
 
           customer_message_id: The message to display to the customer on the sales receipt.
 
@@ -233,12 +233,12 @@ class SalesReceiptsResource(SyncAPIResource):
             "/quickbooks-desktop/sales-receipts",
             body=maybe_transform(
                 {
-                    "customer_id": customer_id,
                     "transaction_date": transaction_date,
                     "billing_address": billing_address,
                     "check_number": check_number,
                     "class_id": class_id,
                     "credit_card_transaction": credit_card_transaction,
+                    "customer_id": customer_id,
                     "customer_message_id": customer_message_id,
                     "deposit_to_account_id": deposit_to_account_id,
                     "document_template_id": document_template_id,
@@ -768,13 +768,13 @@ class AsyncSalesReceiptsResource(AsyncAPIResource):
     async def create(
         self,
         *,
-        customer_id: str,
         transaction_date: Union[str, date],
         conductor_end_user_id: str,
         billing_address: sales_receipt_create_params.BillingAddress | NotGiven = NOT_GIVEN,
         check_number: str | NotGiven = NOT_GIVEN,
         class_id: str | NotGiven = NOT_GIVEN,
         credit_card_transaction: sales_receipt_create_params.CreditCardTransaction | NotGiven = NOT_GIVEN,
+        customer_id: str | NotGiven = NOT_GIVEN,
         customer_message_id: str | NotGiven = NOT_GIVEN,
         deposit_to_account_id: str | NotGiven = NOT_GIVEN,
         document_template_id: str | NotGiven = NOT_GIVEN,
@@ -808,9 +808,6 @@ class AsyncSalesReceiptsResource(AsyncAPIResource):
         Creates a new sales receipt.
 
         Args:
-          customer_id: The customer or customer-job to which the payment for this sales receipt is
-              credited.
-
           transaction_date: The date of this sales receipt, in ISO 8601 format (YYYY-MM-DD).
 
           conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
@@ -829,6 +826,9 @@ class AsyncSalesReceiptsResource(AsyncAPIResource):
           credit_card_transaction: The credit card transaction data for this sales receipt's payment when using
               QuickBooks Merchant Services (QBMS). If specifying this field, you must also
               specify the `paymentMethod` field.
+
+          customer_id: The customer or customer-job to which the payment for this sales receipt is
+              credited.
 
           customer_message_id: The message to display to the customer on the sales receipt.
 
@@ -952,12 +952,12 @@ class AsyncSalesReceiptsResource(AsyncAPIResource):
             "/quickbooks-desktop/sales-receipts",
             body=await async_maybe_transform(
                 {
-                    "customer_id": customer_id,
                     "transaction_date": transaction_date,
                     "billing_address": billing_address,
                     "check_number": check_number,
                     "class_id": class_id,
                     "credit_card_transaction": credit_card_transaction,
+                    "customer_id": customer_id,
                     "customer_message_id": customer_message_id,
                     "deposit_to_account_id": deposit_to_account_id,
                     "document_template_id": document_template_id,

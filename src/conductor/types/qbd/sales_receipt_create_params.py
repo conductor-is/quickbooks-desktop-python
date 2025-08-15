@@ -26,12 +26,6 @@ __all__ = [
 
 
 class SalesReceiptCreateParams(TypedDict, total=False):
-    customer_id: Required[Annotated[str, PropertyInfo(alias="customerId")]]
-    """
-    The customer or customer-job to which the payment for this sales receipt is
-    credited.
-    """
-
     transaction_date: Required[Annotated[Union[str, date], PropertyInfo(alias="transactionDate", format="iso8601")]]
     """The date of this sales receipt, in ISO 8601 format (YYYY-MM-DD)."""
 
@@ -61,6 +55,12 @@ class SalesReceiptCreateParams(TypedDict, total=False):
     The credit card transaction data for this sales receipt's payment when using
     QuickBooks Merchant Services (QBMS). If specifying this field, you must also
     specify the `paymentMethod` field.
+    """
+
+    customer_id: Annotated[str, PropertyInfo(alias="customerId")]
+    """
+    The customer or customer-job to which the payment for this sales receipt is
+    credited.
     """
 
     customer_message_id: Annotated[str, PropertyInfo(alias="customerMessageId")]
