@@ -382,6 +382,14 @@ from .deleted_transactions import (
     DeletedTransactionsResourceWithStreamingResponse,
     AsyncDeletedTransactionsResourceWithStreamingResponse,
 )
+from .unit_of_measure_sets import (
+    UnitOfMeasureSetsResource,
+    AsyncUnitOfMeasureSetsResource,
+    UnitOfMeasureSetsResourceWithRawResponse,
+    AsyncUnitOfMeasureSetsResourceWithRawResponse,
+    UnitOfMeasureSetsResourceWithStreamingResponse,
+    AsyncUnitOfMeasureSetsResourceWithStreamingResponse,
+)
 from .inventory_adjustments import (
     InventoryAdjustmentsResource,
     AsyncInventoryAdjustmentsResource,
@@ -623,6 +631,10 @@ class QbdResource(SyncAPIResource):
     @cached_property
     def transfers(self) -> TransfersResource:
         return TransfersResource(self._client)
+
+    @cached_property
+    def unit_of_measure_sets(self) -> UnitOfMeasureSetsResource:
+        return UnitOfMeasureSetsResource(self._client)
 
     @cached_property
     def vendor_credits(self) -> VendorCreditsResource:
@@ -888,6 +900,10 @@ class AsyncQbdResource(AsyncAPIResource):
     @cached_property
     def transfers(self) -> AsyncTransfersResource:
         return AsyncTransfersResource(self._client)
+
+    @cached_property
+    def unit_of_measure_sets(self) -> AsyncUnitOfMeasureSetsResource:
+        return AsyncUnitOfMeasureSetsResource(self._client)
 
     @cached_property
     def vendor_credits(self) -> AsyncVendorCreditsResource:
@@ -1162,6 +1178,10 @@ class QbdResourceWithRawResponse:
         return TransfersResourceWithRawResponse(self._qbd.transfers)
 
     @cached_property
+    def unit_of_measure_sets(self) -> UnitOfMeasureSetsResourceWithRawResponse:
+        return UnitOfMeasureSetsResourceWithRawResponse(self._qbd.unit_of_measure_sets)
+
+    @cached_property
     def vendor_credits(self) -> VendorCreditsResourceWithRawResponse:
         return VendorCreditsResourceWithRawResponse(self._qbd.vendor_credits)
 
@@ -1373,6 +1393,10 @@ class AsyncQbdResourceWithRawResponse:
     @cached_property
     def transfers(self) -> AsyncTransfersResourceWithRawResponse:
         return AsyncTransfersResourceWithRawResponse(self._qbd.transfers)
+
+    @cached_property
+    def unit_of_measure_sets(self) -> AsyncUnitOfMeasureSetsResourceWithRawResponse:
+        return AsyncUnitOfMeasureSetsResourceWithRawResponse(self._qbd.unit_of_measure_sets)
 
     @cached_property
     def vendor_credits(self) -> AsyncVendorCreditsResourceWithRawResponse:
@@ -1588,6 +1612,10 @@ class QbdResourceWithStreamingResponse:
         return TransfersResourceWithStreamingResponse(self._qbd.transfers)
 
     @cached_property
+    def unit_of_measure_sets(self) -> UnitOfMeasureSetsResourceWithStreamingResponse:
+        return UnitOfMeasureSetsResourceWithStreamingResponse(self._qbd.unit_of_measure_sets)
+
+    @cached_property
     def vendor_credits(self) -> VendorCreditsResourceWithStreamingResponse:
         return VendorCreditsResourceWithStreamingResponse(self._qbd.vendor_credits)
 
@@ -1799,6 +1827,10 @@ class AsyncQbdResourceWithStreamingResponse:
     @cached_property
     def transfers(self) -> AsyncTransfersResourceWithStreamingResponse:
         return AsyncTransfersResourceWithStreamingResponse(self._qbd.transfers)
+
+    @cached_property
+    def unit_of_measure_sets(self) -> AsyncUnitOfMeasureSetsResourceWithStreamingResponse:
+        return AsyncUnitOfMeasureSetsResourceWithStreamingResponse(self._qbd.unit_of_measure_sets)
 
     @cached_property
     def vendor_credits(self) -> AsyncVendorCreditsResourceWithStreamingResponse:

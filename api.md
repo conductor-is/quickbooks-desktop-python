@@ -773,6 +773,20 @@ Methods:
 - <code title="post /quickbooks-desktop/transfers/{id}">conductor.qbd.transfers.<a href="./src/conductor/resources/qbd/transfers.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/transfer_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/transfer.py">Transfer</a></code>
 - <code title="get /quickbooks-desktop/transfers">conductor.qbd.transfers.<a href="./src/conductor/resources/qbd/transfers.py">list</a>(\*\*<a href="src/conductor/types/qbd/transfer_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/transfer.py">SyncCursorPage[Transfer]</a></code>
 
+## UnitOfMeasureSets
+
+Types:
+
+```python
+from conductor.types.qbd import UnitOfMeasureSet, UnitOfMeasureSetListResponse
+```
+
+Methods:
+
+- <code title="post /quickbooks-desktop/unit-of-measure-sets">conductor.qbd.unit_of_measure_sets.<a href="./src/conductor/resources/qbd/unit_of_measure_sets.py">create</a>(\*\*<a href="src/conductor/types/qbd/unit_of_measure_set_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/unit_of_measure_set.py">UnitOfMeasureSet</a></code>
+- <code title="get /quickbooks-desktop/unit-of-measure-sets/{id}">conductor.qbd.unit_of_measure_sets.<a href="./src/conductor/resources/qbd/unit_of_measure_sets.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/unit_of_measure_set.py">UnitOfMeasureSet</a></code>
+- <code title="get /quickbooks-desktop/unit-of-measure-sets">conductor.qbd.unit_of_measure_sets.<a href="./src/conductor/resources/qbd/unit_of_measure_sets.py">list</a>(\*\*<a href="src/conductor/types/qbd/unit_of_measure_set_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/unit_of_measure_set_list_response.py">UnitOfMeasureSetListResponse</a></code>
+
 ## VendorCredits
 
 Types:
