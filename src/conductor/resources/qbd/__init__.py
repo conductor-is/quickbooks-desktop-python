@@ -376,6 +376,14 @@ from .deleted_transactions import (
     DeletedTransactionsResourceWithStreamingResponse,
     AsyncDeletedTransactionsResourceWithStreamingResponse,
 )
+from .unit_of_measure_sets import (
+    UnitOfMeasureSetsResource,
+    AsyncUnitOfMeasureSetsResource,
+    UnitOfMeasureSetsResourceWithRawResponse,
+    AsyncUnitOfMeasureSetsResourceWithRawResponse,
+    UnitOfMeasureSetsResourceWithStreamingResponse,
+    AsyncUnitOfMeasureSetsResourceWithStreamingResponse,
+)
 from .inventory_adjustments import (
     InventoryAdjustmentsResource,
     AsyncInventoryAdjustmentsResource,
@@ -712,6 +720,12 @@ __all__ = [
     "AsyncTransfersResourceWithRawResponse",
     "TransfersResourceWithStreamingResponse",
     "AsyncTransfersResourceWithStreamingResponse",
+    "UnitOfMeasureSetsResource",
+    "AsyncUnitOfMeasureSetsResource",
+    "UnitOfMeasureSetsResourceWithRawResponse",
+    "AsyncUnitOfMeasureSetsResourceWithRawResponse",
+    "UnitOfMeasureSetsResourceWithStreamingResponse",
+    "AsyncUnitOfMeasureSetsResourceWithStreamingResponse",
     "VendorCreditsResource",
     "AsyncVendorCreditsResource",
     "VendorCreditsResourceWithRawResponse",
