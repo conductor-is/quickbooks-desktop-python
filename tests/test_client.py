@@ -37,7 +37,7 @@ from conductor._base_client import (
 from .utils import update_env
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
-api_key = "My API Key"
+api_key = "sk_conductor_..."
 
 
 def _get_params(client: BaseClient[Any, Any]) -> dict[str, str]:
@@ -77,9 +77,9 @@ class TestConductor:
         copied = self.client.copy()
         assert id(copied) != id(self.client)
 
-        copied = self.client.copy(api_key="another My API Key")
-        assert copied.api_key == "another My API Key"
-        assert self.client.api_key == "My API Key"
+        copied = self.client.copy(api_key="another sk_conductor_...")
+        assert copied.api_key == "another sk_conductor_..."
+        assert self.client.api_key == "sk_conductor_..."
 
     def test_copy_default_options(self) -> None:
         # options that have a default are overridden correctly
@@ -863,9 +863,9 @@ class TestAsyncConductor:
         copied = self.client.copy()
         assert id(copied) != id(self.client)
 
-        copied = self.client.copy(api_key="another My API Key")
-        assert copied.api_key == "another My API Key"
-        assert self.client.api_key == "My API Key"
+        copied = self.client.copy(api_key="another sk_conductor_...")
+        assert copied.api_key == "another sk_conductor_..."
+        assert self.client.api_key == "sk_conductor_..."
 
     def test_copy_default_options(self) -> None:
         # options that have a default are overridden correctly
