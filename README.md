@@ -65,11 +65,11 @@ The full API of this library can be found with code samples at [docs.conductor.i
 import os
 from conductor import Conductor
 
-client = Conductor(
+conductor = Conductor(
     api_key=os.environ.get("CONDUCTOR_SECRET_KEY"),  # This is the default and can be omitted
 )
 
-page = client.qbd.invoices.list(
+page = conductor.qbd.invoices.list(
     conductor_end_user_id="YOUR_END_USER_ID",
 )
 print(page.data)
@@ -89,13 +89,13 @@ import os
 import asyncio
 from conductor import AsyncConductor
 
-client = AsyncConductor(
+conductor = AsyncConductor(
     api_key=os.environ.get("CONDUCTOR_SECRET_KEY"),  # This is the default and can be omitted
 )
 
 
 async def main() -> None:
-    page = await client.qbd.invoices.list(
+    page = await conductor.qbd.invoices.list(
         conductor_end_user_id="YOUR_END_USER_ID",
     )
     print(page.data)
@@ -129,8 +129,8 @@ async def main() -> None:
     async with AsyncConductor(
         api_key="sk_conductor_...",
         http_client=DefaultAioHttpClient(),
-    ) as client:
-        page = await client.qbd.invoices.list(
+    ) as conductor:
+        page = await conductor.qbd.invoices.list(
             conductor_end_user_id="YOUR_END_USER_ID",
         )
         print(page.data)
@@ -157,11 +157,11 @@ This library provides auto-paginating iterators with each list response, so you 
 ```python
 from conductor import Conductor
 
-client = Conductor()
+conductor = Conductor()
 
 all_invoices = []
 # Automatically fetches more pages as needed.
-for invoice in client.qbd.invoices.list(
+for invoice in conductor.qbd.invoices.list(
     conductor_end_user_id="YOUR_END_USER_ID",
 ):
     # Do something with invoice here
@@ -175,13 +175,13 @@ Or, asynchronously:
 import asyncio
 from conductor import AsyncConductor
 
-client = AsyncConductor()
+conductor = AsyncConductor()
 
 
 async def main() -> None:
     all_invoices = []
     # Iterate through items across all pages, issuing requests as needed.
-    async for invoice in client.qbd.invoices.list(
+    async for invoice in conductor.qbd.invoices.list(
         conductor_end_user_id="YOUR_END_USER_ID",
     ):
         all_invoices.append(invoice)
@@ -194,7 +194,7 @@ asyncio.run(main())
 Alternatively, you can use the `.has_next_page()`, `.next_page_info()`, or `.get_next_page()` methods for more granular control working with pages:
 
 ```python
-first_page = await client.qbd.invoices.list(
+first_page = await conductor.qbd.invoices.list(
     conductor_end_user_id="YOUR_END_USER_ID",
 )
 if first_page.has_next_page():
@@ -208,7 +208,7 @@ if first_page.has_next_page():
 Or just work directly with the returned data:
 
 ```python
-first_page = await client.qbd.invoices.list(
+first_page = await conductor.qbd.invoices.list(
     conductor_end_user_id="YOUR_END_USER_ID",
 )
 
@@ -228,9 +228,9 @@ Nested parameters are dictionaries, typed using `TypedDict`, for example:
 ```python
 from conductor import Conductor
 
-client = Conductor()
+conductor = Conductor()
 
-bill = client.qbd.bills.create(
+bill = conductor.qbd.bills.create(
     transaction_date=date.fromisoformat("2021-10-01"),
     vendor_id="80000001-1234567890",
     conductor_end_user_id="end_usr_1234567abcdefg",
@@ -252,10 +252,10 @@ All errors inherit from `conductor.APIError`.
 import conductor
 from conductor import Conductor
 
-client = Conductor()
+conductor = Conductor()
 
 try:
-    client.qbd.invoices.list(
+    conductor.qbd.invoices.list(
         conductor_end_user_id="YOUR_END_USER_ID",
     )
 except conductor.APIConnectionError as e:
@@ -294,13 +294,13 @@ You can use the `max_retries` option to configure or disable retry settings:
 from conductor import Conductor
 
 # Configure the default for all requests:
-client = Conductor(
+conductor = Conductor(
     # default is 2
     max_retries=0,
 )
 
 # Or, configure per-request:
-client.with_options(max_retries=5).qbd.invoices.list(
+conductor.with_options(max_retries=5).qbd.invoices.list(
     conductor_end_user_id="YOUR_END_USER_ID",
 )
 ```
@@ -314,18 +314,18 @@ which accepts a float or an [`httpx.Timeout`](https://www.python-httpx.org/advan
 from conductor import Conductor
 
 # Configure the default for all requests:
-client = Conductor(
+conductor = Conductor(
     # 20 seconds (default is 2 minutes)
     timeout=20.0,
 )
 
 # More granular control:
-client = Conductor(
+conductor = Conductor(
     timeout=httpx.Timeout(60.0, read=5.0, write=10.0, connect=2.0),
 )
 
 # Override per-request:
-client.with_options(timeout=5.0).qbd.invoices.list(
+conductor.with_options(timeout=5.0).qbd.invoices.list(
     conductor_end_user_id="YOUR_END_USER_ID",
 )
 ```
@@ -367,8 +367,8 @@ The "raw" Response object can be accessed by prefixing `.with_raw_response.` to 
 ```py
 from conductor import Conductor
 
-client = Conductor()
-response = client.qbd.invoices.with_raw_response.list(
+conductor = Conductor()
+response = conductor.qbd.invoices.with_raw_response.list(
     conductor_end_user_id="YOUR_END_USER_ID",
 )
 print(response.headers.get('X-My-Header'))
@@ -388,7 +388,7 @@ The above interface eagerly reads the full response body when you make the reque
 To stream the response body, use `.with_streaming_response` instead, which requires a context manager and only reads the response body once you call `.read()`, `.text()`, `.json()`, `.iter_bytes()`, `.iter_text()`, `.iter_lines()` or `.parse()`. In the async client, these are async methods.
 
 ```python
-with client.qbd.invoices.with_streaming_response.list(
+with conductor.qbd.invoices.with_streaming_response.list(
     conductor_end_user_id="YOUR_END_USER_ID",
 ) as response:
     print(response.headers.get("X-My-Header"))
@@ -407,13 +407,13 @@ If you need to access undocumented endpoints, params, or response properties, th
 
 #### Undocumented endpoints
 
-To make requests to undocumented endpoints, you can make requests using `client.get`, `client.post`, and other
+To make requests to undocumented endpoints, you can make requests using `conductor.get`, `conductor.post`, and other
 http verbs. Options on the client will be respected (such as retries) when making this request.
 
 ```py
 import httpx
 
-response = client.post(
+response = conductor.post(
     "/foo",
     cast_to=httpx.Response,
     body={"my_param": True},
@@ -445,7 +445,7 @@ You can directly override the [httpx client](https://www.python-httpx.org/api/#c
 import httpx
 from conductor import Conductor, DefaultHttpxClient
 
-client = Conductor(
+conductor = Conductor(
     # Or use the `CONDUCTOR_BASE_URL` env var
     base_url="http://my.test.server.example.com:8083",
     http_client=DefaultHttpxClient(
@@ -458,7 +458,7 @@ client = Conductor(
 You can also customize the client on a per-request basis by using `with_options()`:
 
 ```python
-client.with_options(http_client=DefaultHttpxClient(...))
+conductor.with_options(http_client=DefaultHttpxClient(...))
 ```
 
 ### Managing HTTP resources
@@ -468,7 +468,7 @@ By default the library closes underlying HTTP connections whenever the client is
 ```py
 from conductor import Conductor
 
-with Conductor() as client:
+with Conductor() as conductor:
   # make requests here
   ...
 
