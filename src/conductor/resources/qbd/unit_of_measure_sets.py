@@ -196,8 +196,11 @@ class UnitOfMeasureSetsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> UnitOfMeasureSetListResponse:
-        """
-        Lists all unit-of-measure sets.
+        """Lists all unit-of-measure sets.
+
+        NOTE: QuickBooks Desktop does not support
+        pagination for unit-of-measure sets; hence, there is no cursor parameter. Users
+        typically have few unit-of-measure sets.
 
         NOTE: The QuickBooks company file must have unit-of-measure enabled (either a
         single unit per item or multiple units per item).
@@ -477,8 +480,11 @@ class AsyncUnitOfMeasureSetsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> UnitOfMeasureSetListResponse:
-        """
-        Lists all unit-of-measure sets.
+        """Lists all unit-of-measure sets.
+
+        NOTE: QuickBooks Desktop does not support
+        pagination for unit-of-measure sets; hence, there is no cursor parameter. Users
+        typically have few unit-of-measure sets.
 
         NOTE: The QuickBooks company file must have unit-of-measure enabled (either a
         single unit per item or multiple units per item).
