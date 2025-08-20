@@ -23,7 +23,7 @@ class TestChecks:
     def test_method_create(self, client: Conductor) -> None:
         check = client.qbd.checks.create(
             bank_account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(Check, check, path=["response"])
@@ -32,7 +32,7 @@ class TestChecks:
     def test_method_create_with_all_params(self, client: Conductor) -> None:
         check = client.qbd.checks.create(
             bank_account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
             address={
                 "city": "San Francisco",
@@ -133,7 +133,7 @@ class TestChecks:
     def test_raw_response_create(self, client: Conductor) -> None:
         response = client.qbd.checks.with_raw_response.create(
             bank_account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -146,7 +146,7 @@ class TestChecks:
     def test_streaming_response_create(self, client: Conductor) -> None:
         with client.qbd.checks.with_streaming_response.create(
             bank_account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -309,7 +309,7 @@ class TestChecks:
             payee_id="80000001-1234567890",
             ref_number="CHECK-1234",
             sales_tax_code_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
         )
         assert_matches_type(Check, check, path=["response"])
 
@@ -375,10 +375,10 @@ class TestChecks:
             ref_numbers=["CHECK-1234"],
             ref_number_starts_with="CHECK",
             ref_number_to="CHECK-9999",
-            transaction_date_from=parse_date("2021-01-01"),
-            transaction_date_to=parse_date("2021-02-01"),
-            updated_after="2021-01-01T12:34:56",
-            updated_before="2021-02-01T12:34:56",
+            transaction_date_from=parse_date("2024-01-01"),
+            transaction_date_to=parse_date("2024-02-01"),
+            updated_after="2024-01-01T12:34:56",
+            updated_before="2024-02-01T12:34:56",
         )
         assert_matches_type(SyncCursorPage[Check], check, path=["response"])
 
@@ -458,7 +458,7 @@ class TestAsyncChecks:
     async def test_method_create(self, async_client: AsyncConductor) -> None:
         check = await async_client.qbd.checks.create(
             bank_account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(Check, check, path=["response"])
@@ -467,7 +467,7 @@ class TestAsyncChecks:
     async def test_method_create_with_all_params(self, async_client: AsyncConductor) -> None:
         check = await async_client.qbd.checks.create(
             bank_account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
             address={
                 "city": "San Francisco",
@@ -568,7 +568,7 @@ class TestAsyncChecks:
     async def test_raw_response_create(self, async_client: AsyncConductor) -> None:
         response = await async_client.qbd.checks.with_raw_response.create(
             bank_account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -581,7 +581,7 @@ class TestAsyncChecks:
     async def test_streaming_response_create(self, async_client: AsyncConductor) -> None:
         async with async_client.qbd.checks.with_streaming_response.create(
             bank_account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -744,7 +744,7 @@ class TestAsyncChecks:
             payee_id="80000001-1234567890",
             ref_number="CHECK-1234",
             sales_tax_code_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
         )
         assert_matches_type(Check, check, path=["response"])
 
@@ -810,10 +810,10 @@ class TestAsyncChecks:
             ref_numbers=["CHECK-1234"],
             ref_number_starts_with="CHECK",
             ref_number_to="CHECK-9999",
-            transaction_date_from=parse_date("2021-01-01"),
-            transaction_date_to=parse_date("2021-02-01"),
-            updated_after="2021-01-01T12:34:56",
-            updated_before="2021-02-01T12:34:56",
+            transaction_date_from=parse_date("2024-01-01"),
+            transaction_date_to=parse_date("2024-02-01"),
+            updated_after="2024-01-01T12:34:56",
+            updated_before="2024-02-01T12:34:56",
         )
         assert_matches_type(AsyncCursorPage[Check], check, path=["response"])
 

@@ -26,7 +26,7 @@ class TestCreditMemos:
     def test_method_create(self, client: Conductor) -> None:
         credit_memo = client.qbd.credit_memos.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(CreditMemo, credit_memo, path=["response"])
@@ -35,7 +35,7 @@ class TestCreditMemos:
     def test_method_create_with_all_params(self, client: Conductor) -> None:
         credit_memo = client.qbd.credit_memos.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
             billing_address={
                 "city": "San Francisco",
@@ -52,7 +52,7 @@ class TestCreditMemos:
             class_id="80000001-1234567890",
             customer_message_id="80000001-1234567890",
             document_template_id="80000001-1234567890",
-            due_date=parse_date("2021-10-31"),
+            due_date=parse_date("2024-10-31"),
             exchange_rate=1.2345,
             external_id="12345678-abcd-1234-abcd-1234567890ab",
             is_pending=False,
@@ -124,7 +124,7 @@ class TestCreditMemos:
                 "postal_code": "94110",
                 "state": "CA",
             },
-            shipping_date=parse_date("2021-10-01"),
+            shipping_date=parse_date("2024-10-01"),
             shipping_method_id="80000001-1234567890",
             terms_id="80000001-1234567890",
         )
@@ -134,7 +134,7 @@ class TestCreditMemos:
     def test_raw_response_create(self, client: Conductor) -> None:
         response = client.qbd.credit_memos.with_raw_response.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -147,7 +147,7 @@ class TestCreditMemos:
     def test_streaming_response_create(self, client: Conductor) -> None:
         with client.qbd.credit_memos.with_streaming_response.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -231,7 +231,7 @@ class TestCreditMemos:
             customer_id="80000001-1234567890",
             customer_message_id="80000001-1234567890",
             document_template_id="80000001-1234567890",
-            due_date=parse_date("2021-10-31"),
+            due_date=parse_date("2024-10-31"),
             exchange_rate=1.2345,
             is_pending=False,
             is_queued_for_email=True,
@@ -314,10 +314,10 @@ class TestCreditMemos:
                 "postal_code": "94110",
                 "state": "CA",
             },
-            shipping_date=parse_date("2021-10-01"),
+            shipping_date=parse_date("2024-10-01"),
             shipping_method_id="80000001-1234567890",
             terms_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
         )
         assert_matches_type(CreditMemo, credit_memo, path=["response"])
 
@@ -383,10 +383,10 @@ class TestCreditMemos:
             ref_numbers=["CREDIT MEMO-1234"],
             ref_number_starts_with="CM",
             ref_number_to="CM-9999",
-            transaction_date_from=parse_date("2021-01-01"),
-            transaction_date_to=parse_date("2021-02-01"),
-            updated_after="2021-01-01T12:34:56",
-            updated_before="2021-02-01T12:34:56",
+            transaction_date_from=parse_date("2024-01-01"),
+            transaction_date_to=parse_date("2024-02-01"),
+            updated_after="2024-01-01T12:34:56",
+            updated_before="2024-02-01T12:34:56",
         )
         assert_matches_type(SyncCursorPage[CreditMemo], credit_memo, path=["response"])
 
@@ -466,7 +466,7 @@ class TestAsyncCreditMemos:
     async def test_method_create(self, async_client: AsyncConductor) -> None:
         credit_memo = await async_client.qbd.credit_memos.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(CreditMemo, credit_memo, path=["response"])
@@ -475,7 +475,7 @@ class TestAsyncCreditMemos:
     async def test_method_create_with_all_params(self, async_client: AsyncConductor) -> None:
         credit_memo = await async_client.qbd.credit_memos.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
             billing_address={
                 "city": "San Francisco",
@@ -492,7 +492,7 @@ class TestAsyncCreditMemos:
             class_id="80000001-1234567890",
             customer_message_id="80000001-1234567890",
             document_template_id="80000001-1234567890",
-            due_date=parse_date("2021-10-31"),
+            due_date=parse_date("2024-10-31"),
             exchange_rate=1.2345,
             external_id="12345678-abcd-1234-abcd-1234567890ab",
             is_pending=False,
@@ -564,7 +564,7 @@ class TestAsyncCreditMemos:
                 "postal_code": "94110",
                 "state": "CA",
             },
-            shipping_date=parse_date("2021-10-01"),
+            shipping_date=parse_date("2024-10-01"),
             shipping_method_id="80000001-1234567890",
             terms_id="80000001-1234567890",
         )
@@ -574,7 +574,7 @@ class TestAsyncCreditMemos:
     async def test_raw_response_create(self, async_client: AsyncConductor) -> None:
         response = await async_client.qbd.credit_memos.with_raw_response.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -587,7 +587,7 @@ class TestAsyncCreditMemos:
     async def test_streaming_response_create(self, async_client: AsyncConductor) -> None:
         async with async_client.qbd.credit_memos.with_streaming_response.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -671,7 +671,7 @@ class TestAsyncCreditMemos:
             customer_id="80000001-1234567890",
             customer_message_id="80000001-1234567890",
             document_template_id="80000001-1234567890",
-            due_date=parse_date("2021-10-31"),
+            due_date=parse_date("2024-10-31"),
             exchange_rate=1.2345,
             is_pending=False,
             is_queued_for_email=True,
@@ -754,10 +754,10 @@ class TestAsyncCreditMemos:
                 "postal_code": "94110",
                 "state": "CA",
             },
-            shipping_date=parse_date("2021-10-01"),
+            shipping_date=parse_date("2024-10-01"),
             shipping_method_id="80000001-1234567890",
             terms_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
         )
         assert_matches_type(CreditMemo, credit_memo, path=["response"])
 
@@ -823,10 +823,10 @@ class TestAsyncCreditMemos:
             ref_numbers=["CREDIT MEMO-1234"],
             ref_number_starts_with="CM",
             ref_number_to="CM-9999",
-            transaction_date_from=parse_date("2021-01-01"),
-            transaction_date_to=parse_date("2021-02-01"),
-            updated_after="2021-01-01T12:34:56",
-            updated_before="2021-02-01T12:34:56",
+            transaction_date_from=parse_date("2024-01-01"),
+            transaction_date_to=parse_date("2024-02-01"),
+            updated_after="2024-01-01T12:34:56",
+            updated_before="2024-02-01T12:34:56",
         )
         assert_matches_type(AsyncCursorPage[CreditMemo], credit_memo, path=["response"])
 

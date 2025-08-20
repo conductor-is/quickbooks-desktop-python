@@ -25,7 +25,7 @@ class TestItemReceipts:
     @parametrize
     def test_method_create(self, client: Conductor) -> None:
         item_receipt = client.qbd.item_receipts.create(
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             vendor_id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
@@ -34,7 +34,7 @@ class TestItemReceipts:
     @parametrize
     def test_method_create_with_all_params(self, client: Conductor) -> None:
         item_receipt = client.qbd.item_receipts.create(
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             vendor_id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
             exchange_rate=1.2345,
@@ -117,7 +117,7 @@ class TestItemReceipts:
     @parametrize
     def test_raw_response_create(self, client: Conductor) -> None:
         response = client.qbd.item_receipts.with_raw_response.create(
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             vendor_id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
@@ -130,7 +130,7 @@ class TestItemReceipts:
     @parametrize
     def test_streaming_response_create(self, client: Conductor) -> None:
         with client.qbd.item_receipts.with_streaming_response.create(
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             vendor_id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
@@ -274,7 +274,7 @@ class TestItemReceipts:
             payables_account_id="80000001-1234567890",
             ref_number="RECEIPT-1234",
             sales_tax_code_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             vendor_id="80000001-1234567890",
         )
         assert_matches_type(ItemReceipt, item_receipt, path=["response"])
@@ -340,10 +340,10 @@ class TestItemReceipts:
             ref_numbers=["ITEM RECEIPT-1234"],
             ref_number_starts_with="RECEIPT",
             ref_number_to="RECEIPT-9999",
-            transaction_date_from=parse_date("2021-01-01"),
-            transaction_date_to=parse_date("2021-02-01"),
-            updated_after="2021-01-01T12:34:56",
-            updated_before="2021-02-01T12:34:56",
+            transaction_date_from=parse_date("2024-01-01"),
+            transaction_date_to=parse_date("2024-02-01"),
+            updated_after="2024-01-01T12:34:56",
+            updated_before="2024-02-01T12:34:56",
             vendor_ids=["80000001-1234567890"],
         )
         assert_matches_type(SyncCursorPage[ItemReceipt], item_receipt, path=["response"])
@@ -423,7 +423,7 @@ class TestAsyncItemReceipts:
     @parametrize
     async def test_method_create(self, async_client: AsyncConductor) -> None:
         item_receipt = await async_client.qbd.item_receipts.create(
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             vendor_id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
@@ -432,7 +432,7 @@ class TestAsyncItemReceipts:
     @parametrize
     async def test_method_create_with_all_params(self, async_client: AsyncConductor) -> None:
         item_receipt = await async_client.qbd.item_receipts.create(
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             vendor_id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
             exchange_rate=1.2345,
@@ -515,7 +515,7 @@ class TestAsyncItemReceipts:
     @parametrize
     async def test_raw_response_create(self, async_client: AsyncConductor) -> None:
         response = await async_client.qbd.item_receipts.with_raw_response.create(
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             vendor_id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
@@ -528,7 +528,7 @@ class TestAsyncItemReceipts:
     @parametrize
     async def test_streaming_response_create(self, async_client: AsyncConductor) -> None:
         async with async_client.qbd.item_receipts.with_streaming_response.create(
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             vendor_id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
@@ -672,7 +672,7 @@ class TestAsyncItemReceipts:
             payables_account_id="80000001-1234567890",
             ref_number="RECEIPT-1234",
             sales_tax_code_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             vendor_id="80000001-1234567890",
         )
         assert_matches_type(ItemReceipt, item_receipt, path=["response"])
@@ -738,10 +738,10 @@ class TestAsyncItemReceipts:
             ref_numbers=["ITEM RECEIPT-1234"],
             ref_number_starts_with="RECEIPT",
             ref_number_to="RECEIPT-9999",
-            transaction_date_from=parse_date("2021-01-01"),
-            transaction_date_to=parse_date("2021-02-01"),
-            updated_after="2021-01-01T12:34:56",
-            updated_before="2021-02-01T12:34:56",
+            transaction_date_from=parse_date("2024-01-01"),
+            transaction_date_to=parse_date("2024-02-01"),
+            updated_after="2024-01-01T12:34:56",
+            updated_before="2024-02-01T12:34:56",
             vendor_ids=["80000001-1234567890"],
         )
         assert_matches_type(AsyncCursorPage[ItemReceipt], item_receipt, path=["response"])

@@ -26,7 +26,7 @@ class TestCreditCardCredits:
     def test_method_create(self, client: Conductor) -> None:
         credit_card_credit = client.qbd.credit_card_credits.create(
             account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(CreditCardCredit, credit_card_credit, path=["response"])
@@ -35,7 +35,7 @@ class TestCreditCardCredits:
     def test_method_create_with_all_params(self, client: Conductor) -> None:
         credit_card_credit = client.qbd.credit_card_credits.create(
             account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
             exchange_rate=1.2345,
             expense_lines=[
@@ -117,7 +117,7 @@ class TestCreditCardCredits:
     def test_raw_response_create(self, client: Conductor) -> None:
         response = client.qbd.credit_card_credits.with_raw_response.create(
             account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -130,7 +130,7 @@ class TestCreditCardCredits:
     def test_streaming_response_create(self, client: Conductor) -> None:
         with client.qbd.credit_card_credits.with_streaming_response.create(
             account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -274,7 +274,7 @@ class TestCreditCardCredits:
             payee_id="80000001-1234567890",
             ref_number="CREDIT-1234",
             sales_tax_code_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
         )
         assert_matches_type(CreditCardCredit, credit_card_credit, path=["response"])
 
@@ -339,10 +339,10 @@ class TestCreditCardCredits:
             ref_numbers=["CREDIT CARD CREDIT-1234"],
             ref_number_starts_with="CREDIT",
             ref_number_to="CREDIT-9999",
-            transaction_date_from=parse_date("2021-01-01"),
-            transaction_date_to=parse_date("2021-02-01"),
-            updated_after="2021-01-01T12:34:56",
-            updated_before="2021-02-01T12:34:56",
+            transaction_date_from=parse_date("2024-01-01"),
+            transaction_date_to=parse_date("2024-02-01"),
+            updated_after="2024-01-01T12:34:56",
+            updated_before="2024-02-01T12:34:56",
         )
         assert_matches_type(SyncCursorPage[CreditCardCredit], credit_card_credit, path=["response"])
 
@@ -422,7 +422,7 @@ class TestAsyncCreditCardCredits:
     async def test_method_create(self, async_client: AsyncConductor) -> None:
         credit_card_credit = await async_client.qbd.credit_card_credits.create(
             account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(CreditCardCredit, credit_card_credit, path=["response"])
@@ -431,7 +431,7 @@ class TestAsyncCreditCardCredits:
     async def test_method_create_with_all_params(self, async_client: AsyncConductor) -> None:
         credit_card_credit = await async_client.qbd.credit_card_credits.create(
             account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
             exchange_rate=1.2345,
             expense_lines=[
@@ -513,7 +513,7 @@ class TestAsyncCreditCardCredits:
     async def test_raw_response_create(self, async_client: AsyncConductor) -> None:
         response = await async_client.qbd.credit_card_credits.with_raw_response.create(
             account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -526,7 +526,7 @@ class TestAsyncCreditCardCredits:
     async def test_streaming_response_create(self, async_client: AsyncConductor) -> None:
         async with async_client.qbd.credit_card_credits.with_streaming_response.create(
             account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -670,7 +670,7 @@ class TestAsyncCreditCardCredits:
             payee_id="80000001-1234567890",
             ref_number="CREDIT-1234",
             sales_tax_code_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
         )
         assert_matches_type(CreditCardCredit, credit_card_credit, path=["response"])
 
@@ -735,10 +735,10 @@ class TestAsyncCreditCardCredits:
             ref_numbers=["CREDIT CARD CREDIT-1234"],
             ref_number_starts_with="CREDIT",
             ref_number_to="CREDIT-9999",
-            transaction_date_from=parse_date("2021-01-01"),
-            transaction_date_to=parse_date("2021-02-01"),
-            updated_after="2021-01-01T12:34:56",
-            updated_before="2021-02-01T12:34:56",
+            transaction_date_from=parse_date("2024-01-01"),
+            transaction_date_to=parse_date("2024-02-01"),
+            updated_after="2024-01-01T12:34:56",
+            updated_before="2024-02-01T12:34:56",
         )
         assert_matches_type(AsyncCursorPage[CreditCardCredit], credit_card_credit, path=["response"])
 

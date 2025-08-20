@@ -231,7 +231,7 @@ from conductor import Conductor
 conductor = Conductor()
 
 bill = conductor.qbd.bills.create(
-    transaction_date=date.fromisoformat("2021-10-01"),
+    transaction_date=date.fromisoformat("2024-10-01"),
     vendor_id="80000001-1234567890",
     conductor_end_user_id="end_usr_1234567abcdefg",
     vendor_address={},

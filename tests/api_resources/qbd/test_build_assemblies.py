@@ -27,7 +27,7 @@ class TestBuildAssemblies:
         build_assembly = client.qbd.build_assemblies.create(
             inventory_assembly_item_id="80000001-1234567890",
             quantity_to_build=7,
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(BuildAssembly, build_assembly, path=["response"])
@@ -37,7 +37,7 @@ class TestBuildAssemblies:
         build_assembly = client.qbd.build_assemblies.create(
             inventory_assembly_item_id="80000001-1234567890",
             quantity_to_build=7,
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
             expiration_date=parse_date("2025-12-31"),
             external_id="12345678-abcd-1234-abcd-1234567890ab",
@@ -56,7 +56,7 @@ class TestBuildAssemblies:
         response = client.qbd.build_assemblies.with_raw_response.create(
             inventory_assembly_item_id="80000001-1234567890",
             quantity_to_build=7,
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -70,7 +70,7 @@ class TestBuildAssemblies:
         with client.qbd.build_assemblies.with_streaming_response.create(
             inventory_assembly_item_id="80000001-1234567890",
             quantity_to_build=7,
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -148,7 +148,7 @@ class TestBuildAssemblies:
             ref_number="BUILD-1234",
             remove_pending=True,
             serial_number="SN1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
         )
         assert_matches_type(BuildAssembly, build_assembly, path=["response"])
 
@@ -212,10 +212,10 @@ class TestBuildAssemblies:
             ref_numbers=["BUILD ASSEMBLY-1234"],
             ref_number_starts_with="BUILD",
             ref_number_to="BUILD-9999",
-            transaction_date_from=parse_date("2021-01-01"),
-            transaction_date_to=parse_date("2021-02-01"),
-            updated_after="2021-01-01T12:34:56",
-            updated_before="2021-02-01T12:34:56",
+            transaction_date_from=parse_date("2024-01-01"),
+            transaction_date_to=parse_date("2024-02-01"),
+            updated_after="2024-01-01T12:34:56",
+            updated_before="2024-02-01T12:34:56",
         )
         assert_matches_type(SyncCursorPage[BuildAssembly], build_assembly, path=["response"])
 
@@ -296,7 +296,7 @@ class TestAsyncBuildAssemblies:
         build_assembly = await async_client.qbd.build_assemblies.create(
             inventory_assembly_item_id="80000001-1234567890",
             quantity_to_build=7,
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(BuildAssembly, build_assembly, path=["response"])
@@ -306,7 +306,7 @@ class TestAsyncBuildAssemblies:
         build_assembly = await async_client.qbd.build_assemblies.create(
             inventory_assembly_item_id="80000001-1234567890",
             quantity_to_build=7,
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
             expiration_date=parse_date("2025-12-31"),
             external_id="12345678-abcd-1234-abcd-1234567890ab",
@@ -325,7 +325,7 @@ class TestAsyncBuildAssemblies:
         response = await async_client.qbd.build_assemblies.with_raw_response.create(
             inventory_assembly_item_id="80000001-1234567890",
             quantity_to_build=7,
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -339,7 +339,7 @@ class TestAsyncBuildAssemblies:
         async with async_client.qbd.build_assemblies.with_streaming_response.create(
             inventory_assembly_item_id="80000001-1234567890",
             quantity_to_build=7,
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -417,7 +417,7 @@ class TestAsyncBuildAssemblies:
             ref_number="BUILD-1234",
             remove_pending=True,
             serial_number="SN1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
         )
         assert_matches_type(BuildAssembly, build_assembly, path=["response"])
 
@@ -481,10 +481,10 @@ class TestAsyncBuildAssemblies:
             ref_numbers=["BUILD ASSEMBLY-1234"],
             ref_number_starts_with="BUILD",
             ref_number_to="BUILD-9999",
-            transaction_date_from=parse_date("2021-01-01"),
-            transaction_date_to=parse_date("2021-02-01"),
-            updated_after="2021-01-01T12:34:56",
-            updated_before="2021-02-01T12:34:56",
+            transaction_date_from=parse_date("2024-01-01"),
+            transaction_date_to=parse_date("2024-02-01"),
+            updated_after="2024-01-01T12:34:56",
+            updated_before="2024-02-01T12:34:56",
         )
         assert_matches_type(AsyncCursorPage[BuildAssembly], build_assembly, path=["response"])
 

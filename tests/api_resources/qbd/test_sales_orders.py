@@ -26,7 +26,7 @@ class TestSalesOrders:
     def test_method_create(self, client: Conductor) -> None:
         sales_order = client.qbd.sales_orders.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(SalesOrder, sales_order, path=["response"])
@@ -35,7 +35,7 @@ class TestSalesOrders:
     def test_method_create_with_all_params(self, client: Conductor) -> None:
         sales_order = client.qbd.sales_orders.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
             billing_address={
                 "city": "San Francisco",
@@ -52,7 +52,7 @@ class TestSalesOrders:
             class_id="80000001-1234567890",
             customer_message_id="80000001-1234567890",
             document_template_id="80000001-1234567890",
-            due_date=parse_date("2021-10-31"),
+            due_date=parse_date("2024-10-31"),
             exchange_rate=1.2345,
             external_id="12345678-abcd-1234-abcd-1234567890ab",
             is_manually_closed=True,
@@ -126,7 +126,7 @@ class TestSalesOrders:
                 "postal_code": "94110",
                 "state": "CA",
             },
-            shipping_date=parse_date("2021-10-01"),
+            shipping_date=parse_date("2024-10-01"),
             shipping_method_id="80000001-1234567890",
             terms_id="80000001-1234567890",
         )
@@ -136,7 +136,7 @@ class TestSalesOrders:
     def test_raw_response_create(self, client: Conductor) -> None:
         response = client.qbd.sales_orders.with_raw_response.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -149,7 +149,7 @@ class TestSalesOrders:
     def test_streaming_response_create(self, client: Conductor) -> None:
         with client.qbd.sales_orders.with_streaming_response.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -233,7 +233,7 @@ class TestSalesOrders:
             customer_id="80000001-1234567890",
             customer_message_id="80000001-1234567890",
             document_template_id="80000001-1234567890",
-            due_date=parse_date("2021-10-31"),
+            due_date=parse_date("2024-10-31"),
             exchange_rate=1.2345,
             is_manually_closed=True,
             is_queued_for_email=True,
@@ -318,10 +318,10 @@ class TestSalesOrders:
                 "postal_code": "94110",
                 "state": "CA",
             },
-            shipping_date=parse_date("2021-10-01"),
+            shipping_date=parse_date("2024-10-01"),
             shipping_method_id="80000001-1234567890",
             terms_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
         )
         assert_matches_type(SalesOrder, sales_order, path=["response"])
 
@@ -386,10 +386,10 @@ class TestSalesOrders:
             ref_numbers=["SALES ORDER-1234"],
             ref_number_starts_with="SO",
             ref_number_to="SO-9999",
-            transaction_date_from=parse_date("2021-01-01"),
-            transaction_date_to=parse_date("2021-02-01"),
-            updated_after="2021-01-01T12:34:56",
-            updated_before="2021-02-01T12:34:56",
+            transaction_date_from=parse_date("2024-01-01"),
+            transaction_date_to=parse_date("2024-02-01"),
+            updated_after="2024-01-01T12:34:56",
+            updated_before="2024-02-01T12:34:56",
         )
         assert_matches_type(SyncCursorPage[SalesOrder], sales_order, path=["response"])
 
@@ -469,7 +469,7 @@ class TestAsyncSalesOrders:
     async def test_method_create(self, async_client: AsyncConductor) -> None:
         sales_order = await async_client.qbd.sales_orders.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(SalesOrder, sales_order, path=["response"])
@@ -478,7 +478,7 @@ class TestAsyncSalesOrders:
     async def test_method_create_with_all_params(self, async_client: AsyncConductor) -> None:
         sales_order = await async_client.qbd.sales_orders.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
             billing_address={
                 "city": "San Francisco",
@@ -495,7 +495,7 @@ class TestAsyncSalesOrders:
             class_id="80000001-1234567890",
             customer_message_id="80000001-1234567890",
             document_template_id="80000001-1234567890",
-            due_date=parse_date("2021-10-31"),
+            due_date=parse_date("2024-10-31"),
             exchange_rate=1.2345,
             external_id="12345678-abcd-1234-abcd-1234567890ab",
             is_manually_closed=True,
@@ -569,7 +569,7 @@ class TestAsyncSalesOrders:
                 "postal_code": "94110",
                 "state": "CA",
             },
-            shipping_date=parse_date("2021-10-01"),
+            shipping_date=parse_date("2024-10-01"),
             shipping_method_id="80000001-1234567890",
             terms_id="80000001-1234567890",
         )
@@ -579,7 +579,7 @@ class TestAsyncSalesOrders:
     async def test_raw_response_create(self, async_client: AsyncConductor) -> None:
         response = await async_client.qbd.sales_orders.with_raw_response.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -592,7 +592,7 @@ class TestAsyncSalesOrders:
     async def test_streaming_response_create(self, async_client: AsyncConductor) -> None:
         async with async_client.qbd.sales_orders.with_streaming_response.create(
             customer_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -676,7 +676,7 @@ class TestAsyncSalesOrders:
             customer_id="80000001-1234567890",
             customer_message_id="80000001-1234567890",
             document_template_id="80000001-1234567890",
-            due_date=parse_date("2021-10-31"),
+            due_date=parse_date("2024-10-31"),
             exchange_rate=1.2345,
             is_manually_closed=True,
             is_queued_for_email=True,
@@ -761,10 +761,10 @@ class TestAsyncSalesOrders:
                 "postal_code": "94110",
                 "state": "CA",
             },
-            shipping_date=parse_date("2021-10-01"),
+            shipping_date=parse_date("2024-10-01"),
             shipping_method_id="80000001-1234567890",
             terms_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
         )
         assert_matches_type(SalesOrder, sales_order, path=["response"])
 
@@ -829,10 +829,10 @@ class TestAsyncSalesOrders:
             ref_numbers=["SALES ORDER-1234"],
             ref_number_starts_with="SO",
             ref_number_to="SO-9999",
-            transaction_date_from=parse_date("2021-01-01"),
-            transaction_date_to=parse_date("2021-02-01"),
-            updated_after="2021-01-01T12:34:56",
-            updated_before="2021-02-01T12:34:56",
+            transaction_date_from=parse_date("2024-01-01"),
+            transaction_date_to=parse_date("2024-02-01"),
+            updated_after="2024-01-01T12:34:56",
+            updated_before="2024-02-01T12:34:56",
         )
         assert_matches_type(AsyncCursorPage[SalesOrder], sales_order, path=["response"])
 
