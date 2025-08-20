@@ -26,7 +26,7 @@ class TestInventoryAdjustments:
     def test_method_create(self, client: Conductor) -> None:
         inventory_adjustment = client.qbd.inventory_adjustments.create(
             account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(InventoryAdjustment, inventory_adjustment, path=["response"])
@@ -35,7 +35,7 @@ class TestInventoryAdjustments:
     def test_method_create_with_all_params(self, client: Conductor) -> None:
         inventory_adjustment = client.qbd.inventory_adjustments.create(
             account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
             class_id="80000001-1234567890",
             customer_id="80000001-1234567890",
@@ -81,7 +81,7 @@ class TestInventoryAdjustments:
     def test_raw_response_create(self, client: Conductor) -> None:
         response = client.qbd.inventory_adjustments.with_raw_response.create(
             account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -94,7 +94,7 @@ class TestInventoryAdjustments:
     def test_streaming_response_create(self, client: Conductor) -> None:
         with client.qbd.inventory_adjustments.with_streaming_response.create(
             account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -181,7 +181,7 @@ class TestInventoryAdjustments:
             ],
             memo="Adjusted quantity due to physical count discrepancy",
             ref_number="INVADJ-1234",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
         )
         assert_matches_type(InventoryAdjustment, inventory_adjustment, path=["response"])
 
@@ -245,10 +245,10 @@ class TestInventoryAdjustments:
             ref_numbers=["INVENTORY ADJUSTMENT-1234"],
             ref_number_starts_with="INVADJ",
             ref_number_to="INVADJ-9999",
-            transaction_date_from=parse_date("2021-01-01"),
-            transaction_date_to=parse_date("2021-02-01"),
-            updated_after="2021-01-01T12:34:56",
-            updated_before="2021-02-01T12:34:56",
+            transaction_date_from=parse_date("2024-01-01"),
+            transaction_date_to=parse_date("2024-02-01"),
+            updated_after="2024-01-01T12:34:56",
+            updated_before="2024-02-01T12:34:56",
         )
         assert_matches_type(InventoryAdjustmentListResponse, inventory_adjustment, path=["response"])
 
@@ -328,7 +328,7 @@ class TestAsyncInventoryAdjustments:
     async def test_method_create(self, async_client: AsyncConductor) -> None:
         inventory_adjustment = await async_client.qbd.inventory_adjustments.create(
             account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(InventoryAdjustment, inventory_adjustment, path=["response"])
@@ -337,7 +337,7 @@ class TestAsyncInventoryAdjustments:
     async def test_method_create_with_all_params(self, async_client: AsyncConductor) -> None:
         inventory_adjustment = await async_client.qbd.inventory_adjustments.create(
             account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
             class_id="80000001-1234567890",
             customer_id="80000001-1234567890",
@@ -383,7 +383,7 @@ class TestAsyncInventoryAdjustments:
     async def test_raw_response_create(self, async_client: AsyncConductor) -> None:
         response = await async_client.qbd.inventory_adjustments.with_raw_response.create(
             account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -396,7 +396,7 @@ class TestAsyncInventoryAdjustments:
     async def test_streaming_response_create(self, async_client: AsyncConductor) -> None:
         async with async_client.qbd.inventory_adjustments.with_streaming_response.create(
             account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -483,7 +483,7 @@ class TestAsyncInventoryAdjustments:
             ],
             memo="Adjusted quantity due to physical count discrepancy",
             ref_number="INVADJ-1234",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
         )
         assert_matches_type(InventoryAdjustment, inventory_adjustment, path=["response"])
 
@@ -547,10 +547,10 @@ class TestAsyncInventoryAdjustments:
             ref_numbers=["INVENTORY ADJUSTMENT-1234"],
             ref_number_starts_with="INVADJ",
             ref_number_to="INVADJ-9999",
-            transaction_date_from=parse_date("2021-01-01"),
-            transaction_date_to=parse_date("2021-02-01"),
-            updated_after="2021-01-01T12:34:56",
-            updated_before="2021-02-01T12:34:56",
+            transaction_date_from=parse_date("2024-01-01"),
+            transaction_date_to=parse_date("2024-02-01"),
+            updated_after="2024-01-01T12:34:56",
+            updated_before="2024-02-01T12:34:56",
         )
         assert_matches_type(InventoryAdjustmentListResponse, inventory_adjustment, path=["response"])
 

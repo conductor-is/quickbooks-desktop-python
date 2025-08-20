@@ -25,7 +25,7 @@ class TestSalesReceipts:
     @parametrize
     def test_method_create(self, client: Conductor) -> None:
         sales_receipt = client.qbd.sales_receipts.create(
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(SalesReceipt, sales_receipt, path=["response"])
@@ -33,7 +33,7 @@ class TestSalesReceipts:
     @parametrize
     def test_method_create_with_all_params(self, client: Conductor) -> None:
         sales_receipt = client.qbd.sales_receipts.create(
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
             billing_address={
                 "city": "San Francisco",
@@ -82,7 +82,7 @@ class TestSalesReceipts:
             customer_message_id="80000001-1234567890",
             deposit_to_account_id="80000001-1234567890",
             document_template_id="80000001-1234567890",
-            due_date=parse_date("2021-10-31"),
+            due_date=parse_date("2024-10-31"),
             exchange_rate=1.2345,
             external_id="12345678-abcd-1234-abcd-1234567890ab",
             is_pending=False,
@@ -183,7 +183,7 @@ class TestSalesReceipts:
                 "postal_code": "94110",
                 "state": "CA",
             },
-            shipping_date=parse_date("2021-10-01"),
+            shipping_date=parse_date("2024-10-01"),
             shipping_method_id="80000001-1234567890",
         )
         assert_matches_type(SalesReceipt, sales_receipt, path=["response"])
@@ -191,7 +191,7 @@ class TestSalesReceipts:
     @parametrize
     def test_raw_response_create(self, client: Conductor) -> None:
         response = client.qbd.sales_receipts.with_raw_response.create(
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -203,7 +203,7 @@ class TestSalesReceipts:
     @parametrize
     def test_streaming_response_create(self, client: Conductor) -> None:
         with client.qbd.sales_receipts.with_streaming_response.create(
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -289,7 +289,7 @@ class TestSalesReceipts:
             customer_message_id="80000001-1234567890",
             deposit_to_account_id="80000001-1234567890",
             document_template_id="80000001-1234567890",
-            due_date=parse_date("2021-10-31"),
+            due_date=parse_date("2024-10-31"),
             exchange_rate=1.2345,
             is_pending=False,
             is_queued_for_email=True,
@@ -373,9 +373,9 @@ class TestSalesReceipts:
                 "postal_code": "94110",
                 "state": "CA",
             },
-            shipping_date=parse_date("2021-10-01"),
+            shipping_date=parse_date("2024-10-01"),
             shipping_method_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
         )
         assert_matches_type(SalesReceipt, sales_receipt, path=["response"])
 
@@ -440,10 +440,10 @@ class TestSalesReceipts:
             ref_numbers=["SALES RECEIPT-1234"],
             ref_number_starts_with="RECEIPT",
             ref_number_to="RECEIPT-9999",
-            transaction_date_from=parse_date("2021-01-01"),
-            transaction_date_to=parse_date("2021-02-01"),
-            updated_after="2021-01-01T12:34:56",
-            updated_before="2021-02-01T12:34:56",
+            transaction_date_from=parse_date("2024-01-01"),
+            transaction_date_to=parse_date("2024-02-01"),
+            updated_after="2024-01-01T12:34:56",
+            updated_before="2024-02-01T12:34:56",
         )
         assert_matches_type(SyncCursorPage[SalesReceipt], sales_receipt, path=["response"])
 
@@ -522,7 +522,7 @@ class TestAsyncSalesReceipts:
     @parametrize
     async def test_method_create(self, async_client: AsyncConductor) -> None:
         sales_receipt = await async_client.qbd.sales_receipts.create(
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(SalesReceipt, sales_receipt, path=["response"])
@@ -530,7 +530,7 @@ class TestAsyncSalesReceipts:
     @parametrize
     async def test_method_create_with_all_params(self, async_client: AsyncConductor) -> None:
         sales_receipt = await async_client.qbd.sales_receipts.create(
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
             billing_address={
                 "city": "San Francisco",
@@ -579,7 +579,7 @@ class TestAsyncSalesReceipts:
             customer_message_id="80000001-1234567890",
             deposit_to_account_id="80000001-1234567890",
             document_template_id="80000001-1234567890",
-            due_date=parse_date("2021-10-31"),
+            due_date=parse_date("2024-10-31"),
             exchange_rate=1.2345,
             external_id="12345678-abcd-1234-abcd-1234567890ab",
             is_pending=False,
@@ -680,7 +680,7 @@ class TestAsyncSalesReceipts:
                 "postal_code": "94110",
                 "state": "CA",
             },
-            shipping_date=parse_date("2021-10-01"),
+            shipping_date=parse_date("2024-10-01"),
             shipping_method_id="80000001-1234567890",
         )
         assert_matches_type(SalesReceipt, sales_receipt, path=["response"])
@@ -688,7 +688,7 @@ class TestAsyncSalesReceipts:
     @parametrize
     async def test_raw_response_create(self, async_client: AsyncConductor) -> None:
         response = await async_client.qbd.sales_receipts.with_raw_response.create(
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -700,7 +700,7 @@ class TestAsyncSalesReceipts:
     @parametrize
     async def test_streaming_response_create(self, async_client: AsyncConductor) -> None:
         async with async_client.qbd.sales_receipts.with_streaming_response.create(
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -786,7 +786,7 @@ class TestAsyncSalesReceipts:
             customer_message_id="80000001-1234567890",
             deposit_to_account_id="80000001-1234567890",
             document_template_id="80000001-1234567890",
-            due_date=parse_date("2021-10-31"),
+            due_date=parse_date("2024-10-31"),
             exchange_rate=1.2345,
             is_pending=False,
             is_queued_for_email=True,
@@ -870,9 +870,9 @@ class TestAsyncSalesReceipts:
                 "postal_code": "94110",
                 "state": "CA",
             },
-            shipping_date=parse_date("2021-10-01"),
+            shipping_date=parse_date("2024-10-01"),
             shipping_method_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
         )
         assert_matches_type(SalesReceipt, sales_receipt, path=["response"])
 
@@ -937,10 +937,10 @@ class TestAsyncSalesReceipts:
             ref_numbers=["SALES RECEIPT-1234"],
             ref_number_starts_with="RECEIPT",
             ref_number_to="RECEIPT-9999",
-            transaction_date_from=parse_date("2021-01-01"),
-            transaction_date_to=parse_date("2021-02-01"),
-            updated_after="2021-01-01T12:34:56",
-            updated_before="2021-02-01T12:34:56",
+            transaction_date_from=parse_date("2024-01-01"),
+            transaction_date_to=parse_date("2024-02-01"),
+            updated_after="2024-01-01T12:34:56",
+            updated_before="2024-02-01T12:34:56",
         )
         assert_matches_type(AsyncCursorPage[SalesReceipt], sales_receipt, path=["response"])
 

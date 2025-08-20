@@ -130,8 +130,8 @@ class TestPaymentMethods:
             name_to="Z",
             payment_method_type="cash",
             status="active",
-            updated_after="2021-01-01T12:34:56",
-            updated_before="2021-02-01T12:34:56",
+            updated_after="2024-01-01T12:34:56",
+            updated_before="2024-02-01T12:34:56",
         )
         assert_matches_type(PaymentMethodListResponse, payment_method, path=["response"])
 
@@ -275,8 +275,8 @@ class TestAsyncPaymentMethods:
             name_to="Z",
             payment_method_type="cash",
             status="active",
-            updated_after="2021-01-01T12:34:56",
-            updated_before="2021-02-01T12:34:56",
+            updated_after="2024-01-01T12:34:56",
+            updated_before="2024-02-01T12:34:56",
         )
         assert_matches_type(PaymentMethodListResponse, payment_method, path=["response"])
 
