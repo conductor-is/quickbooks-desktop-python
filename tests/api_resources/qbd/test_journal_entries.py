@@ -25,7 +25,7 @@ class TestJournalEntries:
     @parametrize
     def test_method_create(self, client: Conductor) -> None:
         journal_entry = client.qbd.journal_entries.create(
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(JournalEntry, journal_entry, path=["response"])
@@ -33,7 +33,7 @@ class TestJournalEntries:
     @parametrize
     def test_method_create_with_all_params(self, client: Conductor) -> None:
         journal_entry = client.qbd.journal_entries.create(
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
             are_amounts_entered_in_home_currency=False,
             credit_lines=[
@@ -70,7 +70,7 @@ class TestJournalEntries:
     @parametrize
     def test_raw_response_create(self, client: Conductor) -> None:
         response = client.qbd.journal_entries.with_raw_response.create(
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -82,7 +82,7 @@ class TestJournalEntries:
     @parametrize
     def test_streaming_response_create(self, client: Conductor) -> None:
         with client.qbd.journal_entries.with_streaming_response.create(
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -168,7 +168,7 @@ class TestJournalEntries:
                 }
             ],
             ref_number="JE-1234",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
         )
         assert_matches_type(JournalEntry, journal_entry, path=["response"])
 
@@ -233,10 +233,10 @@ class TestJournalEntries:
             ref_numbers=["JOURNAL ENTRY-1234"],
             ref_number_starts_with="JE",
             ref_number_to="JE-9999",
-            transaction_date_from=parse_date("2021-01-01"),
-            transaction_date_to=parse_date("2021-02-01"),
-            updated_after="2021-01-01T12:34:56",
-            updated_before="2021-02-01T12:34:56",
+            transaction_date_from=parse_date("2024-01-01"),
+            transaction_date_to=parse_date("2024-02-01"),
+            updated_after="2024-01-01T12:34:56",
+            updated_before="2024-02-01T12:34:56",
         )
         assert_matches_type(SyncCursorPage[JournalEntry], journal_entry, path=["response"])
 
@@ -315,7 +315,7 @@ class TestAsyncJournalEntries:
     @parametrize
     async def test_method_create(self, async_client: AsyncConductor) -> None:
         journal_entry = await async_client.qbd.journal_entries.create(
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(JournalEntry, journal_entry, path=["response"])
@@ -323,7 +323,7 @@ class TestAsyncJournalEntries:
     @parametrize
     async def test_method_create_with_all_params(self, async_client: AsyncConductor) -> None:
         journal_entry = await async_client.qbd.journal_entries.create(
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
             are_amounts_entered_in_home_currency=False,
             credit_lines=[
@@ -360,7 +360,7 @@ class TestAsyncJournalEntries:
     @parametrize
     async def test_raw_response_create(self, async_client: AsyncConductor) -> None:
         response = await async_client.qbd.journal_entries.with_raw_response.create(
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -372,7 +372,7 @@ class TestAsyncJournalEntries:
     @parametrize
     async def test_streaming_response_create(self, async_client: AsyncConductor) -> None:
         async with async_client.qbd.journal_entries.with_streaming_response.create(
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -458,7 +458,7 @@ class TestAsyncJournalEntries:
                 }
             ],
             ref_number="JE-1234",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
         )
         assert_matches_type(JournalEntry, journal_entry, path=["response"])
 
@@ -523,10 +523,10 @@ class TestAsyncJournalEntries:
             ref_numbers=["JOURNAL ENTRY-1234"],
             ref_number_starts_with="JE",
             ref_number_to="JE-9999",
-            transaction_date_from=parse_date("2021-01-01"),
-            transaction_date_to=parse_date("2021-02-01"),
-            updated_after="2021-01-01T12:34:56",
-            updated_before="2021-02-01T12:34:56",
+            transaction_date_from=parse_date("2024-01-01"),
+            transaction_date_to=parse_date("2024-02-01"),
+            updated_after="2024-01-01T12:34:56",
+            updated_before="2024-02-01T12:34:56",
         )
         assert_matches_type(AsyncCursorPage[JournalEntry], journal_entry, path=["response"])
 

@@ -25,7 +25,7 @@ class TestPurchaseOrders:
     @parametrize
     def test_method_create(self, client: Conductor) -> None:
         purchase_order = client.qbd.purchase_orders.create(
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(PurchaseOrder, purchase_order, path=["response"])
@@ -33,11 +33,11 @@ class TestPurchaseOrders:
     @parametrize
     def test_method_create_with_all_params(self, client: Conductor) -> None:
         purchase_order = client.qbd.purchase_orders.create(
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
             class_id="80000001-1234567890",
             document_template_id="80000001-1234567890",
-            due_date=parse_date("2021-10-31"),
+            due_date=parse_date("2024-10-31"),
             exchange_rate=1.2345,
             expected_date=parse_date("2024-01-01"),
             external_id="12345678-abcd-1234-abcd-1234567890ab",
@@ -126,7 +126,7 @@ class TestPurchaseOrders:
     @parametrize
     def test_raw_response_create(self, client: Conductor) -> None:
         response = client.qbd.purchase_orders.with_raw_response.create(
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -138,7 +138,7 @@ class TestPurchaseOrders:
     @parametrize
     def test_streaming_response_create(self, client: Conductor) -> None:
         with client.qbd.purchase_orders.with_streaming_response.create(
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -208,7 +208,7 @@ class TestPurchaseOrders:
             conductor_end_user_id="end_usr_1234567abcdefg",
             class_id="80000001-1234567890",
             document_template_id="80000001-1234567890",
-            due_date=parse_date("2021-10-31"),
+            due_date=parse_date("2024-10-31"),
             exchange_rate=1.2345,
             expected_date=parse_date("2024-01-01"),
             inventory_site_id="80000001-1234567890",
@@ -289,7 +289,7 @@ class TestPurchaseOrders:
             shipping_method_id="80000001-1234567890",
             ship_to_entity_id="80000001-1234567890",
             terms_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             vendor_address={
                 "city": "San Francisco",
                 "country": "United States",
@@ -368,10 +368,10 @@ class TestPurchaseOrders:
             ref_numbers=["PURCHASE ORDER-1234"],
             ref_number_starts_with="PO",
             ref_number_to="PO-9999",
-            transaction_date_from=parse_date("2021-01-01"),
-            transaction_date_to=parse_date("2021-02-01"),
-            updated_after="2021-01-01T12:34:56",
-            updated_before="2021-02-01T12:34:56",
+            transaction_date_from=parse_date("2024-01-01"),
+            transaction_date_to=parse_date("2024-02-01"),
+            updated_after="2024-01-01T12:34:56",
+            updated_before="2024-02-01T12:34:56",
             vendor_ids=["80000001-1234567890"],
         )
         assert_matches_type(SyncCursorPage[PurchaseOrder], purchase_order, path=["response"])
@@ -451,7 +451,7 @@ class TestAsyncPurchaseOrders:
     @parametrize
     async def test_method_create(self, async_client: AsyncConductor) -> None:
         purchase_order = await async_client.qbd.purchase_orders.create(
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(PurchaseOrder, purchase_order, path=["response"])
@@ -459,11 +459,11 @@ class TestAsyncPurchaseOrders:
     @parametrize
     async def test_method_create_with_all_params(self, async_client: AsyncConductor) -> None:
         purchase_order = await async_client.qbd.purchase_orders.create(
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
             class_id="80000001-1234567890",
             document_template_id="80000001-1234567890",
-            due_date=parse_date("2021-10-31"),
+            due_date=parse_date("2024-10-31"),
             exchange_rate=1.2345,
             expected_date=parse_date("2024-01-01"),
             external_id="12345678-abcd-1234-abcd-1234567890ab",
@@ -552,7 +552,7 @@ class TestAsyncPurchaseOrders:
     @parametrize
     async def test_raw_response_create(self, async_client: AsyncConductor) -> None:
         response = await async_client.qbd.purchase_orders.with_raw_response.create(
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -564,7 +564,7 @@ class TestAsyncPurchaseOrders:
     @parametrize
     async def test_streaming_response_create(self, async_client: AsyncConductor) -> None:
         async with async_client.qbd.purchase_orders.with_streaming_response.create(
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -634,7 +634,7 @@ class TestAsyncPurchaseOrders:
             conductor_end_user_id="end_usr_1234567abcdefg",
             class_id="80000001-1234567890",
             document_template_id="80000001-1234567890",
-            due_date=parse_date("2021-10-31"),
+            due_date=parse_date("2024-10-31"),
             exchange_rate=1.2345,
             expected_date=parse_date("2024-01-01"),
             inventory_site_id="80000001-1234567890",
@@ -715,7 +715,7 @@ class TestAsyncPurchaseOrders:
             shipping_method_id="80000001-1234567890",
             ship_to_entity_id="80000001-1234567890",
             terms_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             vendor_address={
                 "city": "San Francisco",
                 "country": "United States",
@@ -794,10 +794,10 @@ class TestAsyncPurchaseOrders:
             ref_numbers=["PURCHASE ORDER-1234"],
             ref_number_starts_with="PO",
             ref_number_to="PO-9999",
-            transaction_date_from=parse_date("2021-01-01"),
-            transaction_date_to=parse_date("2021-02-01"),
-            updated_after="2021-01-01T12:34:56",
-            updated_before="2021-02-01T12:34:56",
+            transaction_date_from=parse_date("2024-01-01"),
+            transaction_date_to=parse_date("2024-02-01"),
+            updated_after="2024-01-01T12:34:56",
+            updated_before="2024-02-01T12:34:56",
             vendor_ids=["80000001-1234567890"],
         )
         assert_matches_type(AsyncCursorPage[PurchaseOrder], purchase_order, path=["response"])

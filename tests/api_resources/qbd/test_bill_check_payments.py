@@ -27,7 +27,7 @@ class TestBillCheckPayments:
         bill_check_payment = client.qbd.bill_check_payments.create(
             apply_to_transactions=[{"transaction_id": "123ABC-1234567890"}],
             bank_account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             vendor_id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
@@ -53,7 +53,7 @@ class TestBillCheckPayments:
                 }
             ],
             bank_account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             vendor_id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
             exchange_rate=1.2345,
@@ -70,7 +70,7 @@ class TestBillCheckPayments:
         response = client.qbd.bill_check_payments.with_raw_response.create(
             apply_to_transactions=[{"transaction_id": "123ABC-1234567890"}],
             bank_account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             vendor_id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
@@ -85,7 +85,7 @@ class TestBillCheckPayments:
         with client.qbd.bill_check_payments.with_streaming_response.create(
             apply_to_transactions=[{"transaction_id": "123ABC-1234567890"}],
             bank_account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             vendor_id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
@@ -176,7 +176,7 @@ class TestBillCheckPayments:
             is_queued_for_print=True,
             memo="Payment for office supplies - Invoice INV-1234",
             ref_number="CHECK-1234",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
         )
         assert_matches_type(BillCheckPayment, bill_check_payment, path=["response"])
 
@@ -240,10 +240,10 @@ class TestBillCheckPayments:
             ref_numbers=["BILL CHECK PAYMENT-1234"],
             ref_number_starts_with="CHECK",
             ref_number_to="CHECK-9999",
-            transaction_date_from=parse_date("2021-01-01"),
-            transaction_date_to=parse_date("2021-02-01"),
-            updated_after="2021-01-01T12:34:56",
-            updated_before="2021-02-01T12:34:56",
+            transaction_date_from=parse_date("2024-01-01"),
+            transaction_date_to=parse_date("2024-02-01"),
+            updated_after="2024-01-01T12:34:56",
+            updated_before="2024-02-01T12:34:56",
             vendor_ids=["80000001-1234567890"],
         )
         assert_matches_type(SyncCursorPage[BillCheckPayment], bill_check_payment, path=["response"])
@@ -325,7 +325,7 @@ class TestAsyncBillCheckPayments:
         bill_check_payment = await async_client.qbd.bill_check_payments.create(
             apply_to_transactions=[{"transaction_id": "123ABC-1234567890"}],
             bank_account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             vendor_id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
@@ -351,7 +351,7 @@ class TestAsyncBillCheckPayments:
                 }
             ],
             bank_account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             vendor_id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
             exchange_rate=1.2345,
@@ -368,7 +368,7 @@ class TestAsyncBillCheckPayments:
         response = await async_client.qbd.bill_check_payments.with_raw_response.create(
             apply_to_transactions=[{"transaction_id": "123ABC-1234567890"}],
             bank_account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             vendor_id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
@@ -383,7 +383,7 @@ class TestAsyncBillCheckPayments:
         async with async_client.qbd.bill_check_payments.with_streaming_response.create(
             apply_to_transactions=[{"transaction_id": "123ABC-1234567890"}],
             bank_account_id="80000001-1234567890",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
             vendor_id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
@@ -474,7 +474,7 @@ class TestAsyncBillCheckPayments:
             is_queued_for_print=True,
             memo="Payment for office supplies - Invoice INV-1234",
             ref_number="CHECK-1234",
-            transaction_date=parse_date("2021-10-01"),
+            transaction_date=parse_date("2024-10-01"),
         )
         assert_matches_type(BillCheckPayment, bill_check_payment, path=["response"])
 
@@ -538,10 +538,10 @@ class TestAsyncBillCheckPayments:
             ref_numbers=["BILL CHECK PAYMENT-1234"],
             ref_number_starts_with="CHECK",
             ref_number_to="CHECK-9999",
-            transaction_date_from=parse_date("2021-01-01"),
-            transaction_date_to=parse_date("2021-02-01"),
-            updated_after="2021-01-01T12:34:56",
-            updated_before="2021-02-01T12:34:56",
+            transaction_date_from=parse_date("2024-01-01"),
+            transaction_date_to=parse_date("2024-02-01"),
+            updated_after="2024-01-01T12:34:56",
+            updated_before="2024-02-01T12:34:56",
             vendor_ids=["80000001-1234567890"],
         )
         assert_matches_type(AsyncCursorPage[BillCheckPayment], bill_check_payment, path=["response"])

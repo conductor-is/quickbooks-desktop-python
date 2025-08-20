@@ -158,8 +158,8 @@ class TestUnitOfMeasureSets:
             name_starts_with="ABC",
             name_to="Z",
             status="active",
-            updated_after="2021-01-01T12:34:56",
-            updated_before="2021-02-01T12:34:56",
+            updated_after="2024-01-01T12:34:56",
+            updated_before="2024-02-01T12:34:56",
         )
         assert_matches_type(UnitOfMeasureSetListResponse, unit_of_measure_set, path=["response"])
 
@@ -331,8 +331,8 @@ class TestAsyncUnitOfMeasureSets:
             name_starts_with="ABC",
             name_to="Z",
             status="active",
-            updated_after="2021-01-01T12:34:56",
-            updated_before="2021-02-01T12:34:56",
+            updated_after="2024-01-01T12:34:56",
+            updated_before="2024-02-01T12:34:56",
         )
         assert_matches_type(UnitOfMeasureSetListResponse, unit_of_measure_set, path=["response"])
 
