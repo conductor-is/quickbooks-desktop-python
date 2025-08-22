@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.55.1 (2025-08-22)
+
+Full Changelog: [v1.55.0...v1.55.1](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.55.0...v1.55.1)
+
+### Chores
+
+* update github action ([586afe5](https://github.com/conductor-is/quickbooks-desktop-python/commit/586afe546d7544d32d4be78fe4eed965d2150284))
+
 ## 1.55.0 (2025-08-20)
 
 Full Changelog: [v1.54.0...v1.55.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.54.0...v1.55.0)
