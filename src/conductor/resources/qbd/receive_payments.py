@@ -459,22 +459,22 @@ class ReceivePaymentsResource(SyncAPIResource):
           transaction_date_from: Filter for receive-payments whose `date` field is on or after this date, in ISO
               8601 format (YYYY-MM-DD).
 
-              **NOTE**: QuickBooks Desktop interprets date-only values in the QuickBooks
-              Desktop host machine’s local timezone (i.e., midnight in that timezone).
+              **NOTE**: QuickBooks Desktop interprets date-only values in the local timezone
+              of the end-user's computer (i.e., midnight in that timezone).
 
           transaction_date_to: Filter for receive-payments whose `date` field is on or before this date, in ISO
               8601 format (YYYY-MM-DD).
 
-              **NOTE**: QuickBooks Desktop interprets date-only values in the QuickBooks
-              Desktop host machine’s local timezone (i.e., midnight in that timezone).
+              **NOTE**: QuickBooks Desktop interprets date-only values in the local timezone
+              of the end-user's computer (i.e., midnight in that timezone).
 
           updated_after: Filter for receive-payments updated on or after this date/time. Accepts the
               following ISO 8601 formats:
 
               - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets this as midnight in
-                the host machine’s local timezone.
+                the local timezone of the end-user's computer.
               - **datetime without timezone** (YYYY-MM-DDTHH:mm:ss) - QuickBooks Desktop uses
-                the host machine’s local timezone to interpret the timestamp.
+                the local timezone of the end-user's computer to interpret the timestamp.
               - **datetime with timezone** (YYYY-MM-DDTHH:mm:ss±HH:mm) - QuickBooks Desktop
                 uses this timezone to interpret the timestamp.
 
@@ -482,9 +482,9 @@ class ReceivePaymentsResource(SyncAPIResource):
               following ISO 8601 formats:
 
               - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets this as midnight in
-                the host machine’s local timezone.
+                the local timezone of the end-user's computer.
               - **datetime without timezone** (YYYY-MM-DDTHH:mm:ss) - QuickBooks Desktop uses
-                the host machine’s local timezone to interpret the timestamp.
+                the local timezone of the end-user's computer to interpret the timestamp.
               - **datetime with timezone** (YYYY-MM-DDTHH:mm:ss±HH:mm) - QuickBooks Desktop
                 uses this timezone to interpret the timestamp.
 
@@ -1008,22 +1008,22 @@ class AsyncReceivePaymentsResource(AsyncAPIResource):
           transaction_date_from: Filter for receive-payments whose `date` field is on or after this date, in ISO
               8601 format (YYYY-MM-DD).
 
-              **NOTE**: QuickBooks Desktop interprets date-only values in the QuickBooks
-              Desktop host machine’s local timezone (i.e., midnight in that timezone).
+              **NOTE**: QuickBooks Desktop interprets date-only values in the local timezone
+              of the end-user's computer (i.e., midnight in that timezone).
 
           transaction_date_to: Filter for receive-payments whose `date` field is on or before this date, in ISO
               8601 format (YYYY-MM-DD).
 
-              **NOTE**: QuickBooks Desktop interprets date-only values in the QuickBooks
-              Desktop host machine’s local timezone (i.e., midnight in that timezone).
+              **NOTE**: QuickBooks Desktop interprets date-only values in the local timezone
+              of the end-user's computer (i.e., midnight in that timezone).
 
           updated_after: Filter for receive-payments updated on or after this date/time. Accepts the
               following ISO 8601 formats:
 
               - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets this as midnight in
-                the host machine’s local timezone.
+                the local timezone of the end-user's computer.
               - **datetime without timezone** (YYYY-MM-DDTHH:mm:ss) - QuickBooks Desktop uses
-                the host machine’s local timezone to interpret the timestamp.
+                the local timezone of the end-user's computer to interpret the timestamp.
               - **datetime with timezone** (YYYY-MM-DDTHH:mm:ss±HH:mm) - QuickBooks Desktop
                 uses this timezone to interpret the timestamp.
 
@@ -1031,9 +1031,9 @@ class AsyncReceivePaymentsResource(AsyncAPIResource):
               following ISO 8601 formats:
 
               - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets this as midnight in
-                the host machine’s local timezone.
+                the local timezone of the end-user's computer.
               - **datetime without timezone** (YYYY-MM-DDTHH:mm:ss) - QuickBooks Desktop uses
-                the host machine’s local timezone to interpret the timestamp.
+                the local timezone of the end-user's computer to interpret the timestamp.
               - **datetime with timezone** (YYYY-MM-DDTHH:mm:ss±HH:mm) - QuickBooks Desktop
                 uses this timezone to interpret the timestamp.
 

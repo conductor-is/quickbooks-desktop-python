@@ -222,8 +222,8 @@ class BuildAssembly(BaseModel):
     created_at: str = FieldInfo(alias="createdAt")
     """
     The date and time when this build assembly was created, in ISO 8601 format
-    (YYYY-MM-DDThh:mm:ss±hh:mm), in the QuickBooks Desktop host machine’s local
-    timezone.
+    (YYYY-MM-DDThh:mm:ss±hh:mm), which QuickBooks Desktop interprets in the local
+    timezone of the end-user's computer.
     """
 
     custom_fields: List[CustomField] = FieldInfo(alias="customFields")
@@ -332,6 +332,6 @@ class BuildAssembly(BaseModel):
     updated_at: str = FieldInfo(alias="updatedAt")
     """
     The date and time when this build assembly was last updated, in ISO 8601 format
-    (YYYY-MM-DDThh:mm:ss±hh:mm), in the QuickBooks Desktop host machine’s local
-    timezone.
+    (YYYY-MM-DDThh:mm:ss±hh:mm), which QuickBooks Desktop interprets in the local
+    timezone of the end-user's computer.
     """

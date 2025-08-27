@@ -37,8 +37,8 @@ class Class(BaseModel):
     created_at: str = FieldInfo(alias="createdAt")
     """
     The date and time when this class was created, in ISO 8601 format
-    (YYYY-MM-DDThh:mm:ss±hh:mm), in the QuickBooks Desktop host machine’s local
-    timezone.
+    (YYYY-MM-DDThh:mm:ss±hh:mm), which QuickBooks Desktop interprets in the local
+    timezone of the end-user's computer.
     """
 
     full_name: str = FieldInfo(alias="fullName")
@@ -99,6 +99,6 @@ class Class(BaseModel):
     updated_at: str = FieldInfo(alias="updatedAt")
     """
     The date and time when this class was last updated, in ISO 8601 format
-    (YYYY-MM-DDThh:mm:ss±hh:mm), in the QuickBooks Desktop host machine’s local
-    timezone.
+    (YYYY-MM-DDThh:mm:ss±hh:mm), which QuickBooks Desktop interprets in the local
+    timezone of the end-user's computer.
     """

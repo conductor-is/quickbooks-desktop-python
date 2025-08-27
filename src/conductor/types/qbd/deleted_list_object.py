@@ -20,15 +20,15 @@ class DeletedListObject(BaseModel):
     created_at: str = FieldInfo(alias="createdAt")
     """
     The date and time when this deleted list-object was created, in ISO 8601 format
-    (YYYY-MM-DDThh:mm:ss±hh:mm), in the QuickBooks Desktop host machine’s local
-    timezone.
+    (YYYY-MM-DDThh:mm:ss±hh:mm), which QuickBooks Desktop interprets in the local
+    timezone of the end-user's computer.
     """
 
     deleted_at: str = FieldInfo(alias="deletedAt")
     """
     The date and time when this deleted list-object was deleted, in ISO 8601 format
-    (YYYY-MM-DDThh:mm:ss±hh:mm), in the QuickBooks Desktop host machine’s local
-    timezone.
+    (YYYY-MM-DDThh:mm:ss±hh:mm), which QuickBooks Desktop interprets in the local
+    timezone of the end-user's computer.
     """
 
     list_type: Literal[
