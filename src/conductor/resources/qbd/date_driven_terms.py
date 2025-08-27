@@ -254,19 +254,19 @@ class DateDrivenTermsResource(SyncAPIResource):
               Filter for date-driven terms updated on or after this date/time. Format:
               ISO 8601. Accepts date-only (YYYY-MM-DD), datetime without timezone
               (YYYY-MM-DDTHH:mm:ss), or datetime with timezone (YYYY-MM-DDTHH:mm:ss±HH:mm).
-              Date-only and timezone-less datetimes are passed through for QuickBooks Desktop
-              to interpret in the host machine’s local timezone. If the datetime includes a
-              timezone (e.g., `+05:30` or `Z`), QuickBooks Desktop uses that timezone to
-              interpret the timestamp.
+              **NOTE**: Date-only and timezone-less datetimes are passed through for
+              QuickBooks Desktop to interpret in the QuickBooks Desktop host machine’s local
+              timezone. If the datetime includes a timezone (e.g., `+05:30` or `Z`),
+              QuickBooks Desktop uses that timezone to interpret the timestamp.
 
           updated_before:
               Filter for date-driven terms updated on or before this date/time. Format:
               ISO 8601. Accepts date-only (YYYY-MM-DD), datetime without timezone
               (YYYY-MM-DDTHH:mm:ss), or datetime with timezone (YYYY-MM-DDTHH:mm:ss±HH:mm).
-              Date-only and timezone-less datetimes are passed through for QuickBooks Desktop
-              to interpret in the host machine’s local timezone. If the datetime includes a
-              timezone (e.g., `+05:30` or `Z`), QuickBooks Desktop uses that timezone to
-              interpret the timestamp.
+              **NOTE**: Date-only and timezone-less datetimes are passed through for
+              QuickBooks Desktop to interpret in the QuickBooks Desktop host machine’s local
+              timezone. If the datetime includes a timezone (e.g., `+05:30` or `Z`),
+              QuickBooks Desktop uses that timezone to interpret the timestamp.
 
           extra_headers: Send extra headers
 
@@ -534,19 +534,19 @@ class AsyncDateDrivenTermsResource(AsyncAPIResource):
               Filter for date-driven terms updated on or after this date/time. Format:
               ISO 8601. Accepts date-only (YYYY-MM-DD), datetime without timezone
               (YYYY-MM-DDTHH:mm:ss), or datetime with timezone (YYYY-MM-DDTHH:mm:ss±HH:mm).
-              Date-only and timezone-less datetimes are passed through for QuickBooks Desktop
-              to interpret in the host machine’s local timezone. If the datetime includes a
-              timezone (e.g., `+05:30` or `Z`), QuickBooks Desktop uses that timezone to
-              interpret the timestamp.
+              **NOTE**: Date-only and timezone-less datetimes are passed through for
+              QuickBooks Desktop to interpret in the QuickBooks Desktop host machine’s local
+              timezone. If the datetime includes a timezone (e.g., `+05:30` or `Z`),
+              QuickBooks Desktop uses that timezone to interpret the timestamp.
 
           updated_before:
               Filter for date-driven terms updated on or before this date/time. Format:
               ISO 8601. Accepts date-only (YYYY-MM-DD), datetime without timezone
               (YYYY-MM-DDTHH:mm:ss), or datetime with timezone (YYYY-MM-DDTHH:mm:ss±HH:mm).
-              Date-only and timezone-less datetimes are passed through for QuickBooks Desktop
-              to interpret in the host machine’s local timezone. If the datetime includes a
-              timezone (e.g., `+05:30` or `Z`), QuickBooks Desktop uses that timezone to
-              interpret the timestamp.
+              **NOTE**: Date-only and timezone-less datetimes are passed through for
+              QuickBooks Desktop to interpret in the QuickBooks Desktop host machine’s local
+              timezone. If the datetime includes a timezone (e.g., `+05:30` or `Z`),
+              QuickBooks Desktop uses that timezone to interpret the timestamp.
 
           extra_headers: Send extra headers
 
