@@ -235,8 +235,8 @@ class TestJournalEntries:
             ref_number_to="JE-9999",
             transaction_date_from=parse_date("2024-01-01"),
             transaction_date_to=parse_date("2024-02-01"),
-            updated_after="2024-01-01T12:34:56",
-            updated_before="2024-02-01T12:34:56",
+            updated_after="2024-01-01T12:34:56+00:00",
+            updated_before="2024-02-01T12:34:56+00:00",
         )
         assert_matches_type(SyncCursorPage[JournalEntry], journal_entry, path=["response"])
 
@@ -525,8 +525,8 @@ class TestAsyncJournalEntries:
             ref_number_to="JE-9999",
             transaction_date_from=parse_date("2024-01-01"),
             transaction_date_to=parse_date("2024-02-01"),
-            updated_after="2024-01-01T12:34:56",
-            updated_before="2024-02-01T12:34:56",
+            updated_after="2024-01-01T12:34:56+00:00",
+            updated_before="2024-02-01T12:34:56+00:00",
         )
         assert_matches_type(AsyncCursorPage[JournalEntry], journal_entry, path=["response"])
 

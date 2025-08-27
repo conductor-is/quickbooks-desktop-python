@@ -30,8 +30,8 @@ class TestDeletedTransactions:
         deleted_transaction = client.qbd.deleted_transactions.list(
             transaction_types=["invoice"],
             conductor_end_user_id="end_usr_1234567abcdefg",
-            deleted_after="2024-01-01T12:34:56",
-            deleted_before="2024-02-01T12:34:56",
+            deleted_after="2024-01-01T12:34:56+00:00",
+            deleted_before="2024-02-01T12:34:56+00:00",
         )
         assert_matches_type(DeletedTransactionListResponse, deleted_transaction, path=["response"])
 
@@ -80,8 +80,8 @@ class TestAsyncDeletedTransactions:
         deleted_transaction = await async_client.qbd.deleted_transactions.list(
             transaction_types=["invoice"],
             conductor_end_user_id="end_usr_1234567abcdefg",
-            deleted_after="2024-01-01T12:34:56",
-            deleted_before="2024-02-01T12:34:56",
+            deleted_after="2024-01-01T12:34:56+00:00",
+            deleted_before="2024-02-01T12:34:56+00:00",
         )
         assert_matches_type(DeletedTransactionListResponse, deleted_transaction, path=["response"])
 
