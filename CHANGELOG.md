@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.56.1 (2025-08-27)
+
+Full Changelog: [v1.56.0...v1.56.1](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.56.0...v1.56.1)
+
+### Bug Fixes
+
+* avoid newer type syntax ([bf6a51d](https://github.com/conductor-is/quickbooks-desktop-python/commit/bf6a51da6a79923d873112cd9403535bf640ca38))
+
+
+### Chores
+
+* **internal:** update pyright exclude list ([454adf3](https://github.com/conductor-is/quickbooks-desktop-python/commit/454adf3ace0ac9dafac5bce6c95bfb2855fd5092))
+
 ## 1.56.0 (2025-08-27)
 
 Full Changelog: [v1.55.0...v1.56.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.55.0...v1.56.0)
