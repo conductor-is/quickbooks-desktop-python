@@ -114,22 +114,24 @@ class DeletedListObjectsResource(SyncAPIResource):
           deleted_after: Filter for deleted list-objects deleted on or after this date/time, within the
               last 90 days (QuickBooks limit). Accepts the following ISO 8601 formats:
 
-              - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets this as midnight in
-                the local timezone of the end-user's computer.
+              - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets this date as the
+                **start of the specified day** in the local timezone of the end-user's
+                computer (e.g., `2025-01-01` → `2025-01-01T00:00:00`).
               - **datetime without timezone** (YYYY-MM-DDTHH:mm:ss) - QuickBooks Desktop uses
                 the local timezone of the end-user's computer to interpret the timestamp.
               - **datetime with timezone** (YYYY-MM-DDTHH:mm:ss±HH:mm) - QuickBooks Desktop
-                uses this timezone to interpret the timestamp.
+                uses the specified timezone to interpret the timestamp.
 
           deleted_before: Filter for deleted list-objects deleted on or before this date/time, within the
               last 90 days (QuickBooks limit). Accepts the following ISO 8601 formats:
 
-              - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets this as midnight in
-                the local timezone of the end-user's computer.
+              - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets this date as the
+                **end of the specified day** in the local timezone of the end-user's computer
+                (e.g., `2025-01-01` → `2025-01-01T23:59:59`).
               - **datetime without timezone** (YYYY-MM-DDTHH:mm:ss) - QuickBooks Desktop uses
                 the local timezone of the end-user's computer to interpret the timestamp.
               - **datetime with timezone** (YYYY-MM-DDTHH:mm:ss±HH:mm) - QuickBooks Desktop
-                uses this timezone to interpret the timestamp.
+                uses the specified timezone to interpret the timestamp.
 
           extra_headers: Send extra headers
 
@@ -250,22 +252,24 @@ class AsyncDeletedListObjectsResource(AsyncAPIResource):
           deleted_after: Filter for deleted list-objects deleted on or after this date/time, within the
               last 90 days (QuickBooks limit). Accepts the following ISO 8601 formats:
 
-              - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets this as midnight in
-                the local timezone of the end-user's computer.
+              - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets this date as the
+                **start of the specified day** in the local timezone of the end-user's
+                computer (e.g., `2025-01-01` → `2025-01-01T00:00:00`).
               - **datetime without timezone** (YYYY-MM-DDTHH:mm:ss) - QuickBooks Desktop uses
                 the local timezone of the end-user's computer to interpret the timestamp.
               - **datetime with timezone** (YYYY-MM-DDTHH:mm:ss±HH:mm) - QuickBooks Desktop
-                uses this timezone to interpret the timestamp.
+                uses the specified timezone to interpret the timestamp.
 
           deleted_before: Filter for deleted list-objects deleted on or before this date/time, within the
               last 90 days (QuickBooks limit). Accepts the following ISO 8601 formats:
 
-              - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets this as midnight in
-                the local timezone of the end-user's computer.
+              - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets this date as the
+                **end of the specified day** in the local timezone of the end-user's computer
+                (e.g., `2025-01-01` → `2025-01-01T23:59:59`).
               - **datetime without timezone** (YYYY-MM-DDTHH:mm:ss) - QuickBooks Desktop uses
                 the local timezone of the end-user's computer to interpret the timestamp.
               - **datetime with timezone** (YYYY-MM-DDTHH:mm:ss±HH:mm) - QuickBooks Desktop
-                uses this timezone to interpret the timestamp.
+                uses the specified timezone to interpret the timestamp.
 
           extra_headers: Send extra headers
 
