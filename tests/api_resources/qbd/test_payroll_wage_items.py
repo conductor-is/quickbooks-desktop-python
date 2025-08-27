@@ -132,8 +132,8 @@ class TestPayrollWageItems:
             name_starts_with="ABC",
             name_to="Z",
             status="active",
-            updated_after="2024-01-01T12:34:56+00:00",
-            updated_before="2024-02-01T12:34:56+00:00",
+            updated_after="2025-01-01T12:34:56+00:00",
+            updated_before="2025-02-01T12:34:56+00:00",
         )
         assert_matches_type(SyncCursorPage[PayrollWageItem], payroll_wage_item, path=["response"])
 
@@ -281,8 +281,8 @@ class TestAsyncPayrollWageItems:
             name_starts_with="ABC",
             name_to="Z",
             status="active",
-            updated_after="2024-01-01T12:34:56+00:00",
-            updated_before="2024-02-01T12:34:56+00:00",
+            updated_after="2025-01-01T12:34:56+00:00",
+            updated_before="2025-02-01T12:34:56+00:00",
         )
         assert_matches_type(AsyncCursorPage[PayrollWageItem], payroll_wage_item, path=["response"])
 

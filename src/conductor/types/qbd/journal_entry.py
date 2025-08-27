@@ -346,8 +346,8 @@ class JournalEntry(BaseModel):
     created_at: str = FieldInfo(alias="createdAt")
     """
     The date and time when this journal entry was created, in ISO 8601 format
-    (YYYY-MM-DDThh:mm:ss±hh:mm). The time zone is the same as the user's time zone
-    in QuickBooks.
+    (YYYY-MM-DDThh:mm:ss±hh:mm), in the QuickBooks Desktop host machine’s local
+    timezone.
     """
 
     credit_lines: List[CreditLine] = FieldInfo(alias="creditLines")
@@ -420,6 +420,6 @@ class JournalEntry(BaseModel):
     updated_at: str = FieldInfo(alias="updatedAt")
     """
     The date and time when this journal entry was last updated, in ISO 8601 format
-    (YYYY-MM-DDThh:mm:ss±hh:mm). The time zone is the same as the user's time zone
-    in QuickBooks.
+    (YYYY-MM-DDThh:mm:ss±hh:mm), in the QuickBooks Desktop host machine’s local
+    timezone.
     """
