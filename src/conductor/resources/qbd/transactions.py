@@ -263,14 +263,16 @@ class TransactionsResource(SyncAPIResource):
           transaction_date_from: Filter for transactions whose `date` field is on or after this date, in ISO 8601
               format (YYYY-MM-DD).
 
-              **NOTE**: QuickBooks Desktop interprets date-only values in the local timezone
-              of the end-user's computer (i.e., midnight in that timezone).
+              **NOTE:** QuickBooks Desktop interprets this date as the **start of the
+              specified day** in the local timezone of the end-user's computer (e.g.,
+              `2025-01-01` → `2025-01-01T00:00:00`).
 
           transaction_date_to: Filter for transactions whose `date` field is on or before this date, in ISO
               8601 format (YYYY-MM-DD).
 
-              **NOTE**: QuickBooks Desktop interprets date-only values in the local timezone
-              of the end-user's computer (i.e., midnight in that timezone).
+              **NOTE:** QuickBooks Desktop interprets this date as the **end of the specified
+              day** in the local timezone of the end-user's computer (e.g., `2025-01-01` →
+              `2025-01-01T23:59:59`).
 
           transaction_types: Filter for transactions by their transaction type(s).
 
@@ -280,22 +282,24 @@ class TransactionsResource(SyncAPIResource):
           updated_after: Filter for transactions updated on or after this date/time. Accepts the
               following ISO 8601 formats:
 
-              - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets this as midnight in
-                the local timezone of the end-user's computer.
+              - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets this date as the
+                **start of the specified day** in the local timezone of the end-user's
+                computer (e.g., `2025-01-01` → `2025-01-01T00:00:00`).
               - **datetime without timezone** (YYYY-MM-DDTHH:mm:ss) - QuickBooks Desktop uses
                 the local timezone of the end-user's computer to interpret the timestamp.
               - **datetime with timezone** (YYYY-MM-DDTHH:mm:ss±HH:mm) - QuickBooks Desktop
-                uses this timezone to interpret the timestamp.
+                uses the specified timezone to interpret the timestamp.
 
           updated_before: Filter for transactions updated on or before this date/time. Accepts the
               following ISO 8601 formats:
 
-              - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets this as midnight in
-                the local timezone of the end-user's computer.
+              - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets this date as the
+                **end of the specified day** in the local timezone of the end-user's computer
+                (e.g., `2025-01-01` → `2025-01-01T23:59:59`).
               - **datetime without timezone** (YYYY-MM-DDTHH:mm:ss) - QuickBooks Desktop uses
                 the local timezone of the end-user's computer to interpret the timestamp.
               - **datetime with timezone** (YYYY-MM-DDTHH:mm:ss±HH:mm) - QuickBooks Desktop
-                uses this timezone to interpret the timestamp.
+                uses the specified timezone to interpret the timestamp.
 
           extra_headers: Send extra headers
 
@@ -583,14 +587,16 @@ class AsyncTransactionsResource(AsyncAPIResource):
           transaction_date_from: Filter for transactions whose `date` field is on or after this date, in ISO 8601
               format (YYYY-MM-DD).
 
-              **NOTE**: QuickBooks Desktop interprets date-only values in the local timezone
-              of the end-user's computer (i.e., midnight in that timezone).
+              **NOTE:** QuickBooks Desktop interprets this date as the **start of the
+              specified day** in the local timezone of the end-user's computer (e.g.,
+              `2025-01-01` → `2025-01-01T00:00:00`).
 
           transaction_date_to: Filter for transactions whose `date` field is on or before this date, in ISO
               8601 format (YYYY-MM-DD).
 
-              **NOTE**: QuickBooks Desktop interprets date-only values in the local timezone
-              of the end-user's computer (i.e., midnight in that timezone).
+              **NOTE:** QuickBooks Desktop interprets this date as the **end of the specified
+              day** in the local timezone of the end-user's computer (e.g., `2025-01-01` →
+              `2025-01-01T23:59:59`).
 
           transaction_types: Filter for transactions by their transaction type(s).
 
@@ -600,22 +606,24 @@ class AsyncTransactionsResource(AsyncAPIResource):
           updated_after: Filter for transactions updated on or after this date/time. Accepts the
               following ISO 8601 formats:
 
-              - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets this as midnight in
-                the local timezone of the end-user's computer.
+              - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets this date as the
+                **start of the specified day** in the local timezone of the end-user's
+                computer (e.g., `2025-01-01` → `2025-01-01T00:00:00`).
               - **datetime without timezone** (YYYY-MM-DDTHH:mm:ss) - QuickBooks Desktop uses
                 the local timezone of the end-user's computer to interpret the timestamp.
               - **datetime with timezone** (YYYY-MM-DDTHH:mm:ss±HH:mm) - QuickBooks Desktop
-                uses this timezone to interpret the timestamp.
+                uses the specified timezone to interpret the timestamp.
 
           updated_before: Filter for transactions updated on or before this date/time. Accepts the
               following ISO 8601 formats:
 
-              - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets this as midnight in
-                the local timezone of the end-user's computer.
+              - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets this date as the
+                **end of the specified day** in the local timezone of the end-user's computer
+                (e.g., `2025-01-01` → `2025-01-01T23:59:59`).
               - **datetime without timezone** (YYYY-MM-DDTHH:mm:ss) - QuickBooks Desktop uses
                 the local timezone of the end-user's computer to interpret the timestamp.
               - **datetime with timezone** (YYYY-MM-DDTHH:mm:ss±HH:mm) - QuickBooks Desktop
-                uses this timezone to interpret the timestamp.
+                uses the specified timezone to interpret the timestamp.
 
           extra_headers: Send extra headers
 
