@@ -374,8 +374,8 @@ class BillCheckPayment(BaseModel):
     created_at: str = FieldInfo(alias="createdAt")
     """
     The date and time when this bill check payment was created, in ISO 8601 format
-    (YYYY-MM-DDThh:mm:ss±hh:mm), in the QuickBooks Desktop host machine’s local
-    timezone.
+    (YYYY-MM-DDThh:mm:ss±hh:mm), which QuickBooks Desktop interprets in the local
+    timezone of the end-user's computer.
     """
 
     currency: Optional[Currency] = None
@@ -450,8 +450,8 @@ class BillCheckPayment(BaseModel):
     updated_at: str = FieldInfo(alias="updatedAt")
     """
     The date and time when this bill check payment was last updated, in ISO 8601
-    format (YYYY-MM-DDThh:mm:ss±hh:mm), in the QuickBooks Desktop host machine’s
-    local timezone.
+    format (YYYY-MM-DDThh:mm:ss±hh:mm), which QuickBooks Desktop interprets in the
+    local timezone of the end-user's computer.
     """
 
     vendor: Optional[Vendor] = None
