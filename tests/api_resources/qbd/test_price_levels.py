@@ -206,8 +206,8 @@ class TestPriceLevels:
             name_starts_with="ABC",
             name_to="Z",
             status="active",
-            updated_after="2024-01-01T12:34:56",
-            updated_before="2024-02-01T12:34:56",
+            updated_after="2024-01-01T12:34:56+00:00",
+            updated_before="2024-02-01T12:34:56+00:00",
         )
         assert_matches_type(PriceLevelListResponse, price_level, path=["response"])
 
@@ -427,8 +427,8 @@ class TestAsyncPriceLevels:
             name_starts_with="ABC",
             name_to="Z",
             status="active",
-            updated_after="2024-01-01T12:34:56",
-            updated_before="2024-02-01T12:34:56",
+            updated_after="2024-01-01T12:34:56+00:00",
+            updated_before="2024-02-01T12:34:56+00:00",
         )
         assert_matches_type(PriceLevelListResponse, price_level, path=["response"])
 
