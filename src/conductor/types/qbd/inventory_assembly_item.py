@@ -283,8 +283,8 @@ class InventoryAssemblyItem(BaseModel):
     created_at: str = FieldInfo(alias="createdAt")
     """
     The date and time when this inventory assembly item was created, in ISO 8601
-    format (YYYY-MM-DDThh:mm:ss±hh:mm), in the QuickBooks Desktop host machine’s
-    local timezone.
+    format (YYYY-MM-DDThh:mm:ss±hh:mm), which QuickBooks Desktop interprets in the
+    local timezone of the end-user's computer.
     """
 
     custom_fields: List[CustomField] = FieldInfo(alias="customFields")
@@ -453,6 +453,6 @@ class InventoryAssemblyItem(BaseModel):
     updated_at: str = FieldInfo(alias="updatedAt")
     """
     The date and time when this inventory assembly item was last updated, in ISO
-    8601 format (YYYY-MM-DDThh:mm:ss±hh:mm), in the QuickBooks Desktop host
-    machine’s local timezone.
+    8601 format (YYYY-MM-DDThh:mm:ss±hh:mm), which QuickBooks Desktop interprets in
+    the local timezone of the end-user's computer.
     """

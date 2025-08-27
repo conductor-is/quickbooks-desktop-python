@@ -412,9 +412,9 @@ class OtherChargeItemsResource(SyncAPIResource):
               following ISO 8601 formats:
 
               - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets this as midnight in
-                the host machine’s local timezone.
+                the local timezone of the end-user's computer.
               - **datetime without timezone** (YYYY-MM-DDTHH:mm:ss) - QuickBooks Desktop uses
-                the host machine’s local timezone to interpret the timestamp.
+                the local timezone of the end-user's computer to interpret the timestamp.
               - **datetime with timezone** (YYYY-MM-DDTHH:mm:ss±HH:mm) - QuickBooks Desktop
                 uses this timezone to interpret the timestamp.
 
@@ -422,9 +422,9 @@ class OtherChargeItemsResource(SyncAPIResource):
               following ISO 8601 formats:
 
               - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets this as midnight in
-                the host machine’s local timezone.
+                the local timezone of the end-user's computer.
               - **datetime without timezone** (YYYY-MM-DDTHH:mm:ss) - QuickBooks Desktop uses
-                the host machine’s local timezone to interpret the timestamp.
+                the local timezone of the end-user's computer to interpret the timestamp.
               - **datetime with timezone** (YYYY-MM-DDTHH:mm:ss±HH:mm) - QuickBooks Desktop
                 uses this timezone to interpret the timestamp.
 
@@ -855,9 +855,9 @@ class AsyncOtherChargeItemsResource(AsyncAPIResource):
               following ISO 8601 formats:
 
               - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets this as midnight in
-                the host machine’s local timezone.
+                the local timezone of the end-user's computer.
               - **datetime without timezone** (YYYY-MM-DDTHH:mm:ss) - QuickBooks Desktop uses
-                the host machine’s local timezone to interpret the timestamp.
+                the local timezone of the end-user's computer to interpret the timestamp.
               - **datetime with timezone** (YYYY-MM-DDTHH:mm:ss±HH:mm) - QuickBooks Desktop
                 uses this timezone to interpret the timestamp.
 
@@ -865,9 +865,9 @@ class AsyncOtherChargeItemsResource(AsyncAPIResource):
               following ISO 8601 formats:
 
               - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets this as midnight in
-                the host machine’s local timezone.
+                the local timezone of the end-user's computer.
               - **datetime without timezone** (YYYY-MM-DDTHH:mm:ss) - QuickBooks Desktop uses
-                the host machine’s local timezone to interpret the timestamp.
+                the local timezone of the end-user's computer to interpret the timestamp.
               - **datetime with timezone** (YYYY-MM-DDTHH:mm:ss±HH:mm) - QuickBooks Desktop
                 uses this timezone to interpret the timestamp.
 
