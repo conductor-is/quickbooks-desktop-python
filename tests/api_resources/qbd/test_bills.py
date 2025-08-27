@@ -366,10 +366,10 @@ class TestBills:
             ref_numbers=["BILL-1234"],
             ref_number_starts_with="BILL",
             ref_number_to="BILL-9999",
-            transaction_date_from=parse_date("2024-01-01"),
-            transaction_date_to=parse_date("2024-02-01"),
-            updated_after="2024-01-01T12:34:56+00:00",
-            updated_before="2024-02-01T12:34:56+00:00",
+            transaction_date_from=parse_date("2025-01-01"),
+            transaction_date_to=parse_date("2025-02-01"),
+            updated_after="2025-01-01T12:34:56+00:00",
+            updated_before="2025-02-01T12:34:56+00:00",
             vendor_ids=["80000001-1234567890"],
         )
         assert_matches_type(SyncCursorPage[Bill], bill, path=["response"])
@@ -793,10 +793,10 @@ class TestAsyncBills:
             ref_numbers=["BILL-1234"],
             ref_number_starts_with="BILL",
             ref_number_to="BILL-9999",
-            transaction_date_from=parse_date("2024-01-01"),
-            transaction_date_to=parse_date("2024-02-01"),
-            updated_after="2024-01-01T12:34:56+00:00",
-            updated_before="2024-02-01T12:34:56+00:00",
+            transaction_date_from=parse_date("2025-01-01"),
+            transaction_date_to=parse_date("2025-02-01"),
+            updated_after="2025-01-01T12:34:56+00:00",
+            updated_before="2025-02-01T12:34:56+00:00",
             vendor_ids=["80000001-1234567890"],
         )
         assert_matches_type(AsyncCursorPage[Bill], bill, path=["response"])

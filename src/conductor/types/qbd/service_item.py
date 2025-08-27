@@ -297,8 +297,8 @@ class ServiceItem(BaseModel):
     created_at: str = FieldInfo(alias="createdAt")
     """
     The date and time when this service item was created, in ISO 8601 format
-    (YYYY-MM-DDThh:mm:ss±hh:mm). The time zone is the same as the user's time zone
-    in QuickBooks.
+    (YYYY-MM-DDThh:mm:ss±hh:mm), in the QuickBooks Desktop host machine’s local
+    timezone.
     """
 
     custom_fields: List[CustomField] = FieldInfo(alias="customFields")
@@ -415,6 +415,6 @@ class ServiceItem(BaseModel):
     updated_at: str = FieldInfo(alias="updatedAt")
     """
     The date and time when this service item was last updated, in ISO 8601 format
-    (YYYY-MM-DDThh:mm:ss±hh:mm). The time zone is the same as the user's time zone
-    in QuickBooks.
+    (YYYY-MM-DDThh:mm:ss±hh:mm), in the QuickBooks Desktop host machine’s local
+    timezone.
     """

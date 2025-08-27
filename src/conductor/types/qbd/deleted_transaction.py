@@ -20,15 +20,15 @@ class DeletedTransaction(BaseModel):
     created_at: str = FieldInfo(alias="createdAt")
     """
     The date and time when this deleted transaction was created, in ISO 8601 format
-    (YYYY-MM-DDThh:mm:ss±hh:mm). The time zone is the same as the user's time zone
-    in QuickBooks.
+    (YYYY-MM-DDThh:mm:ss±hh:mm), in the QuickBooks Desktop host machine’s local
+    timezone.
     """
 
     deleted_at: str = FieldInfo(alias="deletedAt")
     """
     The date and time when this deleted transaction was deleted, in ISO 8601 format
-    (YYYY-MM-DDThh:mm:ss±hh:mm). The time zone is the same as the user's time zone
-    in QuickBooks.
+    (YYYY-MM-DDThh:mm:ss±hh:mm), in the QuickBooks Desktop host machine’s local
+    timezone.
     """
 
     object_type: Literal["qbd_deleted_transaction"] = FieldInfo(alias="objectType")

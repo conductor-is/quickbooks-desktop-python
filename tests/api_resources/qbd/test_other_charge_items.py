@@ -236,8 +236,8 @@ class TestOtherChargeItems:
             name_starts_with="ABC",
             name_to="Z",
             status="active",
-            updated_after="2024-01-01T12:34:56+00:00",
-            updated_before="2024-02-01T12:34:56+00:00",
+            updated_after="2025-01-01T12:34:56+00:00",
+            updated_before="2025-02-01T12:34:56+00:00",
         )
         assert_matches_type(SyncCursorPage[OtherChargeItem], other_charge_item, path=["response"])
 
@@ -487,8 +487,8 @@ class TestAsyncOtherChargeItems:
             name_starts_with="ABC",
             name_to="Z",
             status="active",
-            updated_after="2024-01-01T12:34:56+00:00",
-            updated_before="2024-02-01T12:34:56+00:00",
+            updated_after="2025-01-01T12:34:56+00:00",
+            updated_before="2025-02-01T12:34:56+00:00",
         )
         assert_matches_type(AsyncCursorPage[OtherChargeItem], other_charge_item, path=["response"])
 

@@ -128,8 +128,8 @@ class TestStandardTerms:
             name_starts_with="ABC",
             name_to="Z",
             status="active",
-            updated_after="2024-01-01T12:34:56+00:00",
-            updated_before="2024-02-01T12:34:56+00:00",
+            updated_after="2025-01-01T12:34:56+00:00",
+            updated_before="2025-02-01T12:34:56+00:00",
         )
         assert_matches_type(StandardTermListResponse, standard_term, path=["response"])
 
@@ -271,8 +271,8 @@ class TestAsyncStandardTerms:
             name_starts_with="ABC",
             name_to="Z",
             status="active",
-            updated_after="2024-01-01T12:34:56+00:00",
-            updated_before="2024-02-01T12:34:56+00:00",
+            updated_after="2025-01-01T12:34:56+00:00",
+            updated_before="2025-02-01T12:34:56+00:00",
         )
         assert_matches_type(StandardTermListResponse, standard_term, path=["response"])
 
