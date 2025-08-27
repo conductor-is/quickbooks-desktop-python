@@ -630,30 +630,36 @@ class SalesOrdersResource(SyncAPIResource):
               lexicographical comparison.
 
           transaction_date_from: Filter for sales orders whose `date` field is on or after this date, in ISO 8601
-              format (YYYY-MM-DD). **NOTE**: QuickBooks Desktop interprets date-only values in
-              the QuickBooks Desktop host machine’s local timezone (i.e., midnight in that
-              timezone).
+              format (YYYY-MM-DD).
+
+              **NOTE**: QuickBooks Desktop interprets date-only values in the QuickBooks
+              Desktop host machine’s local timezone (i.e., midnight in that timezone).
 
           transaction_date_to: Filter for sales orders whose `date` field is on or before this date, in ISO
-              8601 format (YYYY-MM-DD). **NOTE**: QuickBooks Desktop interprets date-only
-              values in the QuickBooks Desktop host machine’s local timezone (i.e., midnight
-              in that timezone).
+              8601 format (YYYY-MM-DD).
 
-          updated_after: Filter for sales orders updated on or after this date/time. Format: ISO 8601.
-              Accepts date-only (YYYY-MM-DD), datetime without timezone (YYYY-MM-DDTHH:mm:ss),
-              or datetime with timezone (YYYY-MM-DDTHH:mm:ss±HH:mm). **NOTE**: Date-only and
-              timezone-less datetimes are passed through for QuickBooks Desktop to interpret
-              in the QuickBooks Desktop host machine’s local timezone. If the datetime
-              includes a timezone (e.g., `+05:30` or `Z`), QuickBooks Desktop uses that
-              timezone to interpret the timestamp.
+              **NOTE**: QuickBooks Desktop interprets date-only values in the QuickBooks
+              Desktop host machine’s local timezone (i.e., midnight in that timezone).
 
-          updated_before: Filter for sales orders updated on or before this date/time. Format: ISO 8601.
-              Accepts date-only (YYYY-MM-DD), datetime without timezone (YYYY-MM-DDTHH:mm:ss),
-              or datetime with timezone (YYYY-MM-DDTHH:mm:ss±HH:mm). **NOTE**: Date-only and
-              timezone-less datetimes are passed through for QuickBooks Desktop to interpret
-              in the QuickBooks Desktop host machine’s local timezone. If the datetime
-              includes a timezone (e.g., `+05:30` or `Z`), QuickBooks Desktop uses that
-              timezone to interpret the timestamp.
+          updated_after: Filter for sales orders updated on or after this date/time. Accepts the
+              following ISO 8601 formats:
+
+              - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets this as midnight in
+                the host machine’s local timezone.
+              - **datetime without timezone** (YYYY-MM-DDTHH:mm:ss) - QuickBooks Desktop uses
+                the host machine’s local timezone to interpret the timestamp.
+              - **datetime with timezone** (YYYY-MM-DDTHH:mm:ss±HH:mm) - QuickBooks Desktop
+                uses this timezone to interpret the timestamp.
+
+          updated_before: Filter for sales orders updated on or before this date/time. Accepts the
+              following ISO 8601 formats:
+
+              - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets this as midnight in
+                the host machine’s local timezone.
+              - **datetime without timezone** (YYYY-MM-DDTHH:mm:ss) - QuickBooks Desktop uses
+                the host machine’s local timezone to interpret the timestamp.
+              - **datetime with timezone** (YYYY-MM-DDTHH:mm:ss±HH:mm) - QuickBooks Desktop
+                uses this timezone to interpret the timestamp.
 
           extra_headers: Send extra headers
 
@@ -1344,30 +1350,36 @@ class AsyncSalesOrdersResource(AsyncAPIResource):
               lexicographical comparison.
 
           transaction_date_from: Filter for sales orders whose `date` field is on or after this date, in ISO 8601
-              format (YYYY-MM-DD). **NOTE**: QuickBooks Desktop interprets date-only values in
-              the QuickBooks Desktop host machine’s local timezone (i.e., midnight in that
-              timezone).
+              format (YYYY-MM-DD).
+
+              **NOTE**: QuickBooks Desktop interprets date-only values in the QuickBooks
+              Desktop host machine’s local timezone (i.e., midnight in that timezone).
 
           transaction_date_to: Filter for sales orders whose `date` field is on or before this date, in ISO
-              8601 format (YYYY-MM-DD). **NOTE**: QuickBooks Desktop interprets date-only
-              values in the QuickBooks Desktop host machine’s local timezone (i.e., midnight
-              in that timezone).
+              8601 format (YYYY-MM-DD).
 
-          updated_after: Filter for sales orders updated on or after this date/time. Format: ISO 8601.
-              Accepts date-only (YYYY-MM-DD), datetime without timezone (YYYY-MM-DDTHH:mm:ss),
-              or datetime with timezone (YYYY-MM-DDTHH:mm:ss±HH:mm). **NOTE**: Date-only and
-              timezone-less datetimes are passed through for QuickBooks Desktop to interpret
-              in the QuickBooks Desktop host machine’s local timezone. If the datetime
-              includes a timezone (e.g., `+05:30` or `Z`), QuickBooks Desktop uses that
-              timezone to interpret the timestamp.
+              **NOTE**: QuickBooks Desktop interprets date-only values in the QuickBooks
+              Desktop host machine’s local timezone (i.e., midnight in that timezone).
 
-          updated_before: Filter for sales orders updated on or before this date/time. Format: ISO 8601.
-              Accepts date-only (YYYY-MM-DD), datetime without timezone (YYYY-MM-DDTHH:mm:ss),
-              or datetime with timezone (YYYY-MM-DDTHH:mm:ss±HH:mm). **NOTE**: Date-only and
-              timezone-less datetimes are passed through for QuickBooks Desktop to interpret
-              in the QuickBooks Desktop host machine’s local timezone. If the datetime
-              includes a timezone (e.g., `+05:30` or `Z`), QuickBooks Desktop uses that
-              timezone to interpret the timestamp.
+          updated_after: Filter for sales orders updated on or after this date/time. Accepts the
+              following ISO 8601 formats:
+
+              - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets this as midnight in
+                the host machine’s local timezone.
+              - **datetime without timezone** (YYYY-MM-DDTHH:mm:ss) - QuickBooks Desktop uses
+                the host machine’s local timezone to interpret the timestamp.
+              - **datetime with timezone** (YYYY-MM-DDTHH:mm:ss±HH:mm) - QuickBooks Desktop
+                uses this timezone to interpret the timestamp.
+
+          updated_before: Filter for sales orders updated on or before this date/time. Accepts the
+              following ISO 8601 formats:
+
+              - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets this as midnight in
+                the host machine’s local timezone.
+              - **datetime without timezone** (YYYY-MM-DDTHH:mm:ss) - QuickBooks Desktop uses
+                the host machine’s local timezone to interpret the timestamp.
+              - **datetime with timezone** (YYYY-MM-DDTHH:mm:ss±HH:mm) - QuickBooks Desktop
+                uses this timezone to interpret the timestamp.
 
           extra_headers: Send extra headers
 

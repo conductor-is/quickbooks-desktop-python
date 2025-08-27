@@ -328,22 +328,25 @@ class InventorySitesResource(SyncAPIResource):
 
           status: Filter for inventory sites that are active, inactive, or both.
 
-          updated_after: Filter for inventory sites updated on or after this date/time. Format: ISO 8601.
-              Accepts date-only (YYYY-MM-DD), datetime without timezone (YYYY-MM-DDTHH:mm:ss),
-              or datetime with timezone (YYYY-MM-DDTHH:mm:ss±HH:mm). **NOTE**: Date-only and
-              timezone-less datetimes are passed through for QuickBooks Desktop to interpret
-              in the QuickBooks Desktop host machine’s local timezone. If the datetime
-              includes a timezone (e.g., `+05:30` or `Z`), QuickBooks Desktop uses that
-              timezone to interpret the timestamp.
+          updated_after: Filter for inventory sites updated on or after this date/time. Accepts the
+              following ISO 8601 formats:
 
-          updated_before:
-              Filter for inventory sites updated on or before this date/time. Format:
-              ISO 8601. Accepts date-only (YYYY-MM-DD), datetime without timezone
-              (YYYY-MM-DDTHH:mm:ss), or datetime with timezone (YYYY-MM-DDTHH:mm:ss±HH:mm).
-              **NOTE**: Date-only and timezone-less datetimes are passed through for
-              QuickBooks Desktop to interpret in the QuickBooks Desktop host machine’s local
-              timezone. If the datetime includes a timezone (e.g., `+05:30` or `Z`),
-              QuickBooks Desktop uses that timezone to interpret the timestamp.
+              - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets this as midnight in
+                the host machine’s local timezone.
+              - **datetime without timezone** (YYYY-MM-DDTHH:mm:ss) - QuickBooks Desktop uses
+                the host machine’s local timezone to interpret the timestamp.
+              - **datetime with timezone** (YYYY-MM-DDTHH:mm:ss±HH:mm) - QuickBooks Desktop
+                uses this timezone to interpret the timestamp.
+
+          updated_before: Filter for inventory sites updated on or before this date/time. Accepts the
+              following ISO 8601 formats:
+
+              - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets this as midnight in
+                the host machine’s local timezone.
+              - **datetime without timezone** (YYYY-MM-DDTHH:mm:ss) - QuickBooks Desktop uses
+                the host machine’s local timezone to interpret the timestamp.
+              - **datetime with timezone** (YYYY-MM-DDTHH:mm:ss±HH:mm) - QuickBooks Desktop
+                uses this timezone to interpret the timestamp.
 
           extra_headers: Send extra headers
 
@@ -684,22 +687,25 @@ class AsyncInventorySitesResource(AsyncAPIResource):
 
           status: Filter for inventory sites that are active, inactive, or both.
 
-          updated_after: Filter for inventory sites updated on or after this date/time. Format: ISO 8601.
-              Accepts date-only (YYYY-MM-DD), datetime without timezone (YYYY-MM-DDTHH:mm:ss),
-              or datetime with timezone (YYYY-MM-DDTHH:mm:ss±HH:mm). **NOTE**: Date-only and
-              timezone-less datetimes are passed through for QuickBooks Desktop to interpret
-              in the QuickBooks Desktop host machine’s local timezone. If the datetime
-              includes a timezone (e.g., `+05:30` or `Z`), QuickBooks Desktop uses that
-              timezone to interpret the timestamp.
+          updated_after: Filter for inventory sites updated on or after this date/time. Accepts the
+              following ISO 8601 formats:
 
-          updated_before:
-              Filter for inventory sites updated on or before this date/time. Format:
-              ISO 8601. Accepts date-only (YYYY-MM-DD), datetime without timezone
-              (YYYY-MM-DDTHH:mm:ss), or datetime with timezone (YYYY-MM-DDTHH:mm:ss±HH:mm).
-              **NOTE**: Date-only and timezone-less datetimes are passed through for
-              QuickBooks Desktop to interpret in the QuickBooks Desktop host machine’s local
-              timezone. If the datetime includes a timezone (e.g., `+05:30` or `Z`),
-              QuickBooks Desktop uses that timezone to interpret the timestamp.
+              - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets this as midnight in
+                the host machine’s local timezone.
+              - **datetime without timezone** (YYYY-MM-DDTHH:mm:ss) - QuickBooks Desktop uses
+                the host machine’s local timezone to interpret the timestamp.
+              - **datetime with timezone** (YYYY-MM-DDTHH:mm:ss±HH:mm) - QuickBooks Desktop
+                uses this timezone to interpret the timestamp.
+
+          updated_before: Filter for inventory sites updated on or before this date/time. Accepts the
+              following ISO 8601 formats:
+
+              - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets this as midnight in
+                the host machine’s local timezone.
+              - **datetime without timezone** (YYYY-MM-DDTHH:mm:ss) - QuickBooks Desktop uses
+                the host machine’s local timezone to interpret the timestamp.
+              - **datetime with timezone** (YYYY-MM-DDTHH:mm:ss±HH:mm) - QuickBooks Desktop
+                uses this timezone to interpret the timestamp.
 
           extra_headers: Send extra headers
 
