@@ -49,8 +49,8 @@ class AdditionalContact(BaseModel):
     created_at: str = FieldInfo(alias="createdAt")
     """
     The date and time when this contact was created, in ISO 8601 format
-    (YYYY-MM-DDThh:mm:ss±hh:mm). The time zone is the same as the user's time zone
-    in QuickBooks.
+    (YYYY-MM-DDThh:mm:ss±hh:mm), in the QuickBooks Desktop host machine’s local
+    timezone.
     """
 
     custom_contact_fields: List[AdditionalContactCustomContactField] = FieldInfo(alias="customContactFields")
@@ -94,8 +94,8 @@ class AdditionalContact(BaseModel):
     updated_at: str = FieldInfo(alias="updatedAt")
     """
     The date and time when this contact was last updated, in ISO 8601 format
-    (YYYY-MM-DDThh:mm:ss±hh:mm). The time zone is the same as the user's time zone
-    in QuickBooks.
+    (YYYY-MM-DDThh:mm:ss±hh:mm), in the QuickBooks Desktop host machine’s local
+    timezone.
     """
 
 
@@ -459,8 +459,8 @@ class Vendor(BaseModel):
     created_at: str = FieldInfo(alias="createdAt")
     """
     The date and time when this vendor was created, in ISO 8601 format
-    (YYYY-MM-DDThh:mm:ss±hh:mm). The time zone is the same as the user's time zone
-    in QuickBooks.
+    (YYYY-MM-DDThh:mm:ss±hh:mm), in the QuickBooks Desktop host machine’s local
+    timezone.
     """
 
     credit_limit: Optional[str] = FieldInfo(alias="creditLimit", default=None)
@@ -642,8 +642,8 @@ class Vendor(BaseModel):
     updated_at: str = FieldInfo(alias="updatedAt")
     """
     The date and time when this vendor was last updated, in ISO 8601 format
-    (YYYY-MM-DDThh:mm:ss±hh:mm). The time zone is the same as the user's time zone
-    in QuickBooks.
+    (YYYY-MM-DDThh:mm:ss±hh:mm), in the QuickBooks Desktop host machine’s local
+    timezone.
     """
 
     vendor_type: Optional[VendorType] = FieldInfo(alias="vendorType", default=None)

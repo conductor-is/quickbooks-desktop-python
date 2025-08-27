@@ -363,8 +363,8 @@ class TestVendors:
             total_balance_greater_than_or_equal_to="123.45",
             total_balance_less_than="123.45",
             total_balance_less_than_or_equal_to="123.45",
-            updated_after="2024-01-01T12:34:56+00:00",
-            updated_before="2024-02-01T12:34:56+00:00",
+            updated_after="2025-01-01T12:34:56+00:00",
+            updated_before="2025-02-01T12:34:56+00:00",
         )
         assert_matches_type(SyncCursorPage[Vendor], vendor, path=["response"])
 
@@ -742,8 +742,8 @@ class TestAsyncVendors:
             total_balance_greater_than_or_equal_to="123.45",
             total_balance_less_than="123.45",
             total_balance_less_than_or_equal_to="123.45",
-            updated_after="2024-01-01T12:34:56+00:00",
-            updated_before="2024-02-01T12:34:56+00:00",
+            updated_after="2025-01-01T12:34:56+00:00",
+            updated_before="2025-02-01T12:34:56+00:00",
         )
         assert_matches_type(AsyncCursorPage[Vendor], vendor, path=["response"])
 

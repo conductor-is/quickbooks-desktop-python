@@ -440,10 +440,10 @@ class TestSalesReceipts:
             ref_numbers=["SALES RECEIPT-1234"],
             ref_number_starts_with="RECEIPT",
             ref_number_to="RECEIPT-9999",
-            transaction_date_from=parse_date("2024-01-01"),
-            transaction_date_to=parse_date("2024-02-01"),
-            updated_after="2024-01-01T12:34:56+00:00",
-            updated_before="2024-02-01T12:34:56+00:00",
+            transaction_date_from=parse_date("2025-01-01"),
+            transaction_date_to=parse_date("2025-02-01"),
+            updated_after="2025-01-01T12:34:56+00:00",
+            updated_before="2025-02-01T12:34:56+00:00",
         )
         assert_matches_type(SyncCursorPage[SalesReceipt], sales_receipt, path=["response"])
 
@@ -937,10 +937,10 @@ class TestAsyncSalesReceipts:
             ref_numbers=["SALES RECEIPT-1234"],
             ref_number_starts_with="RECEIPT",
             ref_number_to="RECEIPT-9999",
-            transaction_date_from=parse_date("2024-01-01"),
-            transaction_date_to=parse_date("2024-02-01"),
-            updated_after="2024-01-01T12:34:56+00:00",
-            updated_before="2024-02-01T12:34:56+00:00",
+            transaction_date_from=parse_date("2025-01-01"),
+            transaction_date_to=parse_date("2025-02-01"),
+            updated_after="2025-01-01T12:34:56+00:00",
+            updated_before="2025-02-01T12:34:56+00:00",
         )
         assert_matches_type(AsyncCursorPage[SalesReceipt], sales_receipt, path=["response"])
 
