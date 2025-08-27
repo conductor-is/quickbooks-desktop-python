@@ -140,13 +140,13 @@ class PurchaseOrderListParams(TypedDict, total=False):
 
     Accepts the following ISO 8601 formats:
 
-    - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets this date as the
+    - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets the date as the
       **start of the specified day** in the local timezone of the end-user's
       computer (e.g., `2025-01-01` → `2025-01-01T00:00:00`).
-    - **datetime without timezone** (YYYY-MM-DDTHH:mm:ss) - QuickBooks Desktop uses
-      the local timezone of the end-user's computer to interpret the timestamp.
+    - **datetime without timezone** (YYYY-MM-DDTHH:mm:ss) - QuickBooks Desktop
+      interprets the timestamp in the local timezone of the end-user's computer.
     - **datetime with timezone** (YYYY-MM-DDTHH:mm:ss±HH:mm) - QuickBooks Desktop
-      uses the specified timezone to interpret the timestamp.
+      interprets the timestamp using the specified timezone.
     """
 
     updated_before: Annotated[str, PropertyInfo(alias="updatedBefore")]
@@ -154,13 +154,13 @@ class PurchaseOrderListParams(TypedDict, total=False):
 
     Accepts the following ISO 8601 formats:
 
-    - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets this date as the
+    - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets the date as the
       **end of the specified day** in the local timezone of the end-user's computer
       (e.g., `2025-01-01` → `2025-01-01T23:59:59`).
-    - **datetime without timezone** (YYYY-MM-DDTHH:mm:ss) - QuickBooks Desktop uses
-      the local timezone of the end-user's computer to interpret the timestamp.
+    - **datetime without timezone** (YYYY-MM-DDTHH:mm:ss) - QuickBooks Desktop
+      interprets the timestamp in the local timezone of the end-user's computer.
     - **datetime with timezone** (YYYY-MM-DDTHH:mm:ss±HH:mm) - QuickBooks Desktop
-      uses the specified timezone to interpret the timestamp.
+      interprets the timestamp using the specified timezone.
     """
 
     vendor_ids: Annotated[List[str], PropertyInfo(alias="vendorIds")]
