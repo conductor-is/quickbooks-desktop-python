@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.56.0 (2025-08-27)
+
+Full Changelog: [v1.55.0...v1.56.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.55.0...v1.56.0)
+
+### Features
+
+* **api:** api update ([5023010](https://github.com/conductor-is/quickbooks-desktop-python/commit/50230106fb9d07eee925dc7381832b047072cffa))
+* **api:** api update ([2bc878e](https://github.com/conductor-is/quickbooks-desktop-python/commit/2bc878e0ca0e6609593e0c60559709105f88da7f))
+* **api:** api update ([c8e9fb7](https://github.com/conductor-is/quickbooks-desktop-python/commit/c8e9fb7e54d8c214897e09bd358adebed4bd01a7))
+* **api:** api update ([ba33659](https://github.com/conductor-is/quickbooks-desktop-python/commit/ba33659e72b640fb1d3da1ad28ee48ab9c7072d3))
+
+
+### Chores
+
+* **internal:** change ci workflow machines ([0757734](https://github.com/conductor-is/quickbooks-desktop-python/commit/07577343b148b7fd47b4848067e4b396795be413))
+* update github action ([586afe5](https://github.com/conductor-is/quickbooks-desktop-python/commit/586afe546d7544d32d4be78fe4eed965d2150284))
+
 ## 1.55.0 (2025-08-20)
 
 Full Changelog: [v1.54.0...v1.55.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.54.0...v1.55.0)
