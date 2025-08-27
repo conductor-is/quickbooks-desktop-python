@@ -30,8 +30,8 @@ class TestDeletedListObjects:
         deleted_list_object = client.qbd.deleted_list_objects.list(
             object_types=["customer"],
             conductor_end_user_id="end_usr_1234567abcdefg",
-            deleted_after="2024-01-01T12:34:56",
-            deleted_before="2024-02-01T12:34:56",
+            deleted_after="2024-01-01T12:34:56+00:00",
+            deleted_before="2024-02-01T12:34:56+00:00",
         )
         assert_matches_type(DeletedListObjectListResponse, deleted_list_object, path=["response"])
 
@@ -80,8 +80,8 @@ class TestAsyncDeletedListObjects:
         deleted_list_object = await async_client.qbd.deleted_list_objects.list(
             object_types=["customer"],
             conductor_end_user_id="end_usr_1234567abcdefg",
-            deleted_after="2024-01-01T12:34:56",
-            deleted_before="2024-02-01T12:34:56",
+            deleted_after="2024-01-01T12:34:56+00:00",
+            deleted_before="2024-02-01T12:34:56+00:00",
         )
         assert_matches_type(DeletedListObjectListResponse, deleted_list_object, path=["response"])
 

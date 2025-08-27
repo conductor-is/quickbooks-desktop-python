@@ -163,8 +163,8 @@ class TestBillCreditCardPayments:
             ref_number_to="CARD-9999",
             transaction_date_from=parse_date("2024-01-01"),
             transaction_date_to=parse_date("2024-02-01"),
-            updated_after="2024-01-01T12:34:56",
-            updated_before="2024-02-01T12:34:56",
+            updated_after="2024-01-01T12:34:56+00:00",
+            updated_before="2024-02-01T12:34:56+00:00",
             vendor_ids=["80000001-1234567890"],
         )
         assert_matches_type(SyncCursorPage[BillCreditCardPayment], bill_credit_card_payment, path=["response"])
@@ -382,8 +382,8 @@ class TestAsyncBillCreditCardPayments:
             ref_number_to="CARD-9999",
             transaction_date_from=parse_date("2024-01-01"),
             transaction_date_to=parse_date("2024-02-01"),
-            updated_after="2024-01-01T12:34:56",
-            updated_before="2024-02-01T12:34:56",
+            updated_after="2024-01-01T12:34:56+00:00",
+            updated_before="2024-02-01T12:34:56+00:00",
             vendor_ids=["80000001-1234567890"],
         )
         assert_matches_type(AsyncCursorPage[BillCreditCardPayment], bill_credit_card_payment, path=["response"])

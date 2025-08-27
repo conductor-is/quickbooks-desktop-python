@@ -580,18 +580,30 @@ class EstimatesResource(SyncAPIResource):
               lexicographical comparison.
 
           transaction_date_from: Filter for estimates whose `date` field is on or after this date, in ISO 8601
-              format (YYYY-MM-DD).
+              format (YYYY-MM-DD). QuickBooks Desktop interprets this date-only value in the
+              host machine’s local timezone; i.e., midnight in the timezone of the end-user's
+              computer running QuickBooks Desktop.
 
           transaction_date_to: Filter for estimates whose `date` field is on or before this date, in ISO 8601
-              format (YYYY-MM-DD).
+              format (YYYY-MM-DD). QuickBooks Desktop interprets this date-only value in the
+              host machine’s local timezone; i.e., midnight in the timezone of the end-user's
+              computer running QuickBooks Desktop.
 
-          updated_after: Filter for estimates updated on or after this date and time, in ISO 8601 format
-              (YYYY-MM-DDTHH:mm:ss). If you only provide a date (YYYY-MM-DD), the time is
-              assumed to be 00:00:00 of that day.
+          updated_after: Filter for estimates updated on or after this date/time. Format: ISO 8601.
+              Accepts date-only (YYYY-MM-DD), datetime without timezone (YYYY-MM-DDTHH:mm:ss),
+              or datetime with timezone (YYYY-MM-DDTHH:mm:ss±HH:mm). Date-only and
+              timezone-less datetimes are passed through for QuickBooks Desktop to interpret
+              in the host machine’s local timezone. If the datetime includes a timezone (e.g.,
+              `+05:30` or `Z`), QuickBooks Desktop uses that timezone to interpret the
+              timestamp.
 
-          updated_before: Filter for estimates updated on or before this date and time, in ISO 8601 format
-              (YYYY-MM-DDTHH:mm:ss). If you only provide a date (YYYY-MM-DD), the time is
-              assumed to be 23:59:59 of that day.
+          updated_before: Filter for estimates updated on or before this date/time. Format: ISO 8601.
+              Accepts date-only (YYYY-MM-DD), datetime without timezone (YYYY-MM-DDTHH:mm:ss),
+              or datetime with timezone (YYYY-MM-DDTHH:mm:ss±HH:mm). Date-only and
+              timezone-less datetimes are passed through for QuickBooks Desktop to interpret
+              in the host machine’s local timezone. If the datetime includes a timezone (e.g.,
+              `+05:30` or `Z`), QuickBooks Desktop uses that timezone to interpret the
+              timestamp.
 
           extra_headers: Send extra headers
 
@@ -1234,18 +1246,30 @@ class AsyncEstimatesResource(AsyncAPIResource):
               lexicographical comparison.
 
           transaction_date_from: Filter for estimates whose `date` field is on or after this date, in ISO 8601
-              format (YYYY-MM-DD).
+              format (YYYY-MM-DD). QuickBooks Desktop interprets this date-only value in the
+              host machine’s local timezone; i.e., midnight in the timezone of the end-user's
+              computer running QuickBooks Desktop.
 
           transaction_date_to: Filter for estimates whose `date` field is on or before this date, in ISO 8601
-              format (YYYY-MM-DD).
+              format (YYYY-MM-DD). QuickBooks Desktop interprets this date-only value in the
+              host machine’s local timezone; i.e., midnight in the timezone of the end-user's
+              computer running QuickBooks Desktop.
 
-          updated_after: Filter for estimates updated on or after this date and time, in ISO 8601 format
-              (YYYY-MM-DDTHH:mm:ss). If you only provide a date (YYYY-MM-DD), the time is
-              assumed to be 00:00:00 of that day.
+          updated_after: Filter for estimates updated on or after this date/time. Format: ISO 8601.
+              Accepts date-only (YYYY-MM-DD), datetime without timezone (YYYY-MM-DDTHH:mm:ss),
+              or datetime with timezone (YYYY-MM-DDTHH:mm:ss±HH:mm). Date-only and
+              timezone-less datetimes are passed through for QuickBooks Desktop to interpret
+              in the host machine’s local timezone. If the datetime includes a timezone (e.g.,
+              `+05:30` or `Z`), QuickBooks Desktop uses that timezone to interpret the
+              timestamp.
 
-          updated_before: Filter for estimates updated on or before this date and time, in ISO 8601 format
-              (YYYY-MM-DDTHH:mm:ss). If you only provide a date (YYYY-MM-DD), the time is
-              assumed to be 23:59:59 of that day.
+          updated_before: Filter for estimates updated on or before this date/time. Format: ISO 8601.
+              Accepts date-only (YYYY-MM-DD), datetime without timezone (YYYY-MM-DDTHH:mm:ss),
+              or datetime with timezone (YYYY-MM-DDTHH:mm:ss±HH:mm). Date-only and
+              timezone-less datetimes are passed through for QuickBooks Desktop to interpret
+              in the host machine’s local timezone. If the datetime includes a timezone (e.g.,
+              `+05:30` or `Z`), QuickBooks Desktop uses that timezone to interpret the
+              timestamp.
 
           extra_headers: Send extra headers
 

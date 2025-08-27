@@ -341,8 +341,8 @@ class TestCreditCardCharges:
             ref_number_to="CARD-9999",
             transaction_date_from=parse_date("2024-01-01"),
             transaction_date_to=parse_date("2024-02-01"),
-            updated_after="2024-01-01T12:34:56",
-            updated_before="2024-02-01T12:34:56",
+            updated_after="2024-01-01T12:34:56+00:00",
+            updated_before="2024-02-01T12:34:56+00:00",
         )
         assert_matches_type(SyncCursorPage[CreditCardCharge], credit_card_charge, path=["response"])
 
@@ -737,8 +737,8 @@ class TestAsyncCreditCardCharges:
             ref_number_to="CARD-9999",
             transaction_date_from=parse_date("2024-01-01"),
             transaction_date_to=parse_date("2024-02-01"),
-            updated_after="2024-01-01T12:34:56",
-            updated_before="2024-02-01T12:34:56",
+            updated_after="2024-01-01T12:34:56+00:00",
+            updated_before="2024-02-01T12:34:56+00:00",
         )
         assert_matches_type(AsyncCursorPage[CreditCardCharge], credit_card_charge, path=["response"])
 
