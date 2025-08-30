@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.57.1 (2025-08-30)
+
+Full Changelog: [v1.57.0...v1.57.1](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.57.0...v1.57.1)
+
+### Chores
+
+* **internal:** add Sequence related utils ([8247e7a](https://github.com/conductor-is/quickbooks-desktop-python/commit/8247e7ab2dc265aa8a1d258ee2a8d2c0603f27fa))
+
 ## 1.57.0 (2025-08-27)
 
 Full Changelog: [v1.56.1...v1.57.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.56.1...v1.57.0)
