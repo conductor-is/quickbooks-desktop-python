@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
-from typing import List, Union
+from typing import Union
 from datetime import date
 from typing_extensions import Required, Annotated, TypedDict
 
+from ..._types import SequenceNotStr
 from ..._utils import PropertyInfo
 
 __all__ = ["CreditCardChargeListParams"]
@@ -18,10 +19,10 @@ class CreditCardChargeListParams(TypedDict, total=False):
     `"Conductor-End-User-Id: {{END_USER_ID}}"`).
     """
 
-    account_ids: Annotated[List[str], PropertyInfo(alias="accountIds")]
+    account_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="accountIds")]
     """Filter for credit card charges associated with these accounts."""
 
-    currency_ids: Annotated[List[str], PropertyInfo(alias="currencyIds")]
+    currency_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="currencyIds")]
     """Filter for credit card charges in these currencies."""
 
     cursor: str
@@ -32,7 +33,7 @@ class CreditCardChargeListParams(TypedDict, total=False):
     results.
     """
 
-    ids: List[str]
+    ids: SequenceNotStr[str]
     """
     Filter for specific credit card charges by their QuickBooks-assigned unique
     identifier(s).
@@ -57,7 +58,7 @@ class CreditCardChargeListParams(TypedDict, total=False):
     requests to retrieve the next page of results.
     """
 
-    payee_ids: Annotated[List[str], PropertyInfo(alias="payeeIds")]
+    payee_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="payeeIds")]
     """Filter for credit card charges paid to these payees.
 
     These are the vendors or companies from whom merchandise or services were
@@ -86,7 +87,7 @@ class CreditCardChargeListParams(TypedDict, total=False):
     a lexicographical comparison.
     """
 
-    ref_numbers: Annotated[List[str], PropertyInfo(alias="refNumbers")]
+    ref_numbers: Annotated[SequenceNotStr[str], PropertyInfo(alias="refNumbers")]
     """Filter for specific credit card charges by their ref-number(s), case-sensitive.
 
     In QuickBooks, ref-numbers are not required to be unique and can be arbitrarily

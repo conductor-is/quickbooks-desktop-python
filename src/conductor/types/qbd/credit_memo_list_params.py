@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
-from typing import List, Union
+from typing import Union
 from datetime import date
 from typing_extensions import Required, Annotated, TypedDict
 
+from ..._types import SequenceNotStr
 from ..._utils import PropertyInfo
 
 __all__ = ["CreditMemoListParams"]
@@ -18,10 +19,10 @@ class CreditMemoListParams(TypedDict, total=False):
     `"Conductor-End-User-Id: {{END_USER_ID}}"`).
     """
 
-    account_ids: Annotated[List[str], PropertyInfo(alias="accountIds")]
+    account_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="accountIds")]
     """Filter for credit memos associated with these accounts."""
 
-    currency_ids: Annotated[List[str], PropertyInfo(alias="currencyIds")]
+    currency_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="currencyIds")]
     """Filter for credit memos in these currencies."""
 
     cursor: str
@@ -32,13 +33,13 @@ class CreditMemoListParams(TypedDict, total=False):
     results.
     """
 
-    customer_ids: Annotated[List[str], PropertyInfo(alias="customerIds")]
+    customer_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="customerIds")]
     """Filter for credit memos created for these customers.
 
     These are the customers who are owed money.
     """
 
-    ids: List[str]
+    ids: SequenceNotStr[str]
     """
     Filter for specific credit memos by their QuickBooks-assigned unique
     identifier(s).
@@ -93,7 +94,7 @@ class CreditMemoListParams(TypedDict, total=False):
     lexicographical comparison.
     """
 
-    ref_numbers: Annotated[List[str], PropertyInfo(alias="refNumbers")]
+    ref_numbers: Annotated[SequenceNotStr[str], PropertyInfo(alias="refNumbers")]
     """Filter for specific credit memos by their ref-number(s), case-sensitive.
 
     In QuickBooks, ref-numbers are not required to be unique and can be arbitrarily

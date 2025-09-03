@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
-from typing import List, Union
+from typing import Union
 from datetime import date
 from typing_extensions import Required, Annotated, TypedDict
 
+from ..._types import SequenceNotStr
 from ..._utils import PropertyInfo
 
 __all__ = ["PurchaseOrderListParams"]
@@ -18,10 +19,10 @@ class PurchaseOrderListParams(TypedDict, total=False):
     `"Conductor-End-User-Id: {{END_USER_ID}}"`).
     """
 
-    account_ids: Annotated[List[str], PropertyInfo(alias="accountIds")]
+    account_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="accountIds")]
     """Filter for purchase orders associated with these accounts."""
 
-    currency_ids: Annotated[List[str], PropertyInfo(alias="currencyIds")]
+    currency_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="currencyIds")]
     """Filter for purchase orders in these currencies."""
 
     cursor: str
@@ -32,7 +33,7 @@ class PurchaseOrderListParams(TypedDict, total=False):
     results.
     """
 
-    ids: List[str]
+    ids: SequenceNotStr[str]
     """
     Filter for specific purchase orders by their QuickBooks-assigned unique
     identifier(s).
@@ -86,7 +87,7 @@ class PurchaseOrderListParams(TypedDict, total=False):
     lexicographical comparison.
     """
 
-    ref_numbers: Annotated[List[str], PropertyInfo(alias="refNumbers")]
+    ref_numbers: Annotated[SequenceNotStr[str], PropertyInfo(alias="refNumbers")]
     """Filter for specific purchase orders by their ref-number(s), case-sensitive.
 
     In QuickBooks, ref-numbers are not required to be unique and can be arbitrarily
@@ -163,5 +164,5 @@ class PurchaseOrderListParams(TypedDict, total=False):
       interprets the timestamp using the specified timezone.
     """
 
-    vendor_ids: Annotated[List[str], PropertyInfo(alias="vendorIds")]
+    vendor_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="vendorIds")]
     """Filter for purchase orders sent to these vendors."""

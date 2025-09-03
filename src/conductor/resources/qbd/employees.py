@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 
-from typing import List, Union, Iterable
+from typing import Union, Iterable
 from datetime import date
 from typing_extensions import Literal
 
 import httpx
 
-from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
+from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven, SequenceNotStr
 from ..._utils import maybe_transform, async_maybe_transform
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
@@ -611,12 +611,12 @@ class EmployeesResource(SyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
-        ids: List[str] | NotGiven = NOT_GIVEN,
+        ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         name_contains: str | NotGiven = NOT_GIVEN,
         name_ends_with: str | NotGiven = NOT_GIVEN,
         name_from: str | NotGiven = NOT_GIVEN,
-        names: List[str] | NotGiven = NOT_GIVEN,
+        names: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
         name_starts_with: str | NotGiven = NOT_GIVEN,
         name_to: str | NotGiven = NOT_GIVEN,
         status: Literal["active", "all", "inactive"] | NotGiven = NOT_GIVEN,
@@ -1334,12 +1334,12 @@ class AsyncEmployeesResource(AsyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
-        ids: List[str] | NotGiven = NOT_GIVEN,
+        ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         name_contains: str | NotGiven = NOT_GIVEN,
         name_ends_with: str | NotGiven = NOT_GIVEN,
         name_from: str | NotGiven = NOT_GIVEN,
-        names: List[str] | NotGiven = NOT_GIVEN,
+        names: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
         name_starts_with: str | NotGiven = NOT_GIVEN,
         name_to: str | NotGiven = NOT_GIVEN,
         status: Literal["active", "all", "inactive"] | NotGiven = NOT_GIVEN,

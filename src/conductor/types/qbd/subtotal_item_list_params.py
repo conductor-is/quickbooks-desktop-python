@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from typing import List
 from typing_extensions import Literal, Required, Annotated, TypedDict
 
+from ..._types import SequenceNotStr
 from ..._utils import PropertyInfo
 
 __all__ = ["SubtotalItemListParams"]
@@ -25,7 +25,7 @@ class SubtotalItemListParams(TypedDict, total=False):
     results.
     """
 
-    ids: List[str]
+    ids: SequenceNotStr[str]
     """
     Filter for specific subtotal items by their QuickBooks-assigned unique
     identifier(s).
@@ -71,7 +71,7 @@ class SubtotalItemListParams(TypedDict, total=False):
     to this value.
     """
 
-    names: List[str]
+    names: SequenceNotStr[str]
     """Filter for specific subtotal items by their name(s), case-insensitive.
 
     Like `id`, `name` is a unique identifier for a subtotal item.

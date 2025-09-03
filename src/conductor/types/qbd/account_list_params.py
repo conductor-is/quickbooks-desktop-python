@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from typing import List
 from typing_extensions import Literal, Required, Annotated, TypedDict
 
+from ..._types import SequenceNotStr
 from ..._utils import PropertyInfo
 
 __all__ = ["AccountListParams"]
@@ -40,10 +40,10 @@ class AccountListParams(TypedDict, total=False):
     ]
     """Filter for accounts of this type."""
 
-    currency_ids: Annotated[List[str], PropertyInfo(alias="currencyIds")]
+    currency_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="currencyIds")]
     """Filter for accounts in these currencies."""
 
-    full_names: Annotated[List[str], PropertyInfo(alias="fullNames")]
+    full_names: Annotated[SequenceNotStr[str], PropertyInfo(alias="fullNames")]
     """Filter for specific accounts by their full-name(s), case-insensitive.
 
     Like `id`, `fullName` is a unique identifier for an account, formed by by
@@ -58,7 +58,7 @@ class AccountListParams(TypedDict, total=False):
     request will return an error.
     """
 
-    ids: List[str]
+    ids: SequenceNotStr[str]
     """Filter for specific accounts by their QuickBooks-assigned unique identifier(s).
 
     **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
