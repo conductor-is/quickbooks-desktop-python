@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
-from typing import List, Union
+from typing import Union
 from datetime import date
 from typing_extensions import Required, Annotated, TypedDict
 
+from ..._types import SequenceNotStr
 from ..._utils import PropertyInfo
 
 __all__ = ["TimeTrackingActivityListParams"]
@@ -26,13 +27,13 @@ class TimeTrackingActivityListParams(TypedDict, total=False):
     results.
     """
 
-    entity_ids: Annotated[List[str], PropertyInfo(alias="entityIds")]
+    entity_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="entityIds")]
     """
     Filter for time tracking activities tracking the time of these employees,
     vendors, or persons on QuickBooks's "Other Names" list.
     """
 
-    ids: List[str]
+    ids: SequenceNotStr[str]
     """
     Filter for specific time tracking activities by their QuickBooks-assigned unique
     identifier(s).

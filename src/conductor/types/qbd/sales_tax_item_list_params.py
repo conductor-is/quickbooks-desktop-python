@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from typing import List
 from typing_extensions import Literal, Required, Annotated, TypedDict
 
+from ..._types import SequenceNotStr
 from ..._utils import PropertyInfo
 
 __all__ = ["SalesTaxItemListParams"]
@@ -17,7 +17,7 @@ class SalesTaxItemListParams(TypedDict, total=False):
     `"Conductor-End-User-Id: {{END_USER_ID}}"`).
     """
 
-    class_ids: Annotated[List[str], PropertyInfo(alias="classIds")]
+    class_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="classIds")]
     """Filter for sales-tax items of these classes.
 
     A class is a way end-users can categorize sales-tax items in QuickBooks.
@@ -31,7 +31,7 @@ class SalesTaxItemListParams(TypedDict, total=False):
     results.
     """
 
-    ids: List[str]
+    ids: SequenceNotStr[str]
     """
     Filter for specific sales-tax items by their QuickBooks-assigned unique
     identifier(s).
@@ -77,7 +77,7 @@ class SalesTaxItemListParams(TypedDict, total=False):
     to this value.
     """
 
-    names: List[str]
+    names: SequenceNotStr[str]
     """Filter for specific sales-tax items by their name(s), case-insensitive.
 
     Like `id`, `name` is a unique identifier for a sales-tax item.

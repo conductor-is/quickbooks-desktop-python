@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from typing import List
 from typing_extensions import Literal, Required, Annotated, TypedDict
 
+from ..._types import SequenceNotStr
 from ..._utils import PropertyInfo
 
 __all__ = ["InventoryItemListParams"]
@@ -17,7 +17,7 @@ class InventoryItemListParams(TypedDict, total=False):
     `"Conductor-End-User-Id: {{END_USER_ID}}"`).
     """
 
-    class_ids: Annotated[List[str], PropertyInfo(alias="classIds")]
+    class_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="classIds")]
     """Filter for inventory items of these classes.
 
     A class is a way end-users can categorize inventory items in QuickBooks.
@@ -31,7 +31,7 @@ class InventoryItemListParams(TypedDict, total=False):
     results.
     """
 
-    full_names: Annotated[List[str], PropertyInfo(alias="fullNames")]
+    full_names: Annotated[SequenceNotStr[str], PropertyInfo(alias="fullNames")]
     """Filter for specific inventory items by their full-name(s), case-insensitive.
 
     Like `id`, `fullName` is a unique identifier for an inventory item, formed by by
@@ -46,7 +46,7 @@ class InventoryItemListParams(TypedDict, total=False):
     request will return an error.
     """
 
-    ids: List[str]
+    ids: SequenceNotStr[str]
     """
     Filter for specific inventory items by their QuickBooks-assigned unique
     identifier(s).

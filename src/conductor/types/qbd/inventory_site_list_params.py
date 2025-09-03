@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from typing import List
 from typing_extensions import Literal, Required, Annotated, TypedDict
 
+from ..._types import SequenceNotStr
 from ..._utils import PropertyInfo
 
 __all__ = ["InventorySiteListParams"]
@@ -17,7 +17,7 @@ class InventorySiteListParams(TypedDict, total=False):
     `"Conductor-End-User-Id: {{END_USER_ID}}"`).
     """
 
-    ids: List[str]
+    ids: SequenceNotStr[str]
     """
     Filter for specific inventory sites by their QuickBooks-assigned unique
     identifier(s).
@@ -53,7 +53,7 @@ class InventorySiteListParams(TypedDict, total=False):
     to this value.
     """
 
-    names: List[str]
+    names: SequenceNotStr[str]
     """Filter for specific inventory sites by their name(s), case-insensitive.
 
     Like `id`, `name` is a unique identifier for an inventory site.

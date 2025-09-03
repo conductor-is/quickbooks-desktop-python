@@ -6,6 +6,7 @@ from typing import List, Union
 from datetime import date
 from typing_extensions import Literal, Required, Annotated, TypedDict
 
+from ..._types import SequenceNotStr
 from ..._utils import PropertyInfo
 
 __all__ = ["TransactionListParams"]
@@ -18,14 +19,14 @@ class TransactionListParams(TypedDict, total=False):
     `"Conductor-End-User-Id: {{END_USER_ID}}"`).
     """
 
-    account_ids: Annotated[List[str], PropertyInfo(alias="accountIds")]
+    account_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="accountIds")]
     """Filter for transactions associated with these accounts.
 
     **NOTE**: To filter on transaction lines, you must specify the
     `transactionDetailLevel` parameter as `all` or `transaction_lines_only`.
     """
 
-    class_ids: Annotated[List[str], PropertyInfo(alias="classIds")]
+    class_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="classIds")]
     """Filter for transactions of these classes.
 
     A class is a way end-users can categorize transactions in QuickBooks.
@@ -34,7 +35,7 @@ class TransactionListParams(TypedDict, total=False):
     `transactionDetailLevel` parameter as `all` or `transaction_lines_only`.
     """
 
-    currency_ids: Annotated[List[str], PropertyInfo(alias="currencyIds")]
+    currency_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="currencyIds")]
     """Filter for transactions in these currencies."""
 
     cursor: str
@@ -54,7 +55,7 @@ class TransactionListParams(TypedDict, total=False):
     or only transaction-line objects (`transaction_lines_only`.
     """
 
-    entity_ids: Annotated[List[str], PropertyInfo(alias="entityIds")]
+    entity_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="entityIds")]
     """
     Filter for transactions associated with these entities (customers, vendors,
     employees, etc.).
@@ -63,7 +64,7 @@ class TransactionListParams(TypedDict, total=False):
     `transactionDetailLevel` parameter as `all` or `transaction_lines_only`.
     """
 
-    ids: List[str]
+    ids: SequenceNotStr[str]
     """
     Filter for specific transactions by their QuickBooks-assigned unique
     identifier(s).
@@ -80,7 +81,7 @@ class TransactionListParams(TypedDict, total=False):
     QuickBooks.
     """
 
-    item_ids: Annotated[List[str], PropertyInfo(alias="itemIds")]
+    item_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="itemIds")]
     """Filter for transactions associated with these items.
 
     **NOTE**: To filter on transaction lines, you must specify the
@@ -134,7 +135,7 @@ class TransactionListParams(TypedDict, total=False):
     lexicographical comparison.
     """
 
-    ref_numbers: Annotated[List[str], PropertyInfo(alias="refNumbers")]
+    ref_numbers: Annotated[SequenceNotStr[str], PropertyInfo(alias="refNumbers")]
     """Filter for specific transactions by their ref-number(s), case-sensitive.
 
     In QuickBooks, ref-numbers are not required to be unique and can be arbitrarily

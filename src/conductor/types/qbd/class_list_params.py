@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from typing import List
 from typing_extensions import Literal, Required, Annotated, TypedDict
 
+from ..._types import SequenceNotStr
 from ..._utils import PropertyInfo
 
 __all__ = ["ClassListParams"]
@@ -17,7 +17,7 @@ class ClassListParams(TypedDict, total=False):
     `"Conductor-End-User-Id: {{END_USER_ID}}"`).
     """
 
-    full_names: Annotated[List[str], PropertyInfo(alias="fullNames")]
+    full_names: Annotated[SequenceNotStr[str], PropertyInfo(alias="fullNames")]
     """Filter for specific classes by their full-name(s), case-insensitive.
 
     Like `id`, `fullName` is a unique identifier for a class, formed by by combining
@@ -32,7 +32,7 @@ class ClassListParams(TypedDict, total=False):
     request will return an error.
     """
 
-    ids: List[str]
+    ids: SequenceNotStr[str]
     """Filter for specific classes by their QuickBooks-assigned unique identifier(s).
 
     **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other

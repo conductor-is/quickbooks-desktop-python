@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
-from typing import List, Union
+from typing import Union
 from datetime import date
 from typing_extensions import Literal, Required, Annotated, TypedDict
 
+from ..._types import SequenceNotStr
 from ..._utils import PropertyInfo
 
 __all__ = ["BuildAssemblyListParams"]
@@ -26,7 +27,7 @@ class BuildAssemblyListParams(TypedDict, total=False):
     results.
     """
 
-    ids: List[str]
+    ids: SequenceNotStr[str]
     """
     Filter for specific build assemblies by their QuickBooks-assigned unique
     identifier(s).
@@ -41,7 +42,7 @@ class BuildAssemblyListParams(TypedDict, total=False):
     include_component_line_items: Annotated[bool, PropertyInfo(alias="includeComponentLineItems")]
     """Whether to include component line items in the response. Defaults to `true`."""
 
-    item_ids: Annotated[List[str], PropertyInfo(alias="itemIds")]
+    item_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="itemIds")]
     """Filter for build assemblies containing these items."""
 
     limit: int
@@ -79,7 +80,7 @@ class BuildAssemblyListParams(TypedDict, total=False):
     lexicographical comparison.
     """
 
-    ref_numbers: Annotated[List[str], PropertyInfo(alias="refNumbers")]
+    ref_numbers: Annotated[SequenceNotStr[str], PropertyInfo(alias="refNumbers")]
     """Filter for specific build assemblies by their ref-number(s), case-sensitive.
 
     In QuickBooks, ref-numbers are not required to be unique and can be arbitrarily

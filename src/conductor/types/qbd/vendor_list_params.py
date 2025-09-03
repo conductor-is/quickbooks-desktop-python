@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from typing import List
 from typing_extensions import Literal, Required, Annotated, TypedDict
 
+from ..._types import SequenceNotStr
 from ..._utils import PropertyInfo
 
 __all__ = ["VendorListParams"]
@@ -17,13 +17,13 @@ class VendorListParams(TypedDict, total=False):
     `"Conductor-End-User-Id: {{END_USER_ID}}"`).
     """
 
-    class_ids: Annotated[List[str], PropertyInfo(alias="classIds")]
+    class_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="classIds")]
     """Filter for vendors of these classes.
 
     A class is a way end-users can categorize vendors in QuickBooks.
     """
 
-    currency_ids: Annotated[List[str], PropertyInfo(alias="currencyIds")]
+    currency_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="currencyIds")]
     """Filter for vendors in these currencies."""
 
     cursor: str
@@ -34,7 +34,7 @@ class VendorListParams(TypedDict, total=False):
     results.
     """
 
-    ids: List[str]
+    ids: SequenceNotStr[str]
     """Filter for specific vendors by their QuickBooks-assigned unique identifier(s).
 
     **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
@@ -74,7 +74,7 @@ class VendorListParams(TypedDict, total=False):
     value.
     """
 
-    names: List[str]
+    names: SequenceNotStr[str]
     """Filter for specific vendors by their name(s), case-insensitive.
 
     Like `id`, `name` is a unique identifier for a vendor.
