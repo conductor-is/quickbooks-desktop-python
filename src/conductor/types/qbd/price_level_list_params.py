@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from typing import List
 from typing_extensions import Literal, Required, Annotated, TypedDict
 
+from ..._types import SequenceNotStr
 from ..._utils import PropertyInfo
 
 __all__ = ["PriceLevelListParams"]
@@ -17,10 +17,10 @@ class PriceLevelListParams(TypedDict, total=False):
     `"Conductor-End-User-Id: {{END_USER_ID}}"`).
     """
 
-    currency_ids: Annotated[List[str], PropertyInfo(alias="currencyIds")]
+    currency_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="currencyIds")]
     """Filter for price levels in these currencies."""
 
-    ids: List[str]
+    ids: SequenceNotStr[str]
     """
     Filter for specific price levels by their QuickBooks-assigned unique
     identifier(s).
@@ -32,7 +32,7 @@ class PriceLevelListParams(TypedDict, total=False):
     request will return an error.
     """
 
-    item_ids: Annotated[List[str], PropertyInfo(alias="itemIds")]
+    item_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="itemIds")]
     """Filter for price levels containing these items."""
 
     limit: int
@@ -68,7 +68,7 @@ class PriceLevelListParams(TypedDict, total=False):
     this value.
     """
 
-    names: List[str]
+    names: SequenceNotStr[str]
     """Filter for specific price levels by their name(s), case-insensitive.
 
     Like `id`, `name` is a unique identifier for a price level.

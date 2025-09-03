@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 
-from typing import List, Union
+from typing import Union
 from datetime import date
 from typing_extensions import Literal
 
 import httpx
 
-from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
+from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven, SequenceNotStr
 from ..._utils import maybe_transform, async_maybe_transform
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
@@ -330,8 +330,8 @@ class TimeTrackingActivitiesResource(SyncAPIResource):
         *,
         conductor_end_user_id: str,
         cursor: str | NotGiven = NOT_GIVEN,
-        entity_ids: List[str] | NotGiven = NOT_GIVEN,
-        ids: List[str] | NotGiven = NOT_GIVEN,
+        entity_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
+        ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         transaction_date_from: Union[str, date] | NotGiven = NOT_GIVEN,
         transaction_date_to: Union[str, date] | NotGiven = NOT_GIVEN,
@@ -791,8 +791,8 @@ class AsyncTimeTrackingActivitiesResource(AsyncAPIResource):
         *,
         conductor_end_user_id: str,
         cursor: str | NotGiven = NOT_GIVEN,
-        entity_ids: List[str] | NotGiven = NOT_GIVEN,
-        ids: List[str] | NotGiven = NOT_GIVEN,
+        entity_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
+        ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         transaction_date_from: Union[str, date] | NotGiven = NOT_GIVEN,
         transaction_date_to: Union[str, date] | NotGiven = NOT_GIVEN,

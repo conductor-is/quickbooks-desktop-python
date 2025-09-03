@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 
-from typing import List, Union, Iterable
+from typing import Union, Iterable
 from datetime import date
 from typing_extensions import Literal
 
 import httpx
 
-from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
+from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven, SequenceNotStr
 from ..._utils import maybe_transform, async_maybe_transform
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
@@ -65,7 +65,7 @@ class VendorsResource(SyncAPIResource):
         credit_limit: str | NotGiven = NOT_GIVEN,
         currency_id: str | NotGiven = NOT_GIVEN,
         custom_contact_fields: Iterable[vendor_create_params.CustomContactField] | NotGiven = NOT_GIVEN,
-        default_expense_account_ids: List[str] | NotGiven = NOT_GIVEN,
+        default_expense_account_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
         email: str | NotGiven = NOT_GIVEN,
         external_id: str | NotGiven = NOT_GIVEN,
         fax: str | NotGiven = NOT_GIVEN,
@@ -380,7 +380,7 @@ class VendorsResource(SyncAPIResource):
         credit_limit: str | NotGiven = NOT_GIVEN,
         currency_id: str | NotGiven = NOT_GIVEN,
         custom_contact_fields: Iterable[vendor_update_params.CustomContactField] | NotGiven = NOT_GIVEN,
-        default_expense_account_ids: List[str] | NotGiven = NOT_GIVEN,
+        default_expense_account_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
         email: str | NotGiven = NOT_GIVEN,
         fax: str | NotGiven = NOT_GIVEN,
         first_name: str | NotGiven = NOT_GIVEN,
@@ -632,15 +632,15 @@ class VendorsResource(SyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
-        class_ids: List[str] | NotGiven = NOT_GIVEN,
-        currency_ids: List[str] | NotGiven = NOT_GIVEN,
+        class_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
+        currency_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
         cursor: str | NotGiven = NOT_GIVEN,
-        ids: List[str] | NotGiven = NOT_GIVEN,
+        ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         name_contains: str | NotGiven = NOT_GIVEN,
         name_ends_with: str | NotGiven = NOT_GIVEN,
         name_from: str | NotGiven = NOT_GIVEN,
-        names: List[str] | NotGiven = NOT_GIVEN,
+        names: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
         name_starts_with: str | NotGiven = NOT_GIVEN,
         name_to: str | NotGiven = NOT_GIVEN,
         status: Literal["active", "all", "inactive"] | NotGiven = NOT_GIVEN,
@@ -848,7 +848,7 @@ class AsyncVendorsResource(AsyncAPIResource):
         credit_limit: str | NotGiven = NOT_GIVEN,
         currency_id: str | NotGiven = NOT_GIVEN,
         custom_contact_fields: Iterable[vendor_create_params.CustomContactField] | NotGiven = NOT_GIVEN,
-        default_expense_account_ids: List[str] | NotGiven = NOT_GIVEN,
+        default_expense_account_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
         email: str | NotGiven = NOT_GIVEN,
         external_id: str | NotGiven = NOT_GIVEN,
         fax: str | NotGiven = NOT_GIVEN,
@@ -1163,7 +1163,7 @@ class AsyncVendorsResource(AsyncAPIResource):
         credit_limit: str | NotGiven = NOT_GIVEN,
         currency_id: str | NotGiven = NOT_GIVEN,
         custom_contact_fields: Iterable[vendor_update_params.CustomContactField] | NotGiven = NOT_GIVEN,
-        default_expense_account_ids: List[str] | NotGiven = NOT_GIVEN,
+        default_expense_account_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
         email: str | NotGiven = NOT_GIVEN,
         fax: str | NotGiven = NOT_GIVEN,
         first_name: str | NotGiven = NOT_GIVEN,
@@ -1415,15 +1415,15 @@ class AsyncVendorsResource(AsyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
-        class_ids: List[str] | NotGiven = NOT_GIVEN,
-        currency_ids: List[str] | NotGiven = NOT_GIVEN,
+        class_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
+        currency_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
         cursor: str | NotGiven = NOT_GIVEN,
-        ids: List[str] | NotGiven = NOT_GIVEN,
+        ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         name_contains: str | NotGiven = NOT_GIVEN,
         name_ends_with: str | NotGiven = NOT_GIVEN,
         name_from: str | NotGiven = NOT_GIVEN,
-        names: List[str] | NotGiven = NOT_GIVEN,
+        names: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
         name_starts_with: str | NotGiven = NOT_GIVEN,
         name_to: str | NotGiven = NOT_GIVEN,
         status: Literal["active", "all", "inactive"] | NotGiven = NOT_GIVEN,

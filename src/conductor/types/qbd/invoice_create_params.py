@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
-from typing import List, Union, Iterable
+from typing import Union, Iterable
 from datetime import date
 from typing_extensions import Literal, Required, Annotated, TypedDict
 
+from ..._types import SequenceNotStr
 from ..._utils import PropertyInfo
 
 __all__ = [
@@ -122,7 +123,7 @@ class InvoiceCreateParams(TypedDict, total=False):
     lines: Iterable[Line]
     """The invoice's line items, each representing a single product or service sold."""
 
-    link_to_transaction_ids: Annotated[List[str], PropertyInfo(alias="linkToTransactionIds")]
+    link_to_transaction_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="linkToTransactionIds")]
     """
     IDs of existing transactions that you wish to link to this invoice, such as
     payments applied, credits used, or associated purchase orders. Note that this

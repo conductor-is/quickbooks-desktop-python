@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 
-from typing import List, Iterable
+from typing import Iterable
 from typing_extensions import Literal, Required, Annotated, TypedDict
 
+from ..._types import SequenceNotStr
 from ..._utils import PropertyInfo
 
 __all__ = [
@@ -104,7 +105,7 @@ class VendorUpdateParams(TypedDict, total=False):
     addresses.
     """
 
-    default_expense_account_ids: Annotated[List[str], PropertyInfo(alias="defaultExpenseAccountIds")]
+    default_expense_account_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="defaultExpenseAccountIds")]
     """The expense accounts to prefill when entering bills for this vendor."""
 
     email: str

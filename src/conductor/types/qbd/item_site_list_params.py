@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from typing import List
 from typing_extensions import Literal, Required, Annotated, TypedDict
 
+from ..._types import SequenceNotStr
 from ..._utils import PropertyInfo
 
 __all__ = ["ItemSiteListParams"]
@@ -25,7 +25,7 @@ class ItemSiteListParams(TypedDict, total=False):
     results.
     """
 
-    ids: List[str]
+    ids: SequenceNotStr[str]
     """
     Filter for specific item sites by their QuickBooks-assigned unique
     identifier(s).
@@ -37,7 +37,7 @@ class ItemSiteListParams(TypedDict, total=False):
     request will return an error.
     """
 
-    item_ids: Annotated[List[str], PropertyInfo(alias="itemIds")]
+    item_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="itemIds")]
     """Filter for item sites for these items."""
 
     item_type: Annotated[
@@ -69,7 +69,7 @@ class ItemSiteListParams(TypedDict, total=False):
     requests to retrieve the next page of results.
     """
 
-    site_ids: Annotated[List[str], PropertyInfo(alias="siteIds")]
+    site_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="siteIds")]
     """Filter for item sites at these sites.
 
     A site represents a physical location, such as a warehouse or store.

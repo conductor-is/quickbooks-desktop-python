@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
-from typing import List, Union, Iterable
+from typing import Union, Iterable
 from datetime import date
 from typing_extensions import Literal, Required, Annotated, TypedDict
 
+from ..._types import SequenceNotStr
 from ..._utils import PropertyInfo
 
 __all__ = [
@@ -70,7 +71,7 @@ class BillCreateParams(TypedDict, total=False):
     service.
     """
 
-    link_to_transaction_ids: Annotated[List[str], PropertyInfo(alias="linkToTransactionIds")]
+    link_to_transaction_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="linkToTransactionIds")]
     """IDs of existing purchase orders that you wish to link to this bill.
 
     Note that this links entire transactions, not individual transaction lines. If

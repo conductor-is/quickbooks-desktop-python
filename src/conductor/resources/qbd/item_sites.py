@@ -2,12 +2,11 @@
 
 from __future__ import annotations
 
-from typing import List
 from typing_extensions import Literal
 
 import httpx
 
-from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
+from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven, SequenceNotStr
 from ..._utils import maybe_transform
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
@@ -90,8 +89,8 @@ class ItemSitesResource(SyncAPIResource):
         *,
         conductor_end_user_id: str,
         cursor: str | NotGiven = NOT_GIVEN,
-        ids: List[str] | NotGiven = NOT_GIVEN,
-        item_ids: List[str] | NotGiven = NOT_GIVEN,
+        ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
+        item_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
         item_type: Literal[
             "all_except_fixed_asset",
             "assembly",
@@ -108,7 +107,7 @@ class ItemSitesResource(SyncAPIResource):
         ]
         | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
-        site_ids: List[str] | NotGiven = NOT_GIVEN,
+        site_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
         status: Literal["active", "all", "inactive"] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -255,8 +254,8 @@ class AsyncItemSitesResource(AsyncAPIResource):
         *,
         conductor_end_user_id: str,
         cursor: str | NotGiven = NOT_GIVEN,
-        ids: List[str] | NotGiven = NOT_GIVEN,
-        item_ids: List[str] | NotGiven = NOT_GIVEN,
+        ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
+        item_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
         item_type: Literal[
             "all_except_fixed_asset",
             "assembly",
@@ -273,7 +272,7 @@ class AsyncItemSitesResource(AsyncAPIResource):
         ]
         | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
-        site_ids: List[str] | NotGiven = NOT_GIVEN,
+        site_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
         status: Literal["active", "all", "inactive"] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.

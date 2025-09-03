@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
-from typing import List, Union, Iterable
+from typing import Union, Iterable
 from datetime import date
 
 import httpx
 
-from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
+from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven, SequenceNotStr
 from ..._utils import maybe_transform, async_maybe_transform
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
@@ -506,24 +506,24 @@ class PurchaseOrdersResource(SyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
-        account_ids: List[str] | NotGiven = NOT_GIVEN,
-        currency_ids: List[str] | NotGiven = NOT_GIVEN,
+        account_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
+        currency_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
         cursor: str | NotGiven = NOT_GIVEN,
-        ids: List[str] | NotGiven = NOT_GIVEN,
+        ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
         include_line_items: bool | NotGiven = NOT_GIVEN,
         include_linked_transactions: bool | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         ref_number_contains: str | NotGiven = NOT_GIVEN,
         ref_number_ends_with: str | NotGiven = NOT_GIVEN,
         ref_number_from: str | NotGiven = NOT_GIVEN,
-        ref_numbers: List[str] | NotGiven = NOT_GIVEN,
+        ref_numbers: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
         ref_number_starts_with: str | NotGiven = NOT_GIVEN,
         ref_number_to: str | NotGiven = NOT_GIVEN,
         transaction_date_from: Union[str, date] | NotGiven = NOT_GIVEN,
         transaction_date_to: Union[str, date] | NotGiven = NOT_GIVEN,
         updated_after: str | NotGiven = NOT_GIVEN,
         updated_before: str | NotGiven = NOT_GIVEN,
-        vendor_ids: List[str] | NotGiven = NOT_GIVEN,
+        vendor_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -1210,24 +1210,24 @@ class AsyncPurchaseOrdersResource(AsyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
-        account_ids: List[str] | NotGiven = NOT_GIVEN,
-        currency_ids: List[str] | NotGiven = NOT_GIVEN,
+        account_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
+        currency_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
         cursor: str | NotGiven = NOT_GIVEN,
-        ids: List[str] | NotGiven = NOT_GIVEN,
+        ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
         include_line_items: bool | NotGiven = NOT_GIVEN,
         include_linked_transactions: bool | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         ref_number_contains: str | NotGiven = NOT_GIVEN,
         ref_number_ends_with: str | NotGiven = NOT_GIVEN,
         ref_number_from: str | NotGiven = NOT_GIVEN,
-        ref_numbers: List[str] | NotGiven = NOT_GIVEN,
+        ref_numbers: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
         ref_number_starts_with: str | NotGiven = NOT_GIVEN,
         ref_number_to: str | NotGiven = NOT_GIVEN,
         transaction_date_from: Union[str, date] | NotGiven = NOT_GIVEN,
         transaction_date_to: Union[str, date] | NotGiven = NOT_GIVEN,
         updated_after: str | NotGiven = NOT_GIVEN,
         updated_before: str | NotGiven = NOT_GIVEN,
-        vendor_ids: List[str] | NotGiven = NOT_GIVEN,
+        vendor_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,

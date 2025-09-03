@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from typing import List
 from typing_extensions import Literal, Required, Annotated, TypedDict
 
+from ..._types import SequenceNotStr
 from ..._utils import PropertyInfo
 
 __all__ = ["PayrollWageItemListParams"]
@@ -25,7 +25,7 @@ class PayrollWageItemListParams(TypedDict, total=False):
     results.
     """
 
-    ids: List[str]
+    ids: SequenceNotStr[str]
     """
     Filter for specific payroll wage items by their QuickBooks-assigned unique
     identifier(s).
@@ -71,7 +71,7 @@ class PayrollWageItemListParams(TypedDict, total=False):
     equal to this value.
     """
 
-    names: List[str]
+    names: SequenceNotStr[str]
     """Filter for specific payroll wage items by their name(s), case-insensitive.
 
     Like `id`, `name` is a unique identifier for a payroll wage item.

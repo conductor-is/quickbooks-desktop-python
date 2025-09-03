@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
-from typing import List, Union
+from typing import Union
 from datetime import date
 from typing_extensions import Required, Annotated, TypedDict
 
+from ..._types import SequenceNotStr
 from ..._utils import PropertyInfo
 
 __all__ = ["InventoryAdjustmentListParams"]
@@ -18,13 +19,13 @@ class InventoryAdjustmentListParams(TypedDict, total=False):
     `"Conductor-End-User-Id: {{END_USER_ID}}"`).
     """
 
-    account_ids: Annotated[List[str], PropertyInfo(alias="accountIds")]
+    account_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="accountIds")]
     """Filter for inventory adjustments associated with these accounts."""
 
-    customer_ids: Annotated[List[str], PropertyInfo(alias="customerIds")]
+    customer_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="customerIds")]
     """Filter for inventory adjustments associated with these customers."""
 
-    ids: List[str]
+    ids: SequenceNotStr[str]
     """
     Filter for specific inventory adjustments by their QuickBooks-assigned unique
     identifier(s).
@@ -39,7 +40,7 @@ class InventoryAdjustmentListParams(TypedDict, total=False):
     include_line_items: Annotated[bool, PropertyInfo(alias="includeLineItems")]
     """Whether to include line items in the response. Defaults to `true`."""
 
-    item_ids: Annotated[List[str], PropertyInfo(alias="itemIds")]
+    item_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="itemIds")]
     """Filter for inventory adjustments containing these inventory items."""
 
     limit: int
@@ -77,7 +78,7 @@ class InventoryAdjustmentListParams(TypedDict, total=False):
     a lexicographical comparison.
     """
 
-    ref_numbers: Annotated[List[str], PropertyInfo(alias="refNumbers")]
+    ref_numbers: Annotated[SequenceNotStr[str], PropertyInfo(alias="refNumbers")]
     """Filter for specific inventory adjustments by their ref-number(s),
     case-sensitive.
 
