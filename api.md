@@ -224,6 +224,21 @@ Methods:
 - <code title="get /quickbooks-desktop/credit-memos">conductor.qbd.credit_memos.<a href="./src/conductor/resources/qbd/credit_memos.py">list</a>(\*\*<a href="src/conductor/types/qbd/credit_memo_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/credit_memo.py">SyncCursorPage[CreditMemo]</a></code>
 - <code title="delete /quickbooks-desktop/credit-memos/{id}">conductor.qbd.credit_memos.<a href="./src/conductor/resources/qbd/credit_memos.py">delete</a>(id) -> <a href="./src/conductor/types/qbd/credit_memo_delete_response.py">CreditMemoDeleteResponse</a></code>
 
+## Currencies
+
+Types:
+
+```python
+from conductor.types.qbd import Currency, CurrencyListResponse
+```
+
+Methods:
+
+- <code title="post /quickbooks-desktop/currencies">conductor.qbd.currencies.<a href="./src/conductor/resources/qbd/currencies.py">create</a>(\*\*<a href="src/conductor/types/qbd/currency_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/currency.py">Currency</a></code>
+- <code title="get /quickbooks-desktop/currencies/{id}">conductor.qbd.currencies.<a href="./src/conductor/resources/qbd/currencies.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/currency.py">Currency</a></code>
+- <code title="post /quickbooks-desktop/currencies/{id}">conductor.qbd.currencies.<a href="./src/conductor/resources/qbd/currencies.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/currency_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/currency.py">Currency</a></code>
+- <code title="get /quickbooks-desktop/currencies">conductor.qbd.currencies.<a href="./src/conductor/resources/qbd/currencies.py">list</a>(\*\*<a href="src/conductor/types/qbd/currency_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/currency_list_response.py">CurrencyListResponse</a></code>
+
 ## Customers
 
 Types:
