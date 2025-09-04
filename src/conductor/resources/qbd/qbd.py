@@ -102,6 +102,14 @@ from .transfers import (
     TransfersResourceWithStreamingResponse,
     AsyncTransfersResourceWithStreamingResponse,
 )
+from .currencies import (
+    CurrenciesResource,
+    AsyncCurrenciesResource,
+    CurrenciesResourceWithRawResponse,
+    AsyncCurrenciesResourceWithRawResponse,
+    CurrenciesResourceWithStreamingResponse,
+    AsyncCurrenciesResourceWithStreamingResponse,
+)
 from .item_sites import (
     ItemSitesResource,
     AsyncItemSitesResource,
@@ -485,6 +493,10 @@ class QbdResource(SyncAPIResource):
         return CreditMemosResource(self._client)
 
     @cached_property
+    def currencies(self) -> CurrenciesResource:
+        return CurrenciesResource(self._client)
+
+    @cached_property
     def customers(self) -> CustomersResource:
         return CustomersResource(self._client)
 
@@ -752,6 +764,10 @@ class AsyncQbdResource(AsyncAPIResource):
     @cached_property
     def credit_memos(self) -> AsyncCreditMemosResource:
         return AsyncCreditMemosResource(self._client)
+
+    @cached_property
+    def currencies(self) -> AsyncCurrenciesResource:
+        return AsyncCurrenciesResource(self._client)
 
     @cached_property
     def customers(self) -> AsyncCustomersResource:
@@ -1030,6 +1046,10 @@ class QbdResourceWithRawResponse:
         return CreditMemosResourceWithRawResponse(self._qbd.credit_memos)
 
     @cached_property
+    def currencies(self) -> CurrenciesResourceWithRawResponse:
+        return CurrenciesResourceWithRawResponse(self._qbd.currencies)
+
+    @cached_property
     def customers(self) -> CustomersResourceWithRawResponse:
         return CustomersResourceWithRawResponse(self._qbd.customers)
 
@@ -1245,6 +1265,10 @@ class AsyncQbdResourceWithRawResponse:
     @cached_property
     def credit_memos(self) -> AsyncCreditMemosResourceWithRawResponse:
         return AsyncCreditMemosResourceWithRawResponse(self._qbd.credit_memos)
+
+    @cached_property
+    def currencies(self) -> AsyncCurrenciesResourceWithRawResponse:
+        return AsyncCurrenciesResourceWithRawResponse(self._qbd.currencies)
 
     @cached_property
     def customers(self) -> AsyncCustomersResourceWithRawResponse:
@@ -1464,6 +1488,10 @@ class QbdResourceWithStreamingResponse:
         return CreditMemosResourceWithStreamingResponse(self._qbd.credit_memos)
 
     @cached_property
+    def currencies(self) -> CurrenciesResourceWithStreamingResponse:
+        return CurrenciesResourceWithStreamingResponse(self._qbd.currencies)
+
+    @cached_property
     def customers(self) -> CustomersResourceWithStreamingResponse:
         return CustomersResourceWithStreamingResponse(self._qbd.customers)
 
@@ -1679,6 +1707,10 @@ class AsyncQbdResourceWithStreamingResponse:
     @cached_property
     def credit_memos(self) -> AsyncCreditMemosResourceWithStreamingResponse:
         return AsyncCreditMemosResourceWithStreamingResponse(self._qbd.credit_memos)
+
+    @cached_property
+    def currencies(self) -> AsyncCurrenciesResourceWithStreamingResponse:
+        return AsyncCurrenciesResourceWithStreamingResponse(self._qbd.currencies)
 
     @cached_property
     def customers(self) -> AsyncCustomersResourceWithStreamingResponse:
