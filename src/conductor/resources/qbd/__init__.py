@@ -104,6 +104,14 @@ from .transfers import (
     TransfersResourceWithStreamingResponse,
     AsyncTransfersResourceWithStreamingResponse,
 )
+from .currencies import (
+    CurrenciesResource,
+    AsyncCurrenciesResource,
+    CurrenciesResourceWithRawResponse,
+    AsyncCurrenciesResourceWithRawResponse,
+    CurrenciesResourceWithStreamingResponse,
+    AsyncCurrenciesResourceWithStreamingResponse,
+)
 from .item_sites import (
     ItemSitesResource,
     AsyncItemSitesResource,
@@ -498,6 +506,12 @@ __all__ = [
     "AsyncCreditMemosResourceWithRawResponse",
     "CreditMemosResourceWithStreamingResponse",
     "AsyncCreditMemosResourceWithStreamingResponse",
+    "CurrenciesResource",
+    "AsyncCurrenciesResource",
+    "CurrenciesResourceWithRawResponse",
+    "AsyncCurrenciesResourceWithRawResponse",
+    "CurrenciesResourceWithStreamingResponse",
+    "AsyncCurrenciesResourceWithStreamingResponse",
     "CustomersResource",
     "AsyncCustomersResource",
     "CustomersResourceWithRawResponse",
