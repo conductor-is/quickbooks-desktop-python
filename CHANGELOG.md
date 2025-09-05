@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.58.1 (2025-09-05)
+
+Full Changelog: [v1.58.0...v1.58.1](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.58.0...v1.58.1)
+
+### Chores
+
+* **internal:** move mypy configurations to `pyproject.toml` file ([616d4d4](https://github.com/conductor-is/quickbooks-desktop-python/commit/616d4d4193aa82ac14d709d0a90fcbd0b0b92b1b))
+* **tests:** simplify `get_platform` test ([2fa8c59](https://github.com/conductor-is/quickbooks-desktop-python/commit/2fa8c596bdddef326ae62d9e6d1863488ee9d1bb))
+
 ## 1.58.0 (2025-09-04)
 
 Full Changelog: [v1.57.0...v1.58.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.57.0...v1.58.0)
