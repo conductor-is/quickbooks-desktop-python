@@ -224,7 +224,9 @@ class CreditCardChargesResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> CreditCardCharge:
         """
-        Updates an existing credit card charge.
+        Updates an existing credit card charge so you can adjust the credit card
+        account, payee, memo, transaction date, and expense or item lines. The total is
+        recalculated from the line details.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the credit card charge to update.
@@ -775,7 +777,9 @@ class AsyncCreditCardChargesResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> CreditCardCharge:
         """
-        Updates an existing credit card charge.
+        Updates an existing credit card charge so you can adjust the credit card
+        account, payee, memo, transaction date, and expense or item lines. The total is
+        recalculated from the line details.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the credit card charge to update.

@@ -71,7 +71,9 @@ class BuildAssembliesResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BuildAssembly:
         """
-        Creates a new build assembly.
+        Creates a build assembly transaction that consumes component quantities and
+        increases the finished assembly on hand. If components are short you can mark
+        the build as pending instead of failing.
 
         Args:
           inventory_assembly_item_id: The inventory assembly item associated with this build assembly. An inventory
@@ -567,7 +569,9 @@ class AsyncBuildAssembliesResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BuildAssembly:
         """
-        Creates a new build assembly.
+        Creates a build assembly transaction that consumes component quantities and
+        increases the finished assembly on hand. If components are short you can mark
+        the build as pending instead of failing.
 
         Args:
           inventory_assembly_item_id: The inventory assembly item associated with this build assembly. An inventory

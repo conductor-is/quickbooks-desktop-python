@@ -105,7 +105,9 @@ class EmployeesResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> Employee:
         """
-        Creates a new employee.
+        Creates an employee record that captures personal details, contact information,
+        employment dates, and payroll settings in a single request so the employee is
+        ready for scheduling, time tracking, and payroll processing.
 
         Args:
           conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
@@ -408,7 +410,9 @@ class EmployeesResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> Employee:
         """
-        Updates an existing employee.
+        Updates an employee record, allowing you to revise contact details, employment
+        status dates, supervisory assignments, payroll configuration, and additional
+        notes to keep workforce data current.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the employee to update.
@@ -828,7 +832,9 @@ class AsyncEmployeesResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> Employee:
         """
-        Creates a new employee.
+        Creates an employee record that captures personal details, contact information,
+        employment dates, and payroll settings in a single request so the employee is
+        ready for scheduling, time tracking, and payroll processing.
 
         Args:
           conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
@@ -1131,7 +1137,9 @@ class AsyncEmployeesResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> Employee:
         """
-        Updates an existing employee.
+        Updates an employee record, allowing you to revise contact details, employment
+        status dates, supervisory assignments, payroll configuration, and additional
+        notes to keep workforce data current.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the employee to update.

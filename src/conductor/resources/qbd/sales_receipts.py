@@ -85,8 +85,12 @@ class SalesReceiptsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> SalesReceipt:
-        """
-        Creates a new sales receipt.
+        """Creates a sales receipt for a sale paid in full.
+
+        If you include credit card
+        transaction details, QuickBooks requires the payment method to reference a
+        credit card type and automatically deposits the funds to Undeposited Funds
+        rather than a specific bank account.
 
         Args:
           transaction_date: The date of this sales receipt, in ISO 8601 format (YYYY-MM-DD).
@@ -349,8 +353,11 @@ class SalesReceiptsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> SalesReceipt:
-        """
-        Updates an existing sales receipt.
+        """Updates an existing sales receipt.
+
+        Credit card payments still have to use a
+        credit-card payment method and remain deposited to Undeposited Funds, so don’t
+        switch the deposit account in those scenarios.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the sales receipt to update.
@@ -826,8 +833,12 @@ class AsyncSalesReceiptsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> SalesReceipt:
-        """
-        Creates a new sales receipt.
+        """Creates a sales receipt for a sale paid in full.
+
+        If you include credit card
+        transaction details, QuickBooks requires the payment method to reference a
+        credit card type and automatically deposits the funds to Undeposited Funds
+        rather than a specific bank account.
 
         Args:
           transaction_date: The date of this sales receipt, in ISO 8601 format (YYYY-MM-DD).
@@ -1090,8 +1101,11 @@ class AsyncSalesReceiptsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> SalesReceipt:
-        """
-        Updates an existing sales receipt.
+        """Updates an existing sales receipt.
+
+        Credit card payments still have to use a
+        credit-card payment method and remain deposited to Undeposited Funds, so don’t
+        switch the deposit account in those scenarios.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the sales receipt to update.

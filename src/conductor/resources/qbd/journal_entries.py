@@ -67,8 +67,12 @@ class JournalEntriesResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> JournalEntry:
-        """
-        Creates a new journal entry.
+        """Creates a journal entry with balanced debit and credit lines.
+
+        QuickBooks Desktop
+        requires total debits to equal total credits, and any line that posts to
+        Accounts Receivable or Accounts Payable must include the related customer or
+        vendor reference.
 
         Args:
           transaction_date: The date of this journal entry, in ISO 8601 format (YYYY-MM-DD).
@@ -204,8 +208,11 @@ class JournalEntriesResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> JournalEntry:
-        """
-        Updates an existing journal entry.
+        """Updates an existing journal entry.
+
+        Keep the debits and credits in balance, and
+        include the related customer or vendor on any A/R or A/P line you submit in the
+        update body.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the journal entry to update.
@@ -545,8 +552,12 @@ class AsyncJournalEntriesResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> JournalEntry:
-        """
-        Creates a new journal entry.
+        """Creates a journal entry with balanced debit and credit lines.
+
+        QuickBooks Desktop
+        requires total debits to equal total credits, and any line that posts to
+        Accounts Receivable or Accounts Payable must include the related customer or
+        vendor reference.
 
         Args:
           transaction_date: The date of this journal entry, in ISO 8601 format (YYYY-MM-DD).
@@ -682,8 +693,11 @@ class AsyncJournalEntriesResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> JournalEntry:
-        """
-        Updates an existing journal entry.
+        """Updates an existing journal entry.
+
+        Keep the debits and credits in balance, and
+        include the related customer or vendor on any A/R or A/P line you submit in the
+        update body.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the journal entry to update.

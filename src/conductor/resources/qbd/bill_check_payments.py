@@ -71,8 +71,11 @@ class BillCheckPaymentsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BillCheckPayment:
-        """
-        Creates a new bill check payment.
+        """Records a check payment against one vendor’s open bills.
+
+        Each bill allocation
+        must include a payment amount, discount, or vendor credit, and the accounts
+        payable account has to match the one used on the bills you’re closing.
 
         Args:
           apply_to_transactions: The bills to be paid by this bill check payment. This will create a link between
@@ -227,7 +230,10 @@ class BillCheckPaymentsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BillCheckPayment:
         """
-        Updates an existing bill check payment.
+        Updates a bill check payment so you can reallocate how amounts, discounts, or
+        credits are applied to the vendor’s bills. When you update a payment, QuickBooks
+        clears the prior allocations but keeps any existing vendor credits unchanged, so
+        submit the full list of bill applications in this request.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the bill check payment to update.
@@ -576,8 +582,11 @@ class AsyncBillCheckPaymentsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BillCheckPayment:
-        """
-        Creates a new bill check payment.
+        """Records a check payment against one vendor’s open bills.
+
+        Each bill allocation
+        must include a payment amount, discount, or vendor credit, and the accounts
+        payable account has to match the one used on the bills you’re closing.
 
         Args:
           apply_to_transactions: The bills to be paid by this bill check payment. This will create a link between
@@ -732,7 +741,10 @@ class AsyncBillCheckPaymentsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BillCheckPayment:
         """
-        Updates an existing bill check payment.
+        Updates a bill check payment so you can reallocate how amounts, discounts, or
+        credits are applied to the vendor’s bills. When you update a payment, QuickBooks
+        clears the prior allocations but keeps any existing vendor credits unchanged, so
+        submit the full list of bill applications in this request.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the bill check payment to update.

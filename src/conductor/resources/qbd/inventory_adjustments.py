@@ -71,7 +71,9 @@ class InventoryAdjustmentsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> InventoryAdjustment:
         """
-        Creates a new inventory adjustment.
+        Creates an inventory adjustment to correct on-hand quantities or values.
+        QuickBooks requires single-user mode unless you're on Enterprise with Advanced
+        Inventory enabled.
 
         Args:
           account_id: The account to which this inventory adjustment is posted for tracking inventory
@@ -550,7 +552,9 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> InventoryAdjustment:
         """
-        Creates a new inventory adjustment.
+        Creates an inventory adjustment to correct on-hand quantities or values.
+        QuickBooks requires single-user mode unless you're on Enterprise with Advanced
+        Inventory enabled.
 
         Args:
           account_id: The account to which this inventory adjustment is posted for tracking inventory

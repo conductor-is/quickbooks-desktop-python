@@ -223,8 +223,13 @@ class ServiceItemsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> ServiceItem:
-        """
-        Updates an existing service item.
+        """Updates a service item’s details, including its accounts and unit-of-measure
+        set.
+
+        QuickBooks won’t let you convert a sell-only service into a buy-and-sell
+        service (or the reverse); create a separate item instead. If you’re switching
+        the unit of measure, set `forceUnitOfMeasureChange` so QuickBooks replaces it on
+        existing forms.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the service item to update.
@@ -688,8 +693,13 @@ class AsyncServiceItemsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> ServiceItem:
-        """
-        Updates an existing service item.
+        """Updates a service item’s details, including its accounts and unit-of-measure
+        set.
+
+        QuickBooks won’t let you convert a sell-only service into a buy-and-sell
+        service (or the reverse); create a separate item instead. If you’re switching
+        the unit of measure, set `forceUnitOfMeasureChange` so QuickBooks replaces it on
+        existing forms.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the service item to update.

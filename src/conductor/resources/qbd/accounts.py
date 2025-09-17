@@ -86,8 +86,11 @@ class AccountsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> Account:
-        """
-        Creates a new financial account.
+        """Creates a new financial account.
+
+        QuickBooks requires you to pick a supported
+        account type for the chart of accounts, and non-posting types can’t be created
+        through the API.
 
         Args:
           account_type: The classification of this account, indicating its purpose within the chart of
@@ -267,8 +270,11 @@ class AccountsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> Account:
-        """
-        Updates an existing financial account.
+        """Updates an existing financial account.
+
+        You can rename the account, adjust
+        numbering, or change supported attributes, but QuickBooks won’t let you convert
+        it to a non-posting type via the API.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the account to update.
@@ -606,8 +612,11 @@ class AsyncAccountsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> Account:
-        """
-        Creates a new financial account.
+        """Creates a new financial account.
+
+        QuickBooks requires you to pick a supported
+        account type for the chart of accounts, and non-posting types can’t be created
+        through the API.
 
         Args:
           account_type: The classification of this account, indicating its purpose within the chart of
@@ -787,8 +796,11 @@ class AsyncAccountsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> Account:
-        """
-        Updates an existing financial account.
+        """Updates an existing financial account.
+
+        You can rename the account, adjust
+        numbering, or change supported attributes, but QuickBooks won’t let you convert
+        it to a non-posting type via the API.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the account to update.

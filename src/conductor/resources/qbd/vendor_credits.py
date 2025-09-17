@@ -69,7 +69,8 @@ class VendorCreditsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> VendorCredit:
         """
-        Creates a new vendor credit.
+        Creates a vendor credit to capture returns, rebates, or other amounts a vendor
+        owes so you can apply the credit when recording future bill payments.
 
         Args:
           transaction_date: The date of this vendor credit, in ISO 8601 format (YYYY-MM-DD).
@@ -224,7 +225,8 @@ class VendorCreditsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> VendorCredit:
         """
-        Updates an existing vendor credit.
+        Updates a vendor credit before you apply it to bills, letting you adjust the
+        amounts, memo, or line allocations that make up the credit.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the vendor credit to update.
@@ -629,7 +631,8 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> VendorCredit:
         """
-        Creates a new vendor credit.
+        Creates a vendor credit to capture returns, rebates, or other amounts a vendor
+        owes so you can apply the credit when recording future bill payments.
 
         Args:
           transaction_date: The date of this vendor credit, in ISO 8601 format (YYYY-MM-DD).
@@ -784,7 +787,8 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> VendorCredit:
         """
-        Updates an existing vendor credit.
+        Updates a vendor credit before you apply it to bills, letting you adjust the
+        amounts, memo, or line allocations that make up the credit.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the vendor credit to update.
