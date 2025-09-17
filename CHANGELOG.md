@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.60.0 (2025-09-17)
+
+Full Changelog: [v1.59.0...v1.60.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.59.0...v1.60.0)
+
+### Features
+
+* **api:** api update ([acc7713](https://github.com/conductor-is/quickbooks-desktop-python/commit/acc7713843dfadb942a143cc006591a470a2bf31))
+
+
+### Chores
+
+* **internal:** update pydantic dependency ([4079543](https://github.com/conductor-is/quickbooks-desktop-python/commit/4079543fd3091604fbd719f6b9f03acd158ac215))
+
 ## 1.59.0 (2025-09-16)
 
 Full Changelog: [v1.58.1...v1.59.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.58.1...v1.59.0)
