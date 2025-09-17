@@ -294,8 +294,11 @@ class InventoryItemsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> InventoryItem:
-        """
-        Updates an existing inventory item.
+        """Updates an inventory item.
+
+        If you switch the income account, set
+        `updateExistingTransactionsIncomeAccount` to true so QuickBooks applies the new
+        account to existing transactions that reference the item.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the inventory item to update.
@@ -870,8 +873,11 @@ class AsyncInventoryItemsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> InventoryItem:
-        """
-        Updates an existing inventory item.
+        """Updates an inventory item.
+
+        If you switch the income account, set
+        `updateExistingTransactionsIncomeAccount` to true so QuickBooks applies the new
+        account to existing transactions that reference the item.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the inventory item to update.

@@ -63,7 +63,8 @@ class SalesRepresentativesResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> SalesRepresentative:
         """
-        Creates a new sales representative.
+        Creates a sales representative that references an existing employee, vendor, or
+        other-name record so it can be assigned on sales forms.
 
         Args:
           entity_id: The sales representative's corresponding person entity in QuickBooks, stored as
@@ -394,7 +395,8 @@ class AsyncSalesRepresentativesResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> SalesRepresentative:
         """
-        Creates a new sales representative.
+        Creates a sales representative that references an existing employee, vendor, or
+        other-name record so it can be assigned on sales forms.
 
         Args:
           entity_id: The sales representative's corresponding person entity in QuickBooks, stored as

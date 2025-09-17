@@ -62,7 +62,8 @@ class InventorySitesResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> InventorySite:
         """
-        Creates a new inventory site.
+        Creates an inventory site for companies using QuickBooks Enterprise with
+        Advanced Inventory.
 
         Args:
           name: The case-insensitive unique name of this inventory site, unique across all
@@ -423,7 +424,8 @@ class AsyncInventorySitesResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> InventorySite:
         """
-        Creates a new inventory site.
+        Creates an inventory site for companies using QuickBooks Enterprise with
+        Advanced Inventory.
 
         Args:
           name: The case-insensitive unique name of this inventory site, unique across all
