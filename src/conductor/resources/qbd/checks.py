@@ -71,8 +71,11 @@ class ChecksResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> Check:
-        """
-        Creates a new check.
+        """Creates a non-payroll check from a bank account.
+
+        QuickBooks uses this request
+        for direct expense disbursements; to pay vendor bills or payroll liabilities you
+        must use the dedicated bill-payment or payroll transactions instead.
 
         Args:
           bank_account_id: The bank account from which the funds are being drawn for this check; e.g.,
@@ -246,7 +249,9 @@ class ChecksResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> Check:
         """
-        Updates an existing check.
+        Updates a standard check so you can adjust the issuing account, payee details,
+        memo, transaction date, or expense and item lines. This request cannot modify
+        checks created through the bill-payment workflow.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the check to update.
@@ -670,8 +675,11 @@ class AsyncChecksResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> Check:
-        """
-        Creates a new check.
+        """Creates a non-payroll check from a bank account.
+
+        QuickBooks uses this request
+        for direct expense disbursements; to pay vendor bills or payroll liabilities you
+        must use the dedicated bill-payment or payroll transactions instead.
 
         Args:
           bank_account_id: The bank account from which the funds are being drawn for this check; e.g.,
@@ -845,7 +853,9 @@ class AsyncChecksResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> Check:
         """
-        Updates an existing check.
+        Updates a standard check so you can adjust the issuing account, payee details,
+        memo, transaction date, or expense and item lines. This request cannot modify
+        checks created through the bill-payment workflow.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the check to update.

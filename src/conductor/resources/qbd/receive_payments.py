@@ -71,7 +71,10 @@ class ReceivePaymentsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> ReceivePayment:
         """
-        Creates a new receive-payment.
+        Records a customer payment and optionally applies it to specific invoices or
+        credits. All allocations must target the same accounts receivable account as
+        those invoices, and each one has to include a payment amount, discount, or
+        credit so QuickBooks can close out the balance.
 
         Args:
           customer_id: The customer or customer-job to which the payment for this receive-payment is
@@ -252,8 +255,11 @@ class ReceivePaymentsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> ReceivePayment:
-        """
-        Updates an existing receive-payment.
+        """Updates a received payment.
+
+        When you resubmit applications to invoices, keep
+        them on the same accounts receivable account and include the payment amount,
+        discount, or credit on every allocation you send.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the receive-payment to update.
@@ -620,7 +626,10 @@ class AsyncReceivePaymentsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> ReceivePayment:
         """
-        Creates a new receive-payment.
+        Records a customer payment and optionally applies it to specific invoices or
+        credits. All allocations must target the same accounts receivable account as
+        those invoices, and each one has to include a payment amount, discount, or
+        credit so QuickBooks can close out the balance.
 
         Args:
           customer_id: The customer or customer-job to which the payment for this receive-payment is
@@ -801,8 +810,11 @@ class AsyncReceivePaymentsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> ReceivePayment:
-        """
-        Updates an existing receive-payment.
+        """Updates a received payment.
+
+        When you resubmit applications to invoices, keep
+        them on the same accounts receivable account and include the payment amount,
+        discount, or credit on every allocation you send.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the receive-payment to update.

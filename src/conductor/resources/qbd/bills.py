@@ -73,8 +73,11 @@ class BillsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> Bill:
-        """
-        Creates a new bill.
+        """Creates a vendor bill and posts it to accounts payable.
+
+        You can also link
+        eligible purchase orders so QuickBooks pulls their lines onto the bill before
+        it's saved.
 
         Args:
           transaction_date: The date of this bill, in ISO 8601 format (YYYY-MM-DD).
@@ -265,7 +268,10 @@ class BillsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> Bill:
         """
-        Updates an existing bill.
+        Updates an existing vendor bill while keeping the required references intact.
+        QuickBooks does not let this update request add new purchase order links, and
+        you must continue to supply the vendor, accounts payable account, and at least
+        one expense or item line when you resubmit the bill.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the bill to update.
@@ -685,8 +691,11 @@ class AsyncBillsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> Bill:
-        """
-        Creates a new bill.
+        """Creates a vendor bill and posts it to accounts payable.
+
+        You can also link
+        eligible purchase orders so QuickBooks pulls their lines onto the bill before
+        it's saved.
 
         Args:
           transaction_date: The date of this bill, in ISO 8601 format (YYYY-MM-DD).
@@ -877,7 +886,10 @@ class AsyncBillsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> Bill:
         """
-        Updates an existing bill.
+        Updates an existing vendor bill while keeping the required references intact.
+        QuickBooks does not let this update request add new purchase order links, and
+        you must continue to supply the vendor, accounts payable account, and at least
+        one expense or item line when you resubmit the bill.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the bill to update.

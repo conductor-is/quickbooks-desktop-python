@@ -175,8 +175,12 @@ class SalesTaxCodesResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> SalesTaxCode:
-        """
-        Updates an existing sales-tax code.
+        """Updates a sales-tax code’s name, activity status, or linked tax items.
+
+        Once a
+        code has been used you can’t flip it between taxable and non-taxable, and the
+        built-in TAX/NON codes keep their original taxable setting, so plan new codes if
+        you need a different tax status.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the sales-tax code to update.
@@ -539,8 +543,12 @@ class AsyncSalesTaxCodesResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> SalesTaxCode:
-        """
-        Updates an existing sales-tax code.
+        """Updates a sales-tax code’s name, activity status, or linked tax items.
+
+        Once a
+        code has been used you can’t flip it between taxable and non-taxable, and the
+        built-in TAX/NON codes keep their original taxable setting, so plan new codes if
+        you need a different tax status.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the sales-tax code to update.

@@ -89,7 +89,8 @@ class InvoicesResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> Invoice:
         """
-        Creates a new invoice.
+        Creates an invoice to bill a customer when goods or services were delivered
+        before payment. Use a sales receipt instead if the sale was paid in full.
 
         Args:
           customer_id: The customer or customer-job associated with this invoice.
@@ -878,7 +879,8 @@ class AsyncInvoicesResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> Invoice:
         """
-        Creates a new invoice.
+        Creates an invoice to bill a customer when goods or services were delivered
+        before payment. Use a sales receipt instead if the sale was paid in full.
 
         Args:
           customer_id: The customer or customer-job associated with this invoice.

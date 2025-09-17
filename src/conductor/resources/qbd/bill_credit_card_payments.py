@@ -66,8 +66,11 @@ class BillCreditCardPaymentsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BillCreditCardPayment:
-        """
-        Creates a new bill credit card payment.
+        """Charges one vendor’s bills to a credit card account.
+
+        Each bill allocation must
+        supply a payment amount, discount, or credit, and you have to use the same
+        accounts payable account that’s on the bills being closed.
 
         Args:
           apply_to_transactions: The bills to be paid by this bill credit card payment. This will create a link
@@ -463,8 +466,11 @@ class AsyncBillCreditCardPaymentsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> BillCreditCardPayment:
-        """
-        Creates a new bill credit card payment.
+        """Charges one vendor’s bills to a credit card account.
+
+        Each bill allocation must
+        supply a payment amount, discount, or credit, and you have to use the same
+        accounts payable account that’s on the bills being closed.
 
         Args:
           apply_to_transactions: The bills to be paid by this bill credit card payment. This will create a link

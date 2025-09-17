@@ -85,7 +85,7 @@ class InventoryAssemblyItemsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> InventoryAssemblyItem:
         """
-        Creates a new inventory assembly item.
+        Creates an inventory assembly item that bundles existing inventory items.
 
         Args:
           asset_account_id: The asset account used to track the current value of this inventory assembly
@@ -306,8 +306,11 @@ class InventoryAssemblyItemsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> InventoryAssemblyItem:
-        """
-        Updates an existing inventory assembly item.
+        """Updates an inventory assembly item.
+
+        If you change the income account, set
+        `updateExistingTransactionsIncomeAccount` to true so QuickBooks applies the new
+        account to existing transactions that use the assembly.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the inventory assembly item to
@@ -679,7 +682,7 @@ class AsyncInventoryAssemblyItemsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> InventoryAssemblyItem:
         """
-        Creates a new inventory assembly item.
+        Creates an inventory assembly item that bundles existing inventory items.
 
         Args:
           asset_account_id: The asset account used to track the current value of this inventory assembly
@@ -900,8 +903,11 @@ class AsyncInventoryAssemblyItemsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> InventoryAssemblyItem:
-        """
-        Updates an existing inventory assembly item.
+        """Updates an inventory assembly item.
+
+        If you change the income account, set
+        `updateExistingTransactionsIncomeAccount` to true so QuickBooks applies the new
+        account to existing transactions that use the assembly.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the inventory assembly item to

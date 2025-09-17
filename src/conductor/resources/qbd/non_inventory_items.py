@@ -235,8 +235,14 @@ class NonInventoryItemsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> NonInventoryItem:
-        """
-        Updates an existing non-inventory item.
+        """Updates a non-inventory item.
+
+        You can modify either `salesOrPurchaseDetails` or
+        `salesAndPurchaseDetails`, but the item must keep the same configuration it was
+        created with. When you change `postingAccount`, `incomeAccount`, or
+        `expenseAccount`, include the matching `updateExistingTransactions...` flag so
+        QuickBooks applies the new account to existing transactions and doesn’t reject
+        the update when historical activity is present.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the non-inventory item to update.
@@ -716,8 +722,14 @@ class AsyncNonInventoryItemsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> NonInventoryItem:
-        """
-        Updates an existing non-inventory item.
+        """Updates a non-inventory item.
+
+        You can modify either `salesOrPurchaseDetails` or
+        `salesAndPurchaseDetails`, but the item must keep the same configuration it was
+        created with. When you change `postingAccount`, `incomeAccount`, or
+        `expenseAccount`, include the matching `updateExistingTransactions...` flag so
+        QuickBooks applies the new account to existing transactions and doesn’t reject
+        the update when historical activity is present.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the non-inventory item to update.
