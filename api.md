@@ -208,6 +208,21 @@ Methods:
 - <code title="get /quickbooks-desktop/credit-card-credits">conductor.qbd.credit_card_credits.<a href="./src/conductor/resources/qbd/credit_card_credits.py">list</a>(\*\*<a href="src/conductor/types/qbd/credit_card_credit_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/credit_card_credit.py">SyncCursorPage[CreditCardCredit]</a></code>
 - <code title="delete /quickbooks-desktop/credit-card-credits/{id}">conductor.qbd.credit_card_credits.<a href="./src/conductor/resources/qbd/credit_card_credits.py">delete</a>(id) -> <a href="./src/conductor/types/qbd/credit_card_credit_delete_response.py">CreditCardCreditDeleteResponse</a></code>
 
+## CreditCardRefunds
+
+Types:
+
+```python
+from conductor.types.qbd import CreditCardRefund, CreditCardRefundDeleteResponse
+```
+
+Methods:
+
+- <code title="post /quickbooks-desktop/credit-card-refunds">conductor.qbd.credit_card_refunds.<a href="./src/conductor/resources/qbd/credit_card_refunds.py">create</a>(\*\*<a href="src/conductor/types/qbd/credit_card_refund_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/credit_card_refund.py">CreditCardRefund</a></code>
+- <code title="get /quickbooks-desktop/credit-card-refunds/{id}">conductor.qbd.credit_card_refunds.<a href="./src/conductor/resources/qbd/credit_card_refunds.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/credit_card_refund.py">CreditCardRefund</a></code>
+- <code title="get /quickbooks-desktop/credit-card-refunds">conductor.qbd.credit_card_refunds.<a href="./src/conductor/resources/qbd/credit_card_refunds.py">list</a>(\*\*<a href="src/conductor/types/qbd/credit_card_refund_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/credit_card_refund.py">SyncCursorPage[CreditCardRefund]</a></code>
+- <code title="delete /quickbooks-desktop/credit-card-refunds/{id}">conductor.qbd.credit_card_refunds.<a href="./src/conductor/resources/qbd/credit_card_refunds.py">delete</a>(id) -> <a href="./src/conductor/types/qbd/credit_card_refund_delete_response.py">CreditCardRefundDeleteResponse</a></code>
+
 ## CreditMemos
 
 Types:

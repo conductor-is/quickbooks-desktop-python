@@ -145,9 +145,7 @@ class ReceivePaymentsResource(SyncAPIResource):
               default A/R account.
 
               **IMPORTANT**: If this receive-payment is linked to other transactions, this A/R
-              account must match the `receivablesAccount` used in all linked transactions. For
-              example, when refunding a credit card payment, the A/R account must match the
-              one used in the original credit transactions being refunded.
+              account must match the `receivablesAccount` used in all linked transactions.
 
           ref_number: The case-sensitive user-defined reference number for this receive-payment, which
               can be used to identify the transaction in QuickBooks. This value is not
@@ -303,9 +301,7 @@ class ReceivePaymentsResource(SyncAPIResource):
               default A/R account.
 
               **IMPORTANT**: If this receive-payment is linked to other transactions, this A/R
-              account must match the `receivablesAccount` used in all linked transactions. For
-              example, when refunding a credit card payment, the A/R account must match the
-              one used in the original credit transactions being refunded.
+              account must match the `receivablesAccount` used in all linked transactions.
 
           ref_number: The case-sensitive user-defined reference number for this receive-payment, which
               can be used to identify the transaction in QuickBooks. This value is not
@@ -698,9 +694,7 @@ class AsyncReceivePaymentsResource(AsyncAPIResource):
               default A/R account.
 
               **IMPORTANT**: If this receive-payment is linked to other transactions, this A/R
-              account must match the `receivablesAccount` used in all linked transactions. For
-              example, when refunding a credit card payment, the A/R account must match the
-              one used in the original credit transactions being refunded.
+              account must match the `receivablesAccount` used in all linked transactions.
 
           ref_number: The case-sensitive user-defined reference number for this receive-payment, which
               can be used to identify the transaction in QuickBooks. This value is not
@@ -856,9 +850,7 @@ class AsyncReceivePaymentsResource(AsyncAPIResource):
               default A/R account.
 
               **IMPORTANT**: If this receive-payment is linked to other transactions, this A/R
-              account must match the `receivablesAccount` used in all linked transactions. For
-              example, when refunding a credit card payment, the A/R account must match the
-              one used in the original credit transactions being refunded.
+              account must match the `receivablesAccount` used in all linked transactions.
 
           ref_number: The case-sensitive user-defined reference number for this receive-payment, which
               can be used to identify the transaction in QuickBooks. This value is not

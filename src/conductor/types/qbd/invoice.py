@@ -968,13 +968,37 @@ class LinkedTransaction(BaseModel):
     transaction_date: date = FieldInfo(alias="transactionDate")
     """The date of this linked transaction, in ISO 8601 format (YYYY-MM-DD)."""
 
-    transaction_type: str = FieldInfo(alias="transactionType")
-    """The type of transaction for this linked transaction.
-
-    The output for this field is a raw string, not an enum, because in rare cases
-    QuickBooks Desktop may return a value outside its own schema, which we pass
-    through unchanged.
-    """
+    transaction_type: Literal[
+        "ar_refund_credit_card",
+        "bill",
+        "bill_payment_check",
+        "bill_payment_credit_card",
+        "build_assembly",
+        "charge",
+        "check",
+        "credit_card_charge",
+        "credit_card_credit",
+        "credit_memo",
+        "deposit",
+        "estimate",
+        "inventory_adjustment",
+        "invoice",
+        "item_receipt",
+        "journal_entry",
+        "liability_adjustment",
+        "paycheck",
+        "payroll_liability_check",
+        "purchase_order",
+        "receive_payment",
+        "sales_order",
+        "sales_receipt",
+        "sales_tax_payment_check",
+        "transfer",
+        "vendor_credit",
+        "ytd_adjustment",
+        "unknown",
+    ] = FieldInfo(alias="transactionType")
+    """The type of transaction for this linked transaction."""
 
 
 class ReceivablesAccount(BaseModel):
@@ -1279,9 +1303,7 @@ class Invoice(BaseModel):
     A/R account.
 
     **IMPORTANT**: If this invoice is linked to other transactions, this A/R account
-    must match the `receivablesAccount` used in all linked transactions. For
-    example, when refunding a credit card payment, the A/R account must match the
-    one used in the original credit transactions being refunded.
+    must match the `receivablesAccount` used in all linked transactions.
     """
 
     ref_number: Optional[str] = FieldInfo(alias="refNumber", default=None)
