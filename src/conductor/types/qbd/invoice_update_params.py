@@ -162,9 +162,7 @@ class InvoiceUpdateParams(TypedDict, total=False):
     A/R account.
 
     **IMPORTANT**: If this invoice is linked to other transactions, this A/R account
-    must match the `receivablesAccount` used in all linked transactions. For
-    example, when refunding a credit card payment, the A/R account must match the
-    one used in the original credit transactions being refunded.
+    must match the `receivablesAccount` used in all linked transactions.
     """
 
     ref_number: Annotated[str, PropertyInfo(alias="refNumber")]

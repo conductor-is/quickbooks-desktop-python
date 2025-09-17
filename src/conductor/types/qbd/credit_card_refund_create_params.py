@@ -9,33 +9,34 @@ from typing_extensions import Literal, Required, Annotated, TypedDict
 from ..._utils import PropertyInfo
 
 __all__ = [
-    "ReceivePaymentCreateParams",
-    "ApplyToTransaction",
-    "ApplyToTransactionApplyCredit",
+    "CreditCardRefundCreateParams",
+    "RefundAppliedToTransaction",
+    "Address",
     "CreditCardTransaction",
     "CreditCardTransactionRequest",
     "CreditCardTransactionResponse",
 ]
 
 
-class ReceivePaymentCreateParams(TypedDict, total=False):
+class CreditCardRefundCreateParams(TypedDict, total=False):
     customer_id: Required[Annotated[str, PropertyInfo(alias="customerId")]]
-    """
-    The customer or customer-job to which the payment for this receive-payment is
-    credited.
-    """
+    """The customer or customer-job associated with this credit card refund."""
 
-    total_amount: Required[Annotated[str, PropertyInfo(alias="totalAmount")]]
-    """
-    The total monetary amount of this receive-payment, represented as a decimal
-    string.
+    refund_applied_to_transactions: Required[
+        Annotated[Iterable[RefundAppliedToTransaction], PropertyInfo(alias="refundAppliedToTransactions")]
+    ]
+    """The credit transactions to refund in this credit card refund.
 
-    **NOTE**: The sum of the `paymentAmount` amounts in the `applyToTransactions`
-    array cannot exceed the `totalAmount`, or you will receive an error.
+    Each entry links this credit card refund to an existing credit (for example, a
+    credit memo or unused receive-payment credit).
+
+    **IMPORTANT**: The `refundAmount` for each linked credit cannot exceed that
+    credit's remaining balance, and the combined `refundAmount` across all links
+    cannot exceed this credit card refund's `totalAmount`.
     """
 
     transaction_date: Required[Annotated[Union[str, date], PropertyInfo(alias="transactionDate", format="iso8601")]]
-    """The date of this receive-payment, in ISO 8601 format (YYYY-MM-DD)."""
+    """The date of this credit card refund, in ISO 8601 format (YYYY-MM-DD)."""
 
     conductor_end_user_id: Required[Annotated[str, PropertyInfo(alias="Conductor-End-User-Id")]]
     """
@@ -43,40 +44,19 @@ class ReceivePaymentCreateParams(TypedDict, total=False):
     `"Conductor-End-User-Id: {{END_USER_ID}}"`).
     """
 
-    apply_to_transactions: Annotated[Iterable[ApplyToTransaction], PropertyInfo(alias="applyToTransactions")]
-    """The invoices to be paid by this receive-payment.
-
-    This will create a link between this receive-payment and the specified invoices.
-
-    **IMPORTANT**: In each `applyToTransactions` object, you must specify either
-    `paymentAmount`, `applyCredits`, `discountAmount`, or any combination of these;
-    if none of these are specified, you will receive an error for an empty
-    transaction.
-
-    **IMPORTANT**: The target invoice must have `isPaid=false`, otherwise,
-    QuickBooks will report this object as "cannot be found".
-
-    **NOTE**: You must specify either `isAutoApply` or `applyToTransactions` when
-    creating a receive-payment, but never both.
-    """
+    address: Address
+    """The address that is printed on the credit card refund."""
 
     credit_card_transaction: Annotated[CreditCardTransaction, PropertyInfo(alias="creditCardTransaction")]
     """
-    The credit card transaction data for this receive-payment's payment when using
-    QuickBooks Merchant Services (QBMS). If specifying this field, you must also
-    specify the `paymentMethod` field.
-    """
-
-    deposit_to_account_id: Annotated[str, PropertyInfo(alias="depositToAccountId")]
-    """
-    The account where the funds for this receive-payment will be or have been
-    deposited. If omitted, QuickBooks will use the default Undeposited Funds
-    account.
+    The credit card transaction data for this credit card refund's payment when
+    using QuickBooks Merchant Services (QBMS). If specifying this field, you must
+    also specify the `paymentMethod` field.
     """
 
     exchange_rate: Annotated[float, PropertyInfo(alias="exchangeRate")]
     """
-    The market exchange rate between this receive-payment's currency and the home
+    The market exchange rate between this credit card refund's currency and the home
     currency in QuickBooks at the time of this transaction. Represented as a decimal
     value (e.g., 1.2345 for 1 EUR = 1.2345 USD if USD is the home currency).
     """
@@ -91,105 +71,115 @@ class ReceivePaymentCreateParams(TypedDict, total=False):
     QuickBooks will return an error.
     """
 
-    is_auto_apply: Annotated[bool, PropertyInfo(alias="isAutoApply")]
-    """
-    When `true`, QuickBooks applies `totalAmount` to any outstanding transaction
-    that exactly matches `totalAmount`. If no exact match is found, this
-    receive-payment is applied to the oldest outstanding transaction for the
-    customer-job. When `false`, QuickBooks records the payment but does not apply it
-    to any specific transaction, causing the amount to appear as a credit on the
-    customer-job's next transaction.
-
-    **IMPORTANT**: You must specify either `isAutoApply` or `applyToTransactions`
-    when creating a receive-payment, but never both.
-    """
-
     memo: str
-    """
-    A memo or note for this receive-payment that will be displayed at the beginning
-    of reports containing details about this receive-payment.
-    """
+    """A memo or note for this credit card refund."""
 
     payment_method_id: Annotated[str, PropertyInfo(alias="paymentMethodId")]
-    """The receive-payment's payment method (e.g., cash, check, credit card).
+    """The credit card refund's payment method (e.g., cash, check, credit card).
 
-    **NOTE**: If this receive-payment contains credit card transaction data supplied
-    from QuickBooks Merchant Services (QBMS) transaction responses, you must specify
-    a credit card payment method (e.g., "Visa", "MasterCard", etc.).
+    **NOTE**: If this credit card refund contains credit card transaction data
+    supplied from QuickBooks Merchant Services (QBMS) transaction responses, you
+    must specify a credit card payment method (e.g., "Visa", "MasterCard", etc.).
     """
 
     receivables_account_id: Annotated[str, PropertyInfo(alias="receivablesAccountId")]
     """
-    The Accounts-Receivable (A/R) account to which this receive-payment is assigned,
-    used to track the amount owed. If not specified, QuickBooks Desktop will use its
-    default A/R account.
+    The Accounts-Receivable (A/R) account to which this credit card refund is
+    assigned, used to track the amount owed. If not specified, QuickBooks Desktop
+    will use its default A/R account.
 
-    **IMPORTANT**: If this receive-payment is linked to other transactions, this A/R
-    account must match the `receivablesAccount` used in all linked transactions.
+    **IMPORTANT**: If this credit card refund is linked to other transactions, this
+    A/R account must match the `receivablesAccount` used in all linked transactions.
+    For example, when refunding a credit card payment, the A/R account must match
+    the one used in each linked credit transaction being refunded.
     """
 
     ref_number: Annotated[str, PropertyInfo(alias="refNumber")]
     """
-    The case-sensitive user-defined reference number for this receive-payment, which
-    can be used to identify the transaction in QuickBooks. This value is not
+    The case-sensitive user-defined reference number for this credit card refund,
+    which can be used to identify the transaction in QuickBooks. This value is not
     required to be unique and can be arbitrarily changed by the QuickBooks user.
     When left blank in this create request, this field will be left blank in
     QuickBooks (i.e., it does _not_ auto-increment).
     """
 
+    refund_from_account_id: Annotated[str, PropertyInfo(alias="refundFromAccountId")]
+    """The account providing funds for this credit card refund.
 
-class ApplyToTransactionApplyCredit(TypedDict, total=False):
-    applied_amount: Required[Annotated[str, PropertyInfo(alias="appliedAmount")]]
-    """The amount of credit applied to this transaction.
-
-    This could include customer deposits, payments, or credits. Represented as a
-    decimal string.
+    This is typically the Undeposited Funds account used to hold customer payments.
+    If omitted, QuickBooks Desktop will use the default Undeposited Funds account.
     """
 
-    credit_transaction_id: Required[Annotated[str, PropertyInfo(alias="creditTransactionId")]]
+
+class RefundAppliedToTransaction(TypedDict, total=False):
+    refund_amount: Required[Annotated[str, PropertyInfo(alias="refundAmount")]]
     """
-    The unique identifier of the credit transaction (credit memo or vendor credit)
-    to apply to this transaction.
+    The monetary amount to refund from the linked credit transaction within this
+    credit transaction, represented as a decimal string.
     """
 
-    override_credit_application: Annotated[bool, PropertyInfo(alias="overrideCreditApplication")]
-    """Indicates whether to override the credit."""
-
-
-class ApplyToTransaction(TypedDict, total=False):
     transaction_id: Required[Annotated[str, PropertyInfo(alias="transactionId")]]
-    """The ID of the receivable transaction to which this payment is applied."""
+    """The ID of the credit transaction being refunded by this credit card refund."""
 
-    apply_credits: Annotated[Iterable[ApplyToTransactionApplyCredit], PropertyInfo(alias="applyCredits")]
-    """Credit memos to apply to this receivable transaction, reducing its balance.
 
-    This creates a link between this receivable transaction and the specified credit
-    memos.
+class Address(TypedDict, total=False):
+    city: str
+    """The city, district, suburb, town, or village name of the address.
 
-    **IMPORTANT**: By default, QuickBooks will not return any information about the
-    linked transactions in this endpoint's response even when this request is
-    successful. To see the transactions linked via this field, refetch the
-    receivable transaction and check the `linkedTransactions` response field. If
-    fetching a list of receivable transactions, you must also specify the parameter
-    `includeLinkedTransactions=true` to see the `linkedTransactions` response field.
+    Maximum length: 31 characters.
     """
 
-    discount_account_id: Annotated[str, PropertyInfo(alias="discountAccountId")]
-    """The financial account used to track this receivable transaction's discount."""
+    country: str
+    """The country name of the address."""
 
-    discount_amount: Annotated[str, PropertyInfo(alias="discountAmount")]
-    """
-    The monetary amount by which to reduce the receivable transaction's receivable
-    amount, represented as a decimal string.
+    line1: str
+    """The first line of the address (e.g., street, PO Box, or company name).
+
+    Maximum length: 41 characters.
     """
 
-    discount_class_id: Annotated[str, PropertyInfo(alias="discountClassId")]
-    """The class used to track this receivable transaction's discount."""
-
-    payment_amount: Annotated[str, PropertyInfo(alias="paymentAmount")]
+    line2: str
     """
-    The monetary amount to apply to the receivable transaction, represented as a
-    decimal string.
+    The second line of the address, if needed (e.g., apartment, suite, unit, or
+    building).
+
+    Maximum length: 41 characters.
+    """
+
+    line3: str
+    """The third line of the address, if needed.
+
+    Maximum length: 41 characters.
+    """
+
+    line4: str
+    """The fourth line of the address, if needed.
+
+    Maximum length: 41 characters.
+    """
+
+    line5: str
+    """The fifth line of the address, if needed.
+
+    Maximum length: 41 characters.
+    """
+
+    note: str
+    """
+    A note written at the bottom of the address in the form in which it appears,
+    such as the invoice form.
+    """
+
+    postal_code: Annotated[str, PropertyInfo(alias="postalCode")]
+    """The postal code or ZIP code of the address.
+
+    Maximum length: 13 characters.
+    """
+
+    state: str
+    """The state, county, province, or region name of the address.
+
+    Maximum length: 21 characters.
     """
 
 

@@ -9,200 +9,57 @@ from pydantic import Field as FieldInfo
 from ..._models import BaseModel
 
 __all__ = [
-    "ReceivePayment",
-    "AppliedToTransaction",
-    "AppliedToTransactionDiscountAccount",
-    "AppliedToTransactionDiscountClass",
-    "AppliedToTransactionLinkedTransaction",
+    "CreditCardRefund",
+    "Address",
     "CreditCardTransaction",
     "CreditCardTransactionRequest",
     "CreditCardTransactionResponse",
     "Currency",
     "Customer",
     "CustomField",
-    "DepositToAccount",
     "PaymentMethod",
     "ReceivablesAccount",
+    "RefundAppliedToTransaction",
+    "RefundFromAccount",
 ]
 
 
-class AppliedToTransactionDiscountAccount(BaseModel):
-    id: Optional[str] = None
-    """The unique identifier assigned by QuickBooks to this object.
+class Address(BaseModel):
+    city: Optional[str] = None
+    """The city, district, suburb, town, or village name of the address."""
 
-    This ID is unique across all objects of the same type, but not across different
-    QuickBooks object types.
+    country: Optional[str] = None
+    """The country name of the address."""
+
+    line1: Optional[str] = None
+    """The first line of the address (e.g., street, PO Box, or company name)."""
+
+    line2: Optional[str] = None
+    """
+    The second line of the address, if needed (e.g., apartment, suite, unit, or
+    building).
     """
 
-    full_name: Optional[str] = FieldInfo(alias="fullName", default=None)
-    """
-    The fully-qualified unique name for this object, formed by combining the names
-    of its parent objects with its own `name`, separated by colons. Not
-    case-sensitive.
-    """
+    line3: Optional[str] = None
+    """The third line of the address, if needed."""
 
+    line4: Optional[str] = None
+    """The fourth line of the address, if needed."""
 
-class AppliedToTransactionDiscountClass(BaseModel):
-    id: Optional[str] = None
-    """The unique identifier assigned by QuickBooks to this object.
+    line5: Optional[str] = None
+    """The fifth line of the address, if needed."""
 
-    This ID is unique across all objects of the same type, but not across different
-    QuickBooks object types.
+    note: Optional[str] = None
     """
-
-    full_name: Optional[str] = FieldInfo(alias="fullName", default=None)
-    """
-    The fully-qualified unique name for this object, formed by combining the names
-    of its parent objects with its own `name`, separated by colons. Not
-    case-sensitive.
+    A note written at the bottom of the address in the form in which it appears,
+    such as the invoice form.
     """
 
+    postal_code: Optional[str] = FieldInfo(alias="postalCode", default=None)
+    """The postal code or ZIP code of the address."""
 
-class AppliedToTransactionLinkedTransaction(BaseModel):
-    id: str
-    """The unique identifier assigned by QuickBooks to this linked transaction.
-
-    This ID is unique across all transaction types.
-    """
-
-    amount: Optional[str] = None
-    """
-    The monetary amount of this linked transaction, represented as a decimal string.
-    """
-
-    link_type: Optional[Literal["amount", "quantity"]] = FieldInfo(alias="linkType", default=None)
-    """
-    Indicates the nature of the link between the transactions: `amount` denotes an
-    amount-based link (e.g., an invoice linked to a payment), and `quantity` denotes
-    a quantity-based link (e.g., an invoice created from a sales order based on the
-    quantity of items received).
-    """
-
-    object_type: Literal["qbd_linked_transaction"] = FieldInfo(alias="objectType")
-    """The type of object. This value is always `"qbd_linked_transaction"`."""
-
-    ref_number: Optional[str] = FieldInfo(alias="refNumber", default=None)
-    """
-    The case-sensitive user-defined reference number for this linked transaction,
-    which can be used to identify the transaction in QuickBooks. This value is not
-    required to be unique and can be arbitrarily changed by the QuickBooks user.
-    """
-
-    transaction_date: date = FieldInfo(alias="transactionDate")
-    """The date of this linked transaction, in ISO 8601 format (YYYY-MM-DD)."""
-
-    transaction_type: Literal[
-        "ar_refund_credit_card",
-        "bill",
-        "bill_payment_check",
-        "bill_payment_credit_card",
-        "build_assembly",
-        "charge",
-        "check",
-        "credit_card_charge",
-        "credit_card_credit",
-        "credit_memo",
-        "deposit",
-        "estimate",
-        "inventory_adjustment",
-        "invoice",
-        "item_receipt",
-        "journal_entry",
-        "liability_adjustment",
-        "paycheck",
-        "payroll_liability_check",
-        "purchase_order",
-        "receive_payment",
-        "sales_order",
-        "sales_receipt",
-        "sales_tax_payment_check",
-        "transfer",
-        "vendor_credit",
-        "ytd_adjustment",
-        "unknown",
-    ] = FieldInfo(alias="transactionType")
-    """The type of transaction for this linked transaction."""
-
-
-class AppliedToTransaction(BaseModel):
-    amount: Optional[str] = None
-    """
-    The monetary amount of this receivable transaction, represented as a decimal
-    string.
-    """
-
-    balance_remaining: Optional[str] = FieldInfo(alias="balanceRemaining", default=None)
-    """
-    The outstanding balance of this receivable transaction after applying any
-    credits or payments. Represented as a decimal string.
-    """
-
-    discount_account: Optional[AppliedToTransactionDiscountAccount] = FieldInfo(alias="discountAccount", default=None)
-    """The financial account used to track this receivable transaction's discount."""
-
-    discount_amount: Optional[str] = FieldInfo(alias="discountAmount", default=None)
-    """
-    The monetary amount by which to reduce the receivable transaction's receivable
-    amount, represented as a decimal string.
-    """
-
-    discount_class: Optional[AppliedToTransactionDiscountClass] = FieldInfo(alias="discountClass", default=None)
-    """The class used to track this receivable transaction's discount."""
-
-    linked_transactions: List[AppliedToTransactionLinkedTransaction] = FieldInfo(alias="linkedTransactions")
-    """
-    The receivable transaction's linked transactions, such as payments applied,
-    credits used, or associated purchase orders.
-
-    **IMPORTANT**: You must specify the parameter `includeLinkedTransactions` when
-    fetching a list of receivable transactions to receive this field because it is
-    not returned by default.
-    """
-
-    ref_number: Optional[str] = FieldInfo(alias="refNumber", default=None)
-    """
-    The case-sensitive user-defined reference number for this receivable
-    transaction, which can be used to identify the transaction in QuickBooks. This
-    value is not required to be unique and can be arbitrarily changed by the
-    QuickBooks user.
-    """
-
-    transaction_date: Optional[date] = FieldInfo(alias="transactionDate", default=None)
-    """The date of this receivable transaction, in ISO 8601 format (YYYY-MM-DD)."""
-
-    transaction_id: str = FieldInfo(alias="transactionId")
-    """The ID of the receivable transaction to which this payment is applied."""
-
-    transaction_type: Literal[
-        "ar_refund_credit_card",
-        "bill",
-        "bill_payment_check",
-        "bill_payment_credit_card",
-        "build_assembly",
-        "charge",
-        "check",
-        "credit_card_charge",
-        "credit_card_credit",
-        "credit_memo",
-        "deposit",
-        "estimate",
-        "inventory_adjustment",
-        "invoice",
-        "item_receipt",
-        "journal_entry",
-        "liability_adjustment",
-        "paycheck",
-        "payroll_liability_check",
-        "purchase_order",
-        "receive_payment",
-        "sales_order",
-        "sales_receipt",
-        "sales_tax_payment_check",
-        "transfer",
-        "vendor_credit",
-        "ytd_adjustment",
-    ] = FieldInfo(alias="transactionType")
-    """The type of transaction for this receivable transaction."""
+    state: Optional[str] = None
+    """The state, county, province, or region name of the address."""
 
 
 class CreditCardTransactionRequest(BaseModel):
@@ -419,22 +276,6 @@ class CustomField(BaseModel):
     """
 
 
-class DepositToAccount(BaseModel):
-    id: Optional[str] = None
-    """The unique identifier assigned by QuickBooks to this object.
-
-    This ID is unique across all objects of the same type, but not across different
-    QuickBooks object types.
-    """
-
-    full_name: Optional[str] = FieldInfo(alias="fullName", default=None)
-    """
-    The fully-qualified unique name for this object, formed by combining the names
-    of its parent objects with its own `name`, separated by colons. Not
-    case-sensitive.
-    """
-
-
 class PaymentMethod(BaseModel):
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
@@ -467,57 +308,136 @@ class ReceivablesAccount(BaseModel):
     """
 
 
-class ReceivePayment(BaseModel):
+class RefundAppliedToTransaction(BaseModel):
+    credit_remaining: Optional[str] = FieldInfo(alias="creditRemaining", default=None)
+    """
+    The remaining balance of this credit transaction that has not yet been applied
+    to other transactions or refunded to the customer. Represented as a decimal
+    string.
+    """
+
+    credit_remaining_in_home_currency: Optional[str] = FieldInfo(alias="creditRemainingInHomeCurrency", default=None)
+    """
+    The remaining balance of this credit transaction converted to the home currency
+    of the QuickBooks company file. Represented as a decimal string.
+    """
+
+    ref_number: Optional[str] = FieldInfo(alias="refNumber", default=None)
+    """
+    The case-sensitive user-defined reference number for this credit transaction,
+    which can be used to identify the transaction in QuickBooks. This value is not
+    required to be unique and can be arbitrarily changed by the QuickBooks user.
+    """
+
+    refund_amount: str = FieldInfo(alias="refundAmount")
+    """
+    The monetary amount to refund from the linked credit transaction within this
+    credit transaction, represented as a decimal string.
+    """
+
+    refund_amount_in_home_currency: Optional[str] = FieldInfo(alias="refundAmountInHomeCurrency", default=None)
+    """
+    The monetary amount to refund from the linked credit transaction in this credit
+    transaction, converted to the home currency of the QuickBooks company file.
+    Represented as a decimal string.
+    """
+
+    transaction_date: Optional[date] = FieldInfo(alias="transactionDate", default=None)
+    """The date of this credit transaction, in ISO 8601 format (YYYY-MM-DD)."""
+
+    transaction_id: str = FieldInfo(alias="transactionId")
+    """The ID of the credit transaction being refunded by this credit card refund."""
+
+    transaction_type: Literal[
+        "ar_refund_credit_card",
+        "bill",
+        "bill_payment_check",
+        "bill_payment_credit_card",
+        "build_assembly",
+        "charge",
+        "check",
+        "credit_card_charge",
+        "credit_card_credit",
+        "credit_memo",
+        "deposit",
+        "estimate",
+        "inventory_adjustment",
+        "invoice",
+        "item_receipt",
+        "journal_entry",
+        "liability_adjustment",
+        "paycheck",
+        "payroll_liability_check",
+        "purchase_order",
+        "receive_payment",
+        "sales_order",
+        "sales_receipt",
+        "sales_tax_payment_check",
+        "transfer",
+        "vendor_credit",
+        "ytd_adjustment",
+    ] = FieldInfo(alias="transactionType")
+    """The type of transaction for this credit transaction."""
+
+
+class RefundFromAccount(BaseModel):
+    id: Optional[str] = None
+    """The unique identifier assigned by QuickBooks to this object.
+
+    This ID is unique across all objects of the same type, but not across different
+    QuickBooks object types.
+    """
+
+    full_name: Optional[str] = FieldInfo(alias="fullName", default=None)
+    """
+    The fully-qualified unique name for this object, formed by combining the names
+    of its parent objects with its own `name`, separated by colons. Not
+    case-sensitive.
+    """
+
+
+class CreditCardRefund(BaseModel):
     id: str
-    """The unique identifier assigned by QuickBooks to this receive-payment.
+    """The unique identifier assigned by QuickBooks to this credit card refund.
 
     This ID is unique across all transaction types.
     """
 
-    applied_to_transactions: List[AppliedToTransaction] = FieldInfo(alias="appliedToTransactions")
-    """The invoice(s) paid by this receive-payment."""
+    address: Optional[Address] = None
+    """The address that is printed on the credit card refund."""
 
     created_at: str = FieldInfo(alias="createdAt")
     """
-    The date and time when this receive-payment was created, in ISO 8601 format
+    The date and time when this credit card refund was created, in ISO 8601 format
     (YYYY-MM-DDThh:mm:ss±hh:mm), which QuickBooks Desktop interprets in the local
     timezone of the end-user's computer.
     """
 
     credit_card_transaction: Optional[CreditCardTransaction] = FieldInfo(alias="creditCardTransaction", default=None)
     """
-    The credit card transaction data for this receive-payment's payment when using
-    QuickBooks Merchant Services (QBMS).
+    The credit card transaction data for this credit card refund's payment when
+    using QuickBooks Merchant Services (QBMS).
     """
 
     currency: Optional[Currency] = None
-    """The receive-payment's currency.
+    """The credit card refund's currency.
 
     For built-in currencies, the name and code are standard international values.
     For user-defined currencies, all values are editable.
     """
 
     customer: Customer
-    """
-    The customer or customer-job to which the payment for this receive-payment is
-    credited.
-    """
+    """The customer or customer-job associated with this credit card refund."""
 
     custom_fields: List[CustomField] = FieldInfo(alias="customFields")
     """
-    The custom fields for the receive-payment object, added as user-defined data
+    The custom fields for the credit card refund object, added as user-defined data
     extensions, not included in the standard QuickBooks object.
-    """
-
-    deposit_to_account: Optional[DepositToAccount] = FieldInfo(alias="depositToAccount", default=None)
-    """
-    The account where the funds for this receive-payment will be or have been
-    deposited.
     """
 
     exchange_rate: Optional[float] = FieldInfo(alias="exchangeRate", default=None)
     """
-    The market exchange rate between this receive-payment's currency and the home
+    The market exchange rate between this credit card refund's currency and the home
     currency in QuickBooks at the time of this transaction. Represented as a decimal
     value (e.g., 1.2345 for 1 EUR = 1.2345 USD if USD is the home currency).
     """
@@ -530,78 +450,68 @@ class ReceivePayment(BaseModel):
     """
 
     memo: Optional[str] = None
-    """
-    A memo or note for this receive-payment that will be displayed at the beginning
-    of reports containing details about this receive-payment.
-    """
+    """A memo or note for this credit card refund."""
 
-    object_type: Literal["qbd_receive_payment"] = FieldInfo(alias="objectType")
-    """The type of object. This value is always `"qbd_receive_payment"`."""
+    object_type: Literal["qbd_credit_card_refund"] = FieldInfo(alias="objectType")
+    """The type of object. This value is always `"qbd_credit_card_refund"`."""
 
     payment_method: Optional[PaymentMethod] = FieldInfo(alias="paymentMethod", default=None)
-    """The receive-payment's payment method (e.g., cash, check, credit card)."""
+    """The credit card refund's payment method (e.g., cash, check, credit card)."""
 
     receivables_account: Optional[ReceivablesAccount] = FieldInfo(alias="receivablesAccount", default=None)
     """
-    The Accounts-Receivable (A/R) account to which this receive-payment is assigned,
-    used to track the amount owed. If not specified, QuickBooks Desktop will use its
-    default A/R account.
+    The Accounts-Receivable (A/R) account to which this credit card refund is
+    assigned, used to track the amount owed. If not specified, QuickBooks Desktop
+    will use its default A/R account.
 
-    **IMPORTANT**: If this receive-payment is linked to other transactions, this A/R
-    account must match the `receivablesAccount` used in all linked transactions.
+    **IMPORTANT**: If this credit card refund is linked to other transactions, this
+    A/R account must match the `receivablesAccount` used in all linked transactions.
+    For example, when refunding a credit card payment, the A/R account must match
+    the one used in each linked credit transaction being refunded.
     """
 
     ref_number: Optional[str] = FieldInfo(alias="refNumber", default=None)
     """
-    The case-sensitive user-defined reference number for this receive-payment, which
-    can be used to identify the transaction in QuickBooks. This value is not
+    The case-sensitive user-defined reference number for this credit card refund,
+    which can be used to identify the transaction in QuickBooks. This value is not
     required to be unique and can be arbitrarily changed by the QuickBooks user.
+    """
+
+    refund_applied_to_transactions: List[RefundAppliedToTransaction] = FieldInfo(alias="refundAppliedToTransactions")
+    """The credit transactions refunded by this credit card refund."""
+
+    refund_from_account: Optional[RefundFromAccount] = FieldInfo(alias="refundFromAccount", default=None)
+    """The account providing funds for this credit card refund.
+
+    This is typically the Undeposited Funds account used to hold customer payments.
     """
 
     revision_number: str = FieldInfo(alias="revisionNumber")
     """
-    The current QuickBooks-assigned revision number of this receive-payment object,
-    which changes each time the object is modified. When updating this object, you
-    must provide the most recent `revisionNumber` to ensure you're working with the
-    latest data; otherwise, the update will return an error.
+    The current QuickBooks-assigned revision number of this credit card refund
+    object, which changes each time the object is modified. When updating this
+    object, you must provide the most recent `revisionNumber` to ensure you're
+    working with the latest data; otherwise, the update will return an error.
     """
 
     total_amount: str = FieldInfo(alias="totalAmount")
     """
-    The total monetary amount of this receive-payment, represented as a decimal
+    The total monetary amount of this credit card refund, represented as a decimal
     string.
     """
 
     total_amount_in_home_currency: Optional[str] = FieldInfo(alias="totalAmountInHomeCurrency", default=None)
     """
-    The total monetary amount of this receive-payment converted to the home currency
-    of the QuickBooks company file. Represented as a decimal string.
+    The total monetary amount of this credit card refund converted to the home
+    currency of the QuickBooks company file. Represented as a decimal string.
     """
 
     transaction_date: date = FieldInfo(alias="transactionDate")
-    """The date of this receive-payment, in ISO 8601 format (YYYY-MM-DD)."""
-
-    unused_credits: Optional[str] = FieldInfo(alias="unusedCredits", default=None)
-    """
-    The amount of credit that remains unused after applying credits to this
-    receive-payment. This occurs when the `applyCredit.appliedAmount` specified for
-    a credit memo (`applyCredit.creditMemoId`) in the `applyToTransactions` array is
-    less than the total available credit amount for that credit memo.
-    """
-
-    unused_payment: Optional[str] = FieldInfo(alias="unusedPayment", default=None)
-    """The amount of this receive-payment that remains unapplied to any transactions.
-
-    This occurs in two cases: (1) When the sum of `paymentAmount` amounts in
-    `applyToTransactions` is less than `totalAmount`, leaving a portion of the
-    payment unused, or (2) When a payment is received that equals the exact amount
-    of an invoice, but credits or discounts are also applied, resulting in excess
-    payment.
-    """
+    """The date of this credit card refund, in ISO 8601 format (YYYY-MM-DD)."""
 
     updated_at: str = FieldInfo(alias="updatedAt")
     """
-    The date and time when this receive-payment was last updated, in ISO 8601 format
-    (YYYY-MM-DDThh:mm:ss±hh:mm), which QuickBooks Desktop interprets in the local
-    timezone of the end-user's computer.
+    The date and time when this credit card refund was last updated, in ISO 8601
+    format (YYYY-MM-DDThh:mm:ss±hh:mm), which QuickBooks Desktop interprets in the
+    local timezone of the end-user's computer.
     """
