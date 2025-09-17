@@ -2,6 +2,7 @@
 
 from typing import Optional
 from datetime import date
+from typing_extensions import Literal
 
 from pydantic import Field as FieldInfo
 
@@ -124,13 +125,36 @@ class Transaction(BaseModel):
     If `null`, this result is a transaction object.
     """
 
-    transaction_type: str = FieldInfo(alias="transactionType")
-    """The type of transaction.
-
-    The output for this field is a raw string, not an enum, because in rare cases
-    QuickBooks Desktop may return a value outside its own schema, which we pass
-    through unchanged.
-    """
+    transaction_type: Literal[
+        "ar_refund_credit_card",
+        "bill",
+        "bill_payment_check",
+        "bill_payment_credit_card",
+        "build_assembly",
+        "charge",
+        "check",
+        "credit_card_charge",
+        "credit_card_credit",
+        "credit_memo",
+        "deposit",
+        "estimate",
+        "inventory_adjustment",
+        "invoice",
+        "item_receipt",
+        "journal_entry",
+        "liability_adjustment",
+        "paycheck",
+        "payroll_liability_check",
+        "purchase_order",
+        "receive_payment",
+        "sales_order",
+        "sales_receipt",
+        "sales_tax_payment_check",
+        "transfer",
+        "vendor_credit",
+        "ytd_adjustment",
+    ] = FieldInfo(alias="transactionType")
+    """The type of transaction."""
 
     updated_at: str = FieldInfo(alias="updatedAt")
     """

@@ -366,6 +366,14 @@ from .credit_card_credits import (
     CreditCardCreditsResourceWithStreamingResponse,
     AsyncCreditCardCreditsResourceWithStreamingResponse,
 )
+from .credit_card_refunds import (
+    CreditCardRefundsResource,
+    AsyncCreditCardRefundsResource,
+    CreditCardRefundsResourceWithRawResponse,
+    AsyncCreditCardRefundsResourceWithRawResponse,
+    CreditCardRefundsResourceWithStreamingResponse,
+    AsyncCreditCardRefundsResourceWithStreamingResponse,
+)
 from .non_inventory_items import (
     NonInventoryItemsResource,
     AsyncNonInventoryItemsResource,
@@ -487,6 +495,10 @@ class QbdResource(SyncAPIResource):
     @cached_property
     def credit_card_credits(self) -> CreditCardCreditsResource:
         return CreditCardCreditsResource(self._client)
+
+    @cached_property
+    def credit_card_refunds(self) -> CreditCardRefundsResource:
+        return CreditCardRefundsResource(self._client)
 
     @cached_property
     def credit_memos(self) -> CreditMemosResource:
@@ -760,6 +772,10 @@ class AsyncQbdResource(AsyncAPIResource):
     @cached_property
     def credit_card_credits(self) -> AsyncCreditCardCreditsResource:
         return AsyncCreditCardCreditsResource(self._client)
+
+    @cached_property
+    def credit_card_refunds(self) -> AsyncCreditCardRefundsResource:
+        return AsyncCreditCardRefundsResource(self._client)
 
     @cached_property
     def credit_memos(self) -> AsyncCreditMemosResource:
@@ -1042,6 +1058,10 @@ class QbdResourceWithRawResponse:
         return CreditCardCreditsResourceWithRawResponse(self._qbd.credit_card_credits)
 
     @cached_property
+    def credit_card_refunds(self) -> CreditCardRefundsResourceWithRawResponse:
+        return CreditCardRefundsResourceWithRawResponse(self._qbd.credit_card_refunds)
+
+    @cached_property
     def credit_memos(self) -> CreditMemosResourceWithRawResponse:
         return CreditMemosResourceWithRawResponse(self._qbd.credit_memos)
 
@@ -1261,6 +1281,10 @@ class AsyncQbdResourceWithRawResponse:
     @cached_property
     def credit_card_credits(self) -> AsyncCreditCardCreditsResourceWithRawResponse:
         return AsyncCreditCardCreditsResourceWithRawResponse(self._qbd.credit_card_credits)
+
+    @cached_property
+    def credit_card_refunds(self) -> AsyncCreditCardRefundsResourceWithRawResponse:
+        return AsyncCreditCardRefundsResourceWithRawResponse(self._qbd.credit_card_refunds)
 
     @cached_property
     def credit_memos(self) -> AsyncCreditMemosResourceWithRawResponse:
@@ -1484,6 +1508,10 @@ class QbdResourceWithStreamingResponse:
         return CreditCardCreditsResourceWithStreamingResponse(self._qbd.credit_card_credits)
 
     @cached_property
+    def credit_card_refunds(self) -> CreditCardRefundsResourceWithStreamingResponse:
+        return CreditCardRefundsResourceWithStreamingResponse(self._qbd.credit_card_refunds)
+
+    @cached_property
     def credit_memos(self) -> CreditMemosResourceWithStreamingResponse:
         return CreditMemosResourceWithStreamingResponse(self._qbd.credit_memos)
 
@@ -1703,6 +1731,10 @@ class AsyncQbdResourceWithStreamingResponse:
     @cached_property
     def credit_card_credits(self) -> AsyncCreditCardCreditsResourceWithStreamingResponse:
         return AsyncCreditCardCreditsResourceWithStreamingResponse(self._qbd.credit_card_credits)
+
+    @cached_property
+    def credit_card_refunds(self) -> AsyncCreditCardRefundsResourceWithStreamingResponse:
+        return AsyncCreditCardRefundsResourceWithStreamingResponse(self._qbd.credit_card_refunds)
 
     @cached_property
     def credit_memos(self) -> AsyncCreditMemosResourceWithStreamingResponse:

@@ -162,9 +162,7 @@ class CreditMemosResource(SyncAPIResource):
               default A/R account.
 
               **IMPORTANT**: If this credit memo is linked to other transactions, this A/R
-              account must match the `receivablesAccount` used in all linked transactions. For
-              example, when refunding a credit card payment, the A/R account must match the
-              one used in the original credit transactions being refunded.
+              account must match the `receivablesAccount` used in all linked transactions.
 
           ref_number: The case-sensitive user-defined reference number for this credit memo, which can
               be used to identify the transaction in QuickBooks. This value is not required to
@@ -430,9 +428,7 @@ class CreditMemosResource(SyncAPIResource):
               default A/R account.
 
               **IMPORTANT**: If this credit memo is linked to other transactions, this A/R
-              account must match the `receivablesAccount` used in all linked transactions. For
-              example, when refunding a credit card payment, the A/R account must match the
-              one used in the original credit transactions being refunded.
+              account must match the `receivablesAccount` used in all linked transactions.
 
           ref_number: The case-sensitive user-defined reference number for this credit memo, which can
               be used to identify the transaction in QuickBooks. This value is not required to
@@ -889,9 +885,7 @@ class AsyncCreditMemosResource(AsyncAPIResource):
               default A/R account.
 
               **IMPORTANT**: If this credit memo is linked to other transactions, this A/R
-              account must match the `receivablesAccount` used in all linked transactions. For
-              example, when refunding a credit card payment, the A/R account must match the
-              one used in the original credit transactions being refunded.
+              account must match the `receivablesAccount` used in all linked transactions.
 
           ref_number: The case-sensitive user-defined reference number for this credit memo, which can
               be used to identify the transaction in QuickBooks. This value is not required to
@@ -1157,9 +1151,7 @@ class AsyncCreditMemosResource(AsyncAPIResource):
               default A/R account.
 
               **IMPORTANT**: If this credit memo is linked to other transactions, this A/R
-              account must match the `receivablesAccount` used in all linked transactions. For
-              example, when refunding a credit card payment, the A/R account must match the
-              one used in the original credit transactions being refunded.
+              account must match the `receivablesAccount` used in all linked transactions.
 
           ref_number: The case-sensitive user-defined reference number for this credit memo, which can
               be used to identify the transaction in QuickBooks. This value is not required to
