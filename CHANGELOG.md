@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.61.1 (2025-09-19)
+
+Full Changelog: [v1.61.0...v1.61.1](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.61.0...v1.61.1)
+
+### Chores
+
+* **types:** change optional parameter type from NotGiven to Omit ([d35ccbc](https://github.com/conductor-is/quickbooks-desktop-python/commit/d35ccbc68d64c61bfa6d1dad59adcaed870de2ca))
+
 ## 1.61.0 (2025-09-17)
 
 Full Changelog: [v1.60.0...v1.61.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.60.0...v1.61.0)
