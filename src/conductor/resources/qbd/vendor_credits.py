@@ -7,7 +7,7 @@ from datetime import date
 
 import httpx
 
-from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven, SequenceNotStr
+from ..._types import Body, Omit, Query, Headers, NotGiven, SequenceNotStr, omit, not_given
 from ..._utils import maybe_transform, async_maybe_transform
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
@@ -52,21 +52,21 @@ class VendorCreditsResource(SyncAPIResource):
         transaction_date: Union[str, date],
         vendor_id: str,
         conductor_end_user_id: str,
-        exchange_rate: float | NotGiven = NOT_GIVEN,
-        expense_lines: Iterable[vendor_credit_create_params.ExpenseLine] | NotGiven = NOT_GIVEN,
-        external_id: str | NotGiven = NOT_GIVEN,
-        item_group_lines: Iterable[vendor_credit_create_params.ItemGroupLine] | NotGiven = NOT_GIVEN,
-        item_lines: Iterable[vendor_credit_create_params.ItemLine] | NotGiven = NOT_GIVEN,
-        memo: str | NotGiven = NOT_GIVEN,
-        payables_account_id: str | NotGiven = NOT_GIVEN,
-        ref_number: str | NotGiven = NOT_GIVEN,
-        sales_tax_code_id: str | NotGiven = NOT_GIVEN,
+        exchange_rate: float | Omit = omit,
+        expense_lines: Iterable[vendor_credit_create_params.ExpenseLine] | Omit = omit,
+        external_id: str | Omit = omit,
+        item_group_lines: Iterable[vendor_credit_create_params.ItemGroupLine] | Omit = omit,
+        item_lines: Iterable[vendor_credit_create_params.ItemLine] | Omit = omit,
+        memo: str | Omit = omit,
+        payables_account_id: str | Omit = omit,
+        ref_number: str | Omit = omit,
+        sales_tax_code_id: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> VendorCredit:
         """
         Creates a vendor credit to capture returns, rebates, or other amounts a vendor
@@ -167,7 +167,7 @@ class VendorCreditsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> VendorCredit:
         """
         Retrieves a vendor credit by ID.
@@ -205,24 +205,24 @@ class VendorCreditsResource(SyncAPIResource):
         *,
         revision_number: str,
         conductor_end_user_id: str,
-        clear_expense_lines: bool | NotGiven = NOT_GIVEN,
-        clear_item_lines: bool | NotGiven = NOT_GIVEN,
-        exchange_rate: float | NotGiven = NOT_GIVEN,
-        expense_lines: Iterable[vendor_credit_update_params.ExpenseLine] | NotGiven = NOT_GIVEN,
-        item_group_lines: Iterable[vendor_credit_update_params.ItemGroupLine] | NotGiven = NOT_GIVEN,
-        item_lines: Iterable[vendor_credit_update_params.ItemLine] | NotGiven = NOT_GIVEN,
-        memo: str | NotGiven = NOT_GIVEN,
-        payables_account_id: str | NotGiven = NOT_GIVEN,
-        ref_number: str | NotGiven = NOT_GIVEN,
-        sales_tax_code_id: str | NotGiven = NOT_GIVEN,
-        transaction_date: Union[str, date] | NotGiven = NOT_GIVEN,
-        vendor_id: str | NotGiven = NOT_GIVEN,
+        clear_expense_lines: bool | Omit = omit,
+        clear_item_lines: bool | Omit = omit,
+        exchange_rate: float | Omit = omit,
+        expense_lines: Iterable[vendor_credit_update_params.ExpenseLine] | Omit = omit,
+        item_group_lines: Iterable[vendor_credit_update_params.ItemGroupLine] | Omit = omit,
+        item_lines: Iterable[vendor_credit_update_params.ItemLine] | Omit = omit,
+        memo: str | Omit = omit,
+        payables_account_id: str | Omit = omit,
+        ref_number: str | Omit = omit,
+        sales_tax_code_id: str | Omit = omit,
+        transaction_date: Union[str, date] | Omit = omit,
+        vendor_id: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> VendorCredit:
         """
         Updates a vendor credit before you apply it to bills, letting you adjust the
@@ -363,30 +363,30 @@ class VendorCreditsResource(SyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
-        account_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        currency_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        cursor: str | NotGiven = NOT_GIVEN,
-        ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        include_line_items: bool | NotGiven = NOT_GIVEN,
-        include_linked_transactions: bool | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        ref_number_contains: str | NotGiven = NOT_GIVEN,
-        ref_number_ends_with: str | NotGiven = NOT_GIVEN,
-        ref_number_from: str | NotGiven = NOT_GIVEN,
-        ref_numbers: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        ref_number_starts_with: str | NotGiven = NOT_GIVEN,
-        ref_number_to: str | NotGiven = NOT_GIVEN,
-        transaction_date_from: Union[str, date] | NotGiven = NOT_GIVEN,
-        transaction_date_to: Union[str, date] | NotGiven = NOT_GIVEN,
-        updated_after: str | NotGiven = NOT_GIVEN,
-        updated_before: str | NotGiven = NOT_GIVEN,
-        vendor_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
+        account_ids: SequenceNotStr[str] | Omit = omit,
+        currency_ids: SequenceNotStr[str] | Omit = omit,
+        cursor: str | Omit = omit,
+        ids: SequenceNotStr[str] | Omit = omit,
+        include_line_items: bool | Omit = omit,
+        include_linked_transactions: bool | Omit = omit,
+        limit: int | Omit = omit,
+        ref_number_contains: str | Omit = omit,
+        ref_number_ends_with: str | Omit = omit,
+        ref_number_from: str | Omit = omit,
+        ref_numbers: SequenceNotStr[str] | Omit = omit,
+        ref_number_starts_with: str | Omit = omit,
+        ref_number_to: str | Omit = omit,
+        transaction_date_from: Union[str, date] | Omit = omit,
+        transaction_date_to: Union[str, date] | Omit = omit,
+        updated_after: str | Omit = omit,
+        updated_before: str | Omit = omit,
+        vendor_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SyncCursorPage[VendorCredit]:
         """Returns a list of vendor credits.
 
@@ -555,7 +555,7 @@ class VendorCreditsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> VendorCreditDeleteResponse:
         """Permanently deletes a a vendor credit.
 
@@ -614,21 +614,21 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
         transaction_date: Union[str, date],
         vendor_id: str,
         conductor_end_user_id: str,
-        exchange_rate: float | NotGiven = NOT_GIVEN,
-        expense_lines: Iterable[vendor_credit_create_params.ExpenseLine] | NotGiven = NOT_GIVEN,
-        external_id: str | NotGiven = NOT_GIVEN,
-        item_group_lines: Iterable[vendor_credit_create_params.ItemGroupLine] | NotGiven = NOT_GIVEN,
-        item_lines: Iterable[vendor_credit_create_params.ItemLine] | NotGiven = NOT_GIVEN,
-        memo: str | NotGiven = NOT_GIVEN,
-        payables_account_id: str | NotGiven = NOT_GIVEN,
-        ref_number: str | NotGiven = NOT_GIVEN,
-        sales_tax_code_id: str | NotGiven = NOT_GIVEN,
+        exchange_rate: float | Omit = omit,
+        expense_lines: Iterable[vendor_credit_create_params.ExpenseLine] | Omit = omit,
+        external_id: str | Omit = omit,
+        item_group_lines: Iterable[vendor_credit_create_params.ItemGroupLine] | Omit = omit,
+        item_lines: Iterable[vendor_credit_create_params.ItemLine] | Omit = omit,
+        memo: str | Omit = omit,
+        payables_account_id: str | Omit = omit,
+        ref_number: str | Omit = omit,
+        sales_tax_code_id: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> VendorCredit:
         """
         Creates a vendor credit to capture returns, rebates, or other amounts a vendor
@@ -729,7 +729,7 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> VendorCredit:
         """
         Retrieves a vendor credit by ID.
@@ -767,24 +767,24 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
         *,
         revision_number: str,
         conductor_end_user_id: str,
-        clear_expense_lines: bool | NotGiven = NOT_GIVEN,
-        clear_item_lines: bool | NotGiven = NOT_GIVEN,
-        exchange_rate: float | NotGiven = NOT_GIVEN,
-        expense_lines: Iterable[vendor_credit_update_params.ExpenseLine] | NotGiven = NOT_GIVEN,
-        item_group_lines: Iterable[vendor_credit_update_params.ItemGroupLine] | NotGiven = NOT_GIVEN,
-        item_lines: Iterable[vendor_credit_update_params.ItemLine] | NotGiven = NOT_GIVEN,
-        memo: str | NotGiven = NOT_GIVEN,
-        payables_account_id: str | NotGiven = NOT_GIVEN,
-        ref_number: str | NotGiven = NOT_GIVEN,
-        sales_tax_code_id: str | NotGiven = NOT_GIVEN,
-        transaction_date: Union[str, date] | NotGiven = NOT_GIVEN,
-        vendor_id: str | NotGiven = NOT_GIVEN,
+        clear_expense_lines: bool | Omit = omit,
+        clear_item_lines: bool | Omit = omit,
+        exchange_rate: float | Omit = omit,
+        expense_lines: Iterable[vendor_credit_update_params.ExpenseLine] | Omit = omit,
+        item_group_lines: Iterable[vendor_credit_update_params.ItemGroupLine] | Omit = omit,
+        item_lines: Iterable[vendor_credit_update_params.ItemLine] | Omit = omit,
+        memo: str | Omit = omit,
+        payables_account_id: str | Omit = omit,
+        ref_number: str | Omit = omit,
+        sales_tax_code_id: str | Omit = omit,
+        transaction_date: Union[str, date] | Omit = omit,
+        vendor_id: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> VendorCredit:
         """
         Updates a vendor credit before you apply it to bills, letting you adjust the
@@ -925,30 +925,30 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
-        account_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        currency_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        cursor: str | NotGiven = NOT_GIVEN,
-        ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        include_line_items: bool | NotGiven = NOT_GIVEN,
-        include_linked_transactions: bool | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        ref_number_contains: str | NotGiven = NOT_GIVEN,
-        ref_number_ends_with: str | NotGiven = NOT_GIVEN,
-        ref_number_from: str | NotGiven = NOT_GIVEN,
-        ref_numbers: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        ref_number_starts_with: str | NotGiven = NOT_GIVEN,
-        ref_number_to: str | NotGiven = NOT_GIVEN,
-        transaction_date_from: Union[str, date] | NotGiven = NOT_GIVEN,
-        transaction_date_to: Union[str, date] | NotGiven = NOT_GIVEN,
-        updated_after: str | NotGiven = NOT_GIVEN,
-        updated_before: str | NotGiven = NOT_GIVEN,
-        vendor_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
+        account_ids: SequenceNotStr[str] | Omit = omit,
+        currency_ids: SequenceNotStr[str] | Omit = omit,
+        cursor: str | Omit = omit,
+        ids: SequenceNotStr[str] | Omit = omit,
+        include_line_items: bool | Omit = omit,
+        include_linked_transactions: bool | Omit = omit,
+        limit: int | Omit = omit,
+        ref_number_contains: str | Omit = omit,
+        ref_number_ends_with: str | Omit = omit,
+        ref_number_from: str | Omit = omit,
+        ref_numbers: SequenceNotStr[str] | Omit = omit,
+        ref_number_starts_with: str | Omit = omit,
+        ref_number_to: str | Omit = omit,
+        transaction_date_from: Union[str, date] | Omit = omit,
+        transaction_date_to: Union[str, date] | Omit = omit,
+        updated_after: str | Omit = omit,
+        updated_before: str | Omit = omit,
+        vendor_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> AsyncPaginator[VendorCredit, AsyncCursorPage[VendorCredit]]:
         """Returns a list of vendor credits.
 
@@ -1117,7 +1117,7 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> VendorCreditDeleteResponse:
         """Permanently deletes a a vendor credit.
 

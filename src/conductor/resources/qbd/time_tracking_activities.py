@@ -8,7 +8,7 @@ from typing_extensions import Literal
 
 import httpx
 
-from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven, SequenceNotStr
+from ..._types import Body, Omit, Query, Headers, NotGiven, SequenceNotStr, omit, not_given
 from ..._utils import maybe_transform, async_maybe_transform
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
@@ -58,19 +58,19 @@ class TimeTrackingActivitiesResource(SyncAPIResource):
         entity_id: str,
         transaction_date: Union[str, date],
         conductor_end_user_id: str,
-        billing_status: Literal["billable", "has_been_billed", "not_billable"] | NotGiven = NOT_GIVEN,
-        class_id: str | NotGiven = NOT_GIVEN,
-        customer_id: str | NotGiven = NOT_GIVEN,
-        external_id: str | NotGiven = NOT_GIVEN,
-        note: str | NotGiven = NOT_GIVEN,
-        payroll_wage_item_id: str | NotGiven = NOT_GIVEN,
-        service_item_id: str | NotGiven = NOT_GIVEN,
+        billing_status: Literal["billable", "has_been_billed", "not_billable"] | Omit = omit,
+        class_id: str | Omit = omit,
+        customer_id: str | Omit = omit,
+        external_id: str | Omit = omit,
+        note: str | Omit = omit,
+        payroll_wage_item_id: str | Omit = omit,
+        service_item_id: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> TimeTrackingActivity:
         """
         Creates a new time tracking activity.
@@ -174,7 +174,7 @@ class TimeTrackingActivitiesResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> TimeTrackingActivity:
         """
         Retrieves a time tracking activity by ID.
@@ -213,19 +213,19 @@ class TimeTrackingActivitiesResource(SyncAPIResource):
         entity_id: str,
         revision_number: str,
         conductor_end_user_id: str,
-        billing_status: Literal["billable", "has_been_billed", "not_billable"] | NotGiven = NOT_GIVEN,
-        class_id: str | NotGiven = NOT_GIVEN,
-        customer_id: str | NotGiven = NOT_GIVEN,
-        note: str | NotGiven = NOT_GIVEN,
-        payroll_wage_item_id: str | NotGiven = NOT_GIVEN,
-        service_item_id: str | NotGiven = NOT_GIVEN,
-        transaction_date: Union[str, date] | NotGiven = NOT_GIVEN,
+        billing_status: Literal["billable", "has_been_billed", "not_billable"] | Omit = omit,
+        class_id: str | Omit = omit,
+        customer_id: str | Omit = omit,
+        note: str | Omit = omit,
+        payroll_wage_item_id: str | Omit = omit,
+        service_item_id: str | Omit = omit,
+        transaction_date: Union[str, date] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> TimeTrackingActivity:
         """
         Updates an existing time tracking activity.
@@ -329,20 +329,20 @@ class TimeTrackingActivitiesResource(SyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
-        cursor: str | NotGiven = NOT_GIVEN,
-        entity_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        transaction_date_from: Union[str, date] | NotGiven = NOT_GIVEN,
-        transaction_date_to: Union[str, date] | NotGiven = NOT_GIVEN,
-        updated_after: str | NotGiven = NOT_GIVEN,
-        updated_before: str | NotGiven = NOT_GIVEN,
+        cursor: str | Omit = omit,
+        entity_ids: SequenceNotStr[str] | Omit = omit,
+        ids: SequenceNotStr[str] | Omit = omit,
+        limit: int | Omit = omit,
+        transaction_date_from: Union[str, date] | Omit = omit,
+        transaction_date_to: Union[str, date] | Omit = omit,
+        updated_after: str | Omit = omit,
+        updated_before: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SyncCursorPage[TimeTrackingActivity]:
         """Returns a list of time tracking activities.
 
@@ -457,7 +457,7 @@ class TimeTrackingActivitiesResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> TimeTrackingActivityDeleteResponse:
         """Permanently deletes a a time tracking activity.
 
@@ -519,19 +519,19 @@ class AsyncTimeTrackingActivitiesResource(AsyncAPIResource):
         entity_id: str,
         transaction_date: Union[str, date],
         conductor_end_user_id: str,
-        billing_status: Literal["billable", "has_been_billed", "not_billable"] | NotGiven = NOT_GIVEN,
-        class_id: str | NotGiven = NOT_GIVEN,
-        customer_id: str | NotGiven = NOT_GIVEN,
-        external_id: str | NotGiven = NOT_GIVEN,
-        note: str | NotGiven = NOT_GIVEN,
-        payroll_wage_item_id: str | NotGiven = NOT_GIVEN,
-        service_item_id: str | NotGiven = NOT_GIVEN,
+        billing_status: Literal["billable", "has_been_billed", "not_billable"] | Omit = omit,
+        class_id: str | Omit = omit,
+        customer_id: str | Omit = omit,
+        external_id: str | Omit = omit,
+        note: str | Omit = omit,
+        payroll_wage_item_id: str | Omit = omit,
+        service_item_id: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> TimeTrackingActivity:
         """
         Creates a new time tracking activity.
@@ -635,7 +635,7 @@ class AsyncTimeTrackingActivitiesResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> TimeTrackingActivity:
         """
         Retrieves a time tracking activity by ID.
@@ -674,19 +674,19 @@ class AsyncTimeTrackingActivitiesResource(AsyncAPIResource):
         entity_id: str,
         revision_number: str,
         conductor_end_user_id: str,
-        billing_status: Literal["billable", "has_been_billed", "not_billable"] | NotGiven = NOT_GIVEN,
-        class_id: str | NotGiven = NOT_GIVEN,
-        customer_id: str | NotGiven = NOT_GIVEN,
-        note: str | NotGiven = NOT_GIVEN,
-        payroll_wage_item_id: str | NotGiven = NOT_GIVEN,
-        service_item_id: str | NotGiven = NOT_GIVEN,
-        transaction_date: Union[str, date] | NotGiven = NOT_GIVEN,
+        billing_status: Literal["billable", "has_been_billed", "not_billable"] | Omit = omit,
+        class_id: str | Omit = omit,
+        customer_id: str | Omit = omit,
+        note: str | Omit = omit,
+        payroll_wage_item_id: str | Omit = omit,
+        service_item_id: str | Omit = omit,
+        transaction_date: Union[str, date] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> TimeTrackingActivity:
         """
         Updates an existing time tracking activity.
@@ -790,20 +790,20 @@ class AsyncTimeTrackingActivitiesResource(AsyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
-        cursor: str | NotGiven = NOT_GIVEN,
-        entity_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        transaction_date_from: Union[str, date] | NotGiven = NOT_GIVEN,
-        transaction_date_to: Union[str, date] | NotGiven = NOT_GIVEN,
-        updated_after: str | NotGiven = NOT_GIVEN,
-        updated_before: str | NotGiven = NOT_GIVEN,
+        cursor: str | Omit = omit,
+        entity_ids: SequenceNotStr[str] | Omit = omit,
+        ids: SequenceNotStr[str] | Omit = omit,
+        limit: int | Omit = omit,
+        transaction_date_from: Union[str, date] | Omit = omit,
+        transaction_date_to: Union[str, date] | Omit = omit,
+        updated_after: str | Omit = omit,
+        updated_before: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> AsyncPaginator[TimeTrackingActivity, AsyncCursorPage[TimeTrackingActivity]]:
         """Returns a list of time tracking activities.
 
@@ -918,7 +918,7 @@ class AsyncTimeTrackingActivitiesResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> TimeTrackingActivityDeleteResponse:
         """Permanently deletes a a time tracking activity.
 

@@ -6,7 +6,7 @@ from typing_extensions import Literal
 
 import httpx
 
-from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven, SequenceNotStr
+from ..._types import Body, Omit, Query, Headers, NotGiven, SequenceNotStr, omit, not_given
 from ..._utils import maybe_transform
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
@@ -54,7 +54,7 @@ class ItemSitesResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ItemSite:
         """
         Retrieves an item site by ID.
@@ -88,9 +88,9 @@ class ItemSitesResource(SyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
-        cursor: str | NotGiven = NOT_GIVEN,
-        ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        item_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
+        cursor: str | Omit = omit,
+        ids: SequenceNotStr[str] | Omit = omit,
+        item_ids: SequenceNotStr[str] | Omit = omit,
         item_type: Literal[
             "all_except_fixed_asset",
             "assembly",
@@ -105,16 +105,16 @@ class ItemSitesResource(SyncAPIResource):
             "sales_tax",
             "service",
         ]
-        | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        site_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        status: Literal["active", "all", "inactive"] | NotGiven = NOT_GIVEN,
+        | Omit = omit,
+        limit: int | Omit = omit,
+        site_ids: SequenceNotStr[str] | Omit = omit,
+        status: Literal["active", "all", "inactive"] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SyncCursorPage[ItemSite]:
         """Returns a list of item sites.
 
@@ -219,7 +219,7 @@ class AsyncItemSitesResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ItemSite:
         """
         Retrieves an item site by ID.
@@ -253,9 +253,9 @@ class AsyncItemSitesResource(AsyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
-        cursor: str | NotGiven = NOT_GIVEN,
-        ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        item_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
+        cursor: str | Omit = omit,
+        ids: SequenceNotStr[str] | Omit = omit,
+        item_ids: SequenceNotStr[str] | Omit = omit,
         item_type: Literal[
             "all_except_fixed_asset",
             "assembly",
@@ -270,16 +270,16 @@ class AsyncItemSitesResource(AsyncAPIResource):
             "sales_tax",
             "service",
         ]
-        | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        site_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        status: Literal["active", "all", "inactive"] | NotGiven = NOT_GIVEN,
+        | Omit = omit,
+        limit: int | Omit = omit,
+        site_ids: SequenceNotStr[str] | Omit = omit,
+        status: Literal["active", "all", "inactive"] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> AsyncPaginator[ItemSite, AsyncCursorPage[ItemSite]]:
         """Returns a list of item sites.
 

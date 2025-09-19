@@ -6,7 +6,7 @@ from typing_extensions import Literal
 
 import httpx
 
-from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven, SequenceNotStr
+from ..._types import Body, Omit, Query, Headers, NotGiven, SequenceNotStr, omit, not_given
 from ..._utils import maybe_transform, async_maybe_transform
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
@@ -50,15 +50,15 @@ class SalesTaxCodesResource(SyncAPIResource):
         is_taxable: bool,
         name: str,
         conductor_end_user_id: str,
-        description: str | NotGiven = NOT_GIVEN,
-        is_active: bool | NotGiven = NOT_GIVEN,
-        sales_tax_item_id: str | NotGiven = NOT_GIVEN,
+        description: str | Omit = omit,
+        is_active: bool | Omit = omit,
+        sales_tax_item_id: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SalesTaxCode:
         """
         Creates a new sales-tax code.
@@ -127,7 +127,7 @@ class SalesTaxCodesResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SalesTaxCode:
         """
         Retrieves a sales-tax code by ID.
@@ -163,17 +163,17 @@ class SalesTaxCodesResource(SyncAPIResource):
         *,
         revision_number: str,
         conductor_end_user_id: str,
-        description: str | NotGiven = NOT_GIVEN,
-        is_active: bool | NotGiven = NOT_GIVEN,
-        is_taxable: bool | NotGiven = NOT_GIVEN,
-        name: str | NotGiven = NOT_GIVEN,
-        sales_tax_item_id: str | NotGiven = NOT_GIVEN,
+        description: str | Omit = omit,
+        is_active: bool | Omit = omit,
+        is_taxable: bool | Omit = omit,
+        name: str | Omit = omit,
+        sales_tax_item_id: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SalesTaxCode:
         """Updates a sales-tax code’s name, activity status, or linked tax items.
 
@@ -250,23 +250,23 @@ class SalesTaxCodesResource(SyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
-        ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        name_contains: str | NotGiven = NOT_GIVEN,
-        name_ends_with: str | NotGiven = NOT_GIVEN,
-        name_from: str | NotGiven = NOT_GIVEN,
-        names: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        name_starts_with: str | NotGiven = NOT_GIVEN,
-        name_to: str | NotGiven = NOT_GIVEN,
-        status: Literal["active", "all", "inactive"] | NotGiven = NOT_GIVEN,
-        updated_after: str | NotGiven = NOT_GIVEN,
-        updated_before: str | NotGiven = NOT_GIVEN,
+        ids: SequenceNotStr[str] | Omit = omit,
+        limit: int | Omit = omit,
+        name_contains: str | Omit = omit,
+        name_ends_with: str | Omit = omit,
+        name_from: str | Omit = omit,
+        names: SequenceNotStr[str] | Omit = omit,
+        name_starts_with: str | Omit = omit,
+        name_to: str | Omit = omit,
+        status: Literal["active", "all", "inactive"] | Omit = omit,
+        updated_after: str | Omit = omit,
+        updated_before: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SalesTaxCodeListResponse:
         """Returns a list of sales-tax codes.
 
@@ -418,15 +418,15 @@ class AsyncSalesTaxCodesResource(AsyncAPIResource):
         is_taxable: bool,
         name: str,
         conductor_end_user_id: str,
-        description: str | NotGiven = NOT_GIVEN,
-        is_active: bool | NotGiven = NOT_GIVEN,
-        sales_tax_item_id: str | NotGiven = NOT_GIVEN,
+        description: str | Omit = omit,
+        is_active: bool | Omit = omit,
+        sales_tax_item_id: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SalesTaxCode:
         """
         Creates a new sales-tax code.
@@ -495,7 +495,7 @@ class AsyncSalesTaxCodesResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SalesTaxCode:
         """
         Retrieves a sales-tax code by ID.
@@ -531,17 +531,17 @@ class AsyncSalesTaxCodesResource(AsyncAPIResource):
         *,
         revision_number: str,
         conductor_end_user_id: str,
-        description: str | NotGiven = NOT_GIVEN,
-        is_active: bool | NotGiven = NOT_GIVEN,
-        is_taxable: bool | NotGiven = NOT_GIVEN,
-        name: str | NotGiven = NOT_GIVEN,
-        sales_tax_item_id: str | NotGiven = NOT_GIVEN,
+        description: str | Omit = omit,
+        is_active: bool | Omit = omit,
+        is_taxable: bool | Omit = omit,
+        name: str | Omit = omit,
+        sales_tax_item_id: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SalesTaxCode:
         """Updates a sales-tax code’s name, activity status, or linked tax items.
 
@@ -618,23 +618,23 @@ class AsyncSalesTaxCodesResource(AsyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
-        ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        name_contains: str | NotGiven = NOT_GIVEN,
-        name_ends_with: str | NotGiven = NOT_GIVEN,
-        name_from: str | NotGiven = NOT_GIVEN,
-        names: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        name_starts_with: str | NotGiven = NOT_GIVEN,
-        name_to: str | NotGiven = NOT_GIVEN,
-        status: Literal["active", "all", "inactive"] | NotGiven = NOT_GIVEN,
-        updated_after: str | NotGiven = NOT_GIVEN,
-        updated_before: str | NotGiven = NOT_GIVEN,
+        ids: SequenceNotStr[str] | Omit = omit,
+        limit: int | Omit = omit,
+        name_contains: str | Omit = omit,
+        name_ends_with: str | Omit = omit,
+        name_from: str | Omit = omit,
+        names: SequenceNotStr[str] | Omit = omit,
+        name_starts_with: str | Omit = omit,
+        name_to: str | Omit = omit,
+        status: Literal["active", "all", "inactive"] | Omit = omit,
+        updated_after: str | Omit = omit,
+        updated_before: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SalesTaxCodeListResponse:
         """Returns a list of sales-tax codes.
 

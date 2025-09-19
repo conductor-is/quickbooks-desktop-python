@@ -7,7 +7,7 @@ from datetime import date
 
 import httpx
 
-from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven, SequenceNotStr
+from ..._types import Body, Omit, Query, Headers, NotGiven, SequenceNotStr, omit, not_given
 from ..._utils import maybe_transform, async_maybe_transform
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
@@ -54,17 +54,17 @@ class BillCreditCardPaymentsResource(SyncAPIResource):
         transaction_date: Union[str, date],
         vendor_id: str,
         conductor_end_user_id: str,
-        exchange_rate: float | NotGiven = NOT_GIVEN,
-        external_id: str | NotGiven = NOT_GIVEN,
-        memo: str | NotGiven = NOT_GIVEN,
-        payables_account_id: str | NotGiven = NOT_GIVEN,
-        ref_number: str | NotGiven = NOT_GIVEN,
+        exchange_rate: float | Omit = omit,
+        external_id: str | Omit = omit,
+        memo: str | Omit = omit,
+        payables_account_id: str | Omit = omit,
+        ref_number: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> BillCreditCardPayment:
         """Charges one vendor’s bills to a credit card account.
 
@@ -168,7 +168,7 @@ class BillCreditCardPaymentsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> BillCreditCardPayment:
         """
         Retrieves a bill credit card payment by ID.
@@ -203,29 +203,29 @@ class BillCreditCardPaymentsResource(SyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
-        account_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        currency_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        cursor: str | NotGiven = NOT_GIVEN,
-        ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        include_line_items: bool | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        ref_number_contains: str | NotGiven = NOT_GIVEN,
-        ref_number_ends_with: str | NotGiven = NOT_GIVEN,
-        ref_number_from: str | NotGiven = NOT_GIVEN,
-        ref_numbers: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        ref_number_starts_with: str | NotGiven = NOT_GIVEN,
-        ref_number_to: str | NotGiven = NOT_GIVEN,
-        transaction_date_from: Union[str, date] | NotGiven = NOT_GIVEN,
-        transaction_date_to: Union[str, date] | NotGiven = NOT_GIVEN,
-        updated_after: str | NotGiven = NOT_GIVEN,
-        updated_before: str | NotGiven = NOT_GIVEN,
-        vendor_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
+        account_ids: SequenceNotStr[str] | Omit = omit,
+        currency_ids: SequenceNotStr[str] | Omit = omit,
+        cursor: str | Omit = omit,
+        ids: SequenceNotStr[str] | Omit = omit,
+        include_line_items: bool | Omit = omit,
+        limit: int | Omit = omit,
+        ref_number_contains: str | Omit = omit,
+        ref_number_ends_with: str | Omit = omit,
+        ref_number_from: str | Omit = omit,
+        ref_numbers: SequenceNotStr[str] | Omit = omit,
+        ref_number_starts_with: str | Omit = omit,
+        ref_number_to: str | Omit = omit,
+        transaction_date_from: Union[str, date] | Omit = omit,
+        transaction_date_to: Union[str, date] | Omit = omit,
+        updated_after: str | Omit = omit,
+        updated_before: str | Omit = omit,
+        vendor_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SyncCursorPage[BillCreditCardPayment]:
         """Returns a list of bill credit card payments.
 
@@ -391,7 +391,7 @@ class BillCreditCardPaymentsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> BillCreditCardPaymentDeleteResponse:
         """Permanently deletes a a bill credit card payment.
 
@@ -454,17 +454,17 @@ class AsyncBillCreditCardPaymentsResource(AsyncAPIResource):
         transaction_date: Union[str, date],
         vendor_id: str,
         conductor_end_user_id: str,
-        exchange_rate: float | NotGiven = NOT_GIVEN,
-        external_id: str | NotGiven = NOT_GIVEN,
-        memo: str | NotGiven = NOT_GIVEN,
-        payables_account_id: str | NotGiven = NOT_GIVEN,
-        ref_number: str | NotGiven = NOT_GIVEN,
+        exchange_rate: float | Omit = omit,
+        external_id: str | Omit = omit,
+        memo: str | Omit = omit,
+        payables_account_id: str | Omit = omit,
+        ref_number: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> BillCreditCardPayment:
         """Charges one vendor’s bills to a credit card account.
 
@@ -568,7 +568,7 @@ class AsyncBillCreditCardPaymentsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> BillCreditCardPayment:
         """
         Retrieves a bill credit card payment by ID.
@@ -603,29 +603,29 @@ class AsyncBillCreditCardPaymentsResource(AsyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
-        account_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        currency_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        cursor: str | NotGiven = NOT_GIVEN,
-        ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        include_line_items: bool | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        ref_number_contains: str | NotGiven = NOT_GIVEN,
-        ref_number_ends_with: str | NotGiven = NOT_GIVEN,
-        ref_number_from: str | NotGiven = NOT_GIVEN,
-        ref_numbers: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        ref_number_starts_with: str | NotGiven = NOT_GIVEN,
-        ref_number_to: str | NotGiven = NOT_GIVEN,
-        transaction_date_from: Union[str, date] | NotGiven = NOT_GIVEN,
-        transaction_date_to: Union[str, date] | NotGiven = NOT_GIVEN,
-        updated_after: str | NotGiven = NOT_GIVEN,
-        updated_before: str | NotGiven = NOT_GIVEN,
-        vendor_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
+        account_ids: SequenceNotStr[str] | Omit = omit,
+        currency_ids: SequenceNotStr[str] | Omit = omit,
+        cursor: str | Omit = omit,
+        ids: SequenceNotStr[str] | Omit = omit,
+        include_line_items: bool | Omit = omit,
+        limit: int | Omit = omit,
+        ref_number_contains: str | Omit = omit,
+        ref_number_ends_with: str | Omit = omit,
+        ref_number_from: str | Omit = omit,
+        ref_numbers: SequenceNotStr[str] | Omit = omit,
+        ref_number_starts_with: str | Omit = omit,
+        ref_number_to: str | Omit = omit,
+        transaction_date_from: Union[str, date] | Omit = omit,
+        transaction_date_to: Union[str, date] | Omit = omit,
+        updated_after: str | Omit = omit,
+        updated_before: str | Omit = omit,
+        vendor_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> AsyncPaginator[BillCreditCardPayment, AsyncCursorPage[BillCreditCardPayment]]:
         """Returns a list of bill credit card payments.
 
@@ -791,7 +791,7 @@ class AsyncBillCreditCardPaymentsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> BillCreditCardPaymentDeleteResponse:
         """Permanently deletes a a bill credit card payment.
 
