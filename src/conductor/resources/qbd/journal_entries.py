@@ -7,7 +7,7 @@ from datetime import date
 
 import httpx
 
-from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven, SequenceNotStr
+from ..._types import Body, Omit, Query, Headers, NotGiven, SequenceNotStr, omit, not_given
 from ..._utils import maybe_transform, async_maybe_transform
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
@@ -51,21 +51,21 @@ class JournalEntriesResource(SyncAPIResource):
         *,
         transaction_date: Union[str, date],
         conductor_end_user_id: str,
-        are_amounts_entered_in_home_currency: bool | NotGiven = NOT_GIVEN,
-        credit_lines: Iterable[journal_entry_create_params.CreditLine] | NotGiven = NOT_GIVEN,
-        currency_id: str | NotGiven = NOT_GIVEN,
-        debit_lines: Iterable[journal_entry_create_params.DebitLine] | NotGiven = NOT_GIVEN,
-        exchange_rate: float | NotGiven = NOT_GIVEN,
-        external_id: str | NotGiven = NOT_GIVEN,
-        is_adjustment: bool | NotGiven = NOT_GIVEN,
-        is_home_currency_adjustment: bool | NotGiven = NOT_GIVEN,
-        ref_number: str | NotGiven = NOT_GIVEN,
+        are_amounts_entered_in_home_currency: bool | Omit = omit,
+        credit_lines: Iterable[journal_entry_create_params.CreditLine] | Omit = omit,
+        currency_id: str | Omit = omit,
+        debit_lines: Iterable[journal_entry_create_params.DebitLine] | Omit = omit,
+        exchange_rate: float | Omit = omit,
+        external_id: str | Omit = omit,
+        is_adjustment: bool | Omit = omit,
+        is_home_currency_adjustment: bool | Omit = omit,
+        ref_number: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> JournalEntry:
         """Creates a journal entry with balanced debit and credit lines.
 
@@ -158,7 +158,7 @@ class JournalEntriesResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> JournalEntry:
         """
         Retrieves a journal entry by ID.
@@ -194,19 +194,19 @@ class JournalEntriesResource(SyncAPIResource):
         *,
         revision_number: str,
         conductor_end_user_id: str,
-        are_amounts_entered_in_home_currency: bool | NotGiven = NOT_GIVEN,
-        currency_id: str | NotGiven = NOT_GIVEN,
-        exchange_rate: float | NotGiven = NOT_GIVEN,
-        is_adjustment: bool | NotGiven = NOT_GIVEN,
-        lines: Iterable[journal_entry_update_params.Line] | NotGiven = NOT_GIVEN,
-        ref_number: str | NotGiven = NOT_GIVEN,
-        transaction_date: Union[str, date] | NotGiven = NOT_GIVEN,
+        are_amounts_entered_in_home_currency: bool | Omit = omit,
+        currency_id: str | Omit = omit,
+        exchange_rate: float | Omit = omit,
+        is_adjustment: bool | Omit = omit,
+        lines: Iterable[journal_entry_update_params.Line] | Omit = omit,
+        ref_number: str | Omit = omit,
+        transaction_date: Union[str, date] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> JournalEntry:
         """Updates an existing journal entry.
 
@@ -291,29 +291,29 @@ class JournalEntriesResource(SyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
-        account_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        currency_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        cursor: str | NotGiven = NOT_GIVEN,
-        entity_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        include_line_items: bool | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        ref_number_contains: str | NotGiven = NOT_GIVEN,
-        ref_number_ends_with: str | NotGiven = NOT_GIVEN,
-        ref_number_from: str | NotGiven = NOT_GIVEN,
-        ref_numbers: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        ref_number_starts_with: str | NotGiven = NOT_GIVEN,
-        ref_number_to: str | NotGiven = NOT_GIVEN,
-        transaction_date_from: Union[str, date] | NotGiven = NOT_GIVEN,
-        transaction_date_to: Union[str, date] | NotGiven = NOT_GIVEN,
-        updated_after: str | NotGiven = NOT_GIVEN,
-        updated_before: str | NotGiven = NOT_GIVEN,
+        account_ids: SequenceNotStr[str] | Omit = omit,
+        currency_ids: SequenceNotStr[str] | Omit = omit,
+        cursor: str | Omit = omit,
+        entity_ids: SequenceNotStr[str] | Omit = omit,
+        ids: SequenceNotStr[str] | Omit = omit,
+        include_line_items: bool | Omit = omit,
+        limit: int | Omit = omit,
+        ref_number_contains: str | Omit = omit,
+        ref_number_ends_with: str | Omit = omit,
+        ref_number_from: str | Omit = omit,
+        ref_numbers: SequenceNotStr[str] | Omit = omit,
+        ref_number_starts_with: str | Omit = omit,
+        ref_number_to: str | Omit = omit,
+        transaction_date_from: Union[str, date] | Omit = omit,
+        transaction_date_to: Union[str, date] | Omit = omit,
+        updated_after: str | Omit = omit,
+        updated_before: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SyncCursorPage[JournalEntry]:
         """Returns a list of journal entries.
 
@@ -478,7 +478,7 @@ class JournalEntriesResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> JournalEntryDeleteResponse:
         """Permanently deletes a a journal entry.
 
@@ -536,21 +536,21 @@ class AsyncJournalEntriesResource(AsyncAPIResource):
         *,
         transaction_date: Union[str, date],
         conductor_end_user_id: str,
-        are_amounts_entered_in_home_currency: bool | NotGiven = NOT_GIVEN,
-        credit_lines: Iterable[journal_entry_create_params.CreditLine] | NotGiven = NOT_GIVEN,
-        currency_id: str | NotGiven = NOT_GIVEN,
-        debit_lines: Iterable[journal_entry_create_params.DebitLine] | NotGiven = NOT_GIVEN,
-        exchange_rate: float | NotGiven = NOT_GIVEN,
-        external_id: str | NotGiven = NOT_GIVEN,
-        is_adjustment: bool | NotGiven = NOT_GIVEN,
-        is_home_currency_adjustment: bool | NotGiven = NOT_GIVEN,
-        ref_number: str | NotGiven = NOT_GIVEN,
+        are_amounts_entered_in_home_currency: bool | Omit = omit,
+        credit_lines: Iterable[journal_entry_create_params.CreditLine] | Omit = omit,
+        currency_id: str | Omit = omit,
+        debit_lines: Iterable[journal_entry_create_params.DebitLine] | Omit = omit,
+        exchange_rate: float | Omit = omit,
+        external_id: str | Omit = omit,
+        is_adjustment: bool | Omit = omit,
+        is_home_currency_adjustment: bool | Omit = omit,
+        ref_number: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> JournalEntry:
         """Creates a journal entry with balanced debit and credit lines.
 
@@ -643,7 +643,7 @@ class AsyncJournalEntriesResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> JournalEntry:
         """
         Retrieves a journal entry by ID.
@@ -679,19 +679,19 @@ class AsyncJournalEntriesResource(AsyncAPIResource):
         *,
         revision_number: str,
         conductor_end_user_id: str,
-        are_amounts_entered_in_home_currency: bool | NotGiven = NOT_GIVEN,
-        currency_id: str | NotGiven = NOT_GIVEN,
-        exchange_rate: float | NotGiven = NOT_GIVEN,
-        is_adjustment: bool | NotGiven = NOT_GIVEN,
-        lines: Iterable[journal_entry_update_params.Line] | NotGiven = NOT_GIVEN,
-        ref_number: str | NotGiven = NOT_GIVEN,
-        transaction_date: Union[str, date] | NotGiven = NOT_GIVEN,
+        are_amounts_entered_in_home_currency: bool | Omit = omit,
+        currency_id: str | Omit = omit,
+        exchange_rate: float | Omit = omit,
+        is_adjustment: bool | Omit = omit,
+        lines: Iterable[journal_entry_update_params.Line] | Omit = omit,
+        ref_number: str | Omit = omit,
+        transaction_date: Union[str, date] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> JournalEntry:
         """Updates an existing journal entry.
 
@@ -776,29 +776,29 @@ class AsyncJournalEntriesResource(AsyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
-        account_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        currency_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        cursor: str | NotGiven = NOT_GIVEN,
-        entity_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        include_line_items: bool | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        ref_number_contains: str | NotGiven = NOT_GIVEN,
-        ref_number_ends_with: str | NotGiven = NOT_GIVEN,
-        ref_number_from: str | NotGiven = NOT_GIVEN,
-        ref_numbers: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        ref_number_starts_with: str | NotGiven = NOT_GIVEN,
-        ref_number_to: str | NotGiven = NOT_GIVEN,
-        transaction_date_from: Union[str, date] | NotGiven = NOT_GIVEN,
-        transaction_date_to: Union[str, date] | NotGiven = NOT_GIVEN,
-        updated_after: str | NotGiven = NOT_GIVEN,
-        updated_before: str | NotGiven = NOT_GIVEN,
+        account_ids: SequenceNotStr[str] | Omit = omit,
+        currency_ids: SequenceNotStr[str] | Omit = omit,
+        cursor: str | Omit = omit,
+        entity_ids: SequenceNotStr[str] | Omit = omit,
+        ids: SequenceNotStr[str] | Omit = omit,
+        include_line_items: bool | Omit = omit,
+        limit: int | Omit = omit,
+        ref_number_contains: str | Omit = omit,
+        ref_number_ends_with: str | Omit = omit,
+        ref_number_from: str | Omit = omit,
+        ref_numbers: SequenceNotStr[str] | Omit = omit,
+        ref_number_starts_with: str | Omit = omit,
+        ref_number_to: str | Omit = omit,
+        transaction_date_from: Union[str, date] | Omit = omit,
+        transaction_date_to: Union[str, date] | Omit = omit,
+        updated_after: str | Omit = omit,
+        updated_before: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> AsyncPaginator[JournalEntry, AsyncCursorPage[JournalEntry]]:
         """Returns a list of journal entries.
 
@@ -963,7 +963,7 @@ class AsyncJournalEntriesResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> JournalEntryDeleteResponse:
         """Permanently deletes a a journal entry.
 

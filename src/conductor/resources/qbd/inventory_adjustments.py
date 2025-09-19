@@ -7,7 +7,7 @@ from datetime import date
 
 import httpx
 
-from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven, SequenceNotStr
+from ..._types import Body, Omit, Query, Headers, NotGiven, SequenceNotStr, omit, not_given
 from ..._utils import maybe_transform, async_maybe_transform
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
@@ -56,19 +56,19 @@ class InventoryAdjustmentsResource(SyncAPIResource):
         account_id: str,
         transaction_date: Union[str, date],
         conductor_end_user_id: str,
-        class_id: str | NotGiven = NOT_GIVEN,
-        customer_id: str | NotGiven = NOT_GIVEN,
-        external_id: str | NotGiven = NOT_GIVEN,
-        inventory_site_id: str | NotGiven = NOT_GIVEN,
-        lines: Iterable[inventory_adjustment_create_params.Line] | NotGiven = NOT_GIVEN,
-        memo: str | NotGiven = NOT_GIVEN,
-        ref_number: str | NotGiven = NOT_GIVEN,
+        class_id: str | Omit = omit,
+        customer_id: str | Omit = omit,
+        external_id: str | Omit = omit,
+        inventory_site_id: str | Omit = omit,
+        lines: Iterable[inventory_adjustment_create_params.Line] | Omit = omit,
+        memo: str | Omit = omit,
+        ref_number: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> InventoryAdjustment:
         """
         Creates an inventory adjustment to correct on-hand quantities or values.
@@ -154,7 +154,7 @@ class InventoryAdjustmentsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> InventoryAdjustment:
         """
         Retrieves an inventory adjustment by ID.
@@ -191,20 +191,20 @@ class InventoryAdjustmentsResource(SyncAPIResource):
         *,
         revision_number: str,
         conductor_end_user_id: str,
-        account_id: str | NotGiven = NOT_GIVEN,
-        class_id: str | NotGiven = NOT_GIVEN,
-        customer_id: str | NotGiven = NOT_GIVEN,
-        inventory_site_id: str | NotGiven = NOT_GIVEN,
-        lines: Iterable[inventory_adjustment_update_params.Line] | NotGiven = NOT_GIVEN,
-        memo: str | NotGiven = NOT_GIVEN,
-        ref_number: str | NotGiven = NOT_GIVEN,
-        transaction_date: Union[str, date] | NotGiven = NOT_GIVEN,
+        account_id: str | Omit = omit,
+        class_id: str | Omit = omit,
+        customer_id: str | Omit = omit,
+        inventory_site_id: str | Omit = omit,
+        lines: Iterable[inventory_adjustment_update_params.Line] | Omit = omit,
+        memo: str | Omit = omit,
+        ref_number: str | Omit = omit,
+        transaction_date: Union[str, date] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> InventoryAdjustment:
         """
         Updates an existing inventory adjustment.
@@ -294,28 +294,28 @@ class InventoryAdjustmentsResource(SyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
-        account_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        customer_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        include_line_items: bool | NotGiven = NOT_GIVEN,
-        item_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        ref_number_contains: str | NotGiven = NOT_GIVEN,
-        ref_number_ends_with: str | NotGiven = NOT_GIVEN,
-        ref_number_from: str | NotGiven = NOT_GIVEN,
-        ref_numbers: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        ref_number_starts_with: str | NotGiven = NOT_GIVEN,
-        ref_number_to: str | NotGiven = NOT_GIVEN,
-        transaction_date_from: Union[str, date] | NotGiven = NOT_GIVEN,
-        transaction_date_to: Union[str, date] | NotGiven = NOT_GIVEN,
-        updated_after: str | NotGiven = NOT_GIVEN,
-        updated_before: str | NotGiven = NOT_GIVEN,
+        account_ids: SequenceNotStr[str] | Omit = omit,
+        customer_ids: SequenceNotStr[str] | Omit = omit,
+        ids: SequenceNotStr[str] | Omit = omit,
+        include_line_items: bool | Omit = omit,
+        item_ids: SequenceNotStr[str] | Omit = omit,
+        limit: int | Omit = omit,
+        ref_number_contains: str | Omit = omit,
+        ref_number_ends_with: str | Omit = omit,
+        ref_number_from: str | Omit = omit,
+        ref_numbers: SequenceNotStr[str] | Omit = omit,
+        ref_number_starts_with: str | Omit = omit,
+        ref_number_to: str | Omit = omit,
+        transaction_date_from: Union[str, date] | Omit = omit,
+        transaction_date_to: Union[str, date] | Omit = omit,
+        updated_after: str | Omit = omit,
+        updated_before: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> InventoryAdjustmentListResponse:
         """Returns a list of inventory adjustments.
 
@@ -477,7 +477,7 @@ class InventoryAdjustmentsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> InventoryAdjustmentDeleteResponse:
         """Permanently deletes a an inventory adjustment.
 
@@ -537,19 +537,19 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
         account_id: str,
         transaction_date: Union[str, date],
         conductor_end_user_id: str,
-        class_id: str | NotGiven = NOT_GIVEN,
-        customer_id: str | NotGiven = NOT_GIVEN,
-        external_id: str | NotGiven = NOT_GIVEN,
-        inventory_site_id: str | NotGiven = NOT_GIVEN,
-        lines: Iterable[inventory_adjustment_create_params.Line] | NotGiven = NOT_GIVEN,
-        memo: str | NotGiven = NOT_GIVEN,
-        ref_number: str | NotGiven = NOT_GIVEN,
+        class_id: str | Omit = omit,
+        customer_id: str | Omit = omit,
+        external_id: str | Omit = omit,
+        inventory_site_id: str | Omit = omit,
+        lines: Iterable[inventory_adjustment_create_params.Line] | Omit = omit,
+        memo: str | Omit = omit,
+        ref_number: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> InventoryAdjustment:
         """
         Creates an inventory adjustment to correct on-hand quantities or values.
@@ -635,7 +635,7 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> InventoryAdjustment:
         """
         Retrieves an inventory adjustment by ID.
@@ -672,20 +672,20 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
         *,
         revision_number: str,
         conductor_end_user_id: str,
-        account_id: str | NotGiven = NOT_GIVEN,
-        class_id: str | NotGiven = NOT_GIVEN,
-        customer_id: str | NotGiven = NOT_GIVEN,
-        inventory_site_id: str | NotGiven = NOT_GIVEN,
-        lines: Iterable[inventory_adjustment_update_params.Line] | NotGiven = NOT_GIVEN,
-        memo: str | NotGiven = NOT_GIVEN,
-        ref_number: str | NotGiven = NOT_GIVEN,
-        transaction_date: Union[str, date] | NotGiven = NOT_GIVEN,
+        account_id: str | Omit = omit,
+        class_id: str | Omit = omit,
+        customer_id: str | Omit = omit,
+        inventory_site_id: str | Omit = omit,
+        lines: Iterable[inventory_adjustment_update_params.Line] | Omit = omit,
+        memo: str | Omit = omit,
+        ref_number: str | Omit = omit,
+        transaction_date: Union[str, date] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> InventoryAdjustment:
         """
         Updates an existing inventory adjustment.
@@ -775,28 +775,28 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
-        account_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        customer_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        include_line_items: bool | NotGiven = NOT_GIVEN,
-        item_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        ref_number_contains: str | NotGiven = NOT_GIVEN,
-        ref_number_ends_with: str | NotGiven = NOT_GIVEN,
-        ref_number_from: str | NotGiven = NOT_GIVEN,
-        ref_numbers: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        ref_number_starts_with: str | NotGiven = NOT_GIVEN,
-        ref_number_to: str | NotGiven = NOT_GIVEN,
-        transaction_date_from: Union[str, date] | NotGiven = NOT_GIVEN,
-        transaction_date_to: Union[str, date] | NotGiven = NOT_GIVEN,
-        updated_after: str | NotGiven = NOT_GIVEN,
-        updated_before: str | NotGiven = NOT_GIVEN,
+        account_ids: SequenceNotStr[str] | Omit = omit,
+        customer_ids: SequenceNotStr[str] | Omit = omit,
+        ids: SequenceNotStr[str] | Omit = omit,
+        include_line_items: bool | Omit = omit,
+        item_ids: SequenceNotStr[str] | Omit = omit,
+        limit: int | Omit = omit,
+        ref_number_contains: str | Omit = omit,
+        ref_number_ends_with: str | Omit = omit,
+        ref_number_from: str | Omit = omit,
+        ref_numbers: SequenceNotStr[str] | Omit = omit,
+        ref_number_starts_with: str | Omit = omit,
+        ref_number_to: str | Omit = omit,
+        transaction_date_from: Union[str, date] | Omit = omit,
+        transaction_date_to: Union[str, date] | Omit = omit,
+        updated_after: str | Omit = omit,
+        updated_before: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> InventoryAdjustmentListResponse:
         """Returns a list of inventory adjustments.
 
@@ -958,7 +958,7 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> InventoryAdjustmentDeleteResponse:
         """Permanently deletes a an inventory adjustment.
 

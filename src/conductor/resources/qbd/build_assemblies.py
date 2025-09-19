@@ -8,7 +8,7 @@ from typing_extensions import Literal
 
 import httpx
 
-from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven, SequenceNotStr
+from ..._types import Body, Omit, Query, Headers, NotGiven, SequenceNotStr, omit, not_given
 from ..._utils import maybe_transform, async_maybe_transform
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
@@ -54,21 +54,21 @@ class BuildAssembliesResource(SyncAPIResource):
         quantity_to_build: float,
         transaction_date: Union[str, date],
         conductor_end_user_id: str,
-        expiration_date: Union[str, date] | NotGiven = NOT_GIVEN,
-        external_id: str | NotGiven = NOT_GIVEN,
-        inventory_site_id: str | NotGiven = NOT_GIVEN,
-        inventory_site_location_id: str | NotGiven = NOT_GIVEN,
-        lot_number: str | NotGiven = NOT_GIVEN,
-        mark_pending_if_required: bool | NotGiven = NOT_GIVEN,
-        memo: str | NotGiven = NOT_GIVEN,
-        ref_number: str | NotGiven = NOT_GIVEN,
-        serial_number: str | NotGiven = NOT_GIVEN,
+        expiration_date: Union[str, date] | Omit = omit,
+        external_id: str | Omit = omit,
+        inventory_site_id: str | Omit = omit,
+        inventory_site_location_id: str | Omit = omit,
+        lot_number: str | Omit = omit,
+        mark_pending_if_required: bool | Omit = omit,
+        memo: str | Omit = omit,
+        ref_number: str | Omit = omit,
+        serial_number: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> BuildAssembly:
         """
         Creates a build assembly transaction that consumes component quantities and
@@ -167,7 +167,7 @@ class BuildAssembliesResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> BuildAssembly:
         """
         Retrieves a build assembly by ID.
@@ -203,23 +203,23 @@ class BuildAssembliesResource(SyncAPIResource):
         *,
         revision_number: str,
         conductor_end_user_id: str,
-        expiration_date: Union[str, date] | NotGiven = NOT_GIVEN,
-        inventory_site_id: str | NotGiven = NOT_GIVEN,
-        inventory_site_location_id: str | NotGiven = NOT_GIVEN,
-        lot_number: str | NotGiven = NOT_GIVEN,
-        mark_pending_if_required: bool | NotGiven = NOT_GIVEN,
-        memo: str | NotGiven = NOT_GIVEN,
-        quantity_to_build: float | NotGiven = NOT_GIVEN,
-        ref_number: str | NotGiven = NOT_GIVEN,
-        remove_pending: bool | NotGiven = NOT_GIVEN,
-        serial_number: str | NotGiven = NOT_GIVEN,
-        transaction_date: Union[str, date] | NotGiven = NOT_GIVEN,
+        expiration_date: Union[str, date] | Omit = omit,
+        inventory_site_id: str | Omit = omit,
+        inventory_site_location_id: str | Omit = omit,
+        lot_number: str | Omit = omit,
+        mark_pending_if_required: bool | Omit = omit,
+        memo: str | Omit = omit,
+        quantity_to_build: float | Omit = omit,
+        ref_number: str | Omit = omit,
+        remove_pending: bool | Omit = omit,
+        serial_number: str | Omit = omit,
+        transaction_date: Union[str, date] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> BuildAssembly:
         """
         Updates an existing build assembly.
@@ -310,28 +310,28 @@ class BuildAssembliesResource(SyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
-        cursor: str | NotGiven = NOT_GIVEN,
-        ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        include_component_line_items: bool | NotGiven = NOT_GIVEN,
-        item_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        pending_status: Literal["all", "not_pending", "pending"] | NotGiven = NOT_GIVEN,
-        ref_number_contains: str | NotGiven = NOT_GIVEN,
-        ref_number_ends_with: str | NotGiven = NOT_GIVEN,
-        ref_number_from: str | NotGiven = NOT_GIVEN,
-        ref_numbers: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        ref_number_starts_with: str | NotGiven = NOT_GIVEN,
-        ref_number_to: str | NotGiven = NOT_GIVEN,
-        transaction_date_from: Union[str, date] | NotGiven = NOT_GIVEN,
-        transaction_date_to: Union[str, date] | NotGiven = NOT_GIVEN,
-        updated_after: str | NotGiven = NOT_GIVEN,
-        updated_before: str | NotGiven = NOT_GIVEN,
+        cursor: str | Omit = omit,
+        ids: SequenceNotStr[str] | Omit = omit,
+        include_component_line_items: bool | Omit = omit,
+        item_ids: SequenceNotStr[str] | Omit = omit,
+        limit: int | Omit = omit,
+        pending_status: Literal["all", "not_pending", "pending"] | Omit = omit,
+        ref_number_contains: str | Omit = omit,
+        ref_number_ends_with: str | Omit = omit,
+        ref_number_from: str | Omit = omit,
+        ref_numbers: SequenceNotStr[str] | Omit = omit,
+        ref_number_starts_with: str | Omit = omit,
+        ref_number_to: str | Omit = omit,
+        transaction_date_from: Union[str, date] | Omit = omit,
+        transaction_date_to: Union[str, date] | Omit = omit,
+        updated_after: str | Omit = omit,
+        updated_before: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SyncCursorPage[BuildAssembly]:
         """Returns a list of build assemblies.
 
@@ -492,7 +492,7 @@ class BuildAssembliesResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> BuildAssemblyDeleteResponse:
         """Permanently deletes a a build assembly.
 
@@ -552,21 +552,21 @@ class AsyncBuildAssembliesResource(AsyncAPIResource):
         quantity_to_build: float,
         transaction_date: Union[str, date],
         conductor_end_user_id: str,
-        expiration_date: Union[str, date] | NotGiven = NOT_GIVEN,
-        external_id: str | NotGiven = NOT_GIVEN,
-        inventory_site_id: str | NotGiven = NOT_GIVEN,
-        inventory_site_location_id: str | NotGiven = NOT_GIVEN,
-        lot_number: str | NotGiven = NOT_GIVEN,
-        mark_pending_if_required: bool | NotGiven = NOT_GIVEN,
-        memo: str | NotGiven = NOT_GIVEN,
-        ref_number: str | NotGiven = NOT_GIVEN,
-        serial_number: str | NotGiven = NOT_GIVEN,
+        expiration_date: Union[str, date] | Omit = omit,
+        external_id: str | Omit = omit,
+        inventory_site_id: str | Omit = omit,
+        inventory_site_location_id: str | Omit = omit,
+        lot_number: str | Omit = omit,
+        mark_pending_if_required: bool | Omit = omit,
+        memo: str | Omit = omit,
+        ref_number: str | Omit = omit,
+        serial_number: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> BuildAssembly:
         """
         Creates a build assembly transaction that consumes component quantities and
@@ -665,7 +665,7 @@ class AsyncBuildAssembliesResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> BuildAssembly:
         """
         Retrieves a build assembly by ID.
@@ -701,23 +701,23 @@ class AsyncBuildAssembliesResource(AsyncAPIResource):
         *,
         revision_number: str,
         conductor_end_user_id: str,
-        expiration_date: Union[str, date] | NotGiven = NOT_GIVEN,
-        inventory_site_id: str | NotGiven = NOT_GIVEN,
-        inventory_site_location_id: str | NotGiven = NOT_GIVEN,
-        lot_number: str | NotGiven = NOT_GIVEN,
-        mark_pending_if_required: bool | NotGiven = NOT_GIVEN,
-        memo: str | NotGiven = NOT_GIVEN,
-        quantity_to_build: float | NotGiven = NOT_GIVEN,
-        ref_number: str | NotGiven = NOT_GIVEN,
-        remove_pending: bool | NotGiven = NOT_GIVEN,
-        serial_number: str | NotGiven = NOT_GIVEN,
-        transaction_date: Union[str, date] | NotGiven = NOT_GIVEN,
+        expiration_date: Union[str, date] | Omit = omit,
+        inventory_site_id: str | Omit = omit,
+        inventory_site_location_id: str | Omit = omit,
+        lot_number: str | Omit = omit,
+        mark_pending_if_required: bool | Omit = omit,
+        memo: str | Omit = omit,
+        quantity_to_build: float | Omit = omit,
+        ref_number: str | Omit = omit,
+        remove_pending: bool | Omit = omit,
+        serial_number: str | Omit = omit,
+        transaction_date: Union[str, date] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> BuildAssembly:
         """
         Updates an existing build assembly.
@@ -808,28 +808,28 @@ class AsyncBuildAssembliesResource(AsyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
-        cursor: str | NotGiven = NOT_GIVEN,
-        ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        include_component_line_items: bool | NotGiven = NOT_GIVEN,
-        item_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        pending_status: Literal["all", "not_pending", "pending"] | NotGiven = NOT_GIVEN,
-        ref_number_contains: str | NotGiven = NOT_GIVEN,
-        ref_number_ends_with: str | NotGiven = NOT_GIVEN,
-        ref_number_from: str | NotGiven = NOT_GIVEN,
-        ref_numbers: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        ref_number_starts_with: str | NotGiven = NOT_GIVEN,
-        ref_number_to: str | NotGiven = NOT_GIVEN,
-        transaction_date_from: Union[str, date] | NotGiven = NOT_GIVEN,
-        transaction_date_to: Union[str, date] | NotGiven = NOT_GIVEN,
-        updated_after: str | NotGiven = NOT_GIVEN,
-        updated_before: str | NotGiven = NOT_GIVEN,
+        cursor: str | Omit = omit,
+        ids: SequenceNotStr[str] | Omit = omit,
+        include_component_line_items: bool | Omit = omit,
+        item_ids: SequenceNotStr[str] | Omit = omit,
+        limit: int | Omit = omit,
+        pending_status: Literal["all", "not_pending", "pending"] | Omit = omit,
+        ref_number_contains: str | Omit = omit,
+        ref_number_ends_with: str | Omit = omit,
+        ref_number_from: str | Omit = omit,
+        ref_numbers: SequenceNotStr[str] | Omit = omit,
+        ref_number_starts_with: str | Omit = omit,
+        ref_number_to: str | Omit = omit,
+        transaction_date_from: Union[str, date] | Omit = omit,
+        transaction_date_to: Union[str, date] | Omit = omit,
+        updated_after: str | Omit = omit,
+        updated_before: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> AsyncPaginator[BuildAssembly, AsyncCursorPage[BuildAssembly]]:
         """Returns a list of build assemblies.
 
@@ -990,7 +990,7 @@ class AsyncBuildAssembliesResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> BuildAssemblyDeleteResponse:
         """Permanently deletes a a build assembly.
 

@@ -6,7 +6,7 @@ from typing_extensions import Literal
 
 import httpx
 
-from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven, SequenceNotStr
+from ..._types import Body, Omit, Query, Headers, NotGiven, SequenceNotStr, omit, not_given
 from ..._utils import maybe_transform, async_maybe_transform
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
@@ -49,21 +49,21 @@ class ServiceItemsResource(SyncAPIResource):
         *,
         name: str,
         conductor_end_user_id: str,
-        barcode: service_item_create_params.Barcode | NotGiven = NOT_GIVEN,
-        class_id: str | NotGiven = NOT_GIVEN,
-        external_id: str | NotGiven = NOT_GIVEN,
-        is_active: bool | NotGiven = NOT_GIVEN,
-        parent_id: str | NotGiven = NOT_GIVEN,
-        sales_and_purchase_details: service_item_create_params.SalesAndPurchaseDetails | NotGiven = NOT_GIVEN,
-        sales_or_purchase_details: service_item_create_params.SalesOrPurchaseDetails | NotGiven = NOT_GIVEN,
-        sales_tax_code_id: str | NotGiven = NOT_GIVEN,
-        unit_of_measure_set_id: str | NotGiven = NOT_GIVEN,
+        barcode: service_item_create_params.Barcode | Omit = omit,
+        class_id: str | Omit = omit,
+        external_id: str | Omit = omit,
+        is_active: bool | Omit = omit,
+        parent_id: str | Omit = omit,
+        sales_and_purchase_details: service_item_create_params.SalesAndPurchaseDetails | Omit = omit,
+        sales_or_purchase_details: service_item_create_params.SalesOrPurchaseDetails | Omit = omit,
+        sales_tax_code_id: str | Omit = omit,
+        unit_of_measure_set_id: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ServiceItem:
         """
         Creates a new service item.
@@ -170,7 +170,7 @@ class ServiceItemsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ServiceItem:
         """
         Retrieves a service item by ID.
@@ -206,22 +206,22 @@ class ServiceItemsResource(SyncAPIResource):
         *,
         revision_number: str,
         conductor_end_user_id: str,
-        barcode: service_item_update_params.Barcode | NotGiven = NOT_GIVEN,
-        class_id: str | NotGiven = NOT_GIVEN,
-        force_unit_of_measure_change: bool | NotGiven = NOT_GIVEN,
-        is_active: bool | NotGiven = NOT_GIVEN,
-        name: str | NotGiven = NOT_GIVEN,
-        parent_id: str | NotGiven = NOT_GIVEN,
-        sales_and_purchase_details: service_item_update_params.SalesAndPurchaseDetails | NotGiven = NOT_GIVEN,
-        sales_or_purchase_details: service_item_update_params.SalesOrPurchaseDetails | NotGiven = NOT_GIVEN,
-        sales_tax_code_id: str | NotGiven = NOT_GIVEN,
-        unit_of_measure_set_id: str | NotGiven = NOT_GIVEN,
+        barcode: service_item_update_params.Barcode | Omit = omit,
+        class_id: str | Omit = omit,
+        force_unit_of_measure_change: bool | Omit = omit,
+        is_active: bool | Omit = omit,
+        name: str | Omit = omit,
+        parent_id: str | Omit = omit,
+        sales_and_purchase_details: service_item_update_params.SalesAndPurchaseDetails | Omit = omit,
+        sales_or_purchase_details: service_item_update_params.SalesOrPurchaseDetails | Omit = omit,
+        sales_tax_code_id: str | Omit = omit,
+        unit_of_measure_set_id: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ServiceItem:
         """Updates a service item’s details, including its accounts and unit-of-measure
         set.
@@ -342,25 +342,25 @@ class ServiceItemsResource(SyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
-        class_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        cursor: str | NotGiven = NOT_GIVEN,
-        full_names: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        name_contains: str | NotGiven = NOT_GIVEN,
-        name_ends_with: str | NotGiven = NOT_GIVEN,
-        name_from: str | NotGiven = NOT_GIVEN,
-        name_starts_with: str | NotGiven = NOT_GIVEN,
-        name_to: str | NotGiven = NOT_GIVEN,
-        status: Literal["active", "all", "inactive"] | NotGiven = NOT_GIVEN,
-        updated_after: str | NotGiven = NOT_GIVEN,
-        updated_before: str | NotGiven = NOT_GIVEN,
+        class_ids: SequenceNotStr[str] | Omit = omit,
+        cursor: str | Omit = omit,
+        full_names: SequenceNotStr[str] | Omit = omit,
+        ids: SequenceNotStr[str] | Omit = omit,
+        limit: int | Omit = omit,
+        name_contains: str | Omit = omit,
+        name_ends_with: str | Omit = omit,
+        name_from: str | Omit = omit,
+        name_starts_with: str | Omit = omit,
+        name_to: str | Omit = omit,
+        status: Literal["active", "all", "inactive"] | Omit = omit,
+        updated_after: str | Omit = omit,
+        updated_before: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SyncCursorPage[ServiceItem]:
         """Returns a list of service items.
 
@@ -519,21 +519,21 @@ class AsyncServiceItemsResource(AsyncAPIResource):
         *,
         name: str,
         conductor_end_user_id: str,
-        barcode: service_item_create_params.Barcode | NotGiven = NOT_GIVEN,
-        class_id: str | NotGiven = NOT_GIVEN,
-        external_id: str | NotGiven = NOT_GIVEN,
-        is_active: bool | NotGiven = NOT_GIVEN,
-        parent_id: str | NotGiven = NOT_GIVEN,
-        sales_and_purchase_details: service_item_create_params.SalesAndPurchaseDetails | NotGiven = NOT_GIVEN,
-        sales_or_purchase_details: service_item_create_params.SalesOrPurchaseDetails | NotGiven = NOT_GIVEN,
-        sales_tax_code_id: str | NotGiven = NOT_GIVEN,
-        unit_of_measure_set_id: str | NotGiven = NOT_GIVEN,
+        barcode: service_item_create_params.Barcode | Omit = omit,
+        class_id: str | Omit = omit,
+        external_id: str | Omit = omit,
+        is_active: bool | Omit = omit,
+        parent_id: str | Omit = omit,
+        sales_and_purchase_details: service_item_create_params.SalesAndPurchaseDetails | Omit = omit,
+        sales_or_purchase_details: service_item_create_params.SalesOrPurchaseDetails | Omit = omit,
+        sales_tax_code_id: str | Omit = omit,
+        unit_of_measure_set_id: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ServiceItem:
         """
         Creates a new service item.
@@ -640,7 +640,7 @@ class AsyncServiceItemsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ServiceItem:
         """
         Retrieves a service item by ID.
@@ -676,22 +676,22 @@ class AsyncServiceItemsResource(AsyncAPIResource):
         *,
         revision_number: str,
         conductor_end_user_id: str,
-        barcode: service_item_update_params.Barcode | NotGiven = NOT_GIVEN,
-        class_id: str | NotGiven = NOT_GIVEN,
-        force_unit_of_measure_change: bool | NotGiven = NOT_GIVEN,
-        is_active: bool | NotGiven = NOT_GIVEN,
-        name: str | NotGiven = NOT_GIVEN,
-        parent_id: str | NotGiven = NOT_GIVEN,
-        sales_and_purchase_details: service_item_update_params.SalesAndPurchaseDetails | NotGiven = NOT_GIVEN,
-        sales_or_purchase_details: service_item_update_params.SalesOrPurchaseDetails | NotGiven = NOT_GIVEN,
-        sales_tax_code_id: str | NotGiven = NOT_GIVEN,
-        unit_of_measure_set_id: str | NotGiven = NOT_GIVEN,
+        barcode: service_item_update_params.Barcode | Omit = omit,
+        class_id: str | Omit = omit,
+        force_unit_of_measure_change: bool | Omit = omit,
+        is_active: bool | Omit = omit,
+        name: str | Omit = omit,
+        parent_id: str | Omit = omit,
+        sales_and_purchase_details: service_item_update_params.SalesAndPurchaseDetails | Omit = omit,
+        sales_or_purchase_details: service_item_update_params.SalesOrPurchaseDetails | Omit = omit,
+        sales_tax_code_id: str | Omit = omit,
+        unit_of_measure_set_id: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ServiceItem:
         """Updates a service item’s details, including its accounts and unit-of-measure
         set.
@@ -812,25 +812,25 @@ class AsyncServiceItemsResource(AsyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
-        class_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        cursor: str | NotGiven = NOT_GIVEN,
-        full_names: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        name_contains: str | NotGiven = NOT_GIVEN,
-        name_ends_with: str | NotGiven = NOT_GIVEN,
-        name_from: str | NotGiven = NOT_GIVEN,
-        name_starts_with: str | NotGiven = NOT_GIVEN,
-        name_to: str | NotGiven = NOT_GIVEN,
-        status: Literal["active", "all", "inactive"] | NotGiven = NOT_GIVEN,
-        updated_after: str | NotGiven = NOT_GIVEN,
-        updated_before: str | NotGiven = NOT_GIVEN,
+        class_ids: SequenceNotStr[str] | Omit = omit,
+        cursor: str | Omit = omit,
+        full_names: SequenceNotStr[str] | Omit = omit,
+        ids: SequenceNotStr[str] | Omit = omit,
+        limit: int | Omit = omit,
+        name_contains: str | Omit = omit,
+        name_ends_with: str | Omit = omit,
+        name_from: str | Omit = omit,
+        name_starts_with: str | Omit = omit,
+        name_to: str | Omit = omit,
+        status: Literal["active", "all", "inactive"] | Omit = omit,
+        updated_after: str | Omit = omit,
+        updated_before: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> AsyncPaginator[ServiceItem, AsyncCursorPage[ServiceItem]]:
         """Returns a list of service items.
 

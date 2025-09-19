@@ -7,7 +7,7 @@ from datetime import date
 
 import httpx
 
-from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven, SequenceNotStr
+from ..._types import Body, Omit, Query, Headers, NotGiven, SequenceNotStr, omit, not_given
 from ..._utils import maybe_transform, async_maybe_transform
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
@@ -53,22 +53,22 @@ class ReceivePaymentsResource(SyncAPIResource):
         total_amount: str,
         transaction_date: Union[str, date],
         conductor_end_user_id: str,
-        apply_to_transactions: Iterable[receive_payment_create_params.ApplyToTransaction] | NotGiven = NOT_GIVEN,
-        credit_card_transaction: receive_payment_create_params.CreditCardTransaction | NotGiven = NOT_GIVEN,
-        deposit_to_account_id: str | NotGiven = NOT_GIVEN,
-        exchange_rate: float | NotGiven = NOT_GIVEN,
-        external_id: str | NotGiven = NOT_GIVEN,
-        is_auto_apply: bool | NotGiven = NOT_GIVEN,
-        memo: str | NotGiven = NOT_GIVEN,
-        payment_method_id: str | NotGiven = NOT_GIVEN,
-        receivables_account_id: str | NotGiven = NOT_GIVEN,
-        ref_number: str | NotGiven = NOT_GIVEN,
+        apply_to_transactions: Iterable[receive_payment_create_params.ApplyToTransaction] | Omit = omit,
+        credit_card_transaction: receive_payment_create_params.CreditCardTransaction | Omit = omit,
+        deposit_to_account_id: str | Omit = omit,
+        exchange_rate: float | Omit = omit,
+        external_id: str | Omit = omit,
+        is_auto_apply: bool | Omit = omit,
+        memo: str | Omit = omit,
+        payment_method_id: str | Omit = omit,
+        receivables_account_id: str | Omit = omit,
+        ref_number: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ReceivePayment:
         """
         Records a customer payment and optionally applies it to specific invoices or
@@ -201,7 +201,7 @@ class ReceivePaymentsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ReceivePayment:
         """
         Retrieves a receive-payment by ID.
@@ -237,23 +237,23 @@ class ReceivePaymentsResource(SyncAPIResource):
         *,
         revision_number: str,
         conductor_end_user_id: str,
-        apply_to_transactions: Iterable[receive_payment_update_params.ApplyToTransaction] | NotGiven = NOT_GIVEN,
-        credit_card_transaction: receive_payment_update_params.CreditCardTransaction | NotGiven = NOT_GIVEN,
-        customer_id: str | NotGiven = NOT_GIVEN,
-        deposit_to_account_id: str | NotGiven = NOT_GIVEN,
-        exchange_rate: float | NotGiven = NOT_GIVEN,
-        memo: str | NotGiven = NOT_GIVEN,
-        payment_method_id: str | NotGiven = NOT_GIVEN,
-        receivables_account_id: str | NotGiven = NOT_GIVEN,
-        ref_number: str | NotGiven = NOT_GIVEN,
-        total_amount: str | NotGiven = NOT_GIVEN,
-        transaction_date: Union[str, date] | NotGiven = NOT_GIVEN,
+        apply_to_transactions: Iterable[receive_payment_update_params.ApplyToTransaction] | Omit = omit,
+        credit_card_transaction: receive_payment_update_params.CreditCardTransaction | Omit = omit,
+        customer_id: str | Omit = omit,
+        deposit_to_account_id: str | Omit = omit,
+        exchange_rate: float | Omit = omit,
+        memo: str | Omit = omit,
+        payment_method_id: str | Omit = omit,
+        receivables_account_id: str | Omit = omit,
+        ref_number: str | Omit = omit,
+        total_amount: str | Omit = omit,
+        transaction_date: Union[str, date] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ReceivePayment:
         """Updates a received payment.
 
@@ -361,29 +361,29 @@ class ReceivePaymentsResource(SyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
-        account_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        currency_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        cursor: str | NotGiven = NOT_GIVEN,
-        customer_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        include_line_items: bool | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        ref_number_contains: str | NotGiven = NOT_GIVEN,
-        ref_number_ends_with: str | NotGiven = NOT_GIVEN,
-        ref_number_from: str | NotGiven = NOT_GIVEN,
-        ref_numbers: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        ref_number_starts_with: str | NotGiven = NOT_GIVEN,
-        ref_number_to: str | NotGiven = NOT_GIVEN,
-        transaction_date_from: Union[str, date] | NotGiven = NOT_GIVEN,
-        transaction_date_to: Union[str, date] | NotGiven = NOT_GIVEN,
-        updated_after: str | NotGiven = NOT_GIVEN,
-        updated_before: str | NotGiven = NOT_GIVEN,
+        account_ids: SequenceNotStr[str] | Omit = omit,
+        currency_ids: SequenceNotStr[str] | Omit = omit,
+        cursor: str | Omit = omit,
+        customer_ids: SequenceNotStr[str] | Omit = omit,
+        ids: SequenceNotStr[str] | Omit = omit,
+        include_line_items: bool | Omit = omit,
+        limit: int | Omit = omit,
+        ref_number_contains: str | Omit = omit,
+        ref_number_ends_with: str | Omit = omit,
+        ref_number_from: str | Omit = omit,
+        ref_numbers: SequenceNotStr[str] | Omit = omit,
+        ref_number_starts_with: str | Omit = omit,
+        ref_number_to: str | Omit = omit,
+        transaction_date_from: Union[str, date] | Omit = omit,
+        transaction_date_to: Union[str, date] | Omit = omit,
+        updated_after: str | Omit = omit,
+        updated_before: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SyncCursorPage[ReceivePayment]:
         """Returns a list of receive-payments.
 
@@ -547,7 +547,7 @@ class ReceivePaymentsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ReceivePaymentDeleteResponse:
         """Permanently deletes a a receive-payment.
 
@@ -608,22 +608,22 @@ class AsyncReceivePaymentsResource(AsyncAPIResource):
         total_amount: str,
         transaction_date: Union[str, date],
         conductor_end_user_id: str,
-        apply_to_transactions: Iterable[receive_payment_create_params.ApplyToTransaction] | NotGiven = NOT_GIVEN,
-        credit_card_transaction: receive_payment_create_params.CreditCardTransaction | NotGiven = NOT_GIVEN,
-        deposit_to_account_id: str | NotGiven = NOT_GIVEN,
-        exchange_rate: float | NotGiven = NOT_GIVEN,
-        external_id: str | NotGiven = NOT_GIVEN,
-        is_auto_apply: bool | NotGiven = NOT_GIVEN,
-        memo: str | NotGiven = NOT_GIVEN,
-        payment_method_id: str | NotGiven = NOT_GIVEN,
-        receivables_account_id: str | NotGiven = NOT_GIVEN,
-        ref_number: str | NotGiven = NOT_GIVEN,
+        apply_to_transactions: Iterable[receive_payment_create_params.ApplyToTransaction] | Omit = omit,
+        credit_card_transaction: receive_payment_create_params.CreditCardTransaction | Omit = omit,
+        deposit_to_account_id: str | Omit = omit,
+        exchange_rate: float | Omit = omit,
+        external_id: str | Omit = omit,
+        is_auto_apply: bool | Omit = omit,
+        memo: str | Omit = omit,
+        payment_method_id: str | Omit = omit,
+        receivables_account_id: str | Omit = omit,
+        ref_number: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ReceivePayment:
         """
         Records a customer payment and optionally applies it to specific invoices or
@@ -756,7 +756,7 @@ class AsyncReceivePaymentsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ReceivePayment:
         """
         Retrieves a receive-payment by ID.
@@ -792,23 +792,23 @@ class AsyncReceivePaymentsResource(AsyncAPIResource):
         *,
         revision_number: str,
         conductor_end_user_id: str,
-        apply_to_transactions: Iterable[receive_payment_update_params.ApplyToTransaction] | NotGiven = NOT_GIVEN,
-        credit_card_transaction: receive_payment_update_params.CreditCardTransaction | NotGiven = NOT_GIVEN,
-        customer_id: str | NotGiven = NOT_GIVEN,
-        deposit_to_account_id: str | NotGiven = NOT_GIVEN,
-        exchange_rate: float | NotGiven = NOT_GIVEN,
-        memo: str | NotGiven = NOT_GIVEN,
-        payment_method_id: str | NotGiven = NOT_GIVEN,
-        receivables_account_id: str | NotGiven = NOT_GIVEN,
-        ref_number: str | NotGiven = NOT_GIVEN,
-        total_amount: str | NotGiven = NOT_GIVEN,
-        transaction_date: Union[str, date] | NotGiven = NOT_GIVEN,
+        apply_to_transactions: Iterable[receive_payment_update_params.ApplyToTransaction] | Omit = omit,
+        credit_card_transaction: receive_payment_update_params.CreditCardTransaction | Omit = omit,
+        customer_id: str | Omit = omit,
+        deposit_to_account_id: str | Omit = omit,
+        exchange_rate: float | Omit = omit,
+        memo: str | Omit = omit,
+        payment_method_id: str | Omit = omit,
+        receivables_account_id: str | Omit = omit,
+        ref_number: str | Omit = omit,
+        total_amount: str | Omit = omit,
+        transaction_date: Union[str, date] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ReceivePayment:
         """Updates a received payment.
 
@@ -916,29 +916,29 @@ class AsyncReceivePaymentsResource(AsyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
-        account_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        currency_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        cursor: str | NotGiven = NOT_GIVEN,
-        customer_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        include_line_items: bool | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        ref_number_contains: str | NotGiven = NOT_GIVEN,
-        ref_number_ends_with: str | NotGiven = NOT_GIVEN,
-        ref_number_from: str | NotGiven = NOT_GIVEN,
-        ref_numbers: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        ref_number_starts_with: str | NotGiven = NOT_GIVEN,
-        ref_number_to: str | NotGiven = NOT_GIVEN,
-        transaction_date_from: Union[str, date] | NotGiven = NOT_GIVEN,
-        transaction_date_to: Union[str, date] | NotGiven = NOT_GIVEN,
-        updated_after: str | NotGiven = NOT_GIVEN,
-        updated_before: str | NotGiven = NOT_GIVEN,
+        account_ids: SequenceNotStr[str] | Omit = omit,
+        currency_ids: SequenceNotStr[str] | Omit = omit,
+        cursor: str | Omit = omit,
+        customer_ids: SequenceNotStr[str] | Omit = omit,
+        ids: SequenceNotStr[str] | Omit = omit,
+        include_line_items: bool | Omit = omit,
+        limit: int | Omit = omit,
+        ref_number_contains: str | Omit = omit,
+        ref_number_ends_with: str | Omit = omit,
+        ref_number_from: str | Omit = omit,
+        ref_numbers: SequenceNotStr[str] | Omit = omit,
+        ref_number_starts_with: str | Omit = omit,
+        ref_number_to: str | Omit = omit,
+        transaction_date_from: Union[str, date] | Omit = omit,
+        transaction_date_to: Union[str, date] | Omit = omit,
+        updated_after: str | Omit = omit,
+        updated_before: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> AsyncPaginator[ReceivePayment, AsyncCursorPage[ReceivePayment]]:
         """Returns a list of receive-payments.
 
@@ -1102,7 +1102,7 @@ class AsyncReceivePaymentsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ReceivePaymentDeleteResponse:
         """Permanently deletes a a receive-payment.
 
