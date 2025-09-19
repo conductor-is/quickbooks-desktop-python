@@ -7,7 +7,7 @@ from typing_extensions import Literal
 
 import httpx
 
-from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven, SequenceNotStr
+from ..._types import Body, Omit, Query, Headers, NotGiven, SequenceNotStr, omit, not_given
 from ..._utils import maybe_transform, async_maybe_transform
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
@@ -51,18 +51,18 @@ class ItemGroupsResource(SyncAPIResource):
         name: str,
         should_print_items_in_group: bool,
         conductor_end_user_id: str,
-        barcode: item_group_create_params.Barcode | NotGiven = NOT_GIVEN,
-        description: str | NotGiven = NOT_GIVEN,
-        external_id: str | NotGiven = NOT_GIVEN,
-        is_active: bool | NotGiven = NOT_GIVEN,
-        lines: Iterable[item_group_create_params.Line] | NotGiven = NOT_GIVEN,
-        unit_of_measure_set_id: str | NotGiven = NOT_GIVEN,
+        barcode: item_group_create_params.Barcode | Omit = omit,
+        description: str | Omit = omit,
+        external_id: str | Omit = omit,
+        is_active: bool | Omit = omit,
+        lines: Iterable[item_group_create_params.Line] | Omit = omit,
+        unit_of_measure_set_id: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ItemGroup:
         """
         Creates a new item group.
@@ -143,7 +143,7 @@ class ItemGroupsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ItemGroup:
         """
         Retrieves an item group by ID.
@@ -179,21 +179,21 @@ class ItemGroupsResource(SyncAPIResource):
         *,
         revision_number: str,
         conductor_end_user_id: str,
-        barcode: item_group_update_params.Barcode | NotGiven = NOT_GIVEN,
-        clear_item_lines: bool | NotGiven = NOT_GIVEN,
-        description: str | NotGiven = NOT_GIVEN,
-        force_unit_of_measure_change: bool | NotGiven = NOT_GIVEN,
-        is_active: bool | NotGiven = NOT_GIVEN,
-        lines: Iterable[item_group_update_params.Line] | NotGiven = NOT_GIVEN,
-        name: str | NotGiven = NOT_GIVEN,
-        should_print_items_in_group: bool | NotGiven = NOT_GIVEN,
-        unit_of_measure_set_id: str | NotGiven = NOT_GIVEN,
+        barcode: item_group_update_params.Barcode | Omit = omit,
+        clear_item_lines: bool | Omit = omit,
+        description: str | Omit = omit,
+        force_unit_of_measure_change: bool | Omit = omit,
+        is_active: bool | Omit = omit,
+        lines: Iterable[item_group_update_params.Line] | Omit = omit,
+        name: str | Omit = omit,
+        should_print_items_in_group: bool | Omit = omit,
+        unit_of_measure_set_id: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ItemGroup:
         """
         Updates an existing item group.
@@ -286,24 +286,24 @@ class ItemGroupsResource(SyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
-        cursor: str | NotGiven = NOT_GIVEN,
-        ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        name_contains: str | NotGiven = NOT_GIVEN,
-        name_ends_with: str | NotGiven = NOT_GIVEN,
-        name_from: str | NotGiven = NOT_GIVEN,
-        names: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        name_starts_with: str | NotGiven = NOT_GIVEN,
-        name_to: str | NotGiven = NOT_GIVEN,
-        status: Literal["active", "all", "inactive"] | NotGiven = NOT_GIVEN,
-        updated_after: str | NotGiven = NOT_GIVEN,
-        updated_before: str | NotGiven = NOT_GIVEN,
+        cursor: str | Omit = omit,
+        ids: SequenceNotStr[str] | Omit = omit,
+        limit: int | Omit = omit,
+        name_contains: str | Omit = omit,
+        name_ends_with: str | Omit = omit,
+        name_from: str | Omit = omit,
+        names: SequenceNotStr[str] | Omit = omit,
+        name_starts_with: str | Omit = omit,
+        name_to: str | Omit = omit,
+        status: Literal["active", "all", "inactive"] | Omit = omit,
+        updated_after: str | Omit = omit,
+        updated_before: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SyncCursorPage[ItemGroup]:
         """Returns a list of item groups.
 
@@ -455,18 +455,18 @@ class AsyncItemGroupsResource(AsyncAPIResource):
         name: str,
         should_print_items_in_group: bool,
         conductor_end_user_id: str,
-        barcode: item_group_create_params.Barcode | NotGiven = NOT_GIVEN,
-        description: str | NotGiven = NOT_GIVEN,
-        external_id: str | NotGiven = NOT_GIVEN,
-        is_active: bool | NotGiven = NOT_GIVEN,
-        lines: Iterable[item_group_create_params.Line] | NotGiven = NOT_GIVEN,
-        unit_of_measure_set_id: str | NotGiven = NOT_GIVEN,
+        barcode: item_group_create_params.Barcode | Omit = omit,
+        description: str | Omit = omit,
+        external_id: str | Omit = omit,
+        is_active: bool | Omit = omit,
+        lines: Iterable[item_group_create_params.Line] | Omit = omit,
+        unit_of_measure_set_id: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ItemGroup:
         """
         Creates a new item group.
@@ -547,7 +547,7 @@ class AsyncItemGroupsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ItemGroup:
         """
         Retrieves an item group by ID.
@@ -583,21 +583,21 @@ class AsyncItemGroupsResource(AsyncAPIResource):
         *,
         revision_number: str,
         conductor_end_user_id: str,
-        barcode: item_group_update_params.Barcode | NotGiven = NOT_GIVEN,
-        clear_item_lines: bool | NotGiven = NOT_GIVEN,
-        description: str | NotGiven = NOT_GIVEN,
-        force_unit_of_measure_change: bool | NotGiven = NOT_GIVEN,
-        is_active: bool | NotGiven = NOT_GIVEN,
-        lines: Iterable[item_group_update_params.Line] | NotGiven = NOT_GIVEN,
-        name: str | NotGiven = NOT_GIVEN,
-        should_print_items_in_group: bool | NotGiven = NOT_GIVEN,
-        unit_of_measure_set_id: str | NotGiven = NOT_GIVEN,
+        barcode: item_group_update_params.Barcode | Omit = omit,
+        clear_item_lines: bool | Omit = omit,
+        description: str | Omit = omit,
+        force_unit_of_measure_change: bool | Omit = omit,
+        is_active: bool | Omit = omit,
+        lines: Iterable[item_group_update_params.Line] | Omit = omit,
+        name: str | Omit = omit,
+        should_print_items_in_group: bool | Omit = omit,
+        unit_of_measure_set_id: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ItemGroup:
         """
         Updates an existing item group.
@@ -690,24 +690,24 @@ class AsyncItemGroupsResource(AsyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
-        cursor: str | NotGiven = NOT_GIVEN,
-        ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        name_contains: str | NotGiven = NOT_GIVEN,
-        name_ends_with: str | NotGiven = NOT_GIVEN,
-        name_from: str | NotGiven = NOT_GIVEN,
-        names: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        name_starts_with: str | NotGiven = NOT_GIVEN,
-        name_to: str | NotGiven = NOT_GIVEN,
-        status: Literal["active", "all", "inactive"] | NotGiven = NOT_GIVEN,
-        updated_after: str | NotGiven = NOT_GIVEN,
-        updated_before: str | NotGiven = NOT_GIVEN,
+        cursor: str | Omit = omit,
+        ids: SequenceNotStr[str] | Omit = omit,
+        limit: int | Omit = omit,
+        name_contains: str | Omit = omit,
+        name_ends_with: str | Omit = omit,
+        name_from: str | Omit = omit,
+        names: SequenceNotStr[str] | Omit = omit,
+        name_starts_with: str | Omit = omit,
+        name_to: str | Omit = omit,
+        status: Literal["active", "all", "inactive"] | Omit = omit,
+        updated_after: str | Omit = omit,
+        updated_before: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> AsyncPaginator[ItemGroup, AsyncCursorPage[ItemGroup]]:
         """Returns a list of item groups.
 

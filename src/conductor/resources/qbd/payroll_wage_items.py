@@ -6,7 +6,7 @@ from typing_extensions import Literal
 
 import httpx
 
-from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven, SequenceNotStr
+from ..._types import Body, Omit, Query, Headers, NotGiven, SequenceNotStr, omit, not_given
 from ..._utils import maybe_transform, async_maybe_transform
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
@@ -61,13 +61,13 @@ class PayrollWageItemsResource(SyncAPIResource):
             "salary_vacation",
         ],
         conductor_end_user_id: str,
-        is_active: bool | NotGiven = NOT_GIVEN,
+        is_active: bool | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> PayrollWageItem:
         """
         Creates a new payroll wage item.
@@ -131,7 +131,7 @@ class PayrollWageItemsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> PayrollWageItem:
         """
         Retrieves a payroll wage item by ID.
@@ -165,24 +165,24 @@ class PayrollWageItemsResource(SyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
-        cursor: str | NotGiven = NOT_GIVEN,
-        ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        name_contains: str | NotGiven = NOT_GIVEN,
-        name_ends_with: str | NotGiven = NOT_GIVEN,
-        name_from: str | NotGiven = NOT_GIVEN,
-        names: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        name_starts_with: str | NotGiven = NOT_GIVEN,
-        name_to: str | NotGiven = NOT_GIVEN,
-        status: Literal["active", "all", "inactive"] | NotGiven = NOT_GIVEN,
-        updated_after: str | NotGiven = NOT_GIVEN,
-        updated_before: str | NotGiven = NOT_GIVEN,
+        cursor: str | Omit = omit,
+        ids: SequenceNotStr[str] | Omit = omit,
+        limit: int | Omit = omit,
+        name_contains: str | Omit = omit,
+        name_ends_with: str | Omit = omit,
+        name_from: str | Omit = omit,
+        names: SequenceNotStr[str] | Omit = omit,
+        name_starts_with: str | Omit = omit,
+        name_to: str | Omit = omit,
+        status: Literal["active", "all", "inactive"] | Omit = omit,
+        updated_after: str | Omit = omit,
+        updated_before: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SyncCursorPage[PayrollWageItem]:
         """Returns a list of payroll wage items.
 
@@ -347,13 +347,13 @@ class AsyncPayrollWageItemsResource(AsyncAPIResource):
             "salary_vacation",
         ],
         conductor_end_user_id: str,
-        is_active: bool | NotGiven = NOT_GIVEN,
+        is_active: bool | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> PayrollWageItem:
         """
         Creates a new payroll wage item.
@@ -417,7 +417,7 @@ class AsyncPayrollWageItemsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> PayrollWageItem:
         """
         Retrieves a payroll wage item by ID.
@@ -451,24 +451,24 @@ class AsyncPayrollWageItemsResource(AsyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
-        cursor: str | NotGiven = NOT_GIVEN,
-        ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        name_contains: str | NotGiven = NOT_GIVEN,
-        name_ends_with: str | NotGiven = NOT_GIVEN,
-        name_from: str | NotGiven = NOT_GIVEN,
-        names: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        name_starts_with: str | NotGiven = NOT_GIVEN,
-        name_to: str | NotGiven = NOT_GIVEN,
-        status: Literal["active", "all", "inactive"] | NotGiven = NOT_GIVEN,
-        updated_after: str | NotGiven = NOT_GIVEN,
-        updated_before: str | NotGiven = NOT_GIVEN,
+        cursor: str | Omit = omit,
+        ids: SequenceNotStr[str] | Omit = omit,
+        limit: int | Omit = omit,
+        name_contains: str | Omit = omit,
+        name_ends_with: str | Omit = omit,
+        name_from: str | Omit = omit,
+        names: SequenceNotStr[str] | Omit = omit,
+        name_starts_with: str | Omit = omit,
+        name_to: str | Omit = omit,
+        status: Literal["active", "all", "inactive"] | Omit = omit,
+        updated_after: str | Omit = omit,
+        updated_before: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> AsyncPaginator[PayrollWageItem, AsyncCursorPage[PayrollWageItem]]:
         """Returns a list of payroll wage items.
 
