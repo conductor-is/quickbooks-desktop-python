@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.61.2 (2025-09-20)
+
+Full Changelog: [v1.61.1...v1.61.2](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.61.1...v1.61.2)
+
+### Chores
+
+* do not install brew dependencies in ./scripts/bootstrap by default ([d816d45](https://github.com/conductor-is/quickbooks-desktop-python/commit/d816d456537cf1aaf3a629cb1950e9e115577fd4))
+
 ## 1.61.1 (2025-09-19)
 
 Full Changelog: [v1.61.0...v1.61.1](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.61.0...v1.61.1)
