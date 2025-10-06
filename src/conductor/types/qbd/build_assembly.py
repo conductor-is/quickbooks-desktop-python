@@ -180,7 +180,7 @@ class Line(BaseModel):
     item associated with this component item line is stored.
     """
 
-    item: LineItem
+    item: Optional[LineItem] = None
     """The item associated with this component item line.
 
     This can refer to any good or service that the business buys or sells, including
