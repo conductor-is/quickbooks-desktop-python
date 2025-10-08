@@ -148,6 +148,8 @@ class EstimatesResource(SyncAPIResource):
               field is often used to cross-reference the estimate with the customer's
               purchasing system.
 
+              Maximum length: 25 characters.
+
           ref_number: The case-sensitive user-defined reference number for this estimate, which can be
               used to identify the transaction in QuickBooks. This value is not required to be
               unique and can be arbitrarily changed by the QuickBooks user. When left blank in
@@ -393,6 +395,8 @@ class EstimatesResource(SyncAPIResource):
           purchase_order_number: The customer's Purchase Order (PO) number associated with this estimate. This
               field is often used to cross-reference the estimate with the customer's
               purchasing system.
+
+              Maximum length: 25 characters.
 
           ref_number: The case-sensitive user-defined reference number for this estimate, which can be
               used to identify the transaction in QuickBooks. This value is not required to be
@@ -824,6 +828,8 @@ class AsyncEstimatesResource(AsyncAPIResource):
               field is often used to cross-reference the estimate with the customer's
               purchasing system.
 
+              Maximum length: 25 characters.
+
           ref_number: The case-sensitive user-defined reference number for this estimate, which can be
               used to identify the transaction in QuickBooks. This value is not required to be
               unique and can be arbitrarily changed by the QuickBooks user. When left blank in
@@ -1069,6 +1075,8 @@ class AsyncEstimatesResource(AsyncAPIResource):
           purchase_order_number: The customer's Purchase Order (PO) number associated with this estimate. This
               field is often used to cross-reference the estimate with the customer's
               purchasing system.
+
+              Maximum length: 25 characters.
 
           ref_number: The case-sensitive user-defined reference number for this estimate, which can be
               used to identify the transaction in QuickBooks. This value is not required to be
