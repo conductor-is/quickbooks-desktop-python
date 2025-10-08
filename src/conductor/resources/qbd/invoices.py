@@ -191,6 +191,8 @@ class InvoicesResource(SyncAPIResource):
               field is often used to cross-reference the invoice with the customer's
               purchasing system.
 
+              Maximum length: 25 characters.
+
           receivables_account_id: The Accounts-Receivable (A/R) account to which this invoice is assigned, used to
               track the amount owed. If not specified, QuickBooks Desktop will use its default
               A/R account.
@@ -477,6 +479,8 @@ class InvoicesResource(SyncAPIResource):
           purchase_order_number: The customer's Purchase Order (PO) number associated with this invoice. This
               field is often used to cross-reference the invoice with the customer's
               purchasing system.
+
+              Maximum length: 25 characters.
 
           receivables_account_id: The Accounts-Receivable (A/R) account to which this invoice is assigned, used to
               track the amount owed. If not specified, QuickBooks Desktop will use its default
@@ -981,6 +985,8 @@ class AsyncInvoicesResource(AsyncAPIResource):
               field is often used to cross-reference the invoice with the customer's
               purchasing system.
 
+              Maximum length: 25 characters.
+
           receivables_account_id: The Accounts-Receivable (A/R) account to which this invoice is assigned, used to
               track the amount owed. If not specified, QuickBooks Desktop will use its default
               A/R account.
@@ -1267,6 +1273,8 @@ class AsyncInvoicesResource(AsyncAPIResource):
           purchase_order_number: The customer's Purchase Order (PO) number associated with this invoice. This
               field is often used to cross-reference the invoice with the customer's
               purchasing system.
+
+              Maximum length: 25 characters.
 
           receivables_account_id: The Accounts-Receivable (A/R) account to which this invoice is assigned, used to
               track the amount owed. If not specified, QuickBooks Desktop will use its default
