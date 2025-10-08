@@ -170,6 +170,8 @@ class InvoiceCreateParams(TypedDict, total=False):
 
     This field is often used to cross-reference the invoice with the customer's
     purchasing system.
+
+    Maximum length: 25 characters.
     """
 
     receivables_account_id: Annotated[str, PropertyInfo(alias="receivablesAccountId")]
