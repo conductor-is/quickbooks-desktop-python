@@ -157,6 +157,8 @@ class CreditMemosResource(SyncAPIResource):
               field is often used to cross-reference the credit memo with the customer's
               purchasing system.
 
+              Maximum length: 25 characters.
+
           receivables_account_id: The Accounts-Receivable (A/R) account to which this credit memo is assigned,
               used to track the amount owed. If not specified, QuickBooks Desktop will use its
               default A/R account.
@@ -422,6 +424,8 @@ class CreditMemosResource(SyncAPIResource):
           purchase_order_number: The customer's Purchase Order (PO) number associated with this credit memo. This
               field is often used to cross-reference the credit memo with the customer's
               purchasing system.
+
+              Maximum length: 25 characters.
 
           receivables_account_id: The Accounts-Receivable (A/R) account to which this credit memo is assigned,
               used to track the amount owed. If not specified, QuickBooks Desktop will use its
@@ -880,6 +884,8 @@ class AsyncCreditMemosResource(AsyncAPIResource):
               field is often used to cross-reference the credit memo with the customer's
               purchasing system.
 
+              Maximum length: 25 characters.
+
           receivables_account_id: The Accounts-Receivable (A/R) account to which this credit memo is assigned,
               used to track the amount owed. If not specified, QuickBooks Desktop will use its
               default A/R account.
@@ -1145,6 +1151,8 @@ class AsyncCreditMemosResource(AsyncAPIResource):
           purchase_order_number: The customer's Purchase Order (PO) number associated with this credit memo. This
               field is often used to cross-reference the credit memo with the customer's
               purchasing system.
+
+              Maximum length: 25 characters.
 
           receivables_account_id: The Accounts-Receivable (A/R) account to which this credit memo is assigned,
               used to track the amount owed. If not specified, QuickBooks Desktop will use its

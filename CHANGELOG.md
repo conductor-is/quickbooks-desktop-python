@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.63.0 (2025-10-11)
+
+Full Changelog: [v1.62.0...v1.63.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.62.0...v1.63.0)
+
+### Features
+
+* **api:** api update ([ae9197e](https://github.com/conductor-is/quickbooks-desktop-python/commit/ae9197eeaf0e9cacd2cb1593f185816ff1549d8b))
+
+
+### Chores
+
+* **internal:** detect missing future annotations with ruff ([aad6657](https://github.com/conductor-is/quickbooks-desktop-python/commit/aad6657294e9a35eb01d66625c7a1e862aacc242))
+
 ## 1.62.0 (2025-10-06)
 
 Full Changelog: [v1.61.1...v1.62.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.61.1...v1.62.0)
