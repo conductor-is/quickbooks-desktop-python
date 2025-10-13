@@ -193,6 +193,10 @@ class OtherNamesResource(SyncAPIResource):
         """
         Retrieves an other-name by ID.
 
+        **IMPORTANT:** If you need to fetch a batch of specific other-names by ID, use
+        the list endpoint with the `ids` parameter. It accepts an array of IDs so you
+        can batch the request into a single call, which is significantly faster.
+
         Args:
           id: The QuickBooks-assigned unique identifier of the other-name to retrieve.
 
@@ -667,6 +671,10 @@ class AsyncOtherNamesResource(AsyncAPIResource):
     ) -> OtherName:
         """
         Retrieves an other-name by ID.
+
+        **IMPORTANT:** If you need to fetch a batch of specific other-names by ID, use
+        the list endpoint with the `ids` parameter. It accepts an array of IDs so you
+        can batch the request into a single call, which is significantly faster.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the other-name to retrieve.
