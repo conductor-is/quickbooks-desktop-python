@@ -186,9 +186,10 @@ class NonInventoryItemsResource(SyncAPIResource):
         """
         Retrieves a non-inventory item by ID.
 
-        **IMPORTANT:** If you need to fetch a batch of specific non-inventory items by
-        ID, use the list endpoint with the `ids` parameter. It accepts an array of IDs
-        so you can batch the request into a single call, which is significantly faster.
+        **IMPORTANT:** If you need to fetch multiple specific non-inventory items by ID,
+        use the list endpoint instead with the `ids` parameter. It accepts an array of
+        IDs so you can batch the request into a single call, which is significantly
+        faster.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the non-inventory item to retrieve.
@@ -677,9 +678,10 @@ class AsyncNonInventoryItemsResource(AsyncAPIResource):
         """
         Retrieves a non-inventory item by ID.
 
-        **IMPORTANT:** If you need to fetch a batch of specific non-inventory items by
-        ID, use the list endpoint with the `ids` parameter. It accepts an array of IDs
-        so you can batch the request into a single call, which is significantly faster.
+        **IMPORTANT:** If you need to fetch multiple specific non-inventory items by ID,
+        use the list endpoint instead with the `ids` parameter. It accepts an array of
+        IDs so you can batch the request into a single call, which is significantly
+        faster.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the non-inventory item to retrieve.
