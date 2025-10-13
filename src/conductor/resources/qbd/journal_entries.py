@@ -163,6 +163,10 @@ class JournalEntriesResource(SyncAPIResource):
         """
         Retrieves a journal entry by ID.
 
+        **IMPORTANT:** If you need to fetch a batch of specific journal entries by ID,
+        use the list endpoint with the `ids` parameter. It accepts an array of IDs so
+        you can batch the request into a single call, which is significantly faster.
+
         Args:
           id: The QuickBooks-assigned unique identifier of the journal entry to retrieve.
 
@@ -647,6 +651,10 @@ class AsyncJournalEntriesResource(AsyncAPIResource):
     ) -> JournalEntry:
         """
         Retrieves a journal entry by ID.
+
+        **IMPORTANT:** If you need to fetch a batch of specific journal entries by ID,
+        use the list endpoint with the `ids` parameter. It accepts an array of IDs so
+        you can batch the request into a single call, which is significantly faster.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the journal entry to retrieve.

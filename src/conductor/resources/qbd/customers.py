@@ -357,6 +357,10 @@ class CustomersResource(SyncAPIResource):
         """
         Retrieves a customer by ID.
 
+        **IMPORTANT:** If you need to fetch a batch of specific customers by ID, use the
+        list endpoint with the `ids` parameter. It accepts an array of IDs so you can
+        batch the request into a single call, which is significantly faster.
+
         Args:
           id: The QuickBooks-assigned unique identifier of the customer to retrieve.
 
@@ -1187,6 +1191,10 @@ class AsyncCustomersResource(AsyncAPIResource):
     ) -> Customer:
         """
         Retrieves a customer by ID.
+
+        **IMPORTANT:** If you need to fetch a batch of specific customers by ID, use the
+        list endpoint with the `ids` parameter. It accepts an array of IDs so you can
+        batch the request into a single call, which is significantly faster.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the customer to retrieve.

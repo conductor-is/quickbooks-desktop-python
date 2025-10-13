@@ -132,6 +132,10 @@ class SalesTaxCodesResource(SyncAPIResource):
         """
         Retrieves a sales-tax code by ID.
 
+        **IMPORTANT:** If you need to fetch a batch of specific sales-tax codes by ID,
+        use the list endpoint with the `ids` parameter. It accepts an array of IDs so
+        you can batch the request into a single call, which is significantly faster.
+
         Args:
           id: The QuickBooks-assigned unique identifier of the sales-tax code to retrieve.
 
@@ -499,6 +503,10 @@ class AsyncSalesTaxCodesResource(AsyncAPIResource):
     ) -> SalesTaxCode:
         """
         Retrieves a sales-tax code by ID.
+
+        **IMPORTANT:** If you need to fetch a batch of specific sales-tax codes by ID,
+        use the list endpoint with the `ids` parameter. It accepts an array of IDs so
+        you can batch the request into a single call, which is significantly faster.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the sales-tax code to retrieve.

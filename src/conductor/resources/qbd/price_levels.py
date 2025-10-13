@@ -138,6 +138,10 @@ class PriceLevelsResource(SyncAPIResource):
         """
         Retrieves a price level by ID.
 
+        **IMPORTANT:** If you need to fetch a batch of specific price levels by ID, use
+        the list endpoint with the `ids` parameter. It accepts an array of IDs so you
+        can batch the request into a single call, which is significantly faster.
+
         Args:
           id: The QuickBooks-assigned unique identifier of the price level to retrieve.
 
@@ -517,6 +521,10 @@ class AsyncPriceLevelsResource(AsyncAPIResource):
     ) -> PriceLevel:
         """
         Retrieves a price level by ID.
+
+        **IMPORTANT:** If you need to fetch a batch of specific price levels by ID, use
+        the list endpoint with the `ids` parameter. It accepts an array of IDs so you
+        can batch the request into a single call, which is significantly faster.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the price level to retrieve.

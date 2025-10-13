@@ -129,6 +129,10 @@ class StandardTermsResource(SyncAPIResource):
         """
         Retrieves a standard term by ID.
 
+        **IMPORTANT:** If you need to fetch a batch of specific standard terms by ID,
+        use the list endpoint with the `ids` parameter. It accepts an array of IDs so
+        you can batch the request into a single call, which is significantly faster.
+
         Args:
           id: The QuickBooks-assigned unique identifier of the standard term to retrieve.
 
@@ -404,6 +408,10 @@ class AsyncStandardTermsResource(AsyncAPIResource):
     ) -> StandardTerm:
         """
         Retrieves a standard term by ID.
+
+        **IMPORTANT:** If you need to fetch a batch of specific standard terms by ID,
+        use the list endpoint with the `ids` parameter. It accepts an array of IDs so
+        you can batch the request into a single call, which is significantly faster.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the standard term to retrieve.

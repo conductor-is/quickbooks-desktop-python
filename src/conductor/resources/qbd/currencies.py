@@ -134,6 +134,10 @@ class CurrenciesResource(SyncAPIResource):
         """
         Retrieves a currency by ID.
 
+        **IMPORTANT:** If you need to fetch a batch of specific currencies by ID, use
+        the list endpoint with the `ids` parameter. It accepts an array of IDs so you
+        can batch the request into a single call, which is significantly faster.
+
         Args:
           id: The QuickBooks-assigned unique identifier of the currency to retrieve.
 
@@ -499,6 +503,10 @@ class AsyncCurrenciesResource(AsyncAPIResource):
     ) -> Currency:
         """
         Retrieves a currency by ID.
+
+        **IMPORTANT:** If you need to fetch a batch of specific currencies by ID, use
+        the list endpoint with the `ids` parameter. It accepts an array of IDs so you
+        can batch the request into a single call, which is significantly faster.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the currency to retrieve.
