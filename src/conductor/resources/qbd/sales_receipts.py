@@ -289,6 +289,10 @@ class SalesReceiptsResource(SyncAPIResource):
         """
         Retrieves a sales receipt by ID.
 
+        **IMPORTANT:** If you need to fetch a batch of specific sales receipts by ID,
+        use the list endpoint with the `ids` parameter. It accepts an array of IDs so
+        you can batch the request into a single call, which is significantly faster.
+
         Args:
           id: The QuickBooks-assigned unique identifier of the sales receipt to retrieve.
 
@@ -1036,6 +1040,10 @@ class AsyncSalesReceiptsResource(AsyncAPIResource):
     ) -> SalesReceipt:
         """
         Retrieves a sales receipt by ID.
+
+        **IMPORTANT:** If you need to fetch a batch of specific sales receipts by ID,
+        use the list endpoint with the `ids` parameter. It accepts an array of IDs so
+        you can batch the request into a single call, which is significantly faster.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the sales receipt to retrieve.

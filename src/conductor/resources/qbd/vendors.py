@@ -335,6 +335,10 @@ class VendorsResource(SyncAPIResource):
         """
         Retrieves a vendor by ID.
 
+        **IMPORTANT:** If you need to fetch a batch of specific vendors by ID, use the
+        list endpoint with the `ids` parameter. It accepts an array of IDs so you can
+        batch the request into a single call, which is significantly faster.
+
         Args:
           id: The QuickBooks-assigned unique identifier of the vendor to retrieve.
 
@@ -1117,6 +1121,10 @@ class AsyncVendorsResource(AsyncAPIResource):
     ) -> Vendor:
         """
         Retrieves a vendor by ID.
+
+        **IMPORTANT:** If you need to fetch a batch of specific vendors by ID, use the
+        list endpoint with the `ids` parameter. It accepts an array of IDs so you can
+        batch the request into a single call, which is significantly faster.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the vendor to retrieve.

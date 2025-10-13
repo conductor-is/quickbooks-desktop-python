@@ -59,6 +59,10 @@ class ItemSitesResource(SyncAPIResource):
         """
         Retrieves an item site by ID.
 
+        **IMPORTANT:** If you need to fetch a batch of specific item sites by ID, use
+        the list endpoint with the `ids` parameter. It accepts an array of IDs so you
+        can batch the request into a single call, which is significantly faster.
+
         Args:
           id: The QuickBooks-assigned unique identifier of the item site to retrieve.
 
@@ -223,6 +227,10 @@ class AsyncItemSitesResource(AsyncAPIResource):
     ) -> ItemSite:
         """
         Retrieves an item site by ID.
+
+        **IMPORTANT:** If you need to fetch a batch of specific item sites by ID, use
+        the list endpoint with the `ids` parameter. It accepts an array of IDs so you
+        can batch the request into a single call, which is significantly faster.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the item site to retrieve.

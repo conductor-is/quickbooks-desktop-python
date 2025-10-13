@@ -172,6 +172,10 @@ class VendorCreditsResource(SyncAPIResource):
         """
         Retrieves a vendor credit by ID.
 
+        **IMPORTANT:** If you need to fetch a batch of specific vendor credits by ID,
+        use the list endpoint with the `ids` parameter. It accepts an array of IDs so
+        you can batch the request into a single call, which is significantly faster.
+
         NOTE: The response automatically includes any linked transactions.
 
         Args:
@@ -733,6 +737,10 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
     ) -> VendorCredit:
         """
         Retrieves a vendor credit by ID.
+
+        **IMPORTANT:** If you need to fetch a batch of specific vendor credits by ID,
+        use the list endpoint with the `ids` parameter. It accepts an array of IDs so
+        you can batch the request into a single call, which is significantly faster.
 
         NOTE: The response automatically includes any linked transactions.
 
