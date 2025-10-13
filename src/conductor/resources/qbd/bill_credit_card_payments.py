@@ -173,8 +173,8 @@ class BillCreditCardPaymentsResource(SyncAPIResource):
         """
         Retrieves a bill credit card payment by ID.
 
-        **IMPORTANT:** If you need to fetch a batch of specific bill credit card
-        payments by ID, use the list endpoint with the `ids` parameter. It accepts an
+        **IMPORTANT:** If you need to fetch multiple specific bill credit card payments
+        by ID, use the list endpoint instead with the `ids` parameter. It accepts an
         array of IDs so you can batch the request into a single call, which is
         significantly faster.
 
@@ -578,8 +578,8 @@ class AsyncBillCreditCardPaymentsResource(AsyncAPIResource):
         """
         Retrieves a bill credit card payment by ID.
 
-        **IMPORTANT:** If you need to fetch a batch of specific bill credit card
-        payments by ID, use the list endpoint with the `ids` parameter. It accepts an
+        **IMPORTANT:** If you need to fetch multiple specific bill credit card payments
+        by ID, use the list endpoint instead with the `ids` parameter. It accepts an
         array of IDs so you can batch the request into a single call, which is
         significantly faster.
 

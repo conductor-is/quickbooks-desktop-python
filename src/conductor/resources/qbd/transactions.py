@@ -61,9 +61,9 @@ class TransactionsResource(SyncAPIResource):
         """
         Retrieves a transaction by ID.
 
-        **IMPORTANT:** If you need to fetch a batch of specific transactions by ID, use
-        the list endpoint with the `ids` parameter. It accepts an array of IDs so you
-        can batch the request into a single call, which is significantly faster.
+        **IMPORTANT:** If you need to fetch multiple specific transactions by ID, use
+        the list endpoint instead with the `ids` parameter. It accepts an array of IDs
+        so you can batch the request into a single call, which is significantly faster.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the transaction to retrieve.
@@ -389,9 +389,9 @@ class AsyncTransactionsResource(AsyncAPIResource):
         """
         Retrieves a transaction by ID.
 
-        **IMPORTANT:** If you need to fetch a batch of specific transactions by ID, use
-        the list endpoint with the `ids` parameter. It accepts an array of IDs so you
-        can batch the request into a single call, which is significantly faster.
+        **IMPORTANT:** If you need to fetch multiple specific transactions by ID, use
+        the list endpoint instead with the `ids` parameter. It accepts an array of IDs
+        so you can batch the request into a single call, which is significantly faster.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the transaction to retrieve.

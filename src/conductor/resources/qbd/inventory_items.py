@@ -234,9 +234,9 @@ class InventoryItemsResource(SyncAPIResource):
         """
         Retrieves an inventory item by ID.
 
-        **IMPORTANT:** If you need to fetch a batch of specific inventory items by ID,
-        use the list endpoint with the `ids` parameter. It accepts an array of IDs so
-        you can batch the request into a single call, which is significantly faster.
+        **IMPORTANT:** If you need to fetch multiple specific inventory items by ID, use
+        the list endpoint instead with the `ids` parameter. It accepts an array of IDs
+        so you can batch the request into a single call, which is significantly faster.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the inventory item to retrieve.
@@ -817,9 +817,9 @@ class AsyncInventoryItemsResource(AsyncAPIResource):
         """
         Retrieves an inventory item by ID.
 
-        **IMPORTANT:** If you need to fetch a batch of specific inventory items by ID,
-        use the list endpoint with the `ids` parameter. It accepts an array of IDs so
-        you can batch the request into a single call, which is significantly faster.
+        **IMPORTANT:** If you need to fetch multiple specific inventory items by ID, use
+        the list endpoint instead with the `ids` parameter. It accepts an array of IDs
+        so you can batch the request into a single call, which is significantly faster.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the inventory item to retrieve.
