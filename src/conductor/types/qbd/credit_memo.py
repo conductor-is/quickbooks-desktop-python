@@ -1338,7 +1338,7 @@ class CreditMemo(BaseModel):
     string.
     """
 
-    sales_tax_total: str = FieldInfo(alias="salesTaxTotal")
+    sales_tax_total: Optional[str] = FieldInfo(alias="salesTaxTotal", default=None)
     """
     The total amount of sales tax charged for this credit memo, represented as a
     decimal string.
