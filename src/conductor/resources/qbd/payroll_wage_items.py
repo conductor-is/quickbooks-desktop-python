@@ -136,6 +136,11 @@ class PayrollWageItemsResource(SyncAPIResource):
         """
         Retrieves a payroll wage item by ID.
 
+        **IMPORTANT:** If you need to fetch multiple specific payroll wage items by ID,
+        use the list endpoint instead with the `ids` parameter. It accepts an array of
+        IDs so you can batch the request into a single call, which is significantly
+        faster.
+
         Args:
           id: The QuickBooks-assigned unique identifier of the payroll wage item to retrieve.
 
@@ -421,6 +426,11 @@ class AsyncPayrollWageItemsResource(AsyncAPIResource):
     ) -> PayrollWageItem:
         """
         Retrieves a payroll wage item by ID.
+
+        **IMPORTANT:** If you need to fetch multiple specific payroll wage items by ID,
+        use the list endpoint instead with the `ids` parameter. It accepts an array of
+        IDs so you can batch the request into a single call, which is significantly
+        faster.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the payroll wage item to retrieve.

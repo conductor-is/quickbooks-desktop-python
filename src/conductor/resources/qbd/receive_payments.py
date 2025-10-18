@@ -206,6 +206,11 @@ class ReceivePaymentsResource(SyncAPIResource):
         """
         Retrieves a receive-payment by ID.
 
+        **IMPORTANT:** If you need to fetch multiple specific receive-payments by ID,
+        use the list endpoint instead with the `ids` parameter. It accepts an array of
+        IDs so you can batch the request into a single call, which is significantly
+        faster.
+
         Args:
           id: The QuickBooks-assigned unique identifier of the receive-payment to retrieve.
 
@@ -760,6 +765,11 @@ class AsyncReceivePaymentsResource(AsyncAPIResource):
     ) -> ReceivePayment:
         """
         Retrieves a receive-payment by ID.
+
+        **IMPORTANT:** If you need to fetch multiple specific receive-payments by ID,
+        use the list endpoint instead with the `ids` parameter. It accepts an array of
+        IDs so you can batch the request into a single call, which is significantly
+        faster.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the receive-payment to retrieve.

@@ -124,6 +124,8 @@ class EstimateCreateParams(TypedDict, total=False):
 
     This field is often used to cross-reference the estimate with the customer's
     purchasing system.
+
+    Maximum length: 25 characters.
     """
 
     ref_number: Annotated[str, PropertyInfo(alias="refNumber")]

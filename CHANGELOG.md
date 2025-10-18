@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.63.0 (2025-10-18)
+
+Full Changelog: [v1.62.0...v1.63.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.62.0...v1.63.0)
+
+### Features
+
+* **api:** api update ([b6301a7](https://github.com/conductor-is/quickbooks-desktop-python/commit/b6301a7690d1cbb45614360cdf321806c111d06f))
+* **api:** api update ([e67b38c](https://github.com/conductor-is/quickbooks-desktop-python/commit/e67b38ce35fcf271a4f3900771056fd26076d579))
+* **api:** api update ([fbfa9de](https://github.com/conductor-is/quickbooks-desktop-python/commit/fbfa9decdbcaa0dd4a431adc31fea2f53ee1c843))
+* **api:** api update ([ae9197e](https://github.com/conductor-is/quickbooks-desktop-python/commit/ae9197eeaf0e9cacd2cb1593f185816ff1549d8b))
+
+
+### Chores
+
+* bump `httpx-aiohttp` version to 0.1.9 ([f266557](https://github.com/conductor-is/quickbooks-desktop-python/commit/f2665579329f848529204581aad0a4d357650e7f))
+* **internal:** detect missing future annotations with ruff ([aad6657](https://github.com/conductor-is/quickbooks-desktop-python/commit/aad6657294e9a35eb01d66625c7a1e862aacc242))
+
 ## 1.62.0 (2025-10-06)
 
 Full Changelog: [v1.61.1...v1.62.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.61.1...v1.62.0)

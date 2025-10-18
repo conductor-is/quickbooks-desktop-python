@@ -172,6 +172,11 @@ class BuildAssembliesResource(SyncAPIResource):
         """
         Retrieves a build assembly by ID.
 
+        **IMPORTANT:** If you need to fetch multiple specific build assemblies by ID,
+        use the list endpoint instead with the `ids` parameter. It accepts an array of
+        IDs so you can batch the request into a single call, which is significantly
+        faster.
+
         Args:
           id: The QuickBooks-assigned unique identifier of the build assembly to retrieve.
 
@@ -669,6 +674,11 @@ class AsyncBuildAssembliesResource(AsyncAPIResource):
     ) -> BuildAssembly:
         """
         Retrieves a build assembly by ID.
+
+        **IMPORTANT:** If you need to fetch multiple specific build assemblies by ID,
+        use the list endpoint instead with the `ids` parameter. It accepts an array of
+        IDs so you can batch the request into a single call, which is significantly
+        faster.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the build assembly to retrieve.
