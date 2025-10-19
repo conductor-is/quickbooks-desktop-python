@@ -25,6 +25,7 @@ from .sales_order import SalesOrder as SalesOrder
 from .transaction import Transaction as Transaction
 from .item_receipt import ItemReceipt as ItemReceipt
 from .service_item import ServiceItem as ServiceItem
+from .customer_type import CustomerType as CustomerType
 from .discount_item import DiscountItem as DiscountItem
 from .journal_entry import JournalEntry as JournalEntry
 from .sales_receipt import SalesReceipt as SalesReceipt
@@ -114,6 +115,7 @@ from .other_name_update_params import OtherNameUpdateParams as OtherNameUpdatePa
 from .service_item_list_params import ServiceItemListParams as ServiceItemListParams
 from .credit_memo_create_params import CreditMemoCreateParams as CreditMemoCreateParams
 from .credit_memo_update_params import CreditMemoUpdateParams as CreditMemoUpdateParams
+from .customer_type_list_params import CustomerTypeListParams as CustomerTypeListParams
 from .discount_item_list_params import DiscountItemListParams as DiscountItemListParams
 from .journal_entry_list_params import JournalEntryListParams as JournalEntryListParams
 from .price_level_create_params import PriceLevelCreateParams as PriceLevelCreateParams
@@ -137,6 +139,8 @@ from .sales_tax_item_list_params import SalesTaxItemListParams as SalesTaxItemLi
 from .service_item_create_params import ServiceItemCreateParams as ServiceItemCreateParams
 from .service_item_update_params import ServiceItemUpdateParams as ServiceItemUpdateParams
 from .credit_memo_delete_response import CreditMemoDeleteResponse as CreditMemoDeleteResponse
+from .customer_type_create_params import CustomerTypeCreateParams as CustomerTypeCreateParams
+from .customer_type_list_response import CustomerTypeListResponse as CustomerTypeListResponse
 from .discount_item_create_params import DiscountItemCreateParams as DiscountItemCreateParams
 from .discount_item_update_params import DiscountItemUpdateParams as DiscountItemUpdateParams
 from .journal_entry_create_params import JournalEntryCreateParams as JournalEntryCreateParams

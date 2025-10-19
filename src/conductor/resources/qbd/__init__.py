@@ -192,6 +192,14 @@ from .service_items import (
     ServiceItemsResourceWithStreamingResponse,
     AsyncServiceItemsResourceWithStreamingResponse,
 )
+from .customer_types import (
+    CustomerTypesResource,
+    AsyncCustomerTypesResource,
+    CustomerTypesResourceWithRawResponse,
+    AsyncCustomerTypesResourceWithRawResponse,
+    CustomerTypesResourceWithStreamingResponse,
+    AsyncCustomerTypesResourceWithStreamingResponse,
+)
 from .discount_items import (
     DiscountItemsResource,
     AsyncDiscountItemsResource,
@@ -526,6 +534,12 @@ __all__ = [
     "AsyncCurrenciesResourceWithRawResponse",
     "CurrenciesResourceWithStreamingResponse",
     "AsyncCurrenciesResourceWithStreamingResponse",
+    "CustomerTypesResource",
+    "AsyncCustomerTypesResource",
+    "CustomerTypesResourceWithRawResponse",
+    "AsyncCustomerTypesResourceWithRawResponse",
+    "CustomerTypesResourceWithStreamingResponse",
+    "AsyncCustomerTypesResourceWithStreamingResponse",
     "CustomersResource",
     "AsyncCustomersResource",
     "CustomersResourceWithRawResponse",
