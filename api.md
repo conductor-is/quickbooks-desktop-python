@@ -254,6 +254,20 @@ Methods:
 - <code title="post /quickbooks-desktop/currencies/{id}">conductor.qbd.currencies.<a href="./src/conductor/resources/qbd/currencies.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/currency_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/currency.py">Currency</a></code>
 - <code title="get /quickbooks-desktop/currencies">conductor.qbd.currencies.<a href="./src/conductor/resources/qbd/currencies.py">list</a>(\*\*<a href="src/conductor/types/qbd/currency_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/currency_list_response.py">CurrencyListResponse</a></code>
 
+## CustomerTypes
+
+Types:
+
+```python
+from conductor.types.qbd import CustomerType, CustomerTypeListResponse
+```
+
+Methods:
+
+- <code title="post /quickbooks-desktop/customer-types">conductor.qbd.customer_types.<a href="./src/conductor/resources/qbd/customer_types.py">create</a>(\*\*<a href="src/conductor/types/qbd/customer_type_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/customer_type.py">CustomerType</a></code>
+- <code title="get /quickbooks-desktop/customer-types/{id}">conductor.qbd.customer_types.<a href="./src/conductor/resources/qbd/customer_types.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/customer_type.py">CustomerType</a></code>
+- <code title="get /quickbooks-desktop/customer-types">conductor.qbd.customer_types.<a href="./src/conductor/resources/qbd/customer_types.py">list</a>(\*\*<a href="src/conductor/types/qbd/customer_type_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/customer_type_list_response.py">CustomerTypeListResponse</a></code>
+
 ## Customers
 
 Types:
