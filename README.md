@@ -28,7 +28,7 @@
 
 ⭐ **Follow our [Quickstart guide](https://docs.conductor.is/quickstart) to get started.**
 
-This repository contains the official Conductor **Python** library, which provides convenient access to our QuickBooks Desktop API from any Python 3.8+ application. The library includes comprehensive type definitions for all request parameters and response fields, and offers both synchronous and asynchronous clients powered by [httpx](https://github.com/encode/httpx).
+The Conductor **Python** library provides convenient access to our QuickBooks Desktop API from any Python 3.9+ application. The library includes type definitions for all request params and response fields, and offers both synchronous and asynchronous clients powered by [httpx](https://github.com/encode/httpx).
 
 - For Node.js (TypeScript/JavaScript), see [conductor-node](https://github.com/conductor-is/quickbooks-desktop-node).
 
@@ -500,7 +500,7 @@ print(conductor.__version__)
 
 ## Requirements
 
-Python 3.8 or higher.
+Python 3.9 or higher.
 
 ## Contributing
 
