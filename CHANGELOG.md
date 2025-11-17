@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.64.1 (2025-11-17)
+
+Full Changelog: [v1.64.0...v1.64.1](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.64.0...v1.64.1)
+
+### Bug Fixes
+
+* **client:** close streams without requiring full consumption ([25f061f](https://github.com/conductor-is/quickbooks-desktop-python/commit/25f061faff03aba210ea1a4365d4017885471756))
+* compat with Python 3.14 ([dc06a1c](https://github.com/conductor-is/quickbooks-desktop-python/commit/dc06a1c40d042058fce3466f5f8f310413c2b7e1))
+* **compat:** update signatures of `model_dump` and `model_dump_json` for Pydantic v1 ([b67cc2e](https://github.com/conductor-is/quickbooks-desktop-python/commit/b67cc2e5fd532a5ec5ec9b64f142effbe554a854))
+
+
+### Chores
+
+* **internal/tests:** avoid race condition with implicit client cleanup ([aca514b](https://github.com/conductor-is/quickbooks-desktop-python/commit/aca514b98a59ffe8143dffbc63efa579c47530d0))
+* **internal:** grammar fix (it's -&gt; its) ([f454485](https://github.com/conductor-is/quickbooks-desktop-python/commit/f4544851d79cae496c49ca0a86e7d6ef82fcf6ca))
+* **package:** drop Python 3.8 support ([9e43537](https://github.com/conductor-is/quickbooks-desktop-python/commit/9e435376b9893f8104ff371f2054ed43db34900e))
+
 ## 1.64.0 (2025-10-20)
 
 Full Changelog: [v1.63.0...v1.64.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.63.0...v1.64.0)
