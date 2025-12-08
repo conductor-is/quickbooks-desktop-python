@@ -1,5 +1,26 @@
 # Changelog
 
+## 1.65.0 (2025-12-08)
+
+Full Changelog: [v1.64.1...v1.65.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.64.1...v1.65.0)
+
+### Features
+
+* **api:** api update ([d29dfa4](https://github.com/conductor-is/quickbooks-desktop-python/commit/d29dfa412e648006d8636e410bbaf1298b48d287))
+
+
+### Bug Fixes
+
+* ensure streams are always closed ([9ca25fc](https://github.com/conductor-is/quickbooks-desktop-python/commit/9ca25fcf788b040f97ae88245b50df6d6cdb02f2))
+
+
+### Chores
+
+* add Python 3.14 classifier and testing ([c186982](https://github.com/conductor-is/quickbooks-desktop-python/commit/c186982182d758ce54c586b3317db2ebb7848eb1))
+* **deps:** mypy 1.18.1 has a regression, pin to 1.17 ([73df7b5](https://github.com/conductor-is/quickbooks-desktop-python/commit/73df7b5876bb67359746699cf6f514b6dc41e1c8))
+* **docs:** use environment variables for authentication in code snippets ([fe17ff5](https://github.com/conductor-is/quickbooks-desktop-python/commit/fe17ff56342667a1295007f93cb0049c6057dd06))
+* update lockfile ([cb4e614](https://github.com/conductor-is/quickbooks-desktop-python/commit/cb4e61495ca42df21841c00ce8d697d35b51d2f6))
+
 ## 1.64.1 (2025-11-17)
 
 Full Changelog: [v1.64.0...v1.64.1](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.64.0...v1.64.1)
