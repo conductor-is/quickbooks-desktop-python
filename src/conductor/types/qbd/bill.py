@@ -1315,10 +1315,17 @@ class Bill(BaseModel):
     object_type: Literal["qbd_bill"] = FieldInfo(alias="objectType")
     """The type of object. This value is always `"qbd_bill"`."""
 
-    open_amount: str = FieldInfo(alias="openAmount")
+    open_amount: Optional[str] = FieldInfo(alias="openAmount", default=None)
     """The remaining amount still owed on this bill, represented as a decimal string.
 
     This equals the bill's amount minus any credits or discounts.
+
+    **NOTE**: This field is almost always present, but due to a known QBD bug, it
+    can be absent in rare cases. If you ever encounter `openAmount` as `null`, we
+    recommend the following fallback procedure: Re-query the bills with
+    `includeLinkedTransactions=true` and compute a fallback open amount as
+    `amountDue` minus the sum of `linkedTransactions[].amount` for all entries where
+    `linkedTransactions[].linkType` is `"amount"`.
     """
 
     payables_account: Optional[PayablesAccount] = FieldInfo(alias="payablesAccount", default=None)
