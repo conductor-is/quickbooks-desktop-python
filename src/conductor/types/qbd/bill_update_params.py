@@ -552,6 +552,8 @@ class ItemLine(TypedDict, total=False):
 
 
 class VendorAddress(TypedDict, total=False):
+    """The address of the vendor who sent this bill."""
+
     city: str
     """The city, district, suburb, town, or village name of the address.
 

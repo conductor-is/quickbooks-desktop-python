@@ -11,6 +11,11 @@ __all__ = ["PriceLevel", "Currency", "PerItemPriceLevel", "PerItemPriceLevelItem
 
 
 class Currency(BaseModel):
+    """The price level's currency.
+
+    For built-in currencies, the name and code are standard international values. For user-defined currencies, all values are editable.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -27,6 +32,11 @@ class Currency(BaseModel):
 
 
 class PerItemPriceLevelItem(BaseModel):
+    """The item associated with this per-item price level.
+
+    This can refer to any good or service that the business buys or sells, including item types such as a service item, inventory item, or special calculation item like a discount item or sales-tax item.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 

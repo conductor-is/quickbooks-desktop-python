@@ -48,6 +48,11 @@ class CustomField(BaseModel):
 
 
 class LineItem(BaseModel):
+    """The item associated with this item group line.
+
+    This can refer to any good or service that the business buys or sells, including item types such as a service item, inventory item, or special calculation item like a discount item or sales-tax item.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -89,6 +94,10 @@ class Line(BaseModel):
 
 
 class UnitOfMeasureSet(BaseModel):
+    """
+    The unit-of-measure set associated with this item group, which consists of a base unit and related units.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 

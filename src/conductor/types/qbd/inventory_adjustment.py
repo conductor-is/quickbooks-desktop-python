@@ -22,6 +22,10 @@ __all__ = [
 
 
 class Account(BaseModel):
+    """
+    The account to which this inventory adjustment is posted for tracking inventory value changes.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -38,6 +42,11 @@ class Account(BaseModel):
 
 
 class Class(BaseModel):
+    """The inventory adjustment's class.
+
+    Classes can be used to categorize objects into meaningful segments, such as department, location, or type of work. In QuickBooks, class tracking is off by default. A class defined here is automatically used in this inventory adjustment's line items unless overridden at the line item level.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -54,6 +63,8 @@ class Class(BaseModel):
 
 
 class Customer(BaseModel):
+    """The customer or customer-job associated with this inventory adjustment."""
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -107,6 +118,10 @@ class CustomField(BaseModel):
 
 
 class InventorySite(BaseModel):
+    """
+    The site location where inventory for the item associated with this inventory adjustment is stored.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -123,6 +138,10 @@ class InventorySite(BaseModel):
 
 
 class LineInventorySiteLocation(BaseModel):
+    """
+    The specific location (e.g., bin or shelf) within the inventory site where the item associated with this inventory adjustment line is stored.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -139,6 +158,8 @@ class LineInventorySiteLocation(BaseModel):
 
 
 class LineItem(BaseModel):
+    """The inventory item associated with this inventory adjustment line."""
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 

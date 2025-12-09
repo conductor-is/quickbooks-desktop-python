@@ -11,6 +11,11 @@ __all__ = ["Account", "Currency", "CustomField", "Parent", "SalesTaxCode", "TaxL
 
 
 class Currency(BaseModel):
+    """The account's currency.
+
+    For built-in currencies, the name and code are standard international values. For user-defined currencies, all values are editable.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -64,6 +69,11 @@ class CustomField(BaseModel):
 
 
 class Parent(BaseModel):
+    """The parent account one level above this one in the hierarchy.
+
+    For example, if this account has a `fullName` of "Corporate:Accounts-Payable", its parent has a `fullName` of "Corporate". If this account is at the top level, this field will be `null`.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -80,6 +90,12 @@ class Parent(BaseModel):
 
 
 class SalesTaxCode(BaseModel):
+    """
+    The default sales-tax code for transactions with this account, determining whether the transactions are taxable or non-taxable. This can be overridden at the transaction or transaction-line level.
+
+    Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes can also be created in QuickBooks. If QuickBooks is not set up to charge sales tax (via the "Do You Charge Sales Tax?" preference), it will assign the default non-taxable code to all sales.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -96,6 +112,8 @@ class SalesTaxCode(BaseModel):
 
 
 class TaxLineDetails(BaseModel):
+    """The account's tax line details, used for tax reporting purposes."""
+
     tax_line_id: float = FieldInfo(alias="taxLineId")
     """The identifier of the tax line associated with this account.
 

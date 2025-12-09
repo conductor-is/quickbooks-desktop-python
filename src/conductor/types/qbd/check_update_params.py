@@ -167,6 +167,8 @@ class CheckUpdateParams(TypedDict, total=False):
 
 
 class Address(TypedDict, total=False):
+    """The address that is printed on the check."""
+
     city: str
     """The city, district, suburb, town, or village name of the address.
 

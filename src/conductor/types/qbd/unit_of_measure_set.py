@@ -11,6 +11,11 @@ __all__ = ["UnitOfMeasureSet", "BaseUnit", "DefaultUnit", "RelatedUnit"]
 
 
 class BaseUnit(BaseModel):
+    """The unit-of-measure set's base unit used to track and price item quantities.
+
+    If the company file is enabled for a single unit of measure per item, the base unit is the only unit available on transaction line items. If enabled for multiple units per item, the base unit is the default unless overridden by the set's default units.
+    """
+
     abbreviation: str
     """
     The base unit's short identifier shown in the QuickBooks U/M field on

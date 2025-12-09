@@ -278,6 +278,8 @@ class ApplyCredit(TypedDict, total=False):
 
 
 class BillingAddress(TypedDict, total=False):
+    """The invoice's billing address."""
+
     city: str
     """The city, district, suburb, town, or village name of the address.
 
@@ -431,6 +433,19 @@ class LineCustomField(TypedDict, total=False):
 
 
 class LineLinkToTransactionLine(TypedDict, total=False):
+    """An existing transaction line that you wish to link to this invoice line.
+
+    Note that this only links to a single transaction line item, not an entire transaction. If you want to link an entire transaction and bring in all its lines, instead use the field `linkToTransactionIds` on the parent transaction, if available. For invoice lines, you can only link to sales orders; QuickBooks does not support linking invoice lines to other transaction types.
+
+    Transaction lines can only be linked when creating this invoice line and cannot be unlinked later.
+
+    **IMPORTANT**: If you use `linkToTransactionLine` on this invoice line, you cannot use the field `item` on this line (QuickBooks will return an error) because this field brings in all of the item information you need. You can, however, specify whatever `quantity` or `rate` that you want, or any other transaction line element other than `item`.
+
+    If the parent transaction supports the `linkToTransactionIds` field, you can use both `linkToTransactionLine` (on this invoice line) and `linkToTransactionIds` (on its parent transaction) in the same request as long as they do NOT link to the same transaction (otherwise, QuickBooks will return an error). QuickBooks will also return an error if you attempt to link a transaction that is empty or already closed.
+
+    **IMPORTANT**: By default, QuickBooks will not return any information about the linked transaction line in this endpoint's response even when this request is successful. To see the transaction line linked via this field, refetch the parent invoice and check the `linkedTransactions` response field. If fetching a list of invoices, you must also specify the parameter `includeLinkedTransactions=true` to see the `linkedTransactions` response field.
+    """
+
     transaction_id: Required[Annotated[str, PropertyInfo(alias="transactionId")]]
     """The ID of the transaction to which to link this transaction."""
 
@@ -624,6 +639,8 @@ class Line(TypedDict, total=False):
 
 
 class ShippingAddress(TypedDict, total=False):
+    """The invoice's shipping address."""
+
     city: str
     """The city, district, suburb, town, or village name of the address.
 

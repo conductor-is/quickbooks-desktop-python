@@ -12,6 +12,8 @@ __all__ = ["Transaction", "Account", "Currency", "Entity"]
 
 
 class Account(BaseModel):
+    """The account associated with this transaction."""
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -28,6 +30,11 @@ class Account(BaseModel):
 
 
 class Currency(BaseModel):
+    """The transaction's currency.
+
+    For built-in currencies, the name and code are standard international values. For user-defined currencies, all values are editable.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -44,6 +51,10 @@ class Currency(BaseModel):
 
 
 class Entity(BaseModel):
+    """
+    The customer, vendor, employee, or person on QuickBooks's "Other Names" list associated with this transaction.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 

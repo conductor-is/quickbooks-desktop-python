@@ -51,6 +51,11 @@ __all__ = [
 
 
 class Currency(BaseModel):
+    """The vendor credit's currency.
+
+    For built-in currencies, the name and code are standard international values. For user-defined currencies, all values are editable.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -104,6 +109,11 @@ class CustomField(BaseModel):
 
 
 class ExpenseLineAccount(BaseModel):
+    """The expense account being debited (increased) for this expense line.
+
+    The corresponding account being credited is usually a liability account (e.g., Accounts-Payable) or an asset account (e.g., Cash), depending on the transaction type.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -120,6 +130,11 @@ class ExpenseLineAccount(BaseModel):
 
 
 class ExpenseLineClass(BaseModel):
+    """The expense line's class.
+
+    Classes can be used to categorize objects into meaningful segments, such as department, location, or type of work. In QuickBooks, class tracking is off by default. If a class is specified for the entire parent transaction, it is automatically applied to all expense lines unless overridden here, at the transaction line level.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -173,6 +188,10 @@ class ExpenseLineCustomField(BaseModel):
 
 
 class ExpenseLinePayee(BaseModel):
+    """
+    If `account` refers to an Accounts-Payable (A/P) account, `payee` refers to the expense's vendor (not the customer). If `account` refers to any other type of account, `payee` refers to the expense's customer (not the vendor).
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -189,6 +208,11 @@ class ExpenseLinePayee(BaseModel):
 
 
 class ExpenseLineSalesRepresentative(BaseModel):
+    """The expense line's sales representative.
+
+    Sales representatives can be employees, vendors, or other names in QuickBooks.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -205,6 +229,12 @@ class ExpenseLineSalesRepresentative(BaseModel):
 
 
 class ExpenseLineSalesTaxCode(BaseModel):
+    """
+    The sales-tax code for this expense line, determining whether it is taxable or non-taxable. If set, this overrides any sales-tax codes defined on the parent transaction or the associated item.
+
+    Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes can also be created in QuickBooks. If QuickBooks is not set up to charge sales tax (via the "Do You Charge Sales Tax?" preference), it will assign the default non-taxable code to all sales.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -331,6 +361,10 @@ class ItemGroupLineCustomField(BaseModel):
 
 
 class ItemGroupLineItemGroup(BaseModel):
+    """
+    The item group line's item group, representing a predefined set of items bundled because they are commonly purchased together or grouped for faster entry.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -347,6 +381,11 @@ class ItemGroupLineItemGroup(BaseModel):
 
 
 class ItemGroupLineItemLineClass(BaseModel):
+    """The item line's class.
+
+    Classes can be used to categorize objects into meaningful segments, such as department, location, or type of work. In QuickBooks, class tracking is off by default. If a class is specified for the entire parent transaction, it is automatically applied to all item lines unless overridden here, at the transaction line level.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -363,6 +402,8 @@ class ItemGroupLineItemLineClass(BaseModel):
 
 
 class ItemGroupLineItemLineCustomer(BaseModel):
+    """The customer or customer-job associated with this item line."""
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -416,6 +457,10 @@ class ItemGroupLineItemLineCustomField(BaseModel):
 
 
 class ItemGroupLineItemLineInventorySite(BaseModel):
+    """
+    The site location where inventory for the item associated with this item line is stored.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -432,6 +477,10 @@ class ItemGroupLineItemLineInventorySite(BaseModel):
 
 
 class ItemGroupLineItemLineInventorySiteLocation(BaseModel):
+    """
+    The specific location (e.g., bin or shelf) within the inventory site where the item associated with this item line is stored.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -448,6 +497,11 @@ class ItemGroupLineItemLineInventorySiteLocation(BaseModel):
 
 
 class ItemGroupLineItemLineItem(BaseModel):
+    """The item associated with this item line.
+
+    This can refer to any good or service that the business buys or sells, including item types such as a service item, inventory item, or special calculation item like a discount item or sales-tax item.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -464,6 +518,10 @@ class ItemGroupLineItemLineItem(BaseModel):
 
 
 class ItemGroupLineItemLineOverrideUnitOfMeasureSet(BaseModel):
+    """
+    Specifies an alternative unit-of-measure set when updating this item line's `unitOfMeasure` field (e.g., "pound" or "kilogram"). This allows you to select units from a different set than the item's default unit-of-measure set, which remains unchanged on the item itself. The override applies only to this specific line. For example, you can sell an item typically measured in volume units using weight units in a specific transaction by specifying a different unit-of-measure set with this field.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -480,6 +538,11 @@ class ItemGroupLineItemLineOverrideUnitOfMeasureSet(BaseModel):
 
 
 class ItemGroupLineItemLineSalesRepresentative(BaseModel):
+    """The item line's sales representative.
+
+    Sales representatives can be employees, vendors, or other names in QuickBooks.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -496,6 +559,12 @@ class ItemGroupLineItemLineSalesRepresentative(BaseModel):
 
 
 class ItemGroupLineItemLineSalesTaxCode(BaseModel):
+    """
+    The sales-tax code for this item line, determining whether it is taxable or non-taxable. If set, this overrides any sales-tax codes defined on the parent transaction or the associated item.
+
+    Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes can also be created in QuickBooks. If QuickBooks is not set up to charge sales tax (via the "Do You Charge Sales Tax?" preference), it will assign the default non-taxable code to all sales.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -656,6 +725,10 @@ class ItemGroupLineItemLine(BaseModel):
 
 
 class ItemGroupLineOverrideUnitOfMeasureSet(BaseModel):
+    """
+    Specifies an alternative unit-of-measure set when updating this item group line's `unitOfMeasure` field (e.g., "pound" or "kilogram"). This allows you to select units from a different set than the item's default unit-of-measure set, which remains unchanged on the item itself. The override applies only to this specific line. For example, you can sell an item typically measured in volume units using weight units in a specific transaction by specifying a different unit-of-measure set with this field.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -738,6 +811,11 @@ class ItemGroupLine(BaseModel):
 
 
 class ItemLineClass(BaseModel):
+    """The item line's class.
+
+    Classes can be used to categorize objects into meaningful segments, such as department, location, or type of work. In QuickBooks, class tracking is off by default. If a class is specified for the entire parent transaction, it is automatically applied to all item lines unless overridden here, at the transaction line level.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -754,6 +832,8 @@ class ItemLineClass(BaseModel):
 
 
 class ItemLineCustomer(BaseModel):
+    """The customer or customer-job associated with this item line."""
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -807,6 +887,10 @@ class ItemLineCustomField(BaseModel):
 
 
 class ItemLineInventorySite(BaseModel):
+    """
+    The site location where inventory for the item associated with this item line is stored.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -823,6 +907,10 @@ class ItemLineInventorySite(BaseModel):
 
 
 class ItemLineInventorySiteLocation(BaseModel):
+    """
+    The specific location (e.g., bin or shelf) within the inventory site where the item associated with this item line is stored.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -839,6 +927,11 @@ class ItemLineInventorySiteLocation(BaseModel):
 
 
 class ItemLineItem(BaseModel):
+    """The item associated with this item line.
+
+    This can refer to any good or service that the business buys or sells, including item types such as a service item, inventory item, or special calculation item like a discount item or sales-tax item.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -855,6 +948,10 @@ class ItemLineItem(BaseModel):
 
 
 class ItemLineOverrideUnitOfMeasureSet(BaseModel):
+    """
+    Specifies an alternative unit-of-measure set when updating this item line's `unitOfMeasure` field (e.g., "pound" or "kilogram"). This allows you to select units from a different set than the item's default unit-of-measure set, which remains unchanged on the item itself. The override applies only to this specific line. For example, you can sell an item typically measured in volume units using weight units in a specific transaction by specifying a different unit-of-measure set with this field.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -871,6 +968,11 @@ class ItemLineOverrideUnitOfMeasureSet(BaseModel):
 
 
 class ItemLineSalesRepresentative(BaseModel):
+    """The item line's sales representative.
+
+    Sales representatives can be employees, vendors, or other names in QuickBooks.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -887,6 +989,12 @@ class ItemLineSalesRepresentative(BaseModel):
 
 
 class ItemLineSalesTaxCode(BaseModel):
+    """
+    The sales-tax code for this item line, determining whether it is taxable or non-taxable. If set, this overrides any sales-tax codes defined on the parent transaction or the associated item.
+
+    Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes can also be created in QuickBooks. If QuickBooks is not set up to charge sales tax (via the "Do You Charge Sales Tax?" preference), it will assign the default non-taxable code to all sales.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -1111,6 +1219,12 @@ class LinkedTransaction(BaseModel):
 
 
 class PayablesAccount(BaseModel):
+    """
+    The Accounts-Payable (A/P) account to which this vendor credit is assigned, used to track the amount owed. If not specified, QuickBooks Desktop will use its default A/P account.
+
+    **IMPORTANT**: If this vendor credit is linked to other transactions, this A/P account must match the `payablesAccount` used in those other transactions.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -1127,6 +1241,12 @@ class PayablesAccount(BaseModel):
 
 
 class SalesTaxCode(BaseModel):
+    """
+    The sales-tax code for this vendor credit, determining whether it is taxable or non-taxable. If set, this overrides any sales-tax codes defined on the vendor. This can be overridden on the vendor credit's individual lines.
+
+    Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes can also be created in QuickBooks. If QuickBooks is not set up to charge sales tax (via the "Do You Charge Sales Tax?" preference), it will assign the default non-taxable code to all sales.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -1143,6 +1263,8 @@ class SalesTaxCode(BaseModel):
 
 
 class Vendor(BaseModel):
+    """The vendor who sent this vendor credit for goods or services purchased."""
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 

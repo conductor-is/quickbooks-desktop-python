@@ -111,6 +111,8 @@ class OtherNameCreateParams(TypedDict, total=False):
 
 
 class Address(TypedDict, total=False):
+    """The other-name's address."""
+
     city: str
     """The city, district, suburb, town, or village name of the address.
 

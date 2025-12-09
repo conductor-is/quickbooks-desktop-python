@@ -59,6 +59,11 @@ class CustomField(BaseModel):
 
 
 class InventoryAssemblyItem(BaseModel):
+    """The inventory assembly item associated with this build assembly.
+
+    An inventory assembly item is assembled or manufactured from other inventory items, and the items and/or assemblies that make up the assembly are called components.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -75,6 +80,10 @@ class InventoryAssemblyItem(BaseModel):
 
 
 class InventorySite(BaseModel):
+    """
+    The site location where inventory for the item associated with this build assembly is stored.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -91,6 +100,10 @@ class InventorySite(BaseModel):
 
 
 class InventorySiteLocation(BaseModel):
+    """
+    The specific location (e.g., bin or shelf) within the inventory site where the item associated with this build assembly is stored.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -107,6 +120,10 @@ class InventorySiteLocation(BaseModel):
 
 
 class LineInventorySite(BaseModel):
+    """
+    The site location where inventory for the item associated with this component item line is stored.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -123,6 +140,10 @@ class LineInventorySite(BaseModel):
 
 
 class LineInventorySiteLocation(BaseModel):
+    """
+    The specific location (e.g., bin or shelf) within the inventory site where the item associated with this component item line is stored.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -139,6 +160,11 @@ class LineInventorySiteLocation(BaseModel):
 
 
 class LineItem(BaseModel):
+    """The item associated with this component item line.
+
+    This can refer to any good or service that the business buys or sells, including item types such as a service item, inventory item, or special calculation item like a discount item or sales-tax item.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 

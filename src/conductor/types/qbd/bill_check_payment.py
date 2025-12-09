@@ -24,6 +24,8 @@ __all__ = [
 
 
 class Address(BaseModel):
+    """The address that is printed on the bill check payment."""
+
     city: Optional[str] = None
     """The city, district, suburb, town, or village name of the address."""
 
@@ -62,6 +64,8 @@ class Address(BaseModel):
 
 
 class AppliedToTransactionDiscountAccount(BaseModel):
+    """The financial account used to track this receivable transaction's discount."""
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -78,6 +82,8 @@ class AppliedToTransactionDiscountAccount(BaseModel):
 
 
 class AppliedToTransactionDiscountClass(BaseModel):
+    """The class used to track this receivable transaction's discount."""
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -241,6 +247,10 @@ class AppliedToTransaction(BaseModel):
 
 
 class BankAccount(BaseModel):
+    """
+    The bank account from which the funds are being drawn for this bill check payment; e.g., Checking or Savings. This bill check payment will decrease the balance of this account.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -257,6 +267,11 @@ class BankAccount(BaseModel):
 
 
 class Currency(BaseModel):
+    """The bill check payment's currency.
+
+    For built-in currencies, the name and code are standard international values. For user-defined currencies, all values are editable.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -310,6 +325,12 @@ class CustomField(BaseModel):
 
 
 class PayablesAccount(BaseModel):
+    """
+    The Accounts-Payable (A/P) account to which this bill check payment is assigned, used to track the amount owed. If not specified, QuickBooks Desktop will use its default A/P account.
+
+    **IMPORTANT**: If this bill check payment is linked to other transactions, this A/P account must match the `payablesAccount` used in those other transactions.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -326,6 +347,12 @@ class PayablesAccount(BaseModel):
 
 
 class Vendor(BaseModel):
+    """
+    The vendor who sent the bill(s) that this bill check payment is paying and who will receive this payment.
+
+    **IMPORTANT**: This vendor must match the `vendor` on the bill(s) specified in `applyToTransactions`.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 

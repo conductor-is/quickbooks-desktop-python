@@ -11,6 +11,11 @@ __all__ = ["ItemSite", "InventoryAssemblyItem", "InventoryItem", "InventorySite"
 
 
 class InventoryAssemblyItem(BaseModel):
+    """The inventory assembly item associated with this item site.
+
+    An inventory assembly item is assembled or manufactured from other inventory items, and the items and/or assemblies that make up the assembly are called components.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -27,6 +32,8 @@ class InventoryAssemblyItem(BaseModel):
 
 
 class InventoryItem(BaseModel):
+    """The inventory item associated with this item site."""
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -43,6 +50,10 @@ class InventoryItem(BaseModel):
 
 
 class InventorySite(BaseModel):
+    """
+    The site location where inventory for the item associated with this item site is stored.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -59,6 +70,10 @@ class InventorySite(BaseModel):
 
 
 class InventorySiteLocation(BaseModel):
+    """
+    The specific location (e.g., bin or shelf) within the inventory site where the item associated with this item site is stored.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 

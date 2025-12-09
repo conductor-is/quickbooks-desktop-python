@@ -64,6 +64,10 @@ class CurrencyUpdateParams(TypedDict, total=False):
 
 
 class CurrencyFormat(TypedDict, total=False):
+    """
+    Controls how this currency displays thousands separators, grouping, and decimal places.
+    """
+
     decimal_places: Annotated[Literal["0", "2"], PropertyInfo(alias="decimalPlaces")]
     """Controls the number of decimal places displayed for currency values.
 
