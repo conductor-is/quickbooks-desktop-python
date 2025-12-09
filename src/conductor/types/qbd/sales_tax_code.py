@@ -11,6 +11,10 @@ __all__ = ["SalesTaxCode", "SalesTaxItem"]
 
 
 class SalesTaxItem(BaseModel):
+    """
+    The sales-tax item used to calculate the actual tax amount for this sales-tax code's transactions by applying a specific tax rate collected for a single tax agency. Unlike `salesTaxCode`, which only indicates general taxability, this field drives the actual tax calculation and reporting.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 

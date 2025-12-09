@@ -57,6 +57,8 @@ __all__ = [
 
 
 class BillingAddress(BaseModel):
+    """The sales receipt's billing address."""
+
     city: Optional[str] = None
     """The city, district, suburb, town, or village name of the address."""
 
@@ -95,6 +97,11 @@ class BillingAddress(BaseModel):
 
 
 class Class(BaseModel):
+    """The sales receipt's class.
+
+    Classes can be used to categorize objects into meaningful segments, such as department, location, or type of work. In QuickBooks, class tracking is off by default. A class defined here is automatically used in this sales receipt's line items unless overridden at the line item level.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -111,6 +118,10 @@ class Class(BaseModel):
 
 
 class CreditCardTransactionRequest(BaseModel):
+    """
+    The transaction request data originally supplied for this credit card transaction when using QuickBooks Merchant Services (QBMS).
+    """
+
     address: Optional[str] = None
     """The card's billing address."""
 
@@ -152,6 +163,10 @@ class CreditCardTransactionRequest(BaseModel):
 
 
 class CreditCardTransactionResponse(BaseModel):
+    """
+    The transaction response data for this credit card transaction when using QuickBooks Merchant Services (QBMS).
+    """
+
     authorization_code: Optional[str] = FieldInfo(alias="authorizationCode", default=None)
     """
     The authorization code returned from the credit card processor to indicate that
@@ -242,6 +257,10 @@ class CreditCardTransactionResponse(BaseModel):
 
 
 class CreditCardTransaction(BaseModel):
+    """
+    The credit card transaction data for this sales receipt's payment when using QuickBooks Merchant Services (QBMS).
+    """
+
     request: Optional[CreditCardTransactionRequest] = None
     """
     The transaction request data originally supplied for this credit card
@@ -256,6 +275,11 @@ class CreditCardTransaction(BaseModel):
 
 
 class Currency(BaseModel):
+    """The sales receipt's currency.
+
+    For built-in currencies, the name and code are standard international values. For user-defined currencies, all values are editable.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -272,6 +296,10 @@ class Currency(BaseModel):
 
 
 class Customer(BaseModel):
+    """
+    The customer or customer-job to which the payment for this sales receipt is credited.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -288,6 +316,8 @@ class Customer(BaseModel):
 
 
 class CustomerMessage(BaseModel):
+    """The message to display to the customer on the sales receipt."""
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -341,6 +371,10 @@ class CustomField(BaseModel):
 
 
 class DepositToAccount(BaseModel):
+    """
+    The account where the funds for this sales receipt will be or have been deposited.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -357,6 +391,10 @@ class DepositToAccount(BaseModel):
 
 
 class DocumentTemplate(BaseModel):
+    """
+    The predefined template in QuickBooks that determines the layout and formatting for this sales receipt when printed or displayed.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -410,6 +448,10 @@ class LineGroupCustomField(BaseModel):
 
 
 class LineGroupItemGroup(BaseModel):
+    """
+    The sales receipt line group's item group, representing a predefined set of items bundled because they are commonly purchased together or grouped for faster entry.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -426,6 +468,11 @@ class LineGroupItemGroup(BaseModel):
 
 
 class LineGroupLineClass(BaseModel):
+    """The sales receipt line's class.
+
+    Classes can be used to categorize objects into meaningful segments, such as department, location, or type of work. In QuickBooks, class tracking is off by default. If a class is specified for the entire parent transaction, it is automatically applied to all sales receipt lines unless overridden here, at the transaction line level.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -442,6 +489,10 @@ class LineGroupLineClass(BaseModel):
 
 
 class LineGroupLineCreditCardTransactionRequest(BaseModel):
+    """
+    The transaction request data originally supplied for this credit card transaction when using QuickBooks Merchant Services (QBMS).
+    """
+
     address: Optional[str] = None
     """The card's billing address."""
 
@@ -483,6 +534,10 @@ class LineGroupLineCreditCardTransactionRequest(BaseModel):
 
 
 class LineGroupLineCreditCardTransactionResponse(BaseModel):
+    """
+    The transaction response data for this credit card transaction when using QuickBooks Merchant Services (QBMS).
+    """
+
     authorization_code: Optional[str] = FieldInfo(alias="authorizationCode", default=None)
     """
     The authorization code returned from the credit card processor to indicate that
@@ -573,6 +628,10 @@ class LineGroupLineCreditCardTransactionResponse(BaseModel):
 
 
 class LineGroupLineCreditCardTransaction(BaseModel):
+    """
+    The credit card transaction data for this sales receipt line's payment when using QuickBooks Merchant Services (QBMS).
+    """
+
     request: Optional[LineGroupLineCreditCardTransactionRequest] = None
     """
     The transaction request data originally supplied for this credit card
@@ -624,6 +683,10 @@ class LineGroupLineCustomField(BaseModel):
 
 
 class LineGroupLineInventorySite(BaseModel):
+    """
+    The site location where inventory for the item associated with this sales receipt line is stored.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -640,6 +703,10 @@ class LineGroupLineInventorySite(BaseModel):
 
 
 class LineGroupLineInventorySiteLocation(BaseModel):
+    """
+    The specific location (e.g., bin or shelf) within the inventory site where the item associated with this sales receipt line is stored.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -656,6 +723,11 @@ class LineGroupLineInventorySiteLocation(BaseModel):
 
 
 class LineGroupLineItem(BaseModel):
+    """The item associated with this sales receipt line.
+
+    This can refer to any good or service that the business buys or sells, including item types such as a service item, inventory item, or special calculation item like a discount item or sales-tax item.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -672,6 +744,10 @@ class LineGroupLineItem(BaseModel):
 
 
 class LineGroupLineOverrideUnitOfMeasureSet(BaseModel):
+    """
+    Specifies an alternative unit-of-measure set when updating this sales receipt line's `unitOfMeasure` field (e.g., "pound" or "kilogram"). This allows you to select units from a different set than the item's default unit-of-measure set, which remains unchanged on the item itself. The override applies only to this specific line. For example, you can sell an item typically measured in volume units using weight units in a specific transaction by specifying a different unit-of-measure set with this field.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -688,6 +764,12 @@ class LineGroupLineOverrideUnitOfMeasureSet(BaseModel):
 
 
 class LineGroupLineSalesTaxCode(BaseModel):
+    """
+    The sales-tax code for this sales receipt line, determining whether it is taxable or non-taxable. If set, this overrides any sales-tax codes defined on the parent transaction or the associated item.
+
+    Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes can also be created in QuickBooks. If QuickBooks is not set up to charge sales tax (via the "Do You Charge Sales Tax?" preference), it will assign the default non-taxable code to all sales.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -875,6 +957,10 @@ class LineGroupLine(BaseModel):
 
 
 class LineGroupOverrideUnitOfMeasureSet(BaseModel):
+    """
+    Specifies an alternative unit-of-measure set when updating this sales receipt line group's `unitOfMeasure` field (e.g., "pound" or "kilogram"). This allows you to select units from a different set than the item's default unit-of-measure set, which remains unchanged on the item itself. The override applies only to this specific line. For example, you can sell an item typically measured in volume units using weight units in a specific transaction by specifying a different unit-of-measure set with this field.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -964,6 +1050,11 @@ class LineGroup(BaseModel):
 
 
 class LineClass(BaseModel):
+    """The sales receipt line's class.
+
+    Classes can be used to categorize objects into meaningful segments, such as department, location, or type of work. In QuickBooks, class tracking is off by default. If a class is specified for the entire parent transaction, it is automatically applied to all sales receipt lines unless overridden here, at the transaction line level.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -980,6 +1071,10 @@ class LineClass(BaseModel):
 
 
 class LineCreditCardTransactionRequest(BaseModel):
+    """
+    The transaction request data originally supplied for this credit card transaction when using QuickBooks Merchant Services (QBMS).
+    """
+
     address: Optional[str] = None
     """The card's billing address."""
 
@@ -1021,6 +1116,10 @@ class LineCreditCardTransactionRequest(BaseModel):
 
 
 class LineCreditCardTransactionResponse(BaseModel):
+    """
+    The transaction response data for this credit card transaction when using QuickBooks Merchant Services (QBMS).
+    """
+
     authorization_code: Optional[str] = FieldInfo(alias="authorizationCode", default=None)
     """
     The authorization code returned from the credit card processor to indicate that
@@ -1111,6 +1210,10 @@ class LineCreditCardTransactionResponse(BaseModel):
 
 
 class LineCreditCardTransaction(BaseModel):
+    """
+    The credit card transaction data for this sales receipt line's payment when using QuickBooks Merchant Services (QBMS).
+    """
+
     request: Optional[LineCreditCardTransactionRequest] = None
     """
     The transaction request data originally supplied for this credit card
@@ -1162,6 +1265,10 @@ class LineCustomField(BaseModel):
 
 
 class LineInventorySite(BaseModel):
+    """
+    The site location where inventory for the item associated with this sales receipt line is stored.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -1178,6 +1285,10 @@ class LineInventorySite(BaseModel):
 
 
 class LineInventorySiteLocation(BaseModel):
+    """
+    The specific location (e.g., bin or shelf) within the inventory site where the item associated with this sales receipt line is stored.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -1194,6 +1305,11 @@ class LineInventorySiteLocation(BaseModel):
 
 
 class LineItem(BaseModel):
+    """The item associated with this sales receipt line.
+
+    This can refer to any good or service that the business buys or sells, including item types such as a service item, inventory item, or special calculation item like a discount item or sales-tax item.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -1210,6 +1326,10 @@ class LineItem(BaseModel):
 
 
 class LineOverrideUnitOfMeasureSet(BaseModel):
+    """
+    Specifies an alternative unit-of-measure set when updating this sales receipt line's `unitOfMeasure` field (e.g., "pound" or "kilogram"). This allows you to select units from a different set than the item's default unit-of-measure set, which remains unchanged on the item itself. The override applies only to this specific line. For example, you can sell an item typically measured in volume units using weight units in a specific transaction by specifying a different unit-of-measure set with this field.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -1226,6 +1346,12 @@ class LineOverrideUnitOfMeasureSet(BaseModel):
 
 
 class LineSalesTaxCode(BaseModel):
+    """
+    The sales-tax code for this sales receipt line, determining whether it is taxable or non-taxable. If set, this overrides any sales-tax codes defined on the parent transaction or the associated item.
+
+    Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes can also be created in QuickBooks. If QuickBooks is not set up to charge sales tax (via the "Do You Charge Sales Tax?" preference), it will assign the default non-taxable code to all sales.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -1413,6 +1539,8 @@ class Line(BaseModel):
 
 
 class PaymentMethod(BaseModel):
+    """The sales receipt's payment method (e.g., cash, check, credit card)."""
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -1429,6 +1557,11 @@ class PaymentMethod(BaseModel):
 
 
 class SalesRepresentative(BaseModel):
+    """The sales receipt's sales representative.
+
+    Sales representatives can be employees, vendors, or other names in QuickBooks.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -1445,6 +1578,12 @@ class SalesRepresentative(BaseModel):
 
 
 class SalesTaxCode(BaseModel):
+    """
+    The sales-tax code for this sales receipt, determining whether it is taxable or non-taxable. This can be overridden at the transaction-line level.
+
+    Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes can also be created in QuickBooks. If QuickBooks is not set up to charge sales tax (via the "Do You Charge Sales Tax?" preference), it will assign the default non-taxable code to all sales.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -1461,6 +1600,12 @@ class SalesTaxCode(BaseModel):
 
 
 class SalesTaxItem(BaseModel):
+    """
+    The sales-tax item used to calculate the actual tax amount for this sales receipt's transactions by applying a specific tax rate collected for a single tax agency. Unlike `salesTaxCode`, which only indicates general taxability, this field drives the actual tax calculation and reporting.
+
+    For sales receipts, while using this field to specify a single tax item/group that applies uniformly is recommended, complex tax scenarios may require alternative approaches. In such cases, you can set this field to a 0% tax item (conventionally named "Tax Calculated On Invoice") and handle tax calculations through line items instead. When using line items for taxes, note that only individual tax items (not tax groups) can be used, subtotals can help apply a tax to multiple items but only the first tax line after a subtotal is calculated automatically (subsequent tax lines require manual amounts), and the rate column will always display the actual tax amount rather than the rate percentage.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -1477,6 +1622,8 @@ class SalesTaxItem(BaseModel):
 
 
 class ShippingAddress(BaseModel):
+    """The sales receipt's shipping address."""
+
     city: Optional[str] = None
     """The city, district, suburb, town, or village name of the address."""
 
@@ -1515,6 +1662,10 @@ class ShippingAddress(BaseModel):
 
 
 class ShippingMethod(BaseModel):
+    """
+    The shipping method used for this sales receipt, such as standard mail or overnight delivery.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 

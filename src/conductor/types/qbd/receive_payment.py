@@ -27,6 +27,8 @@ __all__ = [
 
 
 class AppliedToTransactionDiscountAccount(BaseModel):
+    """The financial account used to track this receivable transaction's discount."""
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -43,6 +45,8 @@ class AppliedToTransactionDiscountAccount(BaseModel):
 
 
 class AppliedToTransactionDiscountClass(BaseModel):
+    """The class used to track this receivable transaction's discount."""
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -206,6 +210,10 @@ class AppliedToTransaction(BaseModel):
 
 
 class CreditCardTransactionRequest(BaseModel):
+    """
+    The transaction request data originally supplied for this credit card transaction when using QuickBooks Merchant Services (QBMS).
+    """
+
     address: Optional[str] = None
     """The card's billing address."""
 
@@ -247,6 +255,10 @@ class CreditCardTransactionRequest(BaseModel):
 
 
 class CreditCardTransactionResponse(BaseModel):
+    """
+    The transaction response data for this credit card transaction when using QuickBooks Merchant Services (QBMS).
+    """
+
     authorization_code: Optional[str] = FieldInfo(alias="authorizationCode", default=None)
     """
     The authorization code returned from the credit card processor to indicate that
@@ -337,6 +349,10 @@ class CreditCardTransactionResponse(BaseModel):
 
 
 class CreditCardTransaction(BaseModel):
+    """
+    The credit card transaction data for this receive-payment's payment when using QuickBooks Merchant Services (QBMS).
+    """
+
     request: Optional[CreditCardTransactionRequest] = None
     """
     The transaction request data originally supplied for this credit card
@@ -351,6 +367,11 @@ class CreditCardTransaction(BaseModel):
 
 
 class Currency(BaseModel):
+    """The receive-payment's currency.
+
+    For built-in currencies, the name and code are standard international values. For user-defined currencies, all values are editable.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -367,6 +388,10 @@ class Currency(BaseModel):
 
 
 class Customer(BaseModel):
+    """
+    The customer or customer-job to which the payment for this receive-payment is credited.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -420,6 +445,10 @@ class CustomField(BaseModel):
 
 
 class DepositToAccount(BaseModel):
+    """
+    The account where the funds for this receive-payment will be or have been deposited.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -436,6 +465,8 @@ class DepositToAccount(BaseModel):
 
 
 class PaymentMethod(BaseModel):
+    """The receive-payment's payment method (e.g., cash, check, credit card)."""
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -452,6 +483,12 @@ class PaymentMethod(BaseModel):
 
 
 class ReceivablesAccount(BaseModel):
+    """
+    The Accounts-Receivable (A/R) account to which this receive-payment is assigned, used to track the amount owed. If not specified, QuickBooks Desktop will use its default A/R account.
+
+    **IMPORTANT**: If this receive-payment is linked to other transactions, this A/R account must match the `receivablesAccount` used in all linked transactions.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 

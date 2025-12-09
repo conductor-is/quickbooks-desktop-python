@@ -165,6 +165,8 @@ class AlternateShippingAddress(BaseModel):
 
 
 class BillingAddress(BaseModel):
+    """The customer's billing address."""
+
     city: Optional[str] = None
     """The city, district, suburb, town, or village name of the address."""
 
@@ -203,6 +205,11 @@ class BillingAddress(BaseModel):
 
 
 class Class(BaseModel):
+    """The customer's class.
+
+    Classes can be used to categorize objects into meaningful segments, such as department, location, or type of work. In QuickBooks, class tracking is off by default.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -219,6 +226,10 @@ class Class(BaseModel):
 
 
 class CreditCard(BaseModel):
+    """
+    The customer's credit card information, including card type, number, and expiration date, used for processing credit card payments.
+    """
+
     address: Optional[str] = None
     """The card's billing address."""
 
@@ -239,6 +250,11 @@ class CreditCard(BaseModel):
 
 
 class Currency(BaseModel):
+    """The customer's currency.
+
+    For built-in currencies, the name and code are standard international values. For user-defined currencies, all values are editable.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -263,6 +279,10 @@ class CustomContactField(BaseModel):
 
 
 class CustomerType(BaseModel):
+    """
+    The customer's type, used for categorizing customers into meaningful segments, such as industry or region.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -316,6 +336,10 @@ class CustomField(BaseModel):
 
 
 class JobType(BaseModel):
+    """
+    The type or category of this customer's job, if this object is a job (i.e., sub-customer). Useful for classifying into meaningful segments (e.g., repair, installation, consulting).
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -332,6 +356,11 @@ class JobType(BaseModel):
 
 
 class Parent(BaseModel):
+    """The parent customer one level above this one in the hierarchy.
+
+    For example, if this customer has a `fullName` of "ABC Corporation:Website Redesign Project", its parent has a `fullName` of "ABC Corporation". If this customer is at the top level, this field will be `null`.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -348,6 +377,8 @@ class Parent(BaseModel):
 
 
 class PreferredPaymentMethod(BaseModel):
+    """The customer's preferred payment method (e.g., cash, check, credit card)."""
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -364,6 +395,10 @@ class PreferredPaymentMethod(BaseModel):
 
 
 class PriceLevel(BaseModel):
+    """
+    The customer's custom price level that QuickBooks automatically applies to calculate item rates in new transactions (e.g., invoices, sales receipts, sales orders, and credit memos) for this customer. While applied automatically, this can be overridden when creating individual transactions. Note that transactions will not show the price level itself, only the final `rate` calculated from it.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -380,6 +415,11 @@ class PriceLevel(BaseModel):
 
 
 class SalesRepresentative(BaseModel):
+    """The customer's sales representative.
+
+    Sales representatives can be employees, vendors, or other names in QuickBooks.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -396,6 +436,12 @@ class SalesRepresentative(BaseModel):
 
 
 class SalesTaxCode(BaseModel):
+    """
+    The default sales-tax code for transactions with this customer, determining whether the transactions are taxable or non-taxable. This can be overridden at the transaction or transaction-line level.
+
+    Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes can also be created in QuickBooks. If QuickBooks is not set up to charge sales tax (via the "Do You Charge Sales Tax?" preference), it will assign the default non-taxable code to all sales.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -412,6 +458,10 @@ class SalesTaxCode(BaseModel):
 
 
 class SalesTaxItem(BaseModel):
+    """
+    The sales-tax item used to calculate the actual tax amount for this customer's transactions by applying a specific tax rate collected for a single tax agency. Unlike `salesTaxCode`, which only indicates general taxability, this field drives the actual tax calculation and reporting.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -428,6 +478,8 @@ class SalesTaxItem(BaseModel):
 
 
 class ShippingAddress(BaseModel):
+    """The customer's shipping address."""
+
     city: Optional[str] = None
     """The city, district, suburb, town, or village name of the address."""
 
@@ -466,6 +518,10 @@ class ShippingAddress(BaseModel):
 
 
 class Terms(BaseModel):
+    """
+    The customer's payment terms, defining when payment is due and any applicable discounts.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 

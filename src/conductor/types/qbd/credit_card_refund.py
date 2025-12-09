@@ -25,6 +25,8 @@ __all__ = [
 
 
 class Address(BaseModel):
+    """The address that is printed on the credit card refund."""
+
     city: Optional[str] = None
     """The city, district, suburb, town, or village name of the address."""
 
@@ -63,6 +65,10 @@ class Address(BaseModel):
 
 
 class CreditCardTransactionRequest(BaseModel):
+    """
+    The transaction request data originally supplied for this credit card transaction when using QuickBooks Merchant Services (QBMS).
+    """
+
     address: Optional[str] = None
     """The card's billing address."""
 
@@ -104,6 +110,10 @@ class CreditCardTransactionRequest(BaseModel):
 
 
 class CreditCardTransactionResponse(BaseModel):
+    """
+    The transaction response data for this credit card transaction when using QuickBooks Merchant Services (QBMS).
+    """
+
     authorization_code: Optional[str] = FieldInfo(alias="authorizationCode", default=None)
     """
     The authorization code returned from the credit card processor to indicate that
@@ -194,6 +204,10 @@ class CreditCardTransactionResponse(BaseModel):
 
 
 class CreditCardTransaction(BaseModel):
+    """
+    The credit card transaction data for this credit card refund's payment when using QuickBooks Merchant Services (QBMS).
+    """
+
     request: Optional[CreditCardTransactionRequest] = None
     """
     The transaction request data originally supplied for this credit card
@@ -208,6 +222,11 @@ class CreditCardTransaction(BaseModel):
 
 
 class Currency(BaseModel):
+    """The credit card refund's currency.
+
+    For built-in currencies, the name and code are standard international values. For user-defined currencies, all values are editable.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -224,6 +243,8 @@ class Currency(BaseModel):
 
 
 class Customer(BaseModel):
+    """The customer or customer-job associated with this credit card refund."""
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -277,6 +298,8 @@ class CustomField(BaseModel):
 
 
 class PaymentMethod(BaseModel):
+    """The credit card refund's payment method (e.g., cash, check, credit card)."""
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -293,6 +316,12 @@ class PaymentMethod(BaseModel):
 
 
 class ReceivablesAccount(BaseModel):
+    """
+    The Accounts-Receivable (A/R) account to which this credit card refund is assigned, used to track the amount owed. If not specified, QuickBooks Desktop will use its default A/R account.
+
+    **IMPORTANT**: If this credit card refund is linked to other transactions, this A/R account must match the `receivablesAccount` used in all linked transactions. For example, when refunding a credit card payment, the A/R account must match the one used in each linked credit transaction being refunded.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -381,6 +410,11 @@ class RefundAppliedToTransaction(BaseModel):
 
 
 class RefundFromAccount(BaseModel):
+    """The account providing funds for this credit card refund.
+
+    This is typically the Undeposited Funds account used to hold customer payments.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 

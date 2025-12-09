@@ -66,6 +66,8 @@ class InventorySiteUpdateParams(TypedDict, total=False):
 
 
 class Address(TypedDict, total=False):
+    """The inventory site's address."""
+
     city: str
     """The city, district, suburb, town, or village name of the site address.
 

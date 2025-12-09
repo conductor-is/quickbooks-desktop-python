@@ -24,6 +24,11 @@ __all__ = [
 
 
 class Class(BaseModel):
+    """The other charge item's class.
+
+    Classes can be used to categorize objects into meaningful segments, such as department, location, or type of work. In QuickBooks, class tracking is off by default.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -77,6 +82,11 @@ class CustomField(BaseModel):
 
 
 class Parent(BaseModel):
+    """The parent other charge item one level above this one in the hierarchy.
+
+    For example, if this other charge item has a `fullName` of "Shipping Charges:Overnight Delivery", its parent has a `fullName` of "Shipping Charges". If this other charge item is at the top level, this field will be `null`.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -93,6 +103,8 @@ class Parent(BaseModel):
 
 
 class SalesAndPurchaseDetailsExpenseAccount(BaseModel):
+    """The expense account used to track costs from purchases of this item."""
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -109,6 +121,8 @@ class SalesAndPurchaseDetailsExpenseAccount(BaseModel):
 
 
 class SalesAndPurchaseDetailsIncomeAccount(BaseModel):
+    """The income account used to track revenue from sales of this item."""
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -125,6 +139,8 @@ class SalesAndPurchaseDetailsIncomeAccount(BaseModel):
 
 
 class SalesAndPurchaseDetailsPreferredVendor(BaseModel):
+    """The preferred vendor from whom this item is typically purchased."""
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -141,6 +157,11 @@ class SalesAndPurchaseDetailsPreferredVendor(BaseModel):
 
 
 class SalesAndPurchaseDetailsPurchaseTaxCode(BaseModel):
+    """The tax code applied to purchases of this item.
+
+    Applicable in regions where purchase taxes are used, such as Canada or the UK.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -157,6 +178,12 @@ class SalesAndPurchaseDetailsPurchaseTaxCode(BaseModel):
 
 
 class SalesAndPurchaseDetails(BaseModel):
+    """
+    Details for other charge items that are both purchased and sold, such as reimbursable expenses or inventory items that are bought from vendors and sold to customers.
+
+    **IMPORTANT**: An other charge item will have either `salesAndPurchaseDetails` or `salesOrPurchaseDetails`, but never both because an item cannot have both configurations.
+    """
+
     expense_account: Optional[SalesAndPurchaseDetailsExpenseAccount] = FieldInfo(alias="expenseAccount", default=None)
     """The expense account used to track costs from purchases of this item."""
 
@@ -202,6 +229,11 @@ class SalesAndPurchaseDetails(BaseModel):
 
 
 class SalesOrPurchaseDetailsPostingAccount(BaseModel):
+    """The posting account to which transactions involving this item are posted.
+
+    This could be an income account when selling or an expense account when purchasing.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -218,6 +250,12 @@ class SalesOrPurchaseDetailsPostingAccount(BaseModel):
 
 
 class SalesOrPurchaseDetails(BaseModel):
+    """
+    Details for other charge items that are exclusively sold or exclusively purchased, but not both. This typically applies to non-inventory items (like a purchased office supply that isn't resold) or service items (like consulting services that are sold but not purchased).
+
+    **IMPORTANT**: An other charge item will have either `salesAndPurchaseDetails` or `salesOrPurchaseDetails`, but never both because an item cannot have both configurations.
+    """
+
     description: Optional[str] = None
     """A description of this item."""
 
@@ -243,6 +281,12 @@ class SalesOrPurchaseDetails(BaseModel):
 
 
 class SalesTaxCode(BaseModel):
+    """
+    The default sales-tax code for this other charge item, determining whether it is taxable or non-taxable. This can be overridden at the transaction-line level.
+
+    Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes can also be created in QuickBooks. If QuickBooks is not set up to charge sales tax (via the "Do You Charge Sales Tax?" preference), it will assign the default non-taxable code to all sales.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 

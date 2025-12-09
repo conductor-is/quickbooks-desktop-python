@@ -11,6 +11,8 @@ __all__ = ["InventorySite", "Address", "Parent"]
 
 
 class Address(BaseModel):
+    """The inventory site's address."""
+
     city: Optional[str] = None
     """The city, district, suburb, town, or village name of the site address."""
 
@@ -43,6 +45,8 @@ class Address(BaseModel):
 
 
 class Parent(BaseModel):
+    """The parent inventory site one level above this one in the hierarchy."""
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 

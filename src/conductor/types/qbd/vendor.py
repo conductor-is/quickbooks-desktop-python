@@ -111,6 +111,8 @@ class AdditionalNote(BaseModel):
 
 
 class BillingAddress(BaseModel):
+    """The vendor's billing address."""
+
     city: Optional[str] = None
     """The city, district, suburb, town, or village name of the address."""
 
@@ -149,6 +151,10 @@ class BillingAddress(BaseModel):
 
 
 class BillingRate(BaseModel):
+    """
+    The vendor's billing rate, used to override service item rates in time tracking activities.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -165,6 +171,11 @@ class BillingRate(BaseModel):
 
 
 class Class(BaseModel):
+    """The vendor's class.
+
+    Classes can be used to categorize objects into meaningful segments, such as department, location, or type of work. In QuickBooks, class tracking is off by default.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -181,6 +192,11 @@ class Class(BaseModel):
 
 
 class Currency(BaseModel):
+    """The vendor's currency.
+
+    For built-in currencies, the name and code are standard international values. For user-defined currencies, all values are editable.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -258,6 +274,10 @@ class DefaultExpenseAccount(BaseModel):
 
 
 class PurchaseTaxAccount(BaseModel):
+    """
+    The account used for tracking taxes on purchases for this vendor, for use in Canada or the UK.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -274,6 +294,10 @@ class PurchaseTaxAccount(BaseModel):
 
 
 class SalesTaxAccount(BaseModel):
+    """
+    The account used for tracking taxes on sales for this vendor, for use in Canada or the UK.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -290,6 +314,12 @@ class SalesTaxAccount(BaseModel):
 
 
 class SalesTaxCode(BaseModel):
+    """
+    The default sales-tax code for transactions with this vendor, determining whether the transactions are taxable or non-taxable. This can be overridden at the transaction or transaction-line level.
+
+    Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes can also be created in QuickBooks. If QuickBooks is not set up to charge sales tax (via the "Do You Charge Sales Tax?" preference), it will assign the default non-taxable code to all sales.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -306,6 +336,10 @@ class SalesTaxCode(BaseModel):
 
 
 class SalesTaxReturn(BaseModel):
+    """
+    The vendor's sales tax return information, used for tracking and reporting sales tax liabilities.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -322,6 +356,8 @@ class SalesTaxReturn(BaseModel):
 
 
 class ShippingAddress(BaseModel):
+    """The vendor's shipping address."""
+
     city: Optional[str] = None
     """The city, district, suburb, town, or village name of the address."""
 
@@ -360,6 +396,10 @@ class ShippingAddress(BaseModel):
 
 
 class Terms(BaseModel):
+    """
+    The vendor's payment terms, defining when payment is due and any applicable discounts.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -376,6 +416,10 @@ class Terms(BaseModel):
 
 
 class VendorType(BaseModel):
+    """
+    The vendor's type, used for categorizing vendors into meaningful segments, such as industry or region.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 

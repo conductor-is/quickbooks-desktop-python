@@ -11,6 +11,11 @@ __all__ = ["Class", "Parent"]
 
 
 class Parent(BaseModel):
+    """The parent class one level above this one in the hierarchy.
+
+    For example, if this class has a `fullName` of "Department:Marketing", its parent has a `fullName` of "Department". If this class is at the top level, this field will be `null`.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 

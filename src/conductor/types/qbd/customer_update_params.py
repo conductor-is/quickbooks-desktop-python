@@ -435,6 +435,8 @@ class AlternateShippingAddress(TypedDict, total=False):
 
 
 class BillingAddress(TypedDict, total=False):
+    """The customer's billing address."""
+
     city: str
     """The city, district, suburb, town, or village name of the address.
 
@@ -496,6 +498,10 @@ class BillingAddress(TypedDict, total=False):
 
 
 class CreditCard(TypedDict, total=False):
+    """
+    The customer's credit card information, including card type, number, and expiration date, used for processing credit card payments.
+    """
+
     address: str
     """The card's billing address."""
 
@@ -524,6 +530,8 @@ class CustomContactField(TypedDict, total=False):
 
 
 class ShippingAddress(TypedDict, total=False):
+    """The customer's shipping address."""
+
     city: str
     """The city, district, suburb, town, or village name of the address.
 

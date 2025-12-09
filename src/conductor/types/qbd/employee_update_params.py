@@ -250,6 +250,11 @@ class AdditionalNote(TypedDict, total=False):
 
 
 class Address(TypedDict, total=False):
+    """The employee's address.
+
+    If the company uses QuickBooks Payroll for this employee, this address must specify a complete address, including city, state, ZIP (or postal) code, and at least one line of the street address.
+    """
+
     city: str
     """The city, district, suburb, town, or village name of the employee address.
 
@@ -366,6 +371,8 @@ class CustomContactField(TypedDict, total=False):
 
 
 class EmergencyContactPrimaryContact(TypedDict, total=False):
+    """The employee's primary emergency contact."""
+
     name: Required[str]
     """The name of the contact field (e.g., "old address", "secondary phone")."""
 
@@ -379,6 +386,8 @@ class EmergencyContactPrimaryContact(TypedDict, total=False):
 
 
 class EmergencyContactSecondaryContact(TypedDict, total=False):
+    """The employee's secondary emergency contact."""
+
     name: Required[str]
     """The name of the contact field (e.g., "old address", "secondary phone")."""
 
@@ -392,6 +401,8 @@ class EmergencyContactSecondaryContact(TypedDict, total=False):
 
 
 class EmergencyContact(TypedDict, total=False):
+    """The employee's emergency contacts."""
+
     primary_contact: Annotated[EmergencyContactPrimaryContact, PropertyInfo(alias="primaryContact")]
     """The employee's primary emergency contact."""
 
@@ -414,6 +425,10 @@ class EmployeePayrollEarning(TypedDict, total=False):
 
 
 class EmployeePayrollSickHours(TypedDict, total=False):
+    """
+    The employee's sick hours, including how sick time is accrued and the total hours accrued.
+    """
+
     accrual_period: Annotated[
         Literal["accrues_annually", "accrues_hourly", "accrues_per_paycheck"], PropertyInfo(alias="accrualPeriod")
     ]
@@ -461,6 +476,10 @@ class EmployeePayrollSickHours(TypedDict, total=False):
 
 
 class EmployeePayrollVacationHours(TypedDict, total=False):
+    """
+    The employee's vacation hours, including how vacation time is accrued and the total hours accrued.
+    """
+
     accrual_period: Annotated[
         Literal["accrues_annually", "accrues_hourly", "accrues_per_paycheck"], PropertyInfo(alias="accrualPeriod")
     ]
@@ -508,6 +527,8 @@ class EmployeePayrollVacationHours(TypedDict, total=False):
 
 
 class EmployeePayroll(TypedDict, total=False):
+    """The employee's payroll information."""
+
     class_id: Annotated[str, PropertyInfo(alias="classId")]
     """The employee's class.
 

@@ -12,6 +12,10 @@ __all__ = ["Currency", "CurrencyFormat"]
 
 
 class CurrencyFormat(BaseModel):
+    """
+    Controls how this currency displays thousands separators, grouping, and decimal places.
+    """
+
     decimal_places: Optional[Literal["0", "2"]] = FieldInfo(alias="decimalPlaces", default=None)
     """Controls the number of decimal places displayed for currency values.
 

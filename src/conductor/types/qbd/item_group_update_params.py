@@ -90,6 +90,8 @@ class ItemGroupUpdateParams(TypedDict, total=False):
 
 
 class Barcode(TypedDict, total=False):
+    """The item group's barcode."""
+
     allow_override: Annotated[bool, PropertyInfo(alias="allowOverride")]
     """Indicates whether to allow the barcode to be overridden."""
 

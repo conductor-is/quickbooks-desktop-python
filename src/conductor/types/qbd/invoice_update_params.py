@@ -262,6 +262,8 @@ class ApplyCredit(TypedDict, total=False):
 
 
 class BillingAddress(TypedDict, total=False):
+    """The invoice's billing address."""
+
     city: str
     """The city, district, suburb, town, or village name of the address.
 
@@ -715,6 +717,8 @@ class Line(TypedDict, total=False):
 
 
 class ShippingAddress(TypedDict, total=False):
+    """The invoice's shipping address."""
+
     city: str
     """The city, district, suburb, town, or village name of the address.
 
