@@ -12,6 +12,11 @@ __all__ = ["TimeTrackingActivity", "Class", "Customer", "Entity", "PayrollWageIt
 
 
 class Class(BaseModel):
+    """The time tracking activity's class.
+
+    Classes can be used to categorize objects into meaningful segments, such as department, location, or type of work. In QuickBooks, class tracking is off by default.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -28,6 +33,10 @@ class Class(BaseModel):
 
 
 class Customer(BaseModel):
+    """
+    The customer or customer-job to which this time tracking activity could be billed. If `billingStatus` is set to "billable", this field is required.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -44,6 +53,10 @@ class Customer(BaseModel):
 
 
 class Entity(BaseModel):
+    """
+    The employee, vendor, or person on QuickBooks's "Other Names" list whose time is being tracked in this time tracking activity. This cannot refer to a customer - use the `customer` field to associate a customer or customer-job with this time tracking activity.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -60,6 +73,10 @@ class Entity(BaseModel):
 
 
 class PayrollWageItem(BaseModel):
+    """
+    The payroll wage item (e.g., Regular Pay, Overtime Pay) to use for this time tracking activity. This field can only be used for time tracking if: (1) the person specified in `entity` is an employee in QuickBooks, and (2) the "Use time data to create paychecks" preference is enabled in their payroll settings.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -76,6 +93,12 @@ class PayrollWageItem(BaseModel):
 
 
 class ServiceItem(BaseModel):
+    """
+    The type of service performed during this time tracking activity, referring to billable or purchasable services such as specialized labor, consulting hours, and professional fees.
+
+    **NOTE**: This field is not required if no `customer` is specified. However, if `billingStatus` is set to "billable", both this field and `customer` are required.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 

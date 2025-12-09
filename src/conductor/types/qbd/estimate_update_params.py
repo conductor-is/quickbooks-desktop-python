@@ -197,6 +197,8 @@ class EstimateUpdateParams(TypedDict, total=False):
 
 
 class BillingAddress(TypedDict, total=False):
+    """The estimate's billing address."""
+
     city: str
     """The city, district, suburb, town, or village name of the address.
 
@@ -630,6 +632,8 @@ class Line(TypedDict, total=False):
 
 
 class ShippingAddress(TypedDict, total=False):
+    """The estimate's shipping address."""
+
     city: str
     """The city, district, suburb, town, or village name of the address.
 

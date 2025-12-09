@@ -26,6 +26,11 @@ __all__ = [
 
 
 class CreditLineAccount(BaseModel):
+    """The account to which this journal credit line is being credited.
+
+    This will increase the balance of this account.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -42,6 +47,11 @@ class CreditLineAccount(BaseModel):
 
 
 class CreditLineClass(BaseModel):
+    """The journal credit line's class.
+
+    Classes can be used to categorize objects into meaningful segments, such as department, location, or type of work. In QuickBooks, class tracking is off by default. If a class is specified for the entire parent transaction, it is automatically applied to all journal credit lines unless overridden here, at the transaction line level.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -58,6 +68,12 @@ class CreditLineClass(BaseModel):
 
 
 class CreditLineEntity(BaseModel):
+    """
+    The customer, vendor, employee, or other entity associated with this journal credit line.
+
+    **IMPORTANT**: If the journal credit line's `account` is an Accounts Receivable (A/R) account, this field must refer to a customer. If the journal credit line's `account` is an Accounts Payable (A/P) account, this field must refer to a vendor. If these requirements are not met, QuickBooks Desktop will not record the transaction.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -74,6 +90,10 @@ class CreditLineEntity(BaseModel):
 
 
 class CreditLineSalesTaxItem(BaseModel):
+    """
+    The sales-tax item used to calculate the actual tax amount for this journal credit line's transactions by applying a specific tax rate collected for a single tax agency. Unlike `salesTaxCode`, which only indicates general taxability, this field drives the actual tax calculation and reporting.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -151,6 +171,11 @@ class CreditLine(BaseModel):
 
 
 class Currency(BaseModel):
+    """The journal entry's currency.
+
+    For built-in currencies, the name and code are standard international values. For user-defined currencies, all values are editable.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -204,6 +229,11 @@ class CustomField(BaseModel):
 
 
 class DebitLineAccount(BaseModel):
+    """The account to which this journal debit line is being debited.
+
+    This will decrease the balance of this account.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -220,6 +250,11 @@ class DebitLineAccount(BaseModel):
 
 
 class DebitLineClass(BaseModel):
+    """The journal debit line's class.
+
+    Classes can be used to categorize objects into meaningful segments, such as department, location, or type of work. In QuickBooks, class tracking is off by default. If a class is specified for the entire parent transaction, it is automatically applied to all journal debit lines unless overridden here, at the transaction line level.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -236,6 +271,12 @@ class DebitLineClass(BaseModel):
 
 
 class DebitLineEntity(BaseModel):
+    """
+    The customer, vendor, employee, or other entity associated with this journal debit line.
+
+    **IMPORTANT**: If the journal debit line's `account` is an Accounts Receivable (A/R) account, this field must refer to a customer. If the journal debit line's `account` is an Accounts Payable (A/P) account, this field must refer to a vendor. If these requirements are not met, QuickBooks Desktop will not record the transaction.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -252,6 +293,10 @@ class DebitLineEntity(BaseModel):
 
 
 class DebitLineSalesTaxItem(BaseModel):
+    """
+    The sales-tax item used to calculate the actual tax amount for this journal debit line's transactions by applying a specific tax rate collected for a single tax agency. Unlike `salesTaxCode`, which only indicates general taxability, this field drives the actual tax calculation and reporting.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 

@@ -104,6 +104,8 @@ class ServiceItemCreateParams(TypedDict, total=False):
 
 
 class Barcode(TypedDict, total=False):
+    """The service item's barcode."""
+
     allow_override: Annotated[bool, PropertyInfo(alias="allowOverride")]
     """Indicates whether to allow the barcode to be overridden."""
 
@@ -115,6 +117,12 @@ class Barcode(TypedDict, total=False):
 
 
 class SalesAndPurchaseDetails(TypedDict, total=False):
+    """
+    Details for service items that are both purchased and sold, such as reimbursable expenses or inventory items that are bought from vendors and sold to customers.
+
+    **IMPORTANT**: You must specify either `salesAndPurchaseDetails` or `salesOrPurchaseDetails` when creating a service item, but never both because an item cannot have both configurations.
+    """
+
     expense_account_id: Required[Annotated[str, PropertyInfo(alias="expenseAccountId")]]
     """The expense account used to track costs from purchases of this item."""
 
@@ -156,6 +164,12 @@ class SalesAndPurchaseDetails(TypedDict, total=False):
 
 
 class SalesOrPurchaseDetails(TypedDict, total=False):
+    """
+    Details for service items that are exclusively sold or exclusively purchased, but not both. This typically applies to non-inventory items (like a purchased office supply that isn't resold) or service items (like consulting services that are sold but not purchased).
+
+    **IMPORTANT**: You must specify either `salesOrPurchaseDetails` or `salesAndPurchaseDetails` when creating a service item, but never both because an item cannot have both configurations.
+    """
+
     posting_account_id: Required[Annotated[str, PropertyInfo(alias="postingAccountId")]]
     """The posting account to which transactions involving this item are posted.
 

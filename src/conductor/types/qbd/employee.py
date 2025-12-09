@@ -40,6 +40,11 @@ class AdditionalNote(BaseModel):
 
 
 class Address(BaseModel):
+    """The employee's address.
+
+    If the company uses QuickBooks Payroll for this employee, this address must specify a complete address, including city, state, ZIP (or postal) code, and at least one line of the street address.
+    """
+
     city: Optional[str] = None
     """The city, district, suburb, town, or village name of the employee address."""
 
@@ -79,6 +84,10 @@ class Address(BaseModel):
 
 
 class BillingRate(BaseModel):
+    """
+    The employee's billing rate, used to override service item rates in time tracking activities.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -140,6 +149,8 @@ class CustomField(BaseModel):
 
 
 class EmergencyContactPrimaryContact(BaseModel):
+    """The employee's primary emergency contact."""
+
     name: str
     """The name of the contact field (e.g., "old address", "secondary phone")."""
 
@@ -153,6 +164,8 @@ class EmergencyContactPrimaryContact(BaseModel):
 
 
 class EmergencyContactSecondaryContact(BaseModel):
+    """The employee's secondary emergency contact."""
+
     name: str
     """The name of the contact field (e.g., "old address", "secondary phone")."""
 
@@ -166,6 +179,8 @@ class EmergencyContactSecondaryContact(BaseModel):
 
 
 class EmergencyContact(BaseModel):
+    """The employee's emergency contacts."""
+
     primary_contact: Optional[EmergencyContactPrimaryContact] = FieldInfo(alias="primaryContact", default=None)
     """The employee's primary emergency contact."""
 
@@ -174,6 +189,11 @@ class EmergencyContact(BaseModel):
 
 
 class EmployeePayrollClass(BaseModel):
+    """The employee's class.
+
+    Classes can be used to categorize objects into meaningful segments, such as department, location, or type of work. In QuickBooks, class tracking is off by default.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -190,6 +210,10 @@ class EmployeePayrollClass(BaseModel):
 
 
 class EmployeePayrollEarningPayrollWageItem(BaseModel):
+    """
+    The payroll wage item that defines how this employee is paid (e.g., Regular Pay, Overtime Pay). This determines the payment scheme used for payroll calculations.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -220,6 +244,10 @@ class EmployeePayrollEarning(BaseModel):
 
 
 class EmployeePayrollSickHours(BaseModel):
+    """
+    The employee's sick hours, including how sick time is accrued and the total hours accrued.
+    """
+
     accrual_period: Optional[Literal["accrues_annually", "accrues_hourly", "accrues_per_paycheck"]] = FieldInfo(
         alias="accrualPeriod", default=None
     )
@@ -267,6 +295,10 @@ class EmployeePayrollSickHours(BaseModel):
 
 
 class EmployeePayrollVacationHours(BaseModel):
+    """
+    The employee's vacation hours, including how vacation time is accrued and the total hours accrued.
+    """
+
     accrual_period: Optional[Literal["accrues_annually", "accrues_hourly", "accrues_per_paycheck"]] = FieldInfo(
         alias="accrualPeriod", default=None
     )
@@ -314,6 +346,8 @@ class EmployeePayrollVacationHours(BaseModel):
 
 
 class EmployeePayroll(BaseModel):
+    """The employee's payroll information."""
+
     class_: Optional[EmployeePayrollClass] = FieldInfo(alias="class", default=None)
     """The employee's class.
 
@@ -354,6 +388,11 @@ class EmployeePayroll(BaseModel):
 
 
 class Supervisor(BaseModel):
+    """The employee's supervisor.
+
+    Found in the "employment job details" section of the employee's record in QuickBooks.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 

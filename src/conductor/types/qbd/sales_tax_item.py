@@ -11,6 +11,11 @@ __all__ = ["SalesTaxItem", "Class", "CustomField", "SalesTaxReturnLine", "TaxVen
 
 
 class Class(BaseModel):
+    """The sales-tax item's class.
+
+    Classes can be used to categorize objects into meaningful segments, such as department, location, or type of work. In QuickBooks, class tracking is off by default.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -64,6 +69,10 @@ class CustomField(BaseModel):
 
 
 class SalesTaxReturnLine(BaseModel):
+    """
+    The specific line on the sales tax return form where the tax collected using this sales-tax item should be reported.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -80,6 +89,10 @@ class SalesTaxReturnLine(BaseModel):
 
 
 class TaxVendor(BaseModel):
+    """
+    The tax agency (vendor) to whom collected sales taxes are owed for this sales-tax item. This field refers to a vendor in QuickBooks that represents the tax authority. If a non-zero `taxRate` is specified, then `taxVendor` is required.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 

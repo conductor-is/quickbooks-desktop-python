@@ -11,6 +11,10 @@ __all__ = ["SalesRepresentative", "Entity"]
 
 
 class Entity(BaseModel):
+    """
+    The sales representative's corresponding person entity in QuickBooks, stored as either an employee, vendor, or other-name entry.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 

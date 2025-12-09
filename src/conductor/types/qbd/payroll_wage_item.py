@@ -11,6 +11,10 @@ __all__ = ["PayrollWageItem", "ExpenseAccount"]
 
 
 class ExpenseAccount(BaseModel):
+    """
+    The expense account used to track wage expenses paid through this payroll wage item.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 

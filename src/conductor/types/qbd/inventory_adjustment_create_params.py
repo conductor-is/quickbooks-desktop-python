@@ -82,6 +82,8 @@ class InventoryAdjustmentCreateParams(TypedDict, total=False):
 
 
 class LineAdjustLotNumber(TypedDict, total=False):
+    """Adjusts the lot number of this inventory adjustment line."""
+
     adjust_count: Annotated[float, PropertyInfo(alias="adjustCount")]
     """
     The amount to adjust the count of the inventory item associated with this
@@ -111,6 +113,10 @@ class LineAdjustLotNumber(TypedDict, total=False):
 
 
 class LineAdjustQuantity(TypedDict, total=False):
+    """
+    Adjusts the inventory quantity of this inventory item either by setting a new quantity or by adjusting the current quantity up or down.
+    """
+
     expiration_date: Annotated[Union[str, date], PropertyInfo(alias="expirationDate", format="iso8601")]
     """
     The expiration date for the serial number or lot number of the item associated
@@ -153,6 +159,11 @@ class LineAdjustQuantity(TypedDict, total=False):
 
 
 class LineAdjustSerialNumber(TypedDict, total=False):
+    """Adjusts the serial number of this inventory adjustment line.
+
+    This is used for tracking individual units of serialized inventory items.
+    """
+
     add_serial_number: Annotated[str, PropertyInfo(alias="addSerialNumber")]
     """
     The serial number, which represents a unique unit of the inventory item
@@ -181,6 +192,10 @@ class LineAdjustSerialNumber(TypedDict, total=False):
 
 
 class LineAdjustValue(TypedDict, total=False):
+    """
+    Adjusts the total value of the entire stock of this inventory item by setting a new monetary value, and optionally by setting a new quantity.
+    """
+
     new_quantity: Annotated[float, PropertyInfo(alias="newQuantity")]
     """
     The new quantity for the inventory item associated with this inventory

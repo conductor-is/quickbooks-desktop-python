@@ -25,6 +25,10 @@ __all__ = [
 
 
 class AssetAccount(BaseModel):
+    """
+    The asset account used to track the current value of this inventory assembly item in inventory.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -41,6 +45,11 @@ class AssetAccount(BaseModel):
 
 
 class Class(BaseModel):
+    """The inventory assembly item's class.
+
+    Classes can be used to categorize objects into meaningful segments, such as department, location, or type of work. In QuickBooks, class tracking is off by default.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -57,6 +66,10 @@ class Class(BaseModel):
 
 
 class CogsAccount(BaseModel):
+    """
+    The Cost of Goods Sold (COGS) account for this inventory assembly item, tracking the original direct costs of producing goods sold.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -110,6 +123,10 @@ class CustomField(BaseModel):
 
 
 class IncomeAccount(BaseModel):
+    """
+    The income account used to track revenue from sales of this inventory assembly item.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -126,6 +143,8 @@ class IncomeAccount(BaseModel):
 
 
 class LineInventoryItem(BaseModel):
+    """The inventory item associated with this inventory assembly item line."""
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -155,6 +174,11 @@ class Line(BaseModel):
 
 
 class Parent(BaseModel):
+    """The parent inventory assembly item one level above this one in the hierarchy.
+
+    For example, if this inventory assembly item has a `fullName` of "Assemblies:Deluxe Kit", its parent has a `fullName` of "Assemblies". If this inventory assembly item is at the top level, this field will be `null`.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -171,6 +195,10 @@ class Parent(BaseModel):
 
 
 class PreferredVendor(BaseModel):
+    """
+    The preferred vendor from whom this inventory assembly item is typically purchased.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -187,6 +215,11 @@ class PreferredVendor(BaseModel):
 
 
 class PurchaseTaxCode(BaseModel):
+    """The tax code applied to purchases of this inventory assembly item.
+
+    Applicable in regions where purchase taxes are used, such as Canada or the UK.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -203,6 +236,12 @@ class PurchaseTaxCode(BaseModel):
 
 
 class SalesTaxCode(BaseModel):
+    """
+    The default sales-tax code for this inventory assembly item, determining whether it is taxable or non-taxable. This can be overridden at the transaction-line level.
+
+    Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes can also be created in QuickBooks. If QuickBooks is not set up to charge sales tax (via the "Do You Charge Sales Tax?" preference), it will assign the default non-taxable code to all sales.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -219,6 +258,10 @@ class SalesTaxCode(BaseModel):
 
 
 class UnitOfMeasureSet(BaseModel):
+    """
+    The unit-of-measure set associated with this inventory assembly item, which consists of a base unit and related units.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 

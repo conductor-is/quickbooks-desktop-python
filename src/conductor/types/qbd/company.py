@@ -20,6 +20,11 @@ __all__ = [
 
 
 class AccountantCopy(BaseModel):
+    """Information about the accountant's copy for this company file.
+
+    An accountant's copy allows an accountant to make changes while the business continues normal operations. It includes a dividing date that defines the fiscal period the accountant can work on, with restrictions on transactions and accounts within that period. While an accountant copy exists, users cannot modify transactions dated on or before the dividing date, cannot add subaccounts to existing accounts, and cannot edit, merge, or make existing accounts inactive.
+    """
+
     accountant_copy_exists: bool = FieldInfo(alias="accountantCopyExists")
     """Indicates whether an accountant copy has been made for this company file.
 
@@ -38,6 +43,10 @@ class AccountantCopy(BaseModel):
 
 
 class Address(BaseModel):
+    """
+    The company's address, used on its invoices, checks, and other forms (along with `companyName`). This is different from the company's legal address used on tax forms and pay stubs (along with `legalCompanyName`).
+    """
+
     city: Optional[str] = None
     """The city, district, suburb, town, or village name of the address."""
 
@@ -76,6 +85,8 @@ class Address(BaseModel):
 
 
 class AddressForCustomer(BaseModel):
+    """The address where this company receives mail from its customers."""
+
     city: Optional[str] = None
     """The city, district, suburb, town, or village name of the address."""
 
@@ -151,6 +162,10 @@ class CustomField(BaseModel):
 
 
 class LegalAddress(BaseModel):
+    """
+    The company's legal address used on its tax forms and pay stubs (along with `legalCompanyName`). This is different from the company's `address` used on invoices, checks, and other forms (along with `companyName`).
+    """
+
     city: Optional[str] = None
     """The city, district, suburb, town, or village name of the address."""
 
@@ -207,6 +222,10 @@ class SubscribedServicesService(BaseModel):
 
 
 class SubscribedServices(BaseModel):
+    """
+    The Intuit services that this company is or has been subscribed to, such as Intuit Payroll.
+    """
+
     services: List[SubscribedServicesService]
     """
     The list of Intuit services that this company is or has been subscribed to, for

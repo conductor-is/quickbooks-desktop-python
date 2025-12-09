@@ -12,6 +12,11 @@ __all__ = ["Transfer", "Class", "SourceAccount", "TargetAccount"]
 
 
 class Class(BaseModel):
+    """The transfer's class.
+
+    Classes can be used to categorize objects into meaningful segments, such as department, location, or type of work. In QuickBooks, class tracking is off by default.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -28,6 +33,8 @@ class Class(BaseModel):
 
 
 class SourceAccount(BaseModel):
+    """The account from which money will be transferred."""
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -44,6 +51,8 @@ class SourceAccount(BaseModel):
 
 
 class TargetAccount(BaseModel):
+    """The account to which money will be transferred."""
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 

@@ -11,6 +11,11 @@ __all__ = ["CustomerType", "Parent"]
 
 
 class Parent(BaseModel):
+    """The parent customer type one level above this one in the hierarchy.
+
+    For example, if this customer type has a `fullName` of "Industry:Healthcare", its parent has a `fullName` of "Industry". If this customer type is at the top level, this field will be `null`.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 

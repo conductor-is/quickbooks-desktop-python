@@ -34,6 +34,8 @@ __all__ = [
 
 
 class Accounting(BaseModel):
+    """The accounting preferences for this company file."""
+
     closing_date: Optional[date] = FieldInfo(alias="closingDate", default=None)
     """The company closing date set within this company file.
 
@@ -84,6 +86,8 @@ class Accounting(BaseModel):
 
 
 class AppAccessRights(BaseModel):
+    """The current application access rights for this company file."""
+
     automatic_login_user_name: Optional[str] = FieldInfo(alias="automaticLoginUserName", default=None)
     """
     If auto-login is allowed for this company file, specifies the user name that is
@@ -101,6 +105,10 @@ class AppAccessRights(BaseModel):
 
 
 class FinanceChargesFinanceChargeAccount(BaseModel):
+    """
+    The account used to track finance charges that customers pay for this company file. This is usually an income account.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -117,6 +125,11 @@ class FinanceChargesFinanceChargeAccount(BaseModel):
 
 
 class FinanceCharges(BaseModel):
+    """The finance charge preferences for this company file.
+
+    These settings determine how late payment charges are calculated and applied to customer accounts.
+    """
+
     annual_interest_rate: Optional[float] = FieldInfo(alias="annualInterestRate", default=None)
     """
     The interest rate that QuickBooks will use to calculate finance charges for this
@@ -165,6 +178,8 @@ class FinanceCharges(BaseModel):
 
 
 class ItemsAndInventory(BaseModel):
+    """The item inventory preferences for this company file."""
+
     fifo_effective_date: Optional[date] = FieldInfo(alias="fifoEffectiveDate", default=None)
     """
     The date from which FIFO (First In, First Out) is used to calculate the value of
@@ -241,6 +256,8 @@ class ItemsAndInventory(BaseModel):
 
 
 class JobsAndEstimates(BaseModel):
+    """The jobs and estimates preferences for this company file."""
+
     is_printing_items_with_zero_amounts: bool = FieldInfo(alias="isPrintingItemsWithZeroAmounts")
     """
     Indicates whether this company file is configured to print line items with zero
@@ -259,6 +276,11 @@ class JobsAndEstimates(BaseModel):
 
 
 class MultiCurrencyHomeCurrency(BaseModel):
+    """The currency that is set as the home currency for this company file.
+
+    The home currency is normally the currency of the country where the business is physically located. Although a home currency other than US Dollars can be chosen, certain QuickBooks convenience features are available only with a home currency of US Dollars, such as the ability to download current exchange rates. Also, Intuit services such as payroll and online banking are only available in US Dollars. Once the home currency has been set and used in any transaction, it cannot be changed.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -275,6 +297,8 @@ class MultiCurrencyHomeCurrency(BaseModel):
 
 
 class MultiCurrency(BaseModel):
+    """The multi-currency preferences for this company file."""
+
     home_currency: Optional[MultiCurrencyHomeCurrency] = FieldInfo(alias="homeCurrency", default=None)
     """The currency that is set as the home currency for this company file.
 
@@ -295,6 +319,8 @@ class MultiCurrency(BaseModel):
 
 
 class MultiLocationInventory(BaseModel):
+    """The multi-location inventory preferences for this company file."""
+
     is_multi_location_inventory_available: Optional[bool] = FieldInfo(
         alias="isMultiLocationInventoryAvailable", default=None
     )
@@ -313,6 +339,8 @@ class MultiLocationInventory(BaseModel):
 
 
 class PurchasesAndVendorsDefaultDiscountAccount(BaseModel):
+    """The account used to track vendor discounts for this company file."""
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -329,6 +357,8 @@ class PurchasesAndVendorsDefaultDiscountAccount(BaseModel):
 
 
 class PurchasesAndVendors(BaseModel):
+    """The purchases and vendors preferences for this company file."""
+
     days_bills_are_due: float = FieldInfo(alias="daysBillsAreDue")
     """
     The default number of days after receipt when bills are due for this company
@@ -351,6 +381,8 @@ class PurchasesAndVendors(BaseModel):
 
 
 class Reports(BaseModel):
+    """The reporting preferences for this company file."""
+
     aging_report_basis: Literal["age_from_due_date", "age_from_transaction_date"] = FieldInfo(alias="agingReportBasis")
     """
     Determines how the aging periods are calculated in accounts receivable and
@@ -370,6 +402,10 @@ class Reports(BaseModel):
 
 
 class SalesAndCustomersDefaultShippingMethod(BaseModel):
+    """
+    The default shipping method used in all "Ship Via" fields for this company file.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -386,6 +422,10 @@ class SalesAndCustomersDefaultShippingMethod(BaseModel):
 
 
 class SalesAndCustomersPriceLevels(BaseModel):
+    """
+    The custom pricing settings for this company file that can be assigned to specific customers. When a price level is set for a customer, QuickBooks automatically applies these custom prices to new invoices, sales receipts, sales orders, and credit memos. These settings can be overridden when creating individual transactions, and price levels can also be specified on individual line items in supported sales transactions.
+    """
+
     is_rounding_sales_price_up: Optional[bool] = FieldInfo(alias="isRoundingSalesPriceUp", default=None)
     """
     Indicates whether this company file is configured to round amounts up to the
@@ -402,6 +442,8 @@ class SalesAndCustomersPriceLevels(BaseModel):
 
 
 class SalesAndCustomers(BaseModel):
+    """The sales and customers preferences for this company file."""
+
     default_markup_percentage: Optional[str] = FieldInfo(alias="defaultMarkupPercentage", default=None)
     """
     The default percentage that an inventory item will be marked up from its cost
@@ -449,6 +491,8 @@ class SalesAndCustomers(BaseModel):
 
 
 class SalesTaxDefaultItemSalesTax(BaseModel):
+    """The default tax code for sales for this company file."""
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -465,6 +509,8 @@ class SalesTaxDefaultItemSalesTax(BaseModel):
 
 
 class SalesTaxDefaultNonTaxableSalesTaxCode(BaseModel):
+    """The default tax code for non-taxable sales for this company file."""
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -481,6 +527,8 @@ class SalesTaxDefaultNonTaxableSalesTaxCode(BaseModel):
 
 
 class SalesTaxDefaultTaxableSalesTaxCode(BaseModel):
+    """The default tax code for taxable sales for this company file."""
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -497,6 +545,11 @@ class SalesTaxDefaultTaxableSalesTaxCode(BaseModel):
 
 
 class SalesTax(BaseModel):
+    """The sales-tax preferences for this company file.
+
+    If sales tax is turned off in the user interface (that is, if "No" is selected for "Do You Charge Sales Tax?" in the sales tax preferences), then this field will be `null`.
+    """
+
     default_item_sales_tax: SalesTaxDefaultItemSalesTax = FieldInfo(alias="defaultItemSalesTax")
     """The default tax code for sales for this company file."""
 
@@ -529,6 +582,11 @@ class SalesTax(BaseModel):
 
 
 class TimeTracking(BaseModel):
+    """The time-tracking preferences for this company file.
+
+    If time tracking is turned off in the user interface (that is, if "No" is selected for "Do You Track Time?" in the time tracking preferences), then this field will be `null`.
+    """
+
     first_day_of_week: Literal["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"] = (
         FieldInfo(alias="firstDayOfWeek")
     )

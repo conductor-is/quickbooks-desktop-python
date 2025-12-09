@@ -123,6 +123,8 @@ class RefundAppliedToTransaction(TypedDict, total=False):
 
 
 class Address(TypedDict, total=False):
+    """The address that is printed on the credit card refund."""
+
     city: str
     """The city, district, suburb, town, or village name of the address.
 
@@ -184,6 +186,10 @@ class Address(TypedDict, total=False):
 
 
 class CreditCardTransactionRequest(TypedDict, total=False):
+    """
+    The transaction request data originally supplied for this credit card transaction when using QuickBooks Merchant Services (QBMS).
+    """
+
     expiration_month: Required[Annotated[float, PropertyInfo(alias="expirationMonth")]]
     """The month when the credit card expires."""
 
@@ -224,6 +230,10 @@ class CreditCardTransactionRequest(TypedDict, total=False):
 
 
 class CreditCardTransactionResponse(TypedDict, total=False):
+    """
+    The transaction response data for this credit card transaction when using QuickBooks Merchant Services (QBMS).
+    """
+
     credit_card_transaction_id: Required[Annotated[str, PropertyInfo(alias="creditCardTransactionId")]]
     """
     The ID returned from the credit card processor for this credit card transaction.
@@ -312,6 +322,10 @@ class CreditCardTransactionResponse(TypedDict, total=False):
 
 
 class CreditCardTransaction(TypedDict, total=False):
+    """
+    The credit card transaction data for this credit card refund's payment when using QuickBooks Merchant Services (QBMS). If specifying this field, you must also specify the `paymentMethod` field.
+    """
+
     request: CreditCardTransactionRequest
     """
     The transaction request data originally supplied for this credit card

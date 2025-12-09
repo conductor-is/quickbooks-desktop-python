@@ -11,6 +11,8 @@ __all__ = ["OtherName", "Address", "CustomField"]
 
 
 class Address(BaseModel):
+    """The other-name's address."""
+
     city: Optional[str] = None
     """The city, district, suburb, town, or village name of the address."""
 

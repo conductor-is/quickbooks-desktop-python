@@ -47,6 +47,11 @@ __all__ = [
 
 
 class Class(BaseModel):
+    """The purchase order's class.
+
+    Classes can be used to categorize objects into meaningful segments, such as department, location, or type of work. In QuickBooks, class tracking is off by default. A class defined here is automatically used in this purchase order's line items unless overridden at the line item level.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -63,6 +68,11 @@ class Class(BaseModel):
 
 
 class Currency(BaseModel):
+    """The purchase order's currency.
+
+    For built-in currencies, the name and code are standard international values. For user-defined currencies, all values are editable.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -116,6 +126,10 @@ class CustomField(BaseModel):
 
 
 class DocumentTemplate(BaseModel):
+    """
+    The predefined template in QuickBooks that determines the layout and formatting for this purchase order when printed or displayed.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -132,6 +146,10 @@ class DocumentTemplate(BaseModel):
 
 
 class InventorySite(BaseModel):
+    """
+    The site location where inventory for the item associated with this purchase order is stored.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -185,6 +203,10 @@ class LineGroupCustomField(BaseModel):
 
 
 class LineGroupItemGroup(BaseModel):
+    """
+    The purchase order line group's item group, representing a predefined set of items bundled because they are commonly purchased together or grouped for faster entry.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -201,6 +223,11 @@ class LineGroupItemGroup(BaseModel):
 
 
 class LineGroupLineClass(BaseModel):
+    """The purchase order line's class.
+
+    Classes can be used to categorize objects into meaningful segments, such as department, location, or type of work. In QuickBooks, class tracking is off by default. If a class is specified for the entire parent transaction, it is automatically applied to all purchase order lines unless overridden here, at the transaction line level.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -254,6 +281,10 @@ class LineGroupLineCustomField(BaseModel):
 
 
 class LineGroupLineInventorySiteLocation(BaseModel):
+    """
+    The specific location (e.g., bin or shelf) within the inventory site where the item associated with this purchase order line is stored.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -270,6 +301,11 @@ class LineGroupLineInventorySiteLocation(BaseModel):
 
 
 class LineGroupLineItem(BaseModel):
+    """The item associated with this purchase order line.
+
+    This can refer to any good or service that the business buys or sells, including item types such as a service item, inventory item, or special calculation item like a discount item or sales-tax item.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -286,6 +322,10 @@ class LineGroupLineItem(BaseModel):
 
 
 class LineGroupLineOverrideUnitOfMeasureSet(BaseModel):
+    """
+    Specifies an alternative unit-of-measure set when updating this purchase order line's `unitOfMeasure` field (e.g., "pound" or "kilogram"). This allows you to select units from a different set than the item's default unit-of-measure set, which remains unchanged on the item itself. The override applies only to this specific line. For example, you can sell an item typically measured in volume units using weight units in a specific transaction by specifying a different unit-of-measure set with this field.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -302,6 +342,10 @@ class LineGroupLineOverrideUnitOfMeasureSet(BaseModel):
 
 
 class LineGroupLinePayee(BaseModel):
+    """
+    If `account` refers to an Accounts-Payable (A/P) account, `payee` refers to the expense's vendor (not the customer). If `account` refers to any other type of account, `payee` refers to the expense's customer (not the vendor).
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -318,6 +362,12 @@ class LineGroupLinePayee(BaseModel):
 
 
 class LineGroupLineSalesTaxCode(BaseModel):
+    """
+    The sales-tax code for this purchase order line, determining whether it is taxable or non-taxable. If set, this overrides any sales-tax codes defined on the parent transaction or the associated item.
+
+    Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes can also be created in QuickBooks. If QuickBooks is not set up to charge sales tax (via the "Do You Charge Sales Tax?" preference), it will assign the default non-taxable code to all sales.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -496,6 +546,10 @@ class LineGroupLine(BaseModel):
 
 
 class LineGroupOverrideUnitOfMeasureSet(BaseModel):
+    """
+    Specifies an alternative unit-of-measure set when updating this purchase order line group's `unitOfMeasure` field (e.g., "pound" or "kilogram"). This allows you to select units from a different set than the item's default unit-of-measure set, which remains unchanged on the item itself. The override applies only to this specific line. For example, you can sell an item typically measured in volume units using weight units in a specific transaction by specifying a different unit-of-measure set with this field.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -585,6 +639,11 @@ class LineGroup(BaseModel):
 
 
 class LineClass(BaseModel):
+    """The purchase order line's class.
+
+    Classes can be used to categorize objects into meaningful segments, such as department, location, or type of work. In QuickBooks, class tracking is off by default. If a class is specified for the entire parent transaction, it is automatically applied to all purchase order lines unless overridden here, at the transaction line level.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -638,6 +697,10 @@ class LineCustomField(BaseModel):
 
 
 class LineInventorySiteLocation(BaseModel):
+    """
+    The specific location (e.g., bin or shelf) within the inventory site where the item associated with this purchase order line is stored.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -654,6 +717,11 @@ class LineInventorySiteLocation(BaseModel):
 
 
 class LineItem(BaseModel):
+    """The item associated with this purchase order line.
+
+    This can refer to any good or service that the business buys or sells, including item types such as a service item, inventory item, or special calculation item like a discount item or sales-tax item.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -670,6 +738,10 @@ class LineItem(BaseModel):
 
 
 class LineOverrideUnitOfMeasureSet(BaseModel):
+    """
+    Specifies an alternative unit-of-measure set when updating this purchase order line's `unitOfMeasure` field (e.g., "pound" or "kilogram"). This allows you to select units from a different set than the item's default unit-of-measure set, which remains unchanged on the item itself. The override applies only to this specific line. For example, you can sell an item typically measured in volume units using weight units in a specific transaction by specifying a different unit-of-measure set with this field.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -686,6 +758,10 @@ class LineOverrideUnitOfMeasureSet(BaseModel):
 
 
 class LinePayee(BaseModel):
+    """
+    If `account` refers to an Accounts-Payable (A/P) account, `payee` refers to the expense's vendor (not the customer). If `account` refers to any other type of account, `payee` refers to the expense's customer (not the vendor).
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -702,6 +778,12 @@ class LinePayee(BaseModel):
 
 
 class LineSalesTaxCode(BaseModel):
+    """
+    The sales-tax code for this purchase order line, determining whether it is taxable or non-taxable. If set, this overrides any sales-tax codes defined on the parent transaction or the associated item.
+
+    Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes can also be created in QuickBooks. If QuickBooks is not set up to charge sales tax (via the "Do You Charge Sales Tax?" preference), it will assign the default non-taxable code to all sales.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -946,6 +1028,12 @@ class LinkedTransaction(BaseModel):
 
 
 class SalesTaxCode(BaseModel):
+    """
+    The sales-tax code for this purchase order, determining whether it is taxable or non-taxable. If set, this overrides any sales-tax codes defined on the vendor. This can be overridden on the purchase order's individual lines.
+
+    Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes can also be created in QuickBooks. If QuickBooks is not set up to charge sales tax (via the "Do You Charge Sales Tax?" preference), it will assign the default non-taxable code to all sales.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -962,6 +1050,8 @@ class SalesTaxCode(BaseModel):
 
 
 class ShippingAddress(BaseModel):
+    """The purchase order's shipping address."""
+
     city: Optional[str] = None
     """The city, district, suburb, town, or village name of the address."""
 
@@ -1000,6 +1090,10 @@ class ShippingAddress(BaseModel):
 
 
 class ShippingMethod(BaseModel):
+    """
+    The shipping method used for this purchase order, such as standard mail or overnight delivery.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -1016,6 +1110,10 @@ class ShippingMethod(BaseModel):
 
 
 class ShipToEntity(BaseModel):
+    """
+    The customer, vendor, employee, or other entity to whom this purchase order is to be shipped.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -1032,6 +1130,10 @@ class ShipToEntity(BaseModel):
 
 
 class Terms(BaseModel):
+    """
+    The purchase order's payment terms, defining when payment is due and any applicable discounts.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -1048,6 +1150,8 @@ class Terms(BaseModel):
 
 
 class Vendor(BaseModel):
+    """The vendor who sent this purchase order for goods or services purchased."""
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -1064,6 +1168,8 @@ class Vendor(BaseModel):
 
 
 class VendorAddress(BaseModel):
+    """The address of the vendor who sent this purchase order."""
+
     city: Optional[str] = None
     """The city, district, suburb, town, or village name of the address."""
 

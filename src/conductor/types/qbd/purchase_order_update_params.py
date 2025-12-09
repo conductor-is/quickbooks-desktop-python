@@ -572,6 +572,8 @@ class Line(TypedDict, total=False):
 
 
 class ShippingAddress(TypedDict, total=False):
+    """The purchase order's shipping address."""
+
     city: str
     """The city, district, suburb, town, or village name of the address.
 
@@ -633,6 +635,8 @@ class ShippingAddress(TypedDict, total=False):
 
 
 class VendorAddress(TypedDict, total=False):
+    """The address of the vendor who sent this purchase order."""
+
     city: str
     """The city, district, suburb, town, or village name of the address.
 

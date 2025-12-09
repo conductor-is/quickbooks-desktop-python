@@ -282,6 +282,19 @@ class ItemLineCustomField(TypedDict, total=False):
 
 
 class ItemLineLinkToTransactionLine(TypedDict, total=False):
+    """An existing transaction line that you wish to link to this item line.
+
+    Note that this only links to a single transaction line item, not an entire transaction. If you want to link an entire transaction and bring in all its lines, instead use the field `linkToTransactionIds` on the parent transaction, if available. If the parent transaction is a bill or an item receipt, you can only link to purchase orders; QuickBooks does not support linking these transactions to other transaction types.
+
+    Transaction lines can only be linked when creating this item line and cannot be unlinked later.
+
+    **IMPORTANT**: If you use `linkToTransactionLine` on this item line, you cannot use the field `item` on this line (QuickBooks will return an error) because this field brings in all of the item information you need. You can, however, specify whatever `quantity` or `rate` that you want, or any other transaction line element other than `item`.
+
+    If the parent transaction supports the `linkToTransactionIds` field, you can use both `linkToTransactionLine` (on this item line) and `linkToTransactionIds` (on its parent transaction) in the same request as long as they do NOT link to the same transaction (otherwise, QuickBooks will return an error). QuickBooks will also return an error if you attempt to link a transaction that is empty or already closed.
+
+    **IMPORTANT**: By default, QuickBooks will not return any information about the linked transaction line in this endpoint's response even when this request is successful. To see the transaction line linked via this field, refetch the parent transaction and check the `linkedTransactions` response field. If fetching a list of transactions, you must also specify the parameter `includeLinkedTransactions=true` to see the `linkedTransactions` response field.
+    """
+
     transaction_id: Required[Annotated[str, PropertyInfo(alias="transactionId")]]
     """The ID of the transaction to which to link this transaction."""
 

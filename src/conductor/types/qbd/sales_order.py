@@ -48,6 +48,8 @@ __all__ = [
 
 
 class BillingAddress(BaseModel):
+    """The sales order's billing address."""
+
     city: Optional[str] = None
     """The city, district, suburb, town, or village name of the address."""
 
@@ -86,6 +88,11 @@ class BillingAddress(BaseModel):
 
 
 class Class(BaseModel):
+    """The sales order's class.
+
+    Classes can be used to categorize objects into meaningful segments, such as department, location, or type of work. In QuickBooks, class tracking is off by default. A class defined here is automatically used in this sales order's line items unless overridden at the line item level.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -102,6 +109,11 @@ class Class(BaseModel):
 
 
 class Currency(BaseModel):
+    """The sales order's currency.
+
+    For built-in currencies, the name and code are standard international values. For user-defined currencies, all values are editable.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -118,6 +130,8 @@ class Currency(BaseModel):
 
 
 class Customer(BaseModel):
+    """The customer or customer-job associated with this sales order."""
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -134,6 +148,8 @@ class Customer(BaseModel):
 
 
 class CustomerMessage(BaseModel):
+    """The message to display to the customer on the sales order."""
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -187,6 +203,10 @@ class CustomField(BaseModel):
 
 
 class DocumentTemplate(BaseModel):
+    """
+    The predefined template in QuickBooks that determines the layout and formatting for this sales order when printed or displayed.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -240,6 +260,10 @@ class LineGroupCustomField(BaseModel):
 
 
 class LineGroupItemGroup(BaseModel):
+    """
+    The sales order line group's item group, representing a predefined set of items bundled because they are commonly purchased together or grouped for faster entry.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -256,6 +280,11 @@ class LineGroupItemGroup(BaseModel):
 
 
 class LineGroupLineClass(BaseModel):
+    """The sales order line's class.
+
+    Classes can be used to categorize objects into meaningful segments, such as department, location, or type of work. In QuickBooks, class tracking is off by default. If a class is specified for the entire parent transaction, it is automatically applied to all sales order lines unless overridden here, at the transaction line level.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -309,6 +338,10 @@ class LineGroupLineCustomField(BaseModel):
 
 
 class LineGroupLineInventorySite(BaseModel):
+    """
+    The site location where inventory for the item associated with this sales order line is stored.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -325,6 +358,10 @@ class LineGroupLineInventorySite(BaseModel):
 
 
 class LineGroupLineInventorySiteLocation(BaseModel):
+    """
+    The specific location (e.g., bin or shelf) within the inventory site where the item associated with this sales order line is stored.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -341,6 +378,11 @@ class LineGroupLineInventorySiteLocation(BaseModel):
 
 
 class LineGroupLineItem(BaseModel):
+    """The item associated with this sales order line.
+
+    This can refer to any good or service that the business buys or sells, including item types such as a service item, inventory item, or special calculation item like a discount item or sales-tax item.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -357,6 +399,10 @@ class LineGroupLineItem(BaseModel):
 
 
 class LineGroupLineOverrideUnitOfMeasureSet(BaseModel):
+    """
+    Specifies an alternative unit-of-measure set when updating this sales order line's `unitOfMeasure` field (e.g., "pound" or "kilogram"). This allows you to select units from a different set than the item's default unit-of-measure set, which remains unchanged on the item itself. The override applies only to this specific line. For example, you can sell an item typically measured in volume units using weight units in a specific transaction by specifying a different unit-of-measure set with this field.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -373,6 +419,12 @@ class LineGroupLineOverrideUnitOfMeasureSet(BaseModel):
 
 
 class LineGroupLineSalesTaxCode(BaseModel):
+    """
+    The sales-tax code for this sales order line, determining whether it is taxable or non-taxable. If set, this overrides any sales-tax codes defined on the parent transaction or the associated item.
+
+    Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes can also be created in QuickBooks. If QuickBooks is not set up to charge sales tax (via the "Do You Charge Sales Tax?" preference), it will assign the default non-taxable code to all sales.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -556,6 +608,10 @@ class LineGroupLine(BaseModel):
 
 
 class LineGroupOverrideUnitOfMeasureSet(BaseModel):
+    """
+    Specifies an alternative unit-of-measure set when updating this sales order line group's `unitOfMeasure` field (e.g., "pound" or "kilogram"). This allows you to select units from a different set than the item's default unit-of-measure set, which remains unchanged on the item itself. The override applies only to this specific line. For example, you can sell an item typically measured in volume units using weight units in a specific transaction by specifying a different unit-of-measure set with this field.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -645,6 +701,11 @@ class LineGroup(BaseModel):
 
 
 class LineClass(BaseModel):
+    """The sales order line's class.
+
+    Classes can be used to categorize objects into meaningful segments, such as department, location, or type of work. In QuickBooks, class tracking is off by default. If a class is specified for the entire parent transaction, it is automatically applied to all sales order lines unless overridden here, at the transaction line level.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -698,6 +759,10 @@ class LineCustomField(BaseModel):
 
 
 class LineInventorySite(BaseModel):
+    """
+    The site location where inventory for the item associated with this sales order line is stored.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -714,6 +779,10 @@ class LineInventorySite(BaseModel):
 
 
 class LineInventorySiteLocation(BaseModel):
+    """
+    The specific location (e.g., bin or shelf) within the inventory site where the item associated with this sales order line is stored.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -730,6 +799,11 @@ class LineInventorySiteLocation(BaseModel):
 
 
 class LineItem(BaseModel):
+    """The item associated with this sales order line.
+
+    This can refer to any good or service that the business buys or sells, including item types such as a service item, inventory item, or special calculation item like a discount item or sales-tax item.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -746,6 +820,10 @@ class LineItem(BaseModel):
 
 
 class LineOverrideUnitOfMeasureSet(BaseModel):
+    """
+    Specifies an alternative unit-of-measure set when updating this sales order line's `unitOfMeasure` field (e.g., "pound" or "kilogram"). This allows you to select units from a different set than the item's default unit-of-measure set, which remains unchanged on the item itself. The override applies only to this specific line. For example, you can sell an item typically measured in volume units using weight units in a specific transaction by specifying a different unit-of-measure set with this field.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -762,6 +840,12 @@ class LineOverrideUnitOfMeasureSet(BaseModel):
 
 
 class LineSalesTaxCode(BaseModel):
+    """
+    The sales-tax code for this sales order line, determining whether it is taxable or non-taxable. If set, this overrides any sales-tax codes defined on the parent transaction or the associated item.
+
+    Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes can also be created in QuickBooks. If QuickBooks is not set up to charge sales tax (via the "Do You Charge Sales Tax?" preference), it will assign the default non-taxable code to all sales.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -1011,6 +1095,11 @@ class LinkedTransaction(BaseModel):
 
 
 class SalesRepresentative(BaseModel):
+    """The sales order's sales representative.
+
+    Sales representatives can be employees, vendors, or other names in QuickBooks.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -1027,6 +1116,12 @@ class SalesRepresentative(BaseModel):
 
 
 class SalesTaxCode(BaseModel):
+    """
+    The sales-tax code for this sales order, determining whether it is taxable or non-taxable. This can be overridden at the transaction-line level.
+
+    Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes can also be created in QuickBooks. If QuickBooks is not set up to charge sales tax (via the "Do You Charge Sales Tax?" preference), it will assign the default non-taxable code to all sales.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -1043,6 +1138,10 @@ class SalesTaxCode(BaseModel):
 
 
 class SalesTaxItem(BaseModel):
+    """
+    The sales-tax item used to calculate the actual tax amount for this sales order's transactions by applying a specific tax rate collected for a single tax agency. Unlike `salesTaxCode`, which only indicates general taxability, this field drives the actual tax calculation and reporting.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -1059,6 +1158,8 @@ class SalesTaxItem(BaseModel):
 
 
 class ShippingAddress(BaseModel):
+    """The sales order's shipping address."""
+
     city: Optional[str] = None
     """The city, district, suburb, town, or village name of the address."""
 
@@ -1097,6 +1198,10 @@ class ShippingAddress(BaseModel):
 
 
 class ShippingMethod(BaseModel):
+    """
+    The shipping method used for this sales order, such as standard mail or overnight delivery.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
@@ -1113,6 +1218,10 @@ class ShippingMethod(BaseModel):
 
 
 class Terms(BaseModel):
+    """
+    The sales order's payment terms, defining when payment is due and any applicable discounts.
+    """
+
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
 
