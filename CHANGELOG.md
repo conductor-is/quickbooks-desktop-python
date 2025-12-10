@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.65.1 (2025-12-10)
+
+Full Changelog: [v1.65.0...v1.65.1](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.65.0...v1.65.1)
+
+### Bug Fixes
+
+* **types:** allow pyright to infer TypedDict types within SequenceNotStr ([2526110](https://github.com/conductor-is/quickbooks-desktop-python/commit/2526110c4b7875597b3eef1ec9223dab03fc38a6))
+
+
+### Chores
+
+* add missing docstrings ([920c79c](https://github.com/conductor-is/quickbooks-desktop-python/commit/920c79c6acd2574ed6f27229684fee0ece670ed2))
+
 ## 1.65.0 (2025-12-08)
 
 Full Changelog: [v1.64.1...v1.65.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.64.1...v1.65.0)
