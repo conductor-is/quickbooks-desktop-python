@@ -95,8 +95,7 @@ class SalesReceiptsResource(SyncAPIResource):
         Args:
           transaction_date: The date of this sales receipt, in ISO 8601 format (YYYY-MM-DD).
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           billing_address: The sales receipt's billing address.
 
@@ -296,8 +295,7 @@ class SalesReceiptsResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the sales receipt to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -371,8 +369,7 @@ class SalesReceiptsResource(SyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           billing_address: The sales receipt's billing address.
 
@@ -589,8 +586,7 @@ class SalesReceiptsResource(SyncAPIResource):
         the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_ids: Filter for sales receipts associated with these accounts.
 
@@ -755,8 +751,7 @@ class SalesReceiptsResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the sales receipt to delete.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -847,8 +842,7 @@ class AsyncSalesReceiptsResource(AsyncAPIResource):
         Args:
           transaction_date: The date of this sales receipt, in ISO 8601 format (YYYY-MM-DD).
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           billing_address: The sales receipt's billing address.
 
@@ -1048,8 +1042,7 @@ class AsyncSalesReceiptsResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the sales receipt to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -1123,8 +1116,7 @@ class AsyncSalesReceiptsResource(AsyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           billing_address: The sales receipt's billing address.
 
@@ -1341,8 +1333,7 @@ class AsyncSalesReceiptsResource(AsyncAPIResource):
         the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_ids: Filter for sales receipts associated with these accounts.
 
@@ -1507,8 +1498,7 @@ class AsyncSalesReceiptsResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the sales receipt to delete.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 

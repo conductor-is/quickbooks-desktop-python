@@ -71,8 +71,7 @@ class ClassesResource(SyncAPIResource):
 
               Maximum length: 31 characters.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           is_active: Indicates whether this class is active. Inactive objects are typically hidden
               from views and reports in QuickBooks. Defaults to `true`.
@@ -128,8 +127,7 @@ class ClassesResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the class to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -177,8 +175,7 @@ class ClassesResource(SyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           is_active: Indicates whether this class is active. Inactive objects are typically hidden
               from views and reports in QuickBooks. Defaults to `true`.
@@ -252,8 +249,7 @@ class ClassesResource(SyncAPIResource):
         classes.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           full_names: Filter for specific classes by their full-name(s), case-insensitive. Like `id`,
               `fullName` is a unique identifier for a class, formed by by combining the names
@@ -415,8 +411,7 @@ class AsyncClassesResource(AsyncAPIResource):
 
               Maximum length: 31 characters.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           is_active: Indicates whether this class is active. Inactive objects are typically hidden
               from views and reports in QuickBooks. Defaults to `true`.
@@ -472,8 +467,7 @@ class AsyncClassesResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the class to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -521,8 +515,7 @@ class AsyncClassesResource(AsyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           is_active: Indicates whether this class is active. Inactive objects are typically hidden
               from views and reports in QuickBooks. Defaults to `true`.
@@ -596,8 +589,7 @@ class AsyncClassesResource(AsyncAPIResource):
         classes.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           full_names: Filter for specific classes by their full-name(s), case-insensitive. Like `id`,
               `fullName` is a unique identifier for a class, formed by by combining the names

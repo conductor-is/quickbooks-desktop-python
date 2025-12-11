@@ -88,8 +88,7 @@ class EstimatesResource(SyncAPIResource):
 
           transaction_date: The date of this estimate, in ISO 8601 format (YYYY-MM-DD).
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           billing_address: The estimate's billing address.
 
@@ -252,8 +251,7 @@ class EstimatesResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the estimate to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -321,8 +319,7 @@ class EstimatesResource(SyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           billing_address: The estimate's billing address.
 
@@ -518,8 +515,7 @@ class EstimatesResource(SyncAPIResource):
         results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_ids: Filter for estimates associated with these accounts.
 
@@ -687,8 +683,7 @@ class EstimatesResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the estimate to delete.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -772,8 +767,7 @@ class AsyncEstimatesResource(AsyncAPIResource):
 
           transaction_date: The date of this estimate, in ISO 8601 format (YYYY-MM-DD).
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           billing_address: The estimate's billing address.
 
@@ -936,8 +930,7 @@ class AsyncEstimatesResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the estimate to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -1005,8 +998,7 @@ class AsyncEstimatesResource(AsyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           billing_address: The estimate's billing address.
 
@@ -1202,8 +1194,7 @@ class AsyncEstimatesResource(AsyncAPIResource):
         results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_ids: Filter for estimates associated with these accounts.
 
@@ -1371,8 +1362,7 @@ class AsyncEstimatesResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the estimate to delete.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 

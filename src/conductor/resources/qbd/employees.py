@@ -110,8 +110,7 @@ class EmployeesResource(SyncAPIResource):
         ready for scheduling, time tracking, and payroll processing.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_number: The employee's account number, which appears in the QuickBooks chart of
               accounts, reports, and graphs.
@@ -334,8 +333,7 @@ class EmployeesResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the employee to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -426,8 +424,7 @@ class EmployeesResource(SyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_number: The employee's account number, which appears in the QuickBooks chart of
               accounts, reports, and graphs.
@@ -644,8 +641,7 @@ class EmployeesResource(SyncAPIResource):
         have few employees.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           ids: Filter for specific employees by their QuickBooks-assigned unique identifier(s).
 
@@ -841,8 +837,7 @@ class AsyncEmployeesResource(AsyncAPIResource):
         ready for scheduling, time tracking, and payroll processing.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_number: The employee's account number, which appears in the QuickBooks chart of
               accounts, reports, and graphs.
@@ -1065,8 +1060,7 @@ class AsyncEmployeesResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the employee to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -1157,8 +1151,7 @@ class AsyncEmployeesResource(AsyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_number: The employee's account number, which appears in the QuickBooks chart of
               accounts, reports, and graphs.
@@ -1375,8 +1368,7 @@ class AsyncEmployeesResource(AsyncAPIResource):
         have few employees.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           ids: Filter for specific employees by their QuickBooks-assigned unique identifier(s).
 

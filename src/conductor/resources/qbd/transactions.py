@@ -68,8 +68,7 @@ class TransactionsResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the transaction to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -165,8 +164,7 @@ class TransactionsResource(SyncAPIResource):
         time tracking activities.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_ids: Filter for transactions associated with these accounts.
 
@@ -396,8 +394,7 @@ class AsyncTransactionsResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the transaction to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -493,8 +490,7 @@ class AsyncTransactionsResource(AsyncAPIResource):
         time tracking activities.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_ids: Filter for transactions associated with these accounts.
 

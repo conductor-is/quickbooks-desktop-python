@@ -29,10 +29,7 @@ class InvoiceUpdateParams(TypedDict, total=False):
     """
 
     conductor_end_user_id: Required[Annotated[str, PropertyInfo(alias="Conductor-End-User-Id")]]
-    """
-    The ID of the EndUser to receive this request (e.g.,
-    `"Conductor-End-User-Id: {{END_USER_ID}}"`).
-    """
+    """The ID of the End-User to receive this request."""
 
     apply_credits: Annotated[Iterable[ApplyCredit], PropertyInfo(alias="applyCredits")]
     """Credit memos to apply to this invoice, reducing its balance.

@@ -66,8 +66,7 @@ class ItemSitesResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the item site to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -126,8 +125,7 @@ class ItemSitesResource(SyncAPIResource):
         results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           cursor: The pagination token to fetch the next set of results when paginating with the
               `limit` parameter. Do not include this parameter on the first call. Use the
@@ -235,8 +233,7 @@ class AsyncItemSitesResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the item site to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -295,8 +292,7 @@ class AsyncItemSitesResource(AsyncAPIResource):
         results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           cursor: The pagination token to fetch the next set of results when paginating with the
               `limit` parameter. Do not include this parameter on the first call. Use the

@@ -77,8 +77,7 @@ class JournalEntriesResource(SyncAPIResource):
         Args:
           transaction_date: The date of this journal entry, in ISO 8601 format (YYYY-MM-DD).
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           are_amounts_entered_in_home_currency: Indicates whether the amounts in this journal entry were entered in the
               company's home currency rather than a foreign currency. When `true`, amounts are
@@ -170,8 +169,7 @@ class JournalEntriesResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the journal entry to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -226,8 +224,7 @@ class JournalEntriesResource(SyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           are_amounts_entered_in_home_currency: Indicates whether the amounts in this journal entry were entered in the
               company's home currency rather than a foreign currency. When `true`, amounts are
@@ -325,8 +322,7 @@ class JournalEntriesResource(SyncAPIResource):
         through the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_ids: Filter for journal entries associated with these accounts.
 
@@ -492,8 +488,7 @@ class JournalEntriesResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the journal entry to delete.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -566,8 +561,7 @@ class AsyncJournalEntriesResource(AsyncAPIResource):
         Args:
           transaction_date: The date of this journal entry, in ISO 8601 format (YYYY-MM-DD).
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           are_amounts_entered_in_home_currency: Indicates whether the amounts in this journal entry were entered in the
               company's home currency rather than a foreign currency. When `true`, amounts are
@@ -659,8 +653,7 @@ class AsyncJournalEntriesResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the journal entry to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -715,8 +708,7 @@ class AsyncJournalEntriesResource(AsyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           are_amounts_entered_in_home_currency: Indicates whether the amounts in this journal entry were entered in the
               company's home currency rather than a foreign currency. When `true`, amounts are
@@ -814,8 +806,7 @@ class AsyncJournalEntriesResource(AsyncAPIResource):
         through the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_ids: Filter for journal entries associated with these accounts.
 
@@ -981,8 +972,7 @@ class AsyncJournalEntriesResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the journal entry to delete.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 

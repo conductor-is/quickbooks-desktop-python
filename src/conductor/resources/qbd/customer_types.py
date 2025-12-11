@@ -70,8 +70,7 @@ class CustomerTypesResource(SyncAPIResource):
 
               Maximum length: 31 characters.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           is_active: Indicates whether this customer type is active. Inactive objects are typically
               hidden from views and reports in QuickBooks. Defaults to `true`.
@@ -128,8 +127,7 @@ class CustomerTypesResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the customer type to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -179,8 +177,7 @@ class CustomerTypesResource(SyncAPIResource):
         typically have few customer types.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           full_names: Filter for specific customer types by their full-name(s), case-insensitive. Like
               `id`, `fullName` is a unique identifier for a customer type, formed by by
@@ -345,8 +342,7 @@ class AsyncCustomerTypesResource(AsyncAPIResource):
 
               Maximum length: 31 characters.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           is_active: Indicates whether this customer type is active. Inactive objects are typically
               hidden from views and reports in QuickBooks. Defaults to `true`.
@@ -403,8 +399,7 @@ class AsyncCustomerTypesResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the customer type to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -454,8 +449,7 @@ class AsyncCustomerTypesResource(AsyncAPIResource):
         typically have few customer types.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           full_names: Filter for specific customer types by their full-name(s), case-insensitive. Like
               `id`, `fullName` is a unique identifier for a customer type, formed by by

@@ -77,8 +77,7 @@ class VendorCreditsResource(SyncAPIResource):
 
           vendor_id: The vendor who sent this vendor credit for goods or services purchased.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           exchange_rate: The market exchange rate between this vendor credit's currency and the home
               currency in QuickBooks at the time of this transaction. Represented as a decimal
@@ -181,8 +180,7 @@ class VendorCreditsResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the vendor credit to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -240,8 +238,7 @@ class VendorCreditsResource(SyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           clear_expense_lines: When `true`, removes all existing expense lines associated with this vendor
               credit. To modify or add individual expense lines, use the field `expenseLines`
@@ -398,8 +395,7 @@ class VendorCreditsResource(SyncAPIResource):
         the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_ids: Filter for vendor credits associated with these accounts.
 
@@ -569,8 +565,7 @@ class VendorCreditsResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the vendor credit to delete.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -643,8 +638,7 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
 
           vendor_id: The vendor who sent this vendor credit for goods or services purchased.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           exchange_rate: The market exchange rate between this vendor credit's currency and the home
               currency in QuickBooks at the time of this transaction. Represented as a decimal
@@ -747,8 +741,7 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the vendor credit to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -806,8 +799,7 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           clear_expense_lines: When `true`, removes all existing expense lines associated with this vendor
               credit. To modify or add individual expense lines, use the field `expenseLines`
@@ -964,8 +956,7 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
         the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_ids: Filter for vendor credits associated with these accounts.
 
@@ -1135,8 +1126,7 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the vendor credit to delete.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 

@@ -92,8 +92,7 @@ class UnitOfMeasureSetsResource(SyncAPIResource):
           unit_of_measure_type: The unit-of-measure set's type. Use "other" for a custom type defined in
               QuickBooks.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           default_units: The unit-of-measure set's default units to appear in the U/M field on
               transaction line items. You can specify separate defaults for purchases, sales,
@@ -157,8 +156,7 @@ class UnitOfMeasureSetsResource(SyncAPIResource):
           id: The QuickBooks-assigned unique identifier of the unit-of-measure set to
               retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -211,8 +209,7 @@ class UnitOfMeasureSetsResource(SyncAPIResource):
         single unit per item or multiple units per item).
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           ids: Filter for specific unit-of-measure sets by their QuickBooks-assigned unique
               identifier(s).
@@ -395,8 +392,7 @@ class AsyncUnitOfMeasureSetsResource(AsyncAPIResource):
           unit_of_measure_type: The unit-of-measure set's type. Use "other" for a custom type defined in
               QuickBooks.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           default_units: The unit-of-measure set's default units to appear in the U/M field on
               transaction line items. You can specify separate defaults for purchases, sales,
@@ -460,8 +456,7 @@ class AsyncUnitOfMeasureSetsResource(AsyncAPIResource):
           id: The QuickBooks-assigned unique identifier of the unit-of-measure set to
               retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -514,8 +509,7 @@ class AsyncUnitOfMeasureSetsResource(AsyncAPIResource):
         single unit per item or multiple units per item).
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           ids: Filter for specific unit-of-measure sets by their QuickBooks-assigned unique
               identifier(s).

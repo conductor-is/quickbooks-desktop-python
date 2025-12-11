@@ -84,8 +84,7 @@ class BillsResource(SyncAPIResource):
 
           vendor_id: The vendor who sent this bill for goods or services purchased.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           due_date: The date by which this bill must be paid, in ISO 8601 format (YYYY-MM-DD).
 
@@ -221,8 +220,7 @@ class BillsResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the bill to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -285,8 +283,7 @@ class BillsResource(SyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           clear_expense_lines: When `true`, removes all existing expense lines associated with this bill. To
               modify or add individual expense lines, use the field `expenseLines` instead.
@@ -454,8 +451,7 @@ class BillsResource(SyncAPIResource):
         results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_ids: Filter for bills associated with these accounts.
 
@@ -626,8 +622,7 @@ class BillsResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the bill to delete.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -706,8 +701,7 @@ class AsyncBillsResource(AsyncAPIResource):
 
           vendor_id: The vendor who sent this bill for goods or services purchased.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           due_date: The date by which this bill must be paid, in ISO 8601 format (YYYY-MM-DD).
 
@@ -843,8 +837,7 @@ class AsyncBillsResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the bill to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -907,8 +900,7 @@ class AsyncBillsResource(AsyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           clear_expense_lines: When `true`, removes all existing expense lines associated with this bill. To
               modify or add individual expense lines, use the field `expenseLines` instead.
@@ -1076,8 +1068,7 @@ class AsyncBillsResource(AsyncAPIResource):
         results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_ids: Filter for bills associated with these accounts.
 
@@ -1248,8 +1239,7 @@ class AsyncBillsResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the bill to delete.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 

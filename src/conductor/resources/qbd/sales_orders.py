@@ -95,8 +95,7 @@ class SalesOrdersResource(SyncAPIResource):
 
           transaction_date: The date of this sales order, in ISO 8601 format (YYYY-MM-DD).
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           billing_address: The sales order's billing address.
 
@@ -282,8 +281,7 @@ class SalesOrdersResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the sales order to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -356,8 +354,7 @@ class SalesOrdersResource(SyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           billing_address: The sales order's billing address.
 
@@ -569,8 +566,7 @@ class SalesOrdersResource(SyncAPIResource):
         the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           currency_ids: Filter for sales orders in these currencies.
 
@@ -736,8 +732,7 @@ class SalesOrdersResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the sales order to delete.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -827,8 +822,7 @@ class AsyncSalesOrdersResource(AsyncAPIResource):
 
           transaction_date: The date of this sales order, in ISO 8601 format (YYYY-MM-DD).
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           billing_address: The sales order's billing address.
 
@@ -1014,8 +1008,7 @@ class AsyncSalesOrdersResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the sales order to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -1088,8 +1081,7 @@ class AsyncSalesOrdersResource(AsyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           billing_address: The sales order's billing address.
 
@@ -1301,8 +1293,7 @@ class AsyncSalesOrdersResource(AsyncAPIResource):
         the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           currency_ids: Filter for sales orders in these currencies.
 
@@ -1468,8 +1459,7 @@ class AsyncSalesOrdersResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the sales order to delete.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
