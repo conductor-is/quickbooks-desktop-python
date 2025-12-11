@@ -88,8 +88,7 @@ class ReceivePaymentsResource(SyncAPIResource):
 
           transaction_date: The date of this receive-payment, in ISO 8601 format (YYYY-MM-DD).
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           apply_to_transactions: The invoices to be paid by this receive-payment. This will create a link between
               this receive-payment and the specified invoices.
@@ -214,8 +213,7 @@ class ReceivePaymentsResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the receive-payment to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -274,8 +272,7 @@ class ReceivePaymentsResource(SyncAPIResource):
               most recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           apply_to_transactions: The invoices to be paid by this receive-payment. This will create a link between
               this receive-payment and the specified invoices.
@@ -396,8 +393,7 @@ class ReceivePaymentsResource(SyncAPIResource):
         through the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_ids: Filter for receive-payments associated with these accounts.
 
@@ -563,8 +559,7 @@ class ReceivePaymentsResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the receive-payment to delete.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -648,8 +643,7 @@ class AsyncReceivePaymentsResource(AsyncAPIResource):
 
           transaction_date: The date of this receive-payment, in ISO 8601 format (YYYY-MM-DD).
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           apply_to_transactions: The invoices to be paid by this receive-payment. This will create a link between
               this receive-payment and the specified invoices.
@@ -774,8 +768,7 @@ class AsyncReceivePaymentsResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the receive-payment to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -834,8 +827,7 @@ class AsyncReceivePaymentsResource(AsyncAPIResource):
               most recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           apply_to_transactions: The invoices to be paid by this receive-payment. This will create a link between
               this receive-payment and the specified invoices.
@@ -956,8 +948,7 @@ class AsyncReceivePaymentsResource(AsyncAPIResource):
         through the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_ids: Filter for receive-payments associated with these accounts.
 
@@ -1123,8 +1114,7 @@ class AsyncReceivePaymentsResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the receive-payment to delete.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 

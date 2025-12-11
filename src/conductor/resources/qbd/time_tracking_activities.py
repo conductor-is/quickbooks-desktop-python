@@ -94,8 +94,7 @@ class TimeTrackingActivitiesResource(SyncAPIResource):
 
           transaction_date: The date of this time tracking activity, in ISO 8601 format (YYYY-MM-DD).
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           billing_status: The billing status of this time tracking activity.
 
@@ -188,8 +187,7 @@ class TimeTrackingActivitiesResource(SyncAPIResource):
           id: The QuickBooks-assigned unique identifier of the time tracking activity to
               retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -263,8 +261,7 @@ class TimeTrackingActivitiesResource(SyncAPIResource):
               the most recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           billing_status: The billing status of this time tracking activity.
 
@@ -355,8 +352,7 @@ class TimeTrackingActivitiesResource(SyncAPIResource):
         paginate through the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           cursor: The pagination token to fetch the next set of results when paginating with the
               `limit` parameter. Do not include this parameter on the first call. Use the
@@ -474,8 +470,7 @@ class TimeTrackingActivitiesResource(SyncAPIResource):
           id: The QuickBooks-assigned unique identifier of the time tracking activity to
               delete.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -560,8 +555,7 @@ class AsyncTimeTrackingActivitiesResource(AsyncAPIResource):
 
           transaction_date: The date of this time tracking activity, in ISO 8601 format (YYYY-MM-DD).
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           billing_status: The billing status of this time tracking activity.
 
@@ -654,8 +648,7 @@ class AsyncTimeTrackingActivitiesResource(AsyncAPIResource):
           id: The QuickBooks-assigned unique identifier of the time tracking activity to
               retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -729,8 +722,7 @@ class AsyncTimeTrackingActivitiesResource(AsyncAPIResource):
               the most recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           billing_status: The billing status of this time tracking activity.
 
@@ -821,8 +813,7 @@ class AsyncTimeTrackingActivitiesResource(AsyncAPIResource):
         paginate through the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           cursor: The pagination token to fetch the next set of results when paginating with the
               `limit` parameter. Do not include this parameter on the first call. Use the
@@ -940,8 +931,7 @@ class AsyncTimeTrackingActivitiesResource(AsyncAPIResource):
           id: The QuickBooks-assigned unique identifier of the time tracking activity to
               delete.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 

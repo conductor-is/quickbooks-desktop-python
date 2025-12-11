@@ -83,8 +83,7 @@ class NonInventoryItemsResource(SyncAPIResource):
 
               Maximum length: 31 characters.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           barcode: The non-inventory item's barcode.
 
@@ -194,8 +193,7 @@ class NonInventoryItemsResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the non-inventory item to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -257,8 +255,7 @@ class NonInventoryItemsResource(SyncAPIResource):
               most recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           barcode: The non-inventory item's barcode.
 
@@ -392,8 +389,7 @@ class NonInventoryItemsResource(SyncAPIResource):
         through the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           class_ids: Filter for non-inventory items of these classes. A class is a way end-users can
               categorize non-inventory items in QuickBooks.
@@ -575,8 +571,7 @@ class AsyncNonInventoryItemsResource(AsyncAPIResource):
 
               Maximum length: 31 characters.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           barcode: The non-inventory item's barcode.
 
@@ -686,8 +681,7 @@ class AsyncNonInventoryItemsResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the non-inventory item to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -749,8 +743,7 @@ class AsyncNonInventoryItemsResource(AsyncAPIResource):
               most recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           barcode: The non-inventory item's barcode.
 
@@ -884,8 +877,7 @@ class AsyncNonInventoryItemsResource(AsyncAPIResource):
         through the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           class_ids: Filter for non-inventory items of these classes. A class is a way end-users can
               categorize non-inventory items in QuickBooks.

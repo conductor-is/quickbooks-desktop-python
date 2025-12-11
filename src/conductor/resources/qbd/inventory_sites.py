@@ -75,8 +75,7 @@ class InventorySitesResource(SyncAPIResource):
 
               Maximum length: 31 characters.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           address: The inventory site's address.
 
@@ -139,8 +138,7 @@ class InventorySitesResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the inventory site to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -194,8 +192,7 @@ class InventorySitesResource(SyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           address: The inventory site's address.
 
@@ -285,8 +282,7 @@ class InventorySitesResource(SyncAPIResource):
         typically have few inventory sites.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           ids: Filter for specific inventory sites by their QuickBooks-assigned unique
               identifier(s).
@@ -441,8 +437,7 @@ class AsyncInventorySitesResource(AsyncAPIResource):
 
               Maximum length: 31 characters.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           address: The inventory site's address.
 
@@ -505,8 +500,7 @@ class AsyncInventorySitesResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the inventory site to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -560,8 +554,7 @@ class AsyncInventorySitesResource(AsyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           address: The inventory site's address.
 
@@ -651,8 +644,7 @@ class AsyncInventorySitesResource(AsyncAPIResource):
         typically have few inventory sites.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           ids: Filter for specific inventory sites by their QuickBooks-assigned unique
               identifier(s).

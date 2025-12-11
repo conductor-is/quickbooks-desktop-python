@@ -73,8 +73,7 @@ class StandardTermsResource(SyncAPIResource):
 
               Maximum length: 31 characters.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           discount_days: The number of days within which payment must be received to qualify for the
               discount specified by `discountPercentage`.
@@ -136,8 +135,7 @@ class StandardTermsResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the standard term to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -187,8 +185,7 @@ class StandardTermsResource(SyncAPIResource):
         typically have few standard terms.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           ids: Filter for specific standard terms by their QuickBooks-assigned unique
               identifier(s).
@@ -353,8 +350,7 @@ class AsyncStandardTermsResource(AsyncAPIResource):
 
               Maximum length: 31 characters.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           discount_days: The number of days within which payment must be received to qualify for the
               discount specified by `discountPercentage`.
@@ -416,8 +412,7 @@ class AsyncStandardTermsResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the standard term to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -467,8 +462,7 @@ class AsyncStandardTermsResource(AsyncAPIResource):
         typically have few standard terms.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           ids: Filter for specific standard terms by their QuickBooks-assigned unique
               identifier(s).

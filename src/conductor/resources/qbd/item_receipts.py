@@ -81,8 +81,7 @@ class ItemReceiptsResource(SyncAPIResource):
 
           vendor_id: The vendor who sent this item receipt for goods or services purchased.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           exchange_rate: The market exchange rate between this item receipt's currency and the home
               currency in QuickBooks at the time of this transaction. Represented as a decimal
@@ -207,8 +206,7 @@ class ItemReceiptsResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the item receipt to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -265,8 +263,7 @@ class ItemReceiptsResource(SyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           clear_expense_lines: When `true`, removes all existing expense lines associated with this item
               receipt. To modify or add individual expense lines, use the field `expenseLines`
@@ -423,8 +420,7 @@ class ItemReceiptsResource(SyncAPIResource):
         the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_ids: Filter for item receipts associated with these accounts.
 
@@ -593,8 +589,7 @@ class ItemReceiptsResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the item receipt to delete.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -671,8 +666,7 @@ class AsyncItemReceiptsResource(AsyncAPIResource):
 
           vendor_id: The vendor who sent this item receipt for goods or services purchased.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           exchange_rate: The market exchange rate between this item receipt's currency and the home
               currency in QuickBooks at the time of this transaction. Represented as a decimal
@@ -797,8 +791,7 @@ class AsyncItemReceiptsResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the item receipt to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -855,8 +848,7 @@ class AsyncItemReceiptsResource(AsyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           clear_expense_lines: When `true`, removes all existing expense lines associated with this item
               receipt. To modify or add individual expense lines, use the field `expenseLines`
@@ -1013,8 +1005,7 @@ class AsyncItemReceiptsResource(AsyncAPIResource):
         the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_ids: Filter for item receipts associated with these accounts.
 
@@ -1183,8 +1174,7 @@ class AsyncItemReceiptsResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the item receipt to delete.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 

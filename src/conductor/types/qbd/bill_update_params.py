@@ -21,10 +21,7 @@ class BillUpdateParams(TypedDict, total=False):
     """
 
     conductor_end_user_id: Required[Annotated[str, PropertyInfo(alias="Conductor-End-User-Id")]]
-    """
-    The ID of the EndUser to receive this request (e.g.,
-    `"Conductor-End-User-Id: {{END_USER_ID}}"`).
-    """
+    """The ID of the End-User to receive this request."""
 
     clear_expense_lines: Annotated[bool, PropertyInfo(alias="clearExpenseLines")]
     """When `true`, removes all existing expense lines associated with this bill.

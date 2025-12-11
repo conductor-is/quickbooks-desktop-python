@@ -28,10 +28,7 @@ class VendorCreditCreateParams(TypedDict, total=False):
     """The vendor who sent this vendor credit for goods or services purchased."""
 
     conductor_end_user_id: Required[Annotated[str, PropertyInfo(alias="Conductor-End-User-Id")]]
-    """
-    The ID of the EndUser to receive this request (e.g.,
-    `"Conductor-End-User-Id: {{END_USER_ID}}"`).
-    """
+    """The ID of the End-User to receive this request."""
 
     exchange_rate: Annotated[float, PropertyInfo(alias="exchangeRate")]
     """

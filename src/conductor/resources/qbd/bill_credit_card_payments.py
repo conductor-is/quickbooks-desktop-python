@@ -96,8 +96,7 @@ class BillCreditCardPaymentsResource(SyncAPIResource):
               `applyToTransactions`; otherwise, QuickBooks will say the `transactionId` in
               `applyToTransactions` "does not exist".
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           exchange_rate: The market exchange rate between this bill credit card payment's currency and
               the home currency in QuickBooks at the time of this transaction. Represented as
@@ -182,8 +181,7 @@ class BillCreditCardPaymentsResource(SyncAPIResource):
           id: The QuickBooks-assigned unique identifier of the bill credit card payment to
               retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -238,8 +236,7 @@ class BillCreditCardPaymentsResource(SyncAPIResource):
         paginate through the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_ids: Filter for bill credit card payments associated with these accounts.
 
@@ -408,8 +405,7 @@ class BillCreditCardPaymentsResource(SyncAPIResource):
           id: The QuickBooks-assigned unique identifier of the bill credit card payment to
               delete.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -501,8 +497,7 @@ class AsyncBillCreditCardPaymentsResource(AsyncAPIResource):
               `applyToTransactions`; otherwise, QuickBooks will say the `transactionId` in
               `applyToTransactions` "does not exist".
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           exchange_rate: The market exchange rate between this bill credit card payment's currency and
               the home currency in QuickBooks at the time of this transaction. Represented as
@@ -587,8 +582,7 @@ class AsyncBillCreditCardPaymentsResource(AsyncAPIResource):
           id: The QuickBooks-assigned unique identifier of the bill credit card payment to
               retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -643,8 +637,7 @@ class AsyncBillCreditCardPaymentsResource(AsyncAPIResource):
         paginate through the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_ids: Filter for bill credit card payments associated with these accounts.
 
@@ -813,8 +806,7 @@ class AsyncBillCreditCardPaymentsResource(AsyncAPIResource):
           id: The QuickBooks-assigned unique identifier of the bill credit card payment to
               delete.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 

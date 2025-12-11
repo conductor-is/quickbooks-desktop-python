@@ -29,10 +29,7 @@ class DiscountItemCreateParams(TypedDict, total=False):
     """
 
     conductor_end_user_id: Required[Annotated[str, PropertyInfo(alias="Conductor-End-User-Id")]]
-    """
-    The ID of the EndUser to receive this request (e.g.,
-    `"Conductor-End-User-Id: {{END_USER_ID}}"`).
-    """
+    """The ID of the End-User to receive this request."""
 
     barcode: Barcode
     """The discount item's barcode."""

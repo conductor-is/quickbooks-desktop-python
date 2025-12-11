@@ -84,8 +84,7 @@ class CurrenciesResource(SyncAPIResource):
 
               Maximum length: 64 characters.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           currency_format: Controls how this currency displays thousands separators, grouping, and decimal
               places.
@@ -141,8 +140,7 @@ class CurrenciesResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the currency to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -194,8 +192,7 @@ class CurrenciesResource(SyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           currency_code: The internationally accepted currency code used by this currency, typically
               based on the ISO 4217 standard (for example, USD for US Dollars). Built-in
@@ -280,8 +277,7 @@ class CurrenciesResource(SyncAPIResource):
         typically have few currencies.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           ids: Filter for specific currencies by their QuickBooks-assigned unique
               identifier(s).
@@ -454,8 +450,7 @@ class AsyncCurrenciesResource(AsyncAPIResource):
 
               Maximum length: 64 characters.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           currency_format: Controls how this currency displays thousands separators, grouping, and decimal
               places.
@@ -511,8 +506,7 @@ class AsyncCurrenciesResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the currency to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -564,8 +558,7 @@ class AsyncCurrenciesResource(AsyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           currency_code: The internationally accepted currency code used by this currency, typically
               based on the ISO 4217 standard (for example, USD for US Dollars). Built-in
@@ -650,8 +643,7 @@ class AsyncCurrenciesResource(AsyncAPIResource):
         typically have few currencies.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           ids: Filter for specific currencies by their QuickBooks-assigned unique
               identifier(s).

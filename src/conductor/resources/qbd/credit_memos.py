@@ -92,8 +92,7 @@ class CreditMemosResource(SyncAPIResource):
 
           transaction_date: The date of this credit memo, in ISO 8601 format (YYYY-MM-DD).
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           billing_address: The credit memo's billing address.
 
@@ -278,8 +277,7 @@ class CreditMemosResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the credit memo to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -350,8 +348,7 @@ class CreditMemosResource(SyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           billing_address: The credit memo's billing address.
 
@@ -563,8 +560,7 @@ class CreditMemosResource(SyncAPIResource):
         the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_ids: Filter for credit memos associated with these accounts.
 
@@ -734,8 +730,7 @@ class CreditMemosResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the credit memo to delete.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -823,8 +818,7 @@ class AsyncCreditMemosResource(AsyncAPIResource):
 
           transaction_date: The date of this credit memo, in ISO 8601 format (YYYY-MM-DD).
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           billing_address: The credit memo's billing address.
 
@@ -1009,8 +1003,7 @@ class AsyncCreditMemosResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the credit memo to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -1081,8 +1074,7 @@ class AsyncCreditMemosResource(AsyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           billing_address: The credit memo's billing address.
 
@@ -1294,8 +1286,7 @@ class AsyncCreditMemosResource(AsyncAPIResource):
         the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_ids: Filter for credit memos associated with these accounts.
 
@@ -1465,8 +1456,7 @@ class AsyncCreditMemosResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the credit memo to delete.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 

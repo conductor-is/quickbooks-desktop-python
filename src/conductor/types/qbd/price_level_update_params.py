@@ -20,10 +20,7 @@ class PriceLevelUpdateParams(TypedDict, total=False):
     """
 
     conductor_end_user_id: Required[Annotated[str, PropertyInfo(alias="Conductor-End-User-Id")]]
-    """
-    The ID of the EndUser to receive this request (e.g.,
-    `"Conductor-End-User-Id: {{END_USER_ID}}"`).
-    """
+    """The ID of the End-User to receive this request."""
 
     currency_id: Annotated[str, PropertyInfo(alias="currencyId")]
     """The price level's currency.

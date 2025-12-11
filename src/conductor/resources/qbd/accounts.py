@@ -107,8 +107,7 @@ class AccountsResource(SyncAPIResource):
 
               Maximum length: 31 characters.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_number: The account's account number, which appears in the QuickBooks chart of accounts,
               reports, and graphs.
@@ -209,8 +208,7 @@ class AccountsResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the account to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -288,8 +286,7 @@ class AccountsResource(SyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_number: The account's account number, which appears in the QuickBooks chart of accounts,
               reports, and graphs.
@@ -434,8 +431,7 @@ class AccountsResource(SyncAPIResource):
         accounts.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_type: Filter for accounts of this type.
 
@@ -637,8 +633,7 @@ class AsyncAccountsResource(AsyncAPIResource):
 
               Maximum length: 31 characters.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_number: The account's account number, which appears in the QuickBooks chart of accounts,
               reports, and graphs.
@@ -739,8 +734,7 @@ class AsyncAccountsResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the account to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -818,8 +812,7 @@ class AsyncAccountsResource(AsyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_number: The account's account number, which appears in the QuickBooks chart of accounts,
               reports, and graphs.
@@ -964,8 +957,7 @@ class AsyncAccountsResource(AsyncAPIResource):
         accounts.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_type: Filter for accounts of this type.
 

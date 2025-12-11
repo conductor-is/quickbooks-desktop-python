@@ -74,8 +74,7 @@ class TransfersResource(SyncAPIResource):
 
           transaction_date: The date of this transfer, in ISO 8601 format (YYYY-MM-DD).
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           class_id: The transfer's class. Classes can be used to categorize objects into meaningful
               segments, such as department, location, or type of work. In QuickBooks, class
@@ -133,8 +132,7 @@ class TransfersResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the transfer to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -185,8 +183,7 @@ class TransfersResource(SyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           amount: The monetary amount of this transfer, represented as a decimal string.
 
@@ -257,8 +254,7 @@ class TransfersResource(SyncAPIResource):
         results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           cursor: The pagination token to fetch the next set of results when paginating with the
               `limit` parameter. Do not include this parameter on the first call. Use the
@@ -399,8 +395,7 @@ class AsyncTransfersResource(AsyncAPIResource):
 
           transaction_date: The date of this transfer, in ISO 8601 format (YYYY-MM-DD).
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           class_id: The transfer's class. Classes can be used to categorize objects into meaningful
               segments, such as department, location, or type of work. In QuickBooks, class
@@ -458,8 +453,7 @@ class AsyncTransfersResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the transfer to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -510,8 +504,7 @@ class AsyncTransfersResource(AsyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           amount: The monetary amount of this transfer, represented as a decimal string.
 
@@ -582,8 +575,7 @@ class AsyncTransfersResource(AsyncAPIResource):
         results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           cursor: The pagination token to fetch the next set of results when paginating with the
               `limit` parameter. Do not include this parameter on the first call. Use the

@@ -12,10 +12,7 @@ __all__ = ["CustomerTypeListParams"]
 
 class CustomerTypeListParams(TypedDict, total=False):
     conductor_end_user_id: Required[Annotated[str, PropertyInfo(alias="Conductor-End-User-Id")]]
-    """
-    The ID of the EndUser to receive this request (e.g.,
-    `"Conductor-End-User-Id: {{END_USER_ID}}"`).
-    """
+    """The ID of the End-User to receive this request."""
 
     full_names: Annotated[SequenceNotStr[str], PropertyInfo(alias="fullNames")]
     """Filter for specific customer types by their full-name(s), case-insensitive.
