@@ -30,10 +30,7 @@ class BillCreateParams(TypedDict, total=False):
     """The vendor who sent this bill for goods or services purchased."""
 
     conductor_end_user_id: Required[Annotated[str, PropertyInfo(alias="Conductor-End-User-Id")]]
-    """
-    The ID of the EndUser to receive this request (e.g.,
-    `"Conductor-End-User-Id: {{END_USER_ID}}"`).
-    """
+    """The ID of the End-User to receive this request."""
 
     due_date: Annotated[Union[str, date], PropertyInfo(alias="dueDate", format="iso8601")]
     """The date by which this bill must be paid, in ISO 8601 format (YYYY-MM-DD)."""

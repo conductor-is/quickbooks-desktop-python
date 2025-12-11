@@ -100,8 +100,7 @@ class InventoryItemsResource(SyncAPIResource):
 
               Maximum length: 31 characters.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           barcode: The inventory item's barcode.
 
@@ -241,8 +240,7 @@ class InventoryItemsResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the inventory item to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -312,8 +310,7 @@ class InventoryItemsResource(SyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           asset_account_id: The asset account used to track the current value of this inventory item in
               inventory.
@@ -482,8 +479,7 @@ class InventoryItemsResource(SyncAPIResource):
         through the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           class_ids: Filter for inventory items of these classes. A class is a way end-users can
               categorize inventory items in QuickBooks.
@@ -683,8 +679,7 @@ class AsyncInventoryItemsResource(AsyncAPIResource):
 
               Maximum length: 31 characters.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           barcode: The inventory item's barcode.
 
@@ -824,8 +819,7 @@ class AsyncInventoryItemsResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the inventory item to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -895,8 +889,7 @@ class AsyncInventoryItemsResource(AsyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           asset_account_id: The asset account used to track the current value of this inventory item in
               inventory.
@@ -1065,8 +1058,7 @@ class AsyncInventoryItemsResource(AsyncAPIResource):
         through the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           class_ids: Filter for inventory items of these classes. A class is a way end-users can
               categorize inventory items in QuickBooks.

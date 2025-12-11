@@ -83,8 +83,7 @@ class ChecksResource(SyncAPIResource):
 
           transaction_date: The date written on this check, in ISO 8601 format (YYYY-MM-DD).
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           address: The address that is printed on the check.
 
@@ -202,8 +201,7 @@ class ChecksResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the check to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -265,8 +263,7 @@ class ChecksResource(SyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           address: The address that is printed on the check.
 
@@ -438,8 +435,7 @@ class ChecksResource(SyncAPIResource):
         results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_ids: Filter for checks associated with these accounts.
 
@@ -611,8 +607,7 @@ class ChecksResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the check to delete.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -691,8 +686,7 @@ class AsyncChecksResource(AsyncAPIResource):
 
           transaction_date: The date written on this check, in ISO 8601 format (YYYY-MM-DD).
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           address: The address that is printed on the check.
 
@@ -810,8 +804,7 @@ class AsyncChecksResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the check to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -873,8 +866,7 @@ class AsyncChecksResource(AsyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           address: The address that is printed on the check.
 
@@ -1046,8 +1038,7 @@ class AsyncChecksResource(AsyncAPIResource):
         results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_ids: Filter for checks associated with these accounts.
 
@@ -1219,8 +1210,7 @@ class AsyncChecksResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the check to delete.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 

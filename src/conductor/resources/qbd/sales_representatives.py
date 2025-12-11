@@ -74,8 +74,7 @@ class SalesRepresentativesResource(SyncAPIResource):
 
               Maximum length: 5 characters.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           is_active: Indicates whether this sales representative is active. Inactive objects are
               typically hidden from views and reports in QuickBooks. Defaults to `true`.
@@ -129,8 +128,7 @@ class SalesRepresentativesResource(SyncAPIResource):
           id: The QuickBooks-assigned unique identifier of the sales representative to
               retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -178,8 +176,7 @@ class SalesRepresentativesResource(SyncAPIResource):
               the most recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           entity_id: The sales representative's corresponding person entity in QuickBooks, stored as
               either an employee, vendor, or other-name entry.
@@ -248,8 +245,7 @@ class SalesRepresentativesResource(SyncAPIResource):
         parameter. Users typically have few sales representatives.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           ids: Filter for specific sales representatives by their QuickBooks-assigned unique
               identifier(s).
@@ -411,8 +407,7 @@ class AsyncSalesRepresentativesResource(AsyncAPIResource):
 
               Maximum length: 5 characters.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           is_active: Indicates whether this sales representative is active. Inactive objects are
               typically hidden from views and reports in QuickBooks. Defaults to `true`.
@@ -466,8 +461,7 @@ class AsyncSalesRepresentativesResource(AsyncAPIResource):
           id: The QuickBooks-assigned unique identifier of the sales representative to
               retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -515,8 +509,7 @@ class AsyncSalesRepresentativesResource(AsyncAPIResource):
               the most recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           entity_id: The sales representative's corresponding person entity in QuickBooks, stored as
               either an employee, vendor, or other-name entry.
@@ -585,8 +578,7 @@ class AsyncSalesRepresentativesResource(AsyncAPIResource):
         parameter. Users typically have few sales representatives.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           ids: Filter for specific sales representatives by their QuickBooks-assigned unique
               identifier(s).

@@ -85,8 +85,7 @@ class PaymentMethodsResource(SyncAPIResource):
 
           payment_method_type: This payment method's type.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           is_active: Indicates whether this payment method is active. Inactive objects are typically
               hidden from views and reports in QuickBooks. Defaults to `true`.
@@ -138,8 +137,7 @@ class PaymentMethodsResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the payment method to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -203,8 +201,7 @@ class PaymentMethodsResource(SyncAPIResource):
         typically have few payment methods.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           ids: Filter for specific payment methods by their QuickBooks-assigned unique
               identifier(s).
@@ -384,8 +381,7 @@ class AsyncPaymentMethodsResource(AsyncAPIResource):
 
           payment_method_type: This payment method's type.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           is_active: Indicates whether this payment method is active. Inactive objects are typically
               hidden from views and reports in QuickBooks. Defaults to `true`.
@@ -437,8 +433,7 @@ class AsyncPaymentMethodsResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the payment method to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -502,8 +497,7 @@ class AsyncPaymentMethodsResource(AsyncAPIResource):
         typically have few payment methods.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           ids: Filter for specific payment methods by their QuickBooks-assigned unique
               identifier(s).

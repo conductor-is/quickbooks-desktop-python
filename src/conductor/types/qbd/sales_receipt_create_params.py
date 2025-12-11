@@ -30,10 +30,7 @@ class SalesReceiptCreateParams(TypedDict, total=False):
     """The date of this sales receipt, in ISO 8601 format (YYYY-MM-DD)."""
 
     conductor_end_user_id: Required[Annotated[str, PropertyInfo(alias="Conductor-End-User-Id")]]
-    """
-    The ID of the EndUser to receive this request (e.g.,
-    `"Conductor-End-User-Id: {{END_USER_ID}}"`).
-    """
+    """The ID of the End-User to receive this request."""
 
     billing_address: Annotated[BillingAddress, PropertyInfo(alias="billingAddress")]
     """The sales receipt's billing address."""

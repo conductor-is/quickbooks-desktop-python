@@ -74,8 +74,7 @@ class PriceLevelsResource(SyncAPIResource):
 
               Maximum length: 31 characters.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           currency_id: The price level's currency. For built-in currencies, the name and code are
               standard international values. For user-defined currencies, all values are
@@ -145,8 +144,7 @@ class PriceLevelsResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the price level to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -196,8 +194,7 @@ class PriceLevelsResource(SyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           currency_id: The price level's currency. For built-in currencies, the name and code are
               standard international values. For user-defined currencies, all values are
@@ -288,8 +285,7 @@ class PriceLevelsResource(SyncAPIResource):
         typically have few price levels.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           currency_ids: Filter for price levels in these currencies.
 
@@ -458,8 +454,7 @@ class AsyncPriceLevelsResource(AsyncAPIResource):
 
               Maximum length: 31 characters.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           currency_id: The price level's currency. For built-in currencies, the name and code are
               standard international values. For user-defined currencies, all values are
@@ -529,8 +524,7 @@ class AsyncPriceLevelsResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the price level to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -580,8 +574,7 @@ class AsyncPriceLevelsResource(AsyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           currency_id: The price level's currency. For built-in currencies, the name and code are
               standard international values. For user-defined currencies, all values are
@@ -672,8 +665,7 @@ class AsyncPriceLevelsResource(AsyncAPIResource):
         typically have few price levels.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           currency_ids: Filter for price levels in these currencies.
 

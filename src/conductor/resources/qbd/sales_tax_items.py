@@ -77,8 +77,7 @@ class SalesTaxItemsResource(SyncAPIResource):
 
               Maximum length: 31 characters.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           barcode: The sales-tax item's barcode.
 
@@ -165,8 +164,7 @@ class SalesTaxItemsResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the sales-tax item to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -219,8 +217,7 @@ class SalesTaxItemsResource(SyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           barcode: The sales-tax item's barcode.
 
@@ -319,8 +316,7 @@ class SalesTaxItemsResource(SyncAPIResource):
         through the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           class_ids: Filter for sales-tax items of these classes. A class is a way end-users can
               categorize sales-tax items in QuickBooks.
@@ -496,8 +492,7 @@ class AsyncSalesTaxItemsResource(AsyncAPIResource):
 
               Maximum length: 31 characters.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           barcode: The sales-tax item's barcode.
 
@@ -584,8 +579,7 @@ class AsyncSalesTaxItemsResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the sales-tax item to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -638,8 +632,7 @@ class AsyncSalesTaxItemsResource(AsyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           barcode: The sales-tax item's barcode.
 
@@ -738,8 +731,7 @@ class AsyncSalesTaxItemsResource(AsyncAPIResource):
         through the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           class_ids: Filter for sales-tax items of these classes. A class is a way end-users can
               categorize sales-tax items in QuickBooks.

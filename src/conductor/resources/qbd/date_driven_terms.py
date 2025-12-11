@@ -79,8 +79,7 @@ class DateDrivenTermsResource(SyncAPIResource):
 
               Maximum length: 31 characters.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           discount_day_of_month: The day of the month within which payment must be received to qualify for the
               discount specified by `discountPercentage`.
@@ -148,8 +147,7 @@ class DateDrivenTermsResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the date-driven term to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -199,8 +197,7 @@ class DateDrivenTermsResource(SyncAPIResource):
         typically have few date-driven terms.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           ids: Filter for specific date-driven terms by their QuickBooks-assigned unique
               identifier(s).
@@ -371,8 +368,7 @@ class AsyncDateDrivenTermsResource(AsyncAPIResource):
 
               Maximum length: 31 characters.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           discount_day_of_month: The day of the month within which payment must be received to qualify for the
               discount specified by `discountPercentage`.
@@ -440,8 +436,7 @@ class AsyncDateDrivenTermsResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the date-driven term to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -491,8 +486,7 @@ class AsyncDateDrivenTermsResource(AsyncAPIResource):
         typically have few date-driven terms.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           ids: Filter for specific date-driven terms by their QuickBooks-assigned unique
               identifier(s).

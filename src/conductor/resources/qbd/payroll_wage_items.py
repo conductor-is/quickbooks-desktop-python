@@ -89,8 +89,7 @@ class PayrollWageItemsResource(SyncAPIResource):
               overtime, sick, or vacation), salary (regular, sick, or vacation), bonus, or
               commission based.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           is_active: Indicates whether this payroll wage item is active. Inactive objects are
               typically hidden from views and reports in QuickBooks. Defaults to `true`.
@@ -144,8 +143,7 @@ class PayrollWageItemsResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the payroll wage item to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -195,8 +193,7 @@ class PayrollWageItemsResource(SyncAPIResource):
         through the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           cursor: The pagination token to fetch the next set of results when paginating with the
               `limit` parameter. Do not include this parameter on the first call. Use the
@@ -380,8 +377,7 @@ class AsyncPayrollWageItemsResource(AsyncAPIResource):
               overtime, sick, or vacation), salary (regular, sick, or vacation), bonus, or
               commission based.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           is_active: Indicates whether this payroll wage item is active. Inactive objects are
               typically hidden from views and reports in QuickBooks. Defaults to `true`.
@@ -435,8 +431,7 @@ class AsyncPayrollWageItemsResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the payroll wage item to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -486,8 +481,7 @@ class AsyncPayrollWageItemsResource(AsyncAPIResource):
         through the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           cursor: The pagination token to fetch the next set of results when paginating with the
               `limit` parameter. Do not include this parameter on the first call. Use the

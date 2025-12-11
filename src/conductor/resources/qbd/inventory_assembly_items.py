@@ -105,8 +105,7 @@ class InventoryAssemblyItemsResource(SyncAPIResource):
 
               Maximum length: 31 characters.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           barcode: The inventory assembly item's barcode.
 
@@ -253,8 +252,7 @@ class InventoryAssemblyItemsResource(SyncAPIResource):
           id: The QuickBooks-assigned unique identifier of the inventory assembly item to
               retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -326,8 +324,7 @@ class InventoryAssemblyItemsResource(SyncAPIResource):
               the most recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           asset_account_id: The asset account used to track the current value of this inventory assembly
               item in inventory.
@@ -504,8 +501,7 @@ class InventoryAssemblyItemsResource(SyncAPIResource):
         paginate through the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           class_ids: Filter for inventory assembly items of these classes. A class is a way end-users
               can categorize inventory assembly items in QuickBooks.
@@ -707,8 +703,7 @@ class AsyncInventoryAssemblyItemsResource(AsyncAPIResource):
 
               Maximum length: 31 characters.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           barcode: The inventory assembly item's barcode.
 
@@ -855,8 +850,7 @@ class AsyncInventoryAssemblyItemsResource(AsyncAPIResource):
           id: The QuickBooks-assigned unique identifier of the inventory assembly item to
               retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -928,8 +922,7 @@ class AsyncInventoryAssemblyItemsResource(AsyncAPIResource):
               the most recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           asset_account_id: The asset account used to track the current value of this inventory assembly
               item in inventory.
@@ -1106,8 +1099,7 @@ class AsyncInventoryAssemblyItemsResource(AsyncAPIResource):
         paginate through the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           class_ids: Filter for inventory assembly items of these classes. A class is a way end-users
               can categorize inventory assembly items in QuickBooks.

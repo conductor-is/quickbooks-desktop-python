@@ -97,8 +97,7 @@ class InvoicesResource(SyncAPIResource):
 
           transaction_date: The date of this invoice, in ISO 8601 format (YYYY-MM-DD).
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           apply_credits: Credit memos to apply to this invoice, reducing its balance. This creates a link
               between this invoice and the specified credit memos.
@@ -325,8 +324,7 @@ class InvoicesResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the invoice to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -398,8 +396,7 @@ class InvoicesResource(SyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           apply_credits: Credit memos to apply to this invoice, reducing its balance. This creates a link
               between this invoice and the specified credit memos.
@@ -630,8 +627,7 @@ class InvoicesResource(SyncAPIResource):
         results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_ids: Filter for invoices associated with these accounts.
 
@@ -802,8 +798,7 @@ class InvoicesResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the invoice to delete.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -895,8 +890,7 @@ class AsyncInvoicesResource(AsyncAPIResource):
 
           transaction_date: The date of this invoice, in ISO 8601 format (YYYY-MM-DD).
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           apply_credits: Credit memos to apply to this invoice, reducing its balance. This creates a link
               between this invoice and the specified credit memos.
@@ -1123,8 +1117,7 @@ class AsyncInvoicesResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the invoice to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -1196,8 +1189,7 @@ class AsyncInvoicesResource(AsyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           apply_credits: Credit memos to apply to this invoice, reducing its balance. This creates a link
               between this invoice and the specified credit memos.
@@ -1428,8 +1420,7 @@ class AsyncInvoicesResource(AsyncAPIResource):
         results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_ids: Filter for invoices associated with these accounts.
 
@@ -1600,8 +1591,7 @@ class AsyncInvoicesResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the invoice to delete.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 

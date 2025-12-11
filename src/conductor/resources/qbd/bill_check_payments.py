@@ -102,8 +102,7 @@ class BillCheckPaymentsResource(SyncAPIResource):
               `applyToTransactions`; otherwise, QuickBooks will say the `transactionId` in
               `applyToTransactions` "does not exist".
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           exchange_rate: The market exchange rate between this bill check payment's currency and the home
               currency in QuickBooks at the time of this transaction. Represented as a decimal
@@ -191,8 +190,7 @@ class BillCheckPaymentsResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the bill check payment to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -248,8 +246,7 @@ class BillCheckPaymentsResource(SyncAPIResource):
               most recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           amount: The monetary amount of this bill check payment, represented as a decimal string.
 
@@ -352,8 +349,7 @@ class BillCheckPaymentsResource(SyncAPIResource):
         through the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_ids: Filter for bill check payments associated with these accounts.
 
@@ -523,8 +519,7 @@ class BillCheckPaymentsResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the bill check payment to delete.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -618,8 +613,7 @@ class AsyncBillCheckPaymentsResource(AsyncAPIResource):
               `applyToTransactions`; otherwise, QuickBooks will say the `transactionId` in
               `applyToTransactions` "does not exist".
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           exchange_rate: The market exchange rate between this bill check payment's currency and the home
               currency in QuickBooks at the time of this transaction. Represented as a decimal
@@ -707,8 +701,7 @@ class AsyncBillCheckPaymentsResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the bill check payment to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -764,8 +757,7 @@ class AsyncBillCheckPaymentsResource(AsyncAPIResource):
               most recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           amount: The monetary amount of this bill check payment, represented as a decimal string.
 
@@ -868,8 +860,7 @@ class AsyncBillCheckPaymentsResource(AsyncAPIResource):
         through the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_ids: Filter for bill check payments associated with these accounts.
 
@@ -1039,8 +1030,7 @@ class AsyncBillCheckPaymentsResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the bill check payment to delete.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 

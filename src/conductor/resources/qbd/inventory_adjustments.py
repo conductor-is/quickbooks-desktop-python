@@ -81,8 +81,7 @@ class InventoryAdjustmentsResource(SyncAPIResource):
 
           transaction_date: The date of this inventory adjustment, in ISO 8601 format (YYYY-MM-DD).
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           class_id: The inventory adjustment's class. Classes can be used to categorize objects into
               meaningful segments, such as department, location, or type of work. In
@@ -168,8 +167,7 @@ class InventoryAdjustmentsResource(SyncAPIResource):
           id: The QuickBooks-assigned unique identifier of the inventory adjustment to
               retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -222,8 +220,7 @@ class InventoryAdjustmentsResource(SyncAPIResource):
               the most recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_id: The account to which this inventory adjustment is posted for tracking inventory
               value changes.
@@ -329,8 +326,7 @@ class InventoryAdjustmentsResource(SyncAPIResource):
         parameter. Users typically have few inventory adjustments.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_ids: Filter for inventory adjustments associated with these accounts.
 
@@ -493,8 +489,7 @@ class InventoryAdjustmentsResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the inventory adjustment to delete.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -567,8 +562,7 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
 
           transaction_date: The date of this inventory adjustment, in ISO 8601 format (YYYY-MM-DD).
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           class_id: The inventory adjustment's class. Classes can be used to categorize objects into
               meaningful segments, such as department, location, or type of work. In
@@ -654,8 +648,7 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
           id: The QuickBooks-assigned unique identifier of the inventory adjustment to
               retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -708,8 +701,7 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
               the most recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_id: The account to which this inventory adjustment is posted for tracking inventory
               value changes.
@@ -815,8 +807,7 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
         parameter. Users typically have few inventory adjustments.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_ids: Filter for inventory adjustments associated with these accounts.
 
@@ -979,8 +970,7 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the inventory adjustment to delete.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 

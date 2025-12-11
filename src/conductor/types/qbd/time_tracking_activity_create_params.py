@@ -38,10 +38,7 @@ class TimeTrackingActivityCreateParams(TypedDict, total=False):
     """The date of this time tracking activity, in ISO 8601 format (YYYY-MM-DD)."""
 
     conductor_end_user_id: Required[Annotated[str, PropertyInfo(alias="Conductor-End-User-Id")]]
-    """
-    The ID of the EndUser to receive this request (e.g.,
-    `"Conductor-End-User-Id: {{END_USER_ID}}"`).
-    """
+    """The ID of the End-User to receive this request."""
 
     billing_status: Annotated[
         Literal["billable", "has_been_billed", "not_billable"], PropertyInfo(alias="billingStatus")

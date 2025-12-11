@@ -88,8 +88,7 @@ class PurchaseOrdersResource(SyncAPIResource):
         Args:
           transaction_date: The date of this purchase order, in ISO 8601 format (YYYY-MM-DD).
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           class_id: The purchase order's class. Classes can be used to categorize objects into
               meaningful segments, such as department, location, or type of work. In
@@ -263,8 +262,7 @@ class PurchaseOrdersResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the purchase order to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -334,8 +332,7 @@ class PurchaseOrdersResource(SyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           class_id: The purchase order's class. Classes can be used to categorize objects into
               meaningful segments, such as department, location, or type of work. In
@@ -541,8 +538,7 @@ class PurchaseOrdersResource(SyncAPIResource):
         through the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_ids: Filter for purchase orders associated with these accounts.
 
@@ -711,8 +707,7 @@ class PurchaseOrdersResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the purchase order to delete.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -796,8 +791,7 @@ class AsyncPurchaseOrdersResource(AsyncAPIResource):
         Args:
           transaction_date: The date of this purchase order, in ISO 8601 format (YYYY-MM-DD).
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           class_id: The purchase order's class. Classes can be used to categorize objects into
               meaningful segments, such as department, location, or type of work. In
@@ -971,8 +965,7 @@ class AsyncPurchaseOrdersResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the purchase order to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -1042,8 +1035,7 @@ class AsyncPurchaseOrdersResource(AsyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           class_id: The purchase order's class. Classes can be used to categorize objects into
               meaningful segments, such as department, location, or type of work. In
@@ -1249,8 +1241,7 @@ class AsyncPurchaseOrdersResource(AsyncAPIResource):
         through the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_ids: Filter for purchase orders associated with these accounts.
 
@@ -1419,8 +1410,7 @@ class AsyncPurchaseOrdersResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the purchase order to delete.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 

@@ -21,10 +21,7 @@ class CreditCardCreditUpdateParams(TypedDict, total=False):
     """
 
     conductor_end_user_id: Required[Annotated[str, PropertyInfo(alias="Conductor-End-User-Id")]]
-    """
-    The ID of the EndUser to receive this request (e.g.,
-    `"Conductor-End-User-Id: {{END_USER_ID}}"`).
-    """
+    """The ID of the End-User to receive this request."""
 
     account_id: Annotated[str, PropertyInfo(alias="accountId")]
     """The bank or credit card account to which this credit card credit is posted."""

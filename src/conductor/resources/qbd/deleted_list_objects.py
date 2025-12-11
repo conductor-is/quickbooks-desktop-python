@@ -108,8 +108,7 @@ class DeletedListObjectsResource(SyncAPIResource):
         Args:
           object_types: Filter for deleted list-objects by their list-object type(s).
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           deleted_after: Filter for deleted list-objects deleted on or after this date/time, within the
               last 90 days (QuickBooks limit). Accepts the following ISO 8601 formats:
@@ -246,8 +245,7 @@ class AsyncDeletedListObjectsResource(AsyncAPIResource):
         Args:
           object_types: Filter for deleted list-objects by their list-object type(s).
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           deleted_after: Filter for deleted list-objects deleted on or after this date/time, within the
               last 90 days (QuickBooks limit). Accepts the following ISO 8601 formats:

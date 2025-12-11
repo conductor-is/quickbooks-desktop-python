@@ -80,8 +80,7 @@ class CreditCardCreditsResource(SyncAPIResource):
 
           transaction_date: The date of this credit card credit, in ISO 8601 format (YYYY-MM-DD).
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           exchange_rate: The market exchange rate between this credit card credit's currency and the home
               currency in QuickBooks at the time of this transaction. Represented as a decimal
@@ -180,8 +179,7 @@ class CreditCardCreditsResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the credit card credit to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -238,8 +236,7 @@ class CreditCardCreditsResource(SyncAPIResource):
               most recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_id: The bank or credit card account to which this credit card credit is posted.
 
@@ -393,8 +390,7 @@ class CreditCardCreditsResource(SyncAPIResource):
         through the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_ids: Filter for credit card credits associated with these accounts.
 
@@ -560,8 +556,7 @@ class CreditCardCreditsResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the credit card credit to delete.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -633,8 +628,7 @@ class AsyncCreditCardCreditsResource(AsyncAPIResource):
 
           transaction_date: The date of this credit card credit, in ISO 8601 format (YYYY-MM-DD).
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           exchange_rate: The market exchange rate between this credit card credit's currency and the home
               currency in QuickBooks at the time of this transaction. Represented as a decimal
@@ -733,8 +727,7 @@ class AsyncCreditCardCreditsResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the credit card credit to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -791,8 +784,7 @@ class AsyncCreditCardCreditsResource(AsyncAPIResource):
               most recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_id: The bank or credit card account to which this credit card credit is posted.
 
@@ -946,8 +938,7 @@ class AsyncCreditCardCreditsResource(AsyncAPIResource):
         through the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_ids: Filter for credit card credits associated with these accounts.
 
@@ -1113,8 +1104,7 @@ class AsyncCreditCardCreditsResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the credit card credit to delete.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 

@@ -84,8 +84,7 @@ class DiscountItemsResource(SyncAPIResource):
 
               Maximum length: 31 characters.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           barcode: The discount item's barcode.
 
@@ -189,8 +188,7 @@ class DiscountItemsResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the discount item to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -249,8 +247,7 @@ class DiscountItemsResource(SyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_id: The posting account to which transactions involving this discount item are
               posted for tracking discounts.
@@ -375,8 +372,7 @@ class DiscountItemsResource(SyncAPIResource):
         the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           class_ids: Filter for discount items of these classes. A class is a way end-users can
               categorize discount items in QuickBooks.
@@ -562,8 +558,7 @@ class AsyncDiscountItemsResource(AsyncAPIResource):
 
               Maximum length: 31 characters.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           barcode: The discount item's barcode.
 
@@ -667,8 +662,7 @@ class AsyncDiscountItemsResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the discount item to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -727,8 +721,7 @@ class AsyncDiscountItemsResource(AsyncAPIResource):
               recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_id: The posting account to which transactions involving this discount item are
               posted for tracking discounts.
@@ -853,8 +846,7 @@ class AsyncDiscountItemsResource(AsyncAPIResource):
         the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           class_ids: Filter for discount items of these classes. A class is a way end-users can
               categorize discount items in QuickBooks.

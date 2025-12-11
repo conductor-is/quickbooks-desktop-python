@@ -88,8 +88,7 @@ class CreditCardRefundsResource(SyncAPIResource):
 
           transaction_date: The date of this credit card refund, in ISO 8601 format (YYYY-MM-DD).
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           address: The address that is printed on the credit card refund.
 
@@ -192,8 +191,7 @@ class CreditCardRefundsResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the credit card refund to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -248,8 +246,7 @@ class CreditCardRefundsResource(SyncAPIResource):
         through the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_ids: Filter for credit card refunds associated with these accounts.
 
@@ -414,8 +411,7 @@ class CreditCardRefundsResource(SyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the credit card refund to delete.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -499,8 +495,7 @@ class AsyncCreditCardRefundsResource(AsyncAPIResource):
 
           transaction_date: The date of this credit card refund, in ISO 8601 format (YYYY-MM-DD).
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           address: The address that is printed on the credit card refund.
 
@@ -603,8 +598,7 @@ class AsyncCreditCardRefundsResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the credit card refund to retrieve.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -659,8 +653,7 @@ class AsyncCreditCardRefundsResource(AsyncAPIResource):
         through the results.
 
         Args:
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           account_ids: Filter for credit card refunds associated with these accounts.
 
@@ -825,8 +818,7 @@ class AsyncCreditCardRefundsResource(AsyncAPIResource):
         Args:
           id: The QuickBooks-assigned unique identifier of the credit card refund to delete.
 
-          conductor_end_user_id: The ID of the EndUser to receive this request (e.g.,
-              `"Conductor-End-User-Id: {{END_USER_ID}}"`).
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
