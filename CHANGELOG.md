@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.67.0 (2025-12-17)
+
+Full Changelog: [v1.66.0...v1.67.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.66.0...v1.67.0)
+
+### Features
+
+* **api:** api update ([4f8b34a](https://github.com/conductor-is/quickbooks-desktop-python/commit/4f8b34a515be299063aa60084453ce3511c4be24))
+* **api:** api update ([f63ed41](https://github.com/conductor-is/quickbooks-desktop-python/commit/f63ed41f819c6e73f5eba64c2fb9342d0ef3eb64))
+
+
+### Chores
+
+* **internal:** add missing files argument to base client ([360b761](https://github.com/conductor-is/quickbooks-desktop-python/commit/360b761de9bb6e18a09505ea0c1fc3d78d30dd48))
+* speedup initial import ([4ec9e58](https://github.com/conductor-is/quickbooks-desktop-python/commit/4ec9e5820c25ebdcfcd394d0e4350492187bfaf2))
+
 ## 1.66.0 (2025-12-11)
 
 Full Changelog: [v1.65.1...v1.66.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.65.1...v1.66.0)
