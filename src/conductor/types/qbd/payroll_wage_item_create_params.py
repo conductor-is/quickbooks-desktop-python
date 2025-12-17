@@ -59,3 +59,21 @@ class PayrollWageItemCreateParams(TypedDict, total=False):
     Inactive objects are typically hidden from views and reports in QuickBooks.
     Defaults to `true`.
     """
+
+    overtime_multiplier: Annotated[str, PropertyInfo(alias="overtimeMultiplier")]
+    """
+    The overtime pay multiplier for this payroll wage item, represented as a decimal
+    string. For example, `"1.5"` represents time-and-a-half pay.
+    """
+
+    rate: str
+    """The default rate for this payroll wage item, represented as a decimal string.
+
+    Only one of `rate` and `ratePercent` can be set.
+    """
+
+    rate_percent: Annotated[str, PropertyInfo(alias="ratePercent")]
+    """The default rate for this payroll wage item expressed as a percentage.
+
+    Only one of `rate` and `ratePercent` can be set.
+    """

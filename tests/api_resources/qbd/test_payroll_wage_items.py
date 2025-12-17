@@ -36,6 +36,9 @@ class TestPayrollWageItems:
             wage_type="hourly_regular",
             conductor_end_user_id="end_usr_1234567abcdefg",
             is_active=True,
+            overtime_multiplier="1.5",
+            rate="15.00",
+            rate_percent="10",
         )
         assert_matches_type(PayrollWageItem, payroll_wage_item, path=["response"])
 
@@ -185,6 +188,9 @@ class TestAsyncPayrollWageItems:
             wage_type="hourly_regular",
             conductor_end_user_id="end_usr_1234567abcdefg",
             is_active=True,
+            overtime_multiplier="1.5",
+            rate="15.00",
+            rate_percent="10",
         )
         assert_matches_type(PayrollWageItem, payroll_wage_item, path=["response"])
 
