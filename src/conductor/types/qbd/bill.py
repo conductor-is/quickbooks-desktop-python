@@ -1509,7 +1509,7 @@ class Bill(BaseModel):
     timezone of the end-user's computer.
     """
 
-    vendor: Vendor
+    vendor: Optional[Vendor] = None
     """The vendor who sent this bill for goods or services purchased."""
 
     vendor_address: Optional[VendorAddress] = FieldInfo(alias="vendorAddress", default=None)
