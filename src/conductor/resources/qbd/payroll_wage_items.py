@@ -62,6 +62,9 @@ class PayrollWageItemsResource(SyncAPIResource):
         ],
         conductor_end_user_id: str,
         is_active: bool | Omit = omit,
+        overtime_multiplier: str | Omit = omit,
+        rate: str | Omit = omit,
+        rate_percent: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -94,6 +97,15 @@ class PayrollWageItemsResource(SyncAPIResource):
           is_active: Indicates whether this payroll wage item is active. Inactive objects are
               typically hidden from views and reports in QuickBooks. Defaults to `true`.
 
+          overtime_multiplier: The overtime pay multiplier for this payroll wage item, represented as a decimal
+              string. For example, `"1.5"` represents time-and-a-half pay.
+
+          rate: The default rate for this payroll wage item, represented as a decimal string.
+              Only one of `rate` and `ratePercent` can be set.
+
+          rate_percent: The default rate for this payroll wage item expressed as a percentage. Only one
+              of `rate` and `ratePercent` can be set.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -111,6 +123,9 @@ class PayrollWageItemsResource(SyncAPIResource):
                     "name": name,
                     "wage_type": wage_type,
                     "is_active": is_active,
+                    "overtime_multiplier": overtime_multiplier,
+                    "rate": rate,
+                    "rate_percent": rate_percent,
                 },
                 payroll_wage_item_create_params.PayrollWageItemCreateParams,
             ),
@@ -350,6 +365,9 @@ class AsyncPayrollWageItemsResource(AsyncAPIResource):
         ],
         conductor_end_user_id: str,
         is_active: bool | Omit = omit,
+        overtime_multiplier: str | Omit = omit,
+        rate: str | Omit = omit,
+        rate_percent: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -382,6 +400,15 @@ class AsyncPayrollWageItemsResource(AsyncAPIResource):
           is_active: Indicates whether this payroll wage item is active. Inactive objects are
               typically hidden from views and reports in QuickBooks. Defaults to `true`.
 
+          overtime_multiplier: The overtime pay multiplier for this payroll wage item, represented as a decimal
+              string. For example, `"1.5"` represents time-and-a-half pay.
+
+          rate: The default rate for this payroll wage item, represented as a decimal string.
+              Only one of `rate` and `ratePercent` can be set.
+
+          rate_percent: The default rate for this payroll wage item expressed as a percentage. Only one
+              of `rate` and `ratePercent` can be set.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -399,6 +426,9 @@ class AsyncPayrollWageItemsResource(AsyncAPIResource):
                     "name": name,
                     "wage_type": wage_type,
                     "is_active": is_active,
+                    "overtime_multiplier": overtime_multiplier,
+                    "rate": rate,
+                    "rate_percent": rate_percent,
                 },
                 payroll_wage_item_create_params.PayrollWageItemCreateParams,
             ),

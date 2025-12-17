@@ -71,6 +71,24 @@ class PayrollWageItem(BaseModel):
     object_type: Literal["qbd_payroll_wage_item"] = FieldInfo(alias="objectType")
     """The type of object. This value is always `"qbd_payroll_wage_item"`."""
 
+    overtime_multiplier: Optional[str] = FieldInfo(alias="overtimeMultiplier", default=None)
+    """
+    The overtime pay multiplier for this payroll wage item, represented as a decimal
+    string. For example, `"1.5"` represents time-and-a-half pay.
+    """
+
+    rate: Optional[str] = None
+    """The default rate for this payroll wage item, represented as a decimal string.
+
+    Only one of `rate` and `ratePercent` can be set.
+    """
+
+    rate_percent: Optional[str] = FieldInfo(alias="ratePercent", default=None)
+    """The default rate for this payroll wage item expressed as a percentage.
+
+    Only one of `rate` and `ratePercent` can be set.
+    """
+
     revision_number: str = FieldInfo(alias="revisionNumber")
     """
     The current QuickBooks-assigned revision number of this payroll wage item
