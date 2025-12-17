@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import os
-from typing import Any, Mapping
+from typing import TYPE_CHECKING, Any, Mapping
 from typing_extensions import Self, override
 
 import httpx
@@ -20,8 +20,8 @@ from ._types import (
     not_given,
 )
 from ._utils import is_given, get_async_library
+from ._compat import cached_property
 from ._version import __version__
-from .resources import end_users, auth_sessions
 from ._streaming import Stream as Stream, AsyncStream as AsyncStream
 from ._exceptions import APIStatusError, ConductorError
 from ._base_client import (
@@ -29,7 +29,12 @@ from ._base_client import (
     SyncAPIClient,
     AsyncAPIClient,
 )
-from .resources.qbd import qbd
+
+if TYPE_CHECKING:
+    from .resources import qbd, end_users, auth_sessions
+    from .resources.qbd.qbd import QbdResource, AsyncQbdResource
+    from .resources.end_users import EndUsersResource, AsyncEndUsersResource
+    from .resources.auth_sessions import AuthSessionsResource, AsyncAuthSessionsResource
 
 __all__ = [
     "Timeout",
@@ -44,12 +49,6 @@ __all__ = [
 
 
 class Conductor(SyncAPIClient):
-    auth_sessions: auth_sessions.AuthSessionsResource
-    end_users: end_users.EndUsersResource
-    qbd: qbd.QbdResource
-    with_raw_response: ConductorWithRawResponse
-    with_streaming_response: ConductorWithStreamedResponse
-
     # client options
     api_key: str
 
@@ -104,11 +103,31 @@ class Conductor(SyncAPIClient):
             _strict_response_validation=_strict_response_validation,
         )
 
-        self.auth_sessions = auth_sessions.AuthSessionsResource(self)
-        self.end_users = end_users.EndUsersResource(self)
-        self.qbd = qbd.QbdResource(self)
-        self.with_raw_response = ConductorWithRawResponse(self)
-        self.with_streaming_response = ConductorWithStreamedResponse(self)
+    @cached_property
+    def auth_sessions(self) -> AuthSessionsResource:
+        from .resources.auth_sessions import AuthSessionsResource
+
+        return AuthSessionsResource(self)
+
+    @cached_property
+    def end_users(self) -> EndUsersResource:
+        from .resources.end_users import EndUsersResource
+
+        return EndUsersResource(self)
+
+    @cached_property
+    def qbd(self) -> QbdResource:
+        from .resources.qbd import QbdResource
+
+        return QbdResource(self)
+
+    @cached_property
+    def with_raw_response(self) -> ConductorWithRawResponse:
+        return ConductorWithRawResponse(self)
+
+    @cached_property
+    def with_streaming_response(self) -> ConductorWithStreamedResponse:
+        return ConductorWithStreamedResponse(self)
 
     @property
     @override
@@ -216,12 +235,6 @@ class Conductor(SyncAPIClient):
 
 
 class AsyncConductor(AsyncAPIClient):
-    auth_sessions: auth_sessions.AsyncAuthSessionsResource
-    end_users: end_users.AsyncEndUsersResource
-    qbd: qbd.AsyncQbdResource
-    with_raw_response: AsyncConductorWithRawResponse
-    with_streaming_response: AsyncConductorWithStreamedResponse
-
     # client options
     api_key: str
 
@@ -276,11 +289,31 @@ class AsyncConductor(AsyncAPIClient):
             _strict_response_validation=_strict_response_validation,
         )
 
-        self.auth_sessions = auth_sessions.AsyncAuthSessionsResource(self)
-        self.end_users = end_users.AsyncEndUsersResource(self)
-        self.qbd = qbd.AsyncQbdResource(self)
-        self.with_raw_response = AsyncConductorWithRawResponse(self)
-        self.with_streaming_response = AsyncConductorWithStreamedResponse(self)
+    @cached_property
+    def auth_sessions(self) -> AsyncAuthSessionsResource:
+        from .resources.auth_sessions import AsyncAuthSessionsResource
+
+        return AsyncAuthSessionsResource(self)
+
+    @cached_property
+    def end_users(self) -> AsyncEndUsersResource:
+        from .resources.end_users import AsyncEndUsersResource
+
+        return AsyncEndUsersResource(self)
+
+    @cached_property
+    def qbd(self) -> AsyncQbdResource:
+        from .resources.qbd import AsyncQbdResource
+
+        return AsyncQbdResource(self)
+
+    @cached_property
+    def with_raw_response(self) -> AsyncConductorWithRawResponse:
+        return AsyncConductorWithRawResponse(self)
+
+    @cached_property
+    def with_streaming_response(self) -> AsyncConductorWithStreamedResponse:
+        return AsyncConductorWithStreamedResponse(self)
 
     @property
     @override
@@ -388,31 +421,103 @@ class AsyncConductor(AsyncAPIClient):
 
 
 class ConductorWithRawResponse:
+    _client: Conductor
+
     def __init__(self, client: Conductor) -> None:
-        self.auth_sessions = auth_sessions.AuthSessionsResourceWithRawResponse(client.auth_sessions)
-        self.end_users = end_users.EndUsersResourceWithRawResponse(client.end_users)
-        self.qbd = qbd.QbdResourceWithRawResponse(client.qbd)
+        self._client = client
+
+    @cached_property
+    def auth_sessions(self) -> auth_sessions.AuthSessionsResourceWithRawResponse:
+        from .resources.auth_sessions import AuthSessionsResourceWithRawResponse
+
+        return AuthSessionsResourceWithRawResponse(self._client.auth_sessions)
+
+    @cached_property
+    def end_users(self) -> end_users.EndUsersResourceWithRawResponse:
+        from .resources.end_users import EndUsersResourceWithRawResponse
+
+        return EndUsersResourceWithRawResponse(self._client.end_users)
+
+    @cached_property
+    def qbd(self) -> qbd.QbdResourceWithRawResponse:
+        from .resources.qbd import QbdResourceWithRawResponse
+
+        return QbdResourceWithRawResponse(self._client.qbd)
 
 
 class AsyncConductorWithRawResponse:
+    _client: AsyncConductor
+
     def __init__(self, client: AsyncConductor) -> None:
-        self.auth_sessions = auth_sessions.AsyncAuthSessionsResourceWithRawResponse(client.auth_sessions)
-        self.end_users = end_users.AsyncEndUsersResourceWithRawResponse(client.end_users)
-        self.qbd = qbd.AsyncQbdResourceWithRawResponse(client.qbd)
+        self._client = client
+
+    @cached_property
+    def auth_sessions(self) -> auth_sessions.AsyncAuthSessionsResourceWithRawResponse:
+        from .resources.auth_sessions import AsyncAuthSessionsResourceWithRawResponse
+
+        return AsyncAuthSessionsResourceWithRawResponse(self._client.auth_sessions)
+
+    @cached_property
+    def end_users(self) -> end_users.AsyncEndUsersResourceWithRawResponse:
+        from .resources.end_users import AsyncEndUsersResourceWithRawResponse
+
+        return AsyncEndUsersResourceWithRawResponse(self._client.end_users)
+
+    @cached_property
+    def qbd(self) -> qbd.AsyncQbdResourceWithRawResponse:
+        from .resources.qbd import AsyncQbdResourceWithRawResponse
+
+        return AsyncQbdResourceWithRawResponse(self._client.qbd)
 
 
 class ConductorWithStreamedResponse:
+    _client: Conductor
+
     def __init__(self, client: Conductor) -> None:
-        self.auth_sessions = auth_sessions.AuthSessionsResourceWithStreamingResponse(client.auth_sessions)
-        self.end_users = end_users.EndUsersResourceWithStreamingResponse(client.end_users)
-        self.qbd = qbd.QbdResourceWithStreamingResponse(client.qbd)
+        self._client = client
+
+    @cached_property
+    def auth_sessions(self) -> auth_sessions.AuthSessionsResourceWithStreamingResponse:
+        from .resources.auth_sessions import AuthSessionsResourceWithStreamingResponse
+
+        return AuthSessionsResourceWithStreamingResponse(self._client.auth_sessions)
+
+    @cached_property
+    def end_users(self) -> end_users.EndUsersResourceWithStreamingResponse:
+        from .resources.end_users import EndUsersResourceWithStreamingResponse
+
+        return EndUsersResourceWithStreamingResponse(self._client.end_users)
+
+    @cached_property
+    def qbd(self) -> qbd.QbdResourceWithStreamingResponse:
+        from .resources.qbd import QbdResourceWithStreamingResponse
+
+        return QbdResourceWithStreamingResponse(self._client.qbd)
 
 
 class AsyncConductorWithStreamedResponse:
+    _client: AsyncConductor
+
     def __init__(self, client: AsyncConductor) -> None:
-        self.auth_sessions = auth_sessions.AsyncAuthSessionsResourceWithStreamingResponse(client.auth_sessions)
-        self.end_users = end_users.AsyncEndUsersResourceWithStreamingResponse(client.end_users)
-        self.qbd = qbd.AsyncQbdResourceWithStreamingResponse(client.qbd)
+        self._client = client
+
+    @cached_property
+    def auth_sessions(self) -> auth_sessions.AsyncAuthSessionsResourceWithStreamingResponse:
+        from .resources.auth_sessions import AsyncAuthSessionsResourceWithStreamingResponse
+
+        return AsyncAuthSessionsResourceWithStreamingResponse(self._client.auth_sessions)
+
+    @cached_property
+    def end_users(self) -> end_users.AsyncEndUsersResourceWithStreamingResponse:
+        from .resources.end_users import AsyncEndUsersResourceWithStreamingResponse
+
+        return AsyncEndUsersResourceWithStreamingResponse(self._client.end_users)
+
+    @cached_property
+    def qbd(self) -> qbd.AsyncQbdResourceWithStreamingResponse:
+        from .resources.qbd import AsyncQbdResourceWithStreamingResponse
+
+        return AsyncQbdResourceWithStreamingResponse(self._client.qbd)
 
 
 Client = Conductor
