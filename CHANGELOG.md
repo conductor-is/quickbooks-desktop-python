@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.67.1 (2025-12-19)
+
+Full Changelog: [v1.67.0...v1.67.1](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.67.0...v1.67.1)
+
+### Bug Fixes
+
+* use async_to_httpx_files in patch method ([5c56f84](https://github.com/conductor-is/quickbooks-desktop-python/commit/5c56f84cf59bf52ddc328543e9bad441835d0fc7))
+
+
+### Chores
+
+* **internal:** add `--fix` argument to lint script ([5abda0b](https://github.com/conductor-is/quickbooks-desktop-python/commit/5abda0b19a6fecd21d943a5a716478863f95984d))
+
 ## 1.67.0 (2025-12-17)
 
 Full Changelog: [v1.66.0...v1.67.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.66.0...v1.67.0)
