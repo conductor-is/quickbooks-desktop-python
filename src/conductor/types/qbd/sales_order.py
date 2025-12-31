@@ -1270,7 +1270,7 @@ class SalesOrder(BaseModel):
     For user-defined currencies, all values are editable.
     """
 
-    customer: Customer
+    customer: Optional[Customer] = None
     """The customer or customer-job associated with this sales order."""
 
     customer_message: Optional[CustomerMessage] = FieldInfo(alias="customerMessage", default=None)
