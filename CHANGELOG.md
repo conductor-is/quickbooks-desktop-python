@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.69.0 (2026-01-07)
+
+Full Changelog: [v1.68.0...v1.69.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.68.0...v1.69.0)
+
+### Features
+
+* **api:** api update ([8985abb](https://github.com/conductor-is/quickbooks-desktop-python/commit/8985abb395cd250246644ca12c9f0420be1d5002))
+* **api:** api update ([e8ba81a](https://github.com/conductor-is/quickbooks-desktop-python/commit/e8ba81a5459dea11f3a0feb7291aba3513b55dd2))
+
+
+### Documentation
+
+* prominently feature MCP server setup in root SDK readmes ([9fbf48c](https://github.com/conductor-is/quickbooks-desktop-python/commit/9fbf48cfc4a4b6b689a6fe75550dc9812d8d1c7c))
+
 ## 1.68.0 (2025-12-31)
 
 Full Changelog: [v1.67.1...v1.68.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.67.1...v1.68.0)
