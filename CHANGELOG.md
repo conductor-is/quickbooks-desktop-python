@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.70.0 (2026-01-17)
+
+Full Changelog: [v1.69.0...v1.70.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.69.0...v1.70.0)
+
+### Features
+
+* **client:** add support for binary request streaming ([54ec4fb](https://github.com/conductor-is/quickbooks-desktop-python/commit/54ec4fb072acf9e71b6a04a922cf7720c7cb4218))
+
+
+### Chores
+
+* **internal:** update `actions/checkout` version ([0fa126a](https://github.com/conductor-is/quickbooks-desktop-python/commit/0fa126aabba19316145caddd7db99bdabfc2f40f))
+
 ## 1.69.0 (2026-01-07)
 
 Full Changelog: [v1.68.0...v1.69.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.68.0...v1.69.0)
