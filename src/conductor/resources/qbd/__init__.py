@@ -312,6 +312,14 @@ from .receive_payments import (
     ReceivePaymentsResourceWithStreamingResponse,
     AsyncReceivePaymentsResourceWithStreamingResponse,
 )
+from .shipping_methods import (
+    ShippingMethodsResource,
+    AsyncShippingMethodsResource,
+    ShippingMethodsResourceWithRawResponse,
+    AsyncShippingMethodsResourceWithRawResponse,
+    ShippingMethodsResourceWithStreamingResponse,
+    AsyncShippingMethodsResourceWithStreamingResponse,
+)
 from .account_tax_lines import (
     AccountTaxLinesResource,
     AsyncAccountTaxLinesResource,
@@ -726,6 +734,12 @@ __all__ = [
     "AsyncServiceItemsResourceWithRawResponse",
     "ServiceItemsResourceWithStreamingResponse",
     "AsyncServiceItemsResourceWithStreamingResponse",
+    "ShippingMethodsResource",
+    "AsyncShippingMethodsResource",
+    "ShippingMethodsResourceWithRawResponse",
+    "AsyncShippingMethodsResourceWithRawResponse",
+    "ShippingMethodsResourceWithStreamingResponse",
+    "AsyncShippingMethodsResourceWithStreamingResponse",
     "StandardTermsResource",
     "AsyncStandardTermsResource",
     "StandardTermsResourceWithRawResponse",

@@ -318,6 +318,14 @@ from .receive_payments import (
     ReceivePaymentsResourceWithStreamingResponse,
     AsyncReceivePaymentsResourceWithStreamingResponse,
 )
+from .shipping_methods import (
+    ShippingMethodsResource,
+    AsyncShippingMethodsResource,
+    ShippingMethodsResourceWithRawResponse,
+    AsyncShippingMethodsResourceWithRawResponse,
+    ShippingMethodsResourceWithStreamingResponse,
+    AsyncShippingMethodsResourceWithStreamingResponse,
+)
 from .account_tax_lines import (
     AccountTaxLinesResource,
     AsyncAccountTaxLinesResource,
@@ -645,6 +653,10 @@ class QbdResource(SyncAPIResource):
         return ServiceItemsResource(self._client)
 
     @cached_property
+    def shipping_methods(self) -> ShippingMethodsResource:
+        return ShippingMethodsResource(self._client)
+
+    @cached_property
     def standard_terms(self) -> StandardTermsResource:
         return StandardTermsResource(self._client)
 
@@ -923,6 +935,10 @@ class AsyncQbdResource(AsyncAPIResource):
     @cached_property
     def service_items(self) -> AsyncServiceItemsResource:
         return AsyncServiceItemsResource(self._client)
+
+    @cached_property
+    def shipping_methods(self) -> AsyncShippingMethodsResource:
+        return AsyncShippingMethodsResource(self._client)
 
     @cached_property
     def standard_terms(self) -> AsyncStandardTermsResource:
@@ -1212,6 +1228,10 @@ class QbdResourceWithRawResponse:
         return ServiceItemsResourceWithRawResponse(self._qbd.service_items)
 
     @cached_property
+    def shipping_methods(self) -> ShippingMethodsResourceWithRawResponse:
+        return ShippingMethodsResourceWithRawResponse(self._qbd.shipping_methods)
+
+    @cached_property
     def standard_terms(self) -> StandardTermsResourceWithRawResponse:
         return StandardTermsResourceWithRawResponse(self._qbd.standard_terms)
 
@@ -1439,6 +1459,10 @@ class AsyncQbdResourceWithRawResponse:
     @cached_property
     def service_items(self) -> AsyncServiceItemsResourceWithRawResponse:
         return AsyncServiceItemsResourceWithRawResponse(self._qbd.service_items)
+
+    @cached_property
+    def shipping_methods(self) -> AsyncShippingMethodsResourceWithRawResponse:
+        return AsyncShippingMethodsResourceWithRawResponse(self._qbd.shipping_methods)
 
     @cached_property
     def standard_terms(self) -> AsyncStandardTermsResourceWithRawResponse:
@@ -1670,6 +1694,10 @@ class QbdResourceWithStreamingResponse:
         return ServiceItemsResourceWithStreamingResponse(self._qbd.service_items)
 
     @cached_property
+    def shipping_methods(self) -> ShippingMethodsResourceWithStreamingResponse:
+        return ShippingMethodsResourceWithStreamingResponse(self._qbd.shipping_methods)
+
+    @cached_property
     def standard_terms(self) -> StandardTermsResourceWithStreamingResponse:
         return StandardTermsResourceWithStreamingResponse(self._qbd.standard_terms)
 
@@ -1897,6 +1925,10 @@ class AsyncQbdResourceWithStreamingResponse:
     @cached_property
     def service_items(self) -> AsyncServiceItemsResourceWithStreamingResponse:
         return AsyncServiceItemsResourceWithStreamingResponse(self._qbd.service_items)
+
+    @cached_property
+    def shipping_methods(self) -> AsyncShippingMethodsResourceWithStreamingResponse:
+        return AsyncShippingMethodsResourceWithStreamingResponse(self._qbd.shipping_methods)
 
     @cached_property
     def standard_terms(self) -> AsyncStandardTermsResourceWithStreamingResponse:
