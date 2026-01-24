@@ -40,6 +40,7 @@ from .purchase_order import PurchaseOrder as PurchaseOrder
 from .sales_tax_code import SalesTaxCode as SalesTaxCode
 from .sales_tax_item import SalesTaxItem as SalesTaxItem
 from .receive_payment import ReceivePayment as ReceivePayment
+from .shipping_method import ShippingMethod as ShippingMethod
 from .account_tax_line import AccountTaxLine as AccountTaxLine
 from .bill_list_params import BillListParams as BillListParams
 from .date_driven_term import DateDrivenTerm as DateDrivenTerm
@@ -149,6 +150,7 @@ from .receive_payment_list_params import ReceivePaymentListParams as ReceivePaym
 from .sales_order_delete_response import SalesOrderDeleteResponse as SalesOrderDeleteResponse
 from .sales_receipt_create_params import SalesReceiptCreateParams as SalesReceiptCreateParams
 from .sales_receipt_update_params import SalesReceiptUpdateParams as SalesReceiptUpdateParams
+from .shipping_method_list_params import ShippingMethodListParams as ShippingMethodListParams
 from .standard_term_create_params import StandardTermCreateParams as StandardTermCreateParams
 from .standard_term_list_response import StandardTermListResponse as StandardTermListResponse
 from .subtotal_item_create_params import SubtotalItemCreateParams as SubtotalItemCreateParams
@@ -179,6 +181,8 @@ from .payroll_wage_item_list_params import PayrollWageItemListParams as PayrollW
 from .receive_payment_create_params import ReceivePaymentCreateParams as ReceivePaymentCreateParams
 from .receive_payment_update_params import ReceivePaymentUpdateParams as ReceivePaymentUpdateParams
 from .sales_receipt_delete_response import SalesReceiptDeleteResponse as SalesReceiptDeleteResponse
+from .shipping_method_create_params import ShippingMethodCreateParams as ShippingMethodCreateParams
+from .shipping_method_list_response import ShippingMethodListResponse as ShippingMethodListResponse
 from .vendor_credit_delete_response import VendorCreditDeleteResponse as VendorCreditDeleteResponse
 from .account_tax_line_list_response import AccountTaxLineListResponse as AccountTaxLineListResponse
 from .bill_check_payment_list_params import BillCheckPaymentListParams as BillCheckPaymentListParams

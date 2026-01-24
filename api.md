@@ -732,6 +732,20 @@ Methods:
 - <code title="post /quickbooks-desktop/service-items/{id}">conductor.qbd.service_items.<a href="./src/conductor/resources/qbd/service_items.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/service_item_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/service_item.py">ServiceItem</a></code>
 - <code title="get /quickbooks-desktop/service-items">conductor.qbd.service_items.<a href="./src/conductor/resources/qbd/service_items.py">list</a>(\*\*<a href="src/conductor/types/qbd/service_item_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/service_item.py">SyncCursorPage[ServiceItem]</a></code>
 
+## ShippingMethods
+
+Types:
+
+```python
+from conductor.types.qbd import ShippingMethod, ShippingMethodListResponse
+```
+
+Methods:
+
+- <code title="post /quickbooks-desktop/shipping-methods">conductor.qbd.shipping_methods.<a href="./src/conductor/resources/qbd/shipping_methods.py">create</a>(\*\*<a href="src/conductor/types/qbd/shipping_method_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/shipping_method.py">ShippingMethod</a></code>
+- <code title="get /quickbooks-desktop/shipping-methods/{id}">conductor.qbd.shipping_methods.<a href="./src/conductor/resources/qbd/shipping_methods.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/shipping_method.py">ShippingMethod</a></code>
+- <code title="get /quickbooks-desktop/shipping-methods">conductor.qbd.shipping_methods.<a href="./src/conductor/resources/qbd/shipping_methods.py">list</a>(\*\*<a href="src/conductor/types/qbd/shipping_method_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/shipping_method_list_response.py">ShippingMethodListResponse</a></code>
+
 ## StandardTerms
 
 Types:
