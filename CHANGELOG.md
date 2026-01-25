@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.71.1 (2026-01-25)
+
+Full Changelog: [v1.71.0...v1.71.1](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.71.0...v1.71.1)
+
+### Chores
+
+* **ci:** upgrade `actions/github-script` ([5870ea5](https://github.com/conductor-is/quickbooks-desktop-python/commit/5870ea53567ad2b3485dd9d5437253422587f1d4))
+
 ## 1.71.0 (2026-01-24)
 
 Full Changelog: [v1.70.0...v1.71.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.70.0...v1.71.0)
