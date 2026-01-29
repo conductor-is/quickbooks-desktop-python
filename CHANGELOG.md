@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.72.1 (2026-01-29)
+
+Full Changelog: [v1.72.0...v1.72.1](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.72.0...v1.72.1)
+
+### Bug Fixes
+
+* **docs:** fix mcp installation instructions for remote servers ([d6dbf78](https://github.com/conductor-is/quickbooks-desktop-python/commit/d6dbf78b49fe2730b3c44f0c0bc032be5f2d900f))
+
 ## 1.72.0 (2026-01-27)
 
 Full Changelog: [v1.71.1...v1.72.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.71.1...v1.72.0)
