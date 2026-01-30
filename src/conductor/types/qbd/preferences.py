@@ -550,7 +550,7 @@ class SalesTax(BaseModel):
     If sales tax is turned off in the user interface (that is, if "No" is selected for "Do You Charge Sales Tax?" in the sales tax preferences), then this field will be `null`.
     """
 
-    default_item_sales_tax: SalesTaxDefaultItemSalesTax = FieldInfo(alias="defaultItemSalesTax")
+    default_item_sales_tax: Optional[SalesTaxDefaultItemSalesTax] = FieldInfo(alias="defaultItemSalesTax", default=None)
     """The default tax code for sales for this company file."""
 
     default_non_taxable_sales_tax_code: SalesTaxDefaultNonTaxableSalesTaxCode = FieldInfo(
