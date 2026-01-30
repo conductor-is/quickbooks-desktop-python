@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.73.0 (2026-01-30)
+
+Full Changelog: [v1.72.0...v1.73.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.72.0...v1.73.0)
+
+### Features
+
+* **api:** api update ([7009ef2](https://github.com/conductor-is/quickbooks-desktop-python/commit/7009ef21ef4db613c13ba51adac12e23b912b1c7))
+* **client:** add custom JSON encoder for extended type support ([4626598](https://github.com/conductor-is/quickbooks-desktop-python/commit/462659881f36232051e2d3b247df04dbdb57e5d0))
+
+
+### Bug Fixes
+
+* **docs:** fix mcp installation instructions for remote servers ([d6dbf78](https://github.com/conductor-is/quickbooks-desktop-python/commit/d6dbf78b49fe2730b3c44f0c0bc032be5f2d900f))
+
 ## 1.72.0 (2026-01-27)
 
 Full Changelog: [v1.71.1...v1.72.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.71.1...v1.72.0)
