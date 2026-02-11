@@ -13,7 +13,7 @@ __all__ = ["Account", "Currency", "CustomField", "Parent", "SalesTaxCode", "TaxL
 class Currency(BaseModel):
     """The account's currency.
 
-    For built-in currencies, the name and code are standard international values. For user-defined currencies, all values are editable.
+    For built-in currencies, the name and code are standard ISO 4217 international values. For user-defined currencies, all values are editable.
     """
 
     id: Optional[str] = None
@@ -206,8 +206,8 @@ class Account(BaseModel):
     currency: Optional[Currency] = None
     """The account's currency.
 
-    For built-in currencies, the name and code are standard international values.
-    For user-defined currencies, all values are editable.
+    For built-in currencies, the name and code are standard ISO 4217 international
+    values. For user-defined currencies, all values are editable.
     """
 
     custom_fields: List[CustomField] = FieldInfo(alias="customFields")
