@@ -194,7 +194,7 @@ class Class(BaseModel):
 class Currency(BaseModel):
     """The vendor's currency.
 
-    For built-in currencies, the name and code are standard international values. For user-defined currencies, all values are editable.
+    For built-in currencies, the name and code are standard ISO 4217 international values. For user-defined currencies, all values are editable.
     """
 
     id: Optional[str] = None
@@ -517,8 +517,8 @@ class Vendor(BaseModel):
     currency: Optional[Currency] = None
     """The vendor's currency.
 
-    For built-in currencies, the name and code are standard international values.
-    For user-defined currencies, all values are editable.
+    For built-in currencies, the name and code are standard ISO 4217 international
+    values. For user-defined currencies, all values are editable.
     """
 
     custom_contact_fields: List[CustomContactField] = FieldInfo(alias="customContactFields")

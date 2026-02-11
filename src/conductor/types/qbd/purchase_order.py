@@ -70,7 +70,7 @@ class Class(BaseModel):
 class Currency(BaseModel):
     """The purchase order's currency.
 
-    For built-in currencies, the name and code are standard international values. For user-defined currencies, all values are editable.
+    For built-in currencies, the name and code are standard ISO 4217 international values. For user-defined currencies, all values are editable.
     """
 
     id: Optional[str] = None
@@ -1233,8 +1233,8 @@ class PurchaseOrder(BaseModel):
     currency: Optional[Currency] = None
     """The purchase order's currency.
 
-    For built-in currencies, the name and code are standard international values.
-    For user-defined currencies, all values are editable.
+    For built-in currencies, the name and code are standard ISO 4217 international
+    values. For user-defined currencies, all values are editable.
     """
 
     custom_fields: List[CustomField] = FieldInfo(alias="customFields")

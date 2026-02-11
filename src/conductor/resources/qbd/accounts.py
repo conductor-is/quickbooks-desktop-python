@@ -120,7 +120,8 @@ class AccountsResource(SyncAPIResource):
               field may be restricted based on permissions.
 
           currency_id: The account's currency. For built-in currencies, the name and code are standard
-              international values. For user-defined currencies, all values are editable.
+              ISO 4217 international values. For user-defined currencies, all values are
+              editable.
 
           description: A description of this account.
 
@@ -305,7 +306,8 @@ class AccountsResource(SyncAPIResource):
               field may be restricted based on permissions.
 
           currency_id: The account's currency. For built-in currencies, the name and code are standard
-              international values. For user-defined currencies, all values are editable.
+              ISO 4217 international values. For user-defined currencies, all values are
+              editable.
 
           description: A description of this account.
 
@@ -646,7 +648,8 @@ class AsyncAccountsResource(AsyncAPIResource):
               field may be restricted based on permissions.
 
           currency_id: The account's currency. For built-in currencies, the name and code are standard
-              international values. For user-defined currencies, all values are editable.
+              ISO 4217 international values. For user-defined currencies, all values are
+              editable.
 
           description: A description of this account.
 
@@ -831,7 +834,8 @@ class AsyncAccountsResource(AsyncAPIResource):
               field may be restricted based on permissions.
 
           currency_id: The account's currency. For built-in currencies, the name and code are standard
-              international values. For user-defined currencies, all values are editable.
+              ISO 4217 international values. For user-defined currencies, all values are
+              editable.
 
           description: A description of this account.
 

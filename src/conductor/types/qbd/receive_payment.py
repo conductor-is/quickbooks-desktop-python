@@ -369,7 +369,7 @@ class CreditCardTransaction(BaseModel):
 class Currency(BaseModel):
     """The receive-payment's currency.
 
-    For built-in currencies, the name and code are standard international values. For user-defined currencies, all values are editable.
+    For built-in currencies, the name and code are standard ISO 4217 international values. For user-defined currencies, all values are editable.
     """
 
     id: Optional[str] = None
@@ -530,8 +530,8 @@ class ReceivePayment(BaseModel):
     currency: Optional[Currency] = None
     """The receive-payment's currency.
 
-    For built-in currencies, the name and code are standard international values.
-    For user-defined currencies, all values are editable.
+    For built-in currencies, the name and code are standard ISO 4217 international
+    values. For user-defined currencies, all values are editable.
     """
 
     customer: Optional[Customer] = None

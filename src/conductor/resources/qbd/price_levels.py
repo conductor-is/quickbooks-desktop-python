@@ -77,8 +77,8 @@ class PriceLevelsResource(SyncAPIResource):
           conductor_end_user_id: The ID of the End-User to receive this request.
 
           currency_id: The price level's currency. For built-in currencies, the name and code are
-              standard international values. For user-defined currencies, all values are
-              editable.
+              standard ISO 4217 international values. For user-defined currencies, all values
+              are editable.
 
           fixed_percentage: The fixed percentage adjustment applied to all items for this price level
               (instead of a per-item price level). Once you create the price level, you cannot
@@ -197,8 +197,8 @@ class PriceLevelsResource(SyncAPIResource):
           conductor_end_user_id: The ID of the End-User to receive this request.
 
           currency_id: The price level's currency. For built-in currencies, the name and code are
-              standard international values. For user-defined currencies, all values are
-              editable.
+              standard ISO 4217 international values. For user-defined currencies, all values
+              are editable.
 
           fixed_percentage: The fixed percentage adjustment applied to all items for this price level
               (instead of a per-item price level). Once you create the price level, you cannot
@@ -457,8 +457,8 @@ class AsyncPriceLevelsResource(AsyncAPIResource):
           conductor_end_user_id: The ID of the End-User to receive this request.
 
           currency_id: The price level's currency. For built-in currencies, the name and code are
-              standard international values. For user-defined currencies, all values are
-              editable.
+              standard ISO 4217 international values. For user-defined currencies, all values
+              are editable.
 
           fixed_percentage: The fixed percentage adjustment applied to all items for this price level
               (instead of a per-item price level). Once you create the price level, you cannot
@@ -577,8 +577,8 @@ class AsyncPriceLevelsResource(AsyncAPIResource):
           conductor_end_user_id: The ID of the End-User to receive this request.
 
           currency_id: The price level's currency. For built-in currencies, the name and code are
-              standard international values. For user-defined currencies, all values are
-              editable.
+              standard ISO 4217 international values. For user-defined currencies, all values
+              are editable.
 
           fixed_percentage: The fixed percentage adjustment applied to all items for this price level
               (instead of a per-item price level). Once you create the price level, you cannot

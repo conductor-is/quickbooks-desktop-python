@@ -13,7 +13,7 @@ __all__ = ["PriceLevel", "Currency", "PerItemPriceLevel", "PerItemPriceLevelItem
 class Currency(BaseModel):
     """The price level's currency.
 
-    For built-in currencies, the name and code are standard international values. For user-defined currencies, all values are editable.
+    For built-in currencies, the name and code are standard ISO 4217 international values. For user-defined currencies, all values are editable.
     """
 
     id: Optional[str] = None
@@ -94,8 +94,8 @@ class PriceLevel(BaseModel):
     currency: Optional[Currency] = None
     """The price level's currency.
 
-    For built-in currencies, the name and code are standard international values.
-    For user-defined currencies, all values are editable.
+    For built-in currencies, the name and code are standard ISO 4217 international
+    values. For user-defined currencies, all values are editable.
     """
 
     fixed_percentage: Optional[str] = FieldInfo(alias="fixedPercentage", default=None)

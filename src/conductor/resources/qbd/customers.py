@@ -158,7 +158,8 @@ class CustomersResource(SyncAPIResource):
               there is no credit limit.
 
           currency_id: The customer's currency. For built-in currencies, the name and code are standard
-              international values. For user-defined currencies, all values are editable.
+              ISO 4217 international values. For user-defined currencies, all values are
+              editable.
 
           custom_contact_fields: Additional custom contact fields for this customer, such as phone numbers or
               email addresses.
@@ -494,7 +495,8 @@ class CustomersResource(SyncAPIResource):
               there is no credit limit.
 
           currency_id: The customer's currency. For built-in currencies, the name and code are standard
-              international values. For user-defined currencies, all values are editable.
+              ISO 4217 international values. For user-defined currencies, all values are
+              editable.
 
           custom_contact_fields: Additional custom contact fields for this customer, such as phone numbers or
               email addresses.
@@ -989,7 +991,8 @@ class AsyncCustomersResource(AsyncAPIResource):
               there is no credit limit.
 
           currency_id: The customer's currency. For built-in currencies, the name and code are standard
-              international values. For user-defined currencies, all values are editable.
+              ISO 4217 international values. For user-defined currencies, all values are
+              editable.
 
           custom_contact_fields: Additional custom contact fields for this customer, such as phone numbers or
               email addresses.
@@ -1325,7 +1328,8 @@ class AsyncCustomersResource(AsyncAPIResource):
               there is no credit limit.
 
           currency_id: The customer's currency. For built-in currencies, the name and code are standard
-              international values. For user-defined currencies, all values are editable.
+              ISO 4217 international values. For user-defined currencies, all values are
+              editable.
 
           custom_contact_fields: Additional custom contact fields for this customer, such as phone numbers or
               email addresses.

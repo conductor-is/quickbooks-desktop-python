@@ -86,8 +86,8 @@ class JournalEntriesResource(SyncAPIResource):
           credit_lines: The journal entry's credit lines.
 
           currency_id: The journal entry's currency. For built-in currencies, the name and code are
-              standard international values. For user-defined currencies, all values are
-              editable.
+              standard ISO 4217 international values. For user-defined currencies, all values
+              are editable.
 
           debit_lines: The journal entry's debit lines.
 
@@ -231,8 +231,8 @@ class JournalEntriesResource(SyncAPIResource):
               in the home currency regardless of the `currency` field.
 
           currency_id: The journal entry's currency. For built-in currencies, the name and code are
-              standard international values. For user-defined currencies, all values are
-              editable.
+              standard ISO 4217 international values. For user-defined currencies, all values
+              are editable.
 
           exchange_rate: The market exchange rate between this journal entry's currency and the home
               currency in QuickBooks at the time of this transaction. Represented as a decimal
@@ -570,8 +570,8 @@ class AsyncJournalEntriesResource(AsyncAPIResource):
           credit_lines: The journal entry's credit lines.
 
           currency_id: The journal entry's currency. For built-in currencies, the name and code are
-              standard international values. For user-defined currencies, all values are
-              editable.
+              standard ISO 4217 international values. For user-defined currencies, all values
+              are editable.
 
           debit_lines: The journal entry's debit lines.
 
@@ -715,8 +715,8 @@ class AsyncJournalEntriesResource(AsyncAPIResource):
               in the home currency regardless of the `currency` field.
 
           currency_id: The journal entry's currency. For built-in currencies, the name and code are
-              standard international values. For user-defined currencies, all values are
-              editable.
+              standard ISO 4217 international values. For user-defined currencies, all values
+              are editable.
 
           exchange_rate: The market exchange rate between this journal entry's currency and the home
               currency in QuickBooks at the time of this transaction. Represented as a decimal
