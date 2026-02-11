@@ -32,7 +32,7 @@ class Account(BaseModel):
 class Currency(BaseModel):
     """The transaction's currency.
 
-    For built-in currencies, the name and code are standard international values. For user-defined currencies, all values are editable.
+    For built-in currencies, the name and code are standard ISO 4217 international values. For user-defined currencies, all values are editable.
     """
 
     id: Optional[str] = None
@@ -93,8 +93,8 @@ class Transaction(BaseModel):
     currency: Optional[Currency] = None
     """The transaction's currency.
 
-    For built-in currencies, the name and code are standard international values.
-    For user-defined currencies, all values are editable.
+    For built-in currencies, the name and code are standard ISO 4217 international
+    values. For user-defined currencies, all values are editable.
     """
 
     entity: Optional[Entity] = None
