@@ -1,5 +1,27 @@
 # Changelog
 
+## 1.73.0 (2026-02-13)
+
+Full Changelog: [v1.72.0...v1.73.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.72.0...v1.73.0)
+
+### Features
+
+* **api:** api update ([6782d01](https://github.com/conductor-is/quickbooks-desktop-python/commit/6782d01642d41d4577799c3beec0b77a0a765eb5))
+* **api:** api update ([7009ef2](https://github.com/conductor-is/quickbooks-desktop-python/commit/7009ef21ef4db613c13ba51adac12e23b912b1c7))
+* **client:** add custom JSON encoder for extended type support ([4626598](https://github.com/conductor-is/quickbooks-desktop-python/commit/462659881f36232051e2d3b247df04dbdb57e5d0))
+
+
+### Bug Fixes
+
+* **docs:** fix mcp installation instructions for remote servers ([d6dbf78](https://github.com/conductor-is/quickbooks-desktop-python/commit/d6dbf78b49fe2730b3c44f0c0bc032be5f2d900f))
+
+
+### Chores
+
+* format all `api.md` files ([842694b](https://github.com/conductor-is/quickbooks-desktop-python/commit/842694bcb740f8d97558b9975f81fcbae02fca12))
+* **internal:** bump dependencies ([210256e](https://github.com/conductor-is/quickbooks-desktop-python/commit/210256e7a330aad0685ab0adfb441f958b00027e))
+* **internal:** fix lint error on Python 3.14 ([1d6103c](https://github.com/conductor-is/quickbooks-desktop-python/commit/1d6103c5535d889b1412ea65e9a591b918e8255f))
+
 ## 1.72.0 (2026-01-27)
 
 Full Changelog: [v1.71.1...v1.72.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.71.1...v1.72.0)
