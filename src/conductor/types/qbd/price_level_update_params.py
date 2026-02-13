@@ -25,8 +25,8 @@ class PriceLevelUpdateParams(TypedDict, total=False):
     currency_id: Annotated[str, PropertyInfo(alias="currencyId")]
     """The price level's currency.
 
-    For built-in currencies, the name and code are standard international values.
-    For user-defined currencies, all values are editable.
+    For built-in currencies, the name and code are standard ISO 4217 international
+    values. For user-defined currencies, all values are editable.
     """
 
     fixed_percentage: Annotated[str, PropertyInfo(alias="fixedPercentage")]

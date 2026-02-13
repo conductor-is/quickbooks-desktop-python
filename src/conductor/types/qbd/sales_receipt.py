@@ -277,7 +277,7 @@ class CreditCardTransaction(BaseModel):
 class Currency(BaseModel):
     """The sales receipt's currency.
 
-    For built-in currencies, the name and code are standard international values. For user-defined currencies, all values are editable.
+    For built-in currencies, the name and code are standard ISO 4217 international values. For user-defined currencies, all values are editable.
     """
 
     id: Optional[str] = None
@@ -1719,8 +1719,8 @@ class SalesReceipt(BaseModel):
     currency: Optional[Currency] = None
     """The sales receipt's currency.
 
-    For built-in currencies, the name and code are standard international values.
-    For user-defined currencies, all values are editable.
+    For built-in currencies, the name and code are standard ISO 4217 international
+    values. For user-defined currencies, all values are editable.
     """
 
     customer: Optional[Customer] = None
