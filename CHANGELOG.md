@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.74.0 (2026-02-28)
+
+Full Changelog: [v1.73.0...v1.74.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.73.0...v1.74.0)
+
+### Features
+
+* **api:** api update ([062c20d](https://github.com/conductor-is/quickbooks-desktop-python/commit/062c20d6d436fa09f93d3a7b93bc723d444d6a15))
+
+
+### Chores
+
+* **internal:** add request options to SSE classes ([0dea6c1](https://github.com/conductor-is/quickbooks-desktop-python/commit/0dea6c16d92d3cd4fb12f7633f2dbe76965fd054))
+* **internal:** make `test_proxy_environment_variables` more resilient ([c244a82](https://github.com/conductor-is/quickbooks-desktop-python/commit/c244a829702a3177d3a3266d44eafcdec298d071))
+* **internal:** make `test_proxy_environment_variables` more resilient to env ([e195b04](https://github.com/conductor-is/quickbooks-desktop-python/commit/e195b04cc9310c1bed33d27873e20728e2291e31))
+* update mock server docs ([257ec47](https://github.com/conductor-is/quickbooks-desktop-python/commit/257ec47354c3f35542023861a6bd9a6cc3614489))
+
 ## 1.73.0 (2026-02-13)
 
 Full Changelog: [v1.72.0...v1.73.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.72.0...v1.73.0)
