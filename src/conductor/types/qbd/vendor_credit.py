@@ -1427,5 +1427,5 @@ class VendorCredit(BaseModel):
     timezone of the end-user's computer.
     """
 
-    vendor: Vendor
+    vendor: Optional[Vendor] = None
     """The vendor who sent this vendor credit for goods or services purchased."""
