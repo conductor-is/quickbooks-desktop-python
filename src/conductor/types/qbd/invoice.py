@@ -1305,7 +1305,7 @@ class Invoice(BaseModel):
     values. For user-defined currencies, all values are editable.
     """
 
-    customer: Customer
+    customer: Optional[Customer] = None
     """The customer or customer-job associated with this invoice."""
 
     customer_message: Optional[CustomerMessage] = FieldInfo(alias="customerMessage", default=None)
