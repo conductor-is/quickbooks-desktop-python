@@ -9,7 +9,7 @@ import httpx
 
 from ..types import end_user_create_params, end_user_passthrough_params
 from .._types import Body, Query, Headers, NotGiven, not_given
-from .._utils import maybe_transform, async_maybe_transform
+from .._utils import path_template, maybe_transform, async_maybe_transform
 from .._compat import cached_property
 from .._resource import SyncAPIResource, AsyncAPIResource
 from .._response import (
@@ -125,7 +125,7 @@ class EndUsersResource(SyncAPIResource):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return self._get(
-            f"/end-users/{id}",
+            path_template("/end-users/{id}", id=id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -179,7 +179,7 @@ class EndUsersResource(SyncAPIResource):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return self._delete(
-            f"/end-users/{id}",
+            path_template("/end-users/{id}", id=id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -223,7 +223,7 @@ class EndUsersResource(SyncAPIResource):
         if not integration_slug:
             raise ValueError(f"Expected a non-empty value for `integration_slug` but received {integration_slug!r}")
         return self._post(
-            f"/end-users/{id}/passthrough/{integration_slug}",
+            path_template("/end-users/{id}/passthrough/{integration_slug}", id=id, integration_slug=integration_slug),
             body=maybe_transform(qbd_payload, end_user_passthrough_params.EndUserPassthroughParams),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
@@ -330,7 +330,7 @@ class AsyncEndUsersResource(AsyncAPIResource):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return await self._get(
-            f"/end-users/{id}",
+            path_template("/end-users/{id}", id=id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -384,7 +384,7 @@ class AsyncEndUsersResource(AsyncAPIResource):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return await self._delete(
-            f"/end-users/{id}",
+            path_template("/end-users/{id}", id=id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -428,7 +428,7 @@ class AsyncEndUsersResource(AsyncAPIResource):
         if not integration_slug:
             raise ValueError(f"Expected a non-empty value for `integration_slug` but received {integration_slug!r}")
         return await self._post(
-            f"/end-users/{id}/passthrough/{integration_slug}",
+            path_template("/end-users/{id}/passthrough/{integration_slug}", id=id, integration_slug=integration_slug),
             body=await async_maybe_transform(qbd_payload, end_user_passthrough_params.EndUserPassthroughParams),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout

@@ -9,7 +9,7 @@ from typing_extensions import Literal
 import httpx
 
 from ..._types import Body, Omit, Query, Headers, NotGiven, SequenceNotStr, omit, not_given
-from ..._utils import maybe_transform, async_maybe_transform
+from ..._utils import path_template, maybe_transform, async_maybe_transform
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._response import (
@@ -338,7 +338,7 @@ class InvoicesResource(SyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
         return self._get(
-            f"/quickbooks-desktop/invoices/{id}",
+            path_template("/quickbooks-desktop/invoices/{id}", id=id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -551,7 +551,7 @@ class InvoicesResource(SyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
         return self._post(
-            f"/quickbooks-desktop/invoices/{id}",
+            path_template("/quickbooks-desktop/invoices/{id}", id=id),
             body=maybe_transform(
                 {
                     "revision_number": revision_number,
@@ -812,7 +812,7 @@ class InvoicesResource(SyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
         return self._delete(
-            f"/quickbooks-desktop/invoices/{id}",
+            path_template("/quickbooks-desktop/invoices/{id}", id=id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -1131,7 +1131,7 @@ class AsyncInvoicesResource(AsyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
         return await self._get(
-            f"/quickbooks-desktop/invoices/{id}",
+            path_template("/quickbooks-desktop/invoices/{id}", id=id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -1344,7 +1344,7 @@ class AsyncInvoicesResource(AsyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
         return await self._post(
-            f"/quickbooks-desktop/invoices/{id}",
+            path_template("/quickbooks-desktop/invoices/{id}", id=id),
             body=await async_maybe_transform(
                 {
                     "revision_number": revision_number,
@@ -1605,7 +1605,7 @@ class AsyncInvoicesResource(AsyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
         return await self._delete(
-            f"/quickbooks-desktop/invoices/{id}",
+            path_template("/quickbooks-desktop/invoices/{id}", id=id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
