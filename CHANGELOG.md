@@ -1,5 +1,33 @@
 # Changelog
 
+## 1.75.0 (2026-03-20)
+
+Full Changelog: [v1.74.0...v1.75.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.74.0...v1.75.0)
+
+### Features
+
+* **api:** api update ([1f467f0](https://github.com/conductor-is/quickbooks-desktop-python/commit/1f467f0b6cf9fb662803bb3532352312c0aec940))
+* **api:** api update ([093758d](https://github.com/conductor-is/quickbooks-desktop-python/commit/093758dee53da8fd85a25d49277c3a4d6c0820ec))
+
+
+### Bug Fixes
+
+* **deps:** bump minimum typing-extensions version ([e6931fa](https://github.com/conductor-is/quickbooks-desktop-python/commit/e6931fa32bf2db15820802601dbfb9d2500021ae))
+* **pydantic:** do not pass `by_alias` unless set ([79ada9d](https://github.com/conductor-is/quickbooks-desktop-python/commit/79ada9d92b1ce70b434a2af3e510c6622ddfa339))
+* sanitize endpoint path params ([284af36](https://github.com/conductor-is/quickbooks-desktop-python/commit/284af36570f5867e80376cf4c8f7cac69404d832))
+
+
+### Chores
+
+* **ci:** skip uploading artifacts on stainless-internal branches ([f759a0f](https://github.com/conductor-is/quickbooks-desktop-python/commit/f759a0f9cb59c4642659bad07a32eea6207494e7))
+* **internal:** tweak CI branches ([a4ffd16](https://github.com/conductor-is/quickbooks-desktop-python/commit/a4ffd1621c99d8b8f86752b88505220969efd755))
+* **test:** do not count install time for mock server timeout ([ff231b7](https://github.com/conductor-is/quickbooks-desktop-python/commit/ff231b7fed40f3deb6a43592d45efa6a3b2bc84d))
+
+
+### Refactors
+
+* **tests:** switch from prism to steady ([5ae317a](https://github.com/conductor-is/quickbooks-desktop-python/commit/5ae317a01beadcdb6792a73c3efd7a7a7b1f2c36))
+
 ## 1.74.0 (2026-02-28)
 
 Full Changelog: [v1.73.0...v1.74.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.73.0...v1.74.0)
