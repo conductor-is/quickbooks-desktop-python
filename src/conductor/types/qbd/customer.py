@@ -141,7 +141,7 @@ class AlternateShippingAddress(BaseModel):
     line5: Optional[str] = None
     """The fifth line of the shipping address, if needed."""
 
-    name: str
+    name: Optional[str] = None
     """
     The case-insensitive unique name of this shipping address, unique across all
     shipping addresses.
