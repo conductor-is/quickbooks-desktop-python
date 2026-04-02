@@ -187,7 +187,7 @@ class SalesAndPurchaseDetails(BaseModel):
     expense_account: Optional[SalesAndPurchaseDetailsExpenseAccount] = FieldInfo(alias="expenseAccount", default=None)
     """The expense account used to track costs from purchases of this item."""
 
-    income_account: SalesAndPurchaseDetailsIncomeAccount = FieldInfo(alias="incomeAccount")
+    income_account: Optional[SalesAndPurchaseDetailsIncomeAccount] = FieldInfo(alias="incomeAccount", default=None)
     """The income account used to track revenue from sales of this item."""
 
     preferred_vendor: Optional[SalesAndPurchaseDetailsPreferredVendor] = FieldInfo(
