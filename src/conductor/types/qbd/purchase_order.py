@@ -619,6 +619,13 @@ class LineGroup(BaseModel):
     group.
     """
 
+    service_date: Optional[date] = FieldInfo(alias="serviceDate", default=None)
+    """
+    The date on which the service for this purchase order line group was or will be
+    performed, in ISO 8601 format (YYYY-MM-DD). This is particularly relevant for
+    service items.
+    """
+
     should_print_items_in_group: bool = FieldInfo(alias="shouldPrintItemsInGroup")
     """
     Indicates whether the individual items in this purchase order line group and
