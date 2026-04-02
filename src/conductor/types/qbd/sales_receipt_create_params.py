@@ -506,6 +506,13 @@ class LineGroup(TypedDict, total=False):
     group.
     """
 
+    service_date: Annotated[Union[str, date], PropertyInfo(alias="serviceDate", format="iso8601")]
+    """
+    The date on which the service for this sales receipt line group was or will be
+    performed, in ISO 8601 format (YYYY-MM-DD). This is particularly relevant for
+    service items.
+    """
+
     unit_of_measure: Annotated[str, PropertyInfo(alias="unitOfMeasure")]
     """The unit-of-measure used for the `quantity` in this sales receipt line group.
 

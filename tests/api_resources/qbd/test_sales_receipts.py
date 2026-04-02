@@ -101,6 +101,7 @@ class TestSalesReceipts:
                     "inventory_site_id": "80000001-1234567890",
                     "inventory_site_location_id": "80000001-1234567890",
                     "quantity": 5,
+                    "service_date": parse_date("2024-03-15"),
                     "unit_of_measure": "Each",
                 }
             ],
@@ -598,6 +599,7 @@ class TestAsyncSalesReceipts:
                     "inventory_site_id": "80000001-1234567890",
                     "inventory_site_location_id": "80000001-1234567890",
                     "quantity": 5,
+                    "service_date": parse_date("2024-03-15"),
                     "unit_of_measure": "Each",
                 }
             ],
