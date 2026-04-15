@@ -1,5 +1,34 @@
 # Changelog
 
+## 1.76.0 (2026-04-15)
+
+Full Changelog: [v1.75.0...v1.76.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.75.0...v1.76.0)
+
+### Features
+
+* **api:** api update ([5c96f1f](https://github.com/conductor-is/quickbooks-desktop-python/commit/5c96f1faaeea89f932f6ea3496c86cf5d8f3e356))
+* **api:** api update ([f036b60](https://github.com/conductor-is/quickbooks-desktop-python/commit/f036b60dcedb8720bdc8c1975679cdd49d77261f))
+* **api:** api update ([d10df35](https://github.com/conductor-is/quickbooks-desktop-python/commit/d10df3592b34e7edfbfcd1c31059645caca40e45))
+* **internal:** implement indices array format for query and form serialization ([f264eeb](https://github.com/conductor-is/quickbooks-desktop-python/commit/f264eeb5bfc0eda46c966a8c29414aa160ce89b5))
+
+
+### Bug Fixes
+
+* **client:** preserve hardcoded query params when merging with user params ([a1dc57a](https://github.com/conductor-is/quickbooks-desktop-python/commit/a1dc57a7a2e84b790fe8c780cdf69b170dbf0ea4))
+* ensure file data are only sent as 1 parameter ([6012229](https://github.com/conductor-is/quickbooks-desktop-python/commit/60122296e0417366b4b4bb735ff3c4918298edd2))
+
+
+### Chores
+
+* **ci:** skip lint on metadata-only changes ([c022258](https://github.com/conductor-is/quickbooks-desktop-python/commit/c022258ae83dc218cb347b2f4fa1bbe9f9c01392))
+* **internal:** update gitignore ([a8b9d7f](https://github.com/conductor-is/quickbooks-desktop-python/commit/a8b9d7f1540ab7080991c8317e712b0a09aa0d3c))
+* **tests:** bump steady to v0.19.4 ([d30740a](https://github.com/conductor-is/quickbooks-desktop-python/commit/d30740afab1f30f04aa9faa259ff13191c06cc78))
+* **tests:** bump steady to v0.19.5 ([5f296c8](https://github.com/conductor-is/quickbooks-desktop-python/commit/5f296c83432a13bd412845f4d31a7f086a174e95))
+* **tests:** bump steady to v0.19.6 ([5b0209c](https://github.com/conductor-is/quickbooks-desktop-python/commit/5b0209cbd977349465e594c67d9f331e3466786b))
+* **tests:** bump steady to v0.19.7 ([7b21104](https://github.com/conductor-is/quickbooks-desktop-python/commit/7b21104b7a2c1037b48813de3641775af0ea1ba8))
+* **tests:** bump steady to v0.20.1 ([0ae145c](https://github.com/conductor-is/quickbooks-desktop-python/commit/0ae145cfefe1fe2a250731711912854a76364b89))
+* **tests:** bump steady to v0.20.2 ([fe9fe54](https://github.com/conductor-is/quickbooks-desktop-python/commit/fe9fe54e34704891c9463c00fbad35f50693d390))
+
 ## 1.75.0 (2026-03-20)
 
 Full Changelog: [v1.74.0...v1.75.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.74.0...v1.75.0)
