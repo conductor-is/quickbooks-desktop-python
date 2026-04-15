@@ -309,7 +309,7 @@ class InventoryItem(BaseModel):
     the QuickBooks user when they modify the underlying `name` field.
     """
 
-    income_account: IncomeAccount = FieldInfo(alias="incomeAccount")
+    income_account: Optional[IncomeAccount] = FieldInfo(alias="incomeAccount", default=None)
     """The income account used to track revenue from sales of this inventory item."""
 
     is_active: bool = FieldInfo(alias="isActive")
