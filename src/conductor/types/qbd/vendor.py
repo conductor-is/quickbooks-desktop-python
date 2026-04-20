@@ -622,7 +622,9 @@ class Vendor(BaseModel):
     Canada or the UK.
     """
 
-    reporting_period: Optional[Literal["monthly", "quarterly"]] = FieldInfo(alias="reportingPeriod", default=None)
+    reporting_period: Optional[Literal["annual", "monthly", "quarterly"]] = FieldInfo(
+        alias="reportingPeriod", default=None
+    )
     """The vendor's tax reporting period, for use in Canada or the UK."""
 
     revision_number: str = FieldInfo(alias="revisionNumber")
