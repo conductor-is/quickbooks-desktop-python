@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.77.0 (2026-04-20)
+
+Full Changelog: [v1.76.0...v1.77.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.76.0...v1.77.0)
+
+### Features
+
+* **api:** api update ([f61fd14](https://github.com/conductor-is/quickbooks-desktop-python/commit/f61fd148065f7b1269276c220587cd71878c0637))
+
+
+### Performance Improvements
+
+* **client:** optimize file structure copying in multipart requests ([837f3f7](https://github.com/conductor-is/quickbooks-desktop-python/commit/837f3f7d17641e178ca43c1f7f8bdc2527b59014))
+
+
+### Chores
+
+* **tests:** bump steady to v0.22.1 ([684056d](https://github.com/conductor-is/quickbooks-desktop-python/commit/684056daad7f4b363a5c6193c34cfd26d395e906))
+
 ## 1.76.0 (2026-04-15)
 
 Full Changelog: [v1.75.0...v1.76.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.75.0...v1.76.0)
