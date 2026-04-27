@@ -600,7 +600,7 @@ class VendorCreditsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> VendorCreditVoidResponse:
         """
-        Voids a vendor credit by setting its amount to zero while keeping a record of it
+        Voids a vendor credit by setting its amount to zero while preserving its record
         in QuickBooks. The void will fail if the vendor credit is currently in use or
         has any linked transactions that are in use.
 
@@ -1202,7 +1202,7 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> VendorCreditVoidResponse:
         """
-        Voids a vendor credit by setting its amount to zero while keeping a record of it
+        Voids a vendor credit by setting its amount to zero while preserving its record
         in QuickBooks. The void will fail if the vendor credit is currently in use or
         has any linked transactions that are in use.
 

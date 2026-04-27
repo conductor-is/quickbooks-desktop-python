@@ -440,9 +440,9 @@ class BillCreditCardPaymentsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> BillCreditCardPaymentVoidResponse:
         """
-        Voids a bill credit card payment by setting its amount to zero while keeping a
-        record of it in QuickBooks. The void will fail if the bill credit card payment
-        is currently in use or has any linked transactions that are in use.
+        Voids a bill credit card payment by setting its amount to zero while preserving
+        its record in QuickBooks. The void will fail if the bill credit card payment is
+        currently in use or has any linked transactions that are in use.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the bill credit card payment to
@@ -883,9 +883,9 @@ class AsyncBillCreditCardPaymentsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> BillCreditCardPaymentVoidResponse:
         """
-        Voids a bill credit card payment by setting its amount to zero while keeping a
-        record of it in QuickBooks. The void will fail if the bill credit card payment
-        is currently in use or has any linked transactions that are in use.
+        Voids a bill credit card payment by setting its amount to zero while preserving
+        its record in QuickBooks. The void will fail if the bill credit card payment is
+        currently in use or has any linked transactions that are in use.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the bill credit card payment to

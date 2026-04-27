@@ -524,8 +524,8 @@ class InventoryAdjustmentsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> InventoryAdjustmentVoidResponse:
         """
-        Voids an inventory adjustment by setting its amount to zero while keeping a
-        record of it in QuickBooks. The void will fail if the inventory adjustment is
+        Voids an inventory adjustment by setting its amount to zero while preserving its
+        record in QuickBooks. The void will fail if the inventory adjustment is
         currently in use or has any linked transactions that are in use.
 
         Args:
@@ -1046,8 +1046,8 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> InventoryAdjustmentVoidResponse:
         """
-        Voids an inventory adjustment by setting its amount to zero while keeping a
-        record of it in QuickBooks. The void will fail if the inventory adjustment is
+        Voids an inventory adjustment by setting its amount to zero while preserving its
+        record in QuickBooks. The void will fail if the inventory adjustment is
         currently in use or has any linked transactions that are in use.
 
         Args:
