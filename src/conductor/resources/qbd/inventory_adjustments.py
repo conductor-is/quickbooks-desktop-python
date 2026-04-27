@@ -25,6 +25,7 @@ from ...types.qbd import (
 from ..._base_client import make_request_options
 from ...types.qbd.inventory_adjustment import InventoryAdjustment
 from ...types.qbd.inventory_adjustment_list_response import InventoryAdjustmentListResponse
+from ...types.qbd.inventory_adjustment_void_response import InventoryAdjustmentVoidResponse
 from ...types.qbd.inventory_adjustment_delete_response import InventoryAdjustmentDeleteResponse
 
 __all__ = ["InventoryAdjustmentsResource", "AsyncInventoryAdjustmentsResource"]
@@ -510,6 +511,47 @@ class InventoryAdjustmentsResource(SyncAPIResource):
             cast_to=InventoryAdjustmentDeleteResponse,
         )
 
+    def void(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> InventoryAdjustmentVoidResponse:
+        """
+        Voids an inventory adjustment by setting its amount to zero while keeping a
+        record of it in QuickBooks. The void will fail if the inventory adjustment is
+        currently in use or has any linked transactions that are in use.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the inventory adjustment to void.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return self._post(
+            path_template("/quickbooks-desktop/inventory-adjustments/{id}/void", id=id),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=InventoryAdjustmentVoidResponse,
+        )
+
 
 class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
     @cached_property
@@ -991,6 +1033,47 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
             cast_to=InventoryAdjustmentDeleteResponse,
         )
 
+    async def void(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> InventoryAdjustmentVoidResponse:
+        """
+        Voids an inventory adjustment by setting its amount to zero while keeping a
+        record of it in QuickBooks. The void will fail if the inventory adjustment is
+        currently in use or has any linked transactions that are in use.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the inventory adjustment to void.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return await self._post(
+            path_template("/quickbooks-desktop/inventory-adjustments/{id}/void", id=id),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=InventoryAdjustmentVoidResponse,
+        )
+
 
 class InventoryAdjustmentsResourceWithRawResponse:
     def __init__(self, inventory_adjustments: InventoryAdjustmentsResource) -> None:
@@ -1010,6 +1093,9 @@ class InventoryAdjustmentsResourceWithRawResponse:
         )
         self.delete = to_raw_response_wrapper(
             inventory_adjustments.delete,
+        )
+        self.void = to_raw_response_wrapper(
+            inventory_adjustments.void,
         )
 
 
@@ -1032,6 +1118,9 @@ class AsyncInventoryAdjustmentsResourceWithRawResponse:
         self.delete = async_to_raw_response_wrapper(
             inventory_adjustments.delete,
         )
+        self.void = async_to_raw_response_wrapper(
+            inventory_adjustments.void,
+        )
 
 
 class InventoryAdjustmentsResourceWithStreamingResponse:
@@ -1053,6 +1142,9 @@ class InventoryAdjustmentsResourceWithStreamingResponse:
         self.delete = to_streamed_response_wrapper(
             inventory_adjustments.delete,
         )
+        self.void = to_streamed_response_wrapper(
+            inventory_adjustments.void,
+        )
 
 
 class AsyncInventoryAdjustmentsResourceWithStreamingResponse:
@@ -1073,4 +1165,7 @@ class AsyncInventoryAdjustmentsResourceWithStreamingResponse:
         )
         self.delete = async_to_streamed_response_wrapper(
             inventory_adjustments.delete,
+        )
+        self.void = async_to_streamed_response_wrapper(
+            inventory_adjustments.void,
         )

@@ -21,6 +21,7 @@ from ...types.qbd import journal_entry_list_params, journal_entry_create_params,
 from ...pagination import SyncCursorPage, AsyncCursorPage
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.qbd.journal_entry import JournalEntry
+from ...types.qbd.journal_entry_void_response import JournalEntryVoidResponse
 from ...types.qbd.journal_entry_delete_response import JournalEntryDeleteResponse
 
 __all__ = ["JournalEntriesResource", "AsyncJournalEntriesResource"]
@@ -509,6 +510,47 @@ class JournalEntriesResource(SyncAPIResource):
             cast_to=JournalEntryDeleteResponse,
         )
 
+    def void(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> JournalEntryVoidResponse:
+        """
+        Voids a journal entry by setting its amount to zero while keeping a record of it
+        in QuickBooks. The void will fail if the journal entry is currently in use or
+        has any linked transactions that are in use.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the journal entry to void.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return self._post(
+            path_template("/quickbooks-desktop/journal-entries/{id}/void", id=id),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=JournalEntryVoidResponse,
+        )
+
 
 class AsyncJournalEntriesResource(AsyncAPIResource):
     @cached_property
@@ -993,6 +1035,47 @@ class AsyncJournalEntriesResource(AsyncAPIResource):
             cast_to=JournalEntryDeleteResponse,
         )
 
+    async def void(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> JournalEntryVoidResponse:
+        """
+        Voids a journal entry by setting its amount to zero while keeping a record of it
+        in QuickBooks. The void will fail if the journal entry is currently in use or
+        has any linked transactions that are in use.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the journal entry to void.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return await self._post(
+            path_template("/quickbooks-desktop/journal-entries/{id}/void", id=id),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=JournalEntryVoidResponse,
+        )
+
 
 class JournalEntriesResourceWithRawResponse:
     def __init__(self, journal_entries: JournalEntriesResource) -> None:
@@ -1012,6 +1095,9 @@ class JournalEntriesResourceWithRawResponse:
         )
         self.delete = to_raw_response_wrapper(
             journal_entries.delete,
+        )
+        self.void = to_raw_response_wrapper(
+            journal_entries.void,
         )
 
 
@@ -1034,6 +1120,9 @@ class AsyncJournalEntriesResourceWithRawResponse:
         self.delete = async_to_raw_response_wrapper(
             journal_entries.delete,
         )
+        self.void = async_to_raw_response_wrapper(
+            journal_entries.void,
+        )
 
 
 class JournalEntriesResourceWithStreamingResponse:
@@ -1055,6 +1144,9 @@ class JournalEntriesResourceWithStreamingResponse:
         self.delete = to_streamed_response_wrapper(
             journal_entries.delete,
         )
+        self.void = to_streamed_response_wrapper(
+            journal_entries.void,
+        )
 
 
 class AsyncJournalEntriesResourceWithStreamingResponse:
@@ -1075,4 +1167,7 @@ class AsyncJournalEntriesResourceWithStreamingResponse:
         )
         self.delete = async_to_streamed_response_wrapper(
             journal_entries.delete,
+        )
+        self.void = async_to_streamed_response_wrapper(
+            journal_entries.void,
         )

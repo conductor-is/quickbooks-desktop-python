@@ -12,6 +12,7 @@ from tests.utils import assert_matches_type
 from conductor._utils import parse_date
 from conductor.types.qbd import (
     JournalEntry,
+    JournalEntryVoidResponse,
     JournalEntryDeleteResponse,
 )
 from conductor.pagination import SyncCursorPage, AsyncCursorPage
@@ -306,6 +307,48 @@ class TestJournalEntries:
                 conductor_end_user_id="end_usr_1234567abcdefg",
             )
 
+    @parametrize
+    def test_method_void(self, client: Conductor) -> None:
+        journal_entry = client.qbd.journal_entries.void(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+        )
+        assert_matches_type(JournalEntryVoidResponse, journal_entry, path=["response"])
+
+    @parametrize
+    def test_raw_response_void(self, client: Conductor) -> None:
+        response = client.qbd.journal_entries.with_raw_response.void(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        journal_entry = response.parse()
+        assert_matches_type(JournalEntryVoidResponse, journal_entry, path=["response"])
+
+    @parametrize
+    def test_streaming_response_void(self, client: Conductor) -> None:
+        with client.qbd.journal_entries.with_streaming_response.void(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            journal_entry = response.parse()
+            assert_matches_type(JournalEntryVoidResponse, journal_entry, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @parametrize
+    def test_path_params_void(self, client: Conductor) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
+            client.qbd.journal_entries.with_raw_response.void(
+                id="",
+                conductor_end_user_id="end_usr_1234567abcdefg",
+            )
+
 
 class TestAsyncJournalEntries:
     parametrize = pytest.mark.parametrize(
@@ -592,6 +635,48 @@ class TestAsyncJournalEntries:
     async def test_path_params_delete(self, async_client: AsyncConductor) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
             await async_client.qbd.journal_entries.with_raw_response.delete(
+                id="",
+                conductor_end_user_id="end_usr_1234567abcdefg",
+            )
+
+    @parametrize
+    async def test_method_void(self, async_client: AsyncConductor) -> None:
+        journal_entry = await async_client.qbd.journal_entries.void(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+        )
+        assert_matches_type(JournalEntryVoidResponse, journal_entry, path=["response"])
+
+    @parametrize
+    async def test_raw_response_void(self, async_client: AsyncConductor) -> None:
+        response = await async_client.qbd.journal_entries.with_raw_response.void(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        journal_entry = await response.parse()
+        assert_matches_type(JournalEntryVoidResponse, journal_entry, path=["response"])
+
+    @parametrize
+    async def test_streaming_response_void(self, async_client: AsyncConductor) -> None:
+        async with async_client.qbd.journal_entries.with_streaming_response.void(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            journal_entry = await response.parse()
+            assert_matches_type(JournalEntryVoidResponse, journal_entry, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @parametrize
+    async def test_path_params_void(self, async_client: AsyncConductor) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
+            await async_client.qbd.journal_entries.with_raw_response.void(
                 id="",
                 conductor_end_user_id="end_usr_1234567abcdefg",
             )
