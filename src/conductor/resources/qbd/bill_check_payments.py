@@ -25,6 +25,7 @@ from ...types.qbd import (
 from ...pagination import SyncCursorPage, AsyncCursorPage
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.qbd.bill_check_payment import BillCheckPayment
+from ...types.qbd.bill_check_payment_void_response import BillCheckPaymentVoidResponse
 from ...types.qbd.bill_check_payment_delete_response import BillCheckPaymentDeleteResponse
 
 __all__ = ["BillCheckPaymentsResource", "AsyncBillCheckPaymentsResource"]
@@ -540,6 +541,47 @@ class BillCheckPaymentsResource(SyncAPIResource):
             cast_to=BillCheckPaymentDeleteResponse,
         )
 
+    def void(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> BillCheckPaymentVoidResponse:
+        """
+        Voids a bill check payment by setting its amount to zero while keeping a record
+        of it in QuickBooks. The void will fail if the bill check payment is currently
+        in use or has any linked transactions that are in use.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the bill check payment to void.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return self._post(
+            path_template("/quickbooks-desktop/bill-check-payments/{id}/void", id=id),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=BillCheckPaymentVoidResponse,
+        )
+
 
 class AsyncBillCheckPaymentsResource(AsyncAPIResource):
     @cached_property
@@ -1051,6 +1093,47 @@ class AsyncBillCheckPaymentsResource(AsyncAPIResource):
             cast_to=BillCheckPaymentDeleteResponse,
         )
 
+    async def void(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> BillCheckPaymentVoidResponse:
+        """
+        Voids a bill check payment by setting its amount to zero while keeping a record
+        of it in QuickBooks. The void will fail if the bill check payment is currently
+        in use or has any linked transactions that are in use.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the bill check payment to void.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return await self._post(
+            path_template("/quickbooks-desktop/bill-check-payments/{id}/void", id=id),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=BillCheckPaymentVoidResponse,
+        )
+
 
 class BillCheckPaymentsResourceWithRawResponse:
     def __init__(self, bill_check_payments: BillCheckPaymentsResource) -> None:
@@ -1070,6 +1153,9 @@ class BillCheckPaymentsResourceWithRawResponse:
         )
         self.delete = to_raw_response_wrapper(
             bill_check_payments.delete,
+        )
+        self.void = to_raw_response_wrapper(
+            bill_check_payments.void,
         )
 
 
@@ -1092,6 +1178,9 @@ class AsyncBillCheckPaymentsResourceWithRawResponse:
         self.delete = async_to_raw_response_wrapper(
             bill_check_payments.delete,
         )
+        self.void = async_to_raw_response_wrapper(
+            bill_check_payments.void,
+        )
 
 
 class BillCheckPaymentsResourceWithStreamingResponse:
@@ -1113,6 +1202,9 @@ class BillCheckPaymentsResourceWithStreamingResponse:
         self.delete = to_streamed_response_wrapper(
             bill_check_payments.delete,
         )
+        self.void = to_streamed_response_wrapper(
+            bill_check_payments.void,
+        )
 
 
 class AsyncBillCheckPaymentsResourceWithStreamingResponse:
@@ -1133,4 +1225,7 @@ class AsyncBillCheckPaymentsResourceWithStreamingResponse:
         )
         self.delete = async_to_streamed_response_wrapper(
             bill_check_payments.delete,
+        )
+        self.void = async_to_streamed_response_wrapper(
+            bill_check_payments.void,
         )

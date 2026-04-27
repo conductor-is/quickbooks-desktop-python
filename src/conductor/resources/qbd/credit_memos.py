@@ -21,6 +21,7 @@ from ...types.qbd import credit_memo_list_params, credit_memo_create_params, cre
 from ...pagination import SyncCursorPage, AsyncCursorPage
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.qbd.credit_memo import CreditMemo
+from ...types.qbd.credit_memo_void_response import CreditMemoVoidResponse
 from ...types.qbd.credit_memo_delete_response import CreditMemoDeleteResponse
 
 __all__ = ["CreditMemosResource", "AsyncCreditMemosResource"]
@@ -751,6 +752,47 @@ class CreditMemosResource(SyncAPIResource):
             cast_to=CreditMemoDeleteResponse,
         )
 
+    def void(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> CreditMemoVoidResponse:
+        """
+        Voids a credit memo by setting its amount to zero while keeping a record of it
+        in QuickBooks. The void will fail if the credit memo is currently in use or has
+        any linked transactions that are in use.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the credit memo to void.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return self._post(
+            path_template("/quickbooks-desktop/credit-memos/{id}/void", id=id),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=CreditMemoVoidResponse,
+        )
+
 
 class AsyncCreditMemosResource(AsyncAPIResource):
     @cached_property
@@ -1477,6 +1519,47 @@ class AsyncCreditMemosResource(AsyncAPIResource):
             cast_to=CreditMemoDeleteResponse,
         )
 
+    async def void(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> CreditMemoVoidResponse:
+        """
+        Voids a credit memo by setting its amount to zero while keeping a record of it
+        in QuickBooks. The void will fail if the credit memo is currently in use or has
+        any linked transactions that are in use.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the credit memo to void.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return await self._post(
+            path_template("/quickbooks-desktop/credit-memos/{id}/void", id=id),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=CreditMemoVoidResponse,
+        )
+
 
 class CreditMemosResourceWithRawResponse:
     def __init__(self, credit_memos: CreditMemosResource) -> None:
@@ -1496,6 +1579,9 @@ class CreditMemosResourceWithRawResponse:
         )
         self.delete = to_raw_response_wrapper(
             credit_memos.delete,
+        )
+        self.void = to_raw_response_wrapper(
+            credit_memos.void,
         )
 
 
@@ -1518,6 +1604,9 @@ class AsyncCreditMemosResourceWithRawResponse:
         self.delete = async_to_raw_response_wrapper(
             credit_memos.delete,
         )
+        self.void = async_to_raw_response_wrapper(
+            credit_memos.void,
+        )
 
 
 class CreditMemosResourceWithStreamingResponse:
@@ -1539,6 +1628,9 @@ class CreditMemosResourceWithStreamingResponse:
         self.delete = to_streamed_response_wrapper(
             credit_memos.delete,
         )
+        self.void = to_streamed_response_wrapper(
+            credit_memos.void,
+        )
 
 
 class AsyncCreditMemosResourceWithStreamingResponse:
@@ -1559,4 +1651,7 @@ class AsyncCreditMemosResourceWithStreamingResponse:
         )
         self.delete = async_to_streamed_response_wrapper(
             credit_memos.delete,
+        )
+        self.void = async_to_streamed_response_wrapper(
+            credit_memos.void,
         )

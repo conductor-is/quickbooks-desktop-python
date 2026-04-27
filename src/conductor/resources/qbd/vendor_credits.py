@@ -21,6 +21,7 @@ from ...types.qbd import vendor_credit_list_params, vendor_credit_create_params,
 from ...pagination import SyncCursorPage, AsyncCursorPage
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.qbd.vendor_credit import VendorCredit
+from ...types.qbd.vendor_credit_void_response import VendorCreditVoidResponse
 from ...types.qbd.vendor_credit_delete_response import VendorCreditDeleteResponse
 
 __all__ = ["VendorCreditsResource", "AsyncVendorCreditsResource"]
@@ -586,6 +587,47 @@ class VendorCreditsResource(SyncAPIResource):
             cast_to=VendorCreditDeleteResponse,
         )
 
+    def void(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> VendorCreditVoidResponse:
+        """
+        Voids a vendor credit by setting its amount to zero while keeping a record of it
+        in QuickBooks. The void will fail if the vendor credit is currently in use or
+        has any linked transactions that are in use.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the vendor credit to void.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return self._post(
+            path_template("/quickbooks-desktop/vendor-credits/{id}/void", id=id),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=VendorCreditVoidResponse,
+        )
+
 
 class AsyncVendorCreditsResource(AsyncAPIResource):
     @cached_property
@@ -1147,6 +1189,47 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
             cast_to=VendorCreditDeleteResponse,
         )
 
+    async def void(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> VendorCreditVoidResponse:
+        """
+        Voids a vendor credit by setting its amount to zero while keeping a record of it
+        in QuickBooks. The void will fail if the vendor credit is currently in use or
+        has any linked transactions that are in use.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the vendor credit to void.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return await self._post(
+            path_template("/quickbooks-desktop/vendor-credits/{id}/void", id=id),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=VendorCreditVoidResponse,
+        )
+
 
 class VendorCreditsResourceWithRawResponse:
     def __init__(self, vendor_credits: VendorCreditsResource) -> None:
@@ -1166,6 +1249,9 @@ class VendorCreditsResourceWithRawResponse:
         )
         self.delete = to_raw_response_wrapper(
             vendor_credits.delete,
+        )
+        self.void = to_raw_response_wrapper(
+            vendor_credits.void,
         )
 
 
@@ -1188,6 +1274,9 @@ class AsyncVendorCreditsResourceWithRawResponse:
         self.delete = async_to_raw_response_wrapper(
             vendor_credits.delete,
         )
+        self.void = async_to_raw_response_wrapper(
+            vendor_credits.void,
+        )
 
 
 class VendorCreditsResourceWithStreamingResponse:
@@ -1209,6 +1298,9 @@ class VendorCreditsResourceWithStreamingResponse:
         self.delete = to_streamed_response_wrapper(
             vendor_credits.delete,
         )
+        self.void = to_streamed_response_wrapper(
+            vendor_credits.void,
+        )
 
 
 class AsyncVendorCreditsResourceWithStreamingResponse:
@@ -1229,4 +1321,7 @@ class AsyncVendorCreditsResourceWithStreamingResponse:
         )
         self.delete = async_to_streamed_response_wrapper(
             vendor_credits.delete,
+        )
+        self.void = async_to_streamed_response_wrapper(
+            vendor_credits.void,
         )
