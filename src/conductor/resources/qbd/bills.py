@@ -22,6 +22,7 @@ from ...types.qbd import bill_list_params, bill_create_params, bill_update_param
 from ...pagination import SyncCursorPage, AsyncCursorPage
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.qbd.bill import Bill
+from ...types.qbd.bill_void_response import BillVoidResponse
 from ...types.qbd.bill_delete_response import BillDeleteResponse
 
 __all__ = ["BillsResource", "AsyncBillsResource"]
@@ -643,6 +644,47 @@ class BillsResource(SyncAPIResource):
             cast_to=BillDeleteResponse,
         )
 
+    def void(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> BillVoidResponse:
+        """
+        Voids a bill by setting its amount to zero while keeping a record of it in
+        QuickBooks. The void will fail if the bill is currently in use or has any linked
+        transactions that are in use.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the bill to void.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return self._post(
+            path_template("/quickbooks-desktop/bills/{id}/void", id=id),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=BillVoidResponse,
+        )
+
 
 class AsyncBillsResource(AsyncAPIResource):
     @cached_property
@@ -1260,6 +1302,47 @@ class AsyncBillsResource(AsyncAPIResource):
             cast_to=BillDeleteResponse,
         )
 
+    async def void(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> BillVoidResponse:
+        """
+        Voids a bill by setting its amount to zero while keeping a record of it in
+        QuickBooks. The void will fail if the bill is currently in use or has any linked
+        transactions that are in use.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the bill to void.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return await self._post(
+            path_template("/quickbooks-desktop/bills/{id}/void", id=id),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=BillVoidResponse,
+        )
+
 
 class BillsResourceWithRawResponse:
     def __init__(self, bills: BillsResource) -> None:
@@ -1279,6 +1362,9 @@ class BillsResourceWithRawResponse:
         )
         self.delete = to_raw_response_wrapper(
             bills.delete,
+        )
+        self.void = to_raw_response_wrapper(
+            bills.void,
         )
 
 
@@ -1301,6 +1387,9 @@ class AsyncBillsResourceWithRawResponse:
         self.delete = async_to_raw_response_wrapper(
             bills.delete,
         )
+        self.void = async_to_raw_response_wrapper(
+            bills.void,
+        )
 
 
 class BillsResourceWithStreamingResponse:
@@ -1322,6 +1411,9 @@ class BillsResourceWithStreamingResponse:
         self.delete = to_streamed_response_wrapper(
             bills.delete,
         )
+        self.void = to_streamed_response_wrapper(
+            bills.void,
+        )
 
 
 class AsyncBillsResourceWithStreamingResponse:
@@ -1342,4 +1434,7 @@ class AsyncBillsResourceWithStreamingResponse:
         )
         self.delete = async_to_streamed_response_wrapper(
             bills.delete,
+        )
+        self.void = async_to_streamed_response_wrapper(
+            bills.void,
         )

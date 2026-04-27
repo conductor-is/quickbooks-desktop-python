@@ -12,6 +12,7 @@ from tests.utils import assert_matches_type
 from conductor._utils import parse_date
 from conductor.types.qbd import (
     BillCheckPayment,
+    BillCheckPaymentVoidResponse,
     BillCheckPaymentDeleteResponse,
 )
 from conductor.pagination import SyncCursorPage, AsyncCursorPage
@@ -314,6 +315,48 @@ class TestBillCheckPayments:
                 conductor_end_user_id="end_usr_1234567abcdefg",
             )
 
+    @parametrize
+    def test_method_void(self, client: Conductor) -> None:
+        bill_check_payment = client.qbd.bill_check_payments.void(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+        )
+        assert_matches_type(BillCheckPaymentVoidResponse, bill_check_payment, path=["response"])
+
+    @parametrize
+    def test_raw_response_void(self, client: Conductor) -> None:
+        response = client.qbd.bill_check_payments.with_raw_response.void(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        bill_check_payment = response.parse()
+        assert_matches_type(BillCheckPaymentVoidResponse, bill_check_payment, path=["response"])
+
+    @parametrize
+    def test_streaming_response_void(self, client: Conductor) -> None:
+        with client.qbd.bill_check_payments.with_streaming_response.void(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            bill_check_payment = response.parse()
+            assert_matches_type(BillCheckPaymentVoidResponse, bill_check_payment, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @parametrize
+    def test_path_params_void(self, client: Conductor) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
+            client.qbd.bill_check_payments.with_raw_response.void(
+                id="",
+                conductor_end_user_id="end_usr_1234567abcdefg",
+            )
+
 
 class TestAsyncBillCheckPayments:
     parametrize = pytest.mark.parametrize(
@@ -608,6 +651,48 @@ class TestAsyncBillCheckPayments:
     async def test_path_params_delete(self, async_client: AsyncConductor) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
             await async_client.qbd.bill_check_payments.with_raw_response.delete(
+                id="",
+                conductor_end_user_id="end_usr_1234567abcdefg",
+            )
+
+    @parametrize
+    async def test_method_void(self, async_client: AsyncConductor) -> None:
+        bill_check_payment = await async_client.qbd.bill_check_payments.void(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+        )
+        assert_matches_type(BillCheckPaymentVoidResponse, bill_check_payment, path=["response"])
+
+    @parametrize
+    async def test_raw_response_void(self, async_client: AsyncConductor) -> None:
+        response = await async_client.qbd.bill_check_payments.with_raw_response.void(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        bill_check_payment = await response.parse()
+        assert_matches_type(BillCheckPaymentVoidResponse, bill_check_payment, path=["response"])
+
+    @parametrize
+    async def test_streaming_response_void(self, async_client: AsyncConductor) -> None:
+        async with async_client.qbd.bill_check_payments.with_streaming_response.void(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            bill_check_payment = await response.parse()
+            assert_matches_type(BillCheckPaymentVoidResponse, bill_check_payment, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @parametrize
+    async def test_path_params_void(self, async_client: AsyncConductor) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
+            await async_client.qbd.bill_check_payments.with_raw_response.void(
                 id="",
                 conductor_end_user_id="end_usr_1234567abcdefg",
             )
