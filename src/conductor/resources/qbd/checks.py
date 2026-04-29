@@ -642,7 +642,7 @@ class ChecksResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CheckVoidResponse:
         """
-        Voids a check by setting its amount to zero while preserving its record in
+        Voids a check by setting its amount to zero while keeping a record of it in
         QuickBooks. The void will fail if the check is currently in use or has any
         linked transactions that are in use.
 
@@ -1286,7 +1286,7 @@ class AsyncChecksResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CheckVoidResponse:
         """
-        Voids a check by setting its amount to zero while preserving its record in
+        Voids a check by setting its amount to zero while keeping a record of it in
         QuickBooks. The void will fail if the check is currently in use or has any
         linked transactions that are in use.
 
