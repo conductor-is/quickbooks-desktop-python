@@ -596,8 +596,8 @@ class CreditCardChargesResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CreditCardChargeVoidResponse:
         """
-        Voids a credit card charge by setting its amount to zero while preserving its
-        record in QuickBooks. The void will fail if the credit card charge is currently
+        Voids a credit card charge by setting its amount to zero while keeping a record
+        of it in QuickBooks. The void will fail if the credit card charge is currently
         in use or has any linked transactions that are in use.
 
         Args:
@@ -1190,8 +1190,8 @@ class AsyncCreditCardChargesResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CreditCardChargeVoidResponse:
         """
-        Voids a credit card charge by setting its amount to zero while preserving its
-        record in QuickBooks. The void will fail if the credit card charge is currently
+        Voids a credit card charge by setting its amount to zero while keeping a record
+        of it in QuickBooks. The void will fail if the credit card charge is currently
         in use or has any linked transactions that are in use.
 
         Args:

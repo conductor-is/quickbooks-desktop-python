@@ -624,7 +624,7 @@ class ItemReceiptsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ItemReceiptVoidResponse:
         """
-        Voids an item receipt by setting its amount to zero while preserving its record
+        Voids an item receipt by setting its amount to zero while keeping a record of it
         in QuickBooks. The void will fail if the item receipt is currently in use or has
         any linked transactions that are in use.
 
@@ -1250,7 +1250,7 @@ class AsyncItemReceiptsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ItemReceiptVoidResponse:
         """
-        Voids an item receipt by setting its amount to zero while preserving its record
+        Voids an item receipt by setting its amount to zero while keeping a record of it
         in QuickBooks. The void will fail if the item receipt is currently in use or has
         any linked transactions that are in use.
 
