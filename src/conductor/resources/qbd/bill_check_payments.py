@@ -554,8 +554,8 @@ class BillCheckPaymentsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> BillCheckPaymentVoidResponse:
         """
-        Voids a bill check payment by setting its amount to zero while preserving its
-        record in QuickBooks. The void will fail if the bill check payment is currently
+        Voids a bill check payment by setting its amount to zero while keeping a record
+        of it in QuickBooks. The void will fail if the bill check payment is currently
         in use or has any linked transactions that are in use.
 
         Args:
@@ -1106,8 +1106,8 @@ class AsyncBillCheckPaymentsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> BillCheckPaymentVoidResponse:
         """
-        Voids a bill check payment by setting its amount to zero while preserving its
-        record in QuickBooks. The void will fail if the bill check payment is currently
+        Voids a bill check payment by setting its amount to zero while keeping a record
+        of it in QuickBooks. The void will fail if the bill check payment is currently
         in use or has any linked transactions that are in use.
 
         Args:
