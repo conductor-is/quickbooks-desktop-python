@@ -33,10 +33,12 @@ class CustomerListParams(TypedDict, total=False):
 
     exclude_alternate_shipping_addresses: Annotated[bool, PropertyInfo(alias="excludeAlternateShippingAddresses")]
     """
-    Excludes the `alternateShippingAddresses` array from each customer returned by
-    the list request. Use this when you do not need alternate shipping addresses.
-    This significantly improves performance for company files where some customers
-    have many saved shipping addresses (sometimes dozens or hundreds).
+    Excludes alternate shipping addresses from each customer returned by the list
+    request. When true, the response returns `alternateShippingAddresses` as `null`
+    instead of fetching the address array. Use this when you do not need alternate
+    shipping addresses. This significantly improves performance for company files
+    where some customers have many saved shipping addresses (sometimes dozens or
+    hundreds).
     """
 
     full_names: Annotated[SequenceNotStr[str], PropertyInfo(alias="fullNames")]
