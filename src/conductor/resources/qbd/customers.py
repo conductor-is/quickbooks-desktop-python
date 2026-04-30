@@ -728,10 +728,10 @@ class CustomersResource(SyncAPIResource):
 
           exclude_alternate_shipping_addresses: Excludes alternate shipping addresses from each customer returned by the list
               request. When true, the response returns `alternateShippingAddresses` as `null`
-              instead of fetching the address array. Use this when you do not need alternate
-              shipping addresses. This significantly improves performance for company files
-              where some customers have many saved shipping addresses (sometimes dozens or
-              hundreds).
+              instead of fetching the address array. Use this when your integration does not
+              need alternate shipping addresses. This significantly improves performance for
+              company files where some customers have many saved shipping addresses (sometimes
+              dozens or hundreds).
 
           full_names: Filter for specific customers by their full-name(s), case-insensitive. Like
               `id`, `fullName` is a unique identifier for a customer, formed by by combining
@@ -1573,10 +1573,10 @@ class AsyncCustomersResource(AsyncAPIResource):
 
           exclude_alternate_shipping_addresses: Excludes alternate shipping addresses from each customer returned by the list
               request. When true, the response returns `alternateShippingAddresses` as `null`
-              instead of fetching the address array. Use this when you do not need alternate
-              shipping addresses. This significantly improves performance for company files
-              where some customers have many saved shipping addresses (sometimes dozens or
-              hundreds).
+              instead of fetching the address array. Use this when your integration does not
+              need alternate shipping addresses. This significantly improves performance for
+              company files where some customers have many saved shipping addresses (sometimes
+              dozens or hundreds).
 
           full_names: Filter for specific customers by their full-name(s), case-insensitive. Like
               `id`, `fullName` is a unique identifier for a customer, formed by by combining
