@@ -681,6 +681,7 @@ class CustomersResource(SyncAPIResource):
         class_ids: SequenceNotStr[str] | Omit = omit,
         currency_ids: SequenceNotStr[str] | Omit = omit,
         cursor: str | Omit = omit,
+        exclude_alternate_shipping_addresses: bool | Omit = omit,
         full_names: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         limit: int | Omit = omit,
@@ -709,6 +710,9 @@ class CustomersResource(SyncAPIResource):
         Use the `cursor` parameter to paginate through the
         results.
 
+        **IMPORTANT**: If this request times out or is slow, set
+        `excludeAlternateShippingAddresses=true` to significantly improve performance.
+
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.
 
@@ -721,6 +725,11 @@ class CustomersResource(SyncAPIResource):
               `limit` parameter. Do not include this parameter on the first call. Use the
               `nextCursor` value returned in the previous response to request subsequent
               results.
+
+          exclude_alternate_shipping_addresses: Excludes the `alternateShippingAddresses` array from each customer returned by
+              the list request. Use this when you do not need alternate shipping addresses.
+              This significantly improves performance for company files where some customers
+              have many saved shipping addresses (sometimes dozens or hundreds).
 
           full_names: Filter for specific customers by their full-name(s), case-insensitive. Like
               `id`, `fullName` is a unique identifier for a customer, formed by by combining
@@ -835,6 +844,7 @@ class CustomersResource(SyncAPIResource):
                         "class_ids": class_ids,
                         "currency_ids": currency_ids,
                         "cursor": cursor,
+                        "exclude_alternate_shipping_addresses": exclude_alternate_shipping_addresses,
                         "full_names": full_names,
                         "ids": ids,
                         "limit": limit,
@@ -1514,6 +1524,7 @@ class AsyncCustomersResource(AsyncAPIResource):
         class_ids: SequenceNotStr[str] | Omit = omit,
         currency_ids: SequenceNotStr[str] | Omit = omit,
         cursor: str | Omit = omit,
+        exclude_alternate_shipping_addresses: bool | Omit = omit,
         full_names: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         limit: int | Omit = omit,
@@ -1542,6 +1553,9 @@ class AsyncCustomersResource(AsyncAPIResource):
         Use the `cursor` parameter to paginate through the
         results.
 
+        **IMPORTANT**: If this request times out or is slow, set
+        `excludeAlternateShippingAddresses=true` to significantly improve performance.
+
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.
 
@@ -1554,6 +1568,11 @@ class AsyncCustomersResource(AsyncAPIResource):
               `limit` parameter. Do not include this parameter on the first call. Use the
               `nextCursor` value returned in the previous response to request subsequent
               results.
+
+          exclude_alternate_shipping_addresses: Excludes the `alternateShippingAddresses` array from each customer returned by
+              the list request. Use this when you do not need alternate shipping addresses.
+              This significantly improves performance for company files where some customers
+              have many saved shipping addresses (sometimes dozens or hundreds).
 
           full_names: Filter for specific customers by their full-name(s), case-insensitive. Like
               `id`, `fullName` is a unique identifier for a customer, formed by by combining
@@ -1668,6 +1687,7 @@ class AsyncCustomersResource(AsyncAPIResource):
                         "class_ids": class_ids,
                         "currency_ids": currency_ids,
                         "cursor": cursor,
+                        "exclude_alternate_shipping_addresses": exclude_alternate_shipping_addresses,
                         "full_names": full_names,
                         "ids": ids,
                         "limit": limit,
