@@ -567,10 +567,14 @@ class Customer(BaseModel):
     alternate_phone: Optional[str] = FieldInfo(alias="alternatePhone", default=None)
     """The customer's alternate telephone number."""
 
-    alternate_shipping_addresses: List[AlternateShippingAddress] = FieldInfo(alias="alternateShippingAddresses")
+    alternate_shipping_addresses: Optional[List[AlternateShippingAddress]] = FieldInfo(
+        alias="alternateShippingAddresses", default=None
+    )
     """A list of additional shipping addresses for this customer.
 
-    Useful when the customer has multiple shipping locations.
+    Useful when the customer has multiple shipping locations. If
+    `excludeAlternateShippingAddresses=true` is set on a customer list request, this
+    field is `null` because the addresses were not fetched.
     """
 
     balance: Optional[str] = None
