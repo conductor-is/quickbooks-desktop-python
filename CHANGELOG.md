@@ -1,5 +1,30 @@
 # Changelog
 
+## 1.78.0 (2026-05-01)
+
+Full Changelog: [v1.77.0...v1.78.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.77.0...v1.78.0)
+
+### Features
+
+* **api:** api update ([cbd91a7](https://github.com/conductor-is/quickbooks-desktop-python/commit/cbd91a7cf99609986f3e1bfa0af40653c6ecc3c9))
+* **api:** api update ([8abee15](https://github.com/conductor-is/quickbooks-desktop-python/commit/8abee151513b6cf6f151c5a62eb4beabc6e01338))
+* **api:** api update ([db6798b](https://github.com/conductor-is/quickbooks-desktop-python/commit/db6798b055e38489a25219a787fadb08fc3b1207))
+* **api:** api update ([4cec902](https://github.com/conductor-is/quickbooks-desktop-python/commit/4cec902f51ca888eedac4873a3acd64a36d311ed))
+* **api:** api update ([81f431f](https://github.com/conductor-is/quickbooks-desktop-python/commit/81f431f35fc780a3f67bffb389e7b52472ebffda))
+* **api:** api update ([cbb80a3](https://github.com/conductor-is/quickbooks-desktop-python/commit/cbb80a3e17575a735329d12ff672e8a291c6adff))
+* support setting headers via env ([6120157](https://github.com/conductor-is/quickbooks-desktop-python/commit/612015747ef73625b3664eeacdbf7377ee432e1e))
+
+
+### Bug Fixes
+
+* use correct field name format for multipart file arrays ([5739a15](https://github.com/conductor-is/quickbooks-desktop-python/commit/5739a15b9dd77903ff100f06981f230569f5a76b))
+
+
+### Chores
+
+* **internal:** more robust bootstrap script ([4a935a4](https://github.com/conductor-is/quickbooks-desktop-python/commit/4a935a46b761f96d0fd667542bcf436f9694a9bf))
+* **internal:** reformat pyproject.toml ([7810e81](https://github.com/conductor-is/quickbooks-desktop-python/commit/7810e8148d23986b7c6fe095468f41b58a272522))
+
 ## 1.77.0 (2026-04-20)
 
 Full Changelog: [v1.76.0...v1.77.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.76.0...v1.77.0)
