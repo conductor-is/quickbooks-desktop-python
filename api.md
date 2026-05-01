@@ -349,6 +349,23 @@ Methods:
 
 - <code title="get /quickbooks-desktop/deleted-transactions">conductor.qbd.deleted_transactions.<a href="./src/conductor/resources/qbd/deleted_transactions.py">list</a>(\*\*<a href="src/conductor/types/qbd/deleted_transaction_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/deleted_transaction_list_response.py">DeletedTransactionListResponse</a></code>
 
+## Deposits
+
+Types:
+
+```python
+from conductor.types.qbd import Deposit, DepositDeleteResponse, DepositVoidResponse
+```
+
+Methods:
+
+- <code title="post /quickbooks-desktop/deposits">conductor.qbd.deposits.<a href="./src/conductor/resources/qbd/deposits.py">create</a>(\*\*<a href="src/conductor/types/qbd/deposit_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/deposit.py">Deposit</a></code>
+- <code title="get /quickbooks-desktop/deposits/{id}">conductor.qbd.deposits.<a href="./src/conductor/resources/qbd/deposits.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/deposit.py">Deposit</a></code>
+- <code title="post /quickbooks-desktop/deposits/{id}">conductor.qbd.deposits.<a href="./src/conductor/resources/qbd/deposits.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/deposit_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/deposit.py">Deposit</a></code>
+- <code title="get /quickbooks-desktop/deposits">conductor.qbd.deposits.<a href="./src/conductor/resources/qbd/deposits.py">list</a>(\*\*<a href="src/conductor/types/qbd/deposit_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/deposit.py">SyncCursorPage[Deposit]</a></code>
+- <code title="delete /quickbooks-desktop/deposits/{id}">conductor.qbd.deposits.<a href="./src/conductor/resources/qbd/deposits.py">delete</a>(id) -> <a href="./src/conductor/types/qbd/deposit_delete_response.py">DepositDeleteResponse</a></code>
+- <code title="post /quickbooks-desktop/deposits/{id}/void">conductor.qbd.deposits.<a href="./src/conductor/resources/qbd/deposits.py">void</a>(id) -> <a href="./src/conductor/types/qbd/deposit_void_response.py">DepositVoidResponse</a></code>
+
 ## DiscountItems
 
 Types:
@@ -599,6 +616,18 @@ Methods:
 - <code title="post /quickbooks-desktop/payment-methods">conductor.qbd.payment_methods.<a href="./src/conductor/resources/qbd/payment_methods.py">create</a>(\*\*<a href="src/conductor/types/qbd/payment_method_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/payment_method.py">PaymentMethod</a></code>
 - <code title="get /quickbooks-desktop/payment-methods/{id}">conductor.qbd.payment_methods.<a href="./src/conductor/resources/qbd/payment_methods.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/payment_method.py">PaymentMethod</a></code>
 - <code title="get /quickbooks-desktop/payment-methods">conductor.qbd.payment_methods.<a href="./src/conductor/resources/qbd/payment_methods.py">list</a>(\*\*<a href="src/conductor/types/qbd/payment_method_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/payment_method_list_response.py">PaymentMethodListResponse</a></code>
+
+## PaymentsToDeposit
+
+Types:
+
+```python
+from conductor.types.qbd import PaymentToDeposit, PaymentsToDepositListResponse
+```
+
+Methods:
+
+- <code title="get /quickbooks-desktop/payments-to-deposit">conductor.qbd.payments_to_deposit.<a href="./src/conductor/resources/qbd/payments_to_deposit.py">list</a>() -> <a href="./src/conductor/types/qbd/payments_to_deposit_list_response.py">PaymentsToDepositListResponse</a></code>
 
 ## PayrollWageItems
 

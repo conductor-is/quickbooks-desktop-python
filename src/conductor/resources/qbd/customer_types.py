@@ -170,11 +170,11 @@ class CustomerTypesResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CustomerTypeListResponse:
-        """Returns a list of customer types.
+        """
+        Returns a list of customer types.
 
-        NOTE: QuickBooks Desktop does not support
-        pagination for customer types; hence, there is no `cursor` parameter. Users
-        typically have few customer types.
+        **NOTE:** QuickBooks Desktop does not support pagination for customer types;
+        hence, there is no `cursor` parameter. Users typically have few customer types.
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.
@@ -442,11 +442,11 @@ class AsyncCustomerTypesResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CustomerTypeListResponse:
-        """Returns a list of customer types.
+        """
+        Returns a list of customer types.
 
-        NOTE: QuickBooks Desktop does not support
-        pagination for customer types; hence, there is no `cursor` parameter. Users
-        typically have few customer types.
+        **NOTE:** QuickBooks Desktop does not support pagination for customer types;
+        hence, there is no `cursor` parameter. Users typically have few customer types.
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.

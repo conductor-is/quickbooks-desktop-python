@@ -238,11 +238,12 @@ class SalesRepresentativesResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SalesRepresentativeListResponse:
-        """Returns a list of sales representatives.
+        """
+        Returns a list of sales representatives.
 
-        NOTE: QuickBooks Desktop does not
-        support pagination for sales representatives; hence, there is no `cursor`
-        parameter. Users typically have few sales representatives.
+        **NOTE:** QuickBooks Desktop does not support pagination for sales
+        representatives; hence, there is no `cursor` parameter. Users typically have few
+        sales representatives.
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.
@@ -571,11 +572,12 @@ class AsyncSalesRepresentativesResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SalesRepresentativeListResponse:
-        """Returns a list of sales representatives.
+        """
+        Returns a list of sales representatives.
 
-        NOTE: QuickBooks Desktop does not
-        support pagination for sales representatives; hence, there is no `cursor`
-        parameter. Users typically have few sales representatives.
+        **NOTE:** QuickBooks Desktop does not support pagination for sales
+        representatives; hence, there is no `cursor` parameter. Users typically have few
+        sales representatives.
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.

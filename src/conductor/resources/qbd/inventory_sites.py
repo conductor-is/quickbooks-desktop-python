@@ -275,11 +275,11 @@ class InventorySitesResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> InventorySiteListResponse:
-        """Returns a list of inventory sites.
+        """
+        Returns a list of inventory sites.
 
-        NOTE: QuickBooks Desktop does not support
-        pagination for inventory sites; hence, there is no `cursor` parameter. Users
-        typically have few inventory sites.
+        **NOTE:** QuickBooks Desktop does not support pagination for inventory sites;
+        hence, there is no `cursor` parameter. Users typically have few inventory sites.
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.
@@ -637,11 +637,11 @@ class AsyncInventorySitesResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> InventorySiteListResponse:
-        """Returns a list of inventory sites.
+        """
+        Returns a list of inventory sites.
 
-        NOTE: QuickBooks Desktop does not support
-        pagination for inventory sites; hence, there is no `cursor` parameter. Users
-        typically have few inventory sites.
+        **NOTE:** QuickBooks Desktop does not support pagination for inventory sites;
+        hence, there is no `cursor` parameter. Users typically have few inventory sites.
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.

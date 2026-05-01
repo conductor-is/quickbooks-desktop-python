@@ -256,6 +256,10 @@ class ChecksResource(SyncAPIResource):
         memo, transaction date, or expense and item lines. This request cannot modify
         checks created through the bill-payment workflow.
 
+        **NOTE:** If you include `expenseLines`, `itemLines`, or `itemGroupLines`,
+        QuickBooks Desktop replaces each included line list with the array you send, so
+        include unchanged lines you want to keep and use `id: "-1"` for new lines.
+
         Args:
           id: The QuickBooks-assigned unique identifier of the check to update.
 
@@ -899,6 +903,10 @@ class AsyncChecksResource(AsyncAPIResource):
         Updates a standard check so you can adjust the issuing account, payee details,
         memo, transaction date, or expense and item lines. This request cannot modify
         checks created through the bill-payment workflow.
+
+        **NOTE:** If you include `expenseLines`, `itemLines`, or `itemGroupLines`,
+        QuickBooks Desktop replaces each included line list with the array you send, so
+        include unchanged lines you want to keep and use `id: "-1"` for new lines.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the check to update.

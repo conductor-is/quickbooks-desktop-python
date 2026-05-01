@@ -256,6 +256,10 @@ class ItemReceiptsResource(SyncAPIResource):
         """
         Updates an existing item receipt.
 
+        **NOTE:** If you include `expenseLines`, `itemLines`, or `itemGroupLines`,
+        QuickBooks Desktop replaces each included line list with the array you send, so
+        include unchanged lines you want to keep and use `id: "-1"` for new lines.
+
         Args:
           id: The QuickBooks-assigned unique identifier of the item receipt to update.
 
@@ -881,6 +885,10 @@ class AsyncItemReceiptsResource(AsyncAPIResource):
     ) -> ItemReceipt:
         """
         Updates an existing item receipt.
+
+        **NOTE:** If you include `expenseLines`, `itemLines`, or `itemGroupLines`,
+        QuickBooks Desktop replaces each included line list with the array you send, so
+        include unchanged lines you want to keep and use `id: "-1"` for new lines.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the item receipt to update.

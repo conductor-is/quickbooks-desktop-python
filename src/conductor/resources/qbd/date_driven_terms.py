@@ -190,11 +190,12 @@ class DateDrivenTermsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DateDrivenTermListResponse:
-        """Returns a list of date-driven terms.
+        """
+        Returns a list of date-driven terms.
 
-        NOTE: QuickBooks Desktop does not support
-        pagination for date-driven terms; hence, there is no `cursor` parameter. Users
-        typically have few date-driven terms.
+        **NOTE:** QuickBooks Desktop does not support pagination for date-driven terms;
+        hence, there is no `cursor` parameter. Users typically have few date-driven
+        terms.
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.
@@ -479,11 +480,12 @@ class AsyncDateDrivenTermsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DateDrivenTermListResponse:
-        """Returns a list of date-driven terms.
+        """
+        Returns a list of date-driven terms.
 
-        NOTE: QuickBooks Desktop does not support
-        pagination for date-driven terms; hence, there is no `cursor` parameter. Users
-        typically have few date-driven terms.
+        **NOTE:** QuickBooks Desktop does not support pagination for date-driven terms;
+        hence, there is no `cursor` parameter. Users typically have few date-driven
+        terms.
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.

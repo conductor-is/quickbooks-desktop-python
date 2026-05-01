@@ -378,11 +378,11 @@ class OtherNamesResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> OtherNameListResponse:
-        """Returns a list of other-names.
+        """
+        Returns a list of other-names.
 
-        NOTE: QuickBooks Desktop does not support
-        pagination for other-names; hence, there is no `cursor` parameter. Users
-        typically have few other-names.
+        **NOTE:** QuickBooks Desktop does not support pagination for other-names; hence,
+        there is no `cursor` parameter. Users typically have few other-names.
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.
@@ -853,11 +853,11 @@ class AsyncOtherNamesResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> OtherNameListResponse:
-        """Returns a list of other-names.
+        """
+        Returns a list of other-names.
 
-        NOTE: QuickBooks Desktop does not support
-        pagination for other-names; hence, there is no `cursor` parameter. Users
-        typically have few other-names.
+        **NOTE:** QuickBooks Desktop does not support pagination for other-names; hence,
+        there is no `cursor` parameter. Users typically have few other-names.
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.

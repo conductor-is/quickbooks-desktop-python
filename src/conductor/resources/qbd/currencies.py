@@ -270,11 +270,11 @@ class CurrenciesResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CurrencyListResponse:
-        """Returns a list of currencies.
+        """
+        Returns a list of currencies.
 
-        NOTE: QuickBooks Desktop does not support
-        pagination for currencies; hence, there is no `cursor` parameter. Users
-        typically have few currencies.
+        **NOTE:** QuickBooks Desktop does not support pagination for currencies; hence,
+        there is no `cursor` parameter. Users typically have few currencies.
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.
@@ -636,11 +636,11 @@ class AsyncCurrenciesResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CurrencyListResponse:
-        """Returns a list of currencies.
+        """
+        Returns a list of currencies.
 
-        NOTE: QuickBooks Desktop does not support
-        pagination for currencies; hence, there is no `cursor` parameter. Users
-        typically have few currencies.
+        **NOTE:** QuickBooks Desktop does not support pagination for currencies; hence,
+        there is no `cursor` parameter. Users typically have few currencies.
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.

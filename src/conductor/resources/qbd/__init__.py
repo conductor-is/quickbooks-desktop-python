@@ -56,6 +56,14 @@ from .accounts import (
     AccountsResourceWithStreamingResponse,
     AsyncAccountsResourceWithStreamingResponse,
 )
+from .deposits import (
+    DepositsResource,
+    AsyncDepositsResource,
+    DepositsResourceWithRawResponse,
+    AsyncDepositsResourceWithRawResponse,
+    DepositsResourceWithStreamingResponse,
+    AsyncDepositsResourceWithStreamingResponse,
+)
 from .invoices import (
     InvoicesResource,
     AsyncInvoicesResource,
@@ -392,6 +400,14 @@ from .non_inventory_items import (
     NonInventoryItemsResourceWithStreamingResponse,
     AsyncNonInventoryItemsResourceWithStreamingResponse,
 )
+from .payments_to_deposit import (
+    PaymentsToDepositResource,
+    AsyncPaymentsToDepositResource,
+    PaymentsToDepositResourceWithRawResponse,
+    AsyncPaymentsToDepositResourceWithRawResponse,
+    PaymentsToDepositResourceWithStreamingResponse,
+    AsyncPaymentsToDepositResourceWithStreamingResponse,
+)
 from .deleted_list_objects import (
     DeletedListObjectsResource,
     AsyncDeletedListObjectsResource,
@@ -572,6 +588,12 @@ __all__ = [
     "AsyncDeletedTransactionsResourceWithRawResponse",
     "DeletedTransactionsResourceWithStreamingResponse",
     "AsyncDeletedTransactionsResourceWithStreamingResponse",
+    "DepositsResource",
+    "AsyncDepositsResource",
+    "DepositsResourceWithRawResponse",
+    "AsyncDepositsResourceWithRawResponse",
+    "DepositsResourceWithStreamingResponse",
+    "AsyncDepositsResourceWithStreamingResponse",
     "DiscountItemsResource",
     "AsyncDiscountItemsResource",
     "DiscountItemsResourceWithRawResponse",
@@ -668,6 +690,12 @@ __all__ = [
     "AsyncPaymentMethodsResourceWithRawResponse",
     "PaymentMethodsResourceWithStreamingResponse",
     "AsyncPaymentMethodsResourceWithStreamingResponse",
+    "PaymentsToDepositResource",
+    "AsyncPaymentsToDepositResource",
+    "PaymentsToDepositResourceWithRawResponse",
+    "AsyncPaymentsToDepositResourceWithRawResponse",
+    "PaymentsToDepositResourceWithStreamingResponse",
+    "AsyncPaymentsToDepositResourceWithStreamingResponse",
     "PayrollWageItemsResource",
     "AsyncPayrollWageItemsResource",
     "PayrollWageItemsResourceWithRawResponse",
