@@ -276,6 +276,10 @@ class BillsResource(SyncAPIResource):
         you must continue to supply the vendor, accounts payable account, and at least
         one expense or item line when you resubmit the bill.
 
+        **NOTE:** If you include `expenseLines`, `itemLines`, or `itemGroupLines`,
+        QuickBooks Desktop replaces each included line list with the array you send, so
+        include unchanged lines you want to keep and use `id: "-1"` for new lines.
+
         Args:
           id: The QuickBooks-assigned unique identifier of the bill to update.
 
@@ -933,6 +937,10 @@ class AsyncBillsResource(AsyncAPIResource):
         QuickBooks does not let this update request add new purchase order links, and
         you must continue to supply the vendor, accounts payable account, and at least
         one expense or item line when you resubmit the bill.
+
+        **NOTE:** If you include `expenseLines`, `itemLines`, or `itemGroupLines`,
+        QuickBooks Desktop replaces each included line list with the array you send, so
+        include unchanged lines you want to keep and use `id: "-1"` for new lines.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the bill to update.

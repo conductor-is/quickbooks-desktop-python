@@ -634,11 +634,11 @@ class EmployeesResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EmployeeListResponse:
-        """Returns a list of employees.
+        """
+        Returns a list of employees.
 
-        NOTE: QuickBooks Desktop does not support
-        pagination for employees; hence, there is no `cursor` parameter. Users typically
-        have few employees.
+        **NOTE:** QuickBooks Desktop does not support pagination for employees; hence,
+        there is no `cursor` parameter. Users typically have few employees.
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.
@@ -1361,11 +1361,11 @@ class AsyncEmployeesResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EmployeeListResponse:
-        """Returns a list of employees.
+        """
+        Returns a list of employees.
 
-        NOTE: QuickBooks Desktop does not support
-        pagination for employees; hence, there is no `cursor` parameter. Users typically
-        have few employees.
+        **NOTE:** QuickBooks Desktop does not support pagination for employees; hence,
+        there is no `cursor` parameter. Users typically have few employees.
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.

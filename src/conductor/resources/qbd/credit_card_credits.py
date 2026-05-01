@@ -229,6 +229,10 @@ class CreditCardCreditsResource(SyncAPIResource):
         """
         Updates an existing credit card credit.
 
+        **NOTE:** If you include `expenseLines`, `itemLines`, or `itemGroupLines`,
+        QuickBooks Desktop replaces each included line list with the array you send, so
+        include unchanged lines you want to keep and use `id: "-1"` for new lines.
+
         Args:
           id: The QuickBooks-assigned unique identifier of the credit card credit to update.
 
@@ -817,6 +821,10 @@ class AsyncCreditCardCreditsResource(AsyncAPIResource):
     ) -> CreditCardCredit:
         """
         Updates an existing credit card credit.
+
+        **NOTE:** If you include `expenseLines`, `itemLines`, or `itemGroupLines`,
+        QuickBooks Desktop replaces each included line list with the array you send, so
+        include unchanged lines you want to keep and use `id: "-1"` for new lines.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the credit card credit to update.

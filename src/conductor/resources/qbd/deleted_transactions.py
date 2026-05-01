@@ -93,6 +93,10 @@ class DeletedTransactionsResource(SyncAPIResource):
         list-objects (e.g., customer, vendor, employee), see the deleted-list-objects
         endpoint.
 
+        **NOTE:** QuickBooks Desktop does not support pagination for deleted
+        transactions; hence, there is no `cursor` parameter. Users typically have few
+        deleted transactions.
+
         Args:
           transaction_types: Filter for deleted transactions by their transaction type(s).
 
@@ -217,6 +221,10 @@ class AsyncDeletedTransactionsResource(AsyncAPIResource):
         ordered by actual delete time (ascending). NOTE: For deleted non-transaction
         list-objects (e.g., customer, vendor, employee), see the deleted-list-objects
         endpoint.
+
+        **NOTE:** QuickBooks Desktop does not support pagination for deleted
+        transactions; hence, there is no `cursor` parameter. Users typically have few
+        deleted transactions.
 
         Args:
           transaction_types: Filter for deleted transactions by their transaction type(s).

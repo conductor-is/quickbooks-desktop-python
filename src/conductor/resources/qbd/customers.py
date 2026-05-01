@@ -712,6 +712,7 @@ class CustomersResource(SyncAPIResource):
 
         **IMPORTANT**: If this request times out or is slow, set
         `excludeAlternateShippingAddresses=true` to significantly improve performance.
+        Use the `cursor` parameter to paginate through the results.
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.
@@ -1557,6 +1558,7 @@ class AsyncCustomersResource(AsyncAPIResource):
 
         **IMPORTANT**: If this request times out or is slow, set
         `excludeAlternateShippingAddresses=true` to significantly improve performance.
+        Use the `cursor` parameter to paginate through the results.
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.

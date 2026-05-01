@@ -53,6 +53,14 @@ from .accounts import (
     AccountsResourceWithStreamingResponse,
     AsyncAccountsResourceWithStreamingResponse,
 )
+from .deposits import (
+    DepositsResource,
+    AsyncDepositsResource,
+    DepositsResourceWithRawResponse,
+    AsyncDepositsResourceWithRawResponse,
+    DepositsResourceWithStreamingResponse,
+    AsyncDepositsResourceWithStreamingResponse,
+)
 from .invoices import (
     InvoicesResource,
     AsyncInvoicesResource,
@@ -398,6 +406,14 @@ from .non_inventory_items import (
     NonInventoryItemsResourceWithStreamingResponse,
     AsyncNonInventoryItemsResourceWithStreamingResponse,
 )
+from .payments_to_deposit import (
+    PaymentsToDepositResource,
+    AsyncPaymentsToDepositResource,
+    PaymentsToDepositResourceWithRawResponse,
+    AsyncPaymentsToDepositResourceWithRawResponse,
+    PaymentsToDepositResourceWithStreamingResponse,
+    AsyncPaymentsToDepositResourceWithStreamingResponse,
+)
 from .deleted_list_objects import (
     DeletedListObjectsResource,
     AsyncDeletedListObjectsResource,
@@ -545,6 +561,10 @@ class QbdResource(SyncAPIResource):
         return DeletedTransactionsResource(self._client)
 
     @cached_property
+    def deposits(self) -> DepositsResource:
+        return DepositsResource(self._client)
+
+    @cached_property
     def discount_items(self) -> DiscountItemsResource:
         return DiscountItemsResource(self._client)
 
@@ -607,6 +627,10 @@ class QbdResource(SyncAPIResource):
     @cached_property
     def payment_methods(self) -> PaymentMethodsResource:
         return PaymentMethodsResource(self._client)
+
+    @cached_property
+    def payments_to_deposit(self) -> PaymentsToDepositResource:
+        return PaymentsToDepositResource(self._client)
 
     @cached_property
     def payroll_wage_items(self) -> PayrollWageItemsResource:
@@ -829,6 +853,10 @@ class AsyncQbdResource(AsyncAPIResource):
         return AsyncDeletedTransactionsResource(self._client)
 
     @cached_property
+    def deposits(self) -> AsyncDepositsResource:
+        return AsyncDepositsResource(self._client)
+
+    @cached_property
     def discount_items(self) -> AsyncDiscountItemsResource:
         return AsyncDiscountItemsResource(self._client)
 
@@ -891,6 +919,10 @@ class AsyncQbdResource(AsyncAPIResource):
     @cached_property
     def payment_methods(self) -> AsyncPaymentMethodsResource:
         return AsyncPaymentMethodsResource(self._client)
+
+    @cached_property
+    def payments_to_deposit(self) -> AsyncPaymentsToDepositResource:
+        return AsyncPaymentsToDepositResource(self._client)
 
     @cached_property
     def payroll_wage_items(self) -> AsyncPayrollWageItemsResource:
@@ -1120,6 +1152,10 @@ class QbdResourceWithRawResponse:
         return DeletedTransactionsResourceWithRawResponse(self._qbd.deleted_transactions)
 
     @cached_property
+    def deposits(self) -> DepositsResourceWithRawResponse:
+        return DepositsResourceWithRawResponse(self._qbd.deposits)
+
+    @cached_property
     def discount_items(self) -> DiscountItemsResourceWithRawResponse:
         return DiscountItemsResourceWithRawResponse(self._qbd.discount_items)
 
@@ -1182,6 +1218,10 @@ class QbdResourceWithRawResponse:
     @cached_property
     def payment_methods(self) -> PaymentMethodsResourceWithRawResponse:
         return PaymentMethodsResourceWithRawResponse(self._qbd.payment_methods)
+
+    @cached_property
+    def payments_to_deposit(self) -> PaymentsToDepositResourceWithRawResponse:
+        return PaymentsToDepositResourceWithRawResponse(self._qbd.payments_to_deposit)
 
     @cached_property
     def payroll_wage_items(self) -> PayrollWageItemsResourceWithRawResponse:
@@ -1353,6 +1393,10 @@ class AsyncQbdResourceWithRawResponse:
         return AsyncDeletedTransactionsResourceWithRawResponse(self._qbd.deleted_transactions)
 
     @cached_property
+    def deposits(self) -> AsyncDepositsResourceWithRawResponse:
+        return AsyncDepositsResourceWithRawResponse(self._qbd.deposits)
+
+    @cached_property
     def discount_items(self) -> AsyncDiscountItemsResourceWithRawResponse:
         return AsyncDiscountItemsResourceWithRawResponse(self._qbd.discount_items)
 
@@ -1415,6 +1459,10 @@ class AsyncQbdResourceWithRawResponse:
     @cached_property
     def payment_methods(self) -> AsyncPaymentMethodsResourceWithRawResponse:
         return AsyncPaymentMethodsResourceWithRawResponse(self._qbd.payment_methods)
+
+    @cached_property
+    def payments_to_deposit(self) -> AsyncPaymentsToDepositResourceWithRawResponse:
+        return AsyncPaymentsToDepositResourceWithRawResponse(self._qbd.payments_to_deposit)
 
     @cached_property
     def payroll_wage_items(self) -> AsyncPayrollWageItemsResourceWithRawResponse:
@@ -1586,6 +1634,10 @@ class QbdResourceWithStreamingResponse:
         return DeletedTransactionsResourceWithStreamingResponse(self._qbd.deleted_transactions)
 
     @cached_property
+    def deposits(self) -> DepositsResourceWithStreamingResponse:
+        return DepositsResourceWithStreamingResponse(self._qbd.deposits)
+
+    @cached_property
     def discount_items(self) -> DiscountItemsResourceWithStreamingResponse:
         return DiscountItemsResourceWithStreamingResponse(self._qbd.discount_items)
 
@@ -1648,6 +1700,10 @@ class QbdResourceWithStreamingResponse:
     @cached_property
     def payment_methods(self) -> PaymentMethodsResourceWithStreamingResponse:
         return PaymentMethodsResourceWithStreamingResponse(self._qbd.payment_methods)
+
+    @cached_property
+    def payments_to_deposit(self) -> PaymentsToDepositResourceWithStreamingResponse:
+        return PaymentsToDepositResourceWithStreamingResponse(self._qbd.payments_to_deposit)
 
     @cached_property
     def payroll_wage_items(self) -> PayrollWageItemsResourceWithStreamingResponse:
@@ -1819,6 +1875,10 @@ class AsyncQbdResourceWithStreamingResponse:
         return AsyncDeletedTransactionsResourceWithStreamingResponse(self._qbd.deleted_transactions)
 
     @cached_property
+    def deposits(self) -> AsyncDepositsResourceWithStreamingResponse:
+        return AsyncDepositsResourceWithStreamingResponse(self._qbd.deposits)
+
+    @cached_property
     def discount_items(self) -> AsyncDiscountItemsResourceWithStreamingResponse:
         return AsyncDiscountItemsResourceWithStreamingResponse(self._qbd.discount_items)
 
@@ -1881,6 +1941,10 @@ class AsyncQbdResourceWithStreamingResponse:
     @cached_property
     def payment_methods(self) -> AsyncPaymentMethodsResourceWithStreamingResponse:
         return AsyncPaymentMethodsResourceWithStreamingResponse(self._qbd.payment_methods)
+
+    @cached_property
+    def payments_to_deposit(self) -> AsyncPaymentsToDepositResourceWithStreamingResponse:
+        return AsyncPaymentsToDepositResourceWithStreamingResponse(self._qbd.payments_to_deposit)
 
     @cached_property
     def payroll_wage_items(self) -> AsyncPayrollWageItemsResourceWithStreamingResponse:

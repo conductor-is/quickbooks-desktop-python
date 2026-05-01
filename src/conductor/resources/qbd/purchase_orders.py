@@ -324,6 +324,10 @@ class PurchaseOrdersResource(SyncAPIResource):
         """
         Updates an existing purchase order.
 
+        **NOTE:** If you include `lines` or `lineGroups`, QuickBooks Desktop replaces
+        each included line list with the array you send, so include unchanged lines you
+        want to keep and use `id: "-1"` for new lines.
+
         Args:
           id: The QuickBooks-assigned unique identifier of the purchase order to update.
 
@@ -1026,6 +1030,10 @@ class AsyncPurchaseOrdersResource(AsyncAPIResource):
     ) -> PurchaseOrder:
         """
         Updates an existing purchase order.
+
+        **NOTE:** If you include `lines` or `lineGroups`, QuickBooks Desktop replaces
+        each included line list with the array you send, so include unchanged lines you
+        want to keep and use `id: "-1"` for new lines.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the purchase order to update.

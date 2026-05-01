@@ -165,11 +165,12 @@ class ShippingMethodsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ShippingMethodListResponse:
-        """Returns a list of shipping methods.
+        """
+        Returns a list of shipping methods.
 
-        NOTE: QuickBooks Desktop does not support
-        pagination for shipping methods; hence, there is no `cursor` parameter. Users
-        typically have few shipping methods.
+        **NOTE:** QuickBooks Desktop does not support pagination for shipping methods;
+        hence, there is no `cursor` parameter. Users typically have few shipping
+        methods.
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.
@@ -429,11 +430,12 @@ class AsyncShippingMethodsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ShippingMethodListResponse:
-        """Returns a list of shipping methods.
+        """
+        Returns a list of shipping methods.
 
-        NOTE: QuickBooks Desktop does not support
-        pagination for shipping methods; hence, there is no `cursor` parameter. Users
-        typically have few shipping methods.
+        **NOTE:** QuickBooks Desktop does not support pagination for shipping methods;
+        hence, there is no `cursor` parameter. Users typically have few shipping
+        methods.
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.
