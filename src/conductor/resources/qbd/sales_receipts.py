@@ -362,6 +362,10 @@ class SalesReceiptsResource(SyncAPIResource):
         credit-card payment method and remain deposited to Undeposited Funds, so don’t
         switch the deposit account in those scenarios.
 
+        **NOTE:** If you include `lines` or `lineGroups`, QuickBooks Desktop replaces
+        each included line list with the array you send, so include unchanged lines you
+        want to keep and use `id: "-1"` for new lines.
+
         Args:
           id: The QuickBooks-assigned unique identifier of the sales receipt to update.
 
@@ -1149,6 +1153,10 @@ class AsyncSalesReceiptsResource(AsyncAPIResource):
         Credit card payments still have to use a
         credit-card payment method and remain deposited to Undeposited Funds, so don’t
         switch the deposit account in those scenarios.
+
+        **NOTE:** If you include `lines` or `lineGroups`, QuickBooks Desktop replaces
+        each included line list with the array you send, so include unchanged lines you
+        want to keep and use `id: "-1"` for new lines.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the sales receipt to update.

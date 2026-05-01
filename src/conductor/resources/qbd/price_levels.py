@@ -278,11 +278,11 @@ class PriceLevelsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> PriceLevelListResponse:
-        """Returns a list of price levels.
+        """
+        Returns a list of price levels.
 
-        NOTE: QuickBooks Desktop does not support
-        pagination for price levels; hence, there is no `cursor` parameter. Users
-        typically have few price levels.
+        **NOTE:** QuickBooks Desktop does not support pagination for price levels;
+        hence, there is no `cursor` parameter. Users typically have few price levels.
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.
@@ -658,11 +658,11 @@ class AsyncPriceLevelsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> PriceLevelListResponse:
-        """Returns a list of price levels.
+        """
+        Returns a list of price levels.
 
-        NOTE: QuickBooks Desktop does not support
-        pagination for price levels; hence, there is no `cursor` parameter. Users
-        typically have few price levels.
+        **NOTE:** QuickBooks Desktop does not support pagination for price levels;
+        hence, there is no `cursor` parameter. Users typically have few price levels.
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.

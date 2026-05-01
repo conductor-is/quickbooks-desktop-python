@@ -213,6 +213,10 @@ class InventoryAdjustmentsResource(SyncAPIResource):
         """
         Updates an existing inventory adjustment.
 
+        **NOTE:** If you include `lines`, QuickBooks Desktop replaces that line list
+        with the array you send, so include unchanged lines you want to keep and use
+        `id: "-1"` for new lines.
+
         Args:
           id: The QuickBooks-assigned unique identifier of the inventory adjustment to update.
 
@@ -320,11 +324,12 @@ class InventoryAdjustmentsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> InventoryAdjustmentListResponse:
-        """Returns a list of inventory adjustments.
+        """
+        Returns a list of inventory adjustments.
 
-        NOTE: QuickBooks Desktop does not
-        support pagination for inventory adjustments; hence, there is no `cursor`
-        parameter. Users typically have few inventory adjustments.
+        **NOTE:** QuickBooks Desktop does not support pagination for inventory
+        adjustments; hence, there is no `cursor` parameter. Users typically have few
+        inventory adjustments.
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.
@@ -735,6 +740,10 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
         """
         Updates an existing inventory adjustment.
 
+        **NOTE:** If you include `lines`, QuickBooks Desktop replaces that line list
+        with the array you send, so include unchanged lines you want to keep and use
+        `id: "-1"` for new lines.
+
         Args:
           id: The QuickBooks-assigned unique identifier of the inventory adjustment to update.
 
@@ -842,11 +851,12 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> InventoryAdjustmentListResponse:
-        """Returns a list of inventory adjustments.
+        """
+        Returns a list of inventory adjustments.
 
-        NOTE: QuickBooks Desktop does not
-        support pagination for inventory adjustments; hence, there is no `cursor`
-        parameter. Users typically have few inventory adjustments.
+        **NOTE:** QuickBooks Desktop does not support pagination for inventory
+        adjustments; hence, there is no `cursor` parameter. Users typically have few
+        inventory adjustments.
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.

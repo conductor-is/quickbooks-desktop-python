@@ -105,6 +105,10 @@ class DeletedListObjectsResource(SyncAPIResource):
         ordered by actual delete time (ascending). For deleted transactions (e.g.,
         invoices, bills, estimates), see the deleted-transactions endpoint.
 
+        **NOTE:** QuickBooks Desktop does not support pagination for deleted
+        list-objects; hence, there is no `cursor` parameter. Users typically have few
+        deleted list-objects.
+
         Args:
           object_types: Filter for deleted list-objects by their list-object type(s).
 
@@ -241,6 +245,10 @@ class AsyncDeletedListObjectsResource(AsyncAPIResource):
         items) from the last 90 days. Results are grouped by list-object type and
         ordered by actual delete time (ascending). For deleted transactions (e.g.,
         invoices, bills, estimates), see the deleted-transactions endpoint.
+
+        **NOTE:** QuickBooks Desktop does not support pagination for deleted
+        list-objects; hence, there is no `cursor` parameter. Users typically have few
+        deleted list-objects.
 
         Args:
           object_types: Filter for deleted list-objects by their list-object type(s).

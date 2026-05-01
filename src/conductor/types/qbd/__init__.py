@@ -8,6 +8,7 @@ from .class_ import Class as Class
 from .vendor import Vendor as Vendor
 from .account import Account as Account
 from .company import Company as Company
+from .deposit import Deposit as Deposit
 from .invoice import Invoice as Invoice
 from .currency import Currency as Currency
 from .customer import Customer as Customer
@@ -56,6 +57,7 @@ from .credit_card_charge import CreditCardCharge as CreditCardCharge
 from .credit_card_credit import CreditCardCredit as CreditCardCredit
 from .credit_card_refund import CreditCardRefund as CreditCardRefund
 from .non_inventory_item import NonInventoryItem as NonInventoryItem
+from .payment_to_deposit import PaymentToDeposit as PaymentToDeposit
 from .vendor_list_params import VendorListParams as VendorListParams
 from .account_list_params import AccountListParams as AccountListParams
 from .check_create_params import CheckCreateParams as CheckCreateParams
@@ -66,6 +68,7 @@ from .class_list_response import ClassListResponse as ClassListResponse
 from .class_update_params import ClassUpdateParams as ClassUpdateParams
 from .deleted_list_object import DeletedListObject as DeletedListObject
 from .deleted_transaction import DeletedTransaction as DeletedTransaction
+from .deposit_list_params import DepositListParams as DepositListParams
 from .invoice_list_params import InvoiceListParams as InvoiceListParams
 from .unit_of_measure_set import UnitOfMeasureSet as UnitOfMeasureSet
 from .bill_delete_response import BillDeleteResponse as BillDeleteResponse
@@ -82,6 +85,9 @@ from .account_create_params import AccountCreateParams as AccountCreateParams
 from .account_list_response import AccountListResponse as AccountListResponse
 from .account_update_params import AccountUpdateParams as AccountUpdateParams
 from .check_delete_response import CheckDeleteResponse as CheckDeleteResponse
+from .deposit_create_params import DepositCreateParams as DepositCreateParams
+from .deposit_update_params import DepositUpdateParams as DepositUpdateParams
+from .deposit_void_response import DepositVoidResponse as DepositVoidResponse
 from .invoice_create_params import InvoiceCreateParams as InvoiceCreateParams
 from .invoice_update_params import InvoiceUpdateParams as InvoiceUpdateParams
 from .invoice_void_response import InvoiceVoidResponse as InvoiceVoidResponse
@@ -103,6 +109,7 @@ from .time_tracking_activity import TimeTrackingActivity as TimeTrackingActivity
 from .transfer_create_params import TransferCreateParams as TransferCreateParams
 from .transfer_update_params import TransferUpdateParams as TransferUpdateParams
 from .credit_memo_list_params import CreditMemoListParams as CreditMemoListParams
+from .deposit_delete_response import DepositDeleteResponse as DepositDeleteResponse
 from .inventory_assembly_item import InventoryAssemblyItem as InventoryAssemblyItem
 from .invoice_delete_response import InvoiceDeleteResponse as InvoiceDeleteResponse
 from .price_level_list_params import PriceLevelListParams as PriceLevelListParams
@@ -226,6 +233,7 @@ from .non_inventory_item_update_params import NonInventoryItemUpdateParams as No
 from .sales_representative_list_params import SalesRepresentativeListParams as SalesRepresentativeListParams
 from .deleted_list_object_list_response import DeletedListObjectListResponse as DeletedListObjectListResponse
 from .deleted_transaction_list_response import DeletedTransactionListResponse as DeletedTransactionListResponse
+from .payments_to_deposit_list_response import PaymentsToDepositListResponse as PaymentsToDepositListResponse
 from .unit_of_measure_set_create_params import UnitOfMeasureSetCreateParams as UnitOfMeasureSetCreateParams
 from .unit_of_measure_set_list_response import UnitOfMeasureSetListResponse as UnitOfMeasureSetListResponse
 from .bill_check_payment_delete_response import BillCheckPaymentDeleteResponse as BillCheckPaymentDeleteResponse

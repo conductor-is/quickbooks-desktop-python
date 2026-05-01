@@ -194,11 +194,11 @@ class PaymentMethodsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> PaymentMethodListResponse:
-        """Returns a list of payment methods.
+        """
+        Returns a list of payment methods.
 
-        NOTE: QuickBooks Desktop does not support
-        pagination for payment methods; hence, there is no `cursor` parameter. Users
-        typically have few payment methods.
+        **NOTE:** QuickBooks Desktop does not support pagination for payment methods;
+        hence, there is no `cursor` parameter. Users typically have few payment methods.
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.
@@ -490,11 +490,11 @@ class AsyncPaymentMethodsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> PaymentMethodListResponse:
-        """Returns a list of payment methods.
+        """
+        Returns a list of payment methods.
 
-        NOTE: QuickBooks Desktop does not support
-        pagination for payment methods; hence, there is no `cursor` parameter. Users
-        typically have few payment methods.
+        **NOTE:** QuickBooks Desktop does not support pagination for payment methods;
+        hence, there is no `cursor` parameter. Users typically have few payment methods.
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.

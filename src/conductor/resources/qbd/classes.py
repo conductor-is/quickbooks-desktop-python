@@ -242,11 +242,11 @@ class ClassesResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ClassListResponse:
-        """Returns a list of classes.
+        """
+        Returns a list of classes.
 
-        NOTE: QuickBooks Desktop does not support pagination
-        for classes; hence, there is no `cursor` parameter. Users typically have few
-        classes.
+        **NOTE:** QuickBooks Desktop does not support pagination for classes; hence,
+        there is no `cursor` parameter. Users typically have few classes.
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.
@@ -582,11 +582,11 @@ class AsyncClassesResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ClassListResponse:
-        """Returns a list of classes.
+        """
+        Returns a list of classes.
 
-        NOTE: QuickBooks Desktop does not support pagination
-        for classes; hence, there is no `cursor` parameter. Users typically have few
-        classes.
+        **NOTE:** QuickBooks Desktop does not support pagination for classes; hence,
+        there is no `cursor` parameter. Users typically have few classes.
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.
