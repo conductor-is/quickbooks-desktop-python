@@ -133,6 +133,8 @@ class EmployeesResource(SyncAPIResource):
 
           alternate_phone: The employee's alternate telephone number.
 
+              Maximum length: 21 characters.
+
           billing_rate_id: The employee's billing rate, used to override service item rates in time
               tracking activities.
 
@@ -175,6 +177,8 @@ class EmployeesResource(SyncAPIResource):
 
           fax: The employee's fax number.
 
+              Maximum length: 21 characters.
+
           first_name: The employee's first name.
 
               Maximum length: 25 characters.
@@ -204,6 +208,8 @@ class EmployeesResource(SyncAPIResource):
 
           mobile: The employee's mobile phone number.
 
+              Maximum length: 21 characters.
+
           note: A note or comment about this employee.
 
           original_hire_date: The original hire date for this employee, in ISO 8601 format (YYYY-MM-DD).
@@ -213,9 +219,13 @@ class EmployeesResource(SyncAPIResource):
 
           pager: The employee's pager number.
 
+              Maximum length: 21 characters.
+
           pager_pin: The employee's pager PIN.
 
           phone: The employee's primary telephone number.
+
+              Maximum length: 21 characters.
 
           print_as: The name to use when printing this employee from QuickBooks. By default, this is
               the same as the `name` field.
@@ -447,6 +457,8 @@ class EmployeesResource(SyncAPIResource):
 
           alternate_phone: The employee's alternate telephone number.
 
+              Maximum length: 21 characters.
+
           billing_rate_id: The employee's billing rate, used to override service item rates in time
               tracking activities.
 
@@ -482,6 +494,8 @@ class EmployeesResource(SyncAPIResource):
 
           fax: The employee's fax number.
 
+              Maximum length: 21 characters.
+
           first_name: The employee's first name.
 
               Maximum length: 25 characters.
@@ -509,6 +523,8 @@ class EmployeesResource(SyncAPIResource):
 
           mobile: The employee's mobile phone number.
 
+              Maximum length: 21 characters.
+
           note: A note or comment about this employee.
 
           original_hire_date: The original hire date for this employee, in ISO 8601 format (YYYY-MM-DD).
@@ -518,9 +534,13 @@ class EmployeesResource(SyncAPIResource):
 
           pager: The employee's pager number.
 
+              Maximum length: 21 characters.
+
           pager_pin: The employee's pager PIN.
 
           phone: The employee's primary telephone number.
+
+              Maximum length: 21 characters.
 
           print_as: The name to use when printing this employee from QuickBooks. By default, this is
               the same as the `name` field.
@@ -860,6 +880,8 @@ class AsyncEmployeesResource(AsyncAPIResource):
 
           alternate_phone: The employee's alternate telephone number.
 
+              Maximum length: 21 characters.
+
           billing_rate_id: The employee's billing rate, used to override service item rates in time
               tracking activities.
 
@@ -902,6 +924,8 @@ class AsyncEmployeesResource(AsyncAPIResource):
 
           fax: The employee's fax number.
 
+              Maximum length: 21 characters.
+
           first_name: The employee's first name.
 
               Maximum length: 25 characters.
@@ -931,6 +955,8 @@ class AsyncEmployeesResource(AsyncAPIResource):
 
           mobile: The employee's mobile phone number.
 
+              Maximum length: 21 characters.
+
           note: A note or comment about this employee.
 
           original_hire_date: The original hire date for this employee, in ISO 8601 format (YYYY-MM-DD).
@@ -940,9 +966,13 @@ class AsyncEmployeesResource(AsyncAPIResource):
 
           pager: The employee's pager number.
 
+              Maximum length: 21 characters.
+
           pager_pin: The employee's pager PIN.
 
           phone: The employee's primary telephone number.
+
+              Maximum length: 21 characters.
 
           print_as: The name to use when printing this employee from QuickBooks. By default, this is
               the same as the `name` field.
@@ -1174,6 +1204,8 @@ class AsyncEmployeesResource(AsyncAPIResource):
 
           alternate_phone: The employee's alternate telephone number.
 
+              Maximum length: 21 characters.
+
           billing_rate_id: The employee's billing rate, used to override service item rates in time
               tracking activities.
 
@@ -1209,6 +1241,8 @@ class AsyncEmployeesResource(AsyncAPIResource):
 
           fax: The employee's fax number.
 
+              Maximum length: 21 characters.
+
           first_name: The employee's first name.
 
               Maximum length: 25 characters.
@@ -1236,6 +1270,8 @@ class AsyncEmployeesResource(AsyncAPIResource):
 
           mobile: The employee's mobile phone number.
 
+              Maximum length: 21 characters.
+
           note: A note or comment about this employee.
 
           original_hire_date: The original hire date for this employee, in ISO 8601 format (YYYY-MM-DD).
@@ -1245,9 +1281,13 @@ class AsyncEmployeesResource(AsyncAPIResource):
 
           pager: The employee's pager number.
 
+              Maximum length: 21 characters.
+
           pager_pin: The employee's pager PIN.
 
           phone: The employee's primary telephone number.
+
+              Maximum length: 21 characters.
 
           print_as: The name to use when printing this employee from QuickBooks. By default, this is
               the same as the `name` field.

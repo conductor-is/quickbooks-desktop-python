@@ -58,7 +58,15 @@ class PriceLevelCreateParams(TypedDict, total=False):
 
 
 class PerItemPriceLevel(TypedDict, total=False):
-    adjust_percentage: Required[Annotated[str, PropertyInfo(alias="adjustPercentage")]]
+    item_id: Required[Annotated[str, PropertyInfo(alias="itemId")]]
+    """The item associated with this per-item price level.
+
+    This can refer to any good or service that the business buys or sells, including
+    item types such as a service item, inventory item, or special calculation item
+    like a discount item or sales-tax item.
+    """
+
+    adjust_percentage: Annotated[str, PropertyInfo(alias="adjustPercentage")]
     """
     The percentage adjustment for this per-item price level when using relative
     pricing. Specifies a percentage to modify pricing, using positive values (e.g.,
@@ -66,8 +74,8 @@ class PerItemPriceLevel(TypedDict, total=False):
     apply a discount.
     """
 
-    adjust_relative_to: Required[
-        Annotated[Literal["cost", "current_custom_price", "standard_price"], PropertyInfo(alias="adjustRelativeTo")]
+    adjust_relative_to: Annotated[
+        Literal["cost", "current_custom_price", "standard_price"], PropertyInfo(alias="adjustRelativeTo")
     ]
     """The base value reference for this per-item price level's percentage adjustment.
 
@@ -78,14 +86,6 @@ class PerItemPriceLevel(TypedDict, total=False):
     (`customPrice` or `customPricePercent`) or a relative adjustment approach
     (`adjustPercentage` with `adjustRelativeTo`) when configuring per-item price
     levels.
-    """
-
-    item_id: Required[Annotated[str, PropertyInfo(alias="itemId")]]
-    """The item associated with this per-item price level.
-
-    This can refer to any good or service that the business buys or sells, including
-    item types such as a service item, inventory item, or special calculation item
-    like a discount item or sales-tax item.
     """
 
     custom_price: Annotated[str, PropertyInfo(alias="customPrice")]

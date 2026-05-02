@@ -115,6 +115,8 @@ class BillCreateParams(TypedDict, total=False):
     unique and can be arbitrarily changed by the QuickBooks user. When left blank in
     this create request, this field will be left blank in QuickBooks (i.e., it does
     _not_ auto-increment).
+
+    Maximum length: 20 characters.
     """
 
     sales_tax_code_id: Annotated[str, PropertyInfo(alias="salesTaxCodeId")]

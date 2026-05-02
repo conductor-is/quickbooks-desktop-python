@@ -91,7 +91,7 @@ class TestPurchaseOrders:
             other_custom_field2="Always ship with a spare",
             ref_number="PO-1234",
             sales_tax_code_id="80000001-1234567890",
-            shipment_origin="San Francisco, CA",
+            shipment_origin="shipmentOrigin",
             shipping_address={
                 "city": "San Francisco",
                 "country": "United States",
@@ -274,7 +274,7 @@ class TestPurchaseOrders:
             other_custom_field2="Always ship with a spare",
             ref_number="PO-1234",
             sales_tax_code_id="80000001-1234567890",
-            shipment_origin="San Francisco, CA",
+            shipment_origin="shipmentOrigin",
             shipping_address={
                 "city": "San Francisco",
                 "country": "United States",
@@ -518,7 +518,7 @@ class TestAsyncPurchaseOrders:
             other_custom_field2="Always ship with a spare",
             ref_number="PO-1234",
             sales_tax_code_id="80000001-1234567890",
-            shipment_origin="San Francisco, CA",
+            shipment_origin="shipmentOrigin",
             shipping_address={
                 "city": "San Francisco",
                 "country": "United States",
@@ -701,7 +701,7 @@ class TestAsyncPurchaseOrders:
             other_custom_field2="Always ship with a spare",
             ref_number="PO-1234",
             sales_tax_code_id="80000001-1234567890",
-            shipment_origin="San Francisco, CA",
+            shipment_origin="shipmentOrigin",
             shipping_address={
                 "city": "San Francisco",
                 "country": "United States",

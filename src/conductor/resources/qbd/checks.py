@@ -133,6 +133,8 @@ class ChecksResource(SyncAPIResource):
 
               **IMPORTANT**: For checks, this field is the check number.
 
+              Maximum length: 11 characters.
+
           sales_tax_code_id: The sales-tax code for this check, determining whether it is taxable or
               non-taxable. If set, this overrides any sales-tax codes defined on the payee.
               This can be overridden on the check's individual lines.
@@ -353,6 +355,8 @@ class ChecksResource(SyncAPIResource):
               unique and can be arbitrarily changed by the QuickBooks user.
 
               **IMPORTANT**: For checks, this field is the check number.
+
+              Maximum length: 11 characters.
 
           sales_tax_code_id: The sales-tax code for this check, determining whether it is taxable or
               non-taxable. If set, this overrides any sales-tax codes defined on the payee.
@@ -781,6 +785,8 @@ class AsyncChecksResource(AsyncAPIResource):
 
               **IMPORTANT**: For checks, this field is the check number.
 
+              Maximum length: 11 characters.
+
           sales_tax_code_id: The sales-tax code for this check, determining whether it is taxable or
               non-taxable. If set, this overrides any sales-tax codes defined on the payee.
               This can be overridden on the check's individual lines.
@@ -1001,6 +1007,8 @@ class AsyncChecksResource(AsyncAPIResource):
               unique and can be arbitrarily changed by the QuickBooks user.
 
               **IMPORTANT**: For checks, this field is the check number.
+
+              Maximum length: 11 characters.
 
           sales_tax_code_id: The sales-tax code for this check, determining whether it is taxable or
               non-taxable. If set, this overrides any sales-tax codes defined on the payee.

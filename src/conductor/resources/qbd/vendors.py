@@ -132,6 +132,8 @@ class VendorsResource(SyncAPIResource):
 
           alternate_phone: The vendor's alternate telephone number.
 
+              Maximum length: 21 characters.
+
           billing_address: The vendor's billing address.
 
           billing_rate_id: The vendor's billing rate, used to override service item rates in time tracking
@@ -172,6 +174,8 @@ class VendorsResource(SyncAPIResource):
 
           fax: The vendor's fax number.
 
+              Maximum length: 21 characters.
+
           first_name: The first name of the contact person for this vendor.
 
               Maximum length: 25 characters.
@@ -206,6 +210,8 @@ class VendorsResource(SyncAPIResource):
 
           name_on_check: The vendor's name as it should appear on checks issued to this vendor.
 
+              Maximum length: 41 characters.
+
           note: A note or comment about this vendor.
 
           opening_balance: The opening balance of this vendor's account, indicating the amount owed to this
@@ -214,6 +220,8 @@ class VendorsResource(SyncAPIResource):
           opening_balance_date: The date of the opening balance of this vendor, in ISO 8601 format (YYYY-MM-DD).
 
           phone: The vendor's primary telephone number.
+
+              Maximum length: 21 characters.
 
           purchase_tax_account_id: The account used for tracking taxes on purchases for this vendor, for use in
               Canada or the UK.
@@ -447,6 +455,8 @@ class VendorsResource(SyncAPIResource):
 
           alternate_phone: The vendor's alternate telephone number.
 
+              Maximum length: 21 characters.
+
           billing_address: The vendor's billing address.
 
           billing_rate_id: The vendor's billing rate, used to override service item rates in time tracking
@@ -479,6 +489,8 @@ class VendorsResource(SyncAPIResource):
           email: The vendor's email address.
 
           fax: The vendor's fax number.
+
+              Maximum length: 21 characters.
 
           first_name: The first name of the contact person for this vendor.
 
@@ -522,9 +534,13 @@ class VendorsResource(SyncAPIResource):
 
           name_on_check: The vendor's name as it should appear on checks issued to this vendor.
 
+              Maximum length: 41 characters.
+
           note: A note or comment about this vendor.
 
           phone: The vendor's primary telephone number.
+
+              Maximum length: 21 characters.
 
           purchase_tax_account_id: The account used for tracking taxes on purchases for this vendor, for use in
               Canada or the UK.
@@ -917,6 +933,8 @@ class AsyncVendorsResource(AsyncAPIResource):
 
           alternate_phone: The vendor's alternate telephone number.
 
+              Maximum length: 21 characters.
+
           billing_address: The vendor's billing address.
 
           billing_rate_id: The vendor's billing rate, used to override service item rates in time tracking
@@ -957,6 +975,8 @@ class AsyncVendorsResource(AsyncAPIResource):
 
           fax: The vendor's fax number.
 
+              Maximum length: 21 characters.
+
           first_name: The first name of the contact person for this vendor.
 
               Maximum length: 25 characters.
@@ -991,6 +1011,8 @@ class AsyncVendorsResource(AsyncAPIResource):
 
           name_on_check: The vendor's name as it should appear on checks issued to this vendor.
 
+              Maximum length: 41 characters.
+
           note: A note or comment about this vendor.
 
           opening_balance: The opening balance of this vendor's account, indicating the amount owed to this
@@ -999,6 +1021,8 @@ class AsyncVendorsResource(AsyncAPIResource):
           opening_balance_date: The date of the opening balance of this vendor, in ISO 8601 format (YYYY-MM-DD).
 
           phone: The vendor's primary telephone number.
+
+              Maximum length: 21 characters.
 
           purchase_tax_account_id: The account used for tracking taxes on purchases for this vendor, for use in
               Canada or the UK.
@@ -1232,6 +1256,8 @@ class AsyncVendorsResource(AsyncAPIResource):
 
           alternate_phone: The vendor's alternate telephone number.
 
+              Maximum length: 21 characters.
+
           billing_address: The vendor's billing address.
 
           billing_rate_id: The vendor's billing rate, used to override service item rates in time tracking
@@ -1264,6 +1290,8 @@ class AsyncVendorsResource(AsyncAPIResource):
           email: The vendor's email address.
 
           fax: The vendor's fax number.
+
+              Maximum length: 21 characters.
 
           first_name: The first name of the contact person for this vendor.
 
@@ -1307,9 +1335,13 @@ class AsyncVendorsResource(AsyncAPIResource):
 
           name_on_check: The vendor's name as it should appear on checks issued to this vendor.
 
+              Maximum length: 41 characters.
+
           note: A note or comment about this vendor.
 
           phone: The vendor's primary telephone number.
+
+              Maximum length: 21 characters.
 
           purchase_tax_account_id: The account used for tracking taxes on purchases for this vendor, for use in
               Canada or the UK.

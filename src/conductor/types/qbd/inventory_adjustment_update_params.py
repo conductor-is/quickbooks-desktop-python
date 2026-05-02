@@ -73,6 +73,8 @@ class InventoryAdjustmentUpdateParams(TypedDict, total=False):
     The case-sensitive user-defined reference number for this inventory adjustment,
     which can be used to identify the transaction in QuickBooks. This value is not
     required to be unique and can be arbitrarily changed by the QuickBooks user.
+
+    Maximum length: 11 characters.
     """
 
     transaction_date: Annotated[Union[str, date], PropertyInfo(alias="transactionDate", format="iso8601")]

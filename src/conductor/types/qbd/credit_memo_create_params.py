@@ -149,6 +149,8 @@ class CreditMemoCreateParams(TypedDict, total=False):
     be unique and can be arbitrarily changed by the QuickBooks user. When left blank
     in this create request, this field will be left blank in QuickBooks (i.e., it
     does _not_ auto-increment).
+
+    Maximum length: 11 characters.
     """
 
     sales_representative_id: Annotated[str, PropertyInfo(alias="salesRepresentativeId")]
@@ -183,6 +185,8 @@ class CreditMemoCreateParams(TypedDict, total=False):
     from seller to buyer. Internally, QuickBooks uses the term "FOB" for this field,
     which stands for "freight on board". This field is informational and has no
     accounting implications.
+
+    Maximum length: 13 characters.
     """
 
     shipping_address: Annotated[ShippingAddress, PropertyInfo(alias="shippingAddress")]

@@ -127,6 +127,8 @@ class BillCreditCardPaymentsResource(SyncAPIResource):
               user. When left blank in this create request, this field will be left blank in
               QuickBooks (i.e., it does _not_ auto-increment).
 
+              Maximum length: 11 characters.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -569,6 +571,8 @@ class AsyncBillCreditCardPaymentsResource(AsyncAPIResource):
               is not required to be unique and can be arbitrarily changed by the QuickBooks
               user. When left blank in this create request, this field will be left blank in
               QuickBooks (i.e., it does _not_ auto-increment).
+
+              Maximum length: 11 characters.
 
           extra_headers: Send extra headers
 

@@ -109,7 +109,7 @@ class TestEstimates:
             sales_representative_id="80000001-1234567890",
             sales_tax_code_id="80000001-1234567890",
             sales_tax_item_id="80000001-1234567890",
-            shipment_origin="San Francisco, CA",
+            shipment_origin="shipmentOrigin",
             shipping_address={
                 "city": "San Francisco",
                 "country": "United States",
@@ -294,7 +294,7 @@ class TestEstimates:
             sales_representative_id="80000001-1234567890",
             sales_tax_code_id="80000001-1234567890",
             sales_tax_item_id="80000001-1234567890",
-            shipment_origin="San Francisco, CA",
+            shipment_origin="shipmentOrigin",
             shipping_address={
                 "city": "San Francisco",
                 "country": "United States",
@@ -540,7 +540,7 @@ class TestAsyncEstimates:
             sales_representative_id="80000001-1234567890",
             sales_tax_code_id="80000001-1234567890",
             sales_tax_item_id="80000001-1234567890",
-            shipment_origin="San Francisco, CA",
+            shipment_origin="shipmentOrigin",
             shipping_address={
                 "city": "San Francisco",
                 "country": "United States",
@@ -725,7 +725,7 @@ class TestAsyncEstimates:
             sales_representative_id="80000001-1234567890",
             sales_tax_code_id="80000001-1234567890",
             sales_tax_item_id="80000001-1234567890",
-            shipment_origin="San Francisco, CA",
+            shipment_origin="shipmentOrigin",
             shipping_address={
                 "city": "San Francisco",
                 "country": "United States",

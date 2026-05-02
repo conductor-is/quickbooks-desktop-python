@@ -206,6 +206,8 @@ class InvoicesResource(SyncAPIResource):
               this create request, this field will be left blank in QuickBooks (i.e., it does
               _not_ auto-increment).
 
+              Maximum length: 11 characters.
+
           sales_representative_id: The invoice's sales representative. Sales representatives can be employees,
               vendors, or other names in QuickBooks.
 
@@ -237,6 +239,8 @@ class InvoicesResource(SyncAPIResource):
               from seller to buyer. Internally, QuickBooks uses the term "FOB" for this field,
               which stands for "freight on board". This field is informational and has no
               accounting implications.
+
+              Maximum length: 13 characters.
 
           shipping_address: The invoice's shipping address.
 
@@ -499,6 +503,8 @@ class InvoicesResource(SyncAPIResource):
               used to identify the transaction in QuickBooks. This value is not required to be
               unique and can be arbitrarily changed by the QuickBooks user.
 
+              Maximum length: 11 characters.
+
           sales_representative_id: The invoice's sales representative. Sales representatives can be employees,
               vendors, or other names in QuickBooks.
 
@@ -530,6 +536,8 @@ class InvoicesResource(SyncAPIResource):
               from seller to buyer. Internally, QuickBooks uses the term "FOB" for this field,
               which stands for "freight on board". This field is informational and has no
               accounting implications.
+
+              Maximum length: 13 characters.
 
           shipping_address: The invoice's shipping address.
 
@@ -1044,6 +1052,8 @@ class AsyncInvoicesResource(AsyncAPIResource):
               this create request, this field will be left blank in QuickBooks (i.e., it does
               _not_ auto-increment).
 
+              Maximum length: 11 characters.
+
           sales_representative_id: The invoice's sales representative. Sales representatives can be employees,
               vendors, or other names in QuickBooks.
 
@@ -1075,6 +1085,8 @@ class AsyncInvoicesResource(AsyncAPIResource):
               from seller to buyer. Internally, QuickBooks uses the term "FOB" for this field,
               which stands for "freight on board". This field is informational and has no
               accounting implications.
+
+              Maximum length: 13 characters.
 
           shipping_address: The invoice's shipping address.
 
@@ -1337,6 +1349,8 @@ class AsyncInvoicesResource(AsyncAPIResource):
               used to identify the transaction in QuickBooks. This value is not required to be
               unique and can be arbitrarily changed by the QuickBooks user.
 
+              Maximum length: 11 characters.
+
           sales_representative_id: The invoice's sales representative. Sales representatives can be employees,
               vendors, or other names in QuickBooks.
 
@@ -1368,6 +1382,8 @@ class AsyncInvoicesResource(AsyncAPIResource):
               from seller to buyer. Internally, QuickBooks uses the term "FOB" for this field,
               which stands for "freight on board". This field is informational and has no
               accounting implications.
+
+              Maximum length: 13 characters.
 
           shipping_address: The invoice's shipping address.
 

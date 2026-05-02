@@ -119,6 +119,8 @@ class BuildAssembliesResource(SyncAPIResource):
               When left blank in this create request, this field will be left blank in
               QuickBooks (i.e., it does _not_ auto-increment).
 
+              Maximum length: 11 characters.
+
           serial_number: The serial number of the item associated with this build assembly. This is used
               for tracking individual units of serialized inventory items.
 
@@ -262,6 +264,8 @@ class BuildAssembliesResource(SyncAPIResource):
           ref_number: The case-sensitive user-defined reference number for this build assembly, which
               can be used to identify the transaction in QuickBooks. This value is not
               required to be unique and can be arbitrarily changed by the QuickBooks user.
+
+              Maximum length: 11 characters.
 
           remove_pending: When `true`, changes this build assembly's status from pending to non-pending,
               which effectively performs the build transaction. The operation will fail if
@@ -617,6 +621,8 @@ class AsyncBuildAssembliesResource(AsyncAPIResource):
               When left blank in this create request, this field will be left blank in
               QuickBooks (i.e., it does _not_ auto-increment).
 
+              Maximum length: 11 characters.
+
           serial_number: The serial number of the item associated with this build assembly. This is used
               for tracking individual units of serialized inventory items.
 
@@ -760,6 +766,8 @@ class AsyncBuildAssembliesResource(AsyncAPIResource):
           ref_number: The case-sensitive user-defined reference number for this build assembly, which
               can be used to identify the transaction in QuickBooks. This value is not
               required to be unique and can be arbitrarily changed by the QuickBooks user.
+
+              Maximum length: 11 characters.
 
           remove_pending: When `true`, changes this build assembly's status from pending to non-pending,
               which effectively performs the build transaction. The operation will fail if

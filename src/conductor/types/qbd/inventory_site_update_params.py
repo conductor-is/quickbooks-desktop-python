@@ -34,7 +34,10 @@ class InventorySiteUpdateParams(TypedDict, total=False):
     """The inventory site's email address."""
 
     fax: str
-    """The inventory site's fax number."""
+    """The inventory site's fax number.
+
+    Maximum length: 21 characters.
+    """
 
     is_active: Annotated[bool, PropertyInfo(alias="isActive")]
     """Indicates whether this inventory site is active.
@@ -59,7 +62,10 @@ class InventorySiteUpdateParams(TypedDict, total=False):
     """The parent inventory site one level above this one in the hierarchy."""
 
     phone: str
-    """The inventory site's primary telephone number."""
+    """The inventory site's primary telephone number.
+
+    Maximum length: 21 characters.
+    """
 
 
 class Address(TypedDict, total=False):

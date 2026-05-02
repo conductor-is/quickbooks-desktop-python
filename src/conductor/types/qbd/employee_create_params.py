@@ -56,7 +56,10 @@ class EmployeeCreateParams(TypedDict, total=False):
     """
 
     alternate_phone: Annotated[str, PropertyInfo(alias="alternatePhone")]
-    """The employee's alternate telephone number."""
+    """The employee's alternate telephone number.
+
+    Maximum length: 21 characters.
+    """
 
     billing_rate_id: Annotated[str, PropertyInfo(alias="billingRateId")]
     """
@@ -127,7 +130,10 @@ class EmployeeCreateParams(TypedDict, total=False):
     """
 
     fax: str
-    """The employee's fax number."""
+    """The employee's fax number.
+
+    Maximum length: 21 characters.
+    """
 
     first_name: Annotated[str, PropertyInfo(alias="firstName")]
     """The employee's first name.
@@ -173,7 +179,10 @@ class EmployeeCreateParams(TypedDict, total=False):
     """This employee's military status if they are a U.S. veteran."""
 
     mobile: str
-    """The employee's mobile phone number."""
+    """The employee's mobile phone number.
+
+    Maximum length: 21 characters.
+    """
 
     note: str
     """A note or comment about this employee."""
@@ -188,13 +197,19 @@ class EmployeeCreateParams(TypedDict, total=False):
     """
 
     pager: str
-    """The employee's pager number."""
+    """The employee's pager number.
+
+    Maximum length: 21 characters.
+    """
 
     pager_pin: Annotated[str, PropertyInfo(alias="pagerPin")]
     """The employee's pager PIN."""
 
     phone: str
-    """The employee's primary telephone number."""
+    """The employee's primary telephone number.
+
+    Maximum length: 21 characters.
+    """
 
     print_as: Annotated[str, PropertyInfo(alias="printAs")]
     """The name to use when printing this employee from QuickBooks.
