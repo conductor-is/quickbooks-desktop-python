@@ -68,6 +68,9 @@ class TransfersResource(SyncAPIResource):
         Args:
           amount: The monetary amount of this transfer, represented as a decimal string.
 
+              Decimal string format: exactly 2 decimal places when cents are included and up
+              to 13 digits before the decimal point (for example, "123.45").
+
           source_account_id: The account from which money will be transferred.
 
           target_account_id: The account to which money will be transferred.
@@ -186,6 +189,9 @@ class TransfersResource(SyncAPIResource):
           conductor_end_user_id: The ID of the End-User to receive this request.
 
           amount: The monetary amount of this transfer, represented as a decimal string.
+
+              Decimal string format: exactly 2 decimal places when cents are included and up
+              to 13 digits before the decimal point (for example, "123.45").
 
           class_id: The transfer's class. Classes can be used to categorize objects into meaningful
               segments, such as department, location, or type of work. In QuickBooks, class
@@ -389,6 +395,9 @@ class AsyncTransfersResource(AsyncAPIResource):
         Args:
           amount: The monetary amount of this transfer, represented as a decimal string.
 
+              Decimal string format: exactly 2 decimal places when cents are included and up
+              to 13 digits before the decimal point (for example, "123.45").
+
           source_account_id: The account from which money will be transferred.
 
           target_account_id: The account to which money will be transferred.
@@ -507,6 +516,9 @@ class AsyncTransfersResource(AsyncAPIResource):
           conductor_end_user_id: The ID of the End-User to receive this request.
 
           amount: The monetary amount of this transfer, represented as a decimal string.
+
+              Decimal string format: exactly 2 decimal places when cents are included and up
+              to 13 digits before the decimal point (for example, "123.45").
 
           class_id: The transfer's class. Classes can be used to categorize objects into meaningful
               segments, such as department, location, or type of work. In QuickBooks, class

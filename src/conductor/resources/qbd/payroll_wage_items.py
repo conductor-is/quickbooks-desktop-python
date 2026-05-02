@@ -103,6 +103,9 @@ class PayrollWageItemsResource(SyncAPIResource):
           rate: The default rate for this payroll wage item, represented as a decimal string.
               Only one of `rate` and `ratePercent` can be set.
 
+              Decimal string format: up to 5 decimal places and up to 10 digits before the
+              decimal point (for example, "123.45").
+
           rate_percent: The default rate for this payroll wage item expressed as a percentage. Only one
               of `rate` and `ratePercent` can be set.
 
@@ -405,6 +408,9 @@ class AsyncPayrollWageItemsResource(AsyncAPIResource):
 
           rate: The default rate for this payroll wage item, represented as a decimal string.
               Only one of `rate` and `ratePercent` can be set.
+
+              Decimal string format: up to 5 decimal places and up to 10 digits before the
+              decimal point (for example, "123.45").
 
           rate_percent: The default rate for this payroll wage item expressed as a percentage. Only one
               of `rate` and `ratePercent` can be set.

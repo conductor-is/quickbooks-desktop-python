@@ -24,7 +24,11 @@ class TransferUpdateParams(TypedDict, total=False):
     """The ID of the End-User to receive this request."""
 
     amount: str
-    """The monetary amount of this transfer, represented as a decimal string."""
+    """The monetary amount of this transfer, represented as a decimal string.
+
+    Decimal string format: exactly 2 decimal places when cents are included and up
+    to 13 digits before the decimal point (for example, "123.45").
+    """
 
     class_id: Annotated[str, PropertyInfo(alias="classId")]
     """The transfer's class.

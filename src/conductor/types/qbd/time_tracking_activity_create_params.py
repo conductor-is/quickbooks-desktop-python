@@ -24,6 +24,9 @@ class TimeTrackingActivityCreateParams(TypedDict, total=False):
 
     **IMPORTANT**: This field is required for updating time tracking activities,
     even if the field is not being modified, because of a bug in QuickBooks itself.
+
+    Must use QuickBooks Desktop's ISO 8601 time interval format (for example,
+    "PT1H30M" represents 1 hour and 30 minutes).
     """
 
     entity_id: Required[Annotated[str, PropertyInfo(alias="entityId")]]
