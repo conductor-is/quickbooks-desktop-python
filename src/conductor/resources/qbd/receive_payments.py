@@ -155,6 +155,8 @@ class ReceivePaymentsResource(SyncAPIResource):
               When left blank in this create request, this field will be left blank in
               QuickBooks (i.e., it does _not_ auto-increment).
 
+              Maximum length: 20 characters.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -314,6 +316,8 @@ class ReceivePaymentsResource(SyncAPIResource):
           ref_number: The case-sensitive user-defined reference number for this receive-payment, which
               can be used to identify the transaction in QuickBooks. This value is not
               required to be unique and can be arbitrarily changed by the QuickBooks user.
+
+              Maximum length: 20 characters.
 
           total_amount: The total monetary amount of this receive-payment, represented as a decimal
               string.
@@ -710,6 +714,8 @@ class AsyncReceivePaymentsResource(AsyncAPIResource):
               When left blank in this create request, this field will be left blank in
               QuickBooks (i.e., it does _not_ auto-increment).
 
+              Maximum length: 20 characters.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -869,6 +875,8 @@ class AsyncReceivePaymentsResource(AsyncAPIResource):
           ref_number: The case-sensitive user-defined reference number for this receive-payment, which
               can be used to identify the transaction in QuickBooks. This value is not
               required to be unique and can be arbitrarily changed by the QuickBooks user.
+
+              Maximum length: 20 characters.
 
           total_amount: The total monetary amount of this receive-payment, represented as a decimal
               string.

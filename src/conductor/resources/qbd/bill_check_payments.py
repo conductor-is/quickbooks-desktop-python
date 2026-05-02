@@ -136,6 +136,8 @@ class BillCheckPaymentsResource(SyncAPIResource):
 
               **IMPORTANT**: For checks, this field is the check number.
 
+              Maximum length: 11 characters.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -280,6 +282,8 @@ class BillCheckPaymentsResource(SyncAPIResource):
               required to be unique and can be arbitrarily changed by the QuickBooks user.
 
               **IMPORTANT**: For checks, this field is the check number.
+
+              Maximum length: 11 characters.
 
           transaction_date: The date of this bill check payment, in ISO 8601 format (YYYY-MM-DD).
 
@@ -688,6 +692,8 @@ class AsyncBillCheckPaymentsResource(AsyncAPIResource):
 
               **IMPORTANT**: For checks, this field is the check number.
 
+              Maximum length: 11 characters.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -832,6 +838,8 @@ class AsyncBillCheckPaymentsResource(AsyncAPIResource):
               required to be unique and can be arbitrarily changed by the QuickBooks user.
 
               **IMPORTANT**: For checks, this field is the check number.
+
+              Maximum length: 11 characters.
 
           transaction_date: The date of this bill check payment, in ISO 8601 format (YYYY-MM-DD).
 

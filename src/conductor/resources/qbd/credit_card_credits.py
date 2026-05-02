@@ -115,6 +115,8 @@ class CreditCardCreditsResource(SyncAPIResource):
               When left blank in this create request, this field will be left blank in
               QuickBooks (i.e., it does _not_ auto-increment).
 
+              Maximum length: 11 characters.
+
           sales_tax_code_id: The sales-tax code for this credit card credit, determining whether it is
               taxable or non-taxable. If set, this overrides any sales-tax codes defined on
               the payee. This can be overridden on the credit card credit's individual lines.
@@ -312,6 +314,8 @@ class CreditCardCreditsResource(SyncAPIResource):
           ref_number: The case-sensitive user-defined reference number for this credit card credit,
               which can be used to identify the transaction in QuickBooks. This value is not
               required to be unique and can be arbitrarily changed by the QuickBooks user.
+
+              Maximum length: 11 characters.
 
           sales_tax_code_id: The sales-tax code for this credit card credit, determining whether it is
               taxable or non-taxable. If set, this overrides any sales-tax codes defined on
@@ -708,6 +712,8 @@ class AsyncCreditCardCreditsResource(AsyncAPIResource):
               When left blank in this create request, this field will be left blank in
               QuickBooks (i.e., it does _not_ auto-increment).
 
+              Maximum length: 11 characters.
+
           sales_tax_code_id: The sales-tax code for this credit card credit, determining whether it is
               taxable or non-taxable. If set, this overrides any sales-tax codes defined on
               the payee. This can be overridden on the credit card credit's individual lines.
@@ -905,6 +911,8 @@ class AsyncCreditCardCreditsResource(AsyncAPIResource):
           ref_number: The case-sensitive user-defined reference number for this credit card credit,
               which can be used to identify the transaction in QuickBooks. This value is not
               required to be unique and can be arbitrarily changed by the QuickBooks user.
+
+              Maximum length: 11 characters.
 
           sales_tax_code_id: The sales-tax code for this credit card credit, determining whether it is
               taxable or non-taxable. If set, this overrides any sales-tax codes defined on

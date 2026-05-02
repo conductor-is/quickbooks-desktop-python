@@ -204,6 +204,8 @@ class InventorySitesResource(SyncAPIResource):
 
           fax: The inventory site's fax number.
 
+              Maximum length: 21 characters.
+
           is_active: Indicates whether this inventory site is active. Inactive objects are typically
               hidden from views and reports in QuickBooks. Defaults to `true`.
 
@@ -219,6 +221,8 @@ class InventorySitesResource(SyncAPIResource):
           parent_id: The parent inventory site one level above this one in the hierarchy.
 
           phone: The inventory site's primary telephone number.
+
+              Maximum length: 21 characters.
 
           extra_headers: Send extra headers
 
@@ -566,6 +570,8 @@ class AsyncInventorySitesResource(AsyncAPIResource):
 
           fax: The inventory site's fax number.
 
+              Maximum length: 21 characters.
+
           is_active: Indicates whether this inventory site is active. Inactive objects are typically
               hidden from views and reports in QuickBooks. Defaults to `true`.
 
@@ -581,6 +587,8 @@ class AsyncInventorySitesResource(AsyncAPIResource):
           parent_id: The parent inventory site one level above this one in the hierarchy.
 
           phone: The inventory site's primary telephone number.
+
+              Maximum length: 21 characters.
 
           extra_headers: Send extra headers
 

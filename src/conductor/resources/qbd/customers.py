@@ -134,6 +134,8 @@ class CustomersResource(SyncAPIResource):
 
           alternate_phone: The customer's alternate telephone number.
 
+              Maximum length: 21 characters.
+
           alternate_shipping_addresses: A list of additional shipping addresses for this customer. Useful when the
               customer has multiple shipping locations.
 
@@ -177,6 +179,8 @@ class CustomersResource(SyncAPIResource):
               QuickBooks will return an error.
 
           fax: The customer's fax number.
+
+              Maximum length: 21 characters.
 
           first_name: The first name of the contact person for this customer.
 
@@ -227,6 +231,8 @@ class CustomersResource(SyncAPIResource):
               level, this field will be `null`.
 
           phone: The customer's primary telephone number.
+
+              Maximum length: 21 characters.
 
           preferred_delivery_method: The preferred method for delivering invoices and other documents to this
               customer.
@@ -471,6 +477,8 @@ class CustomersResource(SyncAPIResource):
 
           alternate_phone: The customer's alternate telephone number.
 
+              Maximum length: 21 characters.
+
           alternate_shipping_addresses: A list of additional shipping addresses for this customer. Useful when the
               customer has multiple shipping locations.
 
@@ -507,6 +515,8 @@ class CustomersResource(SyncAPIResource):
           email: The customer's email address.
 
           fax: The customer's fax number.
+
+              Maximum length: 21 characters.
 
           first_name: The first name of the contact person for this customer.
 
@@ -559,6 +569,8 @@ class CustomersResource(SyncAPIResource):
               level, this field will be `null`.
 
           phone: The customer's primary telephone number.
+
+              Maximum length: 21 characters.
 
           preferred_delivery_method: The preferred method for delivering invoices and other documents to this
               customer.
@@ -980,6 +992,8 @@ class AsyncCustomersResource(AsyncAPIResource):
 
           alternate_phone: The customer's alternate telephone number.
 
+              Maximum length: 21 characters.
+
           alternate_shipping_addresses: A list of additional shipping addresses for this customer. Useful when the
               customer has multiple shipping locations.
 
@@ -1023,6 +1037,8 @@ class AsyncCustomersResource(AsyncAPIResource):
               QuickBooks will return an error.
 
           fax: The customer's fax number.
+
+              Maximum length: 21 characters.
 
           first_name: The first name of the contact person for this customer.
 
@@ -1073,6 +1089,8 @@ class AsyncCustomersResource(AsyncAPIResource):
               level, this field will be `null`.
 
           phone: The customer's primary telephone number.
+
+              Maximum length: 21 characters.
 
           preferred_delivery_method: The preferred method for delivering invoices and other documents to this
               customer.
@@ -1317,6 +1335,8 @@ class AsyncCustomersResource(AsyncAPIResource):
 
           alternate_phone: The customer's alternate telephone number.
 
+              Maximum length: 21 characters.
+
           alternate_shipping_addresses: A list of additional shipping addresses for this customer. Useful when the
               customer has multiple shipping locations.
 
@@ -1353,6 +1373,8 @@ class AsyncCustomersResource(AsyncAPIResource):
           email: The customer's email address.
 
           fax: The customer's fax number.
+
+              Maximum length: 21 characters.
 
           first_name: The first name of the contact person for this customer.
 
@@ -1405,6 +1427,8 @@ class AsyncCustomersResource(AsyncAPIResource):
               level, this field will be `null`.
 
           phone: The customer's primary telephone number.
+
+              Maximum length: 21 characters.
 
           preferred_delivery_method: The preferred method for delivering invoices and other documents to this
               customer.

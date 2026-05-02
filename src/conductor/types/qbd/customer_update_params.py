@@ -53,7 +53,10 @@ class CustomerUpdateParams(TypedDict, total=False):
     """The name of a alternate contact person for this customer."""
 
     alternate_phone: Annotated[str, PropertyInfo(alias="alternatePhone")]
-    """The customer's alternate telephone number."""
+    """The customer's alternate telephone number.
+
+    Maximum length: 21 characters.
+    """
 
     alternate_shipping_addresses: Annotated[
         Iterable[AlternateShippingAddress], PropertyInfo(alias="alternateShippingAddresses")
@@ -122,7 +125,10 @@ class CustomerUpdateParams(TypedDict, total=False):
     """The customer's email address."""
 
     fax: str
-    """The customer's fax number."""
+    """The customer's fax number.
+
+    Maximum length: 21 characters.
+    """
 
     first_name: Annotated[str, PropertyInfo(alias="firstName")]
     """The first name of the contact person for this customer.
@@ -214,7 +220,10 @@ class CustomerUpdateParams(TypedDict, total=False):
     """
 
     phone: str
-    """The customer's primary telephone number."""
+    """The customer's primary telephone number.
+
+    Maximum length: 21 characters.
+    """
 
     preferred_delivery_method: Annotated[
         Literal["email", "mail", "none"], PropertyInfo(alias="preferredDeliveryMethod")

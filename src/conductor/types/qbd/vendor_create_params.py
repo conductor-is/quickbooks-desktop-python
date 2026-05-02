@@ -54,7 +54,10 @@ class VendorCreateParams(TypedDict, total=False):
     """The name of a alternate contact person for this vendor."""
 
     alternate_phone: Annotated[str, PropertyInfo(alias="alternatePhone")]
-    """The vendor's alternate telephone number."""
+    """The vendor's alternate telephone number.
+
+    Maximum length: 21 characters.
+    """
 
     billing_address: Annotated[BillingAddress, PropertyInfo(alias="billingAddress")]
     """The vendor's billing address."""
@@ -122,7 +125,10 @@ class VendorCreateParams(TypedDict, total=False):
     """
 
     fax: str
-    """The vendor's fax number."""
+    """The vendor's fax number.
+
+    Maximum length: 21 characters.
+    """
 
     first_name: Annotated[str, PropertyInfo(alias="firstName")]
     """The first name of the contact person for this vendor.
@@ -181,7 +187,10 @@ class VendorCreateParams(TypedDict, total=False):
     """
 
     name_on_check: Annotated[str, PropertyInfo(alias="nameOnCheck")]
-    """The vendor's name as it should appear on checks issued to this vendor."""
+    """The vendor's name as it should appear on checks issued to this vendor.
+
+    Maximum length: 41 characters.
+    """
 
     note: str
     """A note or comment about this vendor."""
@@ -198,7 +207,10 @@ class VendorCreateParams(TypedDict, total=False):
     """
 
     phone: str
-    """The vendor's primary telephone number."""
+    """The vendor's primary telephone number.
+
+    Maximum length: 21 characters.
+    """
 
     purchase_tax_account_id: Annotated[str, PropertyInfo(alias="purchaseTaxAccountId")]
     """

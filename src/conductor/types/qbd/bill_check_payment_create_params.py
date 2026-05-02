@@ -94,6 +94,8 @@ class BillCheckPaymentCreateParams(TypedDict, total=False):
     QuickBooks (i.e., it does _not_ auto-increment).
 
     **IMPORTANT**: For checks, this field is the check number.
+
+    Maximum length: 11 characters.
     """
 
 

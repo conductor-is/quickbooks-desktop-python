@@ -98,6 +98,8 @@ class CreditCardRefundCreateParams(TypedDict, total=False):
     required to be unique and can be arbitrarily changed by the QuickBooks user.
     When left blank in this create request, this field will be left blank in
     QuickBooks (i.e., it does _not_ auto-increment).
+
+    Maximum length: 11 characters.
     """
 
     refund_from_account_id: Annotated[str, PropertyInfo(alias="refundFromAccountId")]

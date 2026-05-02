@@ -140,6 +140,8 @@ class ItemReceiptsResource(SyncAPIResource):
               When left blank in this create request, this field will be left blank in
               QuickBooks (i.e., it does _not_ auto-increment).
 
+              Maximum length: 20 characters.
+
           sales_tax_code_id: The sales-tax code for this item receipt, determining whether it is taxable or
               non-taxable. If set, this overrides any sales-tax codes defined on the vendor.
               This can be overridden on the item receipt's individual lines.
@@ -339,6 +341,8 @@ class ItemReceiptsResource(SyncAPIResource):
           ref_number: The case-sensitive user-defined reference number for this item receipt, which
               can be used to identify the transaction in QuickBooks. This value is not
               required to be unique and can be arbitrarily changed by the QuickBooks user.
+
+              Maximum length: 20 characters.
 
           sales_tax_code_id: The sales-tax code for this item receipt, determining whether it is taxable or
               non-taxable. If set, this overrides any sales-tax codes defined on the vendor.
@@ -770,6 +774,8 @@ class AsyncItemReceiptsResource(AsyncAPIResource):
               When left blank in this create request, this field will be left blank in
               QuickBooks (i.e., it does _not_ auto-increment).
 
+              Maximum length: 20 characters.
+
           sales_tax_code_id: The sales-tax code for this item receipt, determining whether it is taxable or
               non-taxable. If set, this overrides any sales-tax codes defined on the vendor.
               This can be overridden on the item receipt's individual lines.
@@ -969,6 +975,8 @@ class AsyncItemReceiptsResource(AsyncAPIResource):
           ref_number: The case-sensitive user-defined reference number for this item receipt, which
               can be used to identify the transaction in QuickBooks. This value is not
               required to be unique and can be arbitrarily changed by the QuickBooks user.
+
+              Maximum length: 20 characters.
 
           sales_tax_code_id: The sales-tax code for this item receipt, determining whether it is taxable or
               non-taxable. If set, this overrides any sales-tax codes defined on the vendor.
