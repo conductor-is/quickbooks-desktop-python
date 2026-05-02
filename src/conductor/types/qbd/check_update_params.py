@@ -145,6 +145,8 @@ class CheckUpdateParams(TypedDict, total=False):
     unique and can be arbitrarily changed by the QuickBooks user.
 
     **IMPORTANT**: For checks, this field is the check number.
+
+    Maximum length: 11 characters.
     """
 
     sales_tax_code_id: Annotated[str, PropertyInfo(alias="salesTaxCodeId")]

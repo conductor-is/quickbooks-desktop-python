@@ -159,6 +159,8 @@ class PurchaseOrdersResource(SyncAPIResource):
               When left blank in this create request, this field will be left blank in
               QuickBooks (i.e., it does _not_ auto-increment).
 
+              Maximum length: 11 characters.
+
           sales_tax_code_id: The sales-tax code for this purchase order, determining whether it is taxable or
               non-taxable. If set, this overrides any sales-tax codes defined on the vendor.
               This can be overridden on the purchase order's individual lines.
@@ -173,6 +175,8 @@ class PurchaseOrdersResource(SyncAPIResource):
               transfer from seller to buyer. Internally, QuickBooks uses the term "FOB" for
               this field, which stands for "freight on board". This field is informational and
               has no accounting implications.
+
+              Maximum length: 13 characters.
 
           shipping_address: The purchase order's shipping address.
 
@@ -423,6 +427,8 @@ class PurchaseOrdersResource(SyncAPIResource):
               can be used to identify the transaction in QuickBooks. This value is not
               required to be unique and can be arbitrarily changed by the QuickBooks user.
 
+              Maximum length: 11 characters.
+
           sales_tax_code_id: The sales-tax code for this purchase order, determining whether it is taxable or
               non-taxable. If set, this overrides any sales-tax codes defined on the vendor.
               This can be overridden on the purchase order's individual lines.
@@ -437,6 +443,8 @@ class PurchaseOrdersResource(SyncAPIResource):
               transfer from seller to buyer. Internally, QuickBooks uses the term "FOB" for
               this field, which stands for "freight on board". This field is informational and
               has no accounting implications.
+
+              Maximum length: 13 characters.
 
           shipping_address: The purchase order's shipping address.
 
@@ -866,6 +874,8 @@ class AsyncPurchaseOrdersResource(AsyncAPIResource):
               When left blank in this create request, this field will be left blank in
               QuickBooks (i.e., it does _not_ auto-increment).
 
+              Maximum length: 11 characters.
+
           sales_tax_code_id: The sales-tax code for this purchase order, determining whether it is taxable or
               non-taxable. If set, this overrides any sales-tax codes defined on the vendor.
               This can be overridden on the purchase order's individual lines.
@@ -880,6 +890,8 @@ class AsyncPurchaseOrdersResource(AsyncAPIResource):
               transfer from seller to buyer. Internally, QuickBooks uses the term "FOB" for
               this field, which stands for "freight on board". This field is informational and
               has no accounting implications.
+
+              Maximum length: 13 characters.
 
           shipping_address: The purchase order's shipping address.
 
@@ -1130,6 +1142,8 @@ class AsyncPurchaseOrdersResource(AsyncAPIResource):
               can be used to identify the transaction in QuickBooks. This value is not
               required to be unique and can be arbitrarily changed by the QuickBooks user.
 
+              Maximum length: 11 characters.
+
           sales_tax_code_id: The sales-tax code for this purchase order, determining whether it is taxable or
               non-taxable. If set, this overrides any sales-tax codes defined on the vendor.
               This can be overridden on the purchase order's individual lines.
@@ -1144,6 +1158,8 @@ class AsyncPurchaseOrdersResource(AsyncAPIResource):
               transfer from seller to buyer. Internally, QuickBooks uses the term "FOB" for
               this field, which stands for "freight on board". This field is informational and
               has no accounting implications.
+
+              Maximum length: 13 characters.
 
           shipping_address: The purchase order's shipping address.
 

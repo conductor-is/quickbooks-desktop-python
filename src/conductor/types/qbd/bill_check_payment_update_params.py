@@ -72,6 +72,8 @@ class BillCheckPaymentUpdateParams(TypedDict, total=False):
     required to be unique and can be arbitrarily changed by the QuickBooks user.
 
     **IMPORTANT**: For checks, this field is the check number.
+
+    Maximum length: 11 characters.
     """
 
     transaction_date: Annotated[Union[str, date], PropertyInfo(alias="transactionDate", format="iso8601")]

@@ -105,6 +105,8 @@ class CheckCreateParams(TypedDict, total=False):
     _not_ auto-increment).
 
     **IMPORTANT**: For checks, this field is the check number.
+
+    Maximum length: 11 characters.
     """
 
     sales_tax_code_id: Annotated[str, PropertyInfo(alias="salesTaxCodeId")]

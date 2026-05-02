@@ -131,6 +131,8 @@ class CreditCardRefundsResource(SyncAPIResource):
               When left blank in this create request, this field will be left blank in
               QuickBooks (i.e., it does _not_ auto-increment).
 
+              Maximum length: 11 characters.
+
           refund_from_account_id: The account providing funds for this credit card refund. This is typically the
               Undeposited Funds account used to hold customer payments. If omitted, QuickBooks
               Desktop will use the default Undeposited Funds account.
@@ -578,6 +580,8 @@ class AsyncCreditCardRefundsResource(AsyncAPIResource):
               required to be unique and can be arbitrarily changed by the QuickBooks user.
               When left blank in this create request, this field will be left blank in
               QuickBooks (i.e., it does _not_ auto-increment).
+
+              Maximum length: 11 characters.
 
           refund_from_account_id: The account providing funds for this credit card refund. This is typically the
               Undeposited Funds account used to hold customer payments. If omitted, QuickBooks

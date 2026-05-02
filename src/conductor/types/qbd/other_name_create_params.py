@@ -42,7 +42,10 @@ class OtherNameCreateParams(TypedDict, total=False):
     """The name of a alternate contact person for this other-name."""
 
     alternate_phone: Annotated[str, PropertyInfo(alias="alternatePhone")]
-    """The other-name's alternate telephone number."""
+    """The other-name's alternate telephone number.
+
+    Maximum length: 21 characters.
+    """
 
     company_name: Annotated[str, PropertyInfo(alias="companyName")]
     """The name of the company associated with this other-name.
@@ -67,7 +70,10 @@ class OtherNameCreateParams(TypedDict, total=False):
     """
 
     fax: str
-    """The other-name's fax number."""
+    """The other-name's fax number.
+
+    Maximum length: 21 characters.
+    """
 
     first_name: Annotated[str, PropertyInfo(alias="firstName")]
     """The first name of the contact person for this other-name.
@@ -98,7 +104,10 @@ class OtherNameCreateParams(TypedDict, total=False):
     """A note or comment about this other-name."""
 
     phone: str
-    """The other-name's primary telephone number."""
+    """The other-name's primary telephone number.
+
+    Maximum length: 21 characters.
+    """
 
     salutation: str
     """

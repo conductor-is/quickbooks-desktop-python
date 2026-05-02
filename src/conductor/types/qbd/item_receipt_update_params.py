@@ -115,6 +115,8 @@ class ItemReceiptUpdateParams(TypedDict, total=False):
     The case-sensitive user-defined reference number for this item receipt, which
     can be used to identify the transaction in QuickBooks. This value is not
     required to be unique and can be arbitrarily changed by the QuickBooks user.
+
+    Maximum length: 20 characters.
     """
 
     sales_tax_code_id: Annotated[str, PropertyInfo(alias="salesTaxCodeId")]

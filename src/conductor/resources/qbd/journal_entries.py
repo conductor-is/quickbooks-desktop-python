@@ -116,6 +116,8 @@ class JournalEntriesResource(SyncAPIResource):
               When left blank in this create request, this field will be left blank in
               QuickBooks (i.e., it does _not_ auto-increment).
 
+              Maximum length: 11 characters.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -258,6 +260,8 @@ class JournalEntriesResource(SyncAPIResource):
           ref_number: The case-sensitive user-defined reference number for this journal entry, which
               can be used to identify the transaction in QuickBooks. This value is not
               required to be unique and can be arbitrarily changed by the QuickBooks user.
+
+              Maximum length: 11 characters.
 
           transaction_date: The date of this journal entry, in ISO 8601 format (YYYY-MM-DD).
 
@@ -645,6 +649,8 @@ class AsyncJournalEntriesResource(AsyncAPIResource):
               When left blank in this create request, this field will be left blank in
               QuickBooks (i.e., it does _not_ auto-increment).
 
+              Maximum length: 11 characters.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -787,6 +793,8 @@ class AsyncJournalEntriesResource(AsyncAPIResource):
           ref_number: The case-sensitive user-defined reference number for this journal entry, which
               can be used to identify the transaction in QuickBooks. This value is not
               required to be unique and can be arbitrarily changed by the QuickBooks user.
+
+              Maximum length: 11 characters.
 
           transaction_date: The date of this journal entry, in ISO 8601 format (YYYY-MM-DD).
 

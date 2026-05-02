@@ -167,6 +167,8 @@ class SalesOrdersResource(SyncAPIResource):
               in this create request, this field will be left blank in QuickBooks (i.e., it
               does _not_ auto-increment).
 
+              Maximum length: 11 characters.
+
           sales_channel_name: The type of the sales channel for this sales order.
 
           sales_representative_id: The sales order's sales representative. Sales representatives can be employees,
@@ -194,6 +196,8 @@ class SalesOrdersResource(SyncAPIResource):
               from seller to buyer. Internally, QuickBooks uses the term "FOB" for this field,
               which stands for "freight on board". This field is informational and has no
               accounting implications.
+
+              Maximum length: 13 characters.
 
           shipping_address: The sales order's shipping address.
 
@@ -442,6 +446,8 @@ class SalesOrdersResource(SyncAPIResource):
               be used to identify the transaction in QuickBooks. This value is not required to
               be unique and can be arbitrarily changed by the QuickBooks user.
 
+              Maximum length: 11 characters.
+
           sales_channel_name: The type of the sales channel for this sales order.
 
           sales_representative_id: The sales order's sales representative. Sales representatives can be employees,
@@ -469,6 +475,8 @@ class SalesOrdersResource(SyncAPIResource):
               from seller to buyer. Internally, QuickBooks uses the term "FOB" for this field,
               which stands for "freight on board". This field is informational and has no
               accounting implications.
+
+              Maximum length: 13 characters.
 
           shipping_address: The sales order's shipping address.
 
@@ -898,6 +906,8 @@ class AsyncSalesOrdersResource(AsyncAPIResource):
               in this create request, this field will be left blank in QuickBooks (i.e., it
               does _not_ auto-increment).
 
+              Maximum length: 11 characters.
+
           sales_channel_name: The type of the sales channel for this sales order.
 
           sales_representative_id: The sales order's sales representative. Sales representatives can be employees,
@@ -925,6 +935,8 @@ class AsyncSalesOrdersResource(AsyncAPIResource):
               from seller to buyer. Internally, QuickBooks uses the term "FOB" for this field,
               which stands for "freight on board". This field is informational and has no
               accounting implications.
+
+              Maximum length: 13 characters.
 
           shipping_address: The sales order's shipping address.
 
@@ -1173,6 +1185,8 @@ class AsyncSalesOrdersResource(AsyncAPIResource):
               be used to identify the transaction in QuickBooks. This value is not required to
               be unique and can be arbitrarily changed by the QuickBooks user.
 
+              Maximum length: 11 characters.
+
           sales_channel_name: The type of the sales channel for this sales order.
 
           sales_representative_id: The sales order's sales representative. Sales representatives can be employees,
@@ -1200,6 +1214,8 @@ class AsyncSalesOrdersResource(AsyncAPIResource):
               from seller to buyer. Internally, QuickBooks uses the term "FOB" for this field,
               which stands for "freight on board". This field is informational and has no
               accounting implications.
+
+              Maximum length: 13 characters.
 
           shipping_address: The sales order's shipping address.
 

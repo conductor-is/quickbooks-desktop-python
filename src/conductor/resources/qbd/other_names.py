@@ -100,6 +100,8 @@ class OtherNamesResource(SyncAPIResource):
 
           alternate_phone: The other-name's alternate telephone number.
 
+              Maximum length: 21 characters.
+
           company_name: The name of the company associated with this other-name. This name is used on
               invoices, checks, and other forms.
 
@@ -115,6 +117,8 @@ class OtherNamesResource(SyncAPIResource):
               QuickBooks will return an error.
 
           fax: The other-name's fax number.
+
+              Maximum length: 21 characters.
 
           first_name: The first name of the contact person for this other-name.
 
@@ -134,6 +138,8 @@ class OtherNamesResource(SyncAPIResource):
           note: A note or comment about this other-name.
 
           phone: The other-name's primary telephone number.
+
+              Maximum length: 21 characters.
 
           salutation: The formal salutation title that precedes the name of the contact person for
               this other-name, such as "Mr.", "Ms.", or "Dr.".
@@ -275,6 +281,8 @@ class OtherNamesResource(SyncAPIResource):
 
           alternate_phone: The other-name's alternate telephone number.
 
+              Maximum length: 21 characters.
+
           company_name: The name of the company associated with this other-name. This name is used on
               invoices, checks, and other forms.
 
@@ -283,6 +291,8 @@ class OtherNamesResource(SyncAPIResource):
           email: The other-name's email address.
 
           fax: The other-name's fax number.
+
+              Maximum length: 21 characters.
 
           first_name: The first name of the contact person for this other-name.
 
@@ -311,6 +321,8 @@ class OtherNamesResource(SyncAPIResource):
           note: A note or comment about this other-name.
 
           phone: The other-name's primary telephone number.
+
+              Maximum length: 21 characters.
 
           salutation: The formal salutation title that precedes the name of the contact person for
               this other-name, such as "Mr.", "Ms.", or "Dr.".
@@ -575,6 +587,8 @@ class AsyncOtherNamesResource(AsyncAPIResource):
 
           alternate_phone: The other-name's alternate telephone number.
 
+              Maximum length: 21 characters.
+
           company_name: The name of the company associated with this other-name. This name is used on
               invoices, checks, and other forms.
 
@@ -590,6 +604,8 @@ class AsyncOtherNamesResource(AsyncAPIResource):
               QuickBooks will return an error.
 
           fax: The other-name's fax number.
+
+              Maximum length: 21 characters.
 
           first_name: The first name of the contact person for this other-name.
 
@@ -609,6 +625,8 @@ class AsyncOtherNamesResource(AsyncAPIResource):
           note: A note or comment about this other-name.
 
           phone: The other-name's primary telephone number.
+
+              Maximum length: 21 characters.
 
           salutation: The formal salutation title that precedes the name of the contact person for
               this other-name, such as "Mr.", "Ms.", or "Dr.".
@@ -750,6 +768,8 @@ class AsyncOtherNamesResource(AsyncAPIResource):
 
           alternate_phone: The other-name's alternate telephone number.
 
+              Maximum length: 21 characters.
+
           company_name: The name of the company associated with this other-name. This name is used on
               invoices, checks, and other forms.
 
@@ -758,6 +778,8 @@ class AsyncOtherNamesResource(AsyncAPIResource):
           email: The other-name's email address.
 
           fax: The other-name's fax number.
+
+              Maximum length: 21 characters.
 
           first_name: The first name of the contact person for this other-name.
 
@@ -786,6 +808,8 @@ class AsyncOtherNamesResource(AsyncAPIResource):
           note: A note or comment about this other-name.
 
           phone: The other-name's primary telephone number.
+
+              Maximum length: 21 characters.
 
           salutation: The formal salutation title that precedes the name of the contact person for
               this other-name, such as "Mr.", "Ms.", or "Dr.".
