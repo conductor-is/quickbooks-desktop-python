@@ -253,6 +253,9 @@ class BillCheckPaymentsResource(SyncAPIResource):
 
           amount: The monetary amount of this bill check payment, represented as a decimal string.
 
+              Decimal string format: exactly 2 decimal places when cents are included and up
+              to 13 digits before the decimal point (for example, "123.45").
+
           apply_to_transactions: The bills to be paid by this bill check payment. This will create a link between
               this bill check payment and the specified bills.
 
@@ -808,6 +811,9 @@ class AsyncBillCheckPaymentsResource(AsyncAPIResource):
           conductor_end_user_id: The ID of the End-User to receive this request.
 
           amount: The monetary amount of this bill check payment, represented as a decimal string.
+
+              Decimal string format: exactly 2 decimal places when cents are included and up
+              to 13 digits before the decimal point (for example, "123.45").
 
           apply_to_transactions: The bills to be paid by this bill check payment. This will create a link between
               this bill check payment and the specified bills.

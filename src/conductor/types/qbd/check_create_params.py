@@ -193,6 +193,9 @@ class ApplyToTransaction(TypedDict, total=False):
     """
     The monetary amount from this check to apply to the specified transaction,
     represented as a decimal string.
+
+    Decimal string format: exactly 2 decimal places when cents are included and up
+    to 13 digits before the decimal point (for example, "123.45").
     """
 
 
@@ -231,7 +234,11 @@ class ExpenseLine(TypedDict, total=False):
     """
 
     amount: str
-    """The monetary amount of this expense line, represented as a decimal string."""
+    """The monetary amount of this expense line, represented as a decimal string.
+
+    Decimal string format: exactly 2 decimal places when cents are included and up
+    to 13 digits before the decimal point (for example, "123.45").
+    """
 
     billing_status: Annotated[
         Literal["billable", "has_been_billed", "not_billable"], PropertyInfo(alias="billingStatus")
@@ -403,6 +410,9 @@ class ItemLine(TypedDict, total=False):
     use them to calculate `amount`. If `amount`, `cost`, and `quantity` are all
     unspecified, then QuickBooks will calculate `amount` based on a `quantity` of
     `1` and the suggested `cost`. This field cannot be cleared.
+
+    Decimal string format: exactly 2 decimal places when cents are included and up
+    to 13 digits before the decimal point (for example, "123.45").
     """
 
     billing_status: Annotated[
@@ -425,6 +435,9 @@ class ItemLine(TypedDict, total=False):
 
     If both `quantity` and `amount` are specified but not `cost`, QuickBooks will
     use them to calculate `cost`.
+
+    Decimal string format: up to 5 decimal places and up to 10 digits before the
+    decimal point (for example, "123.45").
     """
 
     customer_id: Annotated[str, PropertyInfo(alias="customerId")]

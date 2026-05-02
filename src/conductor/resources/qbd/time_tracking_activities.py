@@ -87,6 +87,9 @@ class TimeTrackingActivitiesResource(SyncAPIResource):
               **IMPORTANT**: This field is required for updating time tracking activities,
               even if the field is not being modified, because of a bug in QuickBooks itself.
 
+              Must use QuickBooks Desktop's ISO 8601 time interval format (for example,
+              "PT1H30M" represents 1 hour and 30 minutes).
+
           entity_id: The employee, vendor, or person on QuickBooks's "Other Names" list whose time is
               being tracked in this time tracking activity. This cannot refer to a customer -
               use the `customer` field to associate a customer or customer-job with this time
@@ -247,6 +250,9 @@ class TimeTrackingActivitiesResource(SyncAPIResource):
 
               **IMPORTANT**: This field is required for updating time tracking activities,
               even if the field is not being modified, because of a bug in QuickBooks itself.
+
+              Must use QuickBooks Desktop's ISO 8601 time interval format (for example,
+              "PT1H30M" represents 1 hour and 30 minutes).
 
           entity_id: The employee, vendor, or person on QuickBooks's "Other Names" list whose time is
               being tracked in this time tracking activity. This cannot refer to a customer -
@@ -548,6 +554,9 @@ class AsyncTimeTrackingActivitiesResource(AsyncAPIResource):
               **IMPORTANT**: This field is required for updating time tracking activities,
               even if the field is not being modified, because of a bug in QuickBooks itself.
 
+              Must use QuickBooks Desktop's ISO 8601 time interval format (for example,
+              "PT1H30M" represents 1 hour and 30 minutes).
+
           entity_id: The employee, vendor, or person on QuickBooks's "Other Names" list whose time is
               being tracked in this time tracking activity. This cannot refer to a customer -
               use the `customer` field to associate a customer or customer-job with this time
@@ -708,6 +717,9 @@ class AsyncTimeTrackingActivitiesResource(AsyncAPIResource):
 
               **IMPORTANT**: This field is required for updating time tracking activities,
               even if the field is not being modified, because of a bug in QuickBooks itself.
+
+              Must use QuickBooks Desktop's ISO 8601 time interval format (for example,
+              "PT1H30M" represents 1 hour and 30 minutes).
 
           entity_id: The employee, vendor, or person on QuickBooks's "Other Names" list whose time is
               being tracked in this time tracking activity. This cannot refer to a customer -

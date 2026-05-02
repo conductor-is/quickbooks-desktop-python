@@ -298,6 +298,9 @@ class Line(TypedDict, total=False):
     use them to calculate `amount`. If `amount`, `rate`, and `quantity` are all
     unspecified, then QuickBooks will calculate `amount` based on a `quantity` of
     `1` and the suggested `rate`. This field cannot be cleared.
+
+    Decimal string format: exactly 2 decimal places when cents are included and up
+    to 13 digits before the decimal point (for example, "123.45").
     """
 
     class_id: Annotated[str, PropertyInfo(alias="classId")]
@@ -381,6 +384,9 @@ class Line(TypedDict, total=False):
     `quantity` and `amount` are specified but not `rate`, QuickBooks will use them
     to calculate `rate`. Represented as a decimal string. This field cannot be
     cleared.
+
+    Decimal string format: up to 5 decimal places and up to 10 digits before the
+    decimal point (for example, "123.45").
     """
 
     sales_tax_code_id: Annotated[str, PropertyInfo(alias="salesTaxCodeId")]

@@ -13,7 +13,11 @@ __all__ = ["TransferCreateParams"]
 
 class TransferCreateParams(TypedDict, total=False):
     amount: Required[str]
-    """The monetary amount of this transfer, represented as a decimal string."""
+    """The monetary amount of this transfer, represented as a decimal string.
+
+    Decimal string format: exactly 2 decimal places when cents are included and up
+    to 13 digits before the decimal point (for example, "123.45").
+    """
 
     source_account_id: Required[Annotated[str, PropertyInfo(alias="sourceAccountId")]]
     """The account from which money will be transferred."""

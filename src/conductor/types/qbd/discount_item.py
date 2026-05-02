@@ -178,7 +178,7 @@ class DiscountItem(BaseModel):
     discount_rate: Optional[str] = FieldInfo(alias="discountRate", default=None)
     """
     The monetary amount to subtract from the total or subtotal when applying this
-    discount item to a transaction.
+    discount item to a transaction, represented as a decimal string.
 
     **NOTE**: A flat rate discount applies to ALL lines recorded above it and
     distributes the discount amount equally across those lines, which affects tax

@@ -32,6 +32,9 @@ class ReceivePaymentCreateParams(TypedDict, total=False):
 
     **NOTE**: The sum of the `paymentAmount` amounts in the `applyToTransactions`
     array cannot exceed the `totalAmount`, or you will receive an error.
+
+    Decimal string format: exactly 2 decimal places when cents are included and up
+    to 13 digits before the decimal point (for example, "123.45").
     """
 
     transaction_date: Required[Annotated[Union[str, date], PropertyInfo(alias="transactionDate", format="iso8601")]]
@@ -143,6 +146,9 @@ class ApplyToTransactionApplyCredit(TypedDict, total=False):
 
     This could include customer deposits, payments, or credits. Represented as a
     decimal string.
+
+    Decimal string format: exactly 2 decimal places when cents are included and up
+    to 13 digits before the decimal point (for example, "123.45").
     """
 
     credit_transaction_id: Required[Annotated[str, PropertyInfo(alias="creditTransactionId")]]
@@ -180,6 +186,9 @@ class ApplyToTransaction(TypedDict, total=False):
     """
     The monetary amount by which to reduce the receivable transaction's receivable
     amount, represented as a decimal string.
+
+    Decimal string format: exactly 2 decimal places when cents are included and up
+    to 13 digits before the decimal point (for example, "123.45").
     """
 
     discount_class_id: Annotated[str, PropertyInfo(alias="discountClassId")]
@@ -189,6 +198,9 @@ class ApplyToTransaction(TypedDict, total=False):
     """
     The monetary amount to apply to the receivable transaction, represented as a
     decimal string.
+
+    Decimal string format: exactly 2 decimal places when cents are included and up
+    to 13 digits before the decimal point (for example, "123.45").
     """
 
 
