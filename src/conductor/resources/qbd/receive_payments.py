@@ -86,6 +86,9 @@ class ReceivePaymentsResource(SyncAPIResource):
               **NOTE**: The sum of the `paymentAmount` amounts in the `applyToTransactions`
               array cannot exceed the `totalAmount`, or you will receive an error.
 
+              Decimal string format: exactly 2 decimal places when cents are included and up
+              to 13 digits before the decimal point (for example, "123.45").
+
           transaction_date: The date of this receive-payment, in ISO 8601 format (YYYY-MM-DD).
 
           conductor_end_user_id: The ID of the End-User to receive this request.
@@ -324,6 +327,9 @@ class ReceivePaymentsResource(SyncAPIResource):
 
               **NOTE**: The sum of the `paymentAmount` amounts in the `applyToTransactions`
               array cannot exceed the `totalAmount`, or you will receive an error.
+
+              Decimal string format: exactly 2 decimal places when cents are included and up
+              to 13 digits before the decimal point (for example, "123.45").
 
           transaction_date: The date of this receive-payment, in ISO 8601 format (YYYY-MM-DD).
 
@@ -645,6 +651,9 @@ class AsyncReceivePaymentsResource(AsyncAPIResource):
               **NOTE**: The sum of the `paymentAmount` amounts in the `applyToTransactions`
               array cannot exceed the `totalAmount`, or you will receive an error.
 
+              Decimal string format: exactly 2 decimal places when cents are included and up
+              to 13 digits before the decimal point (for example, "123.45").
+
           transaction_date: The date of this receive-payment, in ISO 8601 format (YYYY-MM-DD).
 
           conductor_end_user_id: The ID of the End-User to receive this request.
@@ -883,6 +892,9 @@ class AsyncReceivePaymentsResource(AsyncAPIResource):
 
               **NOTE**: The sum of the `paymentAmount` amounts in the `applyToTransactions`
               array cannot exceed the `totalAmount`, or you will receive an error.
+
+              Decimal string format: exactly 2 decimal places when cents are included and up
+              to 13 digits before the decimal point (for example, "123.45").
 
           transaction_date: The date of this receive-payment, in ISO 8601 format (YYYY-MM-DD).
 

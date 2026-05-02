@@ -87,7 +87,11 @@ class Line(TypedDict, total=False):
     """The account to which this journal line is being credited or debited."""
 
     amount: str
-    """The monetary amount of this journal line, represented as a decimal string."""
+    """The monetary amount of this journal line, represented as a decimal string.
+
+    Decimal string format: exactly 2 decimal places when cents are included and up
+    to 13 digits before the decimal point (for example, "123.45").
+    """
 
     billing_status: Annotated[
         Literal["billable", "has_been_billed", "not_billable"], PropertyInfo(alias="billingStatus")
