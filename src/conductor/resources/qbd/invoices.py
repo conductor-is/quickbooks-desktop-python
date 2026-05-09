@@ -100,8 +100,8 @@ class InvoicesResource(SyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          apply_credits: Credit memos to apply to this invoice, reducing its balance. This creates a link
-              between this invoice and the specified credit memos.
+          apply_credits: Credits to apply to this invoice, reducing its balance. This creates a link
+              between this invoice and the specified credit transactions.
 
               **IMPORTANT**: By default, QuickBooks will not return any information about the
               linked transactions in this endpoint's response even when this request is
@@ -407,8 +407,10 @@ class InvoicesResource(SyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          apply_credits: Credit memos to apply to this invoice, reducing its balance. This creates a link
-              between this invoice and the specified credit memos.
+          apply_credits: Credits to apply to this invoice, reducing its balance. This creates a link
+              between this invoice and the specified credit transactions. For credit-only
+              applications with no received payment amount, update the invoice using this
+              field.
 
               **IMPORTANT**: By default, QuickBooks will not return any information about the
               linked transactions in this endpoint's response even when this request is
@@ -946,8 +948,8 @@ class AsyncInvoicesResource(AsyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          apply_credits: Credit memos to apply to this invoice, reducing its balance. This creates a link
-              between this invoice and the specified credit memos.
+          apply_credits: Credits to apply to this invoice, reducing its balance. This creates a link
+              between this invoice and the specified credit transactions.
 
               **IMPORTANT**: By default, QuickBooks will not return any information about the
               linked transactions in this endpoint's response even when this request is
@@ -1253,8 +1255,10 @@ class AsyncInvoicesResource(AsyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          apply_credits: Credit memos to apply to this invoice, reducing its balance. This creates a link
-              between this invoice and the specified credit memos.
+          apply_credits: Credits to apply to this invoice, reducing its balance. This creates a link
+              between this invoice and the specified credit transactions. For credit-only
+              applications with no received payment amount, update the invoice using this
+              field.
 
               **IMPORTANT**: By default, QuickBooks will not return any information about the
               linked transactions in this endpoint's response even when this request is
