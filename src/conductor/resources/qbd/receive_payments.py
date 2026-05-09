@@ -71,10 +71,10 @@ class ReceivePaymentsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ReceivePayment:
         """
-        Records a customer payment and optionally applies it to specific invoices or
-        credits. All allocations must target the same accounts receivable account as
-        those invoices, and each one has to include a payment amount, discount, or
-        credit so QuickBooks can close out the balance.
+        Records a customer payment and optionally applies it to specific invoices,
+        discounts, or credits. All allocations must target the same accounts receivable
+        account as those invoices, and each one has to include a payment amount,
+        discount, or credit so QuickBooks can close out the balance.
 
         Args:
           customer_id: The customer or customer-job to which the payment for this receive-payment is
@@ -636,10 +636,10 @@ class AsyncReceivePaymentsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ReceivePayment:
         """
-        Records a customer payment and optionally applies it to specific invoices or
-        credits. All allocations must target the same accounts receivable account as
-        those invoices, and each one has to include a payment amount, discount, or
-        credit so QuickBooks can close out the balance.
+        Records a customer payment and optionally applies it to specific invoices,
+        discounts, or credits. All allocations must target the same accounts receivable
+        account as those invoices, and each one has to include a payment amount,
+        discount, or credit so QuickBooks can close out the balance.
 
         Args:
           customer_id: The customer or customer-job to which the payment for this receive-payment is

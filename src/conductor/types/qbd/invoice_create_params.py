@@ -33,9 +33,9 @@ class InvoiceCreateParams(TypedDict, total=False):
     """The ID of the End-User to receive this request."""
 
     apply_credits: Annotated[Iterable[ApplyCredit], PropertyInfo(alias="applyCredits")]
-    """Credit memos to apply to this invoice, reducing its balance.
+    """Credits to apply to this invoice, reducing its balance.
 
-    This creates a link between this invoice and the specified credit memos.
+    This creates a link between this invoice and the specified credit transactions.
 
     **IMPORTANT**: By default, QuickBooks will not return any information about the
     linked transactions in this endpoint's response even when this request is
@@ -273,8 +273,8 @@ class ApplyCredit(TypedDict, total=False):
 
     credit_transaction_id: Required[Annotated[str, PropertyInfo(alias="creditTransactionId")]]
     """
-    The unique identifier of the credit transaction (credit memo or vendor credit)
-    to apply to this transaction.
+    The unique identifier of the credit transaction to apply to this transaction,
+    such as a credit memo, vendor credit, or journal-entry credit.
     """
 
     override_credit_application: Annotated[bool, PropertyInfo(alias="overrideCreditApplication")]
