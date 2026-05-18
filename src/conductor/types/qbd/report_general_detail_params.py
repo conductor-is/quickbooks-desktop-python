@@ -261,10 +261,10 @@ class ReportGeneralDetailParams(TypedDict, total=False):
         ],
         PropertyInfo(alias="includeColumns"),
     ]
-    """The report columns to include, by column type.
+    """The report columns to include, by column type. Accepts one or more columns.
 
-    Accepts one or more columns. When this parameter is present, QuickBooks Desktop
-    omits its default report columns unless you include them here.
+    **IMPORTANT**: When this parameter is present, QuickBooks Desktop omits its
+    default report columns unless you include them here.
     """
 
     item_full_names: Annotated[SequenceNotStr[str], PropertyInfo(alias="itemFullNames")]

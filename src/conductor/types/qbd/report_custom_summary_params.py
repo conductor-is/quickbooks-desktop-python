@@ -218,8 +218,8 @@ class ReportCustomSummaryParams(TypedDict, total=False):
     include_subcolumns: Annotated[bool, PropertyInfo(alias="includeSubcolumns")]
     """Whether to include subcolumns in the report.
 
-    QuickBooks Desktop may still omit subcolumns that it can easily compute from
-    other returned values.
+    **NOTE**: QuickBooks Desktop may still omit subcolumns that it can easily
+    compute from other returned values.
     """
 
     item_full_names: Annotated[SequenceNotStr[str], PropertyInfo(alias="itemFullNames")]
