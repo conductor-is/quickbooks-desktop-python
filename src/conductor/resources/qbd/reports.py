@@ -31,16 +31,7 @@ from ...types.qbd import (
     report_payroll_summary_params,
 )
 from ..._base_client import make_request_options
-from ...types.qbd.report_job_response import ReportJobResponse
-from ...types.qbd.report_time_response import ReportTimeResponse
-from ...types.qbd.report_aging_response import ReportAgingResponse
-from ...types.qbd.report_custom_detail_response import ReportCustomDetailResponse
-from ...types.qbd.report_budget_summary_response import ReportBudgetSummaryResponse
-from ...types.qbd.report_custom_summary_response import ReportCustomSummaryResponse
-from ...types.qbd.report_general_detail_response import ReportGeneralDetailResponse
-from ...types.qbd.report_payroll_detail_response import ReportPayrollDetailResponse
-from ...types.qbd.report_general_summary_response import ReportGeneralSummaryResponse
-from ...types.qbd.report_payroll_summary_response import ReportPayrollSummaryResponse
+from ...types.qbd.report import Report
 
 __all__ = ["ReportsResource", "AsyncReportsResource"]
 
@@ -316,7 +307,7 @@ class ReportsResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> ReportAgingResponse:
+    ) -> Report:
         """
         Retrieves an aging report.
 
@@ -450,7 +441,7 @@ class ReportsResource(SyncAPIResource):
                     report_aging_params.ReportAgingParams,
                 ),
             ),
-            cast_to=ReportAgingResponse,
+            cast_to=Report,
         )
 
     def budget_summary(
@@ -505,7 +496,7 @@ class ReportsResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> ReportBudgetSummaryResponse:
+    ) -> Report:
         """
         Retrieves a budget summary report.
 
@@ -578,7 +569,7 @@ class ReportsResource(SyncAPIResource):
                     report_budget_summary_params.ReportBudgetSummaryParams,
                 ),
             ),
-            cast_to=ReportBudgetSummaryResponse,
+            cast_to=Report,
         )
 
     def custom_detail(
@@ -861,7 +852,7 @@ class ReportsResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> ReportCustomDetailResponse:
+    ) -> Report:
         """
         Retrieves a custom detail report.
 
@@ -1005,7 +996,7 @@ class ReportsResource(SyncAPIResource):
                     report_custom_detail_params.ReportCustomDetailParams,
                 ),
             ),
-            cast_to=ReportCustomDetailResponse,
+            cast_to=Report,
         )
 
     def custom_summary(
@@ -1241,7 +1232,7 @@ class ReportsResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> ReportCustomSummaryResponse:
+    ) -> Report:
         """
         Retrieves a custom summary report.
 
@@ -1391,7 +1382,7 @@ class ReportsResource(SyncAPIResource):
                     report_custom_summary_params.ReportCustomSummaryParams,
                 ),
             ),
-            cast_to=ReportCustomSummaryResponse,
+            cast_to=Report,
         )
 
     def general_detail(
@@ -1711,7 +1702,7 @@ class ReportsResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> ReportGeneralDetailResponse:
+    ) -> Report:
         """
         Retrieves a general detail report.
 
@@ -1853,7 +1844,7 @@ class ReportsResource(SyncAPIResource):
                     report_general_detail_params.ReportGeneralDetailParams,
                 ),
             ),
-            cast_to=ReportGeneralDetailResponse,
+            cast_to=Report,
         )
 
     def general_summary(
@@ -2089,7 +2080,7 @@ class ReportsResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> ReportGeneralSummaryResponse:
+    ) -> Report:
         """
         Retrieves a general summary report.
 
@@ -2234,7 +2225,7 @@ class ReportsResource(SyncAPIResource):
                     report_general_summary_params.ReportGeneralSummaryParams,
                 ),
             ),
-            cast_to=ReportGeneralSummaryResponse,
+            cast_to=Report,
         )
 
     def job(
@@ -2443,7 +2434,7 @@ class ReportsResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> ReportJobResponse:
+    ) -> Report:
         """
         Retrieves a job report.
 
@@ -2572,7 +2563,7 @@ class ReportsResource(SyncAPIResource):
                     report_job_params.ReportJobParams,
                 ),
             ),
-            cast_to=ReportJobResponse,
+            cast_to=Report,
         )
 
     def payroll_detail(
@@ -2829,7 +2820,7 @@ class ReportsResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> ReportPayrollDetailResponse:
+    ) -> Report:
         """
         Retrieves a payroll detail report.
 
@@ -2962,7 +2953,7 @@ class ReportsResource(SyncAPIResource):
                     report_payroll_detail_params.ReportPayrollDetailParams,
                 ),
             ),
-            cast_to=ReportPayrollDetailResponse,
+            cast_to=Report,
         )
 
     def payroll_summary(
@@ -3134,7 +3125,7 @@ class ReportsResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> ReportPayrollSummaryResponse:
+    ) -> Report:
         """
         Retrieves a payroll summary report.
 
@@ -3270,7 +3261,7 @@ class ReportsResource(SyncAPIResource):
                     report_payroll_summary_params.ReportPayrollSummaryParams,
                 ),
             ),
-            cast_to=ReportPayrollSummaryResponse,
+            cast_to=Report,
         )
 
     def time(
@@ -3370,7 +3361,7 @@ class ReportsResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> ReportTimeResponse:
+    ) -> Report:
         """
         Retrieves a time report.
 
@@ -3473,7 +3464,7 @@ class ReportsResource(SyncAPIResource):
                     report_time_params.ReportTimeParams,
                 ),
             ),
-            cast_to=ReportTimeResponse,
+            cast_to=Report,
         )
 
 
@@ -3748,7 +3739,7 @@ class AsyncReportsResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> ReportAgingResponse:
+    ) -> Report:
         """
         Retrieves an aging report.
 
@@ -3882,7 +3873,7 @@ class AsyncReportsResource(AsyncAPIResource):
                     report_aging_params.ReportAgingParams,
                 ),
             ),
-            cast_to=ReportAgingResponse,
+            cast_to=Report,
         )
 
     async def budget_summary(
@@ -3937,7 +3928,7 @@ class AsyncReportsResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> ReportBudgetSummaryResponse:
+    ) -> Report:
         """
         Retrieves a budget summary report.
 
@@ -4010,7 +4001,7 @@ class AsyncReportsResource(AsyncAPIResource):
                     report_budget_summary_params.ReportBudgetSummaryParams,
                 ),
             ),
-            cast_to=ReportBudgetSummaryResponse,
+            cast_to=Report,
         )
 
     async def custom_detail(
@@ -4293,7 +4284,7 @@ class AsyncReportsResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> ReportCustomDetailResponse:
+    ) -> Report:
         """
         Retrieves a custom detail report.
 
@@ -4437,7 +4428,7 @@ class AsyncReportsResource(AsyncAPIResource):
                     report_custom_detail_params.ReportCustomDetailParams,
                 ),
             ),
-            cast_to=ReportCustomDetailResponse,
+            cast_to=Report,
         )
 
     async def custom_summary(
@@ -4673,7 +4664,7 @@ class AsyncReportsResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> ReportCustomSummaryResponse:
+    ) -> Report:
         """
         Retrieves a custom summary report.
 
@@ -4823,7 +4814,7 @@ class AsyncReportsResource(AsyncAPIResource):
                     report_custom_summary_params.ReportCustomSummaryParams,
                 ),
             ),
-            cast_to=ReportCustomSummaryResponse,
+            cast_to=Report,
         )
 
     async def general_detail(
@@ -5143,7 +5134,7 @@ class AsyncReportsResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> ReportGeneralDetailResponse:
+    ) -> Report:
         """
         Retrieves a general detail report.
 
@@ -5285,7 +5276,7 @@ class AsyncReportsResource(AsyncAPIResource):
                     report_general_detail_params.ReportGeneralDetailParams,
                 ),
             ),
-            cast_to=ReportGeneralDetailResponse,
+            cast_to=Report,
         )
 
     async def general_summary(
@@ -5521,7 +5512,7 @@ class AsyncReportsResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> ReportGeneralSummaryResponse:
+    ) -> Report:
         """
         Retrieves a general summary report.
 
@@ -5666,7 +5657,7 @@ class AsyncReportsResource(AsyncAPIResource):
                     report_general_summary_params.ReportGeneralSummaryParams,
                 ),
             ),
-            cast_to=ReportGeneralSummaryResponse,
+            cast_to=Report,
         )
 
     async def job(
@@ -5875,7 +5866,7 @@ class AsyncReportsResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> ReportJobResponse:
+    ) -> Report:
         """
         Retrieves a job report.
 
@@ -6004,7 +5995,7 @@ class AsyncReportsResource(AsyncAPIResource):
                     report_job_params.ReportJobParams,
                 ),
             ),
-            cast_to=ReportJobResponse,
+            cast_to=Report,
         )
 
     async def payroll_detail(
@@ -6261,7 +6252,7 @@ class AsyncReportsResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> ReportPayrollDetailResponse:
+    ) -> Report:
         """
         Retrieves a payroll detail report.
 
@@ -6394,7 +6385,7 @@ class AsyncReportsResource(AsyncAPIResource):
                     report_payroll_detail_params.ReportPayrollDetailParams,
                 ),
             ),
-            cast_to=ReportPayrollDetailResponse,
+            cast_to=Report,
         )
 
     async def payroll_summary(
@@ -6566,7 +6557,7 @@ class AsyncReportsResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> ReportPayrollSummaryResponse:
+    ) -> Report:
         """
         Retrieves a payroll summary report.
 
@@ -6702,7 +6693,7 @@ class AsyncReportsResource(AsyncAPIResource):
                     report_payroll_summary_params.ReportPayrollSummaryParams,
                 ),
             ),
-            cast_to=ReportPayrollSummaryResponse,
+            cast_to=Report,
         )
 
     async def time(
@@ -6802,7 +6793,7 @@ class AsyncReportsResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> ReportTimeResponse:
+    ) -> Report:
         """
         Retrieves a time report.
 
@@ -6905,7 +6896,7 @@ class AsyncReportsResource(AsyncAPIResource):
                     report_time_params.ReportTimeParams,
                 ),
             ),
-            cast_to=ReportTimeResponse,
+            cast_to=Report,
         )
 
 

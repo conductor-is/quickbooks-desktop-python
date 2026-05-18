@@ -707,33 +707,21 @@ Methods:
 Types:
 
 ```python
-from conductor.types.qbd import (
-    Report,
-    ReportAgingResponse,
-    ReportBudgetSummaryResponse,
-    ReportCustomDetailResponse,
-    ReportCustomSummaryResponse,
-    ReportGeneralDetailResponse,
-    ReportGeneralSummaryResponse,
-    ReportJobResponse,
-    ReportPayrollDetailResponse,
-    ReportPayrollSummaryResponse,
-    ReportTimeResponse,
-)
+from conductor.types.qbd import Report
 ```
 
 Methods:
 
-- <code title="get /quickbooks-desktop/reports/aging">conductor.qbd.reports.<a href="./src/conductor/resources/qbd/reports.py">aging</a>(\*\*<a href="src/conductor/types/qbd/report_aging_params.py">params</a>) -> <a href="./src/conductor/types/qbd/report_aging_response.py">ReportAgingResponse</a></code>
-- <code title="get /quickbooks-desktop/reports/budget-summary">conductor.qbd.reports.<a href="./src/conductor/resources/qbd/reports.py">budget_summary</a>(\*\*<a href="src/conductor/types/qbd/report_budget_summary_params.py">params</a>) -> <a href="./src/conductor/types/qbd/report_budget_summary_response.py">ReportBudgetSummaryResponse</a></code>
-- <code title="get /quickbooks-desktop/reports/custom-detail">conductor.qbd.reports.<a href="./src/conductor/resources/qbd/reports.py">custom_detail</a>(\*\*<a href="src/conductor/types/qbd/report_custom_detail_params.py">params</a>) -> <a href="./src/conductor/types/qbd/report_custom_detail_response.py">ReportCustomDetailResponse</a></code>
-- <code title="get /quickbooks-desktop/reports/custom-summary">conductor.qbd.reports.<a href="./src/conductor/resources/qbd/reports.py">custom_summary</a>(\*\*<a href="src/conductor/types/qbd/report_custom_summary_params.py">params</a>) -> <a href="./src/conductor/types/qbd/report_custom_summary_response.py">ReportCustomSummaryResponse</a></code>
-- <code title="get /quickbooks-desktop/reports/general-detail">conductor.qbd.reports.<a href="./src/conductor/resources/qbd/reports.py">general_detail</a>(\*\*<a href="src/conductor/types/qbd/report_general_detail_params.py">params</a>) -> <a href="./src/conductor/types/qbd/report_general_detail_response.py">ReportGeneralDetailResponse</a></code>
-- <code title="get /quickbooks-desktop/reports/general-summary">conductor.qbd.reports.<a href="./src/conductor/resources/qbd/reports.py">general_summary</a>(\*\*<a href="src/conductor/types/qbd/report_general_summary_params.py">params</a>) -> <a href="./src/conductor/types/qbd/report_general_summary_response.py">ReportGeneralSummaryResponse</a></code>
-- <code title="get /quickbooks-desktop/reports/job">conductor.qbd.reports.<a href="./src/conductor/resources/qbd/reports.py">job</a>(\*\*<a href="src/conductor/types/qbd/report_job_params.py">params</a>) -> <a href="./src/conductor/types/qbd/report_job_response.py">ReportJobResponse</a></code>
-- <code title="get /quickbooks-desktop/reports/payroll-detail">conductor.qbd.reports.<a href="./src/conductor/resources/qbd/reports.py">payroll_detail</a>(\*\*<a href="src/conductor/types/qbd/report_payroll_detail_params.py">params</a>) -> <a href="./src/conductor/types/qbd/report_payroll_detail_response.py">ReportPayrollDetailResponse</a></code>
-- <code title="get /quickbooks-desktop/reports/payroll-summary">conductor.qbd.reports.<a href="./src/conductor/resources/qbd/reports.py">payroll_summary</a>(\*\*<a href="src/conductor/types/qbd/report_payroll_summary_params.py">params</a>) -> <a href="./src/conductor/types/qbd/report_payroll_summary_response.py">ReportPayrollSummaryResponse</a></code>
-- <code title="get /quickbooks-desktop/reports/time">conductor.qbd.reports.<a href="./src/conductor/resources/qbd/reports.py">time</a>(\*\*<a href="src/conductor/types/qbd/report_time_params.py">params</a>) -> <a href="./src/conductor/types/qbd/report_time_response.py">ReportTimeResponse</a></code>
+- <code title="get /quickbooks-desktop/reports/aging">conductor.qbd.reports.<a href="./src/conductor/resources/qbd/reports.py">aging</a>(\*\*<a href="src/conductor/types/qbd/report_aging_params.py">params</a>) -> <a href="./src/conductor/types/qbd/report.py">Report</a></code>
+- <code title="get /quickbooks-desktop/reports/budget-summary">conductor.qbd.reports.<a href="./src/conductor/resources/qbd/reports.py">budget_summary</a>(\*\*<a href="src/conductor/types/qbd/report_budget_summary_params.py">params</a>) -> <a href="./src/conductor/types/qbd/report.py">Report</a></code>
+- <code title="get /quickbooks-desktop/reports/custom-detail">conductor.qbd.reports.<a href="./src/conductor/resources/qbd/reports.py">custom_detail</a>(\*\*<a href="src/conductor/types/qbd/report_custom_detail_params.py">params</a>) -> <a href="./src/conductor/types/qbd/report.py">Report</a></code>
+- <code title="get /quickbooks-desktop/reports/custom-summary">conductor.qbd.reports.<a href="./src/conductor/resources/qbd/reports.py">custom_summary</a>(\*\*<a href="src/conductor/types/qbd/report_custom_summary_params.py">params</a>) -> <a href="./src/conductor/types/qbd/report.py">Report</a></code>
+- <code title="get /quickbooks-desktop/reports/general-detail">conductor.qbd.reports.<a href="./src/conductor/resources/qbd/reports.py">general_detail</a>(\*\*<a href="src/conductor/types/qbd/report_general_detail_params.py">params</a>) -> <a href="./src/conductor/types/qbd/report.py">Report</a></code>
+- <code title="get /quickbooks-desktop/reports/general-summary">conductor.qbd.reports.<a href="./src/conductor/resources/qbd/reports.py">general_summary</a>(\*\*<a href="src/conductor/types/qbd/report_general_summary_params.py">params</a>) -> <a href="./src/conductor/types/qbd/report.py">Report</a></code>
+- <code title="get /quickbooks-desktop/reports/job">conductor.qbd.reports.<a href="./src/conductor/resources/qbd/reports.py">job</a>(\*\*<a href="src/conductor/types/qbd/report_job_params.py">params</a>) -> <a href="./src/conductor/types/qbd/report.py">Report</a></code>
+- <code title="get /quickbooks-desktop/reports/payroll-detail">conductor.qbd.reports.<a href="./src/conductor/resources/qbd/reports.py">payroll_detail</a>(\*\*<a href="src/conductor/types/qbd/report_payroll_detail_params.py">params</a>) -> <a href="./src/conductor/types/qbd/report.py">Report</a></code>
+- <code title="get /quickbooks-desktop/reports/payroll-summary">conductor.qbd.reports.<a href="./src/conductor/resources/qbd/reports.py">payroll_summary</a>(\*\*<a href="src/conductor/types/qbd/report_payroll_summary_params.py">params</a>) -> <a href="./src/conductor/types/qbd/report.py">Report</a></code>
+- <code title="get /quickbooks-desktop/reports/time">conductor.qbd.reports.<a href="./src/conductor/resources/qbd/reports.py">time</a>(\*\*<a href="src/conductor/types/qbd/report_time_params.py">params</a>) -> <a href="./src/conductor/types/qbd/report.py">Report</a></code>
 
 ## SalesOrders
 
