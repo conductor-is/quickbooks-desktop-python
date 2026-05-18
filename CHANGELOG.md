@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.81.0 (2026-05-18)
+
+Full Changelog: [v1.80.0...v1.81.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.80.0...v1.81.0)
+
+### Features
+
+* **api:** api update ([b99e3d5](https://github.com/conductor-is/quickbooks-desktop-python/commit/b99e3d5924b733ed732dc5de06db1cba3d3ba6f2))
+* **api:** api update ([3e5d5f8](https://github.com/conductor-is/quickbooks-desktop-python/commit/3e5d5f88f012d54fd9861e7b1427b3ec44e84a35))
+* **api:** api update ([54e6c7c](https://github.com/conductor-is/quickbooks-desktop-python/commit/54e6c7c46c48ff0edcc1b5f8c0ac52e8baab7ae3))
+* **internal/types:** support eagerly validating pydantic iterators ([8215cef](https://github.com/conductor-is/quickbooks-desktop-python/commit/8215cef59f0da5f0812c311a11abb2191388d2d8))
+
+
+### Bug Fixes
+
+* **client:** add missing f-string prefix in file type error message ([ab278e1](https://github.com/conductor-is/quickbooks-desktop-python/commit/ab278e1cd8452a236e8558f748655f32c4f6021f))
+
 ## 1.80.0 (2026-05-02)
 
 Full Changelog: [v1.79.0...v1.80.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.79.0...v1.80.0)
