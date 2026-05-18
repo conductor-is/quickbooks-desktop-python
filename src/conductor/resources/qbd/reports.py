@@ -316,84 +316,94 @@ class ReportsResource(SyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          account_full_names: Filter for report data by account `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple accounts. Use only one account filter per request.
+          account_full_names: Filter report rows by account `fullName` values, case-insensitive. A `fullName`
+              is a fully qualified QuickBooks name formed by joining parent object names with
+              the object's `name` using colons. Accepts one or more account full names. Choose
+              only one account filter per request: `accountType`, `accountIds`, or
+              `accountFullNames`.
 
-          account_ids: Filter for report data by QuickBooks-assigned account IDs. Repeat this query
-              parameter to include multiple accounts. Use only one account filter per request.
+          account_ids: Filter report rows by QuickBooks-assigned account IDs. Accepts one or more
+              account IDs. Choose only one account filter per request: `accountType`,
+              `accountIds`, or `accountFullNames`.
 
           accounts_to_include: Whether to include all accounts or only accounts in use.
 
-          account_type: Filter for report data by account type. Use only one account filter per request.
+          account_type:
+              Filter report rows by account type. Choose only one account filter per request:
+              `accountType`, `accountIds`, or `accountFullNames`.
 
           aging_as_of: The date through which QuickBooks Desktop calculates aging information.
 
-          class_full_names: Filter for report data by class `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple classes. Use only one class filter per request.
+          class_full_names: Filter report rows by class `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more class full names. Choose only
+              one class filter per request: `classIds` or `classFullNames`.
 
-          class_ids: Filter for report data by QuickBooks-assigned class IDs. Repeat this query
-              parameter to include multiple classes. Use only one class filter per request.
+          class_ids: Filter report rows by QuickBooks-assigned class IDs. Accepts one or more class
+              IDs. Choose only one class filter per request: `classIds` or `classFullNames`.
 
           detail_level: The report detail level to include. Use `all` for all rows, `all_except_summary`
               to omit summary rows, or `summary_only` to return only summary rows.
 
-          entity_full_names: Filter for report data by entity `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple entities. Use only one entity filter per request.
+          entity_full_names: Filter report rows by entity `fullName` values, case-insensitive. A `fullName`
+              is a fully qualified QuickBooks name formed by joining parent object names with
+              the object's `name` using colons. Accepts one or more entity full names. Choose
+              only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          entity_ids: Filter for report data by QuickBooks-assigned entity IDs. Repeat this query
-              parameter to include multiple entities. Use only one entity filter per request.
+          entity_ids: Filter report rows by QuickBooks-assigned entity IDs. Accepts one or more entity
+              IDs. Choose only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          entity_type: Filter for report data by entity type, such as customer, vendor, employee, or
-              other name. Use only one entity filter per request.
+          entity_type: Filter report rows by entity type, such as customer, vendor, employee, or other
+              name. Choose only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          include_columns: The specific report columns to include, by column type. Repeat this query
-              parameter to request multiple columns. When this parameter is present,
-              QuickBooks Desktop omits its default report columns unless you include them
-              here.
+          include_columns: The report columns to include, by column type. Accepts one or more columns. When
+              this parameter is present, QuickBooks Desktop omits its default report columns
+              unless you include them here.
 
-          item_full_names: Filter for report data by item `fullName` values, case-insensitive. A `fullName`
-              is a fully-qualified QuickBooks name formed by joining parent object names with
-              the object's `name` using colons. Repeat this query parameter to include
-              multiple items. Use only one item filter per request.
+          item_full_names: Filter report rows by item `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more item full names. Choose only
+              one item filter per request: `itemType`, `itemIds`, or `itemFullNames`.
 
-          item_ids: Filter for report data by QuickBooks-assigned item IDs. Repeat this query
-              parameter to include multiple items. Use only one item filter per request.
+          item_ids: Filter report rows by QuickBooks-assigned item IDs. Accepts one or more item
+              IDs. Choose only one item filter per request: `itemType`, `itemIds`, or
+              `itemFullNames`.
 
-          item_type: Filter for report data by item type. Use only one item filter per request.
+          item_type:
+              Filter report rows by item type. Choose only one item filter per request:
+              `itemType`, `itemIds`, or `itemFullNames`.
 
-          posting_status: Filter for report data that is posting, non-posting, or either. Posting status
+          posting_status: Filter report rows that are posting, non-posting, or either. Posting status
               refers to whether QuickBooks records the transaction in an account register.
 
-          report_date_from: Filter for report data dated on or after this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
+          report_date_from: Filter report rows dated on or after this date, in ISO 8601 format (YYYY-MM-DD).
+              Choose either `reportDateMacro` or `reportDateFrom`/`reportDateTo`. If you omit
               `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
               the current fiscal year to date.
 
-          report_date_macro: A QuickBooks Desktop relative date macro. This cannot be combined with
-              `reportDateFrom` or `reportDateTo`.
+          report_date_macro: A QuickBooks Desktop relative date macro for the report period. Choose either
+              `reportDateMacro` or `reportDateFrom`/`reportDateTo`.
 
-          report_date_to: Filter for report data dated on or before this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
-              `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
-              the current fiscal year to date.
+          report_date_to: Filter report rows dated on or before this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `reportDateMacro` or
+              `reportDateFrom`/`reportDateTo`. If you omit `reportDateFrom`, `reportDateTo`,
+              and `reportDateMacro`, QuickBooks Desktop uses the current fiscal year to date.
 
-          transaction_types: Filter for report data by transaction type(s). Repeat this query parameter to
-              include multiple transaction types.
+          transaction_types: Filter report rows by transaction type. Accepts one or more transaction types.
 
-          updated_after: Filter for report data updated on or after this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `updatedDateMacro`.
+          updated_after: Filter report rows updated on or after this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `updatedDateMacro` or
+              `updatedAfter`/`updatedBefore`.
 
-          updated_before: Filter for report data updated on or before this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `updatedDateMacro`.
+          updated_before: Filter report rows updated on or before this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `updatedDateMacro` or
+              `updatedAfter`/`updatedBefore`.
 
-          updated_date_macro: A QuickBooks Desktop relative updated-date macro. This cannot be combined with
-              `updatedAfter` or `updatedBefore`.
+          updated_date_macro: A QuickBooks Desktop relative updated-date macro. Choose either
+              `updatedDateMacro` or `updatedAfter`/`updatedBefore`.
 
           extra_headers: Send extra headers
 
@@ -511,26 +521,26 @@ class ReportsResource(SyncAPIResource):
           budget_criterion: What the budget covers, such as accounts, accounts and classes, or accounts and
               customers.
 
-          class_full_names: Filter for report data by class `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple classes. Use only one class filter per request.
+          class_full_names: Filter report rows by class `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more class full names. Choose only
+              one class filter per request: `classIds` or `classFullNames`.
 
-          class_ids: Filter for report data by QuickBooks-assigned class IDs. Repeat this query
-              parameter to include multiple classes. Use only one class filter per request.
+          class_ids: Filter report rows by QuickBooks-assigned class IDs. Accepts one or more class
+              IDs. Choose only one class filter per request: `classIds` or `classFullNames`.
 
-          report_date_from: Filter for report data dated on or after this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
+          report_date_from: Filter report rows dated on or after this date, in ISO 8601 format (YYYY-MM-DD).
+              Choose either `reportDateMacro` or `reportDateFrom`/`reportDateTo`. If you omit
               `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
               the current fiscal year to date.
 
-          report_date_macro: A QuickBooks Desktop relative date macro. This cannot be combined with
-              `reportDateFrom` or `reportDateTo`.
+          report_date_macro: A QuickBooks Desktop relative date macro for the report period. Choose either
+              `reportDateMacro` or `reportDateFrom`/`reportDateTo`.
 
-          report_date_to: Filter for report data dated on or before this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
-              `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
-              the current fiscal year to date.
+          report_date_to: Filter report rows dated on or before this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `reportDateMacro` or
+              `reportDateFrom`/`reportDateTo`. If you omit `reportDateFrom`, `reportDateTo`,
+              and `reportDateMacro`, QuickBooks Desktop uses the current fiscal year to date.
 
           summarize_columns_by: How QuickBooks Desktop calculates budget report columns and labels column
               headers.
@@ -857,96 +867,106 @@ class ReportsResource(SyncAPIResource):
         Retrieves a custom detail report.
 
         Args:
-          include_columns: The specific report columns to include, by column type. Repeat this query
-              parameter to request multiple columns. When this parameter is present,
-              QuickBooks Desktop omits its default report columns unless you include them
-              here.
+          include_columns: The report columns to include, by column type. Accepts one or more columns. When
+              this parameter is present, QuickBooks Desktop omits its default report columns
+              unless you include them here.
 
           summarize_rows_by: How QuickBooks Desktop calculates report data and labels report rows.
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          account_full_names: Filter for report data by account `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple accounts. Use only one account filter per request.
+          account_full_names: Filter report rows by account `fullName` values, case-insensitive. A `fullName`
+              is a fully qualified QuickBooks name formed by joining parent object names with
+              the object's `name` using colons. Accepts one or more account full names. Choose
+              only one account filter per request: `accountType`, `accountIds`, or
+              `accountFullNames`.
 
-          account_ids: Filter for report data by QuickBooks-assigned account IDs. Repeat this query
-              parameter to include multiple accounts. Use only one account filter per request.
+          account_ids: Filter report rows by QuickBooks-assigned account IDs. Accepts one or more
+              account IDs. Choose only one account filter per request: `accountType`,
+              `accountIds`, or `accountFullNames`.
 
           accounts_to_include: Whether to include all accounts or only accounts in use.
 
-          account_type: Filter for report data by account type. Use only one account filter per request.
+          account_type:
+              Filter report rows by account type. Choose only one account filter per request:
+              `accountType`, `accountIds`, or `accountFullNames`.
 
           basis: The accounting basis to use for the report. Use `cash` to base income and
               expenses on when money changes hands, `accrual` to base them on invoice and bill
               dates, or `none` to use the QuickBooks Desktop default for the report.
 
-          class_full_names: Filter for report data by class `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple classes. Use only one class filter per request.
+          class_full_names: Filter report rows by class `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more class full names. Choose only
+              one class filter per request: `classIds` or `classFullNames`.
 
-          class_ids: Filter for report data by QuickBooks-assigned class IDs. Repeat this query
-              parameter to include multiple classes. Use only one class filter per request.
+          class_ids: Filter report rows by QuickBooks-assigned class IDs. Accepts one or more class
+              IDs. Choose only one class filter per request: `classIds` or `classFullNames`.
 
           detail_level: The report detail level to include. Use `all` for all rows, `all_except_summary`
               to omit summary rows, or `summary_only` to return only summary rows.
 
-          entity_full_names: Filter for report data by entity `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple entities. Use only one entity filter per request.
+          entity_full_names: Filter report rows by entity `fullName` values, case-insensitive. A `fullName`
+              is a fully qualified QuickBooks name formed by joining parent object names with
+              the object's `name` using colons. Accepts one or more entity full names. Choose
+              only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          entity_ids: Filter for report data by QuickBooks-assigned entity IDs. Repeat this query
-              parameter to include multiple entities. Use only one entity filter per request.
+          entity_ids: Filter report rows by QuickBooks-assigned entity IDs. Accepts one or more entity
+              IDs. Choose only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          entity_type: Filter for report data by entity type, such as customer, vendor, employee, or
-              other name. Use only one entity filter per request.
+          entity_type: Filter report rows by entity type, such as customer, vendor, employee, or other
+              name. Choose only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          item_full_names: Filter for report data by item `fullName` values, case-insensitive. A `fullName`
-              is a fully-qualified QuickBooks name formed by joining parent object names with
-              the object's `name` using colons. Repeat this query parameter to include
-              multiple items. Use only one item filter per request.
+          item_full_names: Filter report rows by item `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more item full names. Choose only
+              one item filter per request: `itemType`, `itemIds`, or `itemFullNames`.
 
-          item_ids: Filter for report data by QuickBooks-assigned item IDs. Repeat this query
-              parameter to include multiple items. Use only one item filter per request.
+          item_ids: Filter report rows by QuickBooks-assigned item IDs. Accepts one or more item
+              IDs. Choose only one item filter per request: `itemType`, `itemIds`, or
+              `itemFullNames`.
 
-          item_type: Filter for report data by item type. Use only one item filter per request.
+          item_type:
+              Filter report rows by item type. Choose only one item filter per request:
+              `itemType`, `itemIds`, or `itemFullNames`.
 
           open_balance_as_of: The date through which QuickBooks Desktop calculates open balance information.
 
-          posting_status: Filter for report data that is posting, non-posting, or either. Posting status
+          posting_status: Filter report rows that are posting, non-posting, or either. Posting status
               refers to whether QuickBooks records the transaction in an account register.
 
-          report_date_from: Filter for report data dated on or after this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
+          report_date_from: Filter report rows dated on or after this date, in ISO 8601 format (YYYY-MM-DD).
+              Choose either `reportDateMacro` or `reportDateFrom`/`reportDateTo`. If you omit
               `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
               the current fiscal year to date.
 
-          report_date_macro: A QuickBooks Desktop relative date macro. This cannot be combined with
-              `reportDateFrom` or `reportDateTo`.
+          report_date_macro: A QuickBooks Desktop relative date macro for the report period. Choose either
+              `reportDateMacro` or `reportDateFrom`/`reportDateTo`.
 
-          report_date_to: Filter for report data dated on or before this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
-              `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
-              the current fiscal year to date.
+          report_date_to: Filter report rows dated on or before this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `reportDateMacro` or
+              `reportDateFrom`/`reportDateTo`. If you omit `reportDateFrom`, `reportDateTo`,
+              and `reportDateMacro`, QuickBooks Desktop uses the current fiscal year to date.
 
           report_type: The custom detail report type to retrieve. This endpoint supports only
               `custom_transaction_detail`, so this parameter is optional and defaults to
               `custom_transaction_detail`.
 
-          transaction_types: Filter for report data by transaction type(s). Repeat this query parameter to
-              include multiple transaction types.
+          transaction_types: Filter report rows by transaction type. Accepts one or more transaction types.
 
-          updated_after: Filter for report data updated on or after this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `updatedDateMacro`.
+          updated_after: Filter report rows updated on or after this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `updatedDateMacro` or
+              `updatedAfter`/`updatedBefore`.
 
-          updated_before: Filter for report data updated on or before this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `updatedDateMacro`.
+          updated_before: Filter report rows updated on or before this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `updatedDateMacro` or
+              `updatedAfter`/`updatedBefore`.
 
-          updated_date_macro: A QuickBooks Desktop relative updated-date macro. This cannot be combined with
-              `updatedAfter` or `updatedBefore`.
+          updated_date_macro: A QuickBooks Desktop relative updated-date macro. Choose either
+              `updatedDateMacro` or `updatedAfter`/`updatedBefore`.
 
           extra_headers: Send extra headers
 
@@ -1243,27 +1263,31 @@ class ReportsResource(SyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          account_full_names: Filter for report data by account `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple accounts. Use only one account filter per request.
+          account_full_names: Filter report rows by account `fullName` values, case-insensitive. A `fullName`
+              is a fully qualified QuickBooks name formed by joining parent object names with
+              the object's `name` using colons. Accepts one or more account full names. Choose
+              only one account filter per request: `accountType`, `accountIds`, or
+              `accountFullNames`.
 
-          account_ids: Filter for report data by QuickBooks-assigned account IDs. Repeat this query
-              parameter to include multiple accounts. Use only one account filter per request.
+          account_ids: Filter report rows by QuickBooks-assigned account IDs. Accepts one or more
+              account IDs. Choose only one account filter per request: `accountType`,
+              `accountIds`, or `accountFullNames`.
 
-          account_type: Filter for report data by account type. Use only one account filter per request.
+          account_type:
+              Filter report rows by account type. Choose only one account filter per request:
+              `accountType`, `accountIds`, or `accountFullNames`.
 
           basis: The accounting basis to use for the report. Use `cash` to base income and
               expenses on when money changes hands, `accrual` to base them on invoice and bill
               dates, or `none` to use the QuickBooks Desktop default for the report.
 
-          class_full_names: Filter for report data by class `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple classes. Use only one class filter per request.
+          class_full_names: Filter report rows by class `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more class full names. Choose only
+              one class filter per request: `classIds` or `classFullNames`.
 
-          class_ids: Filter for report data by QuickBooks-assigned class IDs. Repeat this query
-              parameter to include multiple classes. Use only one class filter per request.
+          class_ids: Filter report rows by QuickBooks-assigned class IDs. Accepts one or more class
+              IDs. Choose only one class filter per request: `classIds` or `classFullNames`.
 
           columns_to_return: Filters which report columns QuickBooks returns. Use `active_only` for active
               columns, `non_zero` for columns with non-zero values, or `all` for all columns.
@@ -1271,47 +1295,53 @@ class ReportsResource(SyncAPIResource):
           detail_level: The report detail level to include. Use `all` for all rows, `all_except_summary`
               to omit summary rows, or `summary_only` to return only summary rows.
 
-          entity_full_names: Filter for report data by entity `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple entities. Use only one entity filter per request.
+          entity_full_names: Filter report rows by entity `fullName` values, case-insensitive. A `fullName`
+              is a fully qualified QuickBooks name formed by joining parent object names with
+              the object's `name` using colons. Accepts one or more entity full names. Choose
+              only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          entity_ids: Filter for report data by QuickBooks-assigned entity IDs. Repeat this query
-              parameter to include multiple entities. Use only one entity filter per request.
+          entity_ids: Filter report rows by QuickBooks-assigned entity IDs. Accepts one or more entity
+              IDs. Choose only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          entity_type: Filter for report data by entity type, such as customer, vendor, employee, or
-              other name. Use only one entity filter per request.
+          entity_type: Filter report rows by entity type, such as customer, vendor, employee, or other
+              name. Choose only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
           include_subcolumns: Whether to include subcolumns in the report. QuickBooks Desktop may still omit
               subcolumns that it can easily compute from other returned values.
 
-          item_full_names: Filter for report data by item `fullName` values, case-insensitive. A `fullName`
-              is a fully-qualified QuickBooks name formed by joining parent object names with
-              the object's `name` using colons. Repeat this query parameter to include
-              multiple items. Use only one item filter per request.
+          item_full_names: Filter report rows by item `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more item full names. Choose only
+              one item filter per request: `itemType`, `itemIds`, or `itemFullNames`.
 
-          item_ids: Filter for report data by QuickBooks-assigned item IDs. Repeat this query
-              parameter to include multiple items. Use only one item filter per request.
+          item_ids: Filter report rows by QuickBooks-assigned item IDs. Accepts one or more item
+              IDs. Choose only one item filter per request: `itemType`, `itemIds`, or
+              `itemFullNames`.
 
-          item_type: Filter for report data by item type. Use only one item filter per request.
+          item_type:
+              Filter report rows by item type. Choose only one item filter per request:
+              `itemType`, `itemIds`, or `itemFullNames`.
 
-          posting_status: Filter for report data that is posting, non-posting, or either. Posting status
+          posting_status: Filter report rows that are posting, non-posting, or either. Posting status
               refers to whether QuickBooks records the transaction in an account register.
 
           report_calendar: The type of year to use for the report.
 
-          report_date_from: Filter for report data dated on or after this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
+          report_date_from: Filter report rows dated on or after this date, in ISO 8601 format (YYYY-MM-DD).
+              Choose either `reportDateMacro` or `reportDateFrom`/`reportDateTo`. If you omit
               `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
               the current fiscal year to date.
 
-          report_date_macro: A QuickBooks Desktop relative date macro. This cannot be combined with
-              `reportDateFrom` or `reportDateTo`.
+          report_date_macro: A QuickBooks Desktop relative date macro for the report period. Choose either
+              `reportDateMacro` or `reportDateFrom`/`reportDateTo`.
 
-          report_date_to: Filter for report data dated on or before this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
-              `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
-              the current fiscal year to date.
+          report_date_to: Filter report rows dated on or before this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `reportDateMacro` or
+              `reportDateFrom`/`reportDateTo`. If you omit `reportDateFrom`, `reportDateTo`,
+              and `reportDateMacro`, QuickBooks Desktop uses the current fiscal year to date.
 
           report_type: The custom summary report type to retrieve. This endpoint supports only
               `custom_summary`, so this parameter is optional and defaults to
@@ -1320,17 +1350,18 @@ class ReportsResource(SyncAPIResource):
           rows_to_return: Filters which report rows QuickBooks returns. Use `active_only` for active rows,
               `non_zero` for rows with non-zero values, or `all` for all rows.
 
-          transaction_types: Filter for report data by transaction type(s). Repeat this query parameter to
-              include multiple transaction types.
+          transaction_types: Filter report rows by transaction type. Accepts one or more transaction types.
 
-          updated_after: Filter for report data updated on or after this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `updatedDateMacro`.
+          updated_after: Filter report rows updated on or after this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `updatedDateMacro` or
+              `updatedAfter`/`updatedBefore`.
 
-          updated_before: Filter for report data updated on or before this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `updatedDateMacro`.
+          updated_before: Filter report rows updated on or before this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `updatedDateMacro` or
+              `updatedAfter`/`updatedBefore`.
 
-          updated_date_macro: A QuickBooks Desktop relative updated-date macro. This cannot be combined with
-              `updatedAfter` or `updatedBefore`.
+          updated_date_macro: A QuickBooks Desktop relative updated-date macro. Choose either
+              `updatedDateMacro` or `updatedAfter`/`updatedBefore`.
 
           extra_headers: Send extra headers
 
@@ -1711,90 +1742,100 @@ class ReportsResource(SyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          account_full_names: Filter for report data by account `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple accounts. Use only one account filter per request.
+          account_full_names: Filter report rows by account `fullName` values, case-insensitive. A `fullName`
+              is a fully qualified QuickBooks name formed by joining parent object names with
+              the object's `name` using colons. Accepts one or more account full names. Choose
+              only one account filter per request: `accountType`, `accountIds`, or
+              `accountFullNames`.
 
-          account_ids: Filter for report data by QuickBooks-assigned account IDs. Repeat this query
-              parameter to include multiple accounts. Use only one account filter per request.
+          account_ids: Filter report rows by QuickBooks-assigned account IDs. Accepts one or more
+              account IDs. Choose only one account filter per request: `accountType`,
+              `accountIds`, or `accountFullNames`.
 
           accounts_to_include: Whether to include all accounts or only accounts in use.
 
-          account_type: Filter for report data by account type. Use only one account filter per request.
+          account_type:
+              Filter report rows by account type. Choose only one account filter per request:
+              `accountType`, `accountIds`, or `accountFullNames`.
 
           basis: The accounting basis to use for the report. Use `cash` to base income and
               expenses on when money changes hands, `accrual` to base them on invoice and bill
               dates, or `none` to use the QuickBooks Desktop default for the report.
 
-          class_full_names: Filter for report data by class `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple classes. Use only one class filter per request.
+          class_full_names: Filter report rows by class `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more class full names. Choose only
+              one class filter per request: `classIds` or `classFullNames`.
 
-          class_ids: Filter for report data by QuickBooks-assigned class IDs. Repeat this query
-              parameter to include multiple classes. Use only one class filter per request.
+          class_ids: Filter report rows by QuickBooks-assigned class IDs. Accepts one or more class
+              IDs. Choose only one class filter per request: `classIds` or `classFullNames`.
 
           detail_level: The report detail level to include. Use `all` for all rows, `all_except_summary`
               to omit summary rows, or `summary_only` to return only summary rows.
 
-          entity_full_names: Filter for report data by entity `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple entities. Use only one entity filter per request.
+          entity_full_names: Filter report rows by entity `fullName` values, case-insensitive. A `fullName`
+              is a fully qualified QuickBooks name formed by joining parent object names with
+              the object's `name` using colons. Accepts one or more entity full names. Choose
+              only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          entity_ids: Filter for report data by QuickBooks-assigned entity IDs. Repeat this query
-              parameter to include multiple entities. Use only one entity filter per request.
+          entity_ids: Filter report rows by QuickBooks-assigned entity IDs. Accepts one or more entity
+              IDs. Choose only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          entity_type: Filter for report data by entity type, such as customer, vendor, employee, or
-              other name. Use only one entity filter per request.
+          entity_type: Filter report rows by entity type, such as customer, vendor, employee, or other
+              name. Choose only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          include_columns: The specific report columns to include, by column type. Repeat this query
-              parameter to request multiple columns. When this parameter is present,
-              QuickBooks Desktop omits its default report columns unless you include them
-              here.
+          include_columns: The report columns to include, by column type. Accepts one or more columns. When
+              this parameter is present, QuickBooks Desktop omits its default report columns
+              unless you include them here.
 
-          item_full_names: Filter for report data by item `fullName` values, case-insensitive. A `fullName`
-              is a fully-qualified QuickBooks name formed by joining parent object names with
-              the object's `name` using colons. Repeat this query parameter to include
-              multiple items. Use only one item filter per request.
+          item_full_names: Filter report rows by item `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more item full names. Choose only
+              one item filter per request: `itemType`, `itemIds`, or `itemFullNames`.
 
-          item_ids: Filter for report data by QuickBooks-assigned item IDs. Repeat this query
-              parameter to include multiple items. Use only one item filter per request.
+          item_ids: Filter report rows by QuickBooks-assigned item IDs. Accepts one or more item
+              IDs. Choose only one item filter per request: `itemType`, `itemIds`, or
+              `itemFullNames`.
 
-          item_type: Filter for report data by item type. Use only one item filter per request.
+          item_type:
+              Filter report rows by item type. Choose only one item filter per request:
+              `itemType`, `itemIds`, or `itemFullNames`.
 
           open_balance_as_of: The date through which QuickBooks Desktop calculates open balance information.
 
-          posting_status: Filter for report data that is posting, non-posting, or either. Posting status
+          posting_status: Filter report rows that are posting, non-posting, or either. Posting status
               refers to whether QuickBooks records the transaction in an account register.
 
-          report_date_from: Filter for report data dated on or after this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
+          report_date_from: Filter report rows dated on or after this date, in ISO 8601 format (YYYY-MM-DD).
+              Choose either `reportDateMacro` or `reportDateFrom`/`reportDateTo`. If you omit
               `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
               the current fiscal year to date.
 
-          report_date_macro: A QuickBooks Desktop relative date macro. This cannot be combined with
-              `reportDateFrom` or `reportDateTo`.
+          report_date_macro: A QuickBooks Desktop relative date macro for the report period. Choose either
+              `reportDateMacro` or `reportDateFrom`/`reportDateTo`.
 
-          report_date_to: Filter for report data dated on or before this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
-              `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
-              the current fiscal year to date.
+          report_date_to: Filter report rows dated on or before this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `reportDateMacro` or
+              `reportDateFrom`/`reportDateTo`. If you omit `reportDateFrom`, `reportDateTo`,
+              and `reportDateMacro`, QuickBooks Desktop uses the current fiscal year to date.
 
           summarize_rows_by: How QuickBooks Desktop calculates report data and labels report rows.
 
-          transaction_types: Filter for report data by transaction type(s). Repeat this query parameter to
-              include multiple transaction types.
+          transaction_types: Filter report rows by transaction type. Accepts one or more transaction types.
 
-          updated_after: Filter for report data updated on or after this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `updatedDateMacro`.
+          updated_after: Filter report rows updated on or after this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `updatedDateMacro` or
+              `updatedAfter`/`updatedBefore`.
 
-          updated_before: Filter for report data updated on or before this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `updatedDateMacro`.
+          updated_before: Filter report rows updated on or before this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `updatedDateMacro` or
+              `updatedAfter`/`updatedBefore`.
 
-          updated_date_macro: A QuickBooks Desktop relative updated-date macro. This cannot be combined with
-              `updatedAfter` or `updatedBefore`.
+          updated_date_macro: A QuickBooks Desktop relative updated-date macro. Choose either
+              `updatedDateMacro` or `updatedAfter`/`updatedBefore`.
 
           extra_headers: Send extra headers
 
@@ -2089,27 +2130,31 @@ class ReportsResource(SyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          account_full_names: Filter for report data by account `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple accounts. Use only one account filter per request.
+          account_full_names: Filter report rows by account `fullName` values, case-insensitive. A `fullName`
+              is a fully qualified QuickBooks name formed by joining parent object names with
+              the object's `name` using colons. Accepts one or more account full names. Choose
+              only one account filter per request: `accountType`, `accountIds`, or
+              `accountFullNames`.
 
-          account_ids: Filter for report data by QuickBooks-assigned account IDs. Repeat this query
-              parameter to include multiple accounts. Use only one account filter per request.
+          account_ids: Filter report rows by QuickBooks-assigned account IDs. Accepts one or more
+              account IDs. Choose only one account filter per request: `accountType`,
+              `accountIds`, or `accountFullNames`.
 
-          account_type: Filter for report data by account type. Use only one account filter per request.
+          account_type:
+              Filter report rows by account type. Choose only one account filter per request:
+              `accountType`, `accountIds`, or `accountFullNames`.
 
           basis: The accounting basis to use for the report. Use `cash` to base income and
               expenses on when money changes hands, `accrual` to base them on invoice and bill
               dates, or `none` to use the QuickBooks Desktop default for the report.
 
-          class_full_names: Filter for report data by class `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple classes. Use only one class filter per request.
+          class_full_names: Filter report rows by class `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more class full names. Choose only
+              one class filter per request: `classIds` or `classFullNames`.
 
-          class_ids: Filter for report data by QuickBooks-assigned class IDs. Repeat this query
-              parameter to include multiple classes. Use only one class filter per request.
+          class_ids: Filter report rows by QuickBooks-assigned class IDs. Accepts one or more class
+              IDs. Choose only one class filter per request: `classIds` or `classFullNames`.
 
           columns_to_return: Filters which report columns QuickBooks returns. Use `active_only` for active
               columns, `non_zero` for columns with non-zero values, or `all` for all columns.
@@ -2117,64 +2162,71 @@ class ReportsResource(SyncAPIResource):
           detail_level: The report detail level to include. Use `all` for all rows, `all_except_summary`
               to omit summary rows, or `summary_only` to return only summary rows.
 
-          entity_full_names: Filter for report data by entity `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple entities. Use only one entity filter per request.
+          entity_full_names: Filter report rows by entity `fullName` values, case-insensitive. A `fullName`
+              is a fully qualified QuickBooks name formed by joining parent object names with
+              the object's `name` using colons. Accepts one or more entity full names. Choose
+              only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          entity_ids: Filter for report data by QuickBooks-assigned entity IDs. Repeat this query
-              parameter to include multiple entities. Use only one entity filter per request.
+          entity_ids: Filter report rows by QuickBooks-assigned entity IDs. Accepts one or more entity
+              IDs. Choose only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          entity_type: Filter for report data by entity type, such as customer, vendor, employee, or
-              other name. Use only one entity filter per request.
+          entity_type: Filter report rows by entity type, such as customer, vendor, employee, or other
+              name. Choose only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
           include_subcolumns: Whether to include subcolumns in the report. QuickBooks Desktop may still omit
               subcolumns that it can easily compute from other returned values.
 
-          item_full_names: Filter for report data by item `fullName` values, case-insensitive. A `fullName`
-              is a fully-qualified QuickBooks name formed by joining parent object names with
-              the object's `name` using colons. Repeat this query parameter to include
-              multiple items. Use only one item filter per request.
+          item_full_names: Filter report rows by item `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more item full names. Choose only
+              one item filter per request: `itemType`, `itemIds`, or `itemFullNames`.
 
-          item_ids: Filter for report data by QuickBooks-assigned item IDs. Repeat this query
-              parameter to include multiple items. Use only one item filter per request.
+          item_ids: Filter report rows by QuickBooks-assigned item IDs. Accepts one or more item
+              IDs. Choose only one item filter per request: `itemType`, `itemIds`, or
+              `itemFullNames`.
 
-          item_type: Filter for report data by item type. Use only one item filter per request.
+          item_type:
+              Filter report rows by item type. Choose only one item filter per request:
+              `itemType`, `itemIds`, or `itemFullNames`.
 
-          posting_status: Filter for report data that is posting, non-posting, or either. Posting status
+          posting_status: Filter report rows that are posting, non-posting, or either. Posting status
               refers to whether QuickBooks records the transaction in an account register.
 
           report_calendar: The type of year to use for the report.
 
-          report_date_from: Filter for report data dated on or after this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
+          report_date_from: Filter report rows dated on or after this date, in ISO 8601 format (YYYY-MM-DD).
+              Choose either `reportDateMacro` or `reportDateFrom`/`reportDateTo`. If you omit
               `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
               the current fiscal year to date.
 
-          report_date_macro: A QuickBooks Desktop relative date macro. This cannot be combined with
-              `reportDateFrom` or `reportDateTo`.
+          report_date_macro: A QuickBooks Desktop relative date macro for the report period. Choose either
+              `reportDateMacro` or `reportDateFrom`/`reportDateTo`.
 
-          report_date_to: Filter for report data dated on or before this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
-              `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
-              the current fiscal year to date.
+          report_date_to: Filter report rows dated on or before this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `reportDateMacro` or
+              `reportDateFrom`/`reportDateTo`. If you omit `reportDateFrom`, `reportDateTo`,
+              and `reportDateMacro`, QuickBooks Desktop uses the current fiscal year to date.
 
           rows_to_return: Filters which report rows QuickBooks returns. Use `active_only` for active rows,
               `non_zero` for rows with non-zero values, or `all` for all rows.
 
           summarize_columns_by: How QuickBooks Desktop calculates report data and labels report column headers.
 
-          transaction_types: Filter for report data by transaction type(s). Repeat this query parameter to
-              include multiple transaction types.
+          transaction_types: Filter report rows by transaction type. Accepts one or more transaction types.
 
-          updated_after: Filter for report data updated on or after this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `updatedDateMacro`.
+          updated_after: Filter report rows updated on or after this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `updatedDateMacro` or
+              `updatedAfter`/`updatedBefore`.
 
-          updated_before: Filter for report data updated on or before this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `updatedDateMacro`.
+          updated_before: Filter report rows updated on or before this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `updatedDateMacro` or
+              `updatedAfter`/`updatedBefore`.
 
-          updated_date_macro: A QuickBooks Desktop relative updated-date macro. This cannot be combined with
-              `updatedAfter` or `updatedBefore`.
+          updated_date_macro: A QuickBooks Desktop relative updated-date macro. Choose either
+              `updatedDateMacro` or `updatedAfter`/`updatedBefore`.
 
           extra_headers: Send extra headers
 
@@ -2443,80 +2495,91 @@ class ReportsResource(SyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          account_full_names: Filter for report data by account `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple accounts. Use only one account filter per request.
+          account_full_names: Filter report rows by account `fullName` values, case-insensitive. A `fullName`
+              is a fully qualified QuickBooks name formed by joining parent object names with
+              the object's `name` using colons. Accepts one or more account full names. Choose
+              only one account filter per request: `accountType`, `accountIds`, or
+              `accountFullNames`.
 
-          account_ids: Filter for report data by QuickBooks-assigned account IDs. Repeat this query
-              parameter to include multiple accounts. Use only one account filter per request.
+          account_ids: Filter report rows by QuickBooks-assigned account IDs. Accepts one or more
+              account IDs. Choose only one account filter per request: `accountType`,
+              `accountIds`, or `accountFullNames`.
 
-          account_type: Filter for report data by account type. Use only one account filter per request.
+          account_type:
+              Filter report rows by account type. Choose only one account filter per request:
+              `accountType`, `accountIds`, or `accountFullNames`.
 
-          class_full_names: Filter for report data by class `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple classes. Use only one class filter per request.
+          class_full_names: Filter report rows by class `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more class full names. Choose only
+              one class filter per request: `classIds` or `classFullNames`.
 
-          class_ids: Filter for report data by QuickBooks-assigned class IDs. Repeat this query
-              parameter to include multiple classes. Use only one class filter per request.
+          class_ids: Filter report rows by QuickBooks-assigned class IDs. Accepts one or more class
+              IDs. Choose only one class filter per request: `classIds` or `classFullNames`.
 
           detail_level: The report detail level to include. Use `all` for all rows, `all_except_summary`
               to omit summary rows, or `summary_only` to return only summary rows.
 
-          entity_full_names: Filter for report data by entity `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple entities. Use only one entity filter per request.
+          entity_full_names: Filter report rows by entity `fullName` values, case-insensitive. A `fullName`
+              is a fully qualified QuickBooks name formed by joining parent object names with
+              the object's `name` using colons. Accepts one or more entity full names. Choose
+              only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          entity_ids: Filter for report data by QuickBooks-assigned entity IDs. Repeat this query
-              parameter to include multiple entities. Use only one entity filter per request.
+          entity_ids: Filter report rows by QuickBooks-assigned entity IDs. Accepts one or more entity
+              IDs. Choose only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          entity_type: Filter for report data by entity type, such as customer, vendor, employee, or
-              other name. Use only one entity filter per request.
+          entity_type: Filter report rows by entity type, such as customer, vendor, employee, or other
+              name. Choose only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
           include_subcolumns: Whether to include subcolumns in the report. QuickBooks Desktop may still omit
               subcolumns that it can easily compute from other returned values.
 
-          item_full_names: Filter for report data by item `fullName` values, case-insensitive. A `fullName`
-              is a fully-qualified QuickBooks name formed by joining parent object names with
-              the object's `name` using colons. Repeat this query parameter to include
-              multiple items. Use only one item filter per request.
+          item_full_names: Filter report rows by item `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more item full names. Choose only
+              one item filter per request: `itemType`, `itemIds`, or `itemFullNames`.
 
-          item_ids: Filter for report data by QuickBooks-assigned item IDs. Repeat this query
-              parameter to include multiple items. Use only one item filter per request.
+          item_ids: Filter report rows by QuickBooks-assigned item IDs. Accepts one or more item
+              IDs. Choose only one item filter per request: `itemType`, `itemIds`, or
+              `itemFullNames`.
 
-          item_type: Filter for report data by item type. Use only one item filter per request.
+          item_type:
+              Filter report rows by item type. Choose only one item filter per request:
+              `itemType`, `itemIds`, or `itemFullNames`.
 
-          posting_status: Filter for report data that is posting, non-posting, or either. Posting status
+          posting_status: Filter report rows that are posting, non-posting, or either. Posting status
               refers to whether QuickBooks records the transaction in an account register.
 
-          report_date_from: Filter for report data dated on or after this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
+          report_date_from: Filter report rows dated on or after this date, in ISO 8601 format (YYYY-MM-DD).
+              Choose either `reportDateMacro` or `reportDateFrom`/`reportDateTo`. If you omit
               `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
               the current fiscal year to date.
 
-          report_date_macro: A QuickBooks Desktop relative date macro. This cannot be combined with
-              `reportDateFrom` or `reportDateTo`.
+          report_date_macro: A QuickBooks Desktop relative date macro for the report period. Choose either
+              `reportDateMacro` or `reportDateFrom`/`reportDateTo`.
 
-          report_date_to: Filter for report data dated on or before this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
-              `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
-              the current fiscal year to date.
+          report_date_to: Filter report rows dated on or before this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `reportDateMacro` or
+              `reportDateFrom`/`reportDateTo`. If you omit `reportDateFrom`, `reportDateTo`,
+              and `reportDateMacro`, QuickBooks Desktop uses the current fiscal year to date.
 
           summarize_columns_by: How QuickBooks Desktop calculates report data and labels report column headers.
 
-          transaction_types: Filter for report data by transaction type(s). Repeat this query parameter to
-              include multiple transaction types.
+          transaction_types: Filter report rows by transaction type. Accepts one or more transaction types.
 
-          updated_after: Filter for report data updated on or after this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `updatedDateMacro`.
+          updated_after: Filter report rows updated on or after this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `updatedDateMacro` or
+              `updatedAfter`/`updatedBefore`.
 
-          updated_before: Filter for report data updated on or before this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `updatedDateMacro`.
+          updated_before: Filter report rows updated on or before this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `updatedDateMacro` or
+              `updatedAfter`/`updatedBefore`.
 
-          updated_date_macro: A QuickBooks Desktop relative updated-date macro. This cannot be combined with
-              `updatedAfter` or `updatedBefore`.
+          updated_date_macro: A QuickBooks Desktop relative updated-date macro. Choose either
+              `updatedDateMacro` or `updatedAfter`/`updatedBefore`.
 
           extra_headers: Send extra headers
 
@@ -2829,83 +2892,94 @@ class ReportsResource(SyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          account_full_names: Filter for report data by account `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple accounts. Use only one account filter per request.
+          account_full_names: Filter report rows by account `fullName` values, case-insensitive. A `fullName`
+              is a fully qualified QuickBooks name formed by joining parent object names with
+              the object's `name` using colons. Accepts one or more account full names. Choose
+              only one account filter per request: `accountType`, `accountIds`, or
+              `accountFullNames`.
 
-          account_ids: Filter for report data by QuickBooks-assigned account IDs. Repeat this query
-              parameter to include multiple accounts. Use only one account filter per request.
+          account_ids: Filter report rows by QuickBooks-assigned account IDs. Accepts one or more
+              account IDs. Choose only one account filter per request: `accountType`,
+              `accountIds`, or `accountFullNames`.
 
           accounts_to_include: Whether to include all accounts or only accounts in use.
 
-          account_type: Filter for report data by account type. Use only one account filter per request.
+          account_type:
+              Filter report rows by account type. Choose only one account filter per request:
+              `accountType`, `accountIds`, or `accountFullNames`.
 
-          class_full_names: Filter for report data by class `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple classes. Use only one class filter per request.
+          class_full_names: Filter report rows by class `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more class full names. Choose only
+              one class filter per request: `classIds` or `classFullNames`.
 
-          class_ids: Filter for report data by QuickBooks-assigned class IDs. Repeat this query
-              parameter to include multiple classes. Use only one class filter per request.
+          class_ids: Filter report rows by QuickBooks-assigned class IDs. Accepts one or more class
+              IDs. Choose only one class filter per request: `classIds` or `classFullNames`.
 
           detail_level: The report detail level to include. Use `all` for all rows, `all_except_summary`
               to omit summary rows, or `summary_only` to return only summary rows.
 
-          entity_full_names: Filter for report data by entity `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple entities. Use only one entity filter per request.
+          entity_full_names: Filter report rows by entity `fullName` values, case-insensitive. A `fullName`
+              is a fully qualified QuickBooks name formed by joining parent object names with
+              the object's `name` using colons. Accepts one or more entity full names. Choose
+              only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          entity_ids: Filter for report data by QuickBooks-assigned entity IDs. Repeat this query
-              parameter to include multiple entities. Use only one entity filter per request.
+          entity_ids: Filter report rows by QuickBooks-assigned entity IDs. Accepts one or more entity
+              IDs. Choose only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          entity_type: Filter for report data by entity type, such as customer, vendor, employee, or
-              other name. Use only one entity filter per request.
+          entity_type: Filter report rows by entity type, such as customer, vendor, employee, or other
+              name. Choose only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          include_columns: The specific report columns to include, by column type. Repeat this query
-              parameter to request multiple columns. When this parameter is present,
-              QuickBooks Desktop omits its default report columns unless you include them
-              here.
+          include_columns: The report columns to include, by column type. Accepts one or more columns. When
+              this parameter is present, QuickBooks Desktop omits its default report columns
+              unless you include them here.
 
-          item_full_names: Filter for report data by item `fullName` values, case-insensitive. A `fullName`
-              is a fully-qualified QuickBooks name formed by joining parent object names with
-              the object's `name` using colons. Repeat this query parameter to include
-              multiple items. Use only one item filter per request.
+          item_full_names: Filter report rows by item `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more item full names. Choose only
+              one item filter per request: `itemType`, `itemIds`, or `itemFullNames`.
 
-          item_ids: Filter for report data by QuickBooks-assigned item IDs. Repeat this query
-              parameter to include multiple items. Use only one item filter per request.
+          item_ids: Filter report rows by QuickBooks-assigned item IDs. Accepts one or more item
+              IDs. Choose only one item filter per request: `itemType`, `itemIds`, or
+              `itemFullNames`.
 
-          item_type: Filter for report data by item type. Use only one item filter per request.
+          item_type:
+              Filter report rows by item type. Choose only one item filter per request:
+              `itemType`, `itemIds`, or `itemFullNames`.
 
           open_balance_as_of: The date through which QuickBooks Desktop calculates open balance information.
 
-          posting_status: Filter for report data that is posting, non-posting, or either. Posting status
+          posting_status: Filter report rows that are posting, non-posting, or either. Posting status
               refers to whether QuickBooks records the transaction in an account register.
 
-          report_date_from: Filter for report data dated on or after this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
+          report_date_from: Filter report rows dated on or after this date, in ISO 8601 format (YYYY-MM-DD).
+              Choose either `reportDateMacro` or `reportDateFrom`/`reportDateTo`. If you omit
               `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
               the current fiscal year to date.
 
-          report_date_macro: A QuickBooks Desktop relative date macro. This cannot be combined with
-              `reportDateFrom` or `reportDateTo`.
+          report_date_macro: A QuickBooks Desktop relative date macro for the report period. Choose either
+              `reportDateMacro` or `reportDateFrom`/`reportDateTo`.
 
-          report_date_to: Filter for report data dated on or before this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
-              `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
-              the current fiscal year to date.
+          report_date_to: Filter report rows dated on or before this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `reportDateMacro` or
+              `reportDateFrom`/`reportDateTo`. If you omit `reportDateFrom`, `reportDateTo`,
+              and `reportDateMacro`, QuickBooks Desktop uses the current fiscal year to date.
 
           summarize_rows_by: How QuickBooks Desktop calculates report data and labels report rows.
 
-          updated_after: Filter for report data updated on or after this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `updatedDateMacro`.
+          updated_after: Filter report rows updated on or after this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `updatedDateMacro` or
+              `updatedAfter`/`updatedBefore`.
 
-          updated_before: Filter for report data updated on or before this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `updatedDateMacro`.
+          updated_before: Filter report rows updated on or before this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `updatedDateMacro` or
+              `updatedAfter`/`updatedBefore`.
 
-          updated_date_macro: A QuickBooks Desktop relative updated-date macro. This cannot be combined with
-              `updatedAfter` or `updatedBefore`.
+          updated_date_macro: A QuickBooks Desktop relative updated-date macro. Choose either
+              `updatedDateMacro` or `updatedAfter`/`updatedBefore`.
 
           extra_headers: Send extra headers
 
@@ -3134,23 +3208,27 @@ class ReportsResource(SyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          account_full_names: Filter for report data by account `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple accounts. Use only one account filter per request.
+          account_full_names: Filter report rows by account `fullName` values, case-insensitive. A `fullName`
+              is a fully qualified QuickBooks name formed by joining parent object names with
+              the object's `name` using colons. Accepts one or more account full names. Choose
+              only one account filter per request: `accountType`, `accountIds`, or
+              `accountFullNames`.
 
-          account_ids: Filter for report data by QuickBooks-assigned account IDs. Repeat this query
-              parameter to include multiple accounts. Use only one account filter per request.
+          account_ids: Filter report rows by QuickBooks-assigned account IDs. Accepts one or more
+              account IDs. Choose only one account filter per request: `accountType`,
+              `accountIds`, or `accountFullNames`.
 
-          account_type: Filter for report data by account type. Use only one account filter per request.
+          account_type:
+              Filter report rows by account type. Choose only one account filter per request:
+              `accountType`, `accountIds`, or `accountFullNames`.
 
-          class_full_names: Filter for report data by class `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple classes. Use only one class filter per request.
+          class_full_names: Filter report rows by class `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more class full names. Choose only
+              one class filter per request: `classIds` or `classFullNames`.
 
-          class_ids: Filter for report data by QuickBooks-assigned class IDs. Repeat this query
-              parameter to include multiple classes. Use only one class filter per request.
+          class_ids: Filter report rows by QuickBooks-assigned class IDs. Accepts one or more class
+              IDs. Choose only one class filter per request: `classIds` or `classFullNames`.
 
           columns_to_return: Filters which report columns QuickBooks returns. Use `active_only` for active
               columns, `non_zero` for columns with non-zero values, or `all` for all columns.
@@ -3158,61 +3236,69 @@ class ReportsResource(SyncAPIResource):
           detail_level: The report detail level to include. Use `all` for all rows, `all_except_summary`
               to omit summary rows, or `summary_only` to return only summary rows.
 
-          entity_full_names: Filter for report data by entity `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple entities. Use only one entity filter per request.
+          entity_full_names: Filter report rows by entity `fullName` values, case-insensitive. A `fullName`
+              is a fully qualified QuickBooks name formed by joining parent object names with
+              the object's `name` using colons. Accepts one or more entity full names. Choose
+              only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          entity_ids: Filter for report data by QuickBooks-assigned entity IDs. Repeat this query
-              parameter to include multiple entities. Use only one entity filter per request.
+          entity_ids: Filter report rows by QuickBooks-assigned entity IDs. Accepts one or more entity
+              IDs. Choose only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          entity_type: Filter for report data by entity type, such as customer, vendor, employee, or
-              other name. Use only one entity filter per request.
+          entity_type: Filter report rows by entity type, such as customer, vendor, employee, or other
+              name. Choose only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
           include_subcolumns: Whether to include subcolumns in the report. QuickBooks Desktop may still omit
               subcolumns that it can easily compute from other returned values.
 
-          item_full_names: Filter for report data by item `fullName` values, case-insensitive. A `fullName`
-              is a fully-qualified QuickBooks name formed by joining parent object names with
-              the object's `name` using colons. Repeat this query parameter to include
-              multiple items. Use only one item filter per request.
+          item_full_names: Filter report rows by item `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more item full names. Choose only
+              one item filter per request: `itemType`, `itemIds`, or `itemFullNames`.
 
-          item_ids: Filter for report data by QuickBooks-assigned item IDs. Repeat this query
-              parameter to include multiple items. Use only one item filter per request.
+          item_ids: Filter report rows by QuickBooks-assigned item IDs. Accepts one or more item
+              IDs. Choose only one item filter per request: `itemType`, `itemIds`, or
+              `itemFullNames`.
 
-          item_type: Filter for report data by item type. Use only one item filter per request.
+          item_type:
+              Filter report rows by item type. Choose only one item filter per request:
+              `itemType`, `itemIds`, or `itemFullNames`.
 
-          posting_status: Filter for report data that is posting, non-posting, or either. Posting status
+          posting_status: Filter report rows that are posting, non-posting, or either. Posting status
               refers to whether QuickBooks records the transaction in an account register.
 
           report_calendar: The type of year to use for the report.
 
-          report_date_from: Filter for report data dated on or after this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
+          report_date_from: Filter report rows dated on or after this date, in ISO 8601 format (YYYY-MM-DD).
+              Choose either `reportDateMacro` or `reportDateFrom`/`reportDateTo`. If you omit
               `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
               the current fiscal year to date.
 
-          report_date_macro: A QuickBooks Desktop relative date macro. This cannot be combined with
-              `reportDateFrom` or `reportDateTo`.
+          report_date_macro: A QuickBooks Desktop relative date macro for the report period. Choose either
+              `reportDateMacro` or `reportDateFrom`/`reportDateTo`.
 
-          report_date_to: Filter for report data dated on or before this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
-              `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
-              the current fiscal year to date.
+          report_date_to: Filter report rows dated on or before this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `reportDateMacro` or
+              `reportDateFrom`/`reportDateTo`. If you omit `reportDateFrom`, `reportDateTo`,
+              and `reportDateMacro`, QuickBooks Desktop uses the current fiscal year to date.
 
           rows_to_return: Filters which report rows QuickBooks returns. Use `active_only` for active rows,
               `non_zero` for rows with non-zero values, or `all` for all rows.
 
           summarize_columns_by: How QuickBooks Desktop calculates report data and labels report column headers.
 
-          updated_after: Filter for report data updated on or after this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `updatedDateMacro`.
+          updated_after: Filter report rows updated on or after this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `updatedDateMacro` or
+              `updatedAfter`/`updatedBefore`.
 
-          updated_before: Filter for report data updated on or before this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `updatedDateMacro`.
+          updated_before: Filter report rows updated on or before this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `updatedDateMacro` or
+              `updatedAfter`/`updatedBefore`.
 
-          updated_date_macro: A QuickBooks Desktop relative updated-date macro. This cannot be combined with
-              `updatedAfter` or `updatedBefore`.
+          updated_date_macro: A QuickBooks Desktop relative updated-date macro. Choose either
+              `updatedDateMacro` or `updatedAfter`/`updatedBefore`.
 
           extra_headers: Send extra headers
 
@@ -3370,55 +3456,61 @@ class ReportsResource(SyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          class_full_names: Filter for report data by class `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple classes. Use only one class filter per request.
+          class_full_names: Filter report rows by class `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more class full names. Choose only
+              one class filter per request: `classIds` or `classFullNames`.
 
-          class_ids: Filter for report data by QuickBooks-assigned class IDs. Repeat this query
-              parameter to include multiple classes. Use only one class filter per request.
+          class_ids: Filter report rows by QuickBooks-assigned class IDs. Accepts one or more class
+              IDs. Choose only one class filter per request: `classIds` or `classFullNames`.
 
           columns_to_return: Filters which report columns QuickBooks returns. Use `active_only` for active
               columns, `non_zero` for columns with non-zero values, or `all` for all columns.
 
-          entity_full_names: Filter for report data by entity `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple entities. Use only one entity filter per request.
+          entity_full_names: Filter report rows by entity `fullName` values, case-insensitive. A `fullName`
+              is a fully qualified QuickBooks name formed by joining parent object names with
+              the object's `name` using colons. Accepts one or more entity full names. Choose
+              only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          entity_ids: Filter for report data by QuickBooks-assigned entity IDs. Repeat this query
-              parameter to include multiple entities. Use only one entity filter per request.
+          entity_ids: Filter report rows by QuickBooks-assigned entity IDs. Accepts one or more entity
+              IDs. Choose only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          entity_type: Filter for report data by entity type, such as customer, vendor, employee, or
-              other name. Use only one entity filter per request.
+          entity_type: Filter report rows by entity type, such as customer, vendor, employee, or other
+              name. Choose only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
           include_subcolumns: Whether to include subcolumns in the report. QuickBooks Desktop may still omit
               subcolumns that it can easily compute from other returned values.
 
-          item_full_names: Filter for report data by item `fullName` values, case-insensitive. A `fullName`
-              is a fully-qualified QuickBooks name formed by joining parent object names with
-              the object's `name` using colons. Repeat this query parameter to include
-              multiple items. Use only one item filter per request.
+          item_full_names: Filter report rows by item `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more item full names. Choose only
+              one item filter per request: `itemType`, `itemIds`, or `itemFullNames`.
 
-          item_ids: Filter for report data by QuickBooks-assigned item IDs. Repeat this query
-              parameter to include multiple items. Use only one item filter per request.
+          item_ids: Filter report rows by QuickBooks-assigned item IDs. Accepts one or more item
+              IDs. Choose only one item filter per request: `itemType`, `itemIds`, or
+              `itemFullNames`.
 
-          item_type: Filter for report data by item type. Use only one item filter per request.
+          item_type:
+              Filter report rows by item type. Choose only one item filter per request:
+              `itemType`, `itemIds`, or `itemFullNames`.
 
           report_calendar: The type of year to use for the report.
 
-          report_date_from: Filter for report data dated on or after this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
+          report_date_from: Filter report rows dated on or after this date, in ISO 8601 format (YYYY-MM-DD).
+              Choose either `reportDateMacro` or `reportDateFrom`/`reportDateTo`. If you omit
               `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
               the current fiscal year to date.
 
-          report_date_macro: A QuickBooks Desktop relative date macro. This cannot be combined with
-              `reportDateFrom` or `reportDateTo`.
+          report_date_macro: A QuickBooks Desktop relative date macro for the report period. Choose either
+              `reportDateMacro` or `reportDateFrom`/`reportDateTo`.
 
-          report_date_to: Filter for report data dated on or before this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
-              `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
-              the current fiscal year to date.
+          report_date_to: Filter report rows dated on or before this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `reportDateMacro` or
+              `reportDateFrom`/`reportDateTo`. If you omit `reportDateFrom`, `reportDateTo`,
+              and `reportDateMacro`, QuickBooks Desktop uses the current fiscal year to date.
 
           rows_to_return: Filters which report rows QuickBooks returns. Use `active_only` for active rows,
               `non_zero` for rows with non-zero values, or `all` for all rows.
@@ -3748,84 +3840,94 @@ class AsyncReportsResource(AsyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          account_full_names: Filter for report data by account `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple accounts. Use only one account filter per request.
+          account_full_names: Filter report rows by account `fullName` values, case-insensitive. A `fullName`
+              is a fully qualified QuickBooks name formed by joining parent object names with
+              the object's `name` using colons. Accepts one or more account full names. Choose
+              only one account filter per request: `accountType`, `accountIds`, or
+              `accountFullNames`.
 
-          account_ids: Filter for report data by QuickBooks-assigned account IDs. Repeat this query
-              parameter to include multiple accounts. Use only one account filter per request.
+          account_ids: Filter report rows by QuickBooks-assigned account IDs. Accepts one or more
+              account IDs. Choose only one account filter per request: `accountType`,
+              `accountIds`, or `accountFullNames`.
 
           accounts_to_include: Whether to include all accounts or only accounts in use.
 
-          account_type: Filter for report data by account type. Use only one account filter per request.
+          account_type:
+              Filter report rows by account type. Choose only one account filter per request:
+              `accountType`, `accountIds`, or `accountFullNames`.
 
           aging_as_of: The date through which QuickBooks Desktop calculates aging information.
 
-          class_full_names: Filter for report data by class `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple classes. Use only one class filter per request.
+          class_full_names: Filter report rows by class `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more class full names. Choose only
+              one class filter per request: `classIds` or `classFullNames`.
 
-          class_ids: Filter for report data by QuickBooks-assigned class IDs. Repeat this query
-              parameter to include multiple classes. Use only one class filter per request.
+          class_ids: Filter report rows by QuickBooks-assigned class IDs. Accepts one or more class
+              IDs. Choose only one class filter per request: `classIds` or `classFullNames`.
 
           detail_level: The report detail level to include. Use `all` for all rows, `all_except_summary`
               to omit summary rows, or `summary_only` to return only summary rows.
 
-          entity_full_names: Filter for report data by entity `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple entities. Use only one entity filter per request.
+          entity_full_names: Filter report rows by entity `fullName` values, case-insensitive. A `fullName`
+              is a fully qualified QuickBooks name formed by joining parent object names with
+              the object's `name` using colons. Accepts one or more entity full names. Choose
+              only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          entity_ids: Filter for report data by QuickBooks-assigned entity IDs. Repeat this query
-              parameter to include multiple entities. Use only one entity filter per request.
+          entity_ids: Filter report rows by QuickBooks-assigned entity IDs. Accepts one or more entity
+              IDs. Choose only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          entity_type: Filter for report data by entity type, such as customer, vendor, employee, or
-              other name. Use only one entity filter per request.
+          entity_type: Filter report rows by entity type, such as customer, vendor, employee, or other
+              name. Choose only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          include_columns: The specific report columns to include, by column type. Repeat this query
-              parameter to request multiple columns. When this parameter is present,
-              QuickBooks Desktop omits its default report columns unless you include them
-              here.
+          include_columns: The report columns to include, by column type. Accepts one or more columns. When
+              this parameter is present, QuickBooks Desktop omits its default report columns
+              unless you include them here.
 
-          item_full_names: Filter for report data by item `fullName` values, case-insensitive. A `fullName`
-              is a fully-qualified QuickBooks name formed by joining parent object names with
-              the object's `name` using colons. Repeat this query parameter to include
-              multiple items. Use only one item filter per request.
+          item_full_names: Filter report rows by item `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more item full names. Choose only
+              one item filter per request: `itemType`, `itemIds`, or `itemFullNames`.
 
-          item_ids: Filter for report data by QuickBooks-assigned item IDs. Repeat this query
-              parameter to include multiple items. Use only one item filter per request.
+          item_ids: Filter report rows by QuickBooks-assigned item IDs. Accepts one or more item
+              IDs. Choose only one item filter per request: `itemType`, `itemIds`, or
+              `itemFullNames`.
 
-          item_type: Filter for report data by item type. Use only one item filter per request.
+          item_type:
+              Filter report rows by item type. Choose only one item filter per request:
+              `itemType`, `itemIds`, or `itemFullNames`.
 
-          posting_status: Filter for report data that is posting, non-posting, or either. Posting status
+          posting_status: Filter report rows that are posting, non-posting, or either. Posting status
               refers to whether QuickBooks records the transaction in an account register.
 
-          report_date_from: Filter for report data dated on or after this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
+          report_date_from: Filter report rows dated on or after this date, in ISO 8601 format (YYYY-MM-DD).
+              Choose either `reportDateMacro` or `reportDateFrom`/`reportDateTo`. If you omit
               `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
               the current fiscal year to date.
 
-          report_date_macro: A QuickBooks Desktop relative date macro. This cannot be combined with
-              `reportDateFrom` or `reportDateTo`.
+          report_date_macro: A QuickBooks Desktop relative date macro for the report period. Choose either
+              `reportDateMacro` or `reportDateFrom`/`reportDateTo`.
 
-          report_date_to: Filter for report data dated on or before this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
-              `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
-              the current fiscal year to date.
+          report_date_to: Filter report rows dated on or before this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `reportDateMacro` or
+              `reportDateFrom`/`reportDateTo`. If you omit `reportDateFrom`, `reportDateTo`,
+              and `reportDateMacro`, QuickBooks Desktop uses the current fiscal year to date.
 
-          transaction_types: Filter for report data by transaction type(s). Repeat this query parameter to
-              include multiple transaction types.
+          transaction_types: Filter report rows by transaction type. Accepts one or more transaction types.
 
-          updated_after: Filter for report data updated on or after this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `updatedDateMacro`.
+          updated_after: Filter report rows updated on or after this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `updatedDateMacro` or
+              `updatedAfter`/`updatedBefore`.
 
-          updated_before: Filter for report data updated on or before this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `updatedDateMacro`.
+          updated_before: Filter report rows updated on or before this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `updatedDateMacro` or
+              `updatedAfter`/`updatedBefore`.
 
-          updated_date_macro: A QuickBooks Desktop relative updated-date macro. This cannot be combined with
-              `updatedAfter` or `updatedBefore`.
+          updated_date_macro: A QuickBooks Desktop relative updated-date macro. Choose either
+              `updatedDateMacro` or `updatedAfter`/`updatedBefore`.
 
           extra_headers: Send extra headers
 
@@ -3943,26 +4045,26 @@ class AsyncReportsResource(AsyncAPIResource):
           budget_criterion: What the budget covers, such as accounts, accounts and classes, or accounts and
               customers.
 
-          class_full_names: Filter for report data by class `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple classes. Use only one class filter per request.
+          class_full_names: Filter report rows by class `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more class full names. Choose only
+              one class filter per request: `classIds` or `classFullNames`.
 
-          class_ids: Filter for report data by QuickBooks-assigned class IDs. Repeat this query
-              parameter to include multiple classes. Use only one class filter per request.
+          class_ids: Filter report rows by QuickBooks-assigned class IDs. Accepts one or more class
+              IDs. Choose only one class filter per request: `classIds` or `classFullNames`.
 
-          report_date_from: Filter for report data dated on or after this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
+          report_date_from: Filter report rows dated on or after this date, in ISO 8601 format (YYYY-MM-DD).
+              Choose either `reportDateMacro` or `reportDateFrom`/`reportDateTo`. If you omit
               `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
               the current fiscal year to date.
 
-          report_date_macro: A QuickBooks Desktop relative date macro. This cannot be combined with
-              `reportDateFrom` or `reportDateTo`.
+          report_date_macro: A QuickBooks Desktop relative date macro for the report period. Choose either
+              `reportDateMacro` or `reportDateFrom`/`reportDateTo`.
 
-          report_date_to: Filter for report data dated on or before this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
-              `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
-              the current fiscal year to date.
+          report_date_to: Filter report rows dated on or before this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `reportDateMacro` or
+              `reportDateFrom`/`reportDateTo`. If you omit `reportDateFrom`, `reportDateTo`,
+              and `reportDateMacro`, QuickBooks Desktop uses the current fiscal year to date.
 
           summarize_columns_by: How QuickBooks Desktop calculates budget report columns and labels column
               headers.
@@ -4289,96 +4391,106 @@ class AsyncReportsResource(AsyncAPIResource):
         Retrieves a custom detail report.
 
         Args:
-          include_columns: The specific report columns to include, by column type. Repeat this query
-              parameter to request multiple columns. When this parameter is present,
-              QuickBooks Desktop omits its default report columns unless you include them
-              here.
+          include_columns: The report columns to include, by column type. Accepts one or more columns. When
+              this parameter is present, QuickBooks Desktop omits its default report columns
+              unless you include them here.
 
           summarize_rows_by: How QuickBooks Desktop calculates report data and labels report rows.
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          account_full_names: Filter for report data by account `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple accounts. Use only one account filter per request.
+          account_full_names: Filter report rows by account `fullName` values, case-insensitive. A `fullName`
+              is a fully qualified QuickBooks name formed by joining parent object names with
+              the object's `name` using colons. Accepts one or more account full names. Choose
+              only one account filter per request: `accountType`, `accountIds`, or
+              `accountFullNames`.
 
-          account_ids: Filter for report data by QuickBooks-assigned account IDs. Repeat this query
-              parameter to include multiple accounts. Use only one account filter per request.
+          account_ids: Filter report rows by QuickBooks-assigned account IDs. Accepts one or more
+              account IDs. Choose only one account filter per request: `accountType`,
+              `accountIds`, or `accountFullNames`.
 
           accounts_to_include: Whether to include all accounts or only accounts in use.
 
-          account_type: Filter for report data by account type. Use only one account filter per request.
+          account_type:
+              Filter report rows by account type. Choose only one account filter per request:
+              `accountType`, `accountIds`, or `accountFullNames`.
 
           basis: The accounting basis to use for the report. Use `cash` to base income and
               expenses on when money changes hands, `accrual` to base them on invoice and bill
               dates, or `none` to use the QuickBooks Desktop default for the report.
 
-          class_full_names: Filter for report data by class `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple classes. Use only one class filter per request.
+          class_full_names: Filter report rows by class `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more class full names. Choose only
+              one class filter per request: `classIds` or `classFullNames`.
 
-          class_ids: Filter for report data by QuickBooks-assigned class IDs. Repeat this query
-              parameter to include multiple classes. Use only one class filter per request.
+          class_ids: Filter report rows by QuickBooks-assigned class IDs. Accepts one or more class
+              IDs. Choose only one class filter per request: `classIds` or `classFullNames`.
 
           detail_level: The report detail level to include. Use `all` for all rows, `all_except_summary`
               to omit summary rows, or `summary_only` to return only summary rows.
 
-          entity_full_names: Filter for report data by entity `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple entities. Use only one entity filter per request.
+          entity_full_names: Filter report rows by entity `fullName` values, case-insensitive. A `fullName`
+              is a fully qualified QuickBooks name formed by joining parent object names with
+              the object's `name` using colons. Accepts one or more entity full names. Choose
+              only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          entity_ids: Filter for report data by QuickBooks-assigned entity IDs. Repeat this query
-              parameter to include multiple entities. Use only one entity filter per request.
+          entity_ids: Filter report rows by QuickBooks-assigned entity IDs. Accepts one or more entity
+              IDs. Choose only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          entity_type: Filter for report data by entity type, such as customer, vendor, employee, or
-              other name. Use only one entity filter per request.
+          entity_type: Filter report rows by entity type, such as customer, vendor, employee, or other
+              name. Choose only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          item_full_names: Filter for report data by item `fullName` values, case-insensitive. A `fullName`
-              is a fully-qualified QuickBooks name formed by joining parent object names with
-              the object's `name` using colons. Repeat this query parameter to include
-              multiple items. Use only one item filter per request.
+          item_full_names: Filter report rows by item `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more item full names. Choose only
+              one item filter per request: `itemType`, `itemIds`, or `itemFullNames`.
 
-          item_ids: Filter for report data by QuickBooks-assigned item IDs. Repeat this query
-              parameter to include multiple items. Use only one item filter per request.
+          item_ids: Filter report rows by QuickBooks-assigned item IDs. Accepts one or more item
+              IDs. Choose only one item filter per request: `itemType`, `itemIds`, or
+              `itemFullNames`.
 
-          item_type: Filter for report data by item type. Use only one item filter per request.
+          item_type:
+              Filter report rows by item type. Choose only one item filter per request:
+              `itemType`, `itemIds`, or `itemFullNames`.
 
           open_balance_as_of: The date through which QuickBooks Desktop calculates open balance information.
 
-          posting_status: Filter for report data that is posting, non-posting, or either. Posting status
+          posting_status: Filter report rows that are posting, non-posting, or either. Posting status
               refers to whether QuickBooks records the transaction in an account register.
 
-          report_date_from: Filter for report data dated on or after this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
+          report_date_from: Filter report rows dated on or after this date, in ISO 8601 format (YYYY-MM-DD).
+              Choose either `reportDateMacro` or `reportDateFrom`/`reportDateTo`. If you omit
               `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
               the current fiscal year to date.
 
-          report_date_macro: A QuickBooks Desktop relative date macro. This cannot be combined with
-              `reportDateFrom` or `reportDateTo`.
+          report_date_macro: A QuickBooks Desktop relative date macro for the report period. Choose either
+              `reportDateMacro` or `reportDateFrom`/`reportDateTo`.
 
-          report_date_to: Filter for report data dated on or before this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
-              `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
-              the current fiscal year to date.
+          report_date_to: Filter report rows dated on or before this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `reportDateMacro` or
+              `reportDateFrom`/`reportDateTo`. If you omit `reportDateFrom`, `reportDateTo`,
+              and `reportDateMacro`, QuickBooks Desktop uses the current fiscal year to date.
 
           report_type: The custom detail report type to retrieve. This endpoint supports only
               `custom_transaction_detail`, so this parameter is optional and defaults to
               `custom_transaction_detail`.
 
-          transaction_types: Filter for report data by transaction type(s). Repeat this query parameter to
-              include multiple transaction types.
+          transaction_types: Filter report rows by transaction type. Accepts one or more transaction types.
 
-          updated_after: Filter for report data updated on or after this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `updatedDateMacro`.
+          updated_after: Filter report rows updated on or after this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `updatedDateMacro` or
+              `updatedAfter`/`updatedBefore`.
 
-          updated_before: Filter for report data updated on or before this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `updatedDateMacro`.
+          updated_before: Filter report rows updated on or before this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `updatedDateMacro` or
+              `updatedAfter`/`updatedBefore`.
 
-          updated_date_macro: A QuickBooks Desktop relative updated-date macro. This cannot be combined with
-              `updatedAfter` or `updatedBefore`.
+          updated_date_macro: A QuickBooks Desktop relative updated-date macro. Choose either
+              `updatedDateMacro` or `updatedAfter`/`updatedBefore`.
 
           extra_headers: Send extra headers
 
@@ -4675,27 +4787,31 @@ class AsyncReportsResource(AsyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          account_full_names: Filter for report data by account `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple accounts. Use only one account filter per request.
+          account_full_names: Filter report rows by account `fullName` values, case-insensitive. A `fullName`
+              is a fully qualified QuickBooks name formed by joining parent object names with
+              the object's `name` using colons. Accepts one or more account full names. Choose
+              only one account filter per request: `accountType`, `accountIds`, or
+              `accountFullNames`.
 
-          account_ids: Filter for report data by QuickBooks-assigned account IDs. Repeat this query
-              parameter to include multiple accounts. Use only one account filter per request.
+          account_ids: Filter report rows by QuickBooks-assigned account IDs. Accepts one or more
+              account IDs. Choose only one account filter per request: `accountType`,
+              `accountIds`, or `accountFullNames`.
 
-          account_type: Filter for report data by account type. Use only one account filter per request.
+          account_type:
+              Filter report rows by account type. Choose only one account filter per request:
+              `accountType`, `accountIds`, or `accountFullNames`.
 
           basis: The accounting basis to use for the report. Use `cash` to base income and
               expenses on when money changes hands, `accrual` to base them on invoice and bill
               dates, or `none` to use the QuickBooks Desktop default for the report.
 
-          class_full_names: Filter for report data by class `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple classes. Use only one class filter per request.
+          class_full_names: Filter report rows by class `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more class full names. Choose only
+              one class filter per request: `classIds` or `classFullNames`.
 
-          class_ids: Filter for report data by QuickBooks-assigned class IDs. Repeat this query
-              parameter to include multiple classes. Use only one class filter per request.
+          class_ids: Filter report rows by QuickBooks-assigned class IDs. Accepts one or more class
+              IDs. Choose only one class filter per request: `classIds` or `classFullNames`.
 
           columns_to_return: Filters which report columns QuickBooks returns. Use `active_only` for active
               columns, `non_zero` for columns with non-zero values, or `all` for all columns.
@@ -4703,47 +4819,53 @@ class AsyncReportsResource(AsyncAPIResource):
           detail_level: The report detail level to include. Use `all` for all rows, `all_except_summary`
               to omit summary rows, or `summary_only` to return only summary rows.
 
-          entity_full_names: Filter for report data by entity `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple entities. Use only one entity filter per request.
+          entity_full_names: Filter report rows by entity `fullName` values, case-insensitive. A `fullName`
+              is a fully qualified QuickBooks name formed by joining parent object names with
+              the object's `name` using colons. Accepts one or more entity full names. Choose
+              only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          entity_ids: Filter for report data by QuickBooks-assigned entity IDs. Repeat this query
-              parameter to include multiple entities. Use only one entity filter per request.
+          entity_ids: Filter report rows by QuickBooks-assigned entity IDs. Accepts one or more entity
+              IDs. Choose only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          entity_type: Filter for report data by entity type, such as customer, vendor, employee, or
-              other name. Use only one entity filter per request.
+          entity_type: Filter report rows by entity type, such as customer, vendor, employee, or other
+              name. Choose only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
           include_subcolumns: Whether to include subcolumns in the report. QuickBooks Desktop may still omit
               subcolumns that it can easily compute from other returned values.
 
-          item_full_names: Filter for report data by item `fullName` values, case-insensitive. A `fullName`
-              is a fully-qualified QuickBooks name formed by joining parent object names with
-              the object's `name` using colons. Repeat this query parameter to include
-              multiple items. Use only one item filter per request.
+          item_full_names: Filter report rows by item `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more item full names. Choose only
+              one item filter per request: `itemType`, `itemIds`, or `itemFullNames`.
 
-          item_ids: Filter for report data by QuickBooks-assigned item IDs. Repeat this query
-              parameter to include multiple items. Use only one item filter per request.
+          item_ids: Filter report rows by QuickBooks-assigned item IDs. Accepts one or more item
+              IDs. Choose only one item filter per request: `itemType`, `itemIds`, or
+              `itemFullNames`.
 
-          item_type: Filter for report data by item type. Use only one item filter per request.
+          item_type:
+              Filter report rows by item type. Choose only one item filter per request:
+              `itemType`, `itemIds`, or `itemFullNames`.
 
-          posting_status: Filter for report data that is posting, non-posting, or either. Posting status
+          posting_status: Filter report rows that are posting, non-posting, or either. Posting status
               refers to whether QuickBooks records the transaction in an account register.
 
           report_calendar: The type of year to use for the report.
 
-          report_date_from: Filter for report data dated on or after this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
+          report_date_from: Filter report rows dated on or after this date, in ISO 8601 format (YYYY-MM-DD).
+              Choose either `reportDateMacro` or `reportDateFrom`/`reportDateTo`. If you omit
               `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
               the current fiscal year to date.
 
-          report_date_macro: A QuickBooks Desktop relative date macro. This cannot be combined with
-              `reportDateFrom` or `reportDateTo`.
+          report_date_macro: A QuickBooks Desktop relative date macro for the report period. Choose either
+              `reportDateMacro` or `reportDateFrom`/`reportDateTo`.
 
-          report_date_to: Filter for report data dated on or before this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
-              `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
-              the current fiscal year to date.
+          report_date_to: Filter report rows dated on or before this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `reportDateMacro` or
+              `reportDateFrom`/`reportDateTo`. If you omit `reportDateFrom`, `reportDateTo`,
+              and `reportDateMacro`, QuickBooks Desktop uses the current fiscal year to date.
 
           report_type: The custom summary report type to retrieve. This endpoint supports only
               `custom_summary`, so this parameter is optional and defaults to
@@ -4752,17 +4874,18 @@ class AsyncReportsResource(AsyncAPIResource):
           rows_to_return: Filters which report rows QuickBooks returns. Use `active_only` for active rows,
               `non_zero` for rows with non-zero values, or `all` for all rows.
 
-          transaction_types: Filter for report data by transaction type(s). Repeat this query parameter to
-              include multiple transaction types.
+          transaction_types: Filter report rows by transaction type. Accepts one or more transaction types.
 
-          updated_after: Filter for report data updated on or after this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `updatedDateMacro`.
+          updated_after: Filter report rows updated on or after this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `updatedDateMacro` or
+              `updatedAfter`/`updatedBefore`.
 
-          updated_before: Filter for report data updated on or before this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `updatedDateMacro`.
+          updated_before: Filter report rows updated on or before this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `updatedDateMacro` or
+              `updatedAfter`/`updatedBefore`.
 
-          updated_date_macro: A QuickBooks Desktop relative updated-date macro. This cannot be combined with
-              `updatedAfter` or `updatedBefore`.
+          updated_date_macro: A QuickBooks Desktop relative updated-date macro. Choose either
+              `updatedDateMacro` or `updatedAfter`/`updatedBefore`.
 
           extra_headers: Send extra headers
 
@@ -5143,90 +5266,100 @@ class AsyncReportsResource(AsyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          account_full_names: Filter for report data by account `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple accounts. Use only one account filter per request.
+          account_full_names: Filter report rows by account `fullName` values, case-insensitive. A `fullName`
+              is a fully qualified QuickBooks name formed by joining parent object names with
+              the object's `name` using colons. Accepts one or more account full names. Choose
+              only one account filter per request: `accountType`, `accountIds`, or
+              `accountFullNames`.
 
-          account_ids: Filter for report data by QuickBooks-assigned account IDs. Repeat this query
-              parameter to include multiple accounts. Use only one account filter per request.
+          account_ids: Filter report rows by QuickBooks-assigned account IDs. Accepts one or more
+              account IDs. Choose only one account filter per request: `accountType`,
+              `accountIds`, or `accountFullNames`.
 
           accounts_to_include: Whether to include all accounts or only accounts in use.
 
-          account_type: Filter for report data by account type. Use only one account filter per request.
+          account_type:
+              Filter report rows by account type. Choose only one account filter per request:
+              `accountType`, `accountIds`, or `accountFullNames`.
 
           basis: The accounting basis to use for the report. Use `cash` to base income and
               expenses on when money changes hands, `accrual` to base them on invoice and bill
               dates, or `none` to use the QuickBooks Desktop default for the report.
 
-          class_full_names: Filter for report data by class `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple classes. Use only one class filter per request.
+          class_full_names: Filter report rows by class `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more class full names. Choose only
+              one class filter per request: `classIds` or `classFullNames`.
 
-          class_ids: Filter for report data by QuickBooks-assigned class IDs. Repeat this query
-              parameter to include multiple classes. Use only one class filter per request.
+          class_ids: Filter report rows by QuickBooks-assigned class IDs. Accepts one or more class
+              IDs. Choose only one class filter per request: `classIds` or `classFullNames`.
 
           detail_level: The report detail level to include. Use `all` for all rows, `all_except_summary`
               to omit summary rows, or `summary_only` to return only summary rows.
 
-          entity_full_names: Filter for report data by entity `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple entities. Use only one entity filter per request.
+          entity_full_names: Filter report rows by entity `fullName` values, case-insensitive. A `fullName`
+              is a fully qualified QuickBooks name formed by joining parent object names with
+              the object's `name` using colons. Accepts one or more entity full names. Choose
+              only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          entity_ids: Filter for report data by QuickBooks-assigned entity IDs. Repeat this query
-              parameter to include multiple entities. Use only one entity filter per request.
+          entity_ids: Filter report rows by QuickBooks-assigned entity IDs. Accepts one or more entity
+              IDs. Choose only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          entity_type: Filter for report data by entity type, such as customer, vendor, employee, or
-              other name. Use only one entity filter per request.
+          entity_type: Filter report rows by entity type, such as customer, vendor, employee, or other
+              name. Choose only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          include_columns: The specific report columns to include, by column type. Repeat this query
-              parameter to request multiple columns. When this parameter is present,
-              QuickBooks Desktop omits its default report columns unless you include them
-              here.
+          include_columns: The report columns to include, by column type. Accepts one or more columns. When
+              this parameter is present, QuickBooks Desktop omits its default report columns
+              unless you include them here.
 
-          item_full_names: Filter for report data by item `fullName` values, case-insensitive. A `fullName`
-              is a fully-qualified QuickBooks name formed by joining parent object names with
-              the object's `name` using colons. Repeat this query parameter to include
-              multiple items. Use only one item filter per request.
+          item_full_names: Filter report rows by item `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more item full names. Choose only
+              one item filter per request: `itemType`, `itemIds`, or `itemFullNames`.
 
-          item_ids: Filter for report data by QuickBooks-assigned item IDs. Repeat this query
-              parameter to include multiple items. Use only one item filter per request.
+          item_ids: Filter report rows by QuickBooks-assigned item IDs. Accepts one or more item
+              IDs. Choose only one item filter per request: `itemType`, `itemIds`, or
+              `itemFullNames`.
 
-          item_type: Filter for report data by item type. Use only one item filter per request.
+          item_type:
+              Filter report rows by item type. Choose only one item filter per request:
+              `itemType`, `itemIds`, or `itemFullNames`.
 
           open_balance_as_of: The date through which QuickBooks Desktop calculates open balance information.
 
-          posting_status: Filter for report data that is posting, non-posting, or either. Posting status
+          posting_status: Filter report rows that are posting, non-posting, or either. Posting status
               refers to whether QuickBooks records the transaction in an account register.
 
-          report_date_from: Filter for report data dated on or after this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
+          report_date_from: Filter report rows dated on or after this date, in ISO 8601 format (YYYY-MM-DD).
+              Choose either `reportDateMacro` or `reportDateFrom`/`reportDateTo`. If you omit
               `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
               the current fiscal year to date.
 
-          report_date_macro: A QuickBooks Desktop relative date macro. This cannot be combined with
-              `reportDateFrom` or `reportDateTo`.
+          report_date_macro: A QuickBooks Desktop relative date macro for the report period. Choose either
+              `reportDateMacro` or `reportDateFrom`/`reportDateTo`.
 
-          report_date_to: Filter for report data dated on or before this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
-              `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
-              the current fiscal year to date.
+          report_date_to: Filter report rows dated on or before this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `reportDateMacro` or
+              `reportDateFrom`/`reportDateTo`. If you omit `reportDateFrom`, `reportDateTo`,
+              and `reportDateMacro`, QuickBooks Desktop uses the current fiscal year to date.
 
           summarize_rows_by: How QuickBooks Desktop calculates report data and labels report rows.
 
-          transaction_types: Filter for report data by transaction type(s). Repeat this query parameter to
-              include multiple transaction types.
+          transaction_types: Filter report rows by transaction type. Accepts one or more transaction types.
 
-          updated_after: Filter for report data updated on or after this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `updatedDateMacro`.
+          updated_after: Filter report rows updated on or after this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `updatedDateMacro` or
+              `updatedAfter`/`updatedBefore`.
 
-          updated_before: Filter for report data updated on or before this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `updatedDateMacro`.
+          updated_before: Filter report rows updated on or before this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `updatedDateMacro` or
+              `updatedAfter`/`updatedBefore`.
 
-          updated_date_macro: A QuickBooks Desktop relative updated-date macro. This cannot be combined with
-              `updatedAfter` or `updatedBefore`.
+          updated_date_macro: A QuickBooks Desktop relative updated-date macro. Choose either
+              `updatedDateMacro` or `updatedAfter`/`updatedBefore`.
 
           extra_headers: Send extra headers
 
@@ -5521,27 +5654,31 @@ class AsyncReportsResource(AsyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          account_full_names: Filter for report data by account `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple accounts. Use only one account filter per request.
+          account_full_names: Filter report rows by account `fullName` values, case-insensitive. A `fullName`
+              is a fully qualified QuickBooks name formed by joining parent object names with
+              the object's `name` using colons. Accepts one or more account full names. Choose
+              only one account filter per request: `accountType`, `accountIds`, or
+              `accountFullNames`.
 
-          account_ids: Filter for report data by QuickBooks-assigned account IDs. Repeat this query
-              parameter to include multiple accounts. Use only one account filter per request.
+          account_ids: Filter report rows by QuickBooks-assigned account IDs. Accepts one or more
+              account IDs. Choose only one account filter per request: `accountType`,
+              `accountIds`, or `accountFullNames`.
 
-          account_type: Filter for report data by account type. Use only one account filter per request.
+          account_type:
+              Filter report rows by account type. Choose only one account filter per request:
+              `accountType`, `accountIds`, or `accountFullNames`.
 
           basis: The accounting basis to use for the report. Use `cash` to base income and
               expenses on when money changes hands, `accrual` to base them on invoice and bill
               dates, or `none` to use the QuickBooks Desktop default for the report.
 
-          class_full_names: Filter for report data by class `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple classes. Use only one class filter per request.
+          class_full_names: Filter report rows by class `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more class full names. Choose only
+              one class filter per request: `classIds` or `classFullNames`.
 
-          class_ids: Filter for report data by QuickBooks-assigned class IDs. Repeat this query
-              parameter to include multiple classes. Use only one class filter per request.
+          class_ids: Filter report rows by QuickBooks-assigned class IDs. Accepts one or more class
+              IDs. Choose only one class filter per request: `classIds` or `classFullNames`.
 
           columns_to_return: Filters which report columns QuickBooks returns. Use `active_only` for active
               columns, `non_zero` for columns with non-zero values, or `all` for all columns.
@@ -5549,64 +5686,71 @@ class AsyncReportsResource(AsyncAPIResource):
           detail_level: The report detail level to include. Use `all` for all rows, `all_except_summary`
               to omit summary rows, or `summary_only` to return only summary rows.
 
-          entity_full_names: Filter for report data by entity `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple entities. Use only one entity filter per request.
+          entity_full_names: Filter report rows by entity `fullName` values, case-insensitive. A `fullName`
+              is a fully qualified QuickBooks name formed by joining parent object names with
+              the object's `name` using colons. Accepts one or more entity full names. Choose
+              only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          entity_ids: Filter for report data by QuickBooks-assigned entity IDs. Repeat this query
-              parameter to include multiple entities. Use only one entity filter per request.
+          entity_ids: Filter report rows by QuickBooks-assigned entity IDs. Accepts one or more entity
+              IDs. Choose only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          entity_type: Filter for report data by entity type, such as customer, vendor, employee, or
-              other name. Use only one entity filter per request.
+          entity_type: Filter report rows by entity type, such as customer, vendor, employee, or other
+              name. Choose only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
           include_subcolumns: Whether to include subcolumns in the report. QuickBooks Desktop may still omit
               subcolumns that it can easily compute from other returned values.
 
-          item_full_names: Filter for report data by item `fullName` values, case-insensitive. A `fullName`
-              is a fully-qualified QuickBooks name formed by joining parent object names with
-              the object's `name` using colons. Repeat this query parameter to include
-              multiple items. Use only one item filter per request.
+          item_full_names: Filter report rows by item `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more item full names. Choose only
+              one item filter per request: `itemType`, `itemIds`, or `itemFullNames`.
 
-          item_ids: Filter for report data by QuickBooks-assigned item IDs. Repeat this query
-              parameter to include multiple items. Use only one item filter per request.
+          item_ids: Filter report rows by QuickBooks-assigned item IDs. Accepts one or more item
+              IDs. Choose only one item filter per request: `itemType`, `itemIds`, or
+              `itemFullNames`.
 
-          item_type: Filter for report data by item type. Use only one item filter per request.
+          item_type:
+              Filter report rows by item type. Choose only one item filter per request:
+              `itemType`, `itemIds`, or `itemFullNames`.
 
-          posting_status: Filter for report data that is posting, non-posting, or either. Posting status
+          posting_status: Filter report rows that are posting, non-posting, or either. Posting status
               refers to whether QuickBooks records the transaction in an account register.
 
           report_calendar: The type of year to use for the report.
 
-          report_date_from: Filter for report data dated on or after this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
+          report_date_from: Filter report rows dated on or after this date, in ISO 8601 format (YYYY-MM-DD).
+              Choose either `reportDateMacro` or `reportDateFrom`/`reportDateTo`. If you omit
               `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
               the current fiscal year to date.
 
-          report_date_macro: A QuickBooks Desktop relative date macro. This cannot be combined with
-              `reportDateFrom` or `reportDateTo`.
+          report_date_macro: A QuickBooks Desktop relative date macro for the report period. Choose either
+              `reportDateMacro` or `reportDateFrom`/`reportDateTo`.
 
-          report_date_to: Filter for report data dated on or before this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
-              `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
-              the current fiscal year to date.
+          report_date_to: Filter report rows dated on or before this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `reportDateMacro` or
+              `reportDateFrom`/`reportDateTo`. If you omit `reportDateFrom`, `reportDateTo`,
+              and `reportDateMacro`, QuickBooks Desktop uses the current fiscal year to date.
 
           rows_to_return: Filters which report rows QuickBooks returns. Use `active_only` for active rows,
               `non_zero` for rows with non-zero values, or `all` for all rows.
 
           summarize_columns_by: How QuickBooks Desktop calculates report data and labels report column headers.
 
-          transaction_types: Filter for report data by transaction type(s). Repeat this query parameter to
-              include multiple transaction types.
+          transaction_types: Filter report rows by transaction type. Accepts one or more transaction types.
 
-          updated_after: Filter for report data updated on or after this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `updatedDateMacro`.
+          updated_after: Filter report rows updated on or after this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `updatedDateMacro` or
+              `updatedAfter`/`updatedBefore`.
 
-          updated_before: Filter for report data updated on or before this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `updatedDateMacro`.
+          updated_before: Filter report rows updated on or before this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `updatedDateMacro` or
+              `updatedAfter`/`updatedBefore`.
 
-          updated_date_macro: A QuickBooks Desktop relative updated-date macro. This cannot be combined with
-              `updatedAfter` or `updatedBefore`.
+          updated_date_macro: A QuickBooks Desktop relative updated-date macro. Choose either
+              `updatedDateMacro` or `updatedAfter`/`updatedBefore`.
 
           extra_headers: Send extra headers
 
@@ -5875,80 +6019,91 @@ class AsyncReportsResource(AsyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          account_full_names: Filter for report data by account `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple accounts. Use only one account filter per request.
+          account_full_names: Filter report rows by account `fullName` values, case-insensitive. A `fullName`
+              is a fully qualified QuickBooks name formed by joining parent object names with
+              the object's `name` using colons. Accepts one or more account full names. Choose
+              only one account filter per request: `accountType`, `accountIds`, or
+              `accountFullNames`.
 
-          account_ids: Filter for report data by QuickBooks-assigned account IDs. Repeat this query
-              parameter to include multiple accounts. Use only one account filter per request.
+          account_ids: Filter report rows by QuickBooks-assigned account IDs. Accepts one or more
+              account IDs. Choose only one account filter per request: `accountType`,
+              `accountIds`, or `accountFullNames`.
 
-          account_type: Filter for report data by account type. Use only one account filter per request.
+          account_type:
+              Filter report rows by account type. Choose only one account filter per request:
+              `accountType`, `accountIds`, or `accountFullNames`.
 
-          class_full_names: Filter for report data by class `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple classes. Use only one class filter per request.
+          class_full_names: Filter report rows by class `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more class full names. Choose only
+              one class filter per request: `classIds` or `classFullNames`.
 
-          class_ids: Filter for report data by QuickBooks-assigned class IDs. Repeat this query
-              parameter to include multiple classes. Use only one class filter per request.
+          class_ids: Filter report rows by QuickBooks-assigned class IDs. Accepts one or more class
+              IDs. Choose only one class filter per request: `classIds` or `classFullNames`.
 
           detail_level: The report detail level to include. Use `all` for all rows, `all_except_summary`
               to omit summary rows, or `summary_only` to return only summary rows.
 
-          entity_full_names: Filter for report data by entity `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple entities. Use only one entity filter per request.
+          entity_full_names: Filter report rows by entity `fullName` values, case-insensitive. A `fullName`
+              is a fully qualified QuickBooks name formed by joining parent object names with
+              the object's `name` using colons. Accepts one or more entity full names. Choose
+              only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          entity_ids: Filter for report data by QuickBooks-assigned entity IDs. Repeat this query
-              parameter to include multiple entities. Use only one entity filter per request.
+          entity_ids: Filter report rows by QuickBooks-assigned entity IDs. Accepts one or more entity
+              IDs. Choose only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          entity_type: Filter for report data by entity type, such as customer, vendor, employee, or
-              other name. Use only one entity filter per request.
+          entity_type: Filter report rows by entity type, such as customer, vendor, employee, or other
+              name. Choose only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
           include_subcolumns: Whether to include subcolumns in the report. QuickBooks Desktop may still omit
               subcolumns that it can easily compute from other returned values.
 
-          item_full_names: Filter for report data by item `fullName` values, case-insensitive. A `fullName`
-              is a fully-qualified QuickBooks name formed by joining parent object names with
-              the object's `name` using colons. Repeat this query parameter to include
-              multiple items. Use only one item filter per request.
+          item_full_names: Filter report rows by item `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more item full names. Choose only
+              one item filter per request: `itemType`, `itemIds`, or `itemFullNames`.
 
-          item_ids: Filter for report data by QuickBooks-assigned item IDs. Repeat this query
-              parameter to include multiple items. Use only one item filter per request.
+          item_ids: Filter report rows by QuickBooks-assigned item IDs. Accepts one or more item
+              IDs. Choose only one item filter per request: `itemType`, `itemIds`, or
+              `itemFullNames`.
 
-          item_type: Filter for report data by item type. Use only one item filter per request.
+          item_type:
+              Filter report rows by item type. Choose only one item filter per request:
+              `itemType`, `itemIds`, or `itemFullNames`.
 
-          posting_status: Filter for report data that is posting, non-posting, or either. Posting status
+          posting_status: Filter report rows that are posting, non-posting, or either. Posting status
               refers to whether QuickBooks records the transaction in an account register.
 
-          report_date_from: Filter for report data dated on or after this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
+          report_date_from: Filter report rows dated on or after this date, in ISO 8601 format (YYYY-MM-DD).
+              Choose either `reportDateMacro` or `reportDateFrom`/`reportDateTo`. If you omit
               `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
               the current fiscal year to date.
 
-          report_date_macro: A QuickBooks Desktop relative date macro. This cannot be combined with
-              `reportDateFrom` or `reportDateTo`.
+          report_date_macro: A QuickBooks Desktop relative date macro for the report period. Choose either
+              `reportDateMacro` or `reportDateFrom`/`reportDateTo`.
 
-          report_date_to: Filter for report data dated on or before this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
-              `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
-              the current fiscal year to date.
+          report_date_to: Filter report rows dated on or before this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `reportDateMacro` or
+              `reportDateFrom`/`reportDateTo`. If you omit `reportDateFrom`, `reportDateTo`,
+              and `reportDateMacro`, QuickBooks Desktop uses the current fiscal year to date.
 
           summarize_columns_by: How QuickBooks Desktop calculates report data and labels report column headers.
 
-          transaction_types: Filter for report data by transaction type(s). Repeat this query parameter to
-              include multiple transaction types.
+          transaction_types: Filter report rows by transaction type. Accepts one or more transaction types.
 
-          updated_after: Filter for report data updated on or after this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `updatedDateMacro`.
+          updated_after: Filter report rows updated on or after this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `updatedDateMacro` or
+              `updatedAfter`/`updatedBefore`.
 
-          updated_before: Filter for report data updated on or before this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `updatedDateMacro`.
+          updated_before: Filter report rows updated on or before this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `updatedDateMacro` or
+              `updatedAfter`/`updatedBefore`.
 
-          updated_date_macro: A QuickBooks Desktop relative updated-date macro. This cannot be combined with
-              `updatedAfter` or `updatedBefore`.
+          updated_date_macro: A QuickBooks Desktop relative updated-date macro. Choose either
+              `updatedDateMacro` or `updatedAfter`/`updatedBefore`.
 
           extra_headers: Send extra headers
 
@@ -6261,83 +6416,94 @@ class AsyncReportsResource(AsyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          account_full_names: Filter for report data by account `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple accounts. Use only one account filter per request.
+          account_full_names: Filter report rows by account `fullName` values, case-insensitive. A `fullName`
+              is a fully qualified QuickBooks name formed by joining parent object names with
+              the object's `name` using colons. Accepts one or more account full names. Choose
+              only one account filter per request: `accountType`, `accountIds`, or
+              `accountFullNames`.
 
-          account_ids: Filter for report data by QuickBooks-assigned account IDs. Repeat this query
-              parameter to include multiple accounts. Use only one account filter per request.
+          account_ids: Filter report rows by QuickBooks-assigned account IDs. Accepts one or more
+              account IDs. Choose only one account filter per request: `accountType`,
+              `accountIds`, or `accountFullNames`.
 
           accounts_to_include: Whether to include all accounts or only accounts in use.
 
-          account_type: Filter for report data by account type. Use only one account filter per request.
+          account_type:
+              Filter report rows by account type. Choose only one account filter per request:
+              `accountType`, `accountIds`, or `accountFullNames`.
 
-          class_full_names: Filter for report data by class `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple classes. Use only one class filter per request.
+          class_full_names: Filter report rows by class `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more class full names. Choose only
+              one class filter per request: `classIds` or `classFullNames`.
 
-          class_ids: Filter for report data by QuickBooks-assigned class IDs. Repeat this query
-              parameter to include multiple classes. Use only one class filter per request.
+          class_ids: Filter report rows by QuickBooks-assigned class IDs. Accepts one or more class
+              IDs. Choose only one class filter per request: `classIds` or `classFullNames`.
 
           detail_level: The report detail level to include. Use `all` for all rows, `all_except_summary`
               to omit summary rows, or `summary_only` to return only summary rows.
 
-          entity_full_names: Filter for report data by entity `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple entities. Use only one entity filter per request.
+          entity_full_names: Filter report rows by entity `fullName` values, case-insensitive. A `fullName`
+              is a fully qualified QuickBooks name formed by joining parent object names with
+              the object's `name` using colons. Accepts one or more entity full names. Choose
+              only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          entity_ids: Filter for report data by QuickBooks-assigned entity IDs. Repeat this query
-              parameter to include multiple entities. Use only one entity filter per request.
+          entity_ids: Filter report rows by QuickBooks-assigned entity IDs. Accepts one or more entity
+              IDs. Choose only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          entity_type: Filter for report data by entity type, such as customer, vendor, employee, or
-              other name. Use only one entity filter per request.
+          entity_type: Filter report rows by entity type, such as customer, vendor, employee, or other
+              name. Choose only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          include_columns: The specific report columns to include, by column type. Repeat this query
-              parameter to request multiple columns. When this parameter is present,
-              QuickBooks Desktop omits its default report columns unless you include them
-              here.
+          include_columns: The report columns to include, by column type. Accepts one or more columns. When
+              this parameter is present, QuickBooks Desktop omits its default report columns
+              unless you include them here.
 
-          item_full_names: Filter for report data by item `fullName` values, case-insensitive. A `fullName`
-              is a fully-qualified QuickBooks name formed by joining parent object names with
-              the object's `name` using colons. Repeat this query parameter to include
-              multiple items. Use only one item filter per request.
+          item_full_names: Filter report rows by item `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more item full names. Choose only
+              one item filter per request: `itemType`, `itemIds`, or `itemFullNames`.
 
-          item_ids: Filter for report data by QuickBooks-assigned item IDs. Repeat this query
-              parameter to include multiple items. Use only one item filter per request.
+          item_ids: Filter report rows by QuickBooks-assigned item IDs. Accepts one or more item
+              IDs. Choose only one item filter per request: `itemType`, `itemIds`, or
+              `itemFullNames`.
 
-          item_type: Filter for report data by item type. Use only one item filter per request.
+          item_type:
+              Filter report rows by item type. Choose only one item filter per request:
+              `itemType`, `itemIds`, or `itemFullNames`.
 
           open_balance_as_of: The date through which QuickBooks Desktop calculates open balance information.
 
-          posting_status: Filter for report data that is posting, non-posting, or either. Posting status
+          posting_status: Filter report rows that are posting, non-posting, or either. Posting status
               refers to whether QuickBooks records the transaction in an account register.
 
-          report_date_from: Filter for report data dated on or after this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
+          report_date_from: Filter report rows dated on or after this date, in ISO 8601 format (YYYY-MM-DD).
+              Choose either `reportDateMacro` or `reportDateFrom`/`reportDateTo`. If you omit
               `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
               the current fiscal year to date.
 
-          report_date_macro: A QuickBooks Desktop relative date macro. This cannot be combined with
-              `reportDateFrom` or `reportDateTo`.
+          report_date_macro: A QuickBooks Desktop relative date macro for the report period. Choose either
+              `reportDateMacro` or `reportDateFrom`/`reportDateTo`.
 
-          report_date_to: Filter for report data dated on or before this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
-              `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
-              the current fiscal year to date.
+          report_date_to: Filter report rows dated on or before this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `reportDateMacro` or
+              `reportDateFrom`/`reportDateTo`. If you omit `reportDateFrom`, `reportDateTo`,
+              and `reportDateMacro`, QuickBooks Desktop uses the current fiscal year to date.
 
           summarize_rows_by: How QuickBooks Desktop calculates report data and labels report rows.
 
-          updated_after: Filter for report data updated on or after this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `updatedDateMacro`.
+          updated_after: Filter report rows updated on or after this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `updatedDateMacro` or
+              `updatedAfter`/`updatedBefore`.
 
-          updated_before: Filter for report data updated on or before this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `updatedDateMacro`.
+          updated_before: Filter report rows updated on or before this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `updatedDateMacro` or
+              `updatedAfter`/`updatedBefore`.
 
-          updated_date_macro: A QuickBooks Desktop relative updated-date macro. This cannot be combined with
-              `updatedAfter` or `updatedBefore`.
+          updated_date_macro: A QuickBooks Desktop relative updated-date macro. Choose either
+              `updatedDateMacro` or `updatedAfter`/`updatedBefore`.
 
           extra_headers: Send extra headers
 
@@ -6566,23 +6732,27 @@ class AsyncReportsResource(AsyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          account_full_names: Filter for report data by account `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple accounts. Use only one account filter per request.
+          account_full_names: Filter report rows by account `fullName` values, case-insensitive. A `fullName`
+              is a fully qualified QuickBooks name formed by joining parent object names with
+              the object's `name` using colons. Accepts one or more account full names. Choose
+              only one account filter per request: `accountType`, `accountIds`, or
+              `accountFullNames`.
 
-          account_ids: Filter for report data by QuickBooks-assigned account IDs. Repeat this query
-              parameter to include multiple accounts. Use only one account filter per request.
+          account_ids: Filter report rows by QuickBooks-assigned account IDs. Accepts one or more
+              account IDs. Choose only one account filter per request: `accountType`,
+              `accountIds`, or `accountFullNames`.
 
-          account_type: Filter for report data by account type. Use only one account filter per request.
+          account_type:
+              Filter report rows by account type. Choose only one account filter per request:
+              `accountType`, `accountIds`, or `accountFullNames`.
 
-          class_full_names: Filter for report data by class `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple classes. Use only one class filter per request.
+          class_full_names: Filter report rows by class `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more class full names. Choose only
+              one class filter per request: `classIds` or `classFullNames`.
 
-          class_ids: Filter for report data by QuickBooks-assigned class IDs. Repeat this query
-              parameter to include multiple classes. Use only one class filter per request.
+          class_ids: Filter report rows by QuickBooks-assigned class IDs. Accepts one or more class
+              IDs. Choose only one class filter per request: `classIds` or `classFullNames`.
 
           columns_to_return: Filters which report columns QuickBooks returns. Use `active_only` for active
               columns, `non_zero` for columns with non-zero values, or `all` for all columns.
@@ -6590,61 +6760,69 @@ class AsyncReportsResource(AsyncAPIResource):
           detail_level: The report detail level to include. Use `all` for all rows, `all_except_summary`
               to omit summary rows, or `summary_only` to return only summary rows.
 
-          entity_full_names: Filter for report data by entity `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple entities. Use only one entity filter per request.
+          entity_full_names: Filter report rows by entity `fullName` values, case-insensitive. A `fullName`
+              is a fully qualified QuickBooks name formed by joining parent object names with
+              the object's `name` using colons. Accepts one or more entity full names. Choose
+              only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          entity_ids: Filter for report data by QuickBooks-assigned entity IDs. Repeat this query
-              parameter to include multiple entities. Use only one entity filter per request.
+          entity_ids: Filter report rows by QuickBooks-assigned entity IDs. Accepts one or more entity
+              IDs. Choose only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          entity_type: Filter for report data by entity type, such as customer, vendor, employee, or
-              other name. Use only one entity filter per request.
+          entity_type: Filter report rows by entity type, such as customer, vendor, employee, or other
+              name. Choose only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
           include_subcolumns: Whether to include subcolumns in the report. QuickBooks Desktop may still omit
               subcolumns that it can easily compute from other returned values.
 
-          item_full_names: Filter for report data by item `fullName` values, case-insensitive. A `fullName`
-              is a fully-qualified QuickBooks name formed by joining parent object names with
-              the object's `name` using colons. Repeat this query parameter to include
-              multiple items. Use only one item filter per request.
+          item_full_names: Filter report rows by item `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more item full names. Choose only
+              one item filter per request: `itemType`, `itemIds`, or `itemFullNames`.
 
-          item_ids: Filter for report data by QuickBooks-assigned item IDs. Repeat this query
-              parameter to include multiple items. Use only one item filter per request.
+          item_ids: Filter report rows by QuickBooks-assigned item IDs. Accepts one or more item
+              IDs. Choose only one item filter per request: `itemType`, `itemIds`, or
+              `itemFullNames`.
 
-          item_type: Filter for report data by item type. Use only one item filter per request.
+          item_type:
+              Filter report rows by item type. Choose only one item filter per request:
+              `itemType`, `itemIds`, or `itemFullNames`.
 
-          posting_status: Filter for report data that is posting, non-posting, or either. Posting status
+          posting_status: Filter report rows that are posting, non-posting, or either. Posting status
               refers to whether QuickBooks records the transaction in an account register.
 
           report_calendar: The type of year to use for the report.
 
-          report_date_from: Filter for report data dated on or after this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
+          report_date_from: Filter report rows dated on or after this date, in ISO 8601 format (YYYY-MM-DD).
+              Choose either `reportDateMacro` or `reportDateFrom`/`reportDateTo`. If you omit
               `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
               the current fiscal year to date.
 
-          report_date_macro: A QuickBooks Desktop relative date macro. This cannot be combined with
-              `reportDateFrom` or `reportDateTo`.
+          report_date_macro: A QuickBooks Desktop relative date macro for the report period. Choose either
+              `reportDateMacro` or `reportDateFrom`/`reportDateTo`.
 
-          report_date_to: Filter for report data dated on or before this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
-              `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
-              the current fiscal year to date.
+          report_date_to: Filter report rows dated on or before this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `reportDateMacro` or
+              `reportDateFrom`/`reportDateTo`. If you omit `reportDateFrom`, `reportDateTo`,
+              and `reportDateMacro`, QuickBooks Desktop uses the current fiscal year to date.
 
           rows_to_return: Filters which report rows QuickBooks returns. Use `active_only` for active rows,
               `non_zero` for rows with non-zero values, or `all` for all rows.
 
           summarize_columns_by: How QuickBooks Desktop calculates report data and labels report column headers.
 
-          updated_after: Filter for report data updated on or after this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `updatedDateMacro`.
+          updated_after: Filter report rows updated on or after this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `updatedDateMacro` or
+              `updatedAfter`/`updatedBefore`.
 
-          updated_before: Filter for report data updated on or before this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `updatedDateMacro`.
+          updated_before: Filter report rows updated on or before this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `updatedDateMacro` or
+              `updatedAfter`/`updatedBefore`.
 
-          updated_date_macro: A QuickBooks Desktop relative updated-date macro. This cannot be combined with
-              `updatedAfter` or `updatedBefore`.
+          updated_date_macro: A QuickBooks Desktop relative updated-date macro. Choose either
+              `updatedDateMacro` or `updatedAfter`/`updatedBefore`.
 
           extra_headers: Send extra headers
 
@@ -6802,55 +6980,61 @@ class AsyncReportsResource(AsyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          class_full_names: Filter for report data by class `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple classes. Use only one class filter per request.
+          class_full_names: Filter report rows by class `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more class full names. Choose only
+              one class filter per request: `classIds` or `classFullNames`.
 
-          class_ids: Filter for report data by QuickBooks-assigned class IDs. Repeat this query
-              parameter to include multiple classes. Use only one class filter per request.
+          class_ids: Filter report rows by QuickBooks-assigned class IDs. Accepts one or more class
+              IDs. Choose only one class filter per request: `classIds` or `classFullNames`.
 
           columns_to_return: Filters which report columns QuickBooks returns. Use `active_only` for active
               columns, `non_zero` for columns with non-zero values, or `all` for all columns.
 
-          entity_full_names: Filter for report data by entity `fullName` values, case-insensitive. A
-              `fullName` is a fully-qualified QuickBooks name formed by joining parent object
-              names with the object's `name` using colons. Repeat this query parameter to
-              include multiple entities. Use only one entity filter per request.
+          entity_full_names: Filter report rows by entity `fullName` values, case-insensitive. A `fullName`
+              is a fully qualified QuickBooks name formed by joining parent object names with
+              the object's `name` using colons. Accepts one or more entity full names. Choose
+              only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          entity_ids: Filter for report data by QuickBooks-assigned entity IDs. Repeat this query
-              parameter to include multiple entities. Use only one entity filter per request.
+          entity_ids: Filter report rows by QuickBooks-assigned entity IDs. Accepts one or more entity
+              IDs. Choose only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
-          entity_type: Filter for report data by entity type, such as customer, vendor, employee, or
-              other name. Use only one entity filter per request.
+          entity_type: Filter report rows by entity type, such as customer, vendor, employee, or other
+              name. Choose only one entity filter per request: `entityType`, `entityIds`, or
+              `entityFullNames`.
 
           include_subcolumns: Whether to include subcolumns in the report. QuickBooks Desktop may still omit
               subcolumns that it can easily compute from other returned values.
 
-          item_full_names: Filter for report data by item `fullName` values, case-insensitive. A `fullName`
-              is a fully-qualified QuickBooks name formed by joining parent object names with
-              the object's `name` using colons. Repeat this query parameter to include
-              multiple items. Use only one item filter per request.
+          item_full_names: Filter report rows by item `fullName` values, case-insensitive. A `fullName` is
+              a fully qualified QuickBooks name formed by joining parent object names with the
+              object's `name` using colons. Accepts one or more item full names. Choose only
+              one item filter per request: `itemType`, `itemIds`, or `itemFullNames`.
 
-          item_ids: Filter for report data by QuickBooks-assigned item IDs. Repeat this query
-              parameter to include multiple items. Use only one item filter per request.
+          item_ids: Filter report rows by QuickBooks-assigned item IDs. Accepts one or more item
+              IDs. Choose only one item filter per request: `itemType`, `itemIds`, or
+              `itemFullNames`.
 
-          item_type: Filter for report data by item type. Use only one item filter per request.
+          item_type:
+              Filter report rows by item type. Choose only one item filter per request:
+              `itemType`, `itemIds`, or `itemFullNames`.
 
           report_calendar: The type of year to use for the report.
 
-          report_date_from: Filter for report data dated on or after this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
+          report_date_from: Filter report rows dated on or after this date, in ISO 8601 format (YYYY-MM-DD).
+              Choose either `reportDateMacro` or `reportDateFrom`/`reportDateTo`. If you omit
               `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
               the current fiscal year to date.
 
-          report_date_macro: A QuickBooks Desktop relative date macro. This cannot be combined with
-              `reportDateFrom` or `reportDateTo`.
+          report_date_macro: A QuickBooks Desktop relative date macro for the report period. Choose either
+              `reportDateMacro` or `reportDateFrom`/`reportDateTo`.
 
-          report_date_to: Filter for report data dated on or before this date, in ISO 8601 format
-              (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
-              `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
-              the current fiscal year to date.
+          report_date_to: Filter report rows dated on or before this date, in ISO 8601 format
+              (YYYY-MM-DD). Choose either `reportDateMacro` or
+              `reportDateFrom`/`reportDateTo`. If you omit `reportDateFrom`, `reportDateTo`,
+              and `reportDateMacro`, QuickBooks Desktop uses the current fiscal year to date.
 
           rows_to_return: Filters which report rows QuickBooks returns. Use `active_only` for active rows,
               `non_zero` for rows with non-zero values, or `all` for all rows.

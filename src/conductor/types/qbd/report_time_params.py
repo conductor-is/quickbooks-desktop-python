@@ -25,18 +25,19 @@ class ReportTimeParams(TypedDict, total=False):
     """The ID of the End-User to receive this request."""
 
     class_full_names: Annotated[SequenceNotStr[str], PropertyInfo(alias="classFullNames")]
-    """Filter for report data by class `fullName` values, case-insensitive.
+    """Filter report rows by class `fullName` values, case-insensitive.
 
-    A `fullName` is a fully-qualified QuickBooks name formed by joining parent
-    object names with the object's `name` using colons. Repeat this query parameter
-    to include multiple classes. Use only one class filter per request.
+    A `fullName` is a fully qualified QuickBooks name formed by joining parent
+    object names with the object's `name` using colons. Accepts one or more class
+    full names. Choose only one class filter per request: `classIds` or
+    `classFullNames`.
     """
 
     class_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="classIds")]
-    """Filter for report data by QuickBooks-assigned class IDs.
+    """Filter report rows by QuickBooks-assigned class IDs.
 
-    Repeat this query parameter to include multiple classes. Use only one class
-    filter per request.
+    Accepts one or more class IDs. Choose only one class filter per request:
+    `classIds` or `classFullNames`.
     """
 
     columns_to_return: Annotated[Literal["active_only", "non_zero", "all"], PropertyInfo(alias="columnsToReturn")]
@@ -47,24 +48,26 @@ class ReportTimeParams(TypedDict, total=False):
     """
 
     entity_full_names: Annotated[SequenceNotStr[str], PropertyInfo(alias="entityFullNames")]
-    """Filter for report data by entity `fullName` values, case-insensitive.
+    """Filter report rows by entity `fullName` values, case-insensitive.
 
-    A `fullName` is a fully-qualified QuickBooks name formed by joining parent
-    object names with the object's `name` using colons. Repeat this query parameter
-    to include multiple entities. Use only one entity filter per request.
+    A `fullName` is a fully qualified QuickBooks name formed by joining parent
+    object names with the object's `name` using colons. Accepts one or more entity
+    full names. Choose only one entity filter per request: `entityType`,
+    `entityIds`, or `entityFullNames`.
     """
 
     entity_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="entityIds")]
-    """Filter for report data by QuickBooks-assigned entity IDs.
+    """Filter report rows by QuickBooks-assigned entity IDs.
 
-    Repeat this query parameter to include multiple entities. Use only one entity
-    filter per request.
+    Accepts one or more entity IDs. Choose only one entity filter per request:
+    `entityType`, `entityIds`, or `entityFullNames`.
     """
 
     entity_type: Annotated[Literal["customer", "employee", "other_name", "vendor"], PropertyInfo(alias="entityType")]
     """
-    Filter for report data by entity type, such as customer, vendor, employee, or
-    other name. Use only one entity filter per request.
+    Filter report rows by entity type, such as customer, vendor, employee, or other
+    name. Choose only one entity filter per request: `entityType`, `entityIds`, or
+    `entityFullNames`.
     """
 
     include_subcolumns: Annotated[bool, PropertyInfo(alias="includeSubcolumns")]
@@ -75,18 +78,19 @@ class ReportTimeParams(TypedDict, total=False):
     """
 
     item_full_names: Annotated[SequenceNotStr[str], PropertyInfo(alias="itemFullNames")]
-    """Filter for report data by item `fullName` values, case-insensitive.
+    """Filter report rows by item `fullName` values, case-insensitive.
 
-    A `fullName` is a fully-qualified QuickBooks name formed by joining parent
-    object names with the object's `name` using colons. Repeat this query parameter
-    to include multiple items. Use only one item filter per request.
+    A `fullName` is a fully qualified QuickBooks name formed by joining parent
+    object names with the object's `name` using colons. Accepts one or more item
+    full names. Choose only one item filter per request: `itemType`, `itemIds`, or
+    `itemFullNames`.
     """
 
     item_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="itemIds")]
-    """Filter for report data by QuickBooks-assigned item IDs.
+    """Filter report rows by QuickBooks-assigned item IDs.
 
-    Repeat this query parameter to include multiple items. Use only one item filter
-    per request.
+    Accepts one or more item IDs. Choose only one item filter per request:
+    `itemType`, `itemIds`, or `itemFullNames`.
     """
 
     item_type: Annotated[
@@ -106,7 +110,11 @@ class ReportTimeParams(TypedDict, total=False):
         ],
         PropertyInfo(alias="itemType"),
     ]
-    """Filter for report data by item type. Use only one item filter per request."""
+    """Filter report rows by item type.
+
+    Choose only one item filter per request: `itemType`, `itemIds`, or
+    `itemFullNames`.
+    """
 
     report_calendar: Annotated[
         Literal["calendar_year", "fiscal_year", "tax_year"], PropertyInfo(alias="reportCalendar")
@@ -114,9 +122,9 @@ class ReportTimeParams(TypedDict, total=False):
     """The type of year to use for the report."""
 
     report_date_from: Annotated[Union[str, date], PropertyInfo(alias="reportDateFrom", format="iso8601")]
-    """
-    Filter for report data dated on or after this date, in ISO 8601 format
-    (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
+    """Filter report rows dated on or after this date, in ISO 8601 format (YYYY-MM-DD).
+
+    Choose either `reportDateMacro` or `reportDateFrom`/`reportDateTo`. If you omit
     `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
     the current fiscal year to date.
     """
@@ -150,15 +158,16 @@ class ReportTimeParams(TypedDict, total=False):
         ],
         PropertyInfo(alias="reportDateMacro"),
     ]
-    """A QuickBooks Desktop relative date macro.
+    """A QuickBooks Desktop relative date macro for the report period.
 
-    This cannot be combined with `reportDateFrom` or `reportDateTo`.
+    Choose either `reportDateMacro` or `reportDateFrom`/`reportDateTo`.
     """
 
     report_date_to: Annotated[Union[str, date], PropertyInfo(alias="reportDateTo", format="iso8601")]
-    """
-    Filter for report data dated on or before this date, in ISO 8601 format
-    (YYYY-MM-DD). This cannot be combined with `reportDateMacro`. If you omit
+    """Filter report rows dated on or before this date, in ISO 8601 format
+    (YYYY-MM-DD).
+
+    Choose either `reportDateMacro` or `reportDateFrom`/`reportDateTo`. If you omit
     `reportDateFrom`, `reportDateTo`, and `reportDateMacro`, QuickBooks Desktop uses
     the current fiscal year to date.
     """
