@@ -309,7 +309,10 @@ class ReportsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Report:
         """
-        Retrieves an aging report.
+        Retrieves an accounts receivable, accounts payable, or collections aging report
+        showing unpaid invoices and bills by aging criteria. This report is useful for
+        analyzing receivables, payables, and collection work across summary or detail
+        aging views.
 
         Args:
           report_type: The aging report type to retrieve.
@@ -359,9 +362,10 @@ class ReportsResource(SyncAPIResource):
               name. Choose only one entity filter per request: `entityType`, `entityIds`, or
               `entityFullNames`.
 
-          include_columns: The report columns to include, by column type. Accepts one or more columns. When
-              this parameter is present, QuickBooks Desktop omits its default report columns
-              unless you include them here.
+          include_columns: The report columns to include, by column type. Accepts one or more columns.
+
+              **IMPORTANT**: When this parameter is present, QuickBooks Desktop omits its
+              default report columns unless you include them here.
 
           item_full_names: Filter report rows by item `fullName` values, case-insensitive. A `fullName` is
               a fully qualified QuickBooks name formed by joining parent object names with the
@@ -508,7 +512,11 @@ class ReportsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Report:
         """
-        Retrieves a budget summary report.
+        Retrieves a QuickBooks Desktop budget summary report for Balance Sheet or Profit
+        and Loss budgets, including budget overview, budget versus actual, and
+        performance views. This report compares budgeted amounts against actual activity
+        for a fiscal year and budget criterion; the target budget must already exist in
+        QuickBooks Desktop.
 
         Args:
           fiscal_year: The fiscal year of the QuickBooks budget. QuickBooks Desktop returns the full
@@ -864,12 +872,16 @@ class ReportsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Report:
         """
-        Retrieves a custom detail report.
+        Retrieves a custom transaction detail report built from the row grouping,
+        included columns, date period, and filters you request. This report is useful
+        when no preset detail report exposes the transaction rows or report-only columns
+        you need; QuickBooks Desktop does not choose default columns for this report.
 
         Args:
-          include_columns: The report columns to include, by column type. Accepts one or more columns. When
-              this parameter is present, QuickBooks Desktop omits its default report columns
-              unless you include them here.
+          include_columns: The report columns to include, by column type. Accepts one or more columns.
+
+              **IMPORTANT**: When this parameter is present, QuickBooks Desktop omits its
+              default report columns unless you include them here.
 
           summarize_rows_by: How QuickBooks Desktop calculates report data and labels report rows.
 
@@ -1254,7 +1266,10 @@ class ReportsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Report:
         """
-        Retrieves a custom summary report.
+        Retrieves a custom summary report built from the row and column axes, filters,
+        date period, calendar, and basis options you request. This report is useful when
+        preset summary reports do not match the dimensions you need; QuickBooks Desktop
+        does not assume a default layout.
 
         Args:
           summarize_columns_by: How QuickBooks Desktop calculates report data and labels report column headers.
@@ -1309,8 +1324,10 @@ class ReportsResource(SyncAPIResource):
               name. Choose only one entity filter per request: `entityType`, `entityIds`, or
               `entityFullNames`.
 
-          include_subcolumns: Whether to include subcolumns in the report. QuickBooks Desktop may still omit
-              subcolumns that it can easily compute from other returned values.
+          include_subcolumns: Whether to include subcolumns in the report.
+
+              **NOTE**: QuickBooks Desktop may still omit subcolumns that it can easily
+              compute from other returned values.
 
           item_full_names: Filter report rows by item `fullName` values, case-insensitive. A `fullName` is
               a fully qualified QuickBooks name formed by joining parent object names with the
@@ -1735,7 +1752,12 @@ class ReportsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Report:
         """
-        Retrieves a general detail report.
+        Retrieves a QuickBooks Desktop general detail report with transaction-level
+        rows, such as General Ledger, Journal, Open Invoices, unpaid bills, sales
+        detail, purchase detail, audit trail, and transaction lists. This report is
+        useful for inspecting the transactions behind balances, receivables, payables,
+        sales, purchases, inventory valuation, and audit activity, including report-only
+        columns that may not be available from standard object queries.
 
         Args:
           report_type: The general detail report type to retrieve.
@@ -1787,9 +1809,10 @@ class ReportsResource(SyncAPIResource):
               name. Choose only one entity filter per request: `entityType`, `entityIds`, or
               `entityFullNames`.
 
-          include_columns: The report columns to include, by column type. Accepts one or more columns. When
-              this parameter is present, QuickBooks Desktop omits its default report columns
-              unless you include them here.
+          include_columns: The report columns to include, by column type. Accepts one or more columns.
+
+              **IMPORTANT**: When this parameter is present, QuickBooks Desktop omits its
+              default report columns unless you include them here.
 
           item_full_names: Filter report rows by item `fullName` values, case-insensitive. A `fullName` is
               a fully qualified QuickBooks name formed by joining parent object names with the
@@ -2123,7 +2146,11 @@ class ReportsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Report:
         """
-        Retrieves a general summary report.
+        Retrieves a QuickBooks Desktop general summary report, such as a balance sheet,
+        profit and loss, trial balance, sales, purchase, inventory, customer balance,
+        vendor balance, sales tax, or income tax summary. This report is useful for
+        aggregated financial or operational totals with optional date periods, filters,
+        calendar settings, and column summarization.
 
         Args:
           report_type: The general summary report type to retrieve.
@@ -2176,8 +2203,10 @@ class ReportsResource(SyncAPIResource):
               name. Choose only one entity filter per request: `entityType`, `entityIds`, or
               `entityFullNames`.
 
-          include_subcolumns: Whether to include subcolumns in the report. QuickBooks Desktop may still omit
-              subcolumns that it can easily compute from other returned values.
+          include_subcolumns: Whether to include subcolumns in the report.
+
+              **NOTE**: QuickBooks Desktop may still omit subcolumns that it can easily
+              compute from other returned values.
 
           item_full_names: Filter report rows by item `fullName` values, case-insensitive. A `fullName` is
               a fully qualified QuickBooks name formed by joining parent object names with the
@@ -2488,7 +2517,11 @@ class ReportsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Report:
         """
-        Retrieves a job report.
+        Retrieves a QuickBooks Desktop job report for estimates versus actuals, item
+        profitability, or job profitability. This report is useful for project costing,
+        margin analysis, and estimate tracking by customer or job; job profitability
+        detail and estimates-versus-actuals detail report types require a customer or
+        job filter.
 
         Args:
           report_type: The job report type to retrieve.
@@ -2534,8 +2567,10 @@ class ReportsResource(SyncAPIResource):
               name. Choose only one entity filter per request: `entityType`, `entityIds`, or
               `entityFullNames`.
 
-          include_subcolumns: Whether to include subcolumns in the report. QuickBooks Desktop may still omit
-              subcolumns that it can easily compute from other returned values.
+          include_subcolumns: Whether to include subcolumns in the report.
+
+              **NOTE**: QuickBooks Desktop may still omit subcolumns that it can easily
+              compute from other returned values.
 
           item_full_names: Filter report rows by item `fullName` values, case-insensitive. A `fullName` is
               a fully qualified QuickBooks name formed by joining parent object names with the
@@ -2885,7 +2920,11 @@ class ReportsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Report:
         """
-        Retrieves a payroll detail report.
+        Retrieves a QuickBooks Desktop payroll detail report, including employee state
+        tax detail, payroll item detail, payroll review detail, payroll transaction
+        detail, and payroll transactions by payee. This report is useful for auditing
+        paycheck line items, payroll item usage, tax calculations, and payee-level
+        payroll activity.
 
         Args:
           report_type: The payroll detail report type to retrieve.
@@ -2933,9 +2972,10 @@ class ReportsResource(SyncAPIResource):
               name. Choose only one entity filter per request: `entityType`, `entityIds`, or
               `entityFullNames`.
 
-          include_columns: The report columns to include, by column type. Accepts one or more columns. When
-              this parameter is present, QuickBooks Desktop omits its default report columns
-              unless you include them here.
+          include_columns: The report columns to include, by column type. Accepts one or more columns.
+
+              **IMPORTANT**: When this parameter is present, QuickBooks Desktop omits its
+              default report columns unless you include them here.
 
           item_full_names: Filter report rows by item `fullName` values, case-insensitive. A `fullName` is
               a fully qualified QuickBooks name formed by joining parent object names with the
@@ -3201,7 +3241,10 @@ class ReportsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Report:
         """
-        Retrieves a payroll summary report.
+        Retrieves a QuickBooks Desktop payroll summary report, including payroll totals
+        by employee, employee earnings by payroll item, and payroll liability balances.
+        This report is useful for wage, tax, deduction, addition, employer contribution,
+        and unpaid payroll liability reporting.
 
         Args:
           report_type: The payroll summary report type to retrieve.
@@ -3250,8 +3293,10 @@ class ReportsResource(SyncAPIResource):
               name. Choose only one entity filter per request: `entityType`, `entityIds`, or
               `entityFullNames`.
 
-          include_subcolumns: Whether to include subcolumns in the report. QuickBooks Desktop may still omit
-              subcolumns that it can easily compute from other returned values.
+          include_subcolumns: Whether to include subcolumns in the report.
+
+              **NOTE**: QuickBooks Desktop may still omit subcolumns that it can easily
+              compute from other returned values.
 
           item_full_names: Filter report rows by item `fullName` values, case-insensitive. A `fullName` is
               a fully qualified QuickBooks name formed by joining parent object names with the
@@ -3449,7 +3494,9 @@ class ReportsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Report:
         """
-        Retrieves a time report.
+        Retrieves a QuickBooks Desktop time report by item, job, or name, with summary
+        or detail rows depending on the selected report type. This report is useful for
+        analyzing tracked time for billing, costing, staffing, or project review.
 
         Args:
           report_type: The time report type to retrieve.
@@ -3481,8 +3528,10 @@ class ReportsResource(SyncAPIResource):
               name. Choose only one entity filter per request: `entityType`, `entityIds`, or
               `entityFullNames`.
 
-          include_subcolumns: Whether to include subcolumns in the report. QuickBooks Desktop may still omit
-              subcolumns that it can easily compute from other returned values.
+          include_subcolumns: Whether to include subcolumns in the report.
+
+              **NOTE**: QuickBooks Desktop may still omit subcolumns that it can easily
+              compute from other returned values.
 
           item_full_names: Filter report rows by item `fullName` values, case-insensitive. A `fullName` is
               a fully qualified QuickBooks name formed by joining parent object names with the
@@ -3833,7 +3882,10 @@ class AsyncReportsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Report:
         """
-        Retrieves an aging report.
+        Retrieves an accounts receivable, accounts payable, or collections aging report
+        showing unpaid invoices and bills by aging criteria. This report is useful for
+        analyzing receivables, payables, and collection work across summary or detail
+        aging views.
 
         Args:
           report_type: The aging report type to retrieve.
@@ -3883,9 +3935,10 @@ class AsyncReportsResource(AsyncAPIResource):
               name. Choose only one entity filter per request: `entityType`, `entityIds`, or
               `entityFullNames`.
 
-          include_columns: The report columns to include, by column type. Accepts one or more columns. When
-              this parameter is present, QuickBooks Desktop omits its default report columns
-              unless you include them here.
+          include_columns: The report columns to include, by column type. Accepts one or more columns.
+
+              **IMPORTANT**: When this parameter is present, QuickBooks Desktop omits its
+              default report columns unless you include them here.
 
           item_full_names: Filter report rows by item `fullName` values, case-insensitive. A `fullName` is
               a fully qualified QuickBooks name formed by joining parent object names with the
@@ -4032,7 +4085,11 @@ class AsyncReportsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Report:
         """
-        Retrieves a budget summary report.
+        Retrieves a QuickBooks Desktop budget summary report for Balance Sheet or Profit
+        and Loss budgets, including budget overview, budget versus actual, and
+        performance views. This report compares budgeted amounts against actual activity
+        for a fiscal year and budget criterion; the target budget must already exist in
+        QuickBooks Desktop.
 
         Args:
           fiscal_year: The fiscal year of the QuickBooks budget. QuickBooks Desktop returns the full
@@ -4388,12 +4445,16 @@ class AsyncReportsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Report:
         """
-        Retrieves a custom detail report.
+        Retrieves a custom transaction detail report built from the row grouping,
+        included columns, date period, and filters you request. This report is useful
+        when no preset detail report exposes the transaction rows or report-only columns
+        you need; QuickBooks Desktop does not choose default columns for this report.
 
         Args:
-          include_columns: The report columns to include, by column type. Accepts one or more columns. When
-              this parameter is present, QuickBooks Desktop omits its default report columns
-              unless you include them here.
+          include_columns: The report columns to include, by column type. Accepts one or more columns.
+
+              **IMPORTANT**: When this parameter is present, QuickBooks Desktop omits its
+              default report columns unless you include them here.
 
           summarize_rows_by: How QuickBooks Desktop calculates report data and labels report rows.
 
@@ -4778,7 +4839,10 @@ class AsyncReportsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Report:
         """
-        Retrieves a custom summary report.
+        Retrieves a custom summary report built from the row and column axes, filters,
+        date period, calendar, and basis options you request. This report is useful when
+        preset summary reports do not match the dimensions you need; QuickBooks Desktop
+        does not assume a default layout.
 
         Args:
           summarize_columns_by: How QuickBooks Desktop calculates report data and labels report column headers.
@@ -4833,8 +4897,10 @@ class AsyncReportsResource(AsyncAPIResource):
               name. Choose only one entity filter per request: `entityType`, `entityIds`, or
               `entityFullNames`.
 
-          include_subcolumns: Whether to include subcolumns in the report. QuickBooks Desktop may still omit
-              subcolumns that it can easily compute from other returned values.
+          include_subcolumns: Whether to include subcolumns in the report.
+
+              **NOTE**: QuickBooks Desktop may still omit subcolumns that it can easily
+              compute from other returned values.
 
           item_full_names: Filter report rows by item `fullName` values, case-insensitive. A `fullName` is
               a fully qualified QuickBooks name formed by joining parent object names with the
@@ -5259,7 +5325,12 @@ class AsyncReportsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Report:
         """
-        Retrieves a general detail report.
+        Retrieves a QuickBooks Desktop general detail report with transaction-level
+        rows, such as General Ledger, Journal, Open Invoices, unpaid bills, sales
+        detail, purchase detail, audit trail, and transaction lists. This report is
+        useful for inspecting the transactions behind balances, receivables, payables,
+        sales, purchases, inventory valuation, and audit activity, including report-only
+        columns that may not be available from standard object queries.
 
         Args:
           report_type: The general detail report type to retrieve.
@@ -5311,9 +5382,10 @@ class AsyncReportsResource(AsyncAPIResource):
               name. Choose only one entity filter per request: `entityType`, `entityIds`, or
               `entityFullNames`.
 
-          include_columns: The report columns to include, by column type. Accepts one or more columns. When
-              this parameter is present, QuickBooks Desktop omits its default report columns
-              unless you include them here.
+          include_columns: The report columns to include, by column type. Accepts one or more columns.
+
+              **IMPORTANT**: When this parameter is present, QuickBooks Desktop omits its
+              default report columns unless you include them here.
 
           item_full_names: Filter report rows by item `fullName` values, case-insensitive. A `fullName` is
               a fully qualified QuickBooks name formed by joining parent object names with the
@@ -5647,7 +5719,11 @@ class AsyncReportsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Report:
         """
-        Retrieves a general summary report.
+        Retrieves a QuickBooks Desktop general summary report, such as a balance sheet,
+        profit and loss, trial balance, sales, purchase, inventory, customer balance,
+        vendor balance, sales tax, or income tax summary. This report is useful for
+        aggregated financial or operational totals with optional date periods, filters,
+        calendar settings, and column summarization.
 
         Args:
           report_type: The general summary report type to retrieve.
@@ -5700,8 +5776,10 @@ class AsyncReportsResource(AsyncAPIResource):
               name. Choose only one entity filter per request: `entityType`, `entityIds`, or
               `entityFullNames`.
 
-          include_subcolumns: Whether to include subcolumns in the report. QuickBooks Desktop may still omit
-              subcolumns that it can easily compute from other returned values.
+          include_subcolumns: Whether to include subcolumns in the report.
+
+              **NOTE**: QuickBooks Desktop may still omit subcolumns that it can easily
+              compute from other returned values.
 
           item_full_names: Filter report rows by item `fullName` values, case-insensitive. A `fullName` is
               a fully qualified QuickBooks name formed by joining parent object names with the
@@ -6012,7 +6090,11 @@ class AsyncReportsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Report:
         """
-        Retrieves a job report.
+        Retrieves a QuickBooks Desktop job report for estimates versus actuals, item
+        profitability, or job profitability. This report is useful for project costing,
+        margin analysis, and estimate tracking by customer or job; job profitability
+        detail and estimates-versus-actuals detail report types require a customer or
+        job filter.
 
         Args:
           report_type: The job report type to retrieve.
@@ -6058,8 +6140,10 @@ class AsyncReportsResource(AsyncAPIResource):
               name. Choose only one entity filter per request: `entityType`, `entityIds`, or
               `entityFullNames`.
 
-          include_subcolumns: Whether to include subcolumns in the report. QuickBooks Desktop may still omit
-              subcolumns that it can easily compute from other returned values.
+          include_subcolumns: Whether to include subcolumns in the report.
+
+              **NOTE**: QuickBooks Desktop may still omit subcolumns that it can easily
+              compute from other returned values.
 
           item_full_names: Filter report rows by item `fullName` values, case-insensitive. A `fullName` is
               a fully qualified QuickBooks name formed by joining parent object names with the
@@ -6409,7 +6493,11 @@ class AsyncReportsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Report:
         """
-        Retrieves a payroll detail report.
+        Retrieves a QuickBooks Desktop payroll detail report, including employee state
+        tax detail, payroll item detail, payroll review detail, payroll transaction
+        detail, and payroll transactions by payee. This report is useful for auditing
+        paycheck line items, payroll item usage, tax calculations, and payee-level
+        payroll activity.
 
         Args:
           report_type: The payroll detail report type to retrieve.
@@ -6457,9 +6545,10 @@ class AsyncReportsResource(AsyncAPIResource):
               name. Choose only one entity filter per request: `entityType`, `entityIds`, or
               `entityFullNames`.
 
-          include_columns: The report columns to include, by column type. Accepts one or more columns. When
-              this parameter is present, QuickBooks Desktop omits its default report columns
-              unless you include them here.
+          include_columns: The report columns to include, by column type. Accepts one or more columns.
+
+              **IMPORTANT**: When this parameter is present, QuickBooks Desktop omits its
+              default report columns unless you include them here.
 
           item_full_names: Filter report rows by item `fullName` values, case-insensitive. A `fullName` is
               a fully qualified QuickBooks name formed by joining parent object names with the
@@ -6725,7 +6814,10 @@ class AsyncReportsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Report:
         """
-        Retrieves a payroll summary report.
+        Retrieves a QuickBooks Desktop payroll summary report, including payroll totals
+        by employee, employee earnings by payroll item, and payroll liability balances.
+        This report is useful for wage, tax, deduction, addition, employer contribution,
+        and unpaid payroll liability reporting.
 
         Args:
           report_type: The payroll summary report type to retrieve.
@@ -6774,8 +6866,10 @@ class AsyncReportsResource(AsyncAPIResource):
               name. Choose only one entity filter per request: `entityType`, `entityIds`, or
               `entityFullNames`.
 
-          include_subcolumns: Whether to include subcolumns in the report. QuickBooks Desktop may still omit
-              subcolumns that it can easily compute from other returned values.
+          include_subcolumns: Whether to include subcolumns in the report.
+
+              **NOTE**: QuickBooks Desktop may still omit subcolumns that it can easily
+              compute from other returned values.
 
           item_full_names: Filter report rows by item `fullName` values, case-insensitive. A `fullName` is
               a fully qualified QuickBooks name formed by joining parent object names with the
@@ -6973,7 +7067,9 @@ class AsyncReportsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Report:
         """
-        Retrieves a time report.
+        Retrieves a QuickBooks Desktop time report by item, job, or name, with summary
+        or detail rows depending on the selected report type. This report is useful for
+        analyzing tracked time for billing, costing, staffing, or project review.
 
         Args:
           report_type: The time report type to retrieve.
@@ -7005,8 +7101,10 @@ class AsyncReportsResource(AsyncAPIResource):
               name. Choose only one entity filter per request: `entityType`, `entityIds`, or
               `entityFullNames`.
 
-          include_subcolumns: Whether to include subcolumns in the report. QuickBooks Desktop may still omit
-              subcolumns that it can easily compute from other returned values.
+          include_subcolumns: Whether to include subcolumns in the report.
+
+              **NOTE**: QuickBooks Desktop may still omit subcolumns that it can easily
+              compute from other returned values.
 
           item_full_names: Filter report rows by item `fullName` values, case-insensitive. A `fullName` is
               a fully qualified QuickBooks name formed by joining parent object names with the
