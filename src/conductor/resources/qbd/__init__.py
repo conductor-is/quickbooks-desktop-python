@@ -40,6 +40,14 @@ from .company import (
     CompanyResourceWithStreamingResponse,
     AsyncCompanyResourceWithStreamingResponse,
 )
+from .reports import (
+    ReportsResource,
+    AsyncReportsResource,
+    ReportsResourceWithRawResponse,
+    AsyncReportsResourceWithRawResponse,
+    ReportsResourceWithStreamingResponse,
+    AsyncReportsResourceWithStreamingResponse,
+)
 from .vendors import (
     VendorsResource,
     AsyncVendorsResource,
@@ -726,6 +734,12 @@ __all__ = [
     "AsyncReceivePaymentsResourceWithRawResponse",
     "ReceivePaymentsResourceWithStreamingResponse",
     "AsyncReceivePaymentsResourceWithStreamingResponse",
+    "ReportsResource",
+    "AsyncReportsResource",
+    "ReportsResourceWithRawResponse",
+    "AsyncReportsResourceWithRawResponse",
+    "ReportsResourceWithStreamingResponse",
+    "AsyncReportsResourceWithStreamingResponse",
     "SalesOrdersResource",
     "AsyncSalesOrdersResource",
     "SalesOrdersResourceWithRawResponse",
