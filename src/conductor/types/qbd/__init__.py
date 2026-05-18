@@ -5,6 +5,7 @@ from __future__ import annotations
 from .bill import Bill as Bill
 from .check import Check as Check
 from .class_ import Class as Class
+from .report import Report as Report
 from .vendor import Vendor as Vendor
 from .account import Account as Account
 from .company import Company as Company
@@ -49,6 +50,7 @@ from .check_list_params import CheckListParams as CheckListParams
 from .class_list_params import ClassListParams as ClassListParams
 from .other_charge_item import OtherChargeItem as OtherChargeItem
 from .payroll_wage_item import PayrollWageItem as PayrollWageItem
+from .report_job_params import ReportJobParams as ReportJobParams
 from .bill_check_payment import BillCheckPayment as BillCheckPayment
 from .bill_create_params import BillCreateParams as BillCreateParams
 from .bill_update_params import BillUpdateParams as BillUpdateParams
@@ -58,6 +60,7 @@ from .credit_card_credit import CreditCardCredit as CreditCardCredit
 from .credit_card_refund import CreditCardRefund as CreditCardRefund
 from .non_inventory_item import NonInventoryItem as NonInventoryItem
 from .payment_to_deposit import PaymentToDeposit as PaymentToDeposit
+from .report_time_params import ReportTimeParams as ReportTimeParams
 from .vendor_list_params import VendorListParams as VendorListParams
 from .account_list_params import AccountListParams as AccountListParams
 from .check_create_params import CheckCreateParams as CheckCreateParams
@@ -70,6 +73,8 @@ from .deleted_list_object import DeletedListObject as DeletedListObject
 from .deleted_transaction import DeletedTransaction as DeletedTransaction
 from .deposit_list_params import DepositListParams as DepositListParams
 from .invoice_list_params import InvoiceListParams as InvoiceListParams
+from .report_aging_params import ReportAgingParams as ReportAgingParams
+from .report_job_response import ReportJobResponse as ReportJobResponse
 from .unit_of_measure_set import UnitOfMeasureSet as UnitOfMeasureSet
 from .bill_delete_response import BillDeleteResponse as BillDeleteResponse
 from .currency_list_params import CurrencyListParams as CurrencyListParams
@@ -77,6 +82,7 @@ from .customer_list_params import CustomerListParams as CustomerListParams
 from .employee_list_params import EmployeeListParams as EmployeeListParams
 from .estimate_list_params import EstimateListParams as EstimateListParams
 from .inventory_adjustment import InventoryAdjustment as InventoryAdjustment
+from .report_time_response import ReportTimeResponse as ReportTimeResponse
 from .sales_representative import SalesRepresentative as SalesRepresentative
 from .transfer_list_params import TransferListParams as TransferListParams
 from .vendor_create_params import VendorCreateParams as VendorCreateParams
@@ -92,6 +98,7 @@ from .invoice_create_params import InvoiceCreateParams as InvoiceCreateParams
 from .invoice_update_params import InvoiceUpdateParams as InvoiceUpdateParams
 from .invoice_void_response import InvoiceVoidResponse as InvoiceVoidResponse
 from .item_site_list_params import ItemSiteListParams as ItemSiteListParams
+from .report_aging_response import ReportAgingResponse as ReportAgingResponse
 from .currency_create_params import CurrencyCreateParams as CurrencyCreateParams
 from .currency_list_response import CurrencyListResponse as CurrencyListResponse
 from .currency_update_params import CurrencyUpdateParams as CurrencyUpdateParams
@@ -160,6 +167,7 @@ from .journal_entry_create_params import JournalEntryCreateParams as JournalEntr
 from .journal_entry_update_params import JournalEntryUpdateParams as JournalEntryUpdateParams
 from .journal_entry_void_response import JournalEntryVoidResponse as JournalEntryVoidResponse
 from .receive_payment_list_params import ReceivePaymentListParams as ReceivePaymentListParams
+from .report_custom_detail_params import ReportCustomDetailParams as ReportCustomDetailParams
 from .sales_order_delete_response import SalesOrderDeleteResponse as SalesOrderDeleteResponse
 from .sales_receipt_create_params import SalesReceiptCreateParams as SalesReceiptCreateParams
 from .sales_receipt_update_params import SalesReceiptUpdateParams as SalesReceiptUpdateParams
@@ -185,6 +193,10 @@ from .payment_method_create_params import PaymentMethodCreateParams as PaymentMe
 from .payment_method_list_response import PaymentMethodListResponse as PaymentMethodListResponse
 from .purchase_order_create_params import PurchaseOrderCreateParams as PurchaseOrderCreateParams
 from .purchase_order_update_params import PurchaseOrderUpdateParams as PurchaseOrderUpdateParams
+from .report_budget_summary_params import ReportBudgetSummaryParams as ReportBudgetSummaryParams
+from .report_custom_summary_params import ReportCustomSummaryParams as ReportCustomSummaryParams
+from .report_general_detail_params import ReportGeneralDetailParams as ReportGeneralDetailParams
+from .report_payroll_detail_params import ReportPayrollDetailParams as ReportPayrollDetailParams
 from .sales_tax_code_create_params import SalesTaxCodeCreateParams as SalesTaxCodeCreateParams
 from .sales_tax_code_list_response import SalesTaxCodeListResponse as SalesTaxCodeListResponse
 from .sales_tax_code_update_params import SalesTaxCodeUpdateParams as SalesTaxCodeUpdateParams
@@ -195,6 +207,9 @@ from .other_charge_item_list_params import OtherChargeItemListParams as OtherCha
 from .payroll_wage_item_list_params import PayrollWageItemListParams as PayrollWageItemListParams
 from .receive_payment_create_params import ReceivePaymentCreateParams as ReceivePaymentCreateParams
 from .receive_payment_update_params import ReceivePaymentUpdateParams as ReceivePaymentUpdateParams
+from .report_custom_detail_response import ReportCustomDetailResponse as ReportCustomDetailResponse
+from .report_general_summary_params import ReportGeneralSummaryParams as ReportGeneralSummaryParams
+from .report_payroll_summary_params import ReportPayrollSummaryParams as ReportPayrollSummaryParams
 from .sales_receipt_delete_response import SalesReceiptDeleteResponse as SalesReceiptDeleteResponse
 from .shipping_method_create_params import ShippingMethodCreateParams as ShippingMethodCreateParams
 from .shipping_method_list_response import ShippingMethodListResponse as ShippingMethodListResponse
@@ -209,12 +224,18 @@ from .date_driven_term_create_params import DateDrivenTermCreateParams as DateDr
 from .date_driven_term_list_response import DateDrivenTermListResponse as DateDrivenTermListResponse
 from .non_inventory_item_list_params import NonInventoryItemListParams as NonInventoryItemListParams
 from .purchase_order_delete_response import PurchaseOrderDeleteResponse as PurchaseOrderDeleteResponse
+from .report_budget_summary_response import ReportBudgetSummaryResponse as ReportBudgetSummaryResponse
+from .report_custom_summary_response import ReportCustomSummaryResponse as ReportCustomSummaryResponse
+from .report_general_detail_response import ReportGeneralDetailResponse as ReportGeneralDetailResponse
+from .report_payroll_detail_response import ReportPayrollDetailResponse as ReportPayrollDetailResponse
 from .deleted_list_object_list_params import DeletedListObjectListParams as DeletedListObjectListParams
 from .deleted_transaction_list_params import DeletedTransactionListParams as DeletedTransactionListParams
 from .other_charge_item_create_params import OtherChargeItemCreateParams as OtherChargeItemCreateParams
 from .other_charge_item_update_params import OtherChargeItemUpdateParams as OtherChargeItemUpdateParams
 from .payroll_wage_item_create_params import PayrollWageItemCreateParams as PayrollWageItemCreateParams
 from .receive_payment_delete_response import ReceivePaymentDeleteResponse as ReceivePaymentDeleteResponse
+from .report_general_summary_response import ReportGeneralSummaryResponse as ReportGeneralSummaryResponse
+from .report_payroll_summary_response import ReportPayrollSummaryResponse as ReportPayrollSummaryResponse
 from .unit_of_measure_set_list_params import UnitOfMeasureSetListParams as UnitOfMeasureSetListParams
 from .bill_check_payment_create_params import BillCheckPaymentCreateParams as BillCheckPaymentCreateParams
 from .bill_check_payment_update_params import BillCheckPaymentUpdateParams as BillCheckPaymentUpdateParams
