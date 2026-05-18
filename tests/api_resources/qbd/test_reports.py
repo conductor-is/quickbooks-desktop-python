@@ -11,16 +11,7 @@ from conductor import Conductor, AsyncConductor
 from tests.utils import assert_matches_type
 from conductor._utils import parse_date
 from conductor.types.qbd import (
-    ReportJobResponse,
-    ReportTimeResponse,
-    ReportAgingResponse,
-    ReportCustomDetailResponse,
-    ReportBudgetSummaryResponse,
-    ReportCustomSummaryResponse,
-    ReportGeneralDetailResponse,
-    ReportPayrollDetailResponse,
-    ReportGeneralSummaryResponse,
-    ReportPayrollSummaryResponse,
+    Report,
 )
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
@@ -35,7 +26,7 @@ class TestReports:
             report_type="ap_aging_detail",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
-        assert_matches_type(ReportAgingResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     def test_method_aging_with_all_params(self, client: Conductor) -> None:
@@ -66,7 +57,7 @@ class TestReports:
             updated_before=parse_date("2025-02-01"),
             updated_date_macro="this_month_to_date",
         )
-        assert_matches_type(ReportAgingResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     def test_raw_response_aging(self, client: Conductor) -> None:
@@ -78,7 +69,7 @@ class TestReports:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         report = response.parse()
-        assert_matches_type(ReportAgingResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     def test_streaming_response_aging(self, client: Conductor) -> None:
@@ -90,7 +81,7 @@ class TestReports:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             report = response.parse()
-            assert_matches_type(ReportAgingResponse, report, path=["response"])
+            assert_matches_type(Report, report, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -101,7 +92,7 @@ class TestReports:
             report_type="balance_sheet_budget_overview",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
-        assert_matches_type(ReportBudgetSummaryResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     def test_method_budget_summary_with_all_params(self, client: Conductor) -> None:
@@ -118,7 +109,7 @@ class TestReports:
             summarize_columns_by="date",
             summarize_rows_by="account",
         )
-        assert_matches_type(ReportBudgetSummaryResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     def test_raw_response_budget_summary(self, client: Conductor) -> None:
@@ -131,7 +122,7 @@ class TestReports:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         report = response.parse()
-        assert_matches_type(ReportBudgetSummaryResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     def test_streaming_response_budget_summary(self, client: Conductor) -> None:
@@ -144,7 +135,7 @@ class TestReports:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             report = response.parse()
-            assert_matches_type(ReportBudgetSummaryResponse, report, path=["response"])
+            assert_matches_type(Report, report, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -155,7 +146,7 @@ class TestReports:
             summarize_rows_by="account",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
-        assert_matches_type(ReportCustomDetailResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     def test_method_custom_detail_with_all_params(self, client: Conductor) -> None:
@@ -188,7 +179,7 @@ class TestReports:
             updated_before=parse_date("2025-02-01"),
             updated_date_macro="this_month_to_date",
         )
-        assert_matches_type(ReportCustomDetailResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     def test_raw_response_custom_detail(self, client: Conductor) -> None:
@@ -201,7 +192,7 @@ class TestReports:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         report = response.parse()
-        assert_matches_type(ReportCustomDetailResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     def test_streaming_response_custom_detail(self, client: Conductor) -> None:
@@ -214,7 +205,7 @@ class TestReports:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             report = response.parse()
-            assert_matches_type(ReportCustomDetailResponse, report, path=["response"])
+            assert_matches_type(Report, report, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -225,7 +216,7 @@ class TestReports:
             summarize_rows_by="account",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
-        assert_matches_type(ReportCustomSummaryResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     def test_method_custom_summary_with_all_params(self, client: Conductor) -> None:
@@ -260,7 +251,7 @@ class TestReports:
             updated_before=parse_date("2025-02-01"),
             updated_date_macro="this_month_to_date",
         )
-        assert_matches_type(ReportCustomSummaryResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     def test_raw_response_custom_summary(self, client: Conductor) -> None:
@@ -273,7 +264,7 @@ class TestReports:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         report = response.parse()
-        assert_matches_type(ReportCustomSummaryResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     def test_streaming_response_custom_summary(self, client: Conductor) -> None:
@@ -286,7 +277,7 @@ class TestReports:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             report = response.parse()
-            assert_matches_type(ReportCustomSummaryResponse, report, path=["response"])
+            assert_matches_type(Report, report, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -296,7 +287,7 @@ class TestReports:
             report_type="1099_detail",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
-        assert_matches_type(ReportGeneralDetailResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     def test_method_general_detail_with_all_params(self, client: Conductor) -> None:
@@ -329,7 +320,7 @@ class TestReports:
             updated_before=parse_date("2025-02-01"),
             updated_date_macro="this_month_to_date",
         )
-        assert_matches_type(ReportGeneralDetailResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     def test_raw_response_general_detail(self, client: Conductor) -> None:
@@ -341,7 +332,7 @@ class TestReports:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         report = response.parse()
-        assert_matches_type(ReportGeneralDetailResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     def test_streaming_response_general_detail(self, client: Conductor) -> None:
@@ -353,7 +344,7 @@ class TestReports:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             report = response.parse()
-            assert_matches_type(ReportGeneralDetailResponse, report, path=["response"])
+            assert_matches_type(Report, report, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -363,7 +354,7 @@ class TestReports:
             report_type="balance_sheet_by_class",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
-        assert_matches_type(ReportGeneralSummaryResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     def test_method_general_summary_with_all_params(self, client: Conductor) -> None:
@@ -397,7 +388,7 @@ class TestReports:
             updated_before=parse_date("2025-02-01"),
             updated_date_macro="this_month_to_date",
         )
-        assert_matches_type(ReportGeneralSummaryResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     def test_raw_response_general_summary(self, client: Conductor) -> None:
@@ -409,7 +400,7 @@ class TestReports:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         report = response.parse()
-        assert_matches_type(ReportGeneralSummaryResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     def test_streaming_response_general_summary(self, client: Conductor) -> None:
@@ -421,7 +412,7 @@ class TestReports:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             report = response.parse()
-            assert_matches_type(ReportGeneralSummaryResponse, report, path=["response"])
+            assert_matches_type(Report, report, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -431,7 +422,7 @@ class TestReports:
             report_type="item_estimates_vs_actuals",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
-        assert_matches_type(ReportJobResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     def test_method_job_with_all_params(self, client: Conductor) -> None:
@@ -461,7 +452,7 @@ class TestReports:
             updated_before=parse_date("2025-02-01"),
             updated_date_macro="this_month_to_date",
         )
-        assert_matches_type(ReportJobResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     def test_raw_response_job(self, client: Conductor) -> None:
@@ -473,7 +464,7 @@ class TestReports:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         report = response.parse()
-        assert_matches_type(ReportJobResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     def test_streaming_response_job(self, client: Conductor) -> None:
@@ -485,7 +476,7 @@ class TestReports:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             report = response.parse()
-            assert_matches_type(ReportJobResponse, report, path=["response"])
+            assert_matches_type(Report, report, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -495,7 +486,7 @@ class TestReports:
             report_type="employee_state_taxes_detail",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
-        assert_matches_type(ReportPayrollDetailResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     def test_method_payroll_detail_with_all_params(self, client: Conductor) -> None:
@@ -526,7 +517,7 @@ class TestReports:
             updated_before=parse_date("2025-02-01"),
             updated_date_macro="this_month_to_date",
         )
-        assert_matches_type(ReportPayrollDetailResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     def test_raw_response_payroll_detail(self, client: Conductor) -> None:
@@ -538,7 +529,7 @@ class TestReports:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         report = response.parse()
-        assert_matches_type(ReportPayrollDetailResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     def test_streaming_response_payroll_detail(self, client: Conductor) -> None:
@@ -550,7 +541,7 @@ class TestReports:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             report = response.parse()
-            assert_matches_type(ReportPayrollDetailResponse, report, path=["response"])
+            assert_matches_type(Report, report, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -560,7 +551,7 @@ class TestReports:
             report_type="employee_earnings_summary",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
-        assert_matches_type(ReportPayrollSummaryResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     def test_method_payroll_summary_with_all_params(self, client: Conductor) -> None:
@@ -592,7 +583,7 @@ class TestReports:
             updated_before=parse_date("2025-02-01"),
             updated_date_macro="this_month_to_date",
         )
-        assert_matches_type(ReportPayrollSummaryResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     def test_raw_response_payroll_summary(self, client: Conductor) -> None:
@@ -604,7 +595,7 @@ class TestReports:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         report = response.parse()
-        assert_matches_type(ReportPayrollSummaryResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     def test_streaming_response_payroll_summary(self, client: Conductor) -> None:
@@ -616,7 +607,7 @@ class TestReports:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             report = response.parse()
-            assert_matches_type(ReportPayrollSummaryResponse, report, path=["response"])
+            assert_matches_type(Report, report, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -626,7 +617,7 @@ class TestReports:
             report_type="time_by_item",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
-        assert_matches_type(ReportTimeResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     def test_method_time_with_all_params(self, client: Conductor) -> None:
@@ -650,7 +641,7 @@ class TestReports:
             rows_to_return="all",
             summarize_columns_by="month",
         )
-        assert_matches_type(ReportTimeResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     def test_raw_response_time(self, client: Conductor) -> None:
@@ -662,7 +653,7 @@ class TestReports:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         report = response.parse()
-        assert_matches_type(ReportTimeResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     def test_streaming_response_time(self, client: Conductor) -> None:
@@ -674,7 +665,7 @@ class TestReports:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             report = response.parse()
-            assert_matches_type(ReportTimeResponse, report, path=["response"])
+            assert_matches_type(Report, report, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -690,7 +681,7 @@ class TestAsyncReports:
             report_type="ap_aging_detail",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
-        assert_matches_type(ReportAgingResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     async def test_method_aging_with_all_params(self, async_client: AsyncConductor) -> None:
@@ -721,7 +712,7 @@ class TestAsyncReports:
             updated_before=parse_date("2025-02-01"),
             updated_date_macro="this_month_to_date",
         )
-        assert_matches_type(ReportAgingResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     async def test_raw_response_aging(self, async_client: AsyncConductor) -> None:
@@ -733,7 +724,7 @@ class TestAsyncReports:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         report = await response.parse()
-        assert_matches_type(ReportAgingResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     async def test_streaming_response_aging(self, async_client: AsyncConductor) -> None:
@@ -745,7 +736,7 @@ class TestAsyncReports:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             report = await response.parse()
-            assert_matches_type(ReportAgingResponse, report, path=["response"])
+            assert_matches_type(Report, report, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -756,7 +747,7 @@ class TestAsyncReports:
             report_type="balance_sheet_budget_overview",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
-        assert_matches_type(ReportBudgetSummaryResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     async def test_method_budget_summary_with_all_params(self, async_client: AsyncConductor) -> None:
@@ -773,7 +764,7 @@ class TestAsyncReports:
             summarize_columns_by="date",
             summarize_rows_by="account",
         )
-        assert_matches_type(ReportBudgetSummaryResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     async def test_raw_response_budget_summary(self, async_client: AsyncConductor) -> None:
@@ -786,7 +777,7 @@ class TestAsyncReports:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         report = await response.parse()
-        assert_matches_type(ReportBudgetSummaryResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     async def test_streaming_response_budget_summary(self, async_client: AsyncConductor) -> None:
@@ -799,7 +790,7 @@ class TestAsyncReports:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             report = await response.parse()
-            assert_matches_type(ReportBudgetSummaryResponse, report, path=["response"])
+            assert_matches_type(Report, report, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -810,7 +801,7 @@ class TestAsyncReports:
             summarize_rows_by="account",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
-        assert_matches_type(ReportCustomDetailResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     async def test_method_custom_detail_with_all_params(self, async_client: AsyncConductor) -> None:
@@ -843,7 +834,7 @@ class TestAsyncReports:
             updated_before=parse_date("2025-02-01"),
             updated_date_macro="this_month_to_date",
         )
-        assert_matches_type(ReportCustomDetailResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     async def test_raw_response_custom_detail(self, async_client: AsyncConductor) -> None:
@@ -856,7 +847,7 @@ class TestAsyncReports:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         report = await response.parse()
-        assert_matches_type(ReportCustomDetailResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     async def test_streaming_response_custom_detail(self, async_client: AsyncConductor) -> None:
@@ -869,7 +860,7 @@ class TestAsyncReports:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             report = await response.parse()
-            assert_matches_type(ReportCustomDetailResponse, report, path=["response"])
+            assert_matches_type(Report, report, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -880,7 +871,7 @@ class TestAsyncReports:
             summarize_rows_by="account",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
-        assert_matches_type(ReportCustomSummaryResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     async def test_method_custom_summary_with_all_params(self, async_client: AsyncConductor) -> None:
@@ -915,7 +906,7 @@ class TestAsyncReports:
             updated_before=parse_date("2025-02-01"),
             updated_date_macro="this_month_to_date",
         )
-        assert_matches_type(ReportCustomSummaryResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     async def test_raw_response_custom_summary(self, async_client: AsyncConductor) -> None:
@@ -928,7 +919,7 @@ class TestAsyncReports:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         report = await response.parse()
-        assert_matches_type(ReportCustomSummaryResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     async def test_streaming_response_custom_summary(self, async_client: AsyncConductor) -> None:
@@ -941,7 +932,7 @@ class TestAsyncReports:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             report = await response.parse()
-            assert_matches_type(ReportCustomSummaryResponse, report, path=["response"])
+            assert_matches_type(Report, report, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -951,7 +942,7 @@ class TestAsyncReports:
             report_type="1099_detail",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
-        assert_matches_type(ReportGeneralDetailResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     async def test_method_general_detail_with_all_params(self, async_client: AsyncConductor) -> None:
@@ -984,7 +975,7 @@ class TestAsyncReports:
             updated_before=parse_date("2025-02-01"),
             updated_date_macro="this_month_to_date",
         )
-        assert_matches_type(ReportGeneralDetailResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     async def test_raw_response_general_detail(self, async_client: AsyncConductor) -> None:
@@ -996,7 +987,7 @@ class TestAsyncReports:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         report = await response.parse()
-        assert_matches_type(ReportGeneralDetailResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     async def test_streaming_response_general_detail(self, async_client: AsyncConductor) -> None:
@@ -1008,7 +999,7 @@ class TestAsyncReports:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             report = await response.parse()
-            assert_matches_type(ReportGeneralDetailResponse, report, path=["response"])
+            assert_matches_type(Report, report, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -1018,7 +1009,7 @@ class TestAsyncReports:
             report_type="balance_sheet_by_class",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
-        assert_matches_type(ReportGeneralSummaryResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     async def test_method_general_summary_with_all_params(self, async_client: AsyncConductor) -> None:
@@ -1052,7 +1043,7 @@ class TestAsyncReports:
             updated_before=parse_date("2025-02-01"),
             updated_date_macro="this_month_to_date",
         )
-        assert_matches_type(ReportGeneralSummaryResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     async def test_raw_response_general_summary(self, async_client: AsyncConductor) -> None:
@@ -1064,7 +1055,7 @@ class TestAsyncReports:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         report = await response.parse()
-        assert_matches_type(ReportGeneralSummaryResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     async def test_streaming_response_general_summary(self, async_client: AsyncConductor) -> None:
@@ -1076,7 +1067,7 @@ class TestAsyncReports:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             report = await response.parse()
-            assert_matches_type(ReportGeneralSummaryResponse, report, path=["response"])
+            assert_matches_type(Report, report, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -1086,7 +1077,7 @@ class TestAsyncReports:
             report_type="item_estimates_vs_actuals",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
-        assert_matches_type(ReportJobResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     async def test_method_job_with_all_params(self, async_client: AsyncConductor) -> None:
@@ -1116,7 +1107,7 @@ class TestAsyncReports:
             updated_before=parse_date("2025-02-01"),
             updated_date_macro="this_month_to_date",
         )
-        assert_matches_type(ReportJobResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     async def test_raw_response_job(self, async_client: AsyncConductor) -> None:
@@ -1128,7 +1119,7 @@ class TestAsyncReports:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         report = await response.parse()
-        assert_matches_type(ReportJobResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     async def test_streaming_response_job(self, async_client: AsyncConductor) -> None:
@@ -1140,7 +1131,7 @@ class TestAsyncReports:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             report = await response.parse()
-            assert_matches_type(ReportJobResponse, report, path=["response"])
+            assert_matches_type(Report, report, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -1150,7 +1141,7 @@ class TestAsyncReports:
             report_type="employee_state_taxes_detail",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
-        assert_matches_type(ReportPayrollDetailResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     async def test_method_payroll_detail_with_all_params(self, async_client: AsyncConductor) -> None:
@@ -1181,7 +1172,7 @@ class TestAsyncReports:
             updated_before=parse_date("2025-02-01"),
             updated_date_macro="this_month_to_date",
         )
-        assert_matches_type(ReportPayrollDetailResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     async def test_raw_response_payroll_detail(self, async_client: AsyncConductor) -> None:
@@ -1193,7 +1184,7 @@ class TestAsyncReports:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         report = await response.parse()
-        assert_matches_type(ReportPayrollDetailResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     async def test_streaming_response_payroll_detail(self, async_client: AsyncConductor) -> None:
@@ -1205,7 +1196,7 @@ class TestAsyncReports:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             report = await response.parse()
-            assert_matches_type(ReportPayrollDetailResponse, report, path=["response"])
+            assert_matches_type(Report, report, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -1215,7 +1206,7 @@ class TestAsyncReports:
             report_type="employee_earnings_summary",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
-        assert_matches_type(ReportPayrollSummaryResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     async def test_method_payroll_summary_with_all_params(self, async_client: AsyncConductor) -> None:
@@ -1247,7 +1238,7 @@ class TestAsyncReports:
             updated_before=parse_date("2025-02-01"),
             updated_date_macro="this_month_to_date",
         )
-        assert_matches_type(ReportPayrollSummaryResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     async def test_raw_response_payroll_summary(self, async_client: AsyncConductor) -> None:
@@ -1259,7 +1250,7 @@ class TestAsyncReports:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         report = await response.parse()
-        assert_matches_type(ReportPayrollSummaryResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     async def test_streaming_response_payroll_summary(self, async_client: AsyncConductor) -> None:
@@ -1271,7 +1262,7 @@ class TestAsyncReports:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             report = await response.parse()
-            assert_matches_type(ReportPayrollSummaryResponse, report, path=["response"])
+            assert_matches_type(Report, report, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -1281,7 +1272,7 @@ class TestAsyncReports:
             report_type="time_by_item",
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
-        assert_matches_type(ReportTimeResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     async def test_method_time_with_all_params(self, async_client: AsyncConductor) -> None:
@@ -1305,7 +1296,7 @@ class TestAsyncReports:
             rows_to_return="all",
             summarize_columns_by="month",
         )
-        assert_matches_type(ReportTimeResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     async def test_raw_response_time(self, async_client: AsyncConductor) -> None:
@@ -1317,7 +1308,7 @@ class TestAsyncReports:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         report = await response.parse()
-        assert_matches_type(ReportTimeResponse, report, path=["response"])
+        assert_matches_type(Report, report, path=["response"])
 
     @parametrize
     async def test_streaming_response_time(self, async_client: AsyncConductor) -> None:
@@ -1329,6 +1320,6 @@ class TestAsyncReports:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             report = await response.parse()
-            assert_matches_type(ReportTimeResponse, report, path=["response"])
+            assert_matches_type(Report, report, path=["response"])
 
         assert cast(Any, response.is_closed) is True
