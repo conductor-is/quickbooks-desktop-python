@@ -116,7 +116,7 @@ class CreditLine(BaseModel):
     This ID is unique across all transaction line types.
     """
 
-    account: CreditLineAccount
+    account: Optional[CreditLineAccount] = None
     """The account to which this journal credit line is being credited.
 
     This will increase the balance of this account.
