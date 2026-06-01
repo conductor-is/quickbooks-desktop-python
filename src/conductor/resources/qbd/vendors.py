@@ -148,6 +148,8 @@ class VendorsResource(SyncAPIResource):
           company_name: The name of the company associated with this vendor. This name is used on
               invoices, checks, and other forms.
 
+              Maximum length: 41 characters.
+
           contact: The name of the primary contact person for this vendor.
 
           credit_limit: The vendor's credit limit, represented as a decimal string. This is the maximum
@@ -470,6 +472,8 @@ class VendorsResource(SyncAPIResource):
 
           company_name: The name of the company associated with this vendor. This name is used on
               invoices, checks, and other forms.
+
+              Maximum length: 41 characters.
 
           contact: The name of the primary contact person for this vendor.
 
@@ -949,6 +953,8 @@ class AsyncVendorsResource(AsyncAPIResource):
           company_name: The name of the company associated with this vendor. This name is used on
               invoices, checks, and other forms.
 
+              Maximum length: 41 characters.
+
           contact: The name of the primary contact person for this vendor.
 
           credit_limit: The vendor's credit limit, represented as a decimal string. This is the maximum
@@ -1271,6 +1277,8 @@ class AsyncVendorsResource(AsyncAPIResource):
 
           company_name: The name of the company associated with this vendor. This name is used on
               invoices, checks, and other forms.
+
+              Maximum length: 41 characters.
 
           contact: The name of the primary contact person for this vendor.
 

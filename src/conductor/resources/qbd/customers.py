@@ -150,6 +150,8 @@ class CustomersResource(SyncAPIResource):
           company_name: The name of the company associated with this customer. This name is used on
               invoices, checks, and other forms.
 
+              Maximum length: 41 characters.
+
           contact: The name of the primary contact person for this customer.
 
           credit_card: The customer's credit card information, including card type, number, and
@@ -492,6 +494,8 @@ class CustomersResource(SyncAPIResource):
 
           company_name: The name of the company associated with this customer. This name is used on
               invoices, checks, and other forms.
+
+              Maximum length: 41 characters.
 
           contact: The name of the primary contact person for this customer.
 
@@ -1008,6 +1012,8 @@ class AsyncCustomersResource(AsyncAPIResource):
           company_name: The name of the company associated with this customer. This name is used on
               invoices, checks, and other forms.
 
+              Maximum length: 41 characters.
+
           contact: The name of the primary contact person for this customer.
 
           credit_card: The customer's credit card information, including card type, number, and
@@ -1350,6 +1356,8 @@ class AsyncCustomersResource(AsyncAPIResource):
 
           company_name: The name of the company associated with this customer. This name is used on
               invoices, checks, and other forms.
+
+              Maximum length: 41 characters.
 
           contact: The name of the primary contact person for this customer.
 
