@@ -35,7 +35,12 @@ class ItemSiteListParams(TypedDict, total=False):
     """
 
     item_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="itemIds")]
-    """Filter for item sites for these items."""
+    """Filter for item sites for these items.
+
+    **NOTE:** QuickBooks Desktop only supports `itemType` or item/site filters for
+    item-sites requests, not both. Do not use `itemType` together with `itemIds` or
+    `siteIds`.
+    """
 
     item_type: Annotated[
         Literal[
@@ -54,7 +59,12 @@ class ItemSiteListParams(TypedDict, total=False):
         ],
         PropertyInfo(alias="itemType"),
     ]
-    """Filter for item sites that match this item type."""
+    """Filter for item sites that match this item type.
+
+    **NOTE:** QuickBooks Desktop only supports `itemType` or item/site filters for
+    item-sites requests, not both. Do not use `itemType` together with `itemIds` or
+    `siteIds`.
+    """
 
     limit: int
     """The maximum number of objects to return.
@@ -70,6 +80,10 @@ class ItemSiteListParams(TypedDict, total=False):
     """Filter for item sites at these sites.
 
     A site represents a physical location, such as a warehouse or store.
+
+    **NOTE:** QuickBooks Desktop only supports `itemType` or item/site filters for
+    item-sites requests, not both. Do not use `itemType` together with `itemIds` or
+    `siteIds`.
     """
 
     status: Literal["active", "all", "inactive"]

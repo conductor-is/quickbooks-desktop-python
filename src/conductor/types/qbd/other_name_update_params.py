@@ -47,6 +47,8 @@ class OtherNameUpdateParams(TypedDict, total=False):
     """The name of the company associated with this other-name.
 
     This name is used on invoices, checks, and other forms.
+
+    Maximum length: 41 characters.
     """
 
     contact: str
