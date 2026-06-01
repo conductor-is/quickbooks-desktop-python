@@ -105,6 +105,8 @@ class OtherNamesResource(SyncAPIResource):
           company_name: The name of the company associated with this other-name. This name is used on
               invoices, checks, and other forms.
 
+              Maximum length: 41 characters.
+
           contact: The name of the primary contact person for this other-name.
 
           email: The other-name's email address.
@@ -285,6 +287,8 @@ class OtherNamesResource(SyncAPIResource):
 
           company_name: The name of the company associated with this other-name. This name is used on
               invoices, checks, and other forms.
+
+              Maximum length: 41 characters.
 
           contact: The name of the primary contact person for this other-name.
 
@@ -592,6 +596,8 @@ class AsyncOtherNamesResource(AsyncAPIResource):
           company_name: The name of the company associated with this other-name. This name is used on
               invoices, checks, and other forms.
 
+              Maximum length: 41 characters.
+
           contact: The name of the primary contact person for this other-name.
 
           email: The other-name's email address.
@@ -772,6 +778,8 @@ class AsyncOtherNamesResource(AsyncAPIResource):
 
           company_name: The name of the company associated with this other-name. This name is used on
               invoices, checks, and other forms.
+
+              Maximum length: 41 characters.
 
           contact: The name of the primary contact person for this other-name.
 
