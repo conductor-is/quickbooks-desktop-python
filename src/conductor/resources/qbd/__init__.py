@@ -160,6 +160,14 @@ from .preferences import (
     PreferencesResourceWithStreamingResponse,
     AsyncPreferencesResourceWithStreamingResponse,
 )
+from .bills_to_pay import (
+    BillsToPayResource,
+    AsyncBillsToPayResource,
+    BillsToPayResourceWithRawResponse,
+    AsyncBillsToPayResourceWithRawResponse,
+    BillsToPayResourceWithStreamingResponse,
+    AsyncBillsToPayResourceWithStreamingResponse,
+)
 from .credit_memos import (
     CreditMemosResource,
     AsyncCreditMemosResource,
@@ -512,6 +520,12 @@ __all__ = [
     "AsyncBillsResourceWithRawResponse",
     "BillsResourceWithStreamingResponse",
     "AsyncBillsResourceWithStreamingResponse",
+    "BillsToPayResource",
+    "AsyncBillsToPayResource",
+    "BillsToPayResourceWithRawResponse",
+    "AsyncBillsToPayResourceWithRawResponse",
+    "BillsToPayResourceWithStreamingResponse",
+    "AsyncBillsToPayResourceWithStreamingResponse",
     "BuildAssembliesResource",
     "AsyncBuildAssembliesResource",
     "BuildAssembliesResourceWithRawResponse",

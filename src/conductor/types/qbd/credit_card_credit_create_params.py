@@ -93,9 +93,10 @@ class CreditCardCreditCreateParams(TypedDict, total=False):
     the payee. This can be overridden on the credit card credit's individual lines.
 
     Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes
-    can also be created in QuickBooks. If QuickBooks is not set up to charge sales
-    tax (via the "Do You Charge Sales Tax?" preference), it will assign the default
-    non-taxable code to all sales.
+    can also be created in QuickBooks Desktop. If QuickBooks Desktop is not set up
+    to charge sales tax (via the "Do You Charge Sales Tax?" preference), it assigns
+    the default non-taxable sales-tax code configured in the company file to all
+    sales.
     """
 
 
@@ -184,9 +185,10 @@ class ExpenseLine(TypedDict, total=False):
     transaction or the associated item.
 
     Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes
-    can also be created in QuickBooks. If QuickBooks is not set up to charge sales
-    tax (via the "Do You Charge Sales Tax?" preference), it will assign the default
-    non-taxable code to all sales.
+    can also be created in QuickBooks Desktop. If QuickBooks Desktop is not set up
+    to charge sales tax (via the "Do You Charge Sales Tax?" preference), it assigns
+    the default non-taxable sales-tax code configured in the company file to all
+    sales.
     """
 
 
@@ -448,9 +450,10 @@ class ItemLine(TypedDict, total=False):
     transaction or the associated item.
 
     Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes
-    can also be created in QuickBooks. If QuickBooks is not set up to charge sales
-    tax (via the "Do You Charge Sales Tax?" preference), it will assign the default
-    non-taxable code to all sales.
+    can also be created in QuickBooks Desktop. If QuickBooks Desktop is not set up
+    to charge sales tax (via the "Do You Charge Sales Tax?" preference), it assigns
+    the default non-taxable sales-tax code configured in the company file to all
+    sales.
     """
 
     serial_number: Annotated[str, PropertyInfo(alias="serialNumber")]

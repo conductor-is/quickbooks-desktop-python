@@ -78,8 +78,8 @@ class BillCheckPaymentCreateParams(TypedDict, total=False):
     payables_account_id: Annotated[str, PropertyInfo(alias="payablesAccountId")]
     """
     The Accounts-Payable (A/P) account to which this bill check payment is assigned,
-    used to track the amount owed. If not specified, QuickBooks Desktop will use its
-    default A/P account.
+    used for accounts-payable tracking. If omitted, QuickBooks Desktop uses the
+    default A/P account configured in the company file.
 
     **IMPORTANT**: If this bill check payment is linked to other transactions, this
     A/P account must match the `payablesAccount` used in those other transactions.
@@ -101,10 +101,9 @@ class BillCheckPaymentCreateParams(TypedDict, total=False):
 
 class ApplyToTransactionApplyCredit(TypedDict, total=False):
     applied_amount: Required[Annotated[str, PropertyInfo(alias="appliedAmount")]]
-    """The amount of credit applied to this transaction.
-
-    This could include customer deposits, payments, or credits. Represented as a
-    decimal string.
+    """
+    The amount of the selected credit transaction to apply to this transaction,
+    represented as a decimal string.
 
     Decimal string format: exactly 2 decimal places when cents are included and up
     to 13 digits before the decimal point (for example, "123.45").
@@ -122,41 +121,41 @@ class ApplyToTransactionApplyCredit(TypedDict, total=False):
 
 class ApplyToTransaction(TypedDict, total=False):
     transaction_id: Required[Annotated[str, PropertyInfo(alias="transactionId")]]
-    """The ID of the receivable transaction to which this payment is applied."""
+    """The ID of the target transaction to which this payment is applied."""
 
     apply_credits: Annotated[Iterable[ApplyToTransactionApplyCredit], PropertyInfo(alias="applyCredits")]
-    """Credits to apply to this receivable transaction, reducing its balance.
+    """Credits to apply to this target transaction, reducing its balance.
 
-    This creates a link between this receivable transaction and the specified credit
+    This creates a link between this target transaction and the specified credit
     transactions.
 
     **IMPORTANT**: By default, QuickBooks will not return any information about the
     linked transactions in this endpoint's response even when this request is
-    successful. To see the transactions linked via this field, refetch the
-    receivable transaction and check the `linkedTransactions` response field. If
-    fetching a list of receivable transactions, you must also specify the parameter
+    successful. To see the transactions linked via this field, refetch the target
+    transaction and check the `linkedTransactions` response field. If fetching a
+    list of target transactions, you must also specify the parameter
     `includeLinkedTransactions=true` to see the `linkedTransactions` response field.
     """
 
     discount_account_id: Annotated[str, PropertyInfo(alias="discountAccountId")]
-    """The financial account used to track this receivable transaction's discount."""
+    """The financial account used to track this target transaction's discount."""
 
     discount_amount: Annotated[str, PropertyInfo(alias="discountAmount")]
     """
-    The monetary amount by which to reduce the receivable transaction's receivable
-    amount, represented as a decimal string.
+    The monetary amount by which to reduce this target transaction's balance,
+    represented as a decimal string.
 
     Decimal string format: exactly 2 decimal places when cents are included and up
     to 13 digits before the decimal point (for example, "123.45").
     """
 
     discount_class_id: Annotated[str, PropertyInfo(alias="discountClassId")]
-    """The class used to track this receivable transaction's discount."""
+    """The class used to track this target transaction's discount."""
 
     payment_amount: Annotated[str, PropertyInfo(alias="paymentAmount")]
     """
-    The monetary amount to apply to the receivable transaction, represented as a
-    decimal string.
+    The monetary amount to apply to the target transaction, represented as a decimal
+    string.
 
     Decimal string format: exactly 2 decimal places when cents are included and up
     to 13 digits before the decimal point (for example, "123.45").

@@ -128,6 +128,18 @@ Methods:
 - <code title="delete /quickbooks-desktop/bills/{id}">conductor.qbd.bills.<a href="./src/conductor/resources/qbd/bills.py">delete</a>(id) -> <a href="./src/conductor/types/qbd/bill_delete_response.py">BillDeleteResponse</a></code>
 - <code title="post /quickbooks-desktop/bills/{id}/void">conductor.qbd.bills.<a href="./src/conductor/resources/qbd/bills.py">void</a>(id) -> <a href="./src/conductor/types/qbd/bill_void_response.py">BillVoidResponse</a></code>
 
+## BillsToPay
+
+Types:
+
+```python
+from conductor.types.qbd import BillToPay, BillsToPayListResponse
+```
+
+Methods:
+
+- <code title="get /quickbooks-desktop/bills-to-pay">conductor.qbd.bills_to_pay.<a href="./src/conductor/resources/qbd/bills_to_pay.py">list</a>(\*\*<a href="src/conductor/types/qbd/bills_to_pay_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/bills_to_pay_list_response.py">BillsToPayListResponse</a></code>
+
 ## BuildAssemblies
 
 Types:

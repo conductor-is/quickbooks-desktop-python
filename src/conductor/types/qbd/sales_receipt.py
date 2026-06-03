@@ -767,7 +767,7 @@ class LineGroupLineSalesTaxCode(BaseModel):
     """
     The sales-tax code for this sales receipt line, determining whether it is taxable or non-taxable. If set, this overrides any sales-tax codes defined on the parent transaction or the associated item.
 
-    Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes can also be created in QuickBooks. If QuickBooks is not set up to charge sales tax (via the "Do You Charge Sales Tax?" preference), it will assign the default non-taxable code to all sales.
+    Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes can also be created in QuickBooks Desktop. If QuickBooks Desktop is not set up to charge sales tax (via the "Do You Charge Sales Tax?" preference), it assigns the default non-taxable sales-tax code configured in the company file to all sales.
     """
 
     id: Optional[str] = None
@@ -931,9 +931,10 @@ class LineGroupLine(BaseModel):
     the parent transaction or the associated item.
 
     Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes
-    can also be created in QuickBooks. If QuickBooks is not set up to charge sales
-    tax (via the "Do You Charge Sales Tax?" preference), it will assign the default
-    non-taxable code to all sales.
+    can also be created in QuickBooks Desktop. If QuickBooks Desktop is not set up
+    to charge sales tax (via the "Do You Charge Sales Tax?" preference), it assigns
+    the default non-taxable sales-tax code configured in the company file to all
+    sales.
     """
 
     serial_number: Optional[str] = FieldInfo(alias="serialNumber", default=None)
@@ -1356,7 +1357,7 @@ class LineSalesTaxCode(BaseModel):
     """
     The sales-tax code for this sales receipt line, determining whether it is taxable or non-taxable. If set, this overrides any sales-tax codes defined on the parent transaction or the associated item.
 
-    Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes can also be created in QuickBooks. If QuickBooks is not set up to charge sales tax (via the "Do You Charge Sales Tax?" preference), it will assign the default non-taxable code to all sales.
+    Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes can also be created in QuickBooks Desktop. If QuickBooks Desktop is not set up to charge sales tax (via the "Do You Charge Sales Tax?" preference), it assigns the default non-taxable sales-tax code configured in the company file to all sales.
     """
 
     id: Optional[str] = None
@@ -1520,9 +1521,10 @@ class Line(BaseModel):
     the parent transaction or the associated item.
 
     Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes
-    can also be created in QuickBooks. If QuickBooks is not set up to charge sales
-    tax (via the "Do You Charge Sales Tax?" preference), it will assign the default
-    non-taxable code to all sales.
+    can also be created in QuickBooks Desktop. If QuickBooks Desktop is not set up
+    to charge sales tax (via the "Do You Charge Sales Tax?" preference), it assigns
+    the default non-taxable sales-tax code configured in the company file to all
+    sales.
     """
 
     serial_number: Optional[str] = FieldInfo(alias="serialNumber", default=None)
@@ -1588,7 +1590,7 @@ class SalesTaxCode(BaseModel):
     """
     The sales-tax code for this sales receipt, determining whether it is taxable or non-taxable. This can be overridden at the transaction-line level.
 
-    Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes can also be created in QuickBooks. If QuickBooks is not set up to charge sales tax (via the "Do You Charge Sales Tax?" preference), it will assign the default non-taxable code to all sales.
+    Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes can also be created in QuickBooks Desktop. If QuickBooks Desktop is not set up to charge sales tax (via the "Do You Charge Sales Tax?" preference), it assigns the default non-taxable sales-tax code configured in the company file to all sales.
     """
 
     id: Optional[str] = None
@@ -1858,9 +1860,10 @@ class SalesReceipt(BaseModel):
     non-taxable. This can be overridden at the transaction-line level.
 
     Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes
-    can also be created in QuickBooks. If QuickBooks is not set up to charge sales
-    tax (via the "Do You Charge Sales Tax?" preference), it will assign the default
-    non-taxable code to all sales.
+    can also be created in QuickBooks Desktop. If QuickBooks Desktop is not set up
+    to charge sales tax (via the "Do You Charge Sales Tax?" preference), it assigns
+    the default non-taxable sales-tax code configured in the company file to all
+    sales.
     """
 
     sales_tax_item: Optional[SalesTaxItem] = FieldInfo(alias="salesTaxItem", default=None)
