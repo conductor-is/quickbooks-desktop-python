@@ -317,7 +317,7 @@ class PaymentMethod(BaseModel):
 
 class ReceivablesAccount(BaseModel):
     """
-    The Accounts-Receivable (A/R) account to which this credit card refund is assigned, used to track the amount owed. If not specified, QuickBooks Desktop will use its default A/R account.
+    The Accounts-Receivable (A/R) account to which this credit card refund is assigned, used to track the amount owed. If omitted, QuickBooks Desktop uses the default A/R account configured in the company file.
 
     **IMPORTANT**: If this credit card refund is linked to other transactions, this A/R account must match the `receivablesAccount` used in all linked transactions. For example, when refunding a credit card payment, the A/R account must match the one used in each linked credit transaction being refunded.
     """
@@ -495,8 +495,8 @@ class CreditCardRefund(BaseModel):
     receivables_account: Optional[ReceivablesAccount] = FieldInfo(alias="receivablesAccount", default=None)
     """
     The Accounts-Receivable (A/R) account to which this credit card refund is
-    assigned, used to track the amount owed. If not specified, QuickBooks Desktop
-    will use its default A/R account.
+    assigned, used to track the amount owed. If omitted, QuickBooks Desktop uses the
+    default A/R account configured in the company file.
 
     **IMPORTANT**: If this credit card refund is linked to other transactions, this
     A/R account must match the `receivablesAccount` used in all linked transactions.

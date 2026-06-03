@@ -20,6 +20,7 @@ from .transfer import Transfer as Transfer
 from .item_site import ItemSite as ItemSite
 from .item_group import ItemGroup as ItemGroup
 from .other_name import OtherName as OtherName
+from .bill_to_pay import BillToPay as BillToPay
 from .credit_memo import CreditMemo as CreditMemo
 from .preferences import Preferences as Preferences
 from .price_level import PriceLevel as PriceLevel
@@ -120,6 +121,7 @@ from .price_level_list_params import PriceLevelListParams as PriceLevelListParam
 from .sales_order_list_params import SalesOrderListParams as SalesOrderListParams
 from .transaction_list_params import TransactionListParams as TransactionListParams
 from .bill_credit_card_payment import BillCreditCardPayment as BillCreditCardPayment
+from .bills_to_pay_list_params import BillsToPayListParams as BillsToPayListParams
 from .estimate_delete_response import EstimateDeleteResponse as EstimateDeleteResponse
 from .item_group_create_params import ItemGroupCreateParams as ItemGroupCreateParams
 from .item_group_update_params import ItemGroupUpdateParams as ItemGroupUpdateParams
@@ -143,6 +145,7 @@ from .sales_receipt_list_params import SalesReceiptListParams as SalesReceiptLis
 from .standard_term_list_params import StandardTermListParams as StandardTermListParams
 from .subtotal_item_list_params import SubtotalItemListParams as SubtotalItemListParams
 from .vendor_credit_list_params import VendorCreditListParams as VendorCreditListParams
+from .bills_to_pay_list_response import BillsToPayListResponse as BillsToPayListResponse
 from .build_assembly_list_params import BuildAssemblyListParams as BuildAssemblyListParams
 from .inventory_item_list_params import InventoryItemListParams as InventoryItemListParams
 from .inventory_site_list_params import InventorySiteListParams as InventorySiteListParams

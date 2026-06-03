@@ -117,8 +117,8 @@ class CreditCardRefundsResource(SyncAPIResource):
               must specify a credit card payment method (e.g., "Visa", "MasterCard", etc.).
 
           receivables_account_id: The Accounts-Receivable (A/R) account to which this credit card refund is
-              assigned, used to track the amount owed. If not specified, QuickBooks Desktop
-              will use its default A/R account.
+              assigned, used to track the amount owed. If omitted, QuickBooks Desktop uses the
+              default A/R account configured in the company file.
 
               **IMPORTANT**: If this credit card refund is linked to other transactions, this
               A/R account must match the `receivablesAccount` used in all linked transactions.
@@ -135,7 +135,8 @@ class CreditCardRefundsResource(SyncAPIResource):
 
           refund_from_account_id: The account providing funds for this credit card refund. This is typically the
               Undeposited Funds account used to hold customer payments. If omitted, QuickBooks
-              Desktop will use the default Undeposited Funds account.
+              Desktop uses the default Undeposited Funds account configured in the company
+              file.
 
           extra_headers: Send extra headers
 
@@ -567,8 +568,8 @@ class AsyncCreditCardRefundsResource(AsyncAPIResource):
               must specify a credit card payment method (e.g., "Visa", "MasterCard", etc.).
 
           receivables_account_id: The Accounts-Receivable (A/R) account to which this credit card refund is
-              assigned, used to track the amount owed. If not specified, QuickBooks Desktop
-              will use its default A/R account.
+              assigned, used to track the amount owed. If omitted, QuickBooks Desktop uses the
+              default A/R account configured in the company file.
 
               **IMPORTANT**: If this credit card refund is linked to other transactions, this
               A/R account must match the `receivablesAccount` used in all linked transactions.
@@ -585,7 +586,8 @@ class AsyncCreditCardRefundsResource(AsyncAPIResource):
 
           refund_from_account_id: The account providing funds for this credit card refund. This is typically the
               Undeposited Funds account used to hold customer payments. If omitted, QuickBooks
-              Desktop will use the default Undeposited Funds account.
+              Desktop uses the default Undeposited Funds account configured in the company
+              file.
 
           extra_headers: Send extra headers
 

@@ -103,8 +103,8 @@ class ItemReceiptUpdateParams(TypedDict, total=False):
     payables_account_id: Annotated[str, PropertyInfo(alias="payablesAccountId")]
     """
     The Accounts-Payable (A/P) account to which this item receipt is assigned, used
-    to track the amount owed. If not specified, QuickBooks Desktop will use its
-    default A/P account.
+    for accounts-payable tracking. If omitted, QuickBooks Desktop uses the default
+    A/P account configured in the company file.
 
     **IMPORTANT**: If this item receipt is linked to other transactions, this A/P
     account must match the `payablesAccount` used in those other transactions.
@@ -126,9 +126,10 @@ class ItemReceiptUpdateParams(TypedDict, total=False):
     This can be overridden on the item receipt's individual lines.
 
     Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes
-    can also be created in QuickBooks. If QuickBooks is not set up to charge sales
-    tax (via the "Do You Charge Sales Tax?" preference), it will assign the default
-    non-taxable code to all sales.
+    can also be created in QuickBooks Desktop. If QuickBooks Desktop is not set up
+    to charge sales tax (via the "Do You Charge Sales Tax?" preference), it assigns
+    the default non-taxable sales-tax code configured in the company file to all
+    sales.
     """
 
     transaction_date: Annotated[Union[str, date], PropertyInfo(alias="transactionDate", format="iso8601")]
@@ -200,9 +201,10 @@ class ExpenseLine(TypedDict, total=False):
     transaction or the associated item.
 
     Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes
-    can also be created in QuickBooks. If QuickBooks is not set up to charge sales
-    tax (via the "Do You Charge Sales Tax?" preference), it will assign the default
-    non-taxable code to all sales.
+    can also be created in QuickBooks Desktop. If QuickBooks Desktop is not set up
+    to charge sales tax (via the "Do You Charge Sales Tax?" preference), it assigns
+    the default non-taxable sales-tax code configured in the company file to all
+    sales.
     """
 
 
@@ -331,9 +333,10 @@ class ItemGroupLineItemLine(TypedDict, total=False):
     transaction or the associated item.
 
     Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes
-    can also be created in QuickBooks. If QuickBooks is not set up to charge sales
-    tax (via the "Do You Charge Sales Tax?" preference), it will assign the default
-    non-taxable code to all sales.
+    can also be created in QuickBooks Desktop. If QuickBooks Desktop is not set up
+    to charge sales tax (via the "Do You Charge Sales Tax?" preference), it assigns
+    the default non-taxable sales-tax code configured in the company file to all
+    sales.
     """
 
     serial_number: Annotated[str, PropertyInfo(alias="serialNumber")]
@@ -534,9 +537,10 @@ class ItemLine(TypedDict, total=False):
     transaction or the associated item.
 
     Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes
-    can also be created in QuickBooks. If QuickBooks is not set up to charge sales
-    tax (via the "Do You Charge Sales Tax?" preference), it will assign the default
-    non-taxable code to all sales.
+    can also be created in QuickBooks Desktop. If QuickBooks Desktop is not set up
+    to charge sales tax (via the "Do You Charge Sales Tax?" preference), it assigns
+    the default non-taxable sales-tax code configured in the company file to all
+    sales.
     """
 
     serial_number: Annotated[str, PropertyInfo(alias="serialNumber")]

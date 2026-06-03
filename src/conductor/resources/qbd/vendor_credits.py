@@ -103,8 +103,8 @@ class VendorCreditsResource(SyncAPIResource):
           memo: A memo or note for this vendor credit.
 
           payables_account_id: The Accounts-Payable (A/P) account to which this vendor credit is assigned, used
-              to track the amount owed. If not specified, QuickBooks Desktop will use its
-              default A/P account.
+              for accounts-payable tracking. If omitted, QuickBooks Desktop uses the default
+              A/P account configured in the company file.
 
               **IMPORTANT**: If this vendor credit is linked to other transactions, this A/P
               account must match the `payablesAccount` used in those other transactions.
@@ -122,9 +122,10 @@ class VendorCreditsResource(SyncAPIResource):
               This can be overridden on the vendor credit's individual lines.
 
               Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes
-              can also be created in QuickBooks. If QuickBooks is not set up to charge sales
-              tax (via the "Do You Charge Sales Tax?" preference), it will assign the default
-              non-taxable code to all sales.
+              can also be created in QuickBooks Desktop. If QuickBooks Desktop is not set up
+              to charge sales tax (via the "Do You Charge Sales Tax?" preference), it assigns
+              the default non-taxable sales-tax code configured in the company file to all
+              sales.
 
           extra_headers: Send extra headers
 
@@ -307,8 +308,8 @@ class VendorCreditsResource(SyncAPIResource):
           memo: A memo or note for this vendor credit.
 
           payables_account_id: The Accounts-Payable (A/P) account to which this vendor credit is assigned, used
-              to track the amount owed. If not specified, QuickBooks Desktop will use its
-              default A/P account.
+              for accounts-payable tracking. If omitted, QuickBooks Desktop uses the default
+              A/P account configured in the company file.
 
               **IMPORTANT**: If this vendor credit is linked to other transactions, this A/P
               account must match the `payablesAccount` used in those other transactions.
@@ -324,9 +325,10 @@ class VendorCreditsResource(SyncAPIResource):
               This can be overridden on the vendor credit's individual lines.
 
               Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes
-              can also be created in QuickBooks. If QuickBooks is not set up to charge sales
-              tax (via the "Do You Charge Sales Tax?" preference), it will assign the default
-              non-taxable code to all sales.
+              can also be created in QuickBooks Desktop. If QuickBooks Desktop is not set up
+              to charge sales tax (via the "Do You Charge Sales Tax?" preference), it assigns
+              the default non-taxable sales-tax code configured in the company file to all
+              sales.
 
           transaction_date: The date of this vendor credit, in ISO 8601 format (YYYY-MM-DD).
 
@@ -713,8 +715,8 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
           memo: A memo or note for this vendor credit.
 
           payables_account_id: The Accounts-Payable (A/P) account to which this vendor credit is assigned, used
-              to track the amount owed. If not specified, QuickBooks Desktop will use its
-              default A/P account.
+              for accounts-payable tracking. If omitted, QuickBooks Desktop uses the default
+              A/P account configured in the company file.
 
               **IMPORTANT**: If this vendor credit is linked to other transactions, this A/P
               account must match the `payablesAccount` used in those other transactions.
@@ -732,9 +734,10 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
               This can be overridden on the vendor credit's individual lines.
 
               Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes
-              can also be created in QuickBooks. If QuickBooks is not set up to charge sales
-              tax (via the "Do You Charge Sales Tax?" preference), it will assign the default
-              non-taxable code to all sales.
+              can also be created in QuickBooks Desktop. If QuickBooks Desktop is not set up
+              to charge sales tax (via the "Do You Charge Sales Tax?" preference), it assigns
+              the default non-taxable sales-tax code configured in the company file to all
+              sales.
 
           extra_headers: Send extra headers
 
@@ -917,8 +920,8 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
           memo: A memo or note for this vendor credit.
 
           payables_account_id: The Accounts-Payable (A/P) account to which this vendor credit is assigned, used
-              to track the amount owed. If not specified, QuickBooks Desktop will use its
-              default A/P account.
+              for accounts-payable tracking. If omitted, QuickBooks Desktop uses the default
+              A/P account configured in the company file.
 
               **IMPORTANT**: If this vendor credit is linked to other transactions, this A/P
               account must match the `payablesAccount` used in those other transactions.
@@ -934,9 +937,10 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
               This can be overridden on the vendor credit's individual lines.
 
               Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes
-              can also be created in QuickBooks. If QuickBooks is not set up to charge sales
-              tax (via the "Do You Charge Sales Tax?" preference), it will assign the default
-              non-taxable code to all sales.
+              can also be created in QuickBooks Desktop. If QuickBooks Desktop is not set up
+              to charge sales tax (via the "Do You Charge Sales Tax?" preference), it assigns
+              the default non-taxable sales-tax code configured in the company file to all
+              sales.
 
           transaction_date: The date of this vendor credit, in ISO 8601 format (YYYY-MM-DD).
 

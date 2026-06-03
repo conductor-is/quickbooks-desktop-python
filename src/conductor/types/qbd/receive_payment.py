@@ -27,7 +27,7 @@ __all__ = [
 
 
 class AppliedToTransactionDiscountAccount(BaseModel):
-    """The financial account used to track this receivable transaction's discount."""
+    """The financial account used to track this target transaction's discount."""
 
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
@@ -45,7 +45,7 @@ class AppliedToTransactionDiscountAccount(BaseModel):
 
 
 class AppliedToTransactionDiscountClass(BaseModel):
-    """The class used to track this receivable transaction's discount."""
+    """The class used to track this target transaction's discount."""
 
     id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this object.
@@ -131,51 +131,49 @@ class AppliedToTransactionLinkedTransaction(BaseModel):
 class AppliedToTransaction(BaseModel):
     amount: Optional[str] = None
     """
-    The monetary amount of this receivable transaction, represented as a decimal
-    string.
+    The monetary amount of this target transaction, represented as a decimal string.
     """
 
     balance_remaining: Optional[str] = FieldInfo(alias="balanceRemaining", default=None)
     """
-    The outstanding balance of this receivable transaction after applying any
-    credits or payments. Represented as a decimal string.
+    The outstanding balance of this target transaction after applying any credits or
+    payments. Represented as a decimal string.
     """
 
     discount_account: Optional[AppliedToTransactionDiscountAccount] = FieldInfo(alias="discountAccount", default=None)
-    """The financial account used to track this receivable transaction's discount."""
+    """The financial account used to track this target transaction's discount."""
 
     discount_amount: Optional[str] = FieldInfo(alias="discountAmount", default=None)
     """
-    The monetary amount by which to reduce the receivable transaction's receivable
-    amount, represented as a decimal string.
+    The monetary amount by which to reduce this target transaction's balance,
+    represented as a decimal string.
     """
 
     discount_class: Optional[AppliedToTransactionDiscountClass] = FieldInfo(alias="discountClass", default=None)
-    """The class used to track this receivable transaction's discount."""
+    """The class used to track this target transaction's discount."""
 
     linked_transactions: List[AppliedToTransactionLinkedTransaction] = FieldInfo(alias="linkedTransactions")
     """
-    The receivable transaction's linked transactions, such as payments applied,
-    credits used, or associated purchase orders.
+    The target transaction's linked transactions, such as payments applied, credits
+    used, or associated purchase orders.
 
     **IMPORTANT**: You must specify the parameter `includeLinkedTransactions` when
-    fetching a list of receivable transactions to receive this field because it is
-    not returned by default.
+    fetching a list of target transactions to receive this field because it is not
+    returned by default.
     """
 
     ref_number: Optional[str] = FieldInfo(alias="refNumber", default=None)
     """
-    The case-sensitive user-defined reference number for this receivable
-    transaction, which can be used to identify the transaction in QuickBooks. This
-    value is not required to be unique and can be arbitrarily changed by the
-    QuickBooks user.
+    The case-sensitive user-defined reference number for this target transaction,
+    which can be used to identify the transaction in QuickBooks. This value is not
+    required to be unique and can be arbitrarily changed by the QuickBooks user.
     """
 
     transaction_date: Optional[date] = FieldInfo(alias="transactionDate", default=None)
-    """The date of this receivable transaction, in ISO 8601 format (YYYY-MM-DD)."""
+    """The date of this target transaction, in ISO 8601 format (YYYY-MM-DD)."""
 
     transaction_id: str = FieldInfo(alias="transactionId")
-    """The ID of the receivable transaction to which this payment is applied."""
+    """The ID of the target transaction to which this payment is applied."""
 
     transaction_type: Literal[
         "ar_refund_credit_card",
@@ -206,7 +204,7 @@ class AppliedToTransaction(BaseModel):
         "vendor_credit",
         "ytd_adjustment",
     ] = FieldInfo(alias="transactionType")
-    """The type of transaction for this receivable transaction."""
+    """The type of transaction for this target transaction."""
 
 
 class CreditCardTransactionRequest(BaseModel):
@@ -484,7 +482,7 @@ class PaymentMethod(BaseModel):
 
 class ReceivablesAccount(BaseModel):
     """
-    The Accounts-Receivable (A/R) account to which this receive-payment is assigned, used to track the amount owed. If not specified, QuickBooks Desktop will use its default A/R account.
+    The Accounts-Receivable (A/R) account to which this receive-payment is assigned, used to track the amount owed. If omitted, QuickBooks Desktop uses the default A/R account configured in the company file.
 
     **IMPORTANT**: If this receive-payment is linked to other transactions, this A/R account must match the `receivablesAccount` used in all linked transactions.
     """
@@ -581,8 +579,8 @@ class ReceivePayment(BaseModel):
     receivables_account: Optional[ReceivablesAccount] = FieldInfo(alias="receivablesAccount", default=None)
     """
     The Accounts-Receivable (A/R) account to which this receive-payment is assigned,
-    used to track the amount owed. If not specified, QuickBooks Desktop will use its
-    default A/R account.
+    used to track the amount owed. If omitted, QuickBooks Desktop uses the default
+    A/R account configured in the company file.
 
     **IMPORTANT**: If this receive-payment is linked to other transactions, this A/R
     account must match the `receivablesAccount` used in all linked transactions.

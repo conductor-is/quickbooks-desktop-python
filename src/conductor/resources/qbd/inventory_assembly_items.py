@@ -170,9 +170,10 @@ class InventoryAssemblyItemsResource(SyncAPIResource):
               level.
 
               Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes
-              can also be created in QuickBooks. If QuickBooks is not set up to charge sales
-              tax (via the "Do You Charge Sales Tax?" preference), it will assign the default
-              non-taxable code to all sales.
+              can also be created in QuickBooks Desktop. If QuickBooks Desktop is not set up
+              to charge sales tax (via the "Do You Charge Sales Tax?" preference), it assigns
+              the default non-taxable sales-tax code configured in the company file to all
+              sales.
 
           total_value: The total value of this inventory assembly item, represented as a decimal
               string. If `totalValue` is provided, `quantityOnHand` must also be provided and
@@ -409,9 +410,10 @@ class InventoryAssemblyItemsResource(SyncAPIResource):
               level.
 
               Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes
-              can also be created in QuickBooks. If QuickBooks is not set up to charge sales
-              tax (via the "Do You Charge Sales Tax?" preference), it will assign the default
-              non-taxable code to all sales.
+              can also be created in QuickBooks Desktop. If QuickBooks Desktop is not set up
+              to charge sales tax (via the "Do You Charge Sales Tax?" preference), it assigns
+              the default non-taxable sales-tax code configured in the company file to all
+              sales.
 
           sku: The inventory assembly item's stock keeping unit (SKU), which is sometimes the
               manufacturer's part number.
@@ -771,9 +773,10 @@ class AsyncInventoryAssemblyItemsResource(AsyncAPIResource):
               level.
 
               Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes
-              can also be created in QuickBooks. If QuickBooks is not set up to charge sales
-              tax (via the "Do You Charge Sales Tax?" preference), it will assign the default
-              non-taxable code to all sales.
+              can also be created in QuickBooks Desktop. If QuickBooks Desktop is not set up
+              to charge sales tax (via the "Do You Charge Sales Tax?" preference), it assigns
+              the default non-taxable sales-tax code configured in the company file to all
+              sales.
 
           total_value: The total value of this inventory assembly item, represented as a decimal
               string. If `totalValue` is provided, `quantityOnHand` must also be provided and
@@ -1010,9 +1013,10 @@ class AsyncInventoryAssemblyItemsResource(AsyncAPIResource):
               level.
 
               Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes
-              can also be created in QuickBooks. If QuickBooks is not set up to charge sales
-              tax (via the "Do You Charge Sales Tax?" preference), it will assign the default
-              non-taxable code to all sales.
+              can also be created in QuickBooks Desktop. If QuickBooks Desktop is not set up
+              to charge sales tax (via the "Do You Charge Sales Tax?" preference), it assigns
+              the default non-taxable sales-tax code configured in the company file to all
+              sales.
 
           sku: The inventory assembly item's stock keeping unit (SKU), which is sometimes the
               manufacturer's part number.

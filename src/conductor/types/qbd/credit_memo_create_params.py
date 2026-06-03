@@ -135,8 +135,8 @@ class CreditMemoCreateParams(TypedDict, total=False):
     receivables_account_id: Annotated[str, PropertyInfo(alias="receivablesAccountId")]
     """
     The Accounts-Receivable (A/R) account to which this credit memo is assigned,
-    used to track the amount owed. If not specified, QuickBooks Desktop will use its
-    default A/R account.
+    used to track the amount owed. If omitted, QuickBooks Desktop uses the default
+    A/R account configured in the company file.
 
     **IMPORTANT**: If this credit memo is linked to other transactions, this A/R
     account must match the `receivablesAccount` used in all linked transactions.
@@ -165,9 +165,10 @@ class CreditMemoCreateParams(TypedDict, total=False):
     non-taxable. This can be overridden at the transaction-line level.
 
     Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes
-    can also be created in QuickBooks. If QuickBooks is not set up to charge sales
-    tax (via the "Do You Charge Sales Tax?" preference), it will assign the default
-    non-taxable code to all sales.
+    can also be created in QuickBooks Desktop. If QuickBooks Desktop is not set up
+    to charge sales tax (via the "Do You Charge Sales Tax?" preference), it assigns
+    the default non-taxable sales-tax code configured in the company file to all
+    sales.
     """
 
     sales_tax_item_id: Annotated[str, PropertyInfo(alias="salesTaxItemId")]
@@ -498,9 +499,10 @@ class Line(TypedDict, total=False):
     transaction or the associated item.
 
     Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes
-    can also be created in QuickBooks. If QuickBooks is not set up to charge sales
-    tax (via the "Do You Charge Sales Tax?" preference), it will assign the default
-    non-taxable code to all sales.
+    can also be created in QuickBooks Desktop. If QuickBooks Desktop is not set up
+    to charge sales tax (via the "Do You Charge Sales Tax?" preference), it assigns
+    the default non-taxable sales-tax code configured in the company file to all
+    sales.
     """
 
     serial_number: Annotated[str, PropertyInfo(alias="serialNumber")]
