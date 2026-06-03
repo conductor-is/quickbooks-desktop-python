@@ -122,8 +122,8 @@ class BillCheckPaymentsResource(SyncAPIResource):
           memo: A memo or note for this bill check payment.
 
           payables_account_id: The Accounts-Payable (A/P) account to which this bill check payment is assigned,
-              used to track the amount owed. If not specified, QuickBooks Desktop will use its
-              default A/P account.
+              used for accounts-payable tracking. If omitted, QuickBooks Desktop uses the
+              default A/P account configured in the company file.
 
               **IMPORTANT**: If this bill check payment is linked to other transactions, this
               A/P account must match the `payablesAccount` used in those other transactions.
@@ -681,8 +681,8 @@ class AsyncBillCheckPaymentsResource(AsyncAPIResource):
           memo: A memo or note for this bill check payment.
 
           payables_account_id: The Accounts-Payable (A/P) account to which this bill check payment is assigned,
-              used to track the amount owed. If not specified, QuickBooks Desktop will use its
-              default A/P account.
+              used for accounts-payable tracking. If omitted, QuickBooks Desktop uses the
+              default A/P account configured in the company file.
 
               **IMPORTANT**: If this bill check payment is linked to other transactions, this
               A/P account must match the `payablesAccount` used in those other transactions.

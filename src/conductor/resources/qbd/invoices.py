@@ -194,8 +194,8 @@ class InvoicesResource(SyncAPIResource):
               Maximum length: 25 characters.
 
           receivables_account_id: The Accounts-Receivable (A/R) account to which this invoice is assigned, used to
-              track the amount owed. If not specified, QuickBooks Desktop will use its default
-              A/R account.
+              track the amount owed. If omitted, QuickBooks Desktop uses the default A/R
+              account configured in the company file.
 
               **IMPORTANT**: If this invoice is linked to other transactions, this A/R account
               must match the `receivablesAccount` used in all linked transactions.
@@ -215,9 +215,10 @@ class InvoicesResource(SyncAPIResource):
               non-taxable. This can be overridden at the transaction-line level.
 
               Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes
-              can also be created in QuickBooks. If QuickBooks is not set up to charge sales
-              tax (via the "Do You Charge Sales Tax?" preference), it will assign the default
-              non-taxable code to all sales.
+              can also be created in QuickBooks Desktop. If QuickBooks Desktop is not set up
+              to charge sales tax (via the "Do You Charge Sales Tax?" preference), it assigns
+              the default non-taxable sales-tax code configured in the company file to all
+              sales.
 
           sales_tax_item_id: The sales-tax item used to calculate the actual tax amount for this invoice's
               transactions by applying a specific tax rate collected for a single tax agency.
@@ -495,8 +496,8 @@ class InvoicesResource(SyncAPIResource):
               Maximum length: 25 characters.
 
           receivables_account_id: The Accounts-Receivable (A/R) account to which this invoice is assigned, used to
-              track the amount owed. If not specified, QuickBooks Desktop will use its default
-              A/R account.
+              track the amount owed. If omitted, QuickBooks Desktop uses the default A/R
+              account configured in the company file.
 
               **IMPORTANT**: If this invoice is linked to other transactions, this A/R account
               must match the `receivablesAccount` used in all linked transactions.
@@ -514,9 +515,10 @@ class InvoicesResource(SyncAPIResource):
               non-taxable. This can be overridden at the transaction-line level.
 
               Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes
-              can also be created in QuickBooks. If QuickBooks is not set up to charge sales
-              tax (via the "Do You Charge Sales Tax?" preference), it will assign the default
-              non-taxable code to all sales.
+              can also be created in QuickBooks Desktop. If QuickBooks Desktop is not set up
+              to charge sales tax (via the "Do You Charge Sales Tax?" preference), it assigns
+              the default non-taxable sales-tax code configured in the company file to all
+              sales.
 
           sales_tax_item_id: The sales-tax item used to calculate the actual tax amount for this invoice's
               transactions by applying a specific tax rate collected for a single tax agency.
@@ -1042,8 +1044,8 @@ class AsyncInvoicesResource(AsyncAPIResource):
               Maximum length: 25 characters.
 
           receivables_account_id: The Accounts-Receivable (A/R) account to which this invoice is assigned, used to
-              track the amount owed. If not specified, QuickBooks Desktop will use its default
-              A/R account.
+              track the amount owed. If omitted, QuickBooks Desktop uses the default A/R
+              account configured in the company file.
 
               **IMPORTANT**: If this invoice is linked to other transactions, this A/R account
               must match the `receivablesAccount` used in all linked transactions.
@@ -1063,9 +1065,10 @@ class AsyncInvoicesResource(AsyncAPIResource):
               non-taxable. This can be overridden at the transaction-line level.
 
               Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes
-              can also be created in QuickBooks. If QuickBooks is not set up to charge sales
-              tax (via the "Do You Charge Sales Tax?" preference), it will assign the default
-              non-taxable code to all sales.
+              can also be created in QuickBooks Desktop. If QuickBooks Desktop is not set up
+              to charge sales tax (via the "Do You Charge Sales Tax?" preference), it assigns
+              the default non-taxable sales-tax code configured in the company file to all
+              sales.
 
           sales_tax_item_id: The sales-tax item used to calculate the actual tax amount for this invoice's
               transactions by applying a specific tax rate collected for a single tax agency.
@@ -1343,8 +1346,8 @@ class AsyncInvoicesResource(AsyncAPIResource):
               Maximum length: 25 characters.
 
           receivables_account_id: The Accounts-Receivable (A/R) account to which this invoice is assigned, used to
-              track the amount owed. If not specified, QuickBooks Desktop will use its default
-              A/R account.
+              track the amount owed. If omitted, QuickBooks Desktop uses the default A/R
+              account configured in the company file.
 
               **IMPORTANT**: If this invoice is linked to other transactions, this A/R account
               must match the `receivablesAccount` used in all linked transactions.
@@ -1362,9 +1365,10 @@ class AsyncInvoicesResource(AsyncAPIResource):
               non-taxable. This can be overridden at the transaction-line level.
 
               Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes
-              can also be created in QuickBooks. If QuickBooks is not set up to charge sales
-              tax (via the "Do You Charge Sales Tax?" preference), it will assign the default
-              non-taxable code to all sales.
+              can also be created in QuickBooks Desktop. If QuickBooks Desktop is not set up
+              to charge sales tax (via the "Do You Charge Sales Tax?" preference), it assigns
+              the default non-taxable sales-tax code configured in the company file to all
+              sales.
 
           sales_tax_item_id: The sales-tax item used to calculate the actual tax amount for this invoice's
               transactions by applying a specific tax rate collected for a single tax agency.

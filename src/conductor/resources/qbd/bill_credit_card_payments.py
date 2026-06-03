@@ -114,8 +114,8 @@ class BillCreditCardPaymentsResource(SyncAPIResource):
           memo: A memo or note for this bill credit card payment.
 
           payables_account_id: The Accounts-Payable (A/P) account to which this bill credit card payment is
-              assigned, used to track the amount owed. If not specified, QuickBooks Desktop
-              will use its default A/P account.
+              assigned, used for accounts-payable tracking. If omitted, QuickBooks Desktop
+              uses the default A/P account configured in the company file.
 
               **IMPORTANT**: If this bill credit card payment is linked to other transactions,
               this A/P account must match the `payablesAccount` used in those other
@@ -559,8 +559,8 @@ class AsyncBillCreditCardPaymentsResource(AsyncAPIResource):
           memo: A memo or note for this bill credit card payment.
 
           payables_account_id: The Accounts-Payable (A/P) account to which this bill credit card payment is
-              assigned, used to track the amount owed. If not specified, QuickBooks Desktop
-              will use its default A/P account.
+              assigned, used for accounts-payable tracking. If omitted, QuickBooks Desktop
+              uses the default A/P account configured in the company file.
 
               **IMPORTANT**: If this bill credit card payment is linked to other transactions,
               this A/P account must match the `payablesAccount` used in those other

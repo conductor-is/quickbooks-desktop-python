@@ -112,8 +112,8 @@ class ReceivePaymentsResource(SyncAPIResource):
               specify the `paymentMethod` field.
 
           deposit_to_account_id: The account where the funds for this receive-payment will be or have been
-              deposited. If omitted, QuickBooks will use the default Undeposited Funds
-              account.
+              deposited. If omitted, QuickBooks Desktop uses the default Undeposited Funds
+              account configured in the company file.
 
           exchange_rate: The market exchange rate between this receive-payment's currency and the home
               currency in QuickBooks at the time of this transaction. Represented as a decimal
@@ -146,8 +146,8 @@ class ReceivePaymentsResource(SyncAPIResource):
               a credit card payment method (e.g., "Visa", "MasterCard", etc.).
 
           receivables_account_id: The Accounts-Receivable (A/R) account to which this receive-payment is assigned,
-              used to track the amount owed. If not specified, QuickBooks Desktop will use its
-              default A/R account.
+              used to track the amount owed. If omitted, QuickBooks Desktop uses the default
+              A/R account configured in the company file.
 
               **IMPORTANT**: If this receive-payment is linked to other transactions, this A/R
               account must match the `receivablesAccount` used in all linked transactions.
@@ -310,8 +310,8 @@ class ReceivePaymentsResource(SyncAPIResource):
           payment_method_id: The receive-payment's payment method (e.g., cash, check, credit card).
 
           receivables_account_id: The Accounts-Receivable (A/R) account to which this receive-payment is assigned,
-              used to track the amount owed. If not specified, QuickBooks Desktop will use its
-              default A/R account.
+              used to track the amount owed. If omitted, QuickBooks Desktop uses the default
+              A/R account configured in the company file.
 
               **IMPORTANT**: If this receive-payment is linked to other transactions, this A/R
               account must match the `receivablesAccount` used in all linked transactions.
@@ -677,8 +677,8 @@ class AsyncReceivePaymentsResource(AsyncAPIResource):
               specify the `paymentMethod` field.
 
           deposit_to_account_id: The account where the funds for this receive-payment will be or have been
-              deposited. If omitted, QuickBooks will use the default Undeposited Funds
-              account.
+              deposited. If omitted, QuickBooks Desktop uses the default Undeposited Funds
+              account configured in the company file.
 
           exchange_rate: The market exchange rate between this receive-payment's currency and the home
               currency in QuickBooks at the time of this transaction. Represented as a decimal
@@ -711,8 +711,8 @@ class AsyncReceivePaymentsResource(AsyncAPIResource):
               a credit card payment method (e.g., "Visa", "MasterCard", etc.).
 
           receivables_account_id: The Accounts-Receivable (A/R) account to which this receive-payment is assigned,
-              used to track the amount owed. If not specified, QuickBooks Desktop will use its
-              default A/R account.
+              used to track the amount owed. If omitted, QuickBooks Desktop uses the default
+              A/R account configured in the company file.
 
               **IMPORTANT**: If this receive-payment is linked to other transactions, this A/R
               account must match the `receivablesAccount` used in all linked transactions.
@@ -875,8 +875,8 @@ class AsyncReceivePaymentsResource(AsyncAPIResource):
           payment_method_id: The receive-payment's payment method (e.g., cash, check, credit card).
 
           receivables_account_id: The Accounts-Receivable (A/R) account to which this receive-payment is assigned,
-              used to track the amount owed. If not specified, QuickBooks Desktop will use its
-              default A/R account.
+              used to track the amount owed. If omitted, QuickBooks Desktop uses the default
+              A/R account configured in the company file.
 
               **IMPORTANT**: If this receive-payment is linked to other transactions, this A/R
               account must match the `receivablesAccount` used in all linked transactions.

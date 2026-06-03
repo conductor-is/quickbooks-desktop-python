@@ -122,9 +122,10 @@ class CreditCardCreditsResource(SyncAPIResource):
               the payee. This can be overridden on the credit card credit's individual lines.
 
               Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes
-              can also be created in QuickBooks. If QuickBooks is not set up to charge sales
-              tax (via the "Do You Charge Sales Tax?" preference), it will assign the default
-              non-taxable code to all sales.
+              can also be created in QuickBooks Desktop. If QuickBooks Desktop is not set up
+              to charge sales tax (via the "Do You Charge Sales Tax?" preference), it assigns
+              the default non-taxable sales-tax code configured in the company file to all
+              sales.
 
           extra_headers: Send extra headers
 
@@ -322,9 +323,10 @@ class CreditCardCreditsResource(SyncAPIResource):
               the payee. This can be overridden on the credit card credit's individual lines.
 
               Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes
-              can also be created in QuickBooks. If QuickBooks is not set up to charge sales
-              tax (via the "Do You Charge Sales Tax?" preference), it will assign the default
-              non-taxable code to all sales.
+              can also be created in QuickBooks Desktop. If QuickBooks Desktop is not set up
+              to charge sales tax (via the "Do You Charge Sales Tax?" preference), it assigns
+              the default non-taxable sales-tax code configured in the company file to all
+              sales.
 
           transaction_date: The date of this credit card credit, in ISO 8601 format (YYYY-MM-DD).
 
@@ -719,9 +721,10 @@ class AsyncCreditCardCreditsResource(AsyncAPIResource):
               the payee. This can be overridden on the credit card credit's individual lines.
 
               Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes
-              can also be created in QuickBooks. If QuickBooks is not set up to charge sales
-              tax (via the "Do You Charge Sales Tax?" preference), it will assign the default
-              non-taxable code to all sales.
+              can also be created in QuickBooks Desktop. If QuickBooks Desktop is not set up
+              to charge sales tax (via the "Do You Charge Sales Tax?" preference), it assigns
+              the default non-taxable sales-tax code configured in the company file to all
+              sales.
 
           extra_headers: Send extra headers
 
@@ -919,9 +922,10 @@ class AsyncCreditCardCreditsResource(AsyncAPIResource):
               the payee. This can be overridden on the credit card credit's individual lines.
 
               Default codes include "Non" (non-taxable) and "Tax" (taxable), but custom codes
-              can also be created in QuickBooks. If QuickBooks is not set up to charge sales
-              tax (via the "Do You Charge Sales Tax?" preference), it will assign the default
-              non-taxable code to all sales.
+              can also be created in QuickBooks Desktop. If QuickBooks Desktop is not set up
+              to charge sales tax (via the "Do You Charge Sales Tax?" preference), it assigns
+              the default non-taxable sales-tax code configured in the company file to all
+              sales.
 
           transaction_date: The date of this credit card credit, in ISO 8601 format (YYYY-MM-DD).
 
