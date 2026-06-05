@@ -654,7 +654,7 @@ class Vendor(BaseModel):
     sales.
     """
 
-    sales_tax_country: Optional[Literal["australia", "canada", "uk", "us"]] = FieldInfo(
+    sales_tax_country: Optional[Literal["australia", "canada", "uk", "us", "united_arab_emirates"]] = FieldInfo(
         alias="salesTaxCountry", default=None
     )
     """The country for which sales tax is collected for this vendor."""
