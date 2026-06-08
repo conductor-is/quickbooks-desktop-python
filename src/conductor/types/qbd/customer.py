@@ -819,9 +819,7 @@ class Customer(BaseModel):
     sales.
     """
 
-    sales_tax_country: Optional[Literal["australia", "canada", "uk", "us", "united_arab_emirates"]] = FieldInfo(
-        alias="salesTaxCountry", default=None
-    )
+    sales_tax_country: Optional[str] = FieldInfo(alias="salesTaxCountry", default=None)
     """The country for which sales tax is collected for this customer."""
 
     sales_tax_item: Optional[SalesTaxItem] = FieldInfo(alias="salesTaxItem", default=None)
