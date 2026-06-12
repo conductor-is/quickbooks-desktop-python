@@ -483,6 +483,14 @@ class EmployeesResource(SyncAPIResource):
 
           employee_payroll: The employee's payroll information.
 
+              **IMPORTANT**: QuickBooks Desktop requires the connected app to have personal
+              data access enabled to update this field. If updating this field fails with a
+              personal data permission error, confirm this setting is enabled in QuickBooks
+              Desktop: sign in as Admin in Single-User Mode and go to
+              `Edit > Preferences > Integrated Applications > Company Preferences`, select the
+              app, click `Properties`, then check "Allow this application to access personal
+              data such as Social Security Numbers and customer credit card information".
+
           employee_type: The employee type. This affects payroll taxes - a statutory employee is defined
               as an employee by statute. Note that owners/partners are typically on the "Other
               Names" list in QuickBooks, but if listed as an employee their type will be
@@ -1229,6 +1237,14 @@ class AsyncEmployeesResource(AsyncAPIResource):
           emergency_contact: The employee's emergency contacts.
 
           employee_payroll: The employee's payroll information.
+
+              **IMPORTANT**: QuickBooks Desktop requires the connected app to have personal
+              data access enabled to update this field. If updating this field fails with a
+              personal data permission error, confirm this setting is enabled in QuickBooks
+              Desktop: sign in as Admin in Single-User Mode and go to
+              `Edit > Preferences > Integrated Applications > Company Preferences`, select the
+              app, click `Properties`, then check "Allow this application to access personal
+              data such as Social Security Numbers and customer credit card information".
 
           employee_type: The employee type. This affects payroll taxes - a statutory employee is defined
               as an employee by statute. Note that owners/partners are typically on the "Other
