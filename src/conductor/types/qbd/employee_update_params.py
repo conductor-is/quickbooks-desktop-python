@@ -111,7 +111,16 @@ class EmployeeUpdateParams(TypedDict, total=False):
     """The employee's emergency contacts."""
 
     employee_payroll: Annotated[EmployeePayroll, PropertyInfo(alias="employeePayroll")]
-    """The employee's payroll information."""
+    """The employee's payroll information.
+
+    **IMPORTANT**: QuickBooks Desktop requires the connected app to have personal
+    data access enabled to update this field. If updating this field fails with a
+    personal data permission error, confirm this setting is enabled in QuickBooks
+    Desktop: sign in as Admin in Single-User Mode and go to
+    `Edit > Preferences > Integrated Applications > Company Preferences`, select the
+    app, click `Properties`, then check "Allow this application to access personal
+    data such as Social Security Numbers and customer credit card information".
+    """
 
     employee_type: Annotated[Literal["officer", "owner", "regular", "statutory"], PropertyInfo(alias="employeeType")]
     """The employee type.
@@ -543,7 +552,10 @@ class EmployeePayrollVacationHours(TypedDict, total=False):
 
 
 class EmployeePayroll(TypedDict, total=False):
-    """The employee's payroll information."""
+    """The employee's payroll information.
+
+    **IMPORTANT**: QuickBooks Desktop requires the connected app to have personal data access enabled to update this field. If updating this field fails with a personal data permission error, confirm this setting is enabled in QuickBooks Desktop: sign in as Admin in Single-User Mode and go to `Edit > Preferences > Integrated Applications > Company Preferences`, select the app, click `Properties`, then check "Allow this application to access personal data such as Social Security Numbers and customer credit card information".
+    """
 
     class_id: Annotated[str, PropertyInfo(alias="classId")]
     """The employee's class.

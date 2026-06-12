@@ -346,7 +346,10 @@ class EmployeePayrollVacationHours(BaseModel):
 
 
 class EmployeePayroll(BaseModel):
-    """The employee's payroll information."""
+    """The employee's payroll information.
+
+    **IMPORTANT**: QuickBooks Desktop only returns this field if the connected app has personal data access enabled. If this field is `null` or missing, confirm this setting is enabled in QuickBooks Desktop: sign in as Admin in Single-User Mode and go to `Edit > Preferences > Integrated Applications > Company Preferences`, select the app, click `Properties`, then check "Allow this application to access personal data such as Social Security Numbers and customer credit card information".
+    """
 
     class_: Optional[EmployeePayrollClass] = FieldInfo(alias="class", default=None)
     """The employee's class.
@@ -502,7 +505,16 @@ class Employee(BaseModel):
     """The employee's emergency contacts."""
 
     employee_payroll: Optional[EmployeePayroll] = FieldInfo(alias="employeePayroll", default=None)
-    """The employee's payroll information."""
+    """The employee's payroll information.
+
+    **IMPORTANT**: QuickBooks Desktop only returns this field if the connected app
+    has personal data access enabled. If this field is `null` or missing, confirm
+    this setting is enabled in QuickBooks Desktop: sign in as Admin in Single-User
+    Mode and go to
+    `Edit > Preferences > Integrated Applications > Company Preferences`, select the
+    app, click `Properties`, then check "Allow this application to access personal
+    data such as Social Security Numbers and customer credit card information".
+    """
 
     employee_type: Optional[Literal["officer", "owner", "regular", "statutory"]] = FieldInfo(
         alias="employeeType", default=None
