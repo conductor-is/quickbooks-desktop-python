@@ -470,6 +470,14 @@ from .sales_representatives import (
     SalesRepresentativesResourceWithStreamingResponse,
     AsyncSalesRepresentativesResourceWithStreamingResponse,
 )
+from .sales_tax_group_items import (
+    SalesTaxGroupItemsResource,
+    AsyncSalesTaxGroupItemsResource,
+    SalesTaxGroupItemsResourceWithRawResponse,
+    AsyncSalesTaxGroupItemsResourceWithRawResponse,
+    SalesTaxGroupItemsResourceWithStreamingResponse,
+    AsyncSalesTaxGroupItemsResourceWithStreamingResponse,
+)
 from .inventory_assembly_items import (
     InventoryAssemblyItemsResource,
     AsyncInventoryAssemblyItemsResource,
@@ -691,6 +699,10 @@ class QbdResource(SyncAPIResource):
     @cached_property
     def sales_tax_codes(self) -> SalesTaxCodesResource:
         return SalesTaxCodesResource(self._client)
+
+    @cached_property
+    def sales_tax_group_items(self) -> SalesTaxGroupItemsResource:
+        return SalesTaxGroupItemsResource(self._client)
 
     @cached_property
     def sales_tax_items(self) -> SalesTaxItemsResource:
@@ -991,6 +1003,10 @@ class AsyncQbdResource(AsyncAPIResource):
     @cached_property
     def sales_tax_codes(self) -> AsyncSalesTaxCodesResource:
         return AsyncSalesTaxCodesResource(self._client)
+
+    @cached_property
+    def sales_tax_group_items(self) -> AsyncSalesTaxGroupItemsResource:
+        return AsyncSalesTaxGroupItemsResource(self._client)
 
     @cached_property
     def sales_tax_items(self) -> AsyncSalesTaxItemsResource:
@@ -1300,6 +1316,10 @@ class QbdResourceWithRawResponse:
         return SalesTaxCodesResourceWithRawResponse(self._qbd.sales_tax_codes)
 
     @cached_property
+    def sales_tax_group_items(self) -> SalesTaxGroupItemsResourceWithRawResponse:
+        return SalesTaxGroupItemsResourceWithRawResponse(self._qbd.sales_tax_group_items)
+
+    @cached_property
     def sales_tax_items(self) -> SalesTaxItemsResourceWithRawResponse:
         return SalesTaxItemsResourceWithRawResponse(self._qbd.sales_tax_items)
 
@@ -1547,6 +1567,10 @@ class AsyncQbdResourceWithRawResponse:
     @cached_property
     def sales_tax_codes(self) -> AsyncSalesTaxCodesResourceWithRawResponse:
         return AsyncSalesTaxCodesResourceWithRawResponse(self._qbd.sales_tax_codes)
+
+    @cached_property
+    def sales_tax_group_items(self) -> AsyncSalesTaxGroupItemsResourceWithRawResponse:
+        return AsyncSalesTaxGroupItemsResourceWithRawResponse(self._qbd.sales_tax_group_items)
 
     @cached_property
     def sales_tax_items(self) -> AsyncSalesTaxItemsResourceWithRawResponse:
@@ -1798,6 +1822,10 @@ class QbdResourceWithStreamingResponse:
         return SalesTaxCodesResourceWithStreamingResponse(self._qbd.sales_tax_codes)
 
     @cached_property
+    def sales_tax_group_items(self) -> SalesTaxGroupItemsResourceWithStreamingResponse:
+        return SalesTaxGroupItemsResourceWithStreamingResponse(self._qbd.sales_tax_group_items)
+
+    @cached_property
     def sales_tax_items(self) -> SalesTaxItemsResourceWithStreamingResponse:
         return SalesTaxItemsResourceWithStreamingResponse(self._qbd.sales_tax_items)
 
@@ -2045,6 +2073,10 @@ class AsyncQbdResourceWithStreamingResponse:
     @cached_property
     def sales_tax_codes(self) -> AsyncSalesTaxCodesResourceWithStreamingResponse:
         return AsyncSalesTaxCodesResourceWithStreamingResponse(self._qbd.sales_tax_codes)
+
+    @cached_property
+    def sales_tax_group_items(self) -> AsyncSalesTaxGroupItemsResourceWithStreamingResponse:
+        return AsyncSalesTaxGroupItemsResourceWithStreamingResponse(self._qbd.sales_tax_group_items)
 
     @cached_property
     def sales_tax_items(self) -> AsyncSalesTaxItemsResourceWithStreamingResponse:
