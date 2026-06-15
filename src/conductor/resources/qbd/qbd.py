@@ -486,6 +486,14 @@ from .inventory_assembly_items import (
     InventoryAssemblyItemsResourceWithStreamingResponse,
     AsyncInventoryAssemblyItemsResourceWithStreamingResponse,
 )
+from .sales_tax_payment_checks import (
+    SalesTaxPaymentChecksResource,
+    AsyncSalesTaxPaymentChecksResource,
+    SalesTaxPaymentChecksResourceWithRawResponse,
+    AsyncSalesTaxPaymentChecksResourceWithRawResponse,
+    SalesTaxPaymentChecksResourceWithStreamingResponse,
+    AsyncSalesTaxPaymentChecksResourceWithStreamingResponse,
+)
 from .time_tracking_activities import (
     TimeTrackingActivitiesResource,
     AsyncTimeTrackingActivitiesResource,
@@ -707,6 +715,10 @@ class QbdResource(SyncAPIResource):
     @cached_property
     def sales_tax_items(self) -> SalesTaxItemsResource:
         return SalesTaxItemsResource(self._client)
+
+    @cached_property
+    def sales_tax_payment_checks(self) -> SalesTaxPaymentChecksResource:
+        return SalesTaxPaymentChecksResource(self._client)
 
     @cached_property
     def service_items(self) -> ServiceItemsResource:
@@ -1011,6 +1023,10 @@ class AsyncQbdResource(AsyncAPIResource):
     @cached_property
     def sales_tax_items(self) -> AsyncSalesTaxItemsResource:
         return AsyncSalesTaxItemsResource(self._client)
+
+    @cached_property
+    def sales_tax_payment_checks(self) -> AsyncSalesTaxPaymentChecksResource:
+        return AsyncSalesTaxPaymentChecksResource(self._client)
 
     @cached_property
     def service_items(self) -> AsyncServiceItemsResource:
@@ -1324,6 +1340,10 @@ class QbdResourceWithRawResponse:
         return SalesTaxItemsResourceWithRawResponse(self._qbd.sales_tax_items)
 
     @cached_property
+    def sales_tax_payment_checks(self) -> SalesTaxPaymentChecksResourceWithRawResponse:
+        return SalesTaxPaymentChecksResourceWithRawResponse(self._qbd.sales_tax_payment_checks)
+
+    @cached_property
     def service_items(self) -> ServiceItemsResourceWithRawResponse:
         return ServiceItemsResourceWithRawResponse(self._qbd.service_items)
 
@@ -1575,6 +1595,10 @@ class AsyncQbdResourceWithRawResponse:
     @cached_property
     def sales_tax_items(self) -> AsyncSalesTaxItemsResourceWithRawResponse:
         return AsyncSalesTaxItemsResourceWithRawResponse(self._qbd.sales_tax_items)
+
+    @cached_property
+    def sales_tax_payment_checks(self) -> AsyncSalesTaxPaymentChecksResourceWithRawResponse:
+        return AsyncSalesTaxPaymentChecksResourceWithRawResponse(self._qbd.sales_tax_payment_checks)
 
     @cached_property
     def service_items(self) -> AsyncServiceItemsResourceWithRawResponse:
@@ -1830,6 +1854,10 @@ class QbdResourceWithStreamingResponse:
         return SalesTaxItemsResourceWithStreamingResponse(self._qbd.sales_tax_items)
 
     @cached_property
+    def sales_tax_payment_checks(self) -> SalesTaxPaymentChecksResourceWithStreamingResponse:
+        return SalesTaxPaymentChecksResourceWithStreamingResponse(self._qbd.sales_tax_payment_checks)
+
+    @cached_property
     def service_items(self) -> ServiceItemsResourceWithStreamingResponse:
         return ServiceItemsResourceWithStreamingResponse(self._qbd.service_items)
 
@@ -2081,6 +2109,10 @@ class AsyncQbdResourceWithStreamingResponse:
     @cached_property
     def sales_tax_items(self) -> AsyncSalesTaxItemsResourceWithStreamingResponse:
         return AsyncSalesTaxItemsResourceWithStreamingResponse(self._qbd.sales_tax_items)
+
+    @cached_property
+    def sales_tax_payment_checks(self) -> AsyncSalesTaxPaymentChecksResourceWithStreamingResponse:
+        return AsyncSalesTaxPaymentChecksResourceWithStreamingResponse(self._qbd.sales_tax_payment_checks)
 
     @cached_property
     def service_items(self) -> AsyncServiceItemsResourceWithStreamingResponse:

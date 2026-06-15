@@ -592,10 +592,10 @@ class ItemReceiptsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ItemReceiptDeleteResponse:
-        """Permanently deletes a an item receipt.
+        """Permanently deletes an item receipt.
 
-        The deletion will fail if the item
-        receipt is currently in use or has any linked transactions that are in use.
+        The deletion will fail if the item receipt
+        is currently in use or has any linked transactions that are in use.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the item receipt to delete.
@@ -1228,10 +1228,10 @@ class AsyncItemReceiptsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ItemReceiptDeleteResponse:
-        """Permanently deletes a an item receipt.
+        """Permanently deletes an item receipt.
 
-        The deletion will fail if the item
-        receipt is currently in use or has any linked transactions that are in use.
+        The deletion will fail if the item receipt
+        is currently in use or has any linked transactions that are in use.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the item receipt to delete.

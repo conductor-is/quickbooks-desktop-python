@@ -398,7 +398,7 @@ class BillCreditCardPaymentsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> BillCreditCardPaymentDeleteResponse:
-        """Permanently deletes a a bill credit card payment.
+        """Permanently deletes a bill credit card payment.
 
         The deletion will fail if the
         bill credit card payment is currently in use or has any linked transactions that
@@ -843,7 +843,7 @@ class AsyncBillCreditCardPaymentsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> BillCreditCardPaymentDeleteResponse:
-        """Permanently deletes a a bill credit card payment.
+        """Permanently deletes a bill credit card payment.
 
         The deletion will fail if the
         bill credit card payment is currently in use or has any linked transactions that

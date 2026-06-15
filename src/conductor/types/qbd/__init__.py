@@ -120,6 +120,7 @@ from .inventory_assembly_item import InventoryAssemblyItem as InventoryAssemblyI
 from .invoice_delete_response import InvoiceDeleteResponse as InvoiceDeleteResponse
 from .price_level_list_params import PriceLevelListParams as PriceLevelListParams
 from .sales_order_list_params import SalesOrderListParams as SalesOrderListParams
+from .sales_tax_payment_check import SalesTaxPaymentCheck as SalesTaxPaymentCheck
 from .transaction_list_params import TransactionListParams as TransactionListParams
 from .bill_credit_card_payment import BillCreditCardPayment as BillCreditCardPayment
 from .bills_to_pay_list_params import BillsToPayListParams as BillsToPayListParams
@@ -267,6 +268,7 @@ from .sales_tax_group_item_create_params import SalesTaxGroupItemCreateParams as
 from .sales_tax_group_item_update_params import SalesTaxGroupItemUpdateParams as SalesTaxGroupItemUpdateParams
 from .time_tracking_activity_list_params import TimeTrackingActivityListParams as TimeTrackingActivityListParams
 from .inventory_assembly_item_list_params import InventoryAssemblyItemListParams as InventoryAssemblyItemListParams
+from .sales_tax_payment_check_list_params import SalesTaxPaymentCheckListParams as SalesTaxPaymentCheckListParams
 from .bill_credit_card_payment_list_params import BillCreditCardPaymentListParams as BillCreditCardPaymentListParams
 from .inventory_adjustment_delete_response import InventoryAdjustmentDeleteResponse as InventoryAdjustmentDeleteResponse
 from .time_tracking_activity_create_params import TimeTrackingActivityCreateParams as TimeTrackingActivityCreateParams
@@ -277,6 +279,9 @@ from .inventory_assembly_item_create_params import (
 from .inventory_assembly_item_update_params import (
     InventoryAssemblyItemUpdateParams as InventoryAssemblyItemUpdateParams,
 )
+from .sales_tax_payment_check_create_params import SalesTaxPaymentCheckCreateParams as SalesTaxPaymentCheckCreateParams
+from .sales_tax_payment_check_update_params import SalesTaxPaymentCheckUpdateParams as SalesTaxPaymentCheckUpdateParams
+from .sales_tax_payment_check_void_response import SalesTaxPaymentCheckVoidResponse as SalesTaxPaymentCheckVoidResponse
 from .bill_credit_card_payment_create_params import (
     BillCreditCardPaymentCreateParams as BillCreditCardPaymentCreateParams,
 )
@@ -285,6 +290,9 @@ from .bill_credit_card_payment_void_response import (
 )
 from .time_tracking_activity_delete_response import (
     TimeTrackingActivityDeleteResponse as TimeTrackingActivityDeleteResponse,
+)
+from .sales_tax_payment_check_delete_response import (
+    SalesTaxPaymentCheckDeleteResponse as SalesTaxPaymentCheckDeleteResponse,
 )
 from .bill_credit_card_payment_delete_response import (
     BillCreditCardPaymentDeleteResponse as BillCreditCardPaymentDeleteResponse,

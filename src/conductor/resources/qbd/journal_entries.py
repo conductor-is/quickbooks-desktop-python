@@ -489,10 +489,10 @@ class JournalEntriesResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> JournalEntryDeleteResponse:
-        """Permanently deletes a a journal entry.
+        """Permanently deletes a journal entry.
 
-        The deletion will fail if the journal
-        entry is currently in use or has any linked transactions that are in use.
+        The deletion will fail if the journal entry
+        is currently in use or has any linked transactions that are in use.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the journal entry to delete.
@@ -1022,10 +1022,10 @@ class AsyncJournalEntriesResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> JournalEntryDeleteResponse:
-        """Permanently deletes a a journal entry.
+        """Permanently deletes a journal entry.
 
-        The deletion will fail if the journal
-        entry is currently in use or has any linked transactions that are in use.
+        The deletion will fail if the journal entry
+        is currently in use or has any linked transactions that are in use.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the journal entry to delete.

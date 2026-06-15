@@ -18,50 +18,50 @@ from ..._response import (
     async_to_streamed_response_wrapper,
 )
 from ...types.qbd import (
-    inventory_adjustment_list_params,
-    inventory_adjustment_create_params,
-    inventory_adjustment_update_params,
+    sales_tax_payment_check_list_params,
+    sales_tax_payment_check_create_params,
+    sales_tax_payment_check_update_params,
 )
-from ..._base_client import make_request_options
-from ...types.qbd.inventory_adjustment import InventoryAdjustment
-from ...types.qbd.inventory_adjustment_list_response import InventoryAdjustmentListResponse
-from ...types.qbd.inventory_adjustment_void_response import InventoryAdjustmentVoidResponse
-from ...types.qbd.inventory_adjustment_delete_response import InventoryAdjustmentDeleteResponse
+from ...pagination import SyncCursorPage, AsyncCursorPage
+from ..._base_client import AsyncPaginator, make_request_options
+from ...types.qbd.sales_tax_payment_check import SalesTaxPaymentCheck
+from ...types.qbd.sales_tax_payment_check_void_response import SalesTaxPaymentCheckVoidResponse
+from ...types.qbd.sales_tax_payment_check_delete_response import SalesTaxPaymentCheckDeleteResponse
 
-__all__ = ["InventoryAdjustmentsResource", "AsyncInventoryAdjustmentsResource"]
+__all__ = ["SalesTaxPaymentChecksResource", "AsyncSalesTaxPaymentChecksResource"]
 
 
-class InventoryAdjustmentsResource(SyncAPIResource):
+class SalesTaxPaymentChecksResource(SyncAPIResource):
     @cached_property
-    def with_raw_response(self) -> InventoryAdjustmentsResourceWithRawResponse:
+    def with_raw_response(self) -> SalesTaxPaymentChecksResourceWithRawResponse:
         """
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
         For more information, see https://www.github.com/conductor-is/quickbooks-desktop-python#accessing-raw-response-data-eg-headers
         """
-        return InventoryAdjustmentsResourceWithRawResponse(self)
+        return SalesTaxPaymentChecksResourceWithRawResponse(self)
 
     @cached_property
-    def with_streaming_response(self) -> InventoryAdjustmentsResourceWithStreamingResponse:
+    def with_streaming_response(self) -> SalesTaxPaymentChecksResourceWithStreamingResponse:
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
         For more information, see https://www.github.com/conductor-is/quickbooks-desktop-python#with_streaming_response
         """
-        return InventoryAdjustmentsResourceWithStreamingResponse(self)
+        return SalesTaxPaymentChecksResourceWithStreamingResponse(self)
 
     def create(
         self,
         *,
-        account_id: str,
+        bank_account_id: str,
+        lines: Iterable[sales_tax_payment_check_create_params.Line],
         transaction_date: Union[str, date],
+        vendor_id: str,
         conductor_end_user_id: str,
-        class_id: str | Omit = omit,
-        customer_id: str | Omit = omit,
+        address: sales_tax_payment_check_create_params.Address | Omit = omit,
         external_id: str | Omit = omit,
-        inventory_site_id: str | Omit = omit,
-        lines: Iterable[inventory_adjustment_create_params.Line] | Omit = omit,
+        is_queued_for_print: bool | Omit = omit,
         memo: str | Omit = omit,
         ref_number: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -70,27 +70,27 @@ class InventoryAdjustmentsResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> InventoryAdjustment:
+    ) -> SalesTaxPaymentCheck:
         """
-        Creates an inventory adjustment to correct on-hand quantities or values.
-        QuickBooks requires single-user mode unless you're on Enterprise with Advanced
-        Inventory enabled.
+        Creates a new sales-tax payment check.
 
         Args:
-          account_id: The account to which this inventory adjustment is posted for tracking inventory
-              value changes.
+          bank_account_id: The bank account from which the funds are being drawn for this sales-tax payment
+              check; e.g., Checking or Savings. This sales-tax payment check will decrease the
+              balance of this account.
 
-          transaction_date: The date of this inventory adjustment, in ISO 8601 format (YYYY-MM-DD).
+          lines: The payment lines in this sales-tax payment check, each recording an amount paid
+              toward a sales-tax item.
+
+          transaction_date: The date of this sales-tax payment check, in ISO 8601 format (YYYY-MM-DD).
+
+          vendor_id: The sales-tax agency, represented as a QuickBooks vendor, receiving this
+              sales-tax payment check. This must match the tax vendor associated with the
+              sales-tax items in the payment lines.
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          class_id: The inventory adjustment's class. Classes can be used to categorize objects into
-              meaningful segments, such as department, location, or type of work. In
-              QuickBooks, class tracking is off by default. A class defined here is
-              automatically used in this inventory adjustment's line items unless overridden
-              at the line item level.
-
-          customer_id: The customer or customer-job associated with this inventory adjustment.
+          address: The address that is printed on the sales-tax payment check.
 
           external_id: A globally unique identifier (GUID) you, the developer, can provide for tracking
               this object in your external system. This field is immutable and can only be set
@@ -99,19 +99,18 @@ class InventoryAdjustmentsResource(SyncAPIResource):
               **IMPORTANT**: This field must be formatted as a valid GUID; otherwise,
               QuickBooks will return an error.
 
-          inventory_site_id: The site location where inventory for the item associated with this inventory
-              adjustment is stored.
+          is_queued_for_print: Indicates whether this sales-tax payment check is included in the queue of
+              documents for QuickBooks to print.
 
-          lines: The inventory adjustment's item lines, each representing the adjustment of an
-              inventory item's quantity, value, serial number, or lot number.
+          memo: A memo or note for this sales-tax payment check.
 
-          memo: A memo or note for this inventory adjustment.
-
-          ref_number: The case-sensitive user-defined reference number for this inventory adjustment,
-              which can be used to identify the transaction in QuickBooks. This value is not
-              required to be unique and can be arbitrarily changed by the QuickBooks user.
-              When left blank in this create request, this field will be left blank in
+          ref_number: The case-sensitive user-defined reference number for this sales-tax payment
+              check, which can be used to identify the transaction in QuickBooks. This value
+              is not required to be unique and can be arbitrarily changed by the QuickBooks
+              user. When left blank in this create request, this field will be left blank in
               QuickBooks (i.e., it does _not_ auto-increment).
+
+              **IMPORTANT**: For checks, this field is the check number.
 
               Maximum length: 11 characters.
 
@@ -125,25 +124,25 @@ class InventoryAdjustmentsResource(SyncAPIResource):
         """
         extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
         return self._post(
-            "/quickbooks-desktop/inventory-adjustments",
+            "/quickbooks-desktop/sales-tax-payment-checks",
             body=maybe_transform(
                 {
-                    "account_id": account_id,
-                    "transaction_date": transaction_date,
-                    "class_id": class_id,
-                    "customer_id": customer_id,
-                    "external_id": external_id,
-                    "inventory_site_id": inventory_site_id,
+                    "bank_account_id": bank_account_id,
                     "lines": lines,
+                    "transaction_date": transaction_date,
+                    "vendor_id": vendor_id,
+                    "address": address,
+                    "external_id": external_id,
+                    "is_queued_for_print": is_queued_for_print,
                     "memo": memo,
                     "ref_number": ref_number,
                 },
-                inventory_adjustment_create_params.InventoryAdjustmentCreateParams,
+                sales_tax_payment_check_create_params.SalesTaxPaymentCheckCreateParams,
             ),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=InventoryAdjustment,
+            cast_to=SalesTaxPaymentCheck,
         )
 
     def retrieve(
@@ -157,17 +156,17 @@ class InventoryAdjustmentsResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> InventoryAdjustment:
+    ) -> SalesTaxPaymentCheck:
         """
-        Retrieves an inventory adjustment by ID.
+        Retrieves a sales-tax payment check by ID.
 
-        **IMPORTANT:** If you need to fetch multiple specific inventory adjustments by
-        ID, use the list endpoint instead with the `ids` parameter. It accepts an array
-        of IDs so you can batch the request into a single call, which is significantly
-        faster.
+        **IMPORTANT:** If you need to fetch multiple specific sales-tax payment checks
+        by ID, use the list endpoint instead with the `ids` parameter. It accepts an
+        array of IDs so you can batch the request into a single call, which is
+        significantly faster.
 
         Args:
-          id: The QuickBooks-assigned unique identifier of the inventory adjustment to
+          id: The QuickBooks-assigned unique identifier of the sales-tax payment check to
               retrieve.
 
           conductor_end_user_id: The ID of the End-User to receive this request.
@@ -184,11 +183,11 @@ class InventoryAdjustmentsResource(SyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
         return self._get(
-            path_template("/quickbooks-desktop/inventory-adjustments/{id}", id=id),
+            path_template("/quickbooks-desktop/sales-tax-payment-checks/{id}", id=id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=InventoryAdjustment,
+            cast_to=SalesTaxPaymentCheck,
         )
 
     def update(
@@ -197,11 +196,9 @@ class InventoryAdjustmentsResource(SyncAPIResource):
         *,
         revision_number: str,
         conductor_end_user_id: str,
-        account_id: str | Omit = omit,
-        class_id: str | Omit = omit,
-        customer_id: str | Omit = omit,
-        inventory_site_id: str | Omit = omit,
-        lines: Iterable[inventory_adjustment_update_params.Line] | Omit = omit,
+        address: sales_tax_payment_check_update_params.Address | Omit = omit,
+        bank_account_id: str | Omit = omit,
+        is_queued_for_print: bool | Omit = omit,
         memo: str | Omit = omit,
         ref_number: str | Omit = omit,
         transaction_date: Union[str, date] | Omit = omit,
@@ -211,62 +208,42 @@ class InventoryAdjustmentsResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> InventoryAdjustment:
+    ) -> SalesTaxPaymentCheck:
         """
-        Updates an existing inventory adjustment.
-
-        **NOTE:** If you include `lines`, QuickBooks Desktop replaces that line list
-        with the array you send, so include unchanged lines you want to keep and use
-        `id: "-1"` for new lines.
+        Updates an existing sales-tax payment check.
 
         Args:
-          id: The QuickBooks-assigned unique identifier of the inventory adjustment to update.
+          id: The QuickBooks-assigned unique identifier of the sales-tax payment check to
+              update.
 
-          revision_number: The current QuickBooks-assigned revision number of the inventory adjustment
+          revision_number: The current QuickBooks-assigned revision number of the sales-tax payment check
               object you are updating, which you can get by fetching the object first. Provide
               the most recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          account_id: The account to which this inventory adjustment is posted for tracking inventory
-              value changes.
+          address: The address that is printed on the sales-tax payment check.
 
-          class_id: The inventory adjustment's class. Classes can be used to categorize objects into
-              meaningful segments, such as department, location, or type of work. In
-              QuickBooks, class tracking is off by default. A class defined here is
-              automatically used in this inventory adjustment's line items unless overridden
-              at the line item level.
+          bank_account_id: The bank account from which the funds are being drawn for this sales-tax payment
+              check; e.g., Checking or Savings. This sales-tax payment check will decrease the
+              balance of this account.
 
-          customer_id: The customer or customer-job associated with this inventory adjustment.
+          is_queued_for_print: Indicates whether this sales-tax payment check is included in the queue of
+              documents for QuickBooks to print.
 
-          inventory_site_id: The site location where inventory for the item associated with this inventory
-              adjustment is stored.
+          memo: A memo or note for this sales-tax payment check.
 
-          lines: The inventory adjustment's item lines, each representing the adjustment of an
-              inventory item's quantity, value, serial number, or lot number.
+          ref_number: The case-sensitive user-defined reference number for this sales-tax payment
+              check, which can be used to identify the transaction in QuickBooks. This value
+              is not required to be unique and can be arbitrarily changed by the QuickBooks
+              user.
 
-              **IMPORTANT**:
-
-              1. Including this array in your update request will **REPLACE** all existing
-                 item lines for the inventory adjustment with this array. To keep any existing
-                 item lines, you must include them in this array even if they have not
-                 changed. **Any item lines not included will be removed.**
-
-              2. To add a new item line, include it here with the `id` field set to `-1`.
-
-              3. If you do not wish to modify any item lines, omit this field entirely to keep
-                 them unchanged.
-
-          memo: A memo or note for this inventory adjustment.
-
-          ref_number: The case-sensitive user-defined reference number for this inventory adjustment,
-              which can be used to identify the transaction in QuickBooks. This value is not
-              required to be unique and can be arbitrarily changed by the QuickBooks user.
+              **IMPORTANT**: For checks, this field is the check number.
 
               Maximum length: 11 characters.
 
-          transaction_date: The date of this inventory adjustment, in ISO 8601 format (YYYY-MM-DD).
+          transaction_date: The date of this sales-tax payment check, in ISO 8601 format (YYYY-MM-DD).
 
           extra_headers: Send extra headers
 
@@ -280,25 +257,23 @@ class InventoryAdjustmentsResource(SyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
         return self._post(
-            path_template("/quickbooks-desktop/inventory-adjustments/{id}", id=id),
+            path_template("/quickbooks-desktop/sales-tax-payment-checks/{id}", id=id),
             body=maybe_transform(
                 {
                     "revision_number": revision_number,
-                    "account_id": account_id,
-                    "class_id": class_id,
-                    "customer_id": customer_id,
-                    "inventory_site_id": inventory_site_id,
-                    "lines": lines,
+                    "address": address,
+                    "bank_account_id": bank_account_id,
+                    "is_queued_for_print": is_queued_for_print,
                     "memo": memo,
                     "ref_number": ref_number,
                     "transaction_date": transaction_date,
                 },
-                inventory_adjustment_update_params.InventoryAdjustmentUpdateParams,
+                sales_tax_payment_check_update_params.SalesTaxPaymentCheckUpdateParams,
             ),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=InventoryAdjustment,
+            cast_to=SalesTaxPaymentCheck,
         )
 
     def list(
@@ -306,7 +281,7 @@ class InventoryAdjustmentsResource(SyncAPIResource):
         *,
         conductor_end_user_id: str,
         account_ids: SequenceNotStr[str] | Omit = omit,
-        customer_ids: SequenceNotStr[str] | Omit = omit,
+        cursor: str | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         include_line_items: bool | Omit = omit,
         item_ids: SequenceNotStr[str] | Omit = omit,
@@ -321,28 +296,30 @@ class InventoryAdjustmentsResource(SyncAPIResource):
         transaction_date_to: Union[str, date] | Omit = omit,
         updated_after: str | Omit = omit,
         updated_before: str | Omit = omit,
+        vendor_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> InventoryAdjustmentListResponse:
-        """
-        Returns a list of inventory adjustments.
+    ) -> SyncCursorPage[SalesTaxPaymentCheck]:
+        """Returns a list of sales-tax payment checks.
 
-        **NOTE:** QuickBooks Desktop does not support pagination for inventory
-        adjustments; hence, there is no `cursor` parameter. Users typically have few
-        inventory adjustments.
+        Use the `cursor` parameter to
+        paginate through the results.
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          account_ids: Filter for inventory adjustments associated with these accounts.
+          account_ids: Filter for sales-tax payment checks associated with these accounts.
 
-          customer_ids: Filter for inventory adjustments associated with these customers.
+          cursor: The pagination token to fetch the next set of results when paginating with the
+              `limit` parameter. Do not include this parameter on the first call. Use the
+              `nextCursor` value returned in the previous response to request subsequent
+              results.
 
-          ids: Filter for specific inventory adjustments by their QuickBooks-assigned unique
+          ids: Filter for specific sales-tax payment checks by their QuickBooks-assigned unique
               identifier(s).
 
               **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
@@ -353,35 +330,31 @@ class InventoryAdjustmentsResource(SyncAPIResource):
 
           include_line_items: Whether to include line items in the response. Defaults to `true`.
 
-          item_ids: Filter for inventory adjustments containing these inventory items.
+          item_ids: Filter for sales-tax payment checks containing these items.
 
-          limit: The maximum number of objects to return.
+          limit: The maximum number of objects to return. Accepts values ranging from 1 to 150,
+              defaults to 150. When used with cursor-based pagination, this parameter controls
+              how many results are returned per page. To paginate through results, combine
+              this with the `cursor` parameter. Each response will include a `nextCursor`
+              value that can be passed to subsequent requests to retrieve the next page of
+              results.
 
-              **IMPORTANT**: QuickBooks Desktop does not support cursor-based pagination for
-              inventory adjustments. This parameter will limit the response size, but you
-              cannot fetch subsequent results using a cursor. For pagination, use the
-              name-range parameters instead (e.g., `nameFrom=A&nameTo=B`).
-
-              When this parameter is omitted, the endpoint returns all inventory adjustments
-              without limit, unlike paginated endpoints which default to 150 records. This is
-              acceptable because inventory adjustments typically have low record counts.
-
-          ref_number_contains: Filter for inventory adjustments whose `refNumber` contains this substring.
+          ref_number_contains: Filter for sales-tax payment checks whose `refNumber` contains this substring.
 
               **NOTE**: If you use this parameter, you cannot also use `refNumberStartsWith`
               or `refNumberEndsWith`.
 
-          ref_number_ends_with: Filter for inventory adjustments whose `refNumber` ends with this substring.
+          ref_number_ends_with: Filter for sales-tax payment checks whose `refNumber` ends with this substring.
 
               **NOTE**: If you use this parameter, you cannot also use `refNumberContains` or
               `refNumberStartsWith`.
 
-          ref_number_from: Filter for inventory adjustments whose `refNumber` is greater than or equal to
-              this value. If omitted, the range will begin with the first number of the list.
-              Uses a numerical comparison for values that contain only digits; otherwise, uses
-              a lexicographical comparison.
+          ref_number_from: Filter for sales-tax payment checks whose `refNumber` is greater than or equal
+              to this value. If omitted, the range will begin with the first number of the
+              list. Uses a numerical comparison for values that contain only digits;
+              otherwise, uses a lexicographical comparison.
 
-          ref_numbers: Filter for specific inventory adjustments by their ref-number(s),
+          ref_numbers: Filter for specific sales-tax payment checks by their ref-number(s),
               case-sensitive. In QuickBooks, ref-numbers are not required to be unique and can
               be arbitrarily changed by the QuickBooks user.
 
@@ -391,32 +364,33 @@ class InventoryAdjustmentsResource(SyncAPIResource):
               **NOTE**: If any of the values you specify in this parameter are not found, the
               request will return an error.
 
-          ref_number_starts_with: Filter for inventory adjustments whose `refNumber` starts with this substring.
+          ref_number_starts_with: Filter for sales-tax payment checks whose `refNumber` starts with this
+              substring.
 
               **NOTE**: If you use this parameter, you cannot also use `refNumberContains` or
               `refNumberEndsWith`.
 
-          ref_number_to: Filter for inventory adjustments whose `refNumber` is less than or equal to this
-              value. If omitted, the range will end with the last number of the list. Uses a
-              numerical comparison for values that contain only digits; otherwise, uses a
-              lexicographical comparison.
+          ref_number_to: Filter for sales-tax payment checks whose `refNumber` is less than or equal to
+              this value. If omitted, the range will end with the last number of the list.
+              Uses a numerical comparison for values that contain only digits; otherwise, uses
+              a lexicographical comparison.
 
-          transaction_date_from: Filter for inventory adjustments whose `date` field is on or after this date, in
-              ISO 8601 format (YYYY-MM-DD).
+          transaction_date_from: Filter for sales-tax payment checks whose `date` field is on or after this date,
+              in ISO 8601 format (YYYY-MM-DD).
 
               **NOTE:** QuickBooks Desktop interprets this date as the **start of the
               specified day** in the local timezone of the end-user's computer (e.g.,
               `2025-01-01` → `2025-01-01T00:00:00`).
 
-          transaction_date_to: Filter for inventory adjustments whose `date` field is on or before this date,
-              in ISO 8601 format (YYYY-MM-DD).
+          transaction_date_to: Filter for sales-tax payment checks whose `date` field is on or before this
+              date, in ISO 8601 format (YYYY-MM-DD).
 
               **NOTE:** QuickBooks Desktop interprets this date as the **end of the specified
               day** in the local timezone of the end-user's computer (e.g., `2025-01-01` →
               `2025-01-01T23:59:59`).
 
-          updated_after: Filter for inventory adjustments updated on or after this date/time. Accepts the
-              following ISO 8601 formats:
+          updated_after: Filter for sales-tax payment checks updated on or after this date/time. Accepts
+              the following ISO 8601 formats:
 
               - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets the date as the
                 **start of the specified day** in the local timezone of the end-user's
@@ -426,7 +400,7 @@ class InventoryAdjustmentsResource(SyncAPIResource):
               - **datetime with timezone** (YYYY-MM-DDTHH:mm:ss±HH:mm) - QuickBooks Desktop
                 interprets the timestamp using the specified timezone.
 
-          updated_before: Filter for inventory adjustments updated on or before this date/time. Accepts
+          updated_before: Filter for sales-tax payment checks updated on or before this date/time. Accepts
               the following ISO 8601 formats:
 
               - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets the date as the
@@ -437,6 +411,9 @@ class InventoryAdjustmentsResource(SyncAPIResource):
               - **datetime with timezone** (YYYY-MM-DDTHH:mm:ss±HH:mm) - QuickBooks Desktop
                 interprets the timestamp using the specified timezone.
 
+          vendor_ids: Filter for sales-tax payment checks paid to these vendors. These are the
+              sales-tax agencies, represented as QuickBooks vendors, paid by these checks.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -446,8 +423,9 @@ class InventoryAdjustmentsResource(SyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
-        return self._get(
-            "/quickbooks-desktop/inventory-adjustments",
+        return self._get_api_list(
+            "/quickbooks-desktop/sales-tax-payment-checks",
+            page=SyncCursorPage[SalesTaxPaymentCheck],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -456,7 +434,7 @@ class InventoryAdjustmentsResource(SyncAPIResource):
                 query=maybe_transform(
                     {
                         "account_ids": account_ids,
-                        "customer_ids": customer_ids,
+                        "cursor": cursor,
                         "ids": ids,
                         "include_line_items": include_line_items,
                         "item_ids": item_ids,
@@ -471,11 +449,12 @@ class InventoryAdjustmentsResource(SyncAPIResource):
                         "transaction_date_to": transaction_date_to,
                         "updated_after": updated_after,
                         "updated_before": updated_before,
+                        "vendor_ids": vendor_ids,
                     },
-                    inventory_adjustment_list_params.InventoryAdjustmentListParams,
+                    sales_tax_payment_check_list_params.SalesTaxPaymentCheckListParams,
                 ),
             ),
-            cast_to=InventoryAdjustmentListResponse,
+            model=SalesTaxPaymentCheck,
         )
 
     def delete(
@@ -489,15 +468,16 @@ class InventoryAdjustmentsResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> InventoryAdjustmentDeleteResponse:
-        """Permanently deletes an inventory adjustment.
+    ) -> SalesTaxPaymentCheckDeleteResponse:
+        """Permanently deletes a sales-tax payment check.
 
         The deletion will fail if the
-        inventory adjustment is currently in use or has any linked transactions that are
-        in use.
+        sales-tax payment check is currently in use or has any linked transactions that
+        are in use.
 
         Args:
-          id: The QuickBooks-assigned unique identifier of the inventory adjustment to delete.
+          id: The QuickBooks-assigned unique identifier of the sales-tax payment check to
+              delete.
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
@@ -513,11 +493,11 @@ class InventoryAdjustmentsResource(SyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
         return self._delete(
-            path_template("/quickbooks-desktop/inventory-adjustments/{id}", id=id),
+            path_template("/quickbooks-desktop/sales-tax-payment-checks/{id}", id=id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=InventoryAdjustmentDeleteResponse,
+            cast_to=SalesTaxPaymentCheckDeleteResponse,
         )
 
     def void(
@@ -531,14 +511,15 @@ class InventoryAdjustmentsResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> InventoryAdjustmentVoidResponse:
+    ) -> SalesTaxPaymentCheckVoidResponse:
         """
-        Voids an inventory adjustment by setting its amount to zero while keeping a
-        record of it in QuickBooks. The void will fail if the inventory adjustment is
+        Voids a sales-tax payment check by setting its amount to zero while keeping a
+        record of it in QuickBooks. The void will fail if the sales-tax payment check is
         currently in use or has any linked transactions that are in use.
 
         Args:
-          id: The QuickBooks-assigned unique identifier of the inventory adjustment to void.
+          id: The QuickBooks-assigned unique identifier of the sales-tax payment check to
+              void.
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
@@ -554,45 +535,45 @@ class InventoryAdjustmentsResource(SyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
         return self._post(
-            path_template("/quickbooks-desktop/inventory-adjustments/{id}/void", id=id),
+            path_template("/quickbooks-desktop/sales-tax-payment-checks/{id}/void", id=id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=InventoryAdjustmentVoidResponse,
+            cast_to=SalesTaxPaymentCheckVoidResponse,
         )
 
 
-class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
+class AsyncSalesTaxPaymentChecksResource(AsyncAPIResource):
     @cached_property
-    def with_raw_response(self) -> AsyncInventoryAdjustmentsResourceWithRawResponse:
+    def with_raw_response(self) -> AsyncSalesTaxPaymentChecksResourceWithRawResponse:
         """
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
         For more information, see https://www.github.com/conductor-is/quickbooks-desktop-python#accessing-raw-response-data-eg-headers
         """
-        return AsyncInventoryAdjustmentsResourceWithRawResponse(self)
+        return AsyncSalesTaxPaymentChecksResourceWithRawResponse(self)
 
     @cached_property
-    def with_streaming_response(self) -> AsyncInventoryAdjustmentsResourceWithStreamingResponse:
+    def with_streaming_response(self) -> AsyncSalesTaxPaymentChecksResourceWithStreamingResponse:
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
         For more information, see https://www.github.com/conductor-is/quickbooks-desktop-python#with_streaming_response
         """
-        return AsyncInventoryAdjustmentsResourceWithStreamingResponse(self)
+        return AsyncSalesTaxPaymentChecksResourceWithStreamingResponse(self)
 
     async def create(
         self,
         *,
-        account_id: str,
+        bank_account_id: str,
+        lines: Iterable[sales_tax_payment_check_create_params.Line],
         transaction_date: Union[str, date],
+        vendor_id: str,
         conductor_end_user_id: str,
-        class_id: str | Omit = omit,
-        customer_id: str | Omit = omit,
+        address: sales_tax_payment_check_create_params.Address | Omit = omit,
         external_id: str | Omit = omit,
-        inventory_site_id: str | Omit = omit,
-        lines: Iterable[inventory_adjustment_create_params.Line] | Omit = omit,
+        is_queued_for_print: bool | Omit = omit,
         memo: str | Omit = omit,
         ref_number: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -601,27 +582,27 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> InventoryAdjustment:
+    ) -> SalesTaxPaymentCheck:
         """
-        Creates an inventory adjustment to correct on-hand quantities or values.
-        QuickBooks requires single-user mode unless you're on Enterprise with Advanced
-        Inventory enabled.
+        Creates a new sales-tax payment check.
 
         Args:
-          account_id: The account to which this inventory adjustment is posted for tracking inventory
-              value changes.
+          bank_account_id: The bank account from which the funds are being drawn for this sales-tax payment
+              check; e.g., Checking or Savings. This sales-tax payment check will decrease the
+              balance of this account.
 
-          transaction_date: The date of this inventory adjustment, in ISO 8601 format (YYYY-MM-DD).
+          lines: The payment lines in this sales-tax payment check, each recording an amount paid
+              toward a sales-tax item.
+
+          transaction_date: The date of this sales-tax payment check, in ISO 8601 format (YYYY-MM-DD).
+
+          vendor_id: The sales-tax agency, represented as a QuickBooks vendor, receiving this
+              sales-tax payment check. This must match the tax vendor associated with the
+              sales-tax items in the payment lines.
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          class_id: The inventory adjustment's class. Classes can be used to categorize objects into
-              meaningful segments, such as department, location, or type of work. In
-              QuickBooks, class tracking is off by default. A class defined here is
-              automatically used in this inventory adjustment's line items unless overridden
-              at the line item level.
-
-          customer_id: The customer or customer-job associated with this inventory adjustment.
+          address: The address that is printed on the sales-tax payment check.
 
           external_id: A globally unique identifier (GUID) you, the developer, can provide for tracking
               this object in your external system. This field is immutable and can only be set
@@ -630,19 +611,18 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
               **IMPORTANT**: This field must be formatted as a valid GUID; otherwise,
               QuickBooks will return an error.
 
-          inventory_site_id: The site location where inventory for the item associated with this inventory
-              adjustment is stored.
+          is_queued_for_print: Indicates whether this sales-tax payment check is included in the queue of
+              documents for QuickBooks to print.
 
-          lines: The inventory adjustment's item lines, each representing the adjustment of an
-              inventory item's quantity, value, serial number, or lot number.
+          memo: A memo or note for this sales-tax payment check.
 
-          memo: A memo or note for this inventory adjustment.
-
-          ref_number: The case-sensitive user-defined reference number for this inventory adjustment,
-              which can be used to identify the transaction in QuickBooks. This value is not
-              required to be unique and can be arbitrarily changed by the QuickBooks user.
-              When left blank in this create request, this field will be left blank in
+          ref_number: The case-sensitive user-defined reference number for this sales-tax payment
+              check, which can be used to identify the transaction in QuickBooks. This value
+              is not required to be unique and can be arbitrarily changed by the QuickBooks
+              user. When left blank in this create request, this field will be left blank in
               QuickBooks (i.e., it does _not_ auto-increment).
+
+              **IMPORTANT**: For checks, this field is the check number.
 
               Maximum length: 11 characters.
 
@@ -656,25 +636,25 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
         """
         extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
         return await self._post(
-            "/quickbooks-desktop/inventory-adjustments",
+            "/quickbooks-desktop/sales-tax-payment-checks",
             body=await async_maybe_transform(
                 {
-                    "account_id": account_id,
-                    "transaction_date": transaction_date,
-                    "class_id": class_id,
-                    "customer_id": customer_id,
-                    "external_id": external_id,
-                    "inventory_site_id": inventory_site_id,
+                    "bank_account_id": bank_account_id,
                     "lines": lines,
+                    "transaction_date": transaction_date,
+                    "vendor_id": vendor_id,
+                    "address": address,
+                    "external_id": external_id,
+                    "is_queued_for_print": is_queued_for_print,
                     "memo": memo,
                     "ref_number": ref_number,
                 },
-                inventory_adjustment_create_params.InventoryAdjustmentCreateParams,
+                sales_tax_payment_check_create_params.SalesTaxPaymentCheckCreateParams,
             ),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=InventoryAdjustment,
+            cast_to=SalesTaxPaymentCheck,
         )
 
     async def retrieve(
@@ -688,17 +668,17 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> InventoryAdjustment:
+    ) -> SalesTaxPaymentCheck:
         """
-        Retrieves an inventory adjustment by ID.
+        Retrieves a sales-tax payment check by ID.
 
-        **IMPORTANT:** If you need to fetch multiple specific inventory adjustments by
-        ID, use the list endpoint instead with the `ids` parameter. It accepts an array
-        of IDs so you can batch the request into a single call, which is significantly
-        faster.
+        **IMPORTANT:** If you need to fetch multiple specific sales-tax payment checks
+        by ID, use the list endpoint instead with the `ids` parameter. It accepts an
+        array of IDs so you can batch the request into a single call, which is
+        significantly faster.
 
         Args:
-          id: The QuickBooks-assigned unique identifier of the inventory adjustment to
+          id: The QuickBooks-assigned unique identifier of the sales-tax payment check to
               retrieve.
 
           conductor_end_user_id: The ID of the End-User to receive this request.
@@ -715,11 +695,11 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
         return await self._get(
-            path_template("/quickbooks-desktop/inventory-adjustments/{id}", id=id),
+            path_template("/quickbooks-desktop/sales-tax-payment-checks/{id}", id=id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=InventoryAdjustment,
+            cast_to=SalesTaxPaymentCheck,
         )
 
     async def update(
@@ -728,11 +708,9 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
         *,
         revision_number: str,
         conductor_end_user_id: str,
-        account_id: str | Omit = omit,
-        class_id: str | Omit = omit,
-        customer_id: str | Omit = omit,
-        inventory_site_id: str | Omit = omit,
-        lines: Iterable[inventory_adjustment_update_params.Line] | Omit = omit,
+        address: sales_tax_payment_check_update_params.Address | Omit = omit,
+        bank_account_id: str | Omit = omit,
+        is_queued_for_print: bool | Omit = omit,
         memo: str | Omit = omit,
         ref_number: str | Omit = omit,
         transaction_date: Union[str, date] | Omit = omit,
@@ -742,62 +720,42 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> InventoryAdjustment:
+    ) -> SalesTaxPaymentCheck:
         """
-        Updates an existing inventory adjustment.
-
-        **NOTE:** If you include `lines`, QuickBooks Desktop replaces that line list
-        with the array you send, so include unchanged lines you want to keep and use
-        `id: "-1"` for new lines.
+        Updates an existing sales-tax payment check.
 
         Args:
-          id: The QuickBooks-assigned unique identifier of the inventory adjustment to update.
+          id: The QuickBooks-assigned unique identifier of the sales-tax payment check to
+              update.
 
-          revision_number: The current QuickBooks-assigned revision number of the inventory adjustment
+          revision_number: The current QuickBooks-assigned revision number of the sales-tax payment check
               object you are updating, which you can get by fetching the object first. Provide
               the most recent `revisionNumber` to ensure you're working with the latest data;
               otherwise, the update will return an error.
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          account_id: The account to which this inventory adjustment is posted for tracking inventory
-              value changes.
+          address: The address that is printed on the sales-tax payment check.
 
-          class_id: The inventory adjustment's class. Classes can be used to categorize objects into
-              meaningful segments, such as department, location, or type of work. In
-              QuickBooks, class tracking is off by default. A class defined here is
-              automatically used in this inventory adjustment's line items unless overridden
-              at the line item level.
+          bank_account_id: The bank account from which the funds are being drawn for this sales-tax payment
+              check; e.g., Checking or Savings. This sales-tax payment check will decrease the
+              balance of this account.
 
-          customer_id: The customer or customer-job associated with this inventory adjustment.
+          is_queued_for_print: Indicates whether this sales-tax payment check is included in the queue of
+              documents for QuickBooks to print.
 
-          inventory_site_id: The site location where inventory for the item associated with this inventory
-              adjustment is stored.
+          memo: A memo or note for this sales-tax payment check.
 
-          lines: The inventory adjustment's item lines, each representing the adjustment of an
-              inventory item's quantity, value, serial number, or lot number.
+          ref_number: The case-sensitive user-defined reference number for this sales-tax payment
+              check, which can be used to identify the transaction in QuickBooks. This value
+              is not required to be unique and can be arbitrarily changed by the QuickBooks
+              user.
 
-              **IMPORTANT**:
-
-              1. Including this array in your update request will **REPLACE** all existing
-                 item lines for the inventory adjustment with this array. To keep any existing
-                 item lines, you must include them in this array even if they have not
-                 changed. **Any item lines not included will be removed.**
-
-              2. To add a new item line, include it here with the `id` field set to `-1`.
-
-              3. If you do not wish to modify any item lines, omit this field entirely to keep
-                 them unchanged.
-
-          memo: A memo or note for this inventory adjustment.
-
-          ref_number: The case-sensitive user-defined reference number for this inventory adjustment,
-              which can be used to identify the transaction in QuickBooks. This value is not
-              required to be unique and can be arbitrarily changed by the QuickBooks user.
+              **IMPORTANT**: For checks, this field is the check number.
 
               Maximum length: 11 characters.
 
-          transaction_date: The date of this inventory adjustment, in ISO 8601 format (YYYY-MM-DD).
+          transaction_date: The date of this sales-tax payment check, in ISO 8601 format (YYYY-MM-DD).
 
           extra_headers: Send extra headers
 
@@ -811,33 +769,31 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
         return await self._post(
-            path_template("/quickbooks-desktop/inventory-adjustments/{id}", id=id),
+            path_template("/quickbooks-desktop/sales-tax-payment-checks/{id}", id=id),
             body=await async_maybe_transform(
                 {
                     "revision_number": revision_number,
-                    "account_id": account_id,
-                    "class_id": class_id,
-                    "customer_id": customer_id,
-                    "inventory_site_id": inventory_site_id,
-                    "lines": lines,
+                    "address": address,
+                    "bank_account_id": bank_account_id,
+                    "is_queued_for_print": is_queued_for_print,
                     "memo": memo,
                     "ref_number": ref_number,
                     "transaction_date": transaction_date,
                 },
-                inventory_adjustment_update_params.InventoryAdjustmentUpdateParams,
+                sales_tax_payment_check_update_params.SalesTaxPaymentCheckUpdateParams,
             ),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=InventoryAdjustment,
+            cast_to=SalesTaxPaymentCheck,
         )
 
-    async def list(
+    def list(
         self,
         *,
         conductor_end_user_id: str,
         account_ids: SequenceNotStr[str] | Omit = omit,
-        customer_ids: SequenceNotStr[str] | Omit = omit,
+        cursor: str | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         include_line_items: bool | Omit = omit,
         item_ids: SequenceNotStr[str] | Omit = omit,
@@ -852,28 +808,30 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
         transaction_date_to: Union[str, date] | Omit = omit,
         updated_after: str | Omit = omit,
         updated_before: str | Omit = omit,
+        vendor_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> InventoryAdjustmentListResponse:
-        """
-        Returns a list of inventory adjustments.
+    ) -> AsyncPaginator[SalesTaxPaymentCheck, AsyncCursorPage[SalesTaxPaymentCheck]]:
+        """Returns a list of sales-tax payment checks.
 
-        **NOTE:** QuickBooks Desktop does not support pagination for inventory
-        adjustments; hence, there is no `cursor` parameter. Users typically have few
-        inventory adjustments.
+        Use the `cursor` parameter to
+        paginate through the results.
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          account_ids: Filter for inventory adjustments associated with these accounts.
+          account_ids: Filter for sales-tax payment checks associated with these accounts.
 
-          customer_ids: Filter for inventory adjustments associated with these customers.
+          cursor: The pagination token to fetch the next set of results when paginating with the
+              `limit` parameter. Do not include this parameter on the first call. Use the
+              `nextCursor` value returned in the previous response to request subsequent
+              results.
 
-          ids: Filter for specific inventory adjustments by their QuickBooks-assigned unique
+          ids: Filter for specific sales-tax payment checks by their QuickBooks-assigned unique
               identifier(s).
 
               **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
@@ -884,35 +842,31 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
 
           include_line_items: Whether to include line items in the response. Defaults to `true`.
 
-          item_ids: Filter for inventory adjustments containing these inventory items.
+          item_ids: Filter for sales-tax payment checks containing these items.
 
-          limit: The maximum number of objects to return.
+          limit: The maximum number of objects to return. Accepts values ranging from 1 to 150,
+              defaults to 150. When used with cursor-based pagination, this parameter controls
+              how many results are returned per page. To paginate through results, combine
+              this with the `cursor` parameter. Each response will include a `nextCursor`
+              value that can be passed to subsequent requests to retrieve the next page of
+              results.
 
-              **IMPORTANT**: QuickBooks Desktop does not support cursor-based pagination for
-              inventory adjustments. This parameter will limit the response size, but you
-              cannot fetch subsequent results using a cursor. For pagination, use the
-              name-range parameters instead (e.g., `nameFrom=A&nameTo=B`).
-
-              When this parameter is omitted, the endpoint returns all inventory adjustments
-              without limit, unlike paginated endpoints which default to 150 records. This is
-              acceptable because inventory adjustments typically have low record counts.
-
-          ref_number_contains: Filter for inventory adjustments whose `refNumber` contains this substring.
+          ref_number_contains: Filter for sales-tax payment checks whose `refNumber` contains this substring.
 
               **NOTE**: If you use this parameter, you cannot also use `refNumberStartsWith`
               or `refNumberEndsWith`.
 
-          ref_number_ends_with: Filter for inventory adjustments whose `refNumber` ends with this substring.
+          ref_number_ends_with: Filter for sales-tax payment checks whose `refNumber` ends with this substring.
 
               **NOTE**: If you use this parameter, you cannot also use `refNumberContains` or
               `refNumberStartsWith`.
 
-          ref_number_from: Filter for inventory adjustments whose `refNumber` is greater than or equal to
-              this value. If omitted, the range will begin with the first number of the list.
-              Uses a numerical comparison for values that contain only digits; otherwise, uses
-              a lexicographical comparison.
+          ref_number_from: Filter for sales-tax payment checks whose `refNumber` is greater than or equal
+              to this value. If omitted, the range will begin with the first number of the
+              list. Uses a numerical comparison for values that contain only digits;
+              otherwise, uses a lexicographical comparison.
 
-          ref_numbers: Filter for specific inventory adjustments by their ref-number(s),
+          ref_numbers: Filter for specific sales-tax payment checks by their ref-number(s),
               case-sensitive. In QuickBooks, ref-numbers are not required to be unique and can
               be arbitrarily changed by the QuickBooks user.
 
@@ -922,32 +876,33 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
               **NOTE**: If any of the values you specify in this parameter are not found, the
               request will return an error.
 
-          ref_number_starts_with: Filter for inventory adjustments whose `refNumber` starts with this substring.
+          ref_number_starts_with: Filter for sales-tax payment checks whose `refNumber` starts with this
+              substring.
 
               **NOTE**: If you use this parameter, you cannot also use `refNumberContains` or
               `refNumberEndsWith`.
 
-          ref_number_to: Filter for inventory adjustments whose `refNumber` is less than or equal to this
-              value. If omitted, the range will end with the last number of the list. Uses a
-              numerical comparison for values that contain only digits; otherwise, uses a
-              lexicographical comparison.
+          ref_number_to: Filter for sales-tax payment checks whose `refNumber` is less than or equal to
+              this value. If omitted, the range will end with the last number of the list.
+              Uses a numerical comparison for values that contain only digits; otherwise, uses
+              a lexicographical comparison.
 
-          transaction_date_from: Filter for inventory adjustments whose `date` field is on or after this date, in
-              ISO 8601 format (YYYY-MM-DD).
+          transaction_date_from: Filter for sales-tax payment checks whose `date` field is on or after this date,
+              in ISO 8601 format (YYYY-MM-DD).
 
               **NOTE:** QuickBooks Desktop interprets this date as the **start of the
               specified day** in the local timezone of the end-user's computer (e.g.,
               `2025-01-01` → `2025-01-01T00:00:00`).
 
-          transaction_date_to: Filter for inventory adjustments whose `date` field is on or before this date,
-              in ISO 8601 format (YYYY-MM-DD).
+          transaction_date_to: Filter for sales-tax payment checks whose `date` field is on or before this
+              date, in ISO 8601 format (YYYY-MM-DD).
 
               **NOTE:** QuickBooks Desktop interprets this date as the **end of the specified
               day** in the local timezone of the end-user's computer (e.g., `2025-01-01` →
               `2025-01-01T23:59:59`).
 
-          updated_after: Filter for inventory adjustments updated on or after this date/time. Accepts the
-              following ISO 8601 formats:
+          updated_after: Filter for sales-tax payment checks updated on or after this date/time. Accepts
+              the following ISO 8601 formats:
 
               - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets the date as the
                 **start of the specified day** in the local timezone of the end-user's
@@ -957,7 +912,7 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
               - **datetime with timezone** (YYYY-MM-DDTHH:mm:ss±HH:mm) - QuickBooks Desktop
                 interprets the timestamp using the specified timezone.
 
-          updated_before: Filter for inventory adjustments updated on or before this date/time. Accepts
+          updated_before: Filter for sales-tax payment checks updated on or before this date/time. Accepts
               the following ISO 8601 formats:
 
               - **date-only** (YYYY-MM-DD) - QuickBooks Desktop interprets the date as the
@@ -968,6 +923,9 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
               - **datetime with timezone** (YYYY-MM-DDTHH:mm:ss±HH:mm) - QuickBooks Desktop
                 interprets the timestamp using the specified timezone.
 
+          vendor_ids: Filter for sales-tax payment checks paid to these vendors. These are the
+              sales-tax agencies, represented as QuickBooks vendors, paid by these checks.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -977,17 +935,18 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
-        return await self._get(
-            "/quickbooks-desktop/inventory-adjustments",
+        return self._get_api_list(
+            "/quickbooks-desktop/sales-tax-payment-checks",
+            page=AsyncCursorPage[SalesTaxPaymentCheck],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
+                query=maybe_transform(
                     {
                         "account_ids": account_ids,
-                        "customer_ids": customer_ids,
+                        "cursor": cursor,
                         "ids": ids,
                         "include_line_items": include_line_items,
                         "item_ids": item_ids,
@@ -1002,11 +961,12 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
                         "transaction_date_to": transaction_date_to,
                         "updated_after": updated_after,
                         "updated_before": updated_before,
+                        "vendor_ids": vendor_ids,
                     },
-                    inventory_adjustment_list_params.InventoryAdjustmentListParams,
+                    sales_tax_payment_check_list_params.SalesTaxPaymentCheckListParams,
                 ),
             ),
-            cast_to=InventoryAdjustmentListResponse,
+            model=SalesTaxPaymentCheck,
         )
 
     async def delete(
@@ -1020,15 +980,16 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> InventoryAdjustmentDeleteResponse:
-        """Permanently deletes an inventory adjustment.
+    ) -> SalesTaxPaymentCheckDeleteResponse:
+        """Permanently deletes a sales-tax payment check.
 
         The deletion will fail if the
-        inventory adjustment is currently in use or has any linked transactions that are
-        in use.
+        sales-tax payment check is currently in use or has any linked transactions that
+        are in use.
 
         Args:
-          id: The QuickBooks-assigned unique identifier of the inventory adjustment to delete.
+          id: The QuickBooks-assigned unique identifier of the sales-tax payment check to
+              delete.
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
@@ -1044,11 +1005,11 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
         return await self._delete(
-            path_template("/quickbooks-desktop/inventory-adjustments/{id}", id=id),
+            path_template("/quickbooks-desktop/sales-tax-payment-checks/{id}", id=id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=InventoryAdjustmentDeleteResponse,
+            cast_to=SalesTaxPaymentCheckDeleteResponse,
         )
 
     async def void(
@@ -1062,14 +1023,15 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> InventoryAdjustmentVoidResponse:
+    ) -> SalesTaxPaymentCheckVoidResponse:
         """
-        Voids an inventory adjustment by setting its amount to zero while keeping a
-        record of it in QuickBooks. The void will fail if the inventory adjustment is
+        Voids a sales-tax payment check by setting its amount to zero while keeping a
+        record of it in QuickBooks. The void will fail if the sales-tax payment check is
         currently in use or has any linked transactions that are in use.
 
         Args:
-          id: The QuickBooks-assigned unique identifier of the inventory adjustment to void.
+          id: The QuickBooks-assigned unique identifier of the sales-tax payment check to
+              void.
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
@@ -1085,105 +1047,105 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
         return await self._post(
-            path_template("/quickbooks-desktop/inventory-adjustments/{id}/void", id=id),
+            path_template("/quickbooks-desktop/sales-tax-payment-checks/{id}/void", id=id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=InventoryAdjustmentVoidResponse,
+            cast_to=SalesTaxPaymentCheckVoidResponse,
         )
 
 
-class InventoryAdjustmentsResourceWithRawResponse:
-    def __init__(self, inventory_adjustments: InventoryAdjustmentsResource) -> None:
-        self._inventory_adjustments = inventory_adjustments
+class SalesTaxPaymentChecksResourceWithRawResponse:
+    def __init__(self, sales_tax_payment_checks: SalesTaxPaymentChecksResource) -> None:
+        self._sales_tax_payment_checks = sales_tax_payment_checks
 
         self.create = to_raw_response_wrapper(
-            inventory_adjustments.create,
+            sales_tax_payment_checks.create,
         )
         self.retrieve = to_raw_response_wrapper(
-            inventory_adjustments.retrieve,
+            sales_tax_payment_checks.retrieve,
         )
         self.update = to_raw_response_wrapper(
-            inventory_adjustments.update,
+            sales_tax_payment_checks.update,
         )
         self.list = to_raw_response_wrapper(
-            inventory_adjustments.list,
+            sales_tax_payment_checks.list,
         )
         self.delete = to_raw_response_wrapper(
-            inventory_adjustments.delete,
+            sales_tax_payment_checks.delete,
         )
         self.void = to_raw_response_wrapper(
-            inventory_adjustments.void,
+            sales_tax_payment_checks.void,
         )
 
 
-class AsyncInventoryAdjustmentsResourceWithRawResponse:
-    def __init__(self, inventory_adjustments: AsyncInventoryAdjustmentsResource) -> None:
-        self._inventory_adjustments = inventory_adjustments
+class AsyncSalesTaxPaymentChecksResourceWithRawResponse:
+    def __init__(self, sales_tax_payment_checks: AsyncSalesTaxPaymentChecksResource) -> None:
+        self._sales_tax_payment_checks = sales_tax_payment_checks
 
         self.create = async_to_raw_response_wrapper(
-            inventory_adjustments.create,
+            sales_tax_payment_checks.create,
         )
         self.retrieve = async_to_raw_response_wrapper(
-            inventory_adjustments.retrieve,
+            sales_tax_payment_checks.retrieve,
         )
         self.update = async_to_raw_response_wrapper(
-            inventory_adjustments.update,
+            sales_tax_payment_checks.update,
         )
         self.list = async_to_raw_response_wrapper(
-            inventory_adjustments.list,
+            sales_tax_payment_checks.list,
         )
         self.delete = async_to_raw_response_wrapper(
-            inventory_adjustments.delete,
+            sales_tax_payment_checks.delete,
         )
         self.void = async_to_raw_response_wrapper(
-            inventory_adjustments.void,
+            sales_tax_payment_checks.void,
         )
 
 
-class InventoryAdjustmentsResourceWithStreamingResponse:
-    def __init__(self, inventory_adjustments: InventoryAdjustmentsResource) -> None:
-        self._inventory_adjustments = inventory_adjustments
+class SalesTaxPaymentChecksResourceWithStreamingResponse:
+    def __init__(self, sales_tax_payment_checks: SalesTaxPaymentChecksResource) -> None:
+        self._sales_tax_payment_checks = sales_tax_payment_checks
 
         self.create = to_streamed_response_wrapper(
-            inventory_adjustments.create,
+            sales_tax_payment_checks.create,
         )
         self.retrieve = to_streamed_response_wrapper(
-            inventory_adjustments.retrieve,
+            sales_tax_payment_checks.retrieve,
         )
         self.update = to_streamed_response_wrapper(
-            inventory_adjustments.update,
+            sales_tax_payment_checks.update,
         )
         self.list = to_streamed_response_wrapper(
-            inventory_adjustments.list,
+            sales_tax_payment_checks.list,
         )
         self.delete = to_streamed_response_wrapper(
-            inventory_adjustments.delete,
+            sales_tax_payment_checks.delete,
         )
         self.void = to_streamed_response_wrapper(
-            inventory_adjustments.void,
+            sales_tax_payment_checks.void,
         )
 
 
-class AsyncInventoryAdjustmentsResourceWithStreamingResponse:
-    def __init__(self, inventory_adjustments: AsyncInventoryAdjustmentsResource) -> None:
-        self._inventory_adjustments = inventory_adjustments
+class AsyncSalesTaxPaymentChecksResourceWithStreamingResponse:
+    def __init__(self, sales_tax_payment_checks: AsyncSalesTaxPaymentChecksResource) -> None:
+        self._sales_tax_payment_checks = sales_tax_payment_checks
 
         self.create = async_to_streamed_response_wrapper(
-            inventory_adjustments.create,
+            sales_tax_payment_checks.create,
         )
         self.retrieve = async_to_streamed_response_wrapper(
-            inventory_adjustments.retrieve,
+            sales_tax_payment_checks.retrieve,
         )
         self.update = async_to_streamed_response_wrapper(
-            inventory_adjustments.update,
+            sales_tax_payment_checks.update,
         )
         self.list = async_to_streamed_response_wrapper(
-            inventory_adjustments.list,
+            sales_tax_payment_checks.list,
         )
         self.delete = async_to_streamed_response_wrapper(
-            inventory_adjustments.delete,
+            sales_tax_payment_checks.delete,
         )
         self.void = async_to_streamed_response_wrapper(
-            inventory_adjustments.void,
+            sales_tax_payment_checks.void,
         )

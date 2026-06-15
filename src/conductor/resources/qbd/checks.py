@@ -610,10 +610,10 @@ class ChecksResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CheckDeleteResponse:
-        """Permanently deletes a a check.
+        """Permanently deletes a check.
 
-        The deletion will fail if the check is currently
-        in use or has any linked transactions that are in use.
+        The deletion will fail if the check is currently in
+        use or has any linked transactions that are in use.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the check to delete.
@@ -1264,10 +1264,10 @@ class AsyncChecksResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CheckDeleteResponse:
-        """Permanently deletes a a check.
+        """Permanently deletes a check.
 
-        The deletion will fail if the check is currently
-        in use or has any linked transactions that are in use.
+        The deletion will fail if the check is currently in
+        use or has any linked transactions that are in use.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the check to delete.

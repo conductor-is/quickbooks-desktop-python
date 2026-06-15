@@ -564,7 +564,7 @@ class CreditCardChargesResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CreditCardChargeDeleteResponse:
-        """Permanently deletes a a credit card charge.
+        """Permanently deletes a credit card charge.
 
         The deletion will fail if the credit
         card charge is currently in use or has any linked transactions that are in use.
@@ -1168,7 +1168,7 @@ class AsyncCreditCardChargesResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CreditCardChargeDeleteResponse:
-        """Permanently deletes a a credit card charge.
+        """Permanently deletes a credit card charge.
 
         The deletion will fail if the credit
         card charge is currently in use or has any linked transactions that are in use.

@@ -424,7 +424,7 @@ class DepositsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DepositDeleteResponse:
-        """Permanently deletes a a deposit.
+        """Permanently deletes a deposit.
 
         The deletion will fail if the deposit is
         currently in use or has any linked transactions that are in use.
@@ -892,7 +892,7 @@ class AsyncDepositsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DepositDeleteResponse:
-        """Permanently deletes a a deposit.
+        """Permanently deletes a deposit.
 
         The deletion will fail if the deposit is
         currently in use or has any linked transactions that are in use.

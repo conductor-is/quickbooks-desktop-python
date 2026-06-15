@@ -738,10 +738,10 @@ class SalesOrdersResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SalesOrderDeleteResponse:
-        """Permanently deletes a a sales order.
+        """Permanently deletes a sales order.
 
-        The deletion will fail if the sales order
-        is currently in use or has any linked transactions that are in use.
+        The deletion will fail if the sales order is
+        currently in use or has any linked transactions that are in use.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the sales order to delete.
@@ -1479,10 +1479,10 @@ class AsyncSalesOrdersResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SalesOrderDeleteResponse:
-        """Permanently deletes a a sales order.
+        """Permanently deletes a sales order.
 
-        The deletion will fail if the sales order
-        is currently in use or has any linked transactions that are in use.
+        The deletion will fail if the sales order is
+        currently in use or has any linked transactions that are in use.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the sales order to delete.

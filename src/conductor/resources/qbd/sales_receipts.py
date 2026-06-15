@@ -758,10 +758,10 @@ class SalesReceiptsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SalesReceiptDeleteResponse:
-        """Permanently deletes a a sales receipt.
+        """Permanently deletes a sales receipt.
 
-        The deletion will fail if the sales
-        receipt is currently in use or has any linked transactions that are in use.
+        The deletion will fail if the sales receipt
+        is currently in use or has any linked transactions that are in use.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the sales receipt to delete.
@@ -1560,10 +1560,10 @@ class AsyncSalesReceiptsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SalesReceiptDeleteResponse:
-        """Permanently deletes a a sales receipt.
+        """Permanently deletes a sales receipt.
 
-        The deletion will fail if the sales
-        receipt is currently in use or has any linked transactions that are in use.
+        The deletion will fail if the sales receipt
+        is currently in use or has any linked transactions that are in use.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the sales receipt to delete.
