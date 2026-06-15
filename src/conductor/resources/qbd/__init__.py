@@ -464,6 +464,14 @@ from .sales_representatives import (
     SalesRepresentativesResourceWithStreamingResponse,
     AsyncSalesRepresentativesResourceWithStreamingResponse,
 )
+from .sales_tax_group_items import (
+    SalesTaxGroupItemsResource,
+    AsyncSalesTaxGroupItemsResource,
+    SalesTaxGroupItemsResourceWithRawResponse,
+    AsyncSalesTaxGroupItemsResourceWithRawResponse,
+    SalesTaxGroupItemsResourceWithStreamingResponse,
+    AsyncSalesTaxGroupItemsResourceWithStreamingResponse,
+)
 from .inventory_assembly_items import (
     InventoryAssemblyItemsResource,
     AsyncInventoryAssemblyItemsResource,
@@ -778,6 +786,12 @@ __all__ = [
     "AsyncSalesTaxCodesResourceWithRawResponse",
     "SalesTaxCodesResourceWithStreamingResponse",
     "AsyncSalesTaxCodesResourceWithStreamingResponse",
+    "SalesTaxGroupItemsResource",
+    "AsyncSalesTaxGroupItemsResource",
+    "SalesTaxGroupItemsResourceWithRawResponse",
+    "AsyncSalesTaxGroupItemsResourceWithRawResponse",
+    "SalesTaxGroupItemsResourceWithStreamingResponse",
+    "AsyncSalesTaxGroupItemsResourceWithStreamingResponse",
     "SalesTaxItemsResource",
     "AsyncSalesTaxItemsResource",
     "SalesTaxItemsResourceWithRawResponse",
