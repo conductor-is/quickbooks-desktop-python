@@ -407,7 +407,7 @@ class CreditCardRefundsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CreditCardRefundDeleteResponse:
-        """Permanently deletes a a credit card refund.
+        """Permanently deletes a credit card refund.
 
         The deletion will fail if the credit
         card refund is currently in use or has any linked transactions that are in use.
@@ -858,7 +858,7 @@ class AsyncCreditCardRefundsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CreditCardRefundDeleteResponse:
-        """Permanently deletes a a credit card refund.
+        """Permanently deletes a credit card refund.
 
         The deletion will fail if the credit
         card refund is currently in use or has any linked transactions that are in use.

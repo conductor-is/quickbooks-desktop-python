@@ -737,10 +737,10 @@ class CreditMemosResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CreditMemoDeleteResponse:
-        """Permanently deletes a a credit memo.
+        """Permanently deletes a credit memo.
 
-        The deletion will fail if the credit memo
-        is currently in use or has any linked transactions that are in use.
+        The deletion will fail if the credit memo is
+        currently in use or has any linked transactions that are in use.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the credit memo to delete.
@@ -1518,10 +1518,10 @@ class AsyncCreditMemosResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CreditMemoDeleteResponse:
-        """Permanently deletes a a credit memo.
+        """Permanently deletes a credit memo.
 
-        The deletion will fail if the credit memo
-        is currently in use or has any linked transactions that are in use.
+        The deletion will fail if the credit memo is
+        currently in use or has any linked transactions that are in use.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the credit memo to delete.

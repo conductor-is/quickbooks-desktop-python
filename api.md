@@ -828,6 +828,27 @@ Methods:
 - <code title="post /quickbooks-desktop/sales-tax-items/{id}">conductor.qbd.sales_tax_items.<a href="./src/conductor/resources/qbd/sales_tax_items.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/sales_tax_item_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/sales_tax_item.py">SalesTaxItem</a></code>
 - <code title="get /quickbooks-desktop/sales-tax-items">conductor.qbd.sales_tax_items.<a href="./src/conductor/resources/qbd/sales_tax_items.py">list</a>(\*\*<a href="src/conductor/types/qbd/sales_tax_item_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/sales_tax_item.py">SyncCursorPage[SalesTaxItem]</a></code>
 
+## SalesTaxPaymentChecks
+
+Types:
+
+```python
+from conductor.types.qbd import (
+    SalesTaxPaymentCheck,
+    SalesTaxPaymentCheckDeleteResponse,
+    SalesTaxPaymentCheckVoidResponse,
+)
+```
+
+Methods:
+
+- <code title="post /quickbooks-desktop/sales-tax-payment-checks">conductor.qbd.sales_tax_payment_checks.<a href="./src/conductor/resources/qbd/sales_tax_payment_checks.py">create</a>(\*\*<a href="src/conductor/types/qbd/sales_tax_payment_check_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/sales_tax_payment_check.py">SalesTaxPaymentCheck</a></code>
+- <code title="get /quickbooks-desktop/sales-tax-payment-checks/{id}">conductor.qbd.sales_tax_payment_checks.<a href="./src/conductor/resources/qbd/sales_tax_payment_checks.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/sales_tax_payment_check.py">SalesTaxPaymentCheck</a></code>
+- <code title="post /quickbooks-desktop/sales-tax-payment-checks/{id}">conductor.qbd.sales_tax_payment_checks.<a href="./src/conductor/resources/qbd/sales_tax_payment_checks.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/sales_tax_payment_check_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/sales_tax_payment_check.py">SalesTaxPaymentCheck</a></code>
+- <code title="get /quickbooks-desktop/sales-tax-payment-checks">conductor.qbd.sales_tax_payment_checks.<a href="./src/conductor/resources/qbd/sales_tax_payment_checks.py">list</a>(\*\*<a href="src/conductor/types/qbd/sales_tax_payment_check_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/sales_tax_payment_check.py">SyncCursorPage[SalesTaxPaymentCheck]</a></code>
+- <code title="delete /quickbooks-desktop/sales-tax-payment-checks/{id}">conductor.qbd.sales_tax_payment_checks.<a href="./src/conductor/resources/qbd/sales_tax_payment_checks.py">delete</a>(id) -> <a href="./src/conductor/types/qbd/sales_tax_payment_check_delete_response.py">SalesTaxPaymentCheckDeleteResponse</a></code>
+- <code title="post /quickbooks-desktop/sales-tax-payment-checks/{id}/void">conductor.qbd.sales_tax_payment_checks.<a href="./src/conductor/resources/qbd/sales_tax_payment_checks.py">void</a>(id) -> <a href="./src/conductor/types/qbd/sales_tax_payment_check_void_response.py">SalesTaxPaymentCheckVoidResponse</a></code>
+
 ## ServiceItems
 
 Types:

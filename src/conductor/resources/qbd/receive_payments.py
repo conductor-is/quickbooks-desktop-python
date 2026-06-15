@@ -560,7 +560,7 @@ class ReceivePaymentsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ReceivePaymentDeleteResponse:
-        """Permanently deletes a a receive-payment.
+        """Permanently deletes a receive-payment.
 
         The deletion will fail if the
         receive-payment is currently in use or has any linked transactions that are in
@@ -1125,7 +1125,7 @@ class AsyncReceivePaymentsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ReceivePaymentDeleteResponse:
-        """Permanently deletes a a receive-payment.
+        """Permanently deletes a receive-payment.
 
         The deletion will fail if the
         receive-payment is currently in use or has any linked transactions that are in

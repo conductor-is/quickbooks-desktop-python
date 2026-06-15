@@ -499,7 +499,7 @@ class BuildAssembliesResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> BuildAssemblyDeleteResponse:
-        """Permanently deletes a a build assembly.
+        """Permanently deletes a build assembly.
 
         The deletion will fail if the build
         assembly is currently in use or has any linked transactions that are in use.
@@ -1001,7 +1001,7 @@ class AsyncBuildAssembliesResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> BuildAssemblyDeleteResponse:
-        """Permanently deletes a a build assembly.
+        """Permanently deletes a build assembly.
 
         The deletion will fail if the build
         assembly is currently in use or has any linked transactions that are in use.

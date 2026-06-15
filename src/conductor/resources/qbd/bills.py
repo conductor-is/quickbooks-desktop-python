@@ -625,7 +625,7 @@ class BillsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> BillDeleteResponse:
-        """Permanently deletes a a bill.
+        """Permanently deletes a bill.
 
         The deletion will fail if the bill is currently in
         use or has any linked transactions that are in use.
@@ -1293,7 +1293,7 @@ class AsyncBillsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> BillDeleteResponse:
-        """Permanently deletes a a bill.
+        """Permanently deletes a bill.
 
         The deletion will fail if the bill is currently in
         use or has any linked transactions that are in use.

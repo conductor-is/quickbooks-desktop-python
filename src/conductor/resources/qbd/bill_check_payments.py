@@ -518,7 +518,7 @@ class BillCheckPaymentsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> BillCheckPaymentDeleteResponse:
-        """Permanently deletes a a bill check payment.
+        """Permanently deletes a bill check payment.
 
         The deletion will fail if the bill
         check payment is currently in use or has any linked transactions that are in
@@ -1077,7 +1077,7 @@ class AsyncBillCheckPaymentsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> BillCheckPaymentDeleteResponse:
-        """Permanently deletes a a bill check payment.
+        """Permanently deletes a bill check payment.
 
         The deletion will fail if the bill
         check payment is currently in use or has any linked transactions that are in

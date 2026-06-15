@@ -689,7 +689,7 @@ class EstimatesResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EstimateDeleteResponse:
-        """Permanently deletes a an estimate.
+        """Permanently deletes an estimate.
 
         The deletion will fail if the estimate is
         currently in use or has any linked transactions that are in use.
@@ -1382,7 +1382,7 @@ class AsyncEstimatesResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EstimateDeleteResponse:
-        """Permanently deletes a an estimate.
+        """Permanently deletes an estimate.
 
         The deletion will fail if the estimate is
         currently in use or has any linked transactions that are in use.
