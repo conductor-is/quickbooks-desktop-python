@@ -798,6 +798,21 @@ Methods:
 - <code title="post /quickbooks-desktop/sales-tax-codes/{id}">conductor.qbd.sales_tax_codes.<a href="./src/conductor/resources/qbd/sales_tax_codes.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/sales_tax_code_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/sales_tax_code.py">SalesTaxCode</a></code>
 - <code title="get /quickbooks-desktop/sales-tax-codes">conductor.qbd.sales_tax_codes.<a href="./src/conductor/resources/qbd/sales_tax_codes.py">list</a>(\*\*<a href="src/conductor/types/qbd/sales_tax_code_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/sales_tax_code_list_response.py">SalesTaxCodeListResponse</a></code>
 
+## SalesTaxGroupItems
+
+Types:
+
+```python
+from conductor.types.qbd import SalesTaxGroupItem
+```
+
+Methods:
+
+- <code title="post /quickbooks-desktop/sales-tax-group-items">conductor.qbd.sales_tax_group_items.<a href="./src/conductor/resources/qbd/sales_tax_group_items.py">create</a>(\*\*<a href="src/conductor/types/qbd/sales_tax_group_item_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/sales_tax_group_item.py">SalesTaxGroupItem</a></code>
+- <code title="get /quickbooks-desktop/sales-tax-group-items/{id}">conductor.qbd.sales_tax_group_items.<a href="./src/conductor/resources/qbd/sales_tax_group_items.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/sales_tax_group_item.py">SalesTaxGroupItem</a></code>
+- <code title="post /quickbooks-desktop/sales-tax-group-items/{id}">conductor.qbd.sales_tax_group_items.<a href="./src/conductor/resources/qbd/sales_tax_group_items.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/sales_tax_group_item_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/sales_tax_group_item.py">SalesTaxGroupItem</a></code>
+- <code title="get /quickbooks-desktop/sales-tax-group-items">conductor.qbd.sales_tax_group_items.<a href="./src/conductor/resources/qbd/sales_tax_group_items.py">list</a>(\*\*<a href="src/conductor/types/qbd/sales_tax_group_item_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/sales_tax_group_item.py">SyncCursorPage[SalesTaxGroupItem]</a></code>
+
 ## SalesTaxItems
 
 Types:
