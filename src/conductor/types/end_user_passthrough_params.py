@@ -13,4 +13,9 @@ class EndUserPassthroughParams(TypedDict, total=False):
     """The ID of the end-user who owns the integration connection."""
 
     qbd_payload: Required[Dict[str, object]]
-    """The request body to send to the integration connection."""
+    """The raw qbXML request object to send to the integration connection.
+
+    For QuickBooks Desktop, use a qbXML request wrapper such as `InvoiceQueryRq` or
+    `CustomerQueryRq`. This body is forwarded directly and does not use Conductor
+    field names.
+    """
