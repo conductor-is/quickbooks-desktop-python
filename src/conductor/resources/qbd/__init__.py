@@ -480,6 +480,14 @@ from .inventory_assembly_items import (
     InventoryAssemblyItemsResourceWithStreamingResponse,
     AsyncInventoryAssemblyItemsResourceWithStreamingResponse,
 )
+from .sales_tax_payment_checks import (
+    SalesTaxPaymentChecksResource,
+    AsyncSalesTaxPaymentChecksResource,
+    SalesTaxPaymentChecksResourceWithRawResponse,
+    AsyncSalesTaxPaymentChecksResourceWithRawResponse,
+    SalesTaxPaymentChecksResourceWithStreamingResponse,
+    AsyncSalesTaxPaymentChecksResourceWithStreamingResponse,
+)
 from .time_tracking_activities import (
     TimeTrackingActivitiesResource,
     AsyncTimeTrackingActivitiesResource,
@@ -798,6 +806,12 @@ __all__ = [
     "AsyncSalesTaxItemsResourceWithRawResponse",
     "SalesTaxItemsResourceWithStreamingResponse",
     "AsyncSalesTaxItemsResourceWithStreamingResponse",
+    "SalesTaxPaymentChecksResource",
+    "AsyncSalesTaxPaymentChecksResource",
+    "SalesTaxPaymentChecksResourceWithRawResponse",
+    "AsyncSalesTaxPaymentChecksResourceWithRawResponse",
+    "SalesTaxPaymentChecksResourceWithStreamingResponse",
+    "AsyncSalesTaxPaymentChecksResourceWithStreamingResponse",
     "ServiceItemsResource",
     "AsyncServiceItemsResource",
     "ServiceItemsResourceWithRawResponse",

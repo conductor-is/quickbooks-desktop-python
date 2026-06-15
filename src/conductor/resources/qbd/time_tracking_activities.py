@@ -466,11 +466,11 @@ class TimeTrackingActivitiesResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> TimeTrackingActivityDeleteResponse:
-        """Permanently deletes a a time tracking activity.
+        """Permanently deletes a time tracking activity.
 
-        The deletion will fail if the
-        time tracking activity is currently in use or has any linked transactions that
-        are in use.
+        The deletion will fail if the time
+        tracking activity is currently in use or has any linked transactions that are in
+        use.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the time tracking activity to
@@ -933,11 +933,11 @@ class AsyncTimeTrackingActivitiesResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> TimeTrackingActivityDeleteResponse:
-        """Permanently deletes a a time tracking activity.
+        """Permanently deletes a time tracking activity.
 
-        The deletion will fail if the
-        time tracking activity is currently in use or has any linked transactions that
-        are in use.
+        The deletion will fail if the time
+        tracking activity is currently in use or has any linked transactions that are in
+        use.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the time tracking activity to

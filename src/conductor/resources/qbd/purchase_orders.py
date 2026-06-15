@@ -713,7 +713,7 @@ class PurchaseOrdersResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> PurchaseOrderDeleteResponse:
-        """Permanently deletes a a purchase order.
+        """Permanently deletes a purchase order.
 
         The deletion will fail if the purchase
         order is currently in use or has any linked transactions that are in use.
@@ -1430,7 +1430,7 @@ class AsyncPurchaseOrdersResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> PurchaseOrderDeleteResponse:
-        """Permanently deletes a a purchase order.
+        """Permanently deletes a purchase order.
 
         The deletion will fail if the purchase
         order is currently in use or has any linked transactions that are in use.

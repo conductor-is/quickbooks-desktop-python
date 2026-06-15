@@ -568,10 +568,10 @@ class VendorCreditsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> VendorCreditDeleteResponse:
-        """Permanently deletes a a vendor credit.
+        """Permanently deletes a vendor credit.
 
-        The deletion will fail if the vendor
-        credit is currently in use or has any linked transactions that are in use.
+        The deletion will fail if the vendor credit
+        is currently in use or has any linked transactions that are in use.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the vendor credit to delete.
@@ -1180,10 +1180,10 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> VendorCreditDeleteResponse:
-        """Permanently deletes a a vendor credit.
+        """Permanently deletes a vendor credit.
 
-        The deletion will fail if the vendor
-        credit is currently in use or has any linked transactions that are in use.
+        The deletion will fail if the vendor credit
+        is currently in use or has any linked transactions that are in use.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the vendor credit to delete.
