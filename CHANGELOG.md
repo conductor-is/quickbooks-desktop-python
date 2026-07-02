@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.90.0 (2026-07-02)
+
+Full Changelog: [v1.89.0...v1.90.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.89.0...v1.90.0)
+
+### Features
+
+* **api:** api update ([4bd098b](https://github.com/conductor-is/quickbooks-desktop-python/commit/4bd098bb507df49e827d9a21d8651b1f61eef8f8))
+
 ## 1.89.0 (2026-06-20)
 
 Full Changelog: [v1.88.0...v1.89.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.88.0...v1.89.0)
