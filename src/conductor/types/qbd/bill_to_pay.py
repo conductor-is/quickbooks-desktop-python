@@ -155,6 +155,7 @@ class Bill(BaseModel):
         "transfer",
         "vendor_credit",
         "ytd_adjustment",
+        "unknown",
     ] = FieldInfo(alias="transactionType")
     """The type of transaction for this payable bill."""
 
@@ -290,6 +291,7 @@ class Credit(BaseModel):
         "transfer",
         "vendor_credit",
         "ytd_adjustment",
+        "unknown",
     ] = FieldInfo(alias="transactionType")
     """The type of transaction for this applicable credit."""
 

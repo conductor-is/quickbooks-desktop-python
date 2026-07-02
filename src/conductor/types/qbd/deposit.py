@@ -317,6 +317,7 @@ class Line(BaseModel):
             "transfer",
             "vendor_credit",
             "ytd_adjustment",
+            "unknown",
         ]
     ] = FieldInfo(alias="transactionType", default=None)
     """The type of transaction for this deposit line."""

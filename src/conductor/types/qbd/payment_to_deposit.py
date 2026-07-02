@@ -131,5 +131,6 @@ class PaymentToDeposit(BaseModel):
         "transfer",
         "vendor_credit",
         "ytd_adjustment",
+        "unknown",
     ] = FieldInfo(alias="transactionType")
     """The type of transaction for this payment to deposit."""
