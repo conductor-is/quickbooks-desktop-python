@@ -206,7 +206,7 @@ class VendorUpdateParams(TypedDict, total=False):
     Canada or the UK.
     """
 
-    reporting_period: Annotated[Literal["annual", "monthly", "quarterly"], PropertyInfo(alias="reportingPeriod")]
+    reporting_period: Annotated[Literal["monthly", "quarterly"], PropertyInfo(alias="reportingPeriod")]
     """The vendor's tax reporting period, for use in Canada or the UK."""
 
     sales_tax_account_id: Annotated[str, PropertyInfo(alias="salesTaxAccountId")]

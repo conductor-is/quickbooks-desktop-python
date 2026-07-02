@@ -364,8 +364,6 @@ class Company(BaseModel):
     tax_form: Optional[
         Literal[
             "form_1040",
-            "form_t1",
-            "form_t2",
             "form_1065",
             "form_1120",
             "form_1120s",
@@ -373,6 +371,8 @@ class Company(BaseModel):
             "form_990pf",
             "form_990t",
             "other_or_none",
+            "form_t1",
+            "form_t2",
         ]
     ] = FieldInfo(alias="taxForm", default=None)
     """The tax form that the QuickBooks user expects to file for this company's taxes.
