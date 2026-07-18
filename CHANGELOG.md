@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.91.0 (2026-07-18)
+
+Full Changelog: [v1.90.0...v1.91.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.90.0...v1.91.0)
+
+### Features
+
+* **stlc:** configurable CI runner and private-production-repo support in workflow templates ([43b6c52](https://github.com/conductor-is/quickbooks-desktop-python/commit/43b6c5206c20d131411a9da1b2561fa93a83c3a4))
+
+
+### Bug Fixes
+
+* **internal:** resolve build failures ([1e363ea](https://github.com/conductor-is/quickbooks-desktop-python/commit/1e363ea9fd04f66ce4779961ec3f858b17a74411))
+
 ## 1.90.0 (2026-07-02)
 
 Full Changelog: [v1.89.0...v1.90.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.89.0...v1.90.0)
