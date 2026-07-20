@@ -268,10 +268,11 @@ class ExpenseLineSalesTaxCode(BaseModel):
 
 
 class ExpenseLine(BaseModel):
-    id: str
+    id: Optional[str] = None
     """The unique identifier assigned by QuickBooks to this expense line.
 
-    This ID is unique across all transaction line types.
+    This ID is unique across all transaction line types. If QuickBooks omits the
+    identifier, this is null.
     """
 
     account: Optional[ExpenseLineAccount] = None
