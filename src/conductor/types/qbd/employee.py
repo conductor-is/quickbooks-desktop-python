@@ -72,14 +72,16 @@ class Address(BaseModel):
     state: Optional[str] = None
     """The U.S.
 
-    state of the employee address. QuickBooks requires this field to be a U.S. state
-    abbreviation (e.g., "CA" for California). See enum for all possible values.
+    state or Canadian province of the employee address. QuickBooks requires this
+    field to be a two-letter abbreviation (e.g., "CA" for California or "ON" for
+    Ontario). See enum for all possible values. QuickBooks may reject values that
+    the connected company file's edition does not support (e.g., a Canadian province
+    on a U.S. company file).
 
     **NOTE:** This `state` field stays enum-constrained when creating or updating an
-    employee because QuickBooks Desktop rejects non-standard values on input. In
-    responses, though, we've seen QuickBooks return values outside its own enum
-    (like 'ON'), so Conductor surfaces the raw QuickBooks string unchanged instead
-    of enforcing the enum.
+    employee, but we've seen QuickBooks return values outside its own enum in
+    responses, so Conductor surfaces the raw QuickBooks string unchanged instead of
+    enforcing the enum.
     """
 
 

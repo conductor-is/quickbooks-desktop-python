@@ -322,10 +322,12 @@ class Address(TypedDict, total=False):
         "armed_forces_americas",
         "armed_forces_europe",
         "armed_forces_pacific",
+        "AB",
         "AK",
         "AL",
         "AR",
         "AZ",
+        "BC",
         "CA",
         "CO",
         "CT",
@@ -342,6 +344,7 @@ class Address(TypedDict, total=False):
         "KY",
         "LA",
         "MA",
+        "MB",
         "MD",
         "ME",
         "MI",
@@ -355,17 +358,25 @@ class Address(TypedDict, total=False):
         "NE",
         "NH",
         "NJ",
+        "NL",
         "NM",
+        "NS",
+        "NT",
+        "NU",
         "NV",
         "NY",
         "OH",
         "OK",
+        "ON",
         "OR",
         "PA",
+        "PE",
         "PR",
+        "QC",
         "RI",
         "SC",
         "SD",
+        "SK",
         "TN",
         "TX",
         "UT",
@@ -375,11 +386,15 @@ class Address(TypedDict, total=False):
         "WI",
         "WV",
         "WY",
+        "YT",
     ]
     """The U.S.
 
-    state of the employee address. QuickBooks requires this field to be a U.S. state
-    abbreviation (e.g., "CA" for California). See enum for all possible values.
+    state or Canadian province of the employee address. QuickBooks requires this
+    field to be a two-letter abbreviation (e.g., "CA" for California or "ON" for
+    Ontario). See enum for all possible values. QuickBooks may reject values that
+    the connected company file's edition does not support (e.g., a Canadian province
+    on a U.S. company file).
     """
 
 
