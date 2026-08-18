@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.91.1 (2026-08-18)
+
+Full Changelog: [v1.91.0...v1.91.1](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.91.0...v1.91.1)
+
+### Chores
+
+* **stlc:** initial self-run stlc build ([980a4f4](https://github.com/conductor-is/quickbooks-desktop-python/commit/980a4f4e6b7fc4dd1962708f94f1fb4264c1ea2b))
+
 ## 1.91.0 (2026-07-20)
 
 Full Changelog: [v1.90.0...v1.91.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.90.0...v1.91.0)
