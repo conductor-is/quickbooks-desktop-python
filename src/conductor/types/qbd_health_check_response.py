@@ -9,7 +9,7 @@ __all__ = ["QbdHealthCheckResponse"]
 
 class QbdHealthCheckResponse(BaseModel):
     duration: float
-    """The time, in milliseconds, that it took to perform the health check."""
+    """The time, in milliseconds, that it took to perform the health check end-to-end."""
 
     status: Literal["ok"]
     """The status of the health check."""
