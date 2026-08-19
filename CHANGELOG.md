@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.91.1](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.91.0...v1.91.1) (2026-08-18)
+
+
+### Bug Fixes
+
+* **api:** clarify health-check duration description ([57c5c39](https://github.com/conductor-is/quickbooks-desktop-python/commit/57c5c39097fb1d15cc992f455bce11909ddc4688))
+
+
+### Chores
+
+* **stlc:** initial self-run stlc build ([980a4f4](https://github.com/conductor-is/quickbooks-desktop-python/commit/980a4f4e6b7fc4dd1962708f94f1fb4264c1ea2b))
+* **stlc:** self-run SDK generation with stlc ([b57f5c4](https://github.com/conductor-is/quickbooks-desktop-python/commit/b57f5c4527d968f294ce75cb06f47f7b4291e510))
+
 ## 1.91.0 (2026-07-20)
 
 Full Changelog: [v1.90.0...v1.91.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.90.0...v1.91.0)
