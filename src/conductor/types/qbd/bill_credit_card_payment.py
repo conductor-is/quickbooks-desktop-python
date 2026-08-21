@@ -119,6 +119,7 @@ class AppliedToTransactionLinkedTransaction(BaseModel):
         "transfer",
         "vendor_credit",
         "ytd_adjustment",
+        "transfer_inventory",
         "unknown",
     ] = FieldInfo(alias="transactionType")
     """The type of transaction for this linked transaction."""
@@ -199,6 +200,7 @@ class AppliedToTransaction(BaseModel):
         "transfer",
         "vendor_credit",
         "ytd_adjustment",
+        "transfer_inventory",
         "unknown",
     ] = FieldInfo(alias="transactionType")
     """The type of transaction for this target transaction."""
