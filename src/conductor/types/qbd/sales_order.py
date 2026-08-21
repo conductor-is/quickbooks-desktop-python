@@ -1091,6 +1091,7 @@ class LinkedTransaction(BaseModel):
         "transfer",
         "vendor_credit",
         "ytd_adjustment",
+        "transfer_inventory",
         "unknown",
     ] = FieldInfo(alias="transactionType")
     """The type of transaction for this linked transaction."""
