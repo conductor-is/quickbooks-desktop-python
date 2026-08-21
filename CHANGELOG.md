@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.91.2](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.91.1...v1.91.2) (2026-08-21)
+
+
+### Bug Fixes
+
+* **qbd:** handle inventory items without COGS and asset accounts ([027e4d4](https://github.com/conductor-is/quickbooks-desktop-python/commit/027e4d4f7f0dd8a2c5be2f98e2a9da69adbadb49))
+* **qbd:** support inventory transfer transaction type in output ([7fdbc8b](https://github.com/conductor-is/quickbooks-desktop-python/commit/7fdbc8b028affcb275fd8499b02d6228fdb19f73))
+
 ## [1.91.1](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.91.0...v1.91.1) (2026-08-18)
 
 
