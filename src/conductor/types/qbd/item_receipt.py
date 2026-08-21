@@ -1236,6 +1236,7 @@ class LinkedTransaction(BaseModel):
         "transfer",
         "vendor_credit",
         "ytd_adjustment",
+        "transfer_inventory",
         "unknown",
     ] = FieldInfo(alias="transactionType")
     """The type of transaction for this linked transaction."""
@@ -1439,5 +1440,5 @@ class ItemReceipt(BaseModel):
     timezone of the end-user's computer.
     """
 
-    vendor: Vendor
+    vendor: Optional[Vendor] = None
     """The vendor who sent this item receipt for goods or services purchased."""
