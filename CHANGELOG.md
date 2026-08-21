@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.91.3](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.91.2...v1.91.3) (2026-08-21)
+
+
+### Bug Fixes
+
+* **qbd:** handle item receipts without vendors ([04cee0d](https://github.com/conductor-is/quickbooks-desktop-python/commit/04cee0d8436d6036938a5aed19ea208a0a2c19f5))
+
 ## [1.91.2](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.91.1...v1.91.2) (2026-08-21)
 
 
