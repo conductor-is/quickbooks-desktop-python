@@ -248,7 +248,7 @@ class InventoryItem(BaseModel):
     object types.
     """
 
-    asset_account: AssetAccount = FieldInfo(alias="assetAccount")
+    asset_account: Optional[AssetAccount] = FieldInfo(alias="assetAccount", default=None)
     """
     The asset account used to track the current value of this inventory item in
     inventory.
@@ -271,7 +271,7 @@ class InventoryItem(BaseModel):
     default.
     """
 
-    cogs_account: CogsAccount = FieldInfo(alias="cogsAccount")
+    cogs_account: Optional[CogsAccount] = FieldInfo(alias="cogsAccount", default=None)
     """
     The Cost of Goods Sold (COGS) account for this inventory item, tracking the
     original direct costs of producing goods sold.
