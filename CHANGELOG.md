@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.92.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.91.4...v1.92.0) (2026-10-07)
+
+
+### Features
+
+* **qbd:** list known causes in the 3153 parameter-conflict error ([c2d52e1](https://github.com/conductor-is/quickbooks-desktop-python/commit/c2d52e1c2722e2bd769c86f653573983d65ffcb4))
+
 ## [1.91.4](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.91.3...v1.91.4) (2026-08-25)
 
 
