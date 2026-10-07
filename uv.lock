@@ -1,5 +1,5 @@
 version = 1
-revision = 3
+revision = 5
 requires-python = ">=3.9"
 resolution-markers = [
     "python_full_version >= '3.14' and extra != 'group-12-conductor-py-pydantic-v1' and extra == 'group-12-conductor-py-pydantic-v2'",
@@ -244,7 +244,7 @@ wheels = [
 
 [[package]]
 name = "conductor-py"
-version = "1.91.2"
+version = "1.91.4"
 source = { editable = "." }
 dependencies = [
     { name = "anyio" },
