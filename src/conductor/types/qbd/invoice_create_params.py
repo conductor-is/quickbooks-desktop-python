@@ -450,7 +450,7 @@ class LineLinkToTransactionLine(TypedDict, total=False):
 
     Transaction lines can only be linked when creating this invoice line and cannot be unlinked later.
 
-    **IMPORTANT**: If you use `linkToTransactionLine` on this invoice line, you cannot use the field `itemId` on this line (QuickBooks will return an error) because this field brings in all of the item information you need. You can, however, specify whatever `quantity`, `cost`, or `rate` that you want, or any other transaction line element other than `itemId`.
+    **IMPORTANT**: If you use `linkToTransactionLine` on this invoice line, you cannot use the field `itemId` on this line (QuickBooks will return an error) because this field brings in all of the item information you need. You can, however, specify whatever `quantity` or `rate` that you want, or any other transaction line element other than `itemId`.
 
     If the parent transaction supports the `linkToTransactionIds` field, you can use both `linkToTransactionLine` (on this invoice line) and `linkToTransactionIds` (on its parent transaction) in the same request as long as they do NOT link to the same transaction (otherwise, QuickBooks will return an error). QuickBooks will also return an error if you attempt to link a transaction that is empty or already closed, or if lines linking to the same transaction are not in that transaction's line order.
 
@@ -531,8 +531,8 @@ class Line(TypedDict, total=False):
     **IMPORTANT**: If you use `linkToTransactionLine` on this invoice line, you
     cannot use the field `itemId` on this line (QuickBooks will return an error)
     because this field brings in all of the item information you need. You can,
-    however, specify whatever `quantity`, `cost`, or `rate` that you want, or any
-    other transaction line element other than `itemId`.
+    however, specify whatever `quantity` or `rate` that you want, or any other
+    transaction line element other than `itemId`.
 
     If the parent transaction supports the `linkToTransactionIds` field, you can use
     both `linkToTransactionLine` (on this invoice line) and `linkToTransactionIds`
