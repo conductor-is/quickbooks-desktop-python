@@ -128,6 +128,10 @@ class ServiceItemsResource(SyncAPIResource):
           unit_of_measure_set_id: The unit-of-measure set associated with this service item, which consists of a
               base unit and related units.
 
+              IMPORTANT: Right after QuickBooks Desktop launches, it can briefly report an
+              alternate `id` for a unit-of-measure set, so match on `fullName` when joining to
+              the unit-of-measure sets list.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -305,6 +309,10 @@ class ServiceItemsResource(SyncAPIResource):
 
           unit_of_measure_set_id: The unit-of-measure set associated with this service item, which consists of a
               base unit and related units.
+
+              IMPORTANT: Right after QuickBooks Desktop launches, it can briefly report an
+              alternate `id` for a unit-of-measure set, so match on `fullName` when joining to
+              the unit-of-measure sets list.
 
           extra_headers: Send extra headers
 
@@ -600,6 +608,10 @@ class AsyncServiceItemsResource(AsyncAPIResource):
           unit_of_measure_set_id: The unit-of-measure set associated with this service item, which consists of a
               base unit and related units.
 
+              IMPORTANT: Right after QuickBooks Desktop launches, it can briefly report an
+              alternate `id` for a unit-of-measure set, so match on `fullName` when joining to
+              the unit-of-measure sets list.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -777,6 +789,10 @@ class AsyncServiceItemsResource(AsyncAPIResource):
 
           unit_of_measure_set_id: The unit-of-measure set associated with this service item, which consists of a
               base unit and related units.
+
+              IMPORTANT: Right after QuickBooks Desktop launches, it can briefly report an
+              alternate `id` for a unit-of-measure set, so match on `fullName` when joining to
+              the unit-of-measure sets list.
 
           extra_headers: Send extra headers
 

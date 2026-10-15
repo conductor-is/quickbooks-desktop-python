@@ -324,6 +324,10 @@ class ItemGroupLineItemLine(TypedDict, total=False):
     line. For example, you can sell an item typically measured in volume units using
     weight units in a specific transaction by specifying a different unit-of-measure
     set with this field.
+
+    IMPORTANT: Right after QuickBooks Desktop launches, it can briefly report an
+    alternate `id` for a unit-of-measure set, so match on `fullName` when joining to
+    the unit-of-measure sets list.
     """
 
     quantity: float
@@ -408,6 +412,10 @@ class ItemGroupLine(TypedDict, total=False):
     specific line. For example, you can sell an item typically measured in volume
     units using weight units in a specific transaction by specifying a different
     unit-of-measure set with this field.
+
+    IMPORTANT: Right after QuickBooks Desktop launches, it can briefly report an
+    alternate `id` for a unit-of-measure set, so match on `fullName` when joining to
+    the unit-of-measure sets list.
     """
 
     quantity: float
@@ -528,6 +536,10 @@ class ItemLine(TypedDict, total=False):
     line. For example, you can sell an item typically measured in volume units using
     weight units in a specific transaction by specifying a different unit-of-measure
     set with this field.
+
+    IMPORTANT: Right after QuickBooks Desktop launches, it can briefly report an
+    alternate `id` for a unit-of-measure set, so match on `fullName` when joining to
+    the unit-of-measure sets list.
     """
 
     quantity: float

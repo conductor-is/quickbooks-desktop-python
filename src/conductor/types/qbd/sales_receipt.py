@@ -746,6 +746,8 @@ class LineGroupLineItem(BaseModel):
 class LineGroupLineOverrideUnitOfMeasureSet(BaseModel):
     """
     Specifies an alternative unit-of-measure set when updating this sales receipt line's `unitOfMeasure` field (e.g., "pound" or "kilogram"). This allows you to select units from a different set than the item's default unit-of-measure set, which remains unchanged on the item itself. The override applies only to this specific line. For example, you can sell an item typically measured in volume units using weight units in a specific transaction by specifying a different unit-of-measure set with this field.
+
+    IMPORTANT: Right after QuickBooks Desktop launches, it can briefly report an alternate `id` for a unit-of-measure set, so match on `fullName` when joining to the unit-of-measure sets list.
     """
 
     id: Optional[str] = None
@@ -899,6 +901,10 @@ class LineGroupLine(BaseModel):
     specific line. For example, you can sell an item typically measured in volume
     units using weight units in a specific transaction by specifying a different
     unit-of-measure set with this field.
+
+    IMPORTANT: Right after QuickBooks Desktop launches, it can briefly report an
+    alternate `id` for a unit-of-measure set, so match on `fullName` when joining to
+    the unit-of-measure sets list.
     """
 
     quantity: Optional[float] = None
@@ -960,6 +966,8 @@ class LineGroupLine(BaseModel):
 class LineGroupOverrideUnitOfMeasureSet(BaseModel):
     """
     Specifies an alternative unit-of-measure set when updating this sales receipt line group's `unitOfMeasure` field (e.g., "pound" or "kilogram"). This allows you to select units from a different set than the item's default unit-of-measure set, which remains unchanged on the item itself. The override applies only to this specific line. For example, you can sell an item typically measured in volume units using weight units in a specific transaction by specifying a different unit-of-measure set with this field.
+
+    IMPORTANT: Right after QuickBooks Desktop launches, it can briefly report an alternate `id` for a unit-of-measure set, so match on `fullName` when joining to the unit-of-measure sets list.
     """
 
     id: Optional[str] = None
@@ -1020,6 +1028,10 @@ class LineGroup(BaseModel):
     this specific line. For example, you can sell an item typically measured in
     volume units using weight units in a specific transaction by specifying a
     different unit-of-measure set with this field.
+
+    IMPORTANT: Right after QuickBooks Desktop launches, it can briefly report an
+    alternate `id` for a unit-of-measure set, so match on `fullName` when joining to
+    the unit-of-measure sets list.
     """
 
     quantity: Optional[float] = None
@@ -1336,6 +1348,8 @@ class LineItem(BaseModel):
 class LineOverrideUnitOfMeasureSet(BaseModel):
     """
     Specifies an alternative unit-of-measure set when updating this sales receipt line's `unitOfMeasure` field (e.g., "pound" or "kilogram"). This allows you to select units from a different set than the item's default unit-of-measure set, which remains unchanged on the item itself. The override applies only to this specific line. For example, you can sell an item typically measured in volume units using weight units in a specific transaction by specifying a different unit-of-measure set with this field.
+
+    IMPORTANT: Right after QuickBooks Desktop launches, it can briefly report an alternate `id` for a unit-of-measure set, so match on `fullName` when joining to the unit-of-measure sets list.
     """
 
     id: Optional[str] = None
@@ -1489,6 +1503,10 @@ class Line(BaseModel):
     specific line. For example, you can sell an item typically measured in volume
     units using weight units in a specific transaction by specifying a different
     unit-of-measure set with this field.
+
+    IMPORTANT: Right after QuickBooks Desktop launches, it can briefly report an
+    alternate `id` for a unit-of-measure set, so match on `fullName` when joining to
+    the unit-of-measure sets list.
     """
 
     quantity: Optional[float] = None

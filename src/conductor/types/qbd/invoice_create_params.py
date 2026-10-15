@@ -452,7 +452,7 @@ class LineLinkToTransactionLine(TypedDict, total=False):
 
     **IMPORTANT**: If you use `linkToTransactionLine` on this invoice line, you cannot use the field `itemId` on this line (QuickBooks will return an error) because this field brings in all of the item information you need. You can, however, specify whatever `quantity`, `cost`, or `rate` that you want, or any other transaction line element other than `itemId`.
 
-    If the parent transaction supports the `linkToTransactionIds` field, you can use both `linkToTransactionLine` (on this invoice line) and `linkToTransactionIds` (on its parent transaction) in the same request as long as they do NOT link to the same transaction (otherwise, QuickBooks will return an error). QuickBooks will also return an error if you attempt to link a transaction that is empty or already closed.
+    If the parent transaction supports the `linkToTransactionIds` field, you can use both `linkToTransactionLine` (on this invoice line) and `linkToTransactionIds` (on its parent transaction) in the same request as long as they do NOT link to the same transaction (otherwise, QuickBooks will return an error). QuickBooks will also return an error if you attempt to link a transaction that is empty or already closed, or if lines linking to the same transaction are not in that transaction's line order.
 
     **IMPORTANT**: By default, QuickBooks will not return any information about the linked transaction line in this endpoint's response even when this request is successful. To see the transaction line linked via this field, refetch the parent invoice and check the `linkedTransactions` response field. If fetching a list of invoices, you must also specify the parameter `includeLinkedTransactions=true` to see the `linkedTransactions` response field.
     """
@@ -539,7 +539,8 @@ class Line(TypedDict, total=False):
     (on its parent transaction) in the same request as long as they do NOT link to
     the same transaction (otherwise, QuickBooks will return an error). QuickBooks
     will also return an error if you attempt to link a transaction that is empty or
-    already closed.
+    already closed, or if lines linking to the same transaction are not in that
+    transaction's line order.
 
     **IMPORTANT**: By default, QuickBooks will not return any information about the
     linked transaction line in this endpoint's response even when this request is

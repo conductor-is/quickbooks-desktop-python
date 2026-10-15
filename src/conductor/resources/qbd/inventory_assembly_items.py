@@ -187,6 +187,10 @@ class InventoryAssemblyItemsResource(SyncAPIResource):
           unit_of_measure_set_id: The unit-of-measure set associated with this inventory assembly item, which
               consists of a base unit and related units.
 
+              IMPORTANT: Right after QuickBooks Desktop launches, it can briefly report an
+              alternate `id` for a unit-of-measure set, so match on `fullName` when joining to
+              the unit-of-measure sets list.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -420,6 +424,10 @@ class InventoryAssemblyItemsResource(SyncAPIResource):
 
           unit_of_measure_set_id: The unit-of-measure set associated with this inventory assembly item, which
               consists of a base unit and related units.
+
+              IMPORTANT: Right after QuickBooks Desktop launches, it can briefly report an
+              alternate `id` for a unit-of-measure set, so match on `fullName` when joining to
+              the unit-of-measure sets list.
 
           update_existing_transactions_income_account: When `true`, applies the new income account (specified by the `incomeAccountId`
               field) to all existing transactions that use this inventory assembly item. This
@@ -790,6 +798,10 @@ class AsyncInventoryAssemblyItemsResource(AsyncAPIResource):
           unit_of_measure_set_id: The unit-of-measure set associated with this inventory assembly item, which
               consists of a base unit and related units.
 
+              IMPORTANT: Right after QuickBooks Desktop launches, it can briefly report an
+              alternate `id` for a unit-of-measure set, so match on `fullName` when joining to
+              the unit-of-measure sets list.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -1023,6 +1035,10 @@ class AsyncInventoryAssemblyItemsResource(AsyncAPIResource):
 
           unit_of_measure_set_id: The unit-of-measure set associated with this inventory assembly item, which
               consists of a base unit and related units.
+
+              IMPORTANT: Right after QuickBooks Desktop launches, it can briefly report an
+              alternate `id` for a unit-of-measure set, so match on `fullName` when joining to
+              the unit-of-measure sets list.
 
           update_existing_transactions_income_account: When `true`, applies the new income account (specified by the `incomeAccountId`
               field) to all existing transactions that use this inventory assembly item. This
