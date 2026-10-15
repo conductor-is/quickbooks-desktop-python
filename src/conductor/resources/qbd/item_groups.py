@@ -102,6 +102,10 @@ class ItemGroupsResource(SyncAPIResource):
           unit_of_measure_set_id: The unit-of-measure set associated with this item group, which consists of a
               base unit and related units.
 
+              IMPORTANT: Right after QuickBooks Desktop launches, it can briefly report an
+              alternate `id` for a unit-of-measure set, so match on `fullName` when joining to
+              the unit-of-measure sets list.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -248,6 +252,10 @@ class ItemGroupsResource(SyncAPIResource):
 
           unit_of_measure_set_id: The unit-of-measure set associated with this item group, which consists of a
               base unit and related units.
+
+              IMPORTANT: Right after QuickBooks Desktop launches, it can briefly report an
+              alternate `id` for a unit-of-measure set, so match on `fullName` when joining to
+              the unit-of-measure sets list.
 
           extra_headers: Send extra headers
 
@@ -506,6 +514,10 @@ class AsyncItemGroupsResource(AsyncAPIResource):
           unit_of_measure_set_id: The unit-of-measure set associated with this item group, which consists of a
               base unit and related units.
 
+              IMPORTANT: Right after QuickBooks Desktop launches, it can briefly report an
+              alternate `id` for a unit-of-measure set, so match on `fullName` when joining to
+              the unit-of-measure sets list.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -652,6 +664,10 @@ class AsyncItemGroupsResource(AsyncAPIResource):
 
           unit_of_measure_set_id: The unit-of-measure set associated with this item group, which consists of a
               base unit and related units.
+
+              IMPORTANT: Right after QuickBooks Desktop launches, it can briefly report an
+              alternate `id` for a unit-of-measure set, so match on `fullName` when joining to
+              the unit-of-measure sets list.
 
           extra_headers: Send extra headers
 
