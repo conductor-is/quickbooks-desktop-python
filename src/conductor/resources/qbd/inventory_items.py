@@ -177,6 +177,10 @@ class InventoryItemsResource(SyncAPIResource):
           unit_of_measure_set_id: The unit-of-measure set associated with this inventory item, which consists of a
               base unit and related units.
 
+              IMPORTANT: Right after QuickBooks Desktop launches, it can briefly report an
+              alternate `id` for a unit-of-measure set, so match on `fullName` when joining to
+              the unit-of-measure sets list.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -394,6 +398,10 @@ class InventoryItemsResource(SyncAPIResource):
 
           unit_of_measure_set_id: The unit-of-measure set associated with this inventory item, which consists of a
               base unit and related units.
+
+              IMPORTANT: Right after QuickBooks Desktop launches, it can briefly report an
+              alternate `id` for a unit-of-measure set, so match on `fullName` when joining to
+              the unit-of-measure sets list.
 
           update_existing_transactions_cogs_account: When `true`, applies the new COGS account (specified by the `cogsAccountId`
               field) to all existing transactions that use this inventory item. This updates
@@ -761,6 +769,10 @@ class AsyncInventoryItemsResource(AsyncAPIResource):
           unit_of_measure_set_id: The unit-of-measure set associated with this inventory item, which consists of a
               base unit and related units.
 
+              IMPORTANT: Right after QuickBooks Desktop launches, it can briefly report an
+              alternate `id` for a unit-of-measure set, so match on `fullName` when joining to
+              the unit-of-measure sets list.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -978,6 +990,10 @@ class AsyncInventoryItemsResource(AsyncAPIResource):
 
           unit_of_measure_set_id: The unit-of-measure set associated with this inventory item, which consists of a
               base unit and related units.
+
+              IMPORTANT: Right after QuickBooks Desktop launches, it can briefly report an
+              alternate `id` for a unit-of-measure set, so match on `fullName` when joining to
+              the unit-of-measure sets list.
 
           update_existing_transactions_cogs_account: When `true`, applies the new COGS account (specified by the `cogsAccountId`
               field) to all existing transactions that use this inventory item. This updates

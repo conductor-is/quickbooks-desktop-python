@@ -306,6 +306,8 @@ class SalesTaxCode(BaseModel):
 class UnitOfMeasureSet(BaseModel):
     """
     The unit-of-measure set associated with this service item, which consists of a base unit and related units.
+
+    IMPORTANT: Right after QuickBooks Desktop launches, it can briefly report an alternate `id` for a unit-of-measure set, so match on `fullName` when joining to the unit-of-measure sets list.
     """
 
     id: Optional[str] = None
@@ -459,6 +461,10 @@ class ServiceItem(BaseModel):
     """
     The unit-of-measure set associated with this service item, which consists of a
     base unit and related units.
+
+    IMPORTANT: Right after QuickBooks Desktop launches, it can briefly report an
+    alternate `id` for a unit-of-measure set, so match on `fullName` when joining to
+    the unit-of-measure sets list.
     """
 
     updated_at: str = FieldInfo(alias="updatedAt")

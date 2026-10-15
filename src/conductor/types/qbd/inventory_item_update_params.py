@@ -152,6 +152,10 @@ class InventoryItemUpdateParams(TypedDict, total=False):
     """
     The unit-of-measure set associated with this inventory item, which consists of a
     base unit and related units.
+
+    IMPORTANT: Right after QuickBooks Desktop launches, it can briefly report an
+    alternate `id` for a unit-of-measure set, so match on `fullName` when joining to
+    the unit-of-measure sets list.
     """
 
     update_existing_transactions_cogs_account: Annotated[
