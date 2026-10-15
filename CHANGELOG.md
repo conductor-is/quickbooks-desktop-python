@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.92.1](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.92.0...v1.92.1) (2026-10-15)
+
+
+### Documentation
+
+* **qbd:** note alternate unit-of-measure set ids on item refs ([c0206f5](https://github.com/conductor-is/quickbooks-desktop-python/commit/c0206f57899aa987c9b401d64cb5e640c6777bfc))
+
 ## [1.92.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.91.4...v1.92.0) (2026-10-07)
 
 
