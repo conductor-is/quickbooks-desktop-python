@@ -40,7 +40,10 @@ class SalesTaxPaymentCheckUpdateParams(TypedDict, total=False):
     """
 
     memo: str
-    """A memo or note for this sales-tax payment check."""
+    """A memo or note for this sales-tax payment check.
+
+    Maximum length: 4095 characters.
+    """
 
     ref_number: Annotated[str, PropertyInfo(alias="refNumber")]
     """
@@ -68,7 +71,10 @@ class Address(TypedDict, total=False):
     """
 
     country: str
-    """The country name of the address."""
+    """The country name of the address.
+
+    Maximum length: 31 characters.
+    """
 
     line1: str
     """The first line of the address (e.g., street, PO Box, or company name).
@@ -106,6 +112,8 @@ class Address(TypedDict, total=False):
     """
     A note written at the bottom of the address in the form in which it appears,
     such as the invoice form.
+
+    Maximum length: 41 characters.
     """
 
     postal_code: Annotated[str, PropertyInfo(alias="postalCode")]

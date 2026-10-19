@@ -65,7 +65,10 @@ class BillCheckPaymentUpdateParams(TypedDict, total=False):
     """
 
     memo: str
-    """A memo or note for this bill check payment."""
+    """A memo or note for this bill check payment.
+
+    Maximum length: 4095 characters.
+    """
 
     ref_number: Annotated[str, PropertyInfo(alias="refNumber")]
     """

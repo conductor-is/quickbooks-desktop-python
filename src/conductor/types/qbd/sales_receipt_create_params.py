@@ -36,7 +36,10 @@ class SalesReceiptCreateParams(TypedDict, total=False):
     """The sales receipt's billing address."""
 
     check_number: Annotated[str, PropertyInfo(alias="checkNumber")]
-    """The check number of a check received for this sales receipt."""
+    """The check number of a check received for this sales receipt.
+
+    Maximum length: 25 characters.
+    """
 
     class_id: Annotated[str, PropertyInfo(alias="classId")]
     """The sales receipt's class.
@@ -139,6 +142,8 @@ class SalesReceiptCreateParams(TypedDict, total=False):
     """
     A memo or note for this sales receipt that appears in reports, but not on the
     sales receipt.
+
+    Maximum length: 4095 characters.
     """
 
     other_custom_field: Annotated[str, PropertyInfo(alias="otherCustomField")]
@@ -150,6 +155,8 @@ class SalesReceiptCreateParams(TypedDict, total=False):
     other standard QuickBooks fields. Unlike `otherCustomField1` and
     `otherCustomField2`, which are line item fields, this exists at the transaction
     level. Hidden by default in the QuickBooks UI.
+
+    Maximum length: 29 characters.
     """
 
     payment_method_id: Annotated[str, PropertyInfo(alias="paymentMethodId")]
@@ -244,7 +251,10 @@ class BillingAddress(TypedDict, total=False):
     """
 
     country: str
-    """The country name of the address."""
+    """The country name of the address.
+
+    Maximum length: 31 characters.
+    """
 
     line1: str
     """The first line of the address (e.g., street, PO Box, or company name).
@@ -282,6 +292,8 @@ class BillingAddress(TypedDict, total=False):
     """
     A note written at the bottom of the address in the form in which it appears,
     such as the invoice form.
+
+    Maximum length: 41 characters.
     """
 
     postal_code: Annotated[str, PropertyInfo(alias="postalCode")]
@@ -309,13 +321,22 @@ class CreditCardTransactionRequest(TypedDict, total=False):
     """The year when the credit card expires."""
 
     name: Required[str]
-    """The cardholder's name on the card."""
+    """The cardholder's name on the card.
+
+    Maximum length: 41 characters.
+    """
 
     number: Required[str]
-    """The credit card number. Must be masked with lower case "x" and no dashes."""
+    """The credit card number. Must be masked with lower case "x" and no dashes.
+
+    Maximum length: 25 characters.
+    """
 
     address: str
-    """The card's billing address."""
+    """The card's billing address.
+
+    Maximum length: 41 characters.
+    """
 
     commercial_card_code: Annotated[str, PropertyInfo(alias="commercialCardCode")]
     """
@@ -323,10 +344,15 @@ class CreditCardTransactionRequest(TypedDict, total=False):
     (purchase, corporate, or business) for Visa and Mastercard transactions only.
     When provided, this code may qualify the transaction for lower processing fees
     compared to the standard rates that apply when no code is specified.
+
+    Maximum length: 24 characters.
     """
 
     postal_code: Annotated[str, PropertyInfo(alias="postalCode")]
-    """The card's billing address ZIP or postal code."""
+    """The card's billing address ZIP or postal code.
+
+    Maximum length: 18 characters.
+    """
 
     transaction_mode: Annotated[Literal["card_not_present", "card_present"], PropertyInfo(alias="transactionMode")]
     """
@@ -347,14 +373,17 @@ class CreditCardTransactionResponse(TypedDict, total=False):
     """
 
     credit_card_transaction_id: Required[Annotated[str, PropertyInfo(alias="creditCardTransactionId")]]
-    """
-    The ID returned from the credit card processor for this credit card transaction.
+    """The ID returned from the credit card processor for this credit card transaction.
+
+    Maximum length: 24 characters.
     """
 
     merchant_account_number: Required[Annotated[str, PropertyInfo(alias="merchantAccountNumber")]]
     """
     The QBMS account number of the merchant who is running this transaction using
     the customer's credit card.
+
+    Maximum length: 32 characters.
     """
 
     payment_status: Required[Annotated[Literal["completed", "unknown"], PropertyInfo(alias="paymentStatus")]]
@@ -373,6 +402,8 @@ class CreditCardTransactionResponse(TypedDict, total=False):
     """
     The status message returned in the original QBMS transaction response for this
     credit card transaction.
+
+    Maximum length: 60 characters.
     """
 
     transaction_authorized_at: Required[Annotated[str, PropertyInfo(alias="transactionAuthorizedAt")]]
@@ -385,6 +416,8 @@ class CreditCardTransactionResponse(TypedDict, total=False):
     """
     The authorization code returned from the credit card processor to indicate that
     this charge will be paid by the card issuer.
+
+    Maximum length: 12 characters.
     """
 
     avs_street_status: Annotated[Literal["fail", "not_available", "pass"], PropertyInfo(alias="avsStreetStatus")]
@@ -412,6 +445,8 @@ class CreditCardTransactionResponse(TypedDict, total=False):
     """
     A value returned from QBMS transactions for future use by the QuickBooks
     Reconciliation feature.
+
+    Maximum length: 16 characters.
     """
 
     payment_grouping_code: Annotated[float, PropertyInfo(alias="paymentGroupingCode")]
@@ -424,6 +459,8 @@ class CreditCardTransactionResponse(TypedDict, total=False):
     """
     An internal ID returned by QuickBooks Merchant Services (QBMS) from the
     transaction request, needed for the QuickBooks reconciliation feature.
+
+    Maximum length: 84 characters.
     """
 
     transaction_authorization_stamp: Annotated[float, PropertyInfo(alias="transactionAuthorizationStamp")]
@@ -456,6 +493,8 @@ class LineGroupCustomField(TypedDict, total=False):
     """The name of the custom field, unique for the specified `ownerId`.
 
     For public custom fields, this name is visible as a label in the QuickBooks UI.
+
+    Maximum length: 31 characters.
     """
 
     owner_id: Required[Annotated[str, PropertyInfo(alias="ownerId")]]
@@ -522,6 +561,8 @@ class LineGroup(TypedDict, total=False):
     """The unit-of-measure used for the `quantity` in this sales receipt line group.
 
     Must be a valid unit within the item's available units of measure.
+
+    Maximum length: 31 characters.
     """
 
 
@@ -537,13 +578,22 @@ class LineCreditCardTransactionRequest(TypedDict, total=False):
     """The year when the credit card expires."""
 
     name: Required[str]
-    """The cardholder's name on the card."""
+    """The cardholder's name on the card.
+
+    Maximum length: 41 characters.
+    """
 
     number: Required[str]
-    """The credit card number. Must be masked with lower case "x" and no dashes."""
+    """The credit card number. Must be masked with lower case "x" and no dashes.
+
+    Maximum length: 25 characters.
+    """
 
     address: str
-    """The card's billing address."""
+    """The card's billing address.
+
+    Maximum length: 41 characters.
+    """
 
     commercial_card_code: Annotated[str, PropertyInfo(alias="commercialCardCode")]
     """
@@ -551,10 +601,15 @@ class LineCreditCardTransactionRequest(TypedDict, total=False):
     (purchase, corporate, or business) for Visa and Mastercard transactions only.
     When provided, this code may qualify the transaction for lower processing fees
     compared to the standard rates that apply when no code is specified.
+
+    Maximum length: 24 characters.
     """
 
     postal_code: Annotated[str, PropertyInfo(alias="postalCode")]
-    """The card's billing address ZIP or postal code."""
+    """The card's billing address ZIP or postal code.
+
+    Maximum length: 18 characters.
+    """
 
     transaction_mode: Annotated[Literal["card_not_present", "card_present"], PropertyInfo(alias="transactionMode")]
     """
@@ -575,14 +630,17 @@ class LineCreditCardTransactionResponse(TypedDict, total=False):
     """
 
     credit_card_transaction_id: Required[Annotated[str, PropertyInfo(alias="creditCardTransactionId")]]
-    """
-    The ID returned from the credit card processor for this credit card transaction.
+    """The ID returned from the credit card processor for this credit card transaction.
+
+    Maximum length: 24 characters.
     """
 
     merchant_account_number: Required[Annotated[str, PropertyInfo(alias="merchantAccountNumber")]]
     """
     The QBMS account number of the merchant who is running this transaction using
     the customer's credit card.
+
+    Maximum length: 32 characters.
     """
 
     payment_status: Required[Annotated[Literal["completed", "unknown"], PropertyInfo(alias="paymentStatus")]]
@@ -601,6 +659,8 @@ class LineCreditCardTransactionResponse(TypedDict, total=False):
     """
     The status message returned in the original QBMS transaction response for this
     credit card transaction.
+
+    Maximum length: 60 characters.
     """
 
     transaction_authorized_at: Required[Annotated[str, PropertyInfo(alias="transactionAuthorizedAt")]]
@@ -613,6 +673,8 @@ class LineCreditCardTransactionResponse(TypedDict, total=False):
     """
     The authorization code returned from the credit card processor to indicate that
     this charge will be paid by the card issuer.
+
+    Maximum length: 12 characters.
     """
 
     avs_street_status: Annotated[Literal["fail", "not_available", "pass"], PropertyInfo(alias="avsStreetStatus")]
@@ -640,6 +702,8 @@ class LineCreditCardTransactionResponse(TypedDict, total=False):
     """
     A value returned from QBMS transactions for future use by the QuickBooks
     Reconciliation feature.
+
+    Maximum length: 16 characters.
     """
 
     payment_grouping_code: Annotated[float, PropertyInfo(alias="paymentGroupingCode")]
@@ -652,6 +716,8 @@ class LineCreditCardTransactionResponse(TypedDict, total=False):
     """
     An internal ID returned by QuickBooks Merchant Services (QBMS) from the
     transaction request, needed for the QuickBooks reconciliation feature.
+
+    Maximum length: 84 characters.
     """
 
     transaction_authorization_stamp: Annotated[float, PropertyInfo(alias="transactionAuthorizationStamp")]
@@ -684,6 +750,8 @@ class LineCustomField(TypedDict, total=False):
     """The name of the custom field, unique for the specified `ownerId`.
 
     For public custom fields, this name is visible as a label in the QuickBooks UI.
+
+    Maximum length: 31 characters.
     """
 
     owner_id: Required[Annotated[str, PropertyInfo(alias="ownerId")]]
@@ -741,7 +809,10 @@ class Line(TypedDict, total=False):
     """
 
     description: str
-    """A description of this sales receipt line."""
+    """A description of this sales receipt line.
+
+    Maximum length: 4095 characters.
+    """
 
     inventory_site_id: Annotated[str, PropertyInfo(alias="inventorySiteId")]
     """
@@ -768,6 +839,8 @@ class Line(TypedDict, total=False):
 
     Used for tracking groups of inventory items that are purchased or manufactured
     together.
+
+    Maximum length: 40 characters.
     """
 
     other_custom_field1: Annotated[str, PropertyInfo(alias="otherCustomField1")]
@@ -778,6 +851,8 @@ class Line(TypedDict, total=False):
     convenience. Developers often use this field for tracking information that
     doesn't fit into other standard QuickBooks fields. Hidden by default in the
     QuickBooks UI.
+
+    Maximum length: 29 characters.
     """
 
     other_custom_field2: Annotated[str, PropertyInfo(alias="otherCustomField2")]
@@ -788,6 +863,8 @@ class Line(TypedDict, total=False):
     convenience. Like `otherCustomField1`, developers often use this field for
     tracking information that doesn't fit into other standard QuickBooks fields.
     Hidden by default in the QuickBooks UI.
+
+    Maximum length: 29 characters.
     """
 
     override_item_account_id: Annotated[str, PropertyInfo(alias="overrideItemAccountId")]
@@ -855,6 +932,8 @@ class Line(TypedDict, total=False):
     """The serial number of the item associated with this sales receipt line.
 
     This is used for tracking individual units of serialized inventory items.
+
+    Maximum length: 4095 characters.
     """
 
     service_date: Annotated[Union[str, date], PropertyInfo(alias="serviceDate", format="iso8601")]
@@ -868,6 +947,8 @@ class Line(TypedDict, total=False):
     """The unit-of-measure used for the `quantity` in this sales receipt line.
 
     Must be a valid unit within the item's available units of measure.
+
+    Maximum length: 31 characters.
     """
 
 
@@ -881,7 +962,10 @@ class ShippingAddress(TypedDict, total=False):
     """
 
     country: str
-    """The country name of the address."""
+    """The country name of the address.
+
+    Maximum length: 31 characters.
+    """
 
     line1: str
     """The first line of the address (e.g., street, PO Box, or company name).
@@ -919,6 +1003,8 @@ class ShippingAddress(TypedDict, total=False):
     """
     A note written at the bottom of the address in the form in which it appears,
     such as the invoice form.
+
+    Maximum length: 41 characters.
     """
 
     postal_code: Annotated[str, PropertyInfo(alias="postalCode")]

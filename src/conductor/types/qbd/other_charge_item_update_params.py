@@ -105,7 +105,10 @@ class Barcode(TypedDict, total=False):
     """Indicates whether to assign the barcode even if it is already used."""
 
     value: str
-    """The item's barcode value."""
+    """The item's barcode value.
+
+    Maximum length: 50 characters.
+    """
 
 
 class SalesAndPurchaseDetails(TypedDict, total=False):
@@ -128,12 +131,17 @@ class SalesAndPurchaseDetails(TypedDict, total=False):
     """
     The cost at which this item is purchased from vendors, represented as a decimal
     string.
+
+    Decimal string format: up to 5 decimal places and up to 10 digits before the
+    decimal point (for example, "123.45").
     """
 
     purchase_description: Annotated[str, PropertyInfo(alias="purchaseDescription")]
     """
     The description of this item that appears on purchase forms (e.g., checks,
     bills, item receipts) when it is ordered or bought from vendors.
+
+    Maximum length: 4095 characters.
     """
 
     purchase_tax_code_id: Annotated[str, PropertyInfo(alias="purchaseTaxCodeId")]
@@ -146,12 +154,17 @@ class SalesAndPurchaseDetails(TypedDict, total=False):
     """
     The description of this item that appears on sales forms (e.g., invoices, sales
     receipts) when sold to customers.
+
+    Maximum length: 4095 characters.
     """
 
     sales_price: Annotated[str, PropertyInfo(alias="salesPrice")]
     """
     The price at which this item is sold to customers, represented as a decimal
     string.
+
+    Decimal string format: up to 5 decimal places and up to 10 digits before the
+    decimal point (for example, "123.45").
     """
 
     update_existing_transactions_expense_account: Annotated[
@@ -186,7 +199,10 @@ class SalesOrPurchaseDetails(TypedDict, total=False):
     """
 
     description: str
-    """A description of this item."""
+    """A description of this item.
+
+    Maximum length: 4095 characters.
+    """
 
     posting_account_id: Annotated[str, PropertyInfo(alias="postingAccountId")]
     """The posting account to which transactions involving this item are posted.
@@ -199,6 +215,9 @@ class SalesOrPurchaseDetails(TypedDict, total=False):
     """
     The price at which this item is purchased or sold, represented as a decimal
     string.
+
+    Decimal string format: up to 5 decimal places and up to 10 digits before the
+    decimal point (for example, "123.45").
     """
 
     price_percentage: Annotated[str, PropertyInfo(alias="pricePercentage")]

@@ -135,6 +135,8 @@ class EstimatesResource(SyncAPIResource):
           memo: A memo or note for this estimate that appears in reports, but not on the
               estimate. Use `customerMessage` to add a note to this estimate.
 
+              Maximum length: 4095 characters.
+
           other_custom_field: A built-in custom field for additional information specific to this estimate.
               Unlike the user-defined fields in the `customFields` array, this is a standard
               QuickBooks field that exists for all estimates for convenience. Developers often
@@ -142,6 +144,8 @@ class EstimatesResource(SyncAPIResource):
               QuickBooks fields. Unlike `otherCustomField1` and `otherCustomField2`, which are
               line item fields, this exists at the transaction level. Hidden by default in the
               QuickBooks UI.
+
+              Maximum length: 29 characters.
 
           purchase_order_number: The customer's Purchase Order (PO) number associated with this estimate. This
               field is often used to cross-reference the estimate with the customer's
@@ -394,6 +398,8 @@ class EstimatesResource(SyncAPIResource):
           memo: A memo or note for this estimate that appears in reports, but not on the
               estimate. Use `customerMessage` to add a note to this estimate.
 
+              Maximum length: 4095 characters.
+
           other_custom_field: A built-in custom field for additional information specific to this estimate.
               Unlike the user-defined fields in the `customFields` array, this is a standard
               QuickBooks field that exists for all estimates for convenience. Developers often
@@ -401,6 +407,8 @@ class EstimatesResource(SyncAPIResource):
               QuickBooks fields. Unlike `otherCustomField1` and `otherCustomField2`, which are
               line item fields, this exists at the transaction level. Hidden by default in the
               QuickBooks UI.
+
+              Maximum length: 29 characters.
 
           purchase_order_number: The customer's Purchase Order (PO) number associated with this estimate. This
               field is often used to cross-reference the estimate with the customer's
@@ -834,6 +842,8 @@ class AsyncEstimatesResource(AsyncAPIResource):
           memo: A memo or note for this estimate that appears in reports, but not on the
               estimate. Use `customerMessage` to add a note to this estimate.
 
+              Maximum length: 4095 characters.
+
           other_custom_field: A built-in custom field for additional information specific to this estimate.
               Unlike the user-defined fields in the `customFields` array, this is a standard
               QuickBooks field that exists for all estimates for convenience. Developers often
@@ -841,6 +851,8 @@ class AsyncEstimatesResource(AsyncAPIResource):
               QuickBooks fields. Unlike `otherCustomField1` and `otherCustomField2`, which are
               line item fields, this exists at the transaction level. Hidden by default in the
               QuickBooks UI.
+
+              Maximum length: 29 characters.
 
           purchase_order_number: The customer's Purchase Order (PO) number associated with this estimate. This
               field is often used to cross-reference the estimate with the customer's
@@ -1093,6 +1105,8 @@ class AsyncEstimatesResource(AsyncAPIResource):
           memo: A memo or note for this estimate that appears in reports, but not on the
               estimate. Use `customerMessage` to add a note to this estimate.
 
+              Maximum length: 4095 characters.
+
           other_custom_field: A built-in custom field for additional information specific to this estimate.
               Unlike the user-defined fields in the `customFields` array, this is a standard
               QuickBooks field that exists for all estimates for convenience. Developers often
@@ -1100,6 +1114,8 @@ class AsyncEstimatesResource(AsyncAPIResource):
               QuickBooks fields. Unlike `otherCustomField1` and `otherCustomField2`, which are
               line item fields, this exists at the transaction level. Hidden by default in the
               QuickBooks UI.
+
+              Maximum length: 29 characters.
 
           purchase_order_number: The customer's Purchase Order (PO) number associated with this estimate. This
               field is often used to cross-reference the estimate with the customer's

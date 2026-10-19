@@ -102,6 +102,8 @@ class VendorCreditsResource(SyncAPIResource):
 
           memo: A memo or note for this vendor credit.
 
+              Maximum length: 4095 characters.
+
           payables_account_id: The Accounts-Payable (A/P) account to which this vendor credit is assigned, used
               for accounts-payable tracking. If omitted, QuickBooks Desktop uses the default
               A/P account configured in the company file.
@@ -306,6 +308,8 @@ class VendorCreditsResource(SyncAPIResource):
                  them unchanged.
 
           memo: A memo or note for this vendor credit.
+
+              Maximum length: 4095 characters.
 
           payables_account_id: The Accounts-Payable (A/P) account to which this vendor credit is assigned, used
               for accounts-payable tracking. If omitted, QuickBooks Desktop uses the default
@@ -720,6 +724,8 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
 
           memo: A memo or note for this vendor credit.
 
+              Maximum length: 4095 characters.
+
           payables_account_id: The Accounts-Payable (A/P) account to which this vendor credit is assigned, used
               for accounts-payable tracking. If omitted, QuickBooks Desktop uses the default
               A/P account configured in the company file.
@@ -924,6 +930,8 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
                  them unchanged.
 
           memo: A memo or note for this vendor credit.
+
+              Maximum length: 4095 characters.
 
           payables_account_id: The Accounts-Payable (A/P) account to which this vendor credit is assigned, used
               for accounts-payable tracking. If omitted, QuickBooks Desktop uses the default

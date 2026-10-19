@@ -66,7 +66,10 @@ class InventoryAdjustmentUpdateParams(TypedDict, total=False):
     """
 
     memo: str
-    """A memo or note for this inventory adjustment."""
+    """A memo or note for this inventory adjustment.
+
+    Maximum length: 4095 characters.
+    """
 
     ref_number: Annotated[str, PropertyInfo(alias="refNumber")]
     """
@@ -119,6 +122,8 @@ class Line(TypedDict, total=False):
 
     Used for tracking groups of inventory items that are purchased or manufactured
     together.
+
+    Maximum length: 40 characters.
     """
 
     quantity_difference: Annotated[float, PropertyInfo(alias="quantityDifference")]
@@ -132,6 +137,8 @@ class Line(TypedDict, total=False):
     """The serial number of the item associated with this inventory adjustment line.
 
     This is used for tracking individual units of serialized inventory items.
+
+    Maximum length: 4095 characters.
     """
 
     value_difference: Annotated[float, PropertyInfo(alias="valueDifference")]
@@ -140,4 +147,7 @@ class Line(TypedDict, total=False):
     the entire stock of the inventory item associated with this inventory adjustment
     line. A positive number increases the value, while a negative number decreases
     it.
+
+    Must have at most 2 decimal places and at most 13 digits before the decimal
+    point.
     """

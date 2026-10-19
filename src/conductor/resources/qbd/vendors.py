@@ -124,11 +124,15 @@ class VendorsResource(SyncAPIResource):
               the account number may not be visible in the user interface, but it can still be
               set and retrieved through the API.
 
+              Maximum length: 99 characters.
+
           additional_contacts: Additional alternate contacts for this vendor.
 
           additional_notes: Additional notes about this vendor.
 
           alternate_contact: The name of a alternate contact person for this vendor.
+
+              Maximum length: 41 characters.
 
           alternate_phone: The vendor's alternate telephone number.
 
@@ -141,6 +145,8 @@ class VendorsResource(SyncAPIResource):
 
           cc_email: An email address to carbon copy (CC) on communications with this vendor.
 
+              Maximum length: 1023 characters.
+
           class_id: The vendor's class. Classes can be used to categorize objects into meaningful
               segments, such as department, location, or type of work. In QuickBooks, class
               tracking is off by default.
@@ -152,9 +158,14 @@ class VendorsResource(SyncAPIResource):
 
           contact: The name of the primary contact person for this vendor.
 
+              Maximum length: 41 characters.
+
           credit_limit: The vendor's credit limit, represented as a decimal string. This is the maximum
               amount of money that can be spent being before billed by this vendor. If `null`,
               there is no credit limit.
+
+              Decimal string format: exactly 2 decimal places when cents are included and up
+              to 13 digits before the decimal point (for example, "123.45").
 
           currency_id: The vendor's currency. For built-in currencies, the name and code are standard
               ISO 4217 international values. For user-defined currencies, all values are
@@ -166,6 +177,8 @@ class VendorsResource(SyncAPIResource):
           default_expense_account_ids: The expense accounts to prefill when entering bills for this vendor.
 
           email: The vendor's email address.
+
+              Maximum length: 1023 characters.
 
           external_id: A globally unique identifier (GUID) you, the developer, can provide for tracking
               this object in your external system. This field is immutable and can only be set
@@ -202,6 +215,8 @@ class VendorsResource(SyncAPIResource):
 
           job_title: The job title of the contact person for this vendor.
 
+              Maximum length: 41 characters.
+
           last_name: The last name of the contact person for this vendor.
 
               Maximum length: 25 characters.
@@ -216,8 +231,13 @@ class VendorsResource(SyncAPIResource):
 
           note: A note or comment about this vendor.
 
+              Maximum length: 4095 characters.
+
           opening_balance: The opening balance of this vendor's account, indicating the amount owed to this
               vendor, represented as a decimal string.
+
+              Decimal string format: exactly 2 decimal places when cents are included and up
+              to 13 digits before the decimal point (for example, "123.45").
 
           opening_balance_date: The date of the opening balance of this vendor, in ISO 8601 format (YYYY-MM-DD).
 
@@ -251,11 +271,17 @@ class VendorsResource(SyncAPIResource):
           salutation: The formal salutation title that precedes the name of the contact person for
               this vendor, such as "Mr.", "Ms.", or "Dr.".
 
+              Maximum length: 15 characters.
+
           shipping_address: The vendor's shipping address.
 
           tax_identification_number: The vendor's tax identification number (e.g., EIN or SSN).
 
+              Maximum length: 15 characters.
+
           tax_registration_number: The vendor's tax registration number, for use in Canada or the UK.
+
+              Maximum length: 30 characters.
 
           terms_id: The vendor's payment terms, defining when payment is due and any applicable
               discounts.
@@ -450,11 +476,15 @@ class VendorsResource(SyncAPIResource):
               the account number may not be visible in the user interface, but it can still be
               set and retrieved through the API.
 
+              Maximum length: 99 characters.
+
           additional_contacts: Additional alternate contacts for this vendor.
 
           additional_notes: Additional notes about this vendor.
 
           alternate_contact: The name of a alternate contact person for this vendor.
+
+              Maximum length: 41 characters.
 
           alternate_phone: The vendor's alternate telephone number.
 
@@ -467,6 +497,8 @@ class VendorsResource(SyncAPIResource):
 
           cc_email: An email address to carbon copy (CC) on communications with this vendor.
 
+              Maximum length: 1023 characters.
+
           class_id: The vendor's class. Classes can be used to categorize objects into meaningful
               segments, such as department, location, or type of work. In QuickBooks, class
               tracking is off by default.
@@ -478,9 +510,14 @@ class VendorsResource(SyncAPIResource):
 
           contact: The name of the primary contact person for this vendor.
 
+              Maximum length: 41 characters.
+
           credit_limit: The vendor's credit limit, represented as a decimal string. This is the maximum
               amount of money that can be spent being before billed by this vendor. If `null`,
               there is no credit limit.
+
+              Decimal string format: exactly 2 decimal places when cents are included and up
+              to 13 digits before the decimal point (for example, "123.45").
 
           currency_id: The vendor's currency. For built-in currencies, the name and code are standard
               ISO 4217 international values. For user-defined currencies, all values are
@@ -492,6 +529,8 @@ class VendorsResource(SyncAPIResource):
           default_expense_account_ids: The expense accounts to prefill when entering bills for this vendor.
 
           email: The vendor's email address.
+
+              Maximum length: 1023 characters.
 
           fax: The vendor's fax number.
 
@@ -521,6 +560,8 @@ class VendorsResource(SyncAPIResource):
 
           job_title: The job title of the contact person for this vendor.
 
+              Maximum length: 41 characters.
+
           last_name: The last name of the contact person for this vendor.
 
               Maximum length: 25 characters.
@@ -542,6 +583,8 @@ class VendorsResource(SyncAPIResource):
               Maximum length: 41 characters.
 
           note: A note or comment about this vendor.
+
+              Maximum length: 4095 characters.
 
           phone: The vendor's primary telephone number.
 
@@ -573,11 +616,17 @@ class VendorsResource(SyncAPIResource):
           salutation: The formal salutation title that precedes the name of the contact person for
               this vendor, such as "Mr.", "Ms.", or "Dr.".
 
+              Maximum length: 15 characters.
+
           shipping_address: The vendor's shipping address.
 
           tax_identification_number: The vendor's tax identification number (e.g., EIN or SSN).
 
+              Maximum length: 15 characters.
+
           tax_registration_number: The vendor's tax registration number, for use in Canada or the UK.
+
+              Maximum length: 30 characters.
 
           terms_id: The vendor's payment terms, defining when payment is due and any applicable
               discounts.
@@ -937,11 +986,15 @@ class AsyncVendorsResource(AsyncAPIResource):
               the account number may not be visible in the user interface, but it can still be
               set and retrieved through the API.
 
+              Maximum length: 99 characters.
+
           additional_contacts: Additional alternate contacts for this vendor.
 
           additional_notes: Additional notes about this vendor.
 
           alternate_contact: The name of a alternate contact person for this vendor.
+
+              Maximum length: 41 characters.
 
           alternate_phone: The vendor's alternate telephone number.
 
@@ -954,6 +1007,8 @@ class AsyncVendorsResource(AsyncAPIResource):
 
           cc_email: An email address to carbon copy (CC) on communications with this vendor.
 
+              Maximum length: 1023 characters.
+
           class_id: The vendor's class. Classes can be used to categorize objects into meaningful
               segments, such as department, location, or type of work. In QuickBooks, class
               tracking is off by default.
@@ -965,9 +1020,14 @@ class AsyncVendorsResource(AsyncAPIResource):
 
           contact: The name of the primary contact person for this vendor.
 
+              Maximum length: 41 characters.
+
           credit_limit: The vendor's credit limit, represented as a decimal string. This is the maximum
               amount of money that can be spent being before billed by this vendor. If `null`,
               there is no credit limit.
+
+              Decimal string format: exactly 2 decimal places when cents are included and up
+              to 13 digits before the decimal point (for example, "123.45").
 
           currency_id: The vendor's currency. For built-in currencies, the name and code are standard
               ISO 4217 international values. For user-defined currencies, all values are
@@ -979,6 +1039,8 @@ class AsyncVendorsResource(AsyncAPIResource):
           default_expense_account_ids: The expense accounts to prefill when entering bills for this vendor.
 
           email: The vendor's email address.
+
+              Maximum length: 1023 characters.
 
           external_id: A globally unique identifier (GUID) you, the developer, can provide for tracking
               this object in your external system. This field is immutable and can only be set
@@ -1015,6 +1077,8 @@ class AsyncVendorsResource(AsyncAPIResource):
 
           job_title: The job title of the contact person for this vendor.
 
+              Maximum length: 41 characters.
+
           last_name: The last name of the contact person for this vendor.
 
               Maximum length: 25 characters.
@@ -1029,8 +1093,13 @@ class AsyncVendorsResource(AsyncAPIResource):
 
           note: A note or comment about this vendor.
 
+              Maximum length: 4095 characters.
+
           opening_balance: The opening balance of this vendor's account, indicating the amount owed to this
               vendor, represented as a decimal string.
+
+              Decimal string format: exactly 2 decimal places when cents are included and up
+              to 13 digits before the decimal point (for example, "123.45").
 
           opening_balance_date: The date of the opening balance of this vendor, in ISO 8601 format (YYYY-MM-DD).
 
@@ -1064,11 +1133,17 @@ class AsyncVendorsResource(AsyncAPIResource):
           salutation: The formal salutation title that precedes the name of the contact person for
               this vendor, such as "Mr.", "Ms.", or "Dr.".
 
+              Maximum length: 15 characters.
+
           shipping_address: The vendor's shipping address.
 
           tax_identification_number: The vendor's tax identification number (e.g., EIN or SSN).
 
+              Maximum length: 15 characters.
+
           tax_registration_number: The vendor's tax registration number, for use in Canada or the UK.
+
+              Maximum length: 30 characters.
 
           terms_id: The vendor's payment terms, defining when payment is due and any applicable
               discounts.
@@ -1263,11 +1338,15 @@ class AsyncVendorsResource(AsyncAPIResource):
               the account number may not be visible in the user interface, but it can still be
               set and retrieved through the API.
 
+              Maximum length: 99 characters.
+
           additional_contacts: Additional alternate contacts for this vendor.
 
           additional_notes: Additional notes about this vendor.
 
           alternate_contact: The name of a alternate contact person for this vendor.
+
+              Maximum length: 41 characters.
 
           alternate_phone: The vendor's alternate telephone number.
 
@@ -1280,6 +1359,8 @@ class AsyncVendorsResource(AsyncAPIResource):
 
           cc_email: An email address to carbon copy (CC) on communications with this vendor.
 
+              Maximum length: 1023 characters.
+
           class_id: The vendor's class. Classes can be used to categorize objects into meaningful
               segments, such as department, location, or type of work. In QuickBooks, class
               tracking is off by default.
@@ -1291,9 +1372,14 @@ class AsyncVendorsResource(AsyncAPIResource):
 
           contact: The name of the primary contact person for this vendor.
 
+              Maximum length: 41 characters.
+
           credit_limit: The vendor's credit limit, represented as a decimal string. This is the maximum
               amount of money that can be spent being before billed by this vendor. If `null`,
               there is no credit limit.
+
+              Decimal string format: exactly 2 decimal places when cents are included and up
+              to 13 digits before the decimal point (for example, "123.45").
 
           currency_id: The vendor's currency. For built-in currencies, the name and code are standard
               ISO 4217 international values. For user-defined currencies, all values are
@@ -1305,6 +1391,8 @@ class AsyncVendorsResource(AsyncAPIResource):
           default_expense_account_ids: The expense accounts to prefill when entering bills for this vendor.
 
           email: The vendor's email address.
+
+              Maximum length: 1023 characters.
 
           fax: The vendor's fax number.
 
@@ -1334,6 +1422,8 @@ class AsyncVendorsResource(AsyncAPIResource):
 
           job_title: The job title of the contact person for this vendor.
 
+              Maximum length: 41 characters.
+
           last_name: The last name of the contact person for this vendor.
 
               Maximum length: 25 characters.
@@ -1355,6 +1445,8 @@ class AsyncVendorsResource(AsyncAPIResource):
               Maximum length: 41 characters.
 
           note: A note or comment about this vendor.
+
+              Maximum length: 4095 characters.
 
           phone: The vendor's primary telephone number.
 
@@ -1386,11 +1478,17 @@ class AsyncVendorsResource(AsyncAPIResource):
           salutation: The formal salutation title that precedes the name of the contact person for
               this vendor, such as "Mr.", "Ms.", or "Dr.".
 
+              Maximum length: 15 characters.
+
           shipping_address: The vendor's shipping address.
 
           tax_identification_number: The vendor's tax identification number (e.g., EIN or SSN).
 
+              Maximum length: 15 characters.
+
           tax_registration_number: The vendor's tax registration number, for use in Canada or the UK.
+
+              Maximum length: 30 characters.
 
           terms_id: The vendor's payment terms, defining when payment is due and any applicable
               discounts.

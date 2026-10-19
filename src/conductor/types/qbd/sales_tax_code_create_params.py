@@ -34,7 +34,10 @@ class SalesTaxCodeCreateParams(TypedDict, total=False):
     """The ID of the End-User to receive this request."""
 
     description: str
-    """A description of this sales-tax code."""
+    """A description of this sales-tax code.
+
+    Maximum length: 31 characters.
+    """
 
     is_active: Annotated[bool, PropertyInfo(alias="isActive")]
     """Indicates whether this sales-tax code is active.

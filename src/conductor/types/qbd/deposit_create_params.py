@@ -59,7 +59,10 @@ class DepositCreateParams(TypedDict, total=False):
     """
 
     memo: str
-    """A memo or note for this deposit."""
+    """A memo or note for this deposit.
+
+    Maximum length: 4095 characters.
+    """
 
 
 class CashBack(TypedDict, total=False):
@@ -84,7 +87,10 @@ class CashBack(TypedDict, total=False):
     """
 
     memo: str
-    """A memo or note for this deposit cash-back line."""
+    """A memo or note for this deposit cash-back line.
+
+    Maximum length: 4095 characters.
+    """
 
 
 class Line(TypedDict, total=False):
@@ -105,7 +111,10 @@ class Line(TypedDict, total=False):
     """
 
     check_number: Annotated[str, PropertyInfo(alias="checkNumber")]
-    """The check number of a check received for this deposit line."""
+    """The check number of a check received for this deposit line.
+
+    Maximum length: 11 characters.
+    """
 
     class_id: Annotated[str, PropertyInfo(alias="classId")]
     """The deposit line's class.
@@ -122,7 +131,10 @@ class Line(TypedDict, total=False):
     """
 
     memo: str
-    """A memo or note for this deposit line."""
+    """A memo or note for this deposit line.
+
+    Maximum length: 4095 characters.
+    """
 
     override_check_number: Annotated[str, PropertyInfo(alias="overrideCheckNumber")]
     """

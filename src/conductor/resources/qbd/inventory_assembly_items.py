@@ -147,8 +147,13 @@ class InventoryAssemblyItemsResource(SyncAPIResource):
           purchase_cost: The cost at which this inventory assembly item is purchased from vendors,
               represented as a decimal string.
 
+              Decimal string format: up to 5 decimal places and up to 10 digits before the
+              decimal point (for example, "123.45").
+
           purchase_description: The description of this inventory assembly item that appears on purchase forms
               (e.g., checks, bills, item receipts) when it is ordered or bought from vendors.
+
+              Maximum length: 4095 characters.
 
           purchase_tax_code_id: The tax code applied to purchases of this inventory assembly item. Applicable in
               regions where purchase taxes are used, such as Canada or the UK.
@@ -162,8 +167,13 @@ class InventoryAssemblyItemsResource(SyncAPIResource):
           sales_description: The description of this inventory assembly item that appears on sales forms
               (e.g., invoices, sales receipts) when sold to customers.
 
+              Maximum length: 4095 characters.
+
           sales_price: The price at which this inventory assembly item is sold to customers,
               represented as a decimal string.
+
+              Decimal string format: up to 5 decimal places and up to 10 digits before the
+              decimal point (for example, "123.45").
 
           sales_tax_code_id: The default sales-tax code for this inventory assembly item, determining whether
               it is taxable or non-taxable. This can be overridden at the transaction-line
@@ -397,8 +407,13 @@ class InventoryAssemblyItemsResource(SyncAPIResource):
           purchase_cost: The cost at which this inventory assembly item is purchased from vendors,
               represented as a decimal string.
 
+              Decimal string format: up to 5 decimal places and up to 10 digits before the
+              decimal point (for example, "123.45").
+
           purchase_description: The description of this inventory assembly item that appears on purchase forms
               (e.g., checks, bills, item receipts) when it is ordered or bought from vendors.
+
+              Maximum length: 4095 characters.
 
           purchase_tax_code_id: The tax code applied to purchases of this inventory assembly item. Applicable in
               regions where purchase taxes are used, such as Canada or the UK.
@@ -406,8 +421,13 @@ class InventoryAssemblyItemsResource(SyncAPIResource):
           sales_description: The description of this inventory assembly item that appears on sales forms
               (e.g., invoices, sales receipts) when sold to customers.
 
+              Maximum length: 4095 characters.
+
           sales_price: The price at which this inventory assembly item is sold to customers,
               represented as a decimal string.
+
+              Decimal string format: up to 5 decimal places and up to 10 digits before the
+              decimal point (for example, "123.45").
 
           sales_tax_code_id: The default sales-tax code for this inventory assembly item, determining whether
               it is taxable or non-taxable. This can be overridden at the transaction-line
@@ -421,6 +441,8 @@ class InventoryAssemblyItemsResource(SyncAPIResource):
 
           sku: The inventory assembly item's stock keeping unit (SKU), which is sometimes the
               manufacturer's part number.
+
+              Maximum length: 31 characters.
 
           unit_of_measure_set_id: The unit-of-measure set associated with this inventory assembly item, which
               consists of a base unit and related units.
@@ -764,8 +786,13 @@ class AsyncInventoryAssemblyItemsResource(AsyncAPIResource):
           purchase_cost: The cost at which this inventory assembly item is purchased from vendors,
               represented as a decimal string.
 
+              Decimal string format: up to 5 decimal places and up to 10 digits before the
+              decimal point (for example, "123.45").
+
           purchase_description: The description of this inventory assembly item that appears on purchase forms
               (e.g., checks, bills, item receipts) when it is ordered or bought from vendors.
+
+              Maximum length: 4095 characters.
 
           purchase_tax_code_id: The tax code applied to purchases of this inventory assembly item. Applicable in
               regions where purchase taxes are used, such as Canada or the UK.
@@ -779,8 +806,13 @@ class AsyncInventoryAssemblyItemsResource(AsyncAPIResource):
           sales_description: The description of this inventory assembly item that appears on sales forms
               (e.g., invoices, sales receipts) when sold to customers.
 
+              Maximum length: 4095 characters.
+
           sales_price: The price at which this inventory assembly item is sold to customers,
               represented as a decimal string.
+
+              Decimal string format: up to 5 decimal places and up to 10 digits before the
+              decimal point (for example, "123.45").
 
           sales_tax_code_id: The default sales-tax code for this inventory assembly item, determining whether
               it is taxable or non-taxable. This can be overridden at the transaction-line
@@ -1014,8 +1046,13 @@ class AsyncInventoryAssemblyItemsResource(AsyncAPIResource):
           purchase_cost: The cost at which this inventory assembly item is purchased from vendors,
               represented as a decimal string.
 
+              Decimal string format: up to 5 decimal places and up to 10 digits before the
+              decimal point (for example, "123.45").
+
           purchase_description: The description of this inventory assembly item that appears on purchase forms
               (e.g., checks, bills, item receipts) when it is ordered or bought from vendors.
+
+              Maximum length: 4095 characters.
 
           purchase_tax_code_id: The tax code applied to purchases of this inventory assembly item. Applicable in
               regions where purchase taxes are used, such as Canada or the UK.
@@ -1023,8 +1060,13 @@ class AsyncInventoryAssemblyItemsResource(AsyncAPIResource):
           sales_description: The description of this inventory assembly item that appears on sales forms
               (e.g., invoices, sales receipts) when sold to customers.
 
+              Maximum length: 4095 characters.
+
           sales_price: The price at which this inventory assembly item is sold to customers,
               represented as a decimal string.
+
+              Decimal string format: up to 5 decimal places and up to 10 digits before the
+              decimal point (for example, "123.45").
 
           sales_tax_code_id: The default sales-tax code for this inventory assembly item, determining whether
               it is taxable or non-taxable. This can be overridden at the transaction-line
@@ -1038,6 +1080,8 @@ class AsyncInventoryAssemblyItemsResource(AsyncAPIResource):
 
           sku: The inventory assembly item's stock keeping unit (SKU), which is sometimes the
               manufacturer's part number.
+
+              Maximum length: 31 characters.
 
           unit_of_measure_set_id: The unit-of-measure set associated with this inventory assembly item, which
               consists of a base unit and related units.

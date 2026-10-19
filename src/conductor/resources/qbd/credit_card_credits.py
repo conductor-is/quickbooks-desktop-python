@@ -106,6 +106,8 @@ class CreditCardCreditsResource(SyncAPIResource):
 
           memo: A memo or note for this credit card credit.
 
+              Maximum length: 4095 characters.
+
           payee_id: The vendor or company from whom this credit card credit was received for
               purchased merchandise or services.
 
@@ -308,6 +310,8 @@ class CreditCardCreditsResource(SyncAPIResource):
                  them unchanged.
 
           memo: A memo or note for this credit card credit.
+
+              Maximum length: 4095 characters.
 
           payee_id: The vendor or company from whom this credit card credit was received for
               purchased merchandise or services.
@@ -711,6 +715,8 @@ class AsyncCreditCardCreditsResource(AsyncAPIResource):
 
           memo: A memo or note for this credit card credit.
 
+              Maximum length: 4095 characters.
+
           payee_id: The vendor or company from whom this credit card credit was received for
               purchased merchandise or services.
 
@@ -913,6 +919,8 @@ class AsyncCreditCardCreditsResource(AsyncAPIResource):
                  them unchanged.
 
           memo: A memo or note for this credit card credit.
+
+              Maximum length: 4095 characters.
 
           payee_id: The vendor or company from whom this credit card credit was received for
               purchased merchandise or services.

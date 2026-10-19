@@ -66,7 +66,10 @@ class InventoryAdjustmentCreateParams(TypedDict, total=False):
     """
 
     memo: str
-    """A memo or note for this inventory adjustment."""
+    """A memo or note for this inventory adjustment.
+
+    Maximum length: 4095 characters.
+    """
 
     ref_number: Annotated[str, PropertyInfo(alias="refNumber")]
     """
@@ -108,6 +111,8 @@ class LineAdjustLotNumber(TypedDict, total=False):
 
     Used for tracking groups of inventory items that are purchased or manufactured
     together.
+
+    Maximum length: 40 characters.
     """
 
 
@@ -135,6 +140,8 @@ class LineAdjustQuantity(TypedDict, total=False):
 
     Used for tracking groups of inventory items that are purchased or manufactured
     together.
+
+    Maximum length: 40 characters.
     """
 
     new_quantity: Annotated[float, PropertyInfo(alias="newQuantity")]
@@ -154,6 +161,8 @@ class LineAdjustQuantity(TypedDict, total=False):
     """The serial number of the item associated with this inventory adjustment line.
 
     This is used for tracking individual units of serialized inventory items.
+
+    Maximum length: 4095 characters.
     """
 
 
@@ -167,6 +176,8 @@ class LineAdjustSerialNumber(TypedDict, total=False):
     """
     The serial number, which represents a unique unit of the inventory item
     associated with this inventory adjustment line, to add to inventory.
+
+    Maximum length: 4095 characters.
     """
 
     expiration_date: Annotated[Union[str, date], PropertyInfo(alias="expirationDate", format="iso8601")]
@@ -187,6 +198,8 @@ class LineAdjustSerialNumber(TypedDict, total=False):
     """
     The serial number, which represents a unique unit of the inventory item
     associated with this inventory adjustment line, to remove from inventory.
+
+    Maximum length: 4095 characters.
     """
 
 
@@ -204,10 +217,13 @@ class LineAdjustValue(TypedDict, total=False):
     new_value: Annotated[str, PropertyInfo(alias="newValue")]
     """
     The new total value of the entire stock of the inventory item associated with
-    this inventory adjustment line.
+    this inventory adjustment line, represented as a decimal string.
 
     **NOTE**: The new value does _not_ have to equal `quantityOnHand` times
     `purchaseCost`.
+
+    Decimal string format: exactly 2 decimal places when cents are included and up
+    to 13 digits before the decimal point (for example, "123.45").
     """
 
     quantity_difference: Annotated[float, PropertyInfo(alias="quantityDifference")]
@@ -223,6 +239,9 @@ class LineAdjustValue(TypedDict, total=False):
     the entire stock of the inventory item associated with this inventory adjustment
     line. A positive number increases the value, while a negative number decreases
     it.
+
+    Must have at most 2 decimal places and at most 13 digits before the decimal
+    point.
     """
 
 

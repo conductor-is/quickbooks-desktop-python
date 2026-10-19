@@ -140,11 +140,15 @@ class PurchaseOrdersResource(SyncAPIResource):
           memo: A memo or note for this purchase order that appears in reports, but not on the
               purchase order.
 
+              Maximum length: 4095 characters.
+
           other_custom_field1: A built-in custom field for additional information specific to this purchase
               order. Unlike the user-defined fields in the `customFields` array, this is a
               standard QuickBooks field that exists for all purchase orders for convenience.
               Developers often use this field for tracking information that doesn't fit into
               other standard QuickBooks fields. Hidden by default in the QuickBooks UI.
+
+              Maximum length: 25 characters.
 
           other_custom_field2: A second built-in custom field for additional information specific to this
               purchase order. Unlike the user-defined fields in the `customFields` array, this
@@ -152,6 +156,8 @@ class PurchaseOrdersResource(SyncAPIResource):
               convenience. Like `otherCustomField1`, developers often use this field for
               tracking information that doesn't fit into other standard QuickBooks fields.
               Hidden by default in the QuickBooks UI.
+
+              Maximum length: 29 characters.
 
           ref_number: The case-sensitive user-defined reference number for this purchase order, which
               can be used to identify the transaction in QuickBooks. This value is not
@@ -195,6 +201,8 @@ class PurchaseOrdersResource(SyncAPIResource):
           vendor_id: The vendor who sent this purchase order for goods or services purchased.
 
           vendor_message: A message to be printed on this purchase order for the vendor to read.
+
+              Maximum length: 99 characters.
 
           extra_headers: Send extra headers
 
@@ -411,11 +419,15 @@ class PurchaseOrdersResource(SyncAPIResource):
           memo: A memo or note for this purchase order that appears in reports, but not on the
               purchase order.
 
+              Maximum length: 4095 characters.
+
           other_custom_field1: A built-in custom field for additional information specific to this purchase
               order. Unlike the user-defined fields in the `customFields` array, this is a
               standard QuickBooks field that exists for all purchase orders for convenience.
               Developers often use this field for tracking information that doesn't fit into
               other standard QuickBooks fields. Hidden by default in the QuickBooks UI.
+
+              Maximum length: 25 characters.
 
           other_custom_field2: A second built-in custom field for additional information specific to this
               purchase order. Unlike the user-defined fields in the `customFields` array, this
@@ -423,6 +435,8 @@ class PurchaseOrdersResource(SyncAPIResource):
               convenience. Like `otherCustomField1`, developers often use this field for
               tracking information that doesn't fit into other standard QuickBooks fields.
               Hidden by default in the QuickBooks UI.
+
+              Maximum length: 29 characters.
 
           ref_number: The case-sensitive user-defined reference number for this purchase order, which
               can be used to identify the transaction in QuickBooks. This value is not
@@ -466,6 +480,8 @@ class PurchaseOrdersResource(SyncAPIResource):
           vendor_id: The vendor who sent this purchase order for goods or services purchased.
 
           vendor_message: A message to be printed on this purchase order for the vendor to read.
+
+              Maximum length: 99 characters.
 
           extra_headers: Send extra headers
 
@@ -863,11 +879,15 @@ class AsyncPurchaseOrdersResource(AsyncAPIResource):
           memo: A memo or note for this purchase order that appears in reports, but not on the
               purchase order.
 
+              Maximum length: 4095 characters.
+
           other_custom_field1: A built-in custom field for additional information specific to this purchase
               order. Unlike the user-defined fields in the `customFields` array, this is a
               standard QuickBooks field that exists for all purchase orders for convenience.
               Developers often use this field for tracking information that doesn't fit into
               other standard QuickBooks fields. Hidden by default in the QuickBooks UI.
+
+              Maximum length: 25 characters.
 
           other_custom_field2: A second built-in custom field for additional information specific to this
               purchase order. Unlike the user-defined fields in the `customFields` array, this
@@ -875,6 +895,8 @@ class AsyncPurchaseOrdersResource(AsyncAPIResource):
               convenience. Like `otherCustomField1`, developers often use this field for
               tracking information that doesn't fit into other standard QuickBooks fields.
               Hidden by default in the QuickBooks UI.
+
+              Maximum length: 29 characters.
 
           ref_number: The case-sensitive user-defined reference number for this purchase order, which
               can be used to identify the transaction in QuickBooks. This value is not
@@ -918,6 +940,8 @@ class AsyncPurchaseOrdersResource(AsyncAPIResource):
           vendor_id: The vendor who sent this purchase order for goods or services purchased.
 
           vendor_message: A message to be printed on this purchase order for the vendor to read.
+
+              Maximum length: 99 characters.
 
           extra_headers: Send extra headers
 
@@ -1134,11 +1158,15 @@ class AsyncPurchaseOrdersResource(AsyncAPIResource):
           memo: A memo or note for this purchase order that appears in reports, but not on the
               purchase order.
 
+              Maximum length: 4095 characters.
+
           other_custom_field1: A built-in custom field for additional information specific to this purchase
               order. Unlike the user-defined fields in the `customFields` array, this is a
               standard QuickBooks field that exists for all purchase orders for convenience.
               Developers often use this field for tracking information that doesn't fit into
               other standard QuickBooks fields. Hidden by default in the QuickBooks UI.
+
+              Maximum length: 25 characters.
 
           other_custom_field2: A second built-in custom field for additional information specific to this
               purchase order. Unlike the user-defined fields in the `customFields` array, this
@@ -1146,6 +1174,8 @@ class AsyncPurchaseOrdersResource(AsyncAPIResource):
               convenience. Like `otherCustomField1`, developers often use this field for
               tracking information that doesn't fit into other standard QuickBooks fields.
               Hidden by default in the QuickBooks UI.
+
+              Maximum length: 29 characters.
 
           ref_number: The case-sensitive user-defined reference number for this purchase order, which
               can be used to identify the transaction in QuickBooks. This value is not
@@ -1189,6 +1219,8 @@ class AsyncPurchaseOrdersResource(AsyncAPIResource):
           vendor_id: The vendor who sent this purchase order for goods or services purchased.
 
           vendor_message: A message to be printed on this purchase order for the vendor to read.
+
+              Maximum length: 99 characters.
 
           extra_headers: Send extra headers
 

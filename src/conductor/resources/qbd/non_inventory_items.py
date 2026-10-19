@@ -135,6 +135,8 @@ class NonInventoryItemsResource(SyncAPIResource):
           sku: The non-inventory item's stock keeping unit (SKU), which is sometimes the
               manufacturer's part number.
 
+              Maximum length: 31 characters.
+
           unit_of_measure_set_id: The unit-of-measure set associated with this non-inventory item, which consists
               of a base unit and related units.
 
@@ -325,6 +327,8 @@ class NonInventoryItemsResource(SyncAPIResource):
 
           sku: The non-inventory item's stock keeping unit (SKU), which is sometimes the
               manufacturer's part number.
+
+              Maximum length: 31 characters.
 
           unit_of_measure_set_id: The unit-of-measure set associated with this non-inventory item, which consists
               of a base unit and related units.
@@ -639,6 +643,8 @@ class AsyncNonInventoryItemsResource(AsyncAPIResource):
           sku: The non-inventory item's stock keeping unit (SKU), which is sometimes the
               manufacturer's part number.
 
+              Maximum length: 31 characters.
+
           unit_of_measure_set_id: The unit-of-measure set associated with this non-inventory item, which consists
               of a base unit and related units.
 
@@ -829,6 +835,8 @@ class AsyncNonInventoryItemsResource(AsyncAPIResource):
 
           sku: The non-inventory item's stock keeping unit (SKU), which is sometimes the
               manufacturer's part number.
+
+              Maximum length: 31 characters.
 
           unit_of_measure_set_id: The unit-of-measure set associated with this non-inventory item, which consists
               of a base unit and related units.

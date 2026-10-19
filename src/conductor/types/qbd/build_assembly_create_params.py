@@ -68,6 +68,8 @@ class BuildAssemblyCreateParams(TypedDict, total=False):
 
     Used for tracking groups of inventory items that are purchased or manufactured
     together.
+
+    Maximum length: 40 characters.
     """
 
     mark_pending_if_required: Annotated[bool, PropertyInfo(alias="markPendingIfRequired")]
@@ -77,7 +79,10 @@ class BuildAssemblyCreateParams(TypedDict, total=False):
     """
 
     memo: str
-    """A memo or note for this build assembly."""
+    """A memo or note for this build assembly.
+
+    Maximum length: 4095 characters.
+    """
 
     ref_number: Annotated[str, PropertyInfo(alias="refNumber")]
     """
@@ -94,4 +99,6 @@ class BuildAssemblyCreateParams(TypedDict, total=False):
     """The serial number of the item associated with this build assembly.
 
     This is used for tracking individual units of serialized inventory items.
+
+    Maximum length: 4095 characters.
     """

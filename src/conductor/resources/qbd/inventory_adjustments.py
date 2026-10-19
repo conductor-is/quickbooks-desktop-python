@@ -107,6 +107,8 @@ class InventoryAdjustmentsResource(SyncAPIResource):
 
           memo: A memo or note for this inventory adjustment.
 
+              Maximum length: 4095 characters.
+
           ref_number: The case-sensitive user-defined reference number for this inventory adjustment,
               which can be used to identify the transaction in QuickBooks. This value is not
               required to be unique and can be arbitrarily changed by the QuickBooks user.
@@ -259,6 +261,8 @@ class InventoryAdjustmentsResource(SyncAPIResource):
                  them unchanged.
 
           memo: A memo or note for this inventory adjustment.
+
+              Maximum length: 4095 characters.
 
           ref_number: The case-sensitive user-defined reference number for this inventory adjustment,
               which can be used to identify the transaction in QuickBooks. This value is not
@@ -644,6 +648,8 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
 
           memo: A memo or note for this inventory adjustment.
 
+              Maximum length: 4095 characters.
+
           ref_number: The case-sensitive user-defined reference number for this inventory adjustment,
               which can be used to identify the transaction in QuickBooks. This value is not
               required to be unique and can be arbitrarily changed by the QuickBooks user.
@@ -796,6 +802,8 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
                  them unchanged.
 
           memo: A memo or note for this inventory adjustment.
+
+              Maximum length: 4095 characters.
 
           ref_number: The case-sensitive user-defined reference number for this inventory adjustment,
               which can be used to identify the transaction in QuickBooks. This value is not

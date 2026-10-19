@@ -104,6 +104,8 @@ class DepositsResource(SyncAPIResource):
 
           memo: A memo or note for this deposit.
 
+              Maximum length: 4095 characters.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -244,6 +246,8 @@ class DepositsResource(SyncAPIResource):
                  keep them unchanged.
 
           memo: A memo or note for this deposit.
+
+              Maximum length: 4095 characters.
 
           transaction_date: The date of this deposit, in ISO 8601 format (YYYY-MM-DD).
 
@@ -572,6 +576,8 @@ class AsyncDepositsResource(AsyncAPIResource):
 
           memo: A memo or note for this deposit.
 
+              Maximum length: 4095 characters.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -712,6 +718,8 @@ class AsyncDepositsResource(AsyncAPIResource):
                  keep them unchanged.
 
           memo: A memo or note for this deposit.
+
+              Maximum length: 4095 characters.
 
           transaction_date: The date of this deposit, in ISO 8601 format (YYYY-MM-DD).
 

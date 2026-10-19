@@ -40,6 +40,8 @@ class SalesTaxGroupItemCreateParams(TypedDict, total=False):
     """
     The sales-tax group item's description that will appear on sales forms that
     include this item.
+
+    Maximum length: 4095 characters.
     """
 
     external_id: Annotated[str, PropertyInfo(alias="externalId")]
@@ -70,4 +72,7 @@ class Barcode(TypedDict, total=False):
     """Indicates whether to assign the barcode even if it is already used."""
 
     value: str
-    """The item's barcode value."""
+    """The item's barcode value.
+
+    Maximum length: 50 characters.
+    """

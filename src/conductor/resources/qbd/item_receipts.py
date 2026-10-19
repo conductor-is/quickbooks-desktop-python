@@ -127,6 +127,8 @@ class ItemReceiptsResource(SyncAPIResource):
 
           memo: A memo or note for this item receipt.
 
+              Maximum length: 4095 characters.
+
           payables_account_id: The Accounts-Payable (A/P) account to which this item receipt is assigned, used
               for accounts-payable tracking. If omitted, QuickBooks Desktop uses the default
               A/P account configured in the company file.
@@ -331,6 +333,8 @@ class ItemReceiptsResource(SyncAPIResource):
                  them unchanged.
 
           memo: A memo or note for this item receipt.
+
+              Maximum length: 4095 characters.
 
           payables_account_id: The Accounts-Payable (A/P) account to which this item receipt is assigned, used
               for accounts-payable tracking. If omitted, QuickBooks Desktop uses the default
@@ -769,6 +773,8 @@ class AsyncItemReceiptsResource(AsyncAPIResource):
 
           memo: A memo or note for this item receipt.
 
+              Maximum length: 4095 characters.
+
           payables_account_id: The Accounts-Payable (A/P) account to which this item receipt is assigned, used
               for accounts-payable tracking. If omitted, QuickBooks Desktop uses the default
               A/P account configured in the company file.
@@ -973,6 +979,8 @@ class AsyncItemReceiptsResource(AsyncAPIResource):
                  them unchanged.
 
           memo: A memo or note for this item receipt.
+
+              Maximum length: 4095 characters.
 
           payables_account_id: The Accounts-Payable (A/P) account to which this item receipt is assigned, used
               for accounts-payable tracking. If omitted, QuickBooks Desktop uses the default

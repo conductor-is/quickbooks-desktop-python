@@ -116,7 +116,10 @@ class SalesOrderUpdateParams(TypedDict, total=False):
     """
 
     memo: str
-    """A memo or note for this sales order."""
+    """A memo or note for this sales order.
+
+    Maximum length: 4095 characters.
+    """
 
     other_custom_field: Annotated[str, PropertyInfo(alias="otherCustomField")]
     """A built-in custom field for additional information specific to this sales order.
@@ -127,6 +130,8 @@ class SalesOrderUpdateParams(TypedDict, total=False):
     standard QuickBooks fields. Unlike `otherCustomField1` and `otherCustomField2`,
     which are line item fields, this exists at the transaction level. Hidden by
     default in the QuickBooks UI.
+
+    Maximum length: 29 characters.
     """
 
     purchase_order_number: Annotated[str, PropertyInfo(alias="purchaseOrderNumber")]
@@ -228,7 +233,10 @@ class BillingAddress(TypedDict, total=False):
     """
 
     country: str
-    """The country name of the address."""
+    """The country name of the address.
+
+    Maximum length: 31 characters.
+    """
 
     line1: str
     """The first line of the address (e.g., street, PO Box, or company name).
@@ -266,6 +274,8 @@ class BillingAddress(TypedDict, total=False):
     """
     A note written at the bottom of the address in the form in which it appears,
     such as the invoice form.
+
+    Maximum length: 41 characters.
     """
 
     postal_code: Annotated[str, PropertyInfo(alias="postalCode")]
@@ -313,7 +323,10 @@ class LineGroupLine(TypedDict, total=False):
     """
 
     description: str
-    """A description of this sales order line."""
+    """A description of this sales order line.
+
+    Maximum length: 4095 characters.
+    """
 
     inventory_site_id: Annotated[str, PropertyInfo(alias="inventorySiteId")]
     """
@@ -346,6 +359,8 @@ class LineGroupLine(TypedDict, total=False):
 
     Used for tracking groups of inventory items that are purchased or manufactured
     together.
+
+    Maximum length: 40 characters.
     """
 
     other_custom_field1: Annotated[str, PropertyInfo(alias="otherCustomField1")]
@@ -355,6 +370,8 @@ class LineGroupLine(TypedDict, total=False):
     standard QuickBooks field that exists for all sales order lines for convenience.
     Developers often use this field for tracking information that doesn't fit into
     other standard QuickBooks fields. Hidden by default in the QuickBooks UI.
+
+    Maximum length: 29 characters.
     """
 
     other_custom_field2: Annotated[str, PropertyInfo(alias="otherCustomField2")]
@@ -365,6 +382,8 @@ class LineGroupLine(TypedDict, total=False):
     convenience. Like `otherCustomField1`, developers often use this field for
     tracking information that doesn't fit into other standard QuickBooks fields.
     Hidden by default in the QuickBooks UI.
+
+    Maximum length: 29 characters.
     """
 
     override_unit_of_measure_set_id: Annotated[str, PropertyInfo(alias="overrideUnitOfMeasureSetId")]
@@ -441,12 +460,16 @@ class LineGroupLine(TypedDict, total=False):
     """The serial number of the item associated with this sales order line.
 
     This is used for tracking individual units of serialized inventory items.
+
+    Maximum length: 4095 characters.
     """
 
     unit_of_measure: Annotated[str, PropertyInfo(alias="unitOfMeasure")]
     """The unit-of-measure used for the `quantity` in this sales order line.
 
     Must be a valid unit within the item's available units of measure.
+
+    Maximum length: 31 characters.
     """
 
 
@@ -513,6 +536,8 @@ class LineGroup(TypedDict, total=False):
     """The unit-of-measure used for the `quantity` in this sales order line group.
 
     Must be a valid unit within the item's available units of measure.
+
+    Maximum length: 31 characters.
     """
 
 
@@ -548,7 +573,10 @@ class Line(TypedDict, total=False):
     """
 
     description: str
-    """A description of this sales order line."""
+    """A description of this sales order line.
+
+    Maximum length: 4095 characters.
+    """
 
     inventory_site_id: Annotated[str, PropertyInfo(alias="inventorySiteId")]
     """
@@ -581,6 +609,8 @@ class Line(TypedDict, total=False):
 
     Used for tracking groups of inventory items that are purchased or manufactured
     together.
+
+    Maximum length: 40 characters.
     """
 
     other_custom_field1: Annotated[str, PropertyInfo(alias="otherCustomField1")]
@@ -590,6 +620,8 @@ class Line(TypedDict, total=False):
     standard QuickBooks field that exists for all sales order lines for convenience.
     Developers often use this field for tracking information that doesn't fit into
     other standard QuickBooks fields. Hidden by default in the QuickBooks UI.
+
+    Maximum length: 29 characters.
     """
 
     other_custom_field2: Annotated[str, PropertyInfo(alias="otherCustomField2")]
@@ -600,6 +632,8 @@ class Line(TypedDict, total=False):
     convenience. Like `otherCustomField1`, developers often use this field for
     tracking information that doesn't fit into other standard QuickBooks fields.
     Hidden by default in the QuickBooks UI.
+
+    Maximum length: 29 characters.
     """
 
     override_unit_of_measure_set_id: Annotated[str, PropertyInfo(alias="overrideUnitOfMeasureSetId")]
@@ -676,12 +710,16 @@ class Line(TypedDict, total=False):
     """The serial number of the item associated with this sales order line.
 
     This is used for tracking individual units of serialized inventory items.
+
+    Maximum length: 4095 characters.
     """
 
     unit_of_measure: Annotated[str, PropertyInfo(alias="unitOfMeasure")]
     """The unit-of-measure used for the `quantity` in this sales order line.
 
     Must be a valid unit within the item's available units of measure.
+
+    Maximum length: 31 characters.
     """
 
 
@@ -695,7 +733,10 @@ class ShippingAddress(TypedDict, total=False):
     """
 
     country: str
-    """The country name of the address."""
+    """The country name of the address.
+
+    Maximum length: 31 characters.
+    """
 
     line1: str
     """The first line of the address (e.g., street, PO Box, or company name).
@@ -733,6 +774,8 @@ class ShippingAddress(TypedDict, total=False):
     """
     A note written at the bottom of the address in the form in which it appears,
     such as the invoice form.
+
+    Maximum length: 41 characters.
     """
 
     postal_code: Annotated[str, PropertyInfo(alias="postalCode")]

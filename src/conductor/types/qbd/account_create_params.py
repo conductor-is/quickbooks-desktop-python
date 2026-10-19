@@ -66,12 +66,16 @@ class AccountCreateParams(TypedDict, total=False):
     Note that if the "Use Account Numbers" preference is turned off in QuickBooks,
     the account number may not be visible in the user interface, but it can still be
     set and retrieved through the API.
+
+    Maximum length: 7 characters.
     """
 
     bank_account_number: Annotated[str, PropertyInfo(alias="bankAccountNumber")]
     """The bank account number or identifying note for this account.
 
     Access to this field may be restricted based on permissions.
+
+    Maximum length: 25 characters.
     """
 
     currency_id: Annotated[str, PropertyInfo(alias="currencyId")]
@@ -82,7 +86,10 @@ class AccountCreateParams(TypedDict, total=False):
     """
 
     description: str
-    """A description of this account."""
+    """A description of this account.
+
+    Maximum length: 200 characters.
+    """
 
     is_active: Annotated[bool, PropertyInfo(alias="isActive")]
     """Indicates whether this account is active.
@@ -92,11 +99,14 @@ class AccountCreateParams(TypedDict, total=False):
     """
 
     opening_balance: Annotated[str, PropertyInfo(alias="openingBalance")]
-    """The amount of money in, or the value of, this account as of
-    `openingBalanceDate`.
+    """
+    The amount of money in, or the value of, this account as of
+    `openingBalanceDate`, represented as a decimal string. On a bank statement, this
+    would be the amount of money in the account at the beginning of the statement
+    period.
 
-    On a bank statement, this would be the amount of money in the account at the
-    beginning of the statement period.
+    Decimal string format: exactly 2 decimal places when cents are included and up
+    to 13 digits before the decimal point (for example, "123.45").
     """
 
     opening_balance_date: Annotated[Union[str, date], PropertyInfo(alias="openingBalanceDate", format="iso8601")]

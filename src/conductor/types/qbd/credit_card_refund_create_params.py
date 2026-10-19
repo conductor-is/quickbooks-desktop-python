@@ -69,7 +69,10 @@ class CreditCardRefundCreateParams(TypedDict, total=False):
     """
 
     memo: str
-    """A memo or note for this credit card refund."""
+    """A memo or note for this credit card refund.
+
+    Maximum length: 4095 characters.
+    """
 
     payment_method_id: Annotated[str, PropertyInfo(alias="paymentMethodId")]
     """The credit card refund's payment method (e.g., cash, check, credit card).
@@ -135,7 +138,10 @@ class Address(TypedDict, total=False):
     """
 
     country: str
-    """The country name of the address."""
+    """The country name of the address.
+
+    Maximum length: 31 characters.
+    """
 
     line1: str
     """The first line of the address (e.g., street, PO Box, or company name).
@@ -173,6 +179,8 @@ class Address(TypedDict, total=False):
     """
     A note written at the bottom of the address in the form in which it appears,
     such as the invoice form.
+
+    Maximum length: 41 characters.
     """
 
     postal_code: Annotated[str, PropertyInfo(alias="postalCode")]
@@ -200,13 +208,22 @@ class CreditCardTransactionRequest(TypedDict, total=False):
     """The year when the credit card expires."""
 
     name: Required[str]
-    """The cardholder's name on the card."""
+    """The cardholder's name on the card.
+
+    Maximum length: 41 characters.
+    """
 
     number: Required[str]
-    """The credit card number. Must be masked with lower case "x" and no dashes."""
+    """The credit card number. Must be masked with lower case "x" and no dashes.
+
+    Maximum length: 25 characters.
+    """
 
     address: str
-    """The card's billing address."""
+    """The card's billing address.
+
+    Maximum length: 41 characters.
+    """
 
     commercial_card_code: Annotated[str, PropertyInfo(alias="commercialCardCode")]
     """
@@ -214,10 +231,15 @@ class CreditCardTransactionRequest(TypedDict, total=False):
     (purchase, corporate, or business) for Visa and Mastercard transactions only.
     When provided, this code may qualify the transaction for lower processing fees
     compared to the standard rates that apply when no code is specified.
+
+    Maximum length: 24 characters.
     """
 
     postal_code: Annotated[str, PropertyInfo(alias="postalCode")]
-    """The card's billing address ZIP or postal code."""
+    """The card's billing address ZIP or postal code.
+
+    Maximum length: 18 characters.
+    """
 
     transaction_mode: Annotated[Literal["card_not_present", "card_present"], PropertyInfo(alias="transactionMode")]
     """
@@ -238,14 +260,17 @@ class CreditCardTransactionResponse(TypedDict, total=False):
     """
 
     credit_card_transaction_id: Required[Annotated[str, PropertyInfo(alias="creditCardTransactionId")]]
-    """
-    The ID returned from the credit card processor for this credit card transaction.
+    """The ID returned from the credit card processor for this credit card transaction.
+
+    Maximum length: 24 characters.
     """
 
     merchant_account_number: Required[Annotated[str, PropertyInfo(alias="merchantAccountNumber")]]
     """
     The QBMS account number of the merchant who is running this transaction using
     the customer's credit card.
+
+    Maximum length: 32 characters.
     """
 
     payment_status: Required[Annotated[Literal["completed", "unknown"], PropertyInfo(alias="paymentStatus")]]
@@ -264,6 +289,8 @@ class CreditCardTransactionResponse(TypedDict, total=False):
     """
     The status message returned in the original QBMS transaction response for this
     credit card transaction.
+
+    Maximum length: 60 characters.
     """
 
     transaction_authorized_at: Required[Annotated[str, PropertyInfo(alias="transactionAuthorizedAt")]]
@@ -276,6 +303,8 @@ class CreditCardTransactionResponse(TypedDict, total=False):
     """
     The authorization code returned from the credit card processor to indicate that
     this charge will be paid by the card issuer.
+
+    Maximum length: 12 characters.
     """
 
     avs_street_status: Annotated[Literal["fail", "not_available", "pass"], PropertyInfo(alias="avsStreetStatus")]
@@ -303,6 +332,8 @@ class CreditCardTransactionResponse(TypedDict, total=False):
     """
     A value returned from QBMS transactions for future use by the QuickBooks
     Reconciliation feature.
+
+    Maximum length: 16 characters.
     """
 
     payment_grouping_code: Annotated[float, PropertyInfo(alias="paymentGroupingCode")]
@@ -315,6 +346,8 @@ class CreditCardTransactionResponse(TypedDict, total=False):
     """
     An internal ID returned by QuickBooks Merchant Services (QBMS) from the
     transaction request, needed for the QuickBooks reconciliation feature.
+
+    Maximum length: 84 characters.
     """
 
     transaction_authorization_stamp: Annotated[float, PropertyInfo(alias="transactionAuthorizationStamp")]

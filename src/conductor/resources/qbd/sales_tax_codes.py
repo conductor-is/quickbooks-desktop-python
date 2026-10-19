@@ -81,6 +81,8 @@ class SalesTaxCodesResource(SyncAPIResource):
 
           description: A description of this sales-tax code.
 
+              Maximum length: 31 characters.
+
           is_active: Indicates whether this sales-tax code is active. Inactive objects are typically
               hidden from views and reports in QuickBooks. Defaults to `true`.
 
@@ -195,6 +197,8 @@ class SalesTaxCodesResource(SyncAPIResource):
           conductor_end_user_id: The ID of the End-User to receive this request.
 
           description: A description of this sales-tax code.
+
+              Maximum length: 31 characters.
 
           is_active: Indicates whether this sales-tax code is active. Inactive objects are typically
               hidden from views and reports in QuickBooks. Defaults to `true`.
@@ -455,6 +459,8 @@ class AsyncSalesTaxCodesResource(AsyncAPIResource):
 
           description: A description of this sales-tax code.
 
+              Maximum length: 31 characters.
+
           is_active: Indicates whether this sales-tax code is active. Inactive objects are typically
               hidden from views and reports in QuickBooks. Defaults to `true`.
 
@@ -569,6 +575,8 @@ class AsyncSalesTaxCodesResource(AsyncAPIResource):
           conductor_end_user_id: The ID of the End-User to receive this request.
 
           description: A description of this sales-tax code.
+
+              Maximum length: 31 characters.
 
           is_active: Indicates whether this sales-tax code is active. Inactive objects are typically
               hidden from views and reports in QuickBooks. Defaults to `true`.

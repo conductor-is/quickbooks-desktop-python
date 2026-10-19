@@ -133,6 +133,8 @@ class BillsResource(SyncAPIResource):
           memo: A memo or note for this bill that appears in the Accounts-Payable register and
               in reports that include this bill.
 
+              Maximum length: 4095 characters.
+
           payables_account_id: The Accounts-Payable (A/P) account to which this bill is assigned, used for
               accounts-payable tracking. If omitted, QuickBooks Desktop uses the default A/P
               account configured in the company file.
@@ -353,6 +355,8 @@ class BillsResource(SyncAPIResource):
 
           memo: A memo or note for this bill that appears in the Accounts-Payable register and
               in reports that include this bill.
+
+              Maximum length: 4095 characters.
 
           payables_account_id: The Accounts-Payable (A/P) account to which this bill is assigned, used for
               accounts-payable tracking. If omitted, QuickBooks Desktop uses the default A/P
@@ -807,6 +811,8 @@ class AsyncBillsResource(AsyncAPIResource):
           memo: A memo or note for this bill that appears in the Accounts-Payable register and
               in reports that include this bill.
 
+              Maximum length: 4095 characters.
+
           payables_account_id: The Accounts-Payable (A/P) account to which this bill is assigned, used for
               accounts-payable tracking. If omitted, QuickBooks Desktop uses the default A/P
               account configured in the company file.
@@ -1027,6 +1033,8 @@ class AsyncBillsResource(AsyncAPIResource):
 
           memo: A memo or note for this bill that appears in the Accounts-Payable register and
               in reports that include this bill.
+
+              Maximum length: 4095 characters.
 
           payables_account_id: The Accounts-Payable (A/P) account to which this bill is assigned, used for
               accounts-payable tracking. If omitted, QuickBooks Desktop uses the default A/P

@@ -103,6 +103,8 @@ class EstimateCreateParams(TypedDict, total=False):
     """
     A memo or note for this estimate that appears in reports, but not on the
     estimate. Use `customerMessage` to add a note to this estimate.
+
+    Maximum length: 4095 characters.
     """
 
     other_custom_field: Annotated[str, PropertyInfo(alias="otherCustomField")]
@@ -114,6 +116,8 @@ class EstimateCreateParams(TypedDict, total=False):
     QuickBooks fields. Unlike `otherCustomField1` and `otherCustomField2`, which are
     line item fields, this exists at the transaction level. Hidden by default in the
     QuickBooks UI.
+
+    Maximum length: 29 characters.
     """
 
     purchase_order_number: Annotated[str, PropertyInfo(alias="purchaseOrderNumber")]
@@ -193,7 +197,10 @@ class BillingAddress(TypedDict, total=False):
     """
 
     country: str
-    """The country name of the address."""
+    """The country name of the address.
+
+    Maximum length: 31 characters.
+    """
 
     line1: str
     """The first line of the address (e.g., street, PO Box, or company name).
@@ -231,6 +238,8 @@ class BillingAddress(TypedDict, total=False):
     """
     A note written at the bottom of the address in the form in which it appears,
     such as the invoice form.
+
+    Maximum length: 41 characters.
     """
 
     postal_code: Annotated[str, PropertyInfo(alias="postalCode")]
@@ -251,6 +260,8 @@ class LineGroupCustomField(TypedDict, total=False):
     """The name of the custom field, unique for the specified `ownerId`.
 
     For public custom fields, this name is visible as a label in the QuickBooks UI.
+
+    Maximum length: 31 characters.
     """
 
     owner_id: Required[Annotated[str, PropertyInfo(alias="ownerId")]]
@@ -310,6 +321,8 @@ class LineGroup(TypedDict, total=False):
     """The unit-of-measure used for the `quantity` in this estimate line group.
 
     Must be a valid unit within the item's available units of measure.
+
+    Maximum length: 31 characters.
     """
 
 
@@ -318,6 +331,8 @@ class LineCustomField(TypedDict, total=False):
     """The name of the custom field, unique for the specified `ownerId`.
 
     For public custom fields, this name is visible as a label in the QuickBooks UI.
+
+    Maximum length: 31 characters.
     """
 
     owner_id: Required[Annotated[str, PropertyInfo(alias="ownerId")]]
@@ -371,7 +386,10 @@ class Line(TypedDict, total=False):
     """
 
     description: str
-    """A description of this estimate line."""
+    """A description of this estimate line.
+
+    Maximum length: 4095 characters.
+    """
 
     inventory_site_id: Annotated[str, PropertyInfo(alias="inventorySiteId")]
     """
@@ -396,7 +414,11 @@ class Line(TypedDict, total=False):
     markup_rate: Annotated[str, PropertyInfo(alias="markupRate")]
     """
     The markup that will be passed on to the customer for this item on this estimate
-    line. `amount = (quantity * rate) * (1 + markupRate)`
+    line, represented as a decimal string.
+    `amount = (quantity * rate) * (1 + markupRate)`
+
+    Decimal string format: up to 5 decimal places and up to 10 digits before the
+    decimal point (for example, "123.45").
     """
 
     markup_rate_percent: Annotated[str, PropertyInfo(alias="markupRatePercent")]
@@ -413,6 +435,8 @@ class Line(TypedDict, total=False):
     standard QuickBooks field that exists for all estimate lines for convenience.
     Developers often use this field for tracking information that doesn't fit into
     other standard QuickBooks fields. Hidden by default in the QuickBooks UI.
+
+    Maximum length: 29 characters.
     """
 
     other_custom_field2: Annotated[str, PropertyInfo(alias="otherCustomField2")]
@@ -423,6 +447,8 @@ class Line(TypedDict, total=False):
     convenience. Like `otherCustomField1`, developers often use this field for
     tracking information that doesn't fit into other standard QuickBooks fields.
     Hidden by default in the QuickBooks UI.
+
+    Maximum length: 29 characters.
     """
 
     override_item_account_id: Annotated[str, PropertyInfo(alias="overrideItemAccountId")]
@@ -490,6 +516,8 @@ class Line(TypedDict, total=False):
     """The unit-of-measure used for the `quantity` in this estimate line.
 
     Must be a valid unit within the item's available units of measure.
+
+    Maximum length: 31 characters.
     """
 
 
@@ -503,7 +531,10 @@ class ShippingAddress(TypedDict, total=False):
     """
 
     country: str
-    """The country name of the address."""
+    """The country name of the address.
+
+    Maximum length: 31 characters.
+    """
 
     line1: str
     """The first line of the address (e.g., street, PO Box, or company name).
@@ -541,6 +572,8 @@ class ShippingAddress(TypedDict, total=False):
     """
     A note written at the bottom of the address in the form in which it appears,
     such as the invoice form.
+
+    Maximum length: 41 characters.
     """
 
     postal_code: Annotated[str, PropertyInfo(alias="postalCode")]
