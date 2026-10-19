@@ -313,6 +313,9 @@ class SalesTaxCodesResource(SyncAPIResource):
           name_from: Filter for sales-tax codes whose `name` is alphabetically greater than or equal
               to this value.
 
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
+
           names: Filter for specific sales-tax codes by their name(s), case-insensitive. Like
               `id`, `name` is a unique identifier for a sales-tax code.
 
@@ -330,6 +333,9 @@ class SalesTaxCodesResource(SyncAPIResource):
 
           name_to: Filter for sales-tax codes whose `name` is alphabetically less than or equal to
               this value.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
 
           status: Filter for sales-tax codes that are active, inactive, or both.
 
@@ -681,6 +687,9 @@ class AsyncSalesTaxCodesResource(AsyncAPIResource):
           name_from: Filter for sales-tax codes whose `name` is alphabetically greater than or equal
               to this value.
 
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
+
           names: Filter for specific sales-tax codes by their name(s), case-insensitive. Like
               `id`, `name` is a unique identifier for a sales-tax code.
 
@@ -698,6 +707,9 @@ class AsyncSalesTaxCodesResource(AsyncAPIResource):
 
           name_to: Filter for sales-tax codes whose `name` is alphabetically less than or equal to
               this value.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
 
           status: Filter for sales-tax codes that are active, inactive, or both.
 

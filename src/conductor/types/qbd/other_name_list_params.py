@@ -57,6 +57,9 @@ class OtherNameListParams(TypedDict, total=False):
     """
     Filter for other-names whose `name` is alphabetically greater than or equal to
     this value.
+
+    **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+    `nameStartsWith`, or `nameEndsWith`.
     """
 
     names: SequenceNotStr[str]
@@ -84,6 +87,9 @@ class OtherNameListParams(TypedDict, total=False):
     """
     Filter for other-names whose `name` is alphabetically less than or equal to this
     value.
+
+    **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+    `nameStartsWith`, or `nameEndsWith`.
     """
 
     status: Literal["active", "all", "inactive"]

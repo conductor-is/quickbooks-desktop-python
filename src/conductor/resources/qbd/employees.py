@@ -703,6 +703,9 @@ class EmployeesResource(SyncAPIResource):
           name_from: Filter for employees whose `name` is alphabetically greater than or equal to
               this value.
 
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
+
           names: Filter for specific employees by their name(s), case-insensitive. Like `id`,
               `name` is a unique identifier for an employee.
 
@@ -719,6 +722,9 @@ class EmployeesResource(SyncAPIResource):
 
           name_to: Filter for employees whose `name` is alphabetically less than or equal to this
               value.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
 
           status: Filter for employees that are active, inactive, or both.
 
@@ -1458,6 +1464,9 @@ class AsyncEmployeesResource(AsyncAPIResource):
           name_from: Filter for employees whose `name` is alphabetically greater than or equal to
               this value.
 
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
+
           names: Filter for specific employees by their name(s), case-insensitive. Like `id`,
               `name` is a unique identifier for an employee.
 
@@ -1474,6 +1483,9 @@ class AsyncEmployeesResource(AsyncAPIResource):
 
           name_to: Filter for employees whose `name` is alphabetically less than or equal to this
               value.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
 
           status: Filter for employees that are active, inactive, or both.
 

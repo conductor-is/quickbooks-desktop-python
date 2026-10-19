@@ -235,6 +235,9 @@ class DateDrivenTermsResource(SyncAPIResource):
           name_from: Filter for date-driven terms whose `name` is alphabetically greater than or
               equal to this value.
 
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
+
           names: Filter for specific date-driven terms by their name(s), case-insensitive. Like
               `id`, `name` is a unique identifier for a date-driven term.
 
@@ -252,6 +255,9 @@ class DateDrivenTermsResource(SyncAPIResource):
 
           name_to: Filter for date-driven terms whose `name` is alphabetically less than or equal
               to this value.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
 
           status: Filter for date-driven terms that are active, inactive, or both.
 
@@ -525,6 +531,9 @@ class AsyncDateDrivenTermsResource(AsyncAPIResource):
           name_from: Filter for date-driven terms whose `name` is alphabetically greater than or
               equal to this value.
 
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
+
           names: Filter for specific date-driven terms by their name(s), case-insensitive. Like
               `id`, `name` is a unique identifier for a date-driven term.
 
@@ -542,6 +551,9 @@ class AsyncDateDrivenTermsResource(AsyncAPIResource):
 
           name_to: Filter for date-driven terms whose `name` is alphabetically less than or equal
               to this value.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
 
           status: Filter for date-driven terms that are active, inactive, or both.
 

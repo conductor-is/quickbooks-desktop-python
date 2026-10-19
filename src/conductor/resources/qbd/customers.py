@@ -793,6 +793,9 @@ class CustomersResource(SyncAPIResource):
           name_from: Filter for customers whose `name` is alphabetically greater than or equal to
               this value.
 
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
+
           name_starts_with: Filter for customers whose `name` starts with this substring, case-insensitive.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
@@ -800,6 +803,9 @@ class CustomersResource(SyncAPIResource):
 
           name_to: Filter for customers whose `name` is alphabetically less than or equal to this
               value.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
 
           status: Filter for customers that are active, inactive, or both.
 
@@ -1657,6 +1663,9 @@ class AsyncCustomersResource(AsyncAPIResource):
           name_from: Filter for customers whose `name` is alphabetically greater than or equal to
               this value.
 
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
+
           name_starts_with: Filter for customers whose `name` starts with this substring, case-insensitive.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
@@ -1664,6 +1673,9 @@ class AsyncCustomersResource(AsyncAPIResource):
 
           name_to: Filter for customers whose `name` is alphabetically less than or equal to this
               value.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
 
           status: Filter for customers that are active, inactive, or both.
 

@@ -568,6 +568,9 @@ class InventoryAssemblyItemsResource(SyncAPIResource):
           name_from: Filter for inventory assembly items whose `name` is alphabetically greater than
               or equal to this value.
 
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
+
           name_starts_with: Filter for inventory assembly items whose `name` starts with this substring,
               case-insensitive.
 
@@ -576,6 +579,9 @@ class InventoryAssemblyItemsResource(SyncAPIResource):
 
           name_to: Filter for inventory assembly items whose `name` is alphabetically less than or
               equal to this value.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
 
           status: Filter for inventory assembly items that are active, inactive, or both.
 
@@ -1179,6 +1185,9 @@ class AsyncInventoryAssemblyItemsResource(AsyncAPIResource):
           name_from: Filter for inventory assembly items whose `name` is alphabetically greater than
               or equal to this value.
 
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
+
           name_starts_with: Filter for inventory assembly items whose `name` starts with this substring,
               case-insensitive.
 
@@ -1187,6 +1196,9 @@ class AsyncInventoryAssemblyItemsResource(AsyncAPIResource):
 
           name_to: Filter for inventory assembly items whose `name` is alphabetically less than or
               equal to this value.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
 
           status: Filter for inventory assembly items that are active, inactive, or both.
 

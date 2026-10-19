@@ -357,6 +357,9 @@ class SalesTaxItemsResource(SyncAPIResource):
           name_from: Filter for sales-tax items whose `name` is alphabetically greater than or equal
               to this value.
 
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
+
           names: Filter for specific sales-tax items by their name(s), case-insensitive. Like
               `id`, `name` is a unique identifier for a sales-tax item.
 
@@ -374,6 +377,9 @@ class SalesTaxItemsResource(SyncAPIResource):
 
           name_to: Filter for sales-tax items whose `name` is alphabetically less than or equal to
               this value.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
 
           status: Filter for sales-tax items that are active, inactive, or both.
 
@@ -772,6 +778,9 @@ class AsyncSalesTaxItemsResource(AsyncAPIResource):
           name_from: Filter for sales-tax items whose `name` is alphabetically greater than or equal
               to this value.
 
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
+
           names: Filter for specific sales-tax items by their name(s), case-insensitive. Like
               `id`, `name` is a unique identifier for a sales-tax item.
 
@@ -789,6 +798,9 @@ class AsyncSalesTaxItemsResource(AsyncAPIResource):
 
           name_to: Filter for sales-tax items whose `name` is alphabetically less than or equal to
               this value.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
 
           status: Filter for sales-tax items that are active, inactive, or both.
 

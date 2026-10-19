@@ -303,6 +303,9 @@ class SubtotalItemsResource(SyncAPIResource):
           name_from: Filter for subtotal items whose `name` is alphabetically greater than or equal
               to this value.
 
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
+
           names: Filter for specific subtotal items by their name(s), case-insensitive. Like
               `id`, `name` is a unique identifier for a subtotal item.
 
@@ -320,6 +323,9 @@ class SubtotalItemsResource(SyncAPIResource):
 
           name_to: Filter for subtotal items whose `name` is alphabetically less than or equal to
               this value.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
 
           status: Filter for subtotal items that are active, inactive, or both.
 
@@ -663,6 +669,9 @@ class AsyncSubtotalItemsResource(AsyncAPIResource):
           name_from: Filter for subtotal items whose `name` is alphabetically greater than or equal
               to this value.
 
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
+
           names: Filter for specific subtotal items by their name(s), case-insensitive. Like
               `id`, `name` is a unique identifier for a subtotal item.
 
@@ -680,6 +689,9 @@ class AsyncSubtotalItemsResource(AsyncAPIResource):
 
           name_to: Filter for subtotal items whose `name` is alphabetically less than or equal to
               this value.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
 
           status: Filter for subtotal items that are active, inactive, or both.
 

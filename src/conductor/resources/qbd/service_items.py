@@ -431,6 +431,9 @@ class ServiceItemsResource(SyncAPIResource):
           name_from: Filter for service items whose `name` is alphabetically greater than or equal to
               this value.
 
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
+
           name_starts_with: Filter for service items whose `name` starts with this substring,
               case-insensitive.
 
@@ -439,6 +442,9 @@ class ServiceItemsResource(SyncAPIResource):
 
           name_to: Filter for service items whose `name` is alphabetically less than or equal to
               this value.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
 
           status: Filter for service items that are active, inactive, or both.
 
@@ -911,6 +917,9 @@ class AsyncServiceItemsResource(AsyncAPIResource):
           name_from: Filter for service items whose `name` is alphabetically greater than or equal to
               this value.
 
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
+
           name_starts_with: Filter for service items whose `name` starts with this substring,
               case-insensitive.
 
@@ -919,6 +928,9 @@ class AsyncServiceItemsResource(AsyncAPIResource):
 
           name_to: Filter for service items whose `name` is alphabetically less than or equal to
               this value.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
 
           status: Filter for service items that are active, inactive, or both.
 

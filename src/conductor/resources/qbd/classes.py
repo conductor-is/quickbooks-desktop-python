@@ -295,6 +295,9 @@ class ClassesResource(SyncAPIResource):
           name_from: Filter for classes whose `name` is alphabetically greater than or equal to this
               value.
 
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
+
           name_starts_with: Filter for classes whose `name` starts with this substring, case-insensitive.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
@@ -302,6 +305,9 @@ class ClassesResource(SyncAPIResource):
 
           name_to: Filter for classes whose `name` is alphabetically less than or equal to this
               value.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
 
           status: Filter for classes that are active, inactive, or both.
 
@@ -635,6 +641,9 @@ class AsyncClassesResource(AsyncAPIResource):
           name_from: Filter for classes whose `name` is alphabetically greater than or equal to this
               value.
 
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
+
           name_starts_with: Filter for classes whose `name` starts with this substring, case-insensitive.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
@@ -642,6 +651,9 @@ class AsyncClassesResource(AsyncAPIResource):
 
           name_to: Filter for classes whose `name` is alphabetically less than or equal to this
               value.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
 
           status: Filter for classes that are active, inactive, or both.
 
