@@ -98,7 +98,10 @@ class VendorCreditUpdateParams(TypedDict, total=False):
     """
 
     memo: str
-    """A memo or note for this vendor credit."""
+    """A memo or note for this vendor credit.
+
+    Maximum length: 4095 characters.
+    """
 
     payables_account_id: Annotated[str, PropertyInfo(alias="payablesAccountId")]
     """
@@ -179,7 +182,10 @@ class ExpenseLine(TypedDict, total=False):
     """
 
     memo: str
-    """A memo or note for this expense line."""
+    """A memo or note for this expense line.
+
+    Maximum length: 4095 characters.
+    """
 
     payee_id: Annotated[str, PropertyInfo(alias="payeeId")]
     """
@@ -258,7 +264,10 @@ class ItemGroupLineItemLine(TypedDict, total=False):
     """The customer or customer-job associated with this item line."""
 
     description: str
-    """A description of this item line."""
+    """A description of this item line.
+
+    Maximum length: 4095 characters.
+    """
 
     expiration_date: Annotated[Union[str, date], PropertyInfo(alias="expirationDate", format="iso8601")]
     """
@@ -293,6 +302,8 @@ class ItemGroupLineItemLine(TypedDict, total=False):
 
     Used for tracking groups of inventory items that are purchased or manufactured
     together.
+
+    Maximum length: 40 characters.
     """
 
     override_item_account_id: Annotated[str, PropertyInfo(alias="overrideItemAccountId")]
@@ -347,12 +358,16 @@ class ItemGroupLineItemLine(TypedDict, total=False):
     """The serial number of the item associated with this item line.
 
     This is used for tracking individual units of serialized inventory items.
+
+    Maximum length: 4095 characters.
     """
 
     unit_of_measure: Annotated[str, PropertyInfo(alias="unitOfMeasure")]
     """The unit-of-measure used for the `quantity` in this item line.
 
     Must be a valid unit within the item's available units of measure.
+
+    Maximum length: 31 characters.
     """
 
 
@@ -417,6 +432,8 @@ class ItemGroupLine(TypedDict, total=False):
     """The unit-of-measure used for the `quantity` in this item group line.
 
     Must be a valid unit within the item's available units of measure.
+
+    Maximum length: 31 characters.
     """
 
 
@@ -470,7 +487,10 @@ class ItemLine(TypedDict, total=False):
     """The customer or customer-job associated with this item line."""
 
     description: str
-    """A description of this item line."""
+    """A description of this item line.
+
+    Maximum length: 4095 characters.
+    """
 
     expiration_date: Annotated[Union[str, date], PropertyInfo(alias="expirationDate", format="iso8601")]
     """
@@ -505,6 +525,8 @@ class ItemLine(TypedDict, total=False):
 
     Used for tracking groups of inventory items that are purchased or manufactured
     together.
+
+    Maximum length: 40 characters.
     """
 
     override_item_account_id: Annotated[str, PropertyInfo(alias="overrideItemAccountId")]
@@ -559,10 +581,14 @@ class ItemLine(TypedDict, total=False):
     """The serial number of the item associated with this item line.
 
     This is used for tracking individual units of serialized inventory items.
+
+    Maximum length: 4095 characters.
     """
 
     unit_of_measure: Annotated[str, PropertyInfo(alias="unitOfMeasure")]
     """The unit-of-measure used for the `quantity` in this item line.
 
     Must be a valid unit within the item's available units of measure.
+
+    Maximum length: 31 characters.
     """

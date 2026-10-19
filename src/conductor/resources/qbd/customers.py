@@ -126,11 +126,15 @@ class CustomersResource(SyncAPIResource):
               the account number may not be visible in the user interface, but it can still be
               set and retrieved through the API.
 
+              Maximum length: 99 characters.
+
           additional_contacts: Additional alternate contacts for this customer.
 
           additional_notes: Additional notes about this customer.
 
           alternate_contact: The name of a alternate contact person for this customer.
+
+              Maximum length: 41 characters.
 
           alternate_phone: The customer's alternate telephone number.
 
@@ -143,6 +147,8 @@ class CustomersResource(SyncAPIResource):
 
           cc_email: An email address to carbon copy (CC) on communications with this customer.
 
+              Maximum length: 1023 characters.
+
           class_id: The customer's class. Classes can be used to categorize objects into meaningful
               segments, such as department, location, or type of work. In QuickBooks, class
               tracking is off by default.
@@ -154,12 +160,17 @@ class CustomersResource(SyncAPIResource):
 
           contact: The name of the primary contact person for this customer.
 
+              Maximum length: 41 characters.
+
           credit_card: The customer's credit card information, including card type, number, and
               expiration date, used for processing credit card payments.
 
           credit_limit: The customer's credit limit, represented as a decimal string. This is the
               maximum amount of money this customer can spend before being billed. If `null`,
               there is no credit limit.
+
+              Decimal string format: exactly 2 decimal places when cents are included and up
+              to 13 digits before the decimal point (for example, "123.45").
 
           currency_id: The customer's currency. For built-in currencies, the name and code are standard
               ISO 4217 international values. For user-defined currencies, all values are
@@ -172,6 +183,8 @@ class CustomersResource(SyncAPIResource):
               such as industry or region.
 
           email: The customer's email address.
+
+              Maximum length: 1023 characters.
 
           external_id: A globally unique identifier (GUID) you, the developer, can provide for tracking
               this object in your external system. This field is immutable and can only be set
@@ -194,6 +207,8 @@ class CustomersResource(SyncAPIResource):
           job_description: A brief description of this customer's job, if this object is a job (i.e.,
               sub-customer).
 
+              Maximum length: 99 characters.
+
           job_end_date: The actual completion date of this customer's job, if applicable, in ISO 8601
               format (YYYY-MM-DD).
 
@@ -206,6 +221,8 @@ class CustomersResource(SyncAPIResource):
           job_status: The status of this customer's job, if this object is a job (i.e., sub-customer).
 
           job_title: The job title of the contact person for this customer.
+
+              Maximum length: 41 characters.
 
           job_type_id: The type or category of this customer's job, if this object is a job (i.e.,
               sub-customer). Useful for classifying into meaningful segments (e.g., repair,
@@ -221,8 +238,13 @@ class CustomersResource(SyncAPIResource):
 
           note: A note or comment about this customer.
 
+              Maximum length: 4095 characters.
+
           opening_balance: The opening balance of this customer's account, indicating the amount owed by
               this customer, represented as a decimal string.
+
+              Decimal string format: exactly 2 decimal places when cents are included and up
+              to 13 digits before the decimal point (for example, "123.45").
 
           opening_balance_date: The date of the opening balance of this customer, in ISO 8601 format
               (YYYY-MM-DD).
@@ -251,6 +273,8 @@ class CustomersResource(SyncAPIResource):
               resale. This number does not affect sales tax calculations or reports in
               QuickBooks.
 
+              Maximum length: 15 characters.
+
           sales_representative_id: The customer's sales representative. Sales representatives can be employees,
               vendors, or other names in QuickBooks.
 
@@ -274,9 +298,13 @@ class CustomersResource(SyncAPIResource):
           salutation: The formal salutation title that precedes the name of the contact person for
               this customer, such as "Mr.", "Ms.", or "Dr.".
 
+              Maximum length: 15 characters.
+
           shipping_address: The customer's shipping address.
 
           tax_registration_number: The customer's tax registration number, for use in Canada or the UK.
+
+              Maximum length: 30 characters.
 
           terms_id: The customer's payment terms, defining when payment is due and any applicable
               discounts.
@@ -472,11 +500,15 @@ class CustomersResource(SyncAPIResource):
               the account number may not be visible in the user interface, but it can still be
               set and retrieved through the API.
 
+              Maximum length: 99 characters.
+
           additional_contacts: Additional alternate contacts for this customer.
 
           additional_notes: Additional notes about this customer.
 
           alternate_contact: The name of a alternate contact person for this customer.
+
+              Maximum length: 41 characters.
 
           alternate_phone: The customer's alternate telephone number.
 
@@ -489,6 +521,8 @@ class CustomersResource(SyncAPIResource):
 
           cc_email: An email address to carbon copy (CC) on communications with this customer.
 
+              Maximum length: 1023 characters.
+
           class_id: The customer's class. Classes can be used to categorize objects into meaningful
               segments, such as department, location, or type of work. In QuickBooks, class
               tracking is off by default.
@@ -500,12 +534,17 @@ class CustomersResource(SyncAPIResource):
 
           contact: The name of the primary contact person for this customer.
 
+              Maximum length: 41 characters.
+
           credit_card: The customer's credit card information, including card type, number, and
               expiration date, used for processing credit card payments.
 
           credit_limit: The customer's credit limit, represented as a decimal string. This is the
               maximum amount of money this customer can spend before being billed. If `null`,
               there is no credit limit.
+
+              Decimal string format: exactly 2 decimal places when cents are included and up
+              to 13 digits before the decimal point (for example, "123.45").
 
           currency_id: The customer's currency. For built-in currencies, the name and code are standard
               ISO 4217 international values. For user-defined currencies, all values are
@@ -518,6 +557,8 @@ class CustomersResource(SyncAPIResource):
               such as industry or region.
 
           email: The customer's email address.
+
+              Maximum length: 1023 characters.
 
           fax: The customer's fax number.
 
@@ -533,6 +574,8 @@ class CustomersResource(SyncAPIResource):
           job_description: A brief description of this customer's job, if this object is a job (i.e.,
               sub-customer).
 
+              Maximum length: 99 characters.
+
           job_end_date: The actual completion date of this customer's job, if applicable, in ISO 8601
               format (YYYY-MM-DD).
 
@@ -545,6 +588,8 @@ class CustomersResource(SyncAPIResource):
           job_status: The status of this customer's job, if this object is a job (i.e., sub-customer).
 
           job_title: The job title of the contact person for this customer.
+
+              Maximum length: 41 characters.
 
           job_type_id: The type or category of this customer's job, if this object is a job (i.e.,
               sub-customer). Useful for classifying into meaningful segments (e.g., repair,
@@ -567,6 +612,8 @@ class CustomersResource(SyncAPIResource):
               Maximum length: 41 characters.
 
           note: A note or comment about this customer.
+
+              Maximum length: 4095 characters.
 
           parent_id: The parent customer one level above this one in the hierarchy. For example, if
               this customer has a `fullName` of "ABC Corporation:Website Redesign Project",
@@ -592,6 +639,8 @@ class CustomersResource(SyncAPIResource):
               resale. This number does not affect sales tax calculations or reports in
               QuickBooks.
 
+              Maximum length: 15 characters.
+
           sales_representative_id: The customer's sales representative. Sales representatives can be employees,
               vendors, or other names in QuickBooks.
 
@@ -615,9 +664,13 @@ class CustomersResource(SyncAPIResource):
           salutation: The formal salutation title that precedes the name of the contact person for
               this customer, such as "Mr.", "Ms.", or "Dr.".
 
+              Maximum length: 15 characters.
+
           shipping_address: The customer's shipping address.
 
           tax_registration_number: The customer's tax registration number, for use in Canada or the UK.
+
+              Maximum length: 30 characters.
 
           terms_id: The customer's payment terms, defining when payment is due and any applicable
               discounts.
@@ -996,11 +1049,15 @@ class AsyncCustomersResource(AsyncAPIResource):
               the account number may not be visible in the user interface, but it can still be
               set and retrieved through the API.
 
+              Maximum length: 99 characters.
+
           additional_contacts: Additional alternate contacts for this customer.
 
           additional_notes: Additional notes about this customer.
 
           alternate_contact: The name of a alternate contact person for this customer.
+
+              Maximum length: 41 characters.
 
           alternate_phone: The customer's alternate telephone number.
 
@@ -1013,6 +1070,8 @@ class AsyncCustomersResource(AsyncAPIResource):
 
           cc_email: An email address to carbon copy (CC) on communications with this customer.
 
+              Maximum length: 1023 characters.
+
           class_id: The customer's class. Classes can be used to categorize objects into meaningful
               segments, such as department, location, or type of work. In QuickBooks, class
               tracking is off by default.
@@ -1024,12 +1083,17 @@ class AsyncCustomersResource(AsyncAPIResource):
 
           contact: The name of the primary contact person for this customer.
 
+              Maximum length: 41 characters.
+
           credit_card: The customer's credit card information, including card type, number, and
               expiration date, used for processing credit card payments.
 
           credit_limit: The customer's credit limit, represented as a decimal string. This is the
               maximum amount of money this customer can spend before being billed. If `null`,
               there is no credit limit.
+
+              Decimal string format: exactly 2 decimal places when cents are included and up
+              to 13 digits before the decimal point (for example, "123.45").
 
           currency_id: The customer's currency. For built-in currencies, the name and code are standard
               ISO 4217 international values. For user-defined currencies, all values are
@@ -1042,6 +1106,8 @@ class AsyncCustomersResource(AsyncAPIResource):
               such as industry or region.
 
           email: The customer's email address.
+
+              Maximum length: 1023 characters.
 
           external_id: A globally unique identifier (GUID) you, the developer, can provide for tracking
               this object in your external system. This field is immutable and can only be set
@@ -1064,6 +1130,8 @@ class AsyncCustomersResource(AsyncAPIResource):
           job_description: A brief description of this customer's job, if this object is a job (i.e.,
               sub-customer).
 
+              Maximum length: 99 characters.
+
           job_end_date: The actual completion date of this customer's job, if applicable, in ISO 8601
               format (YYYY-MM-DD).
 
@@ -1076,6 +1144,8 @@ class AsyncCustomersResource(AsyncAPIResource):
           job_status: The status of this customer's job, if this object is a job (i.e., sub-customer).
 
           job_title: The job title of the contact person for this customer.
+
+              Maximum length: 41 characters.
 
           job_type_id: The type or category of this customer's job, if this object is a job (i.e.,
               sub-customer). Useful for classifying into meaningful segments (e.g., repair,
@@ -1091,8 +1161,13 @@ class AsyncCustomersResource(AsyncAPIResource):
 
           note: A note or comment about this customer.
 
+              Maximum length: 4095 characters.
+
           opening_balance: The opening balance of this customer's account, indicating the amount owed by
               this customer, represented as a decimal string.
+
+              Decimal string format: exactly 2 decimal places when cents are included and up
+              to 13 digits before the decimal point (for example, "123.45").
 
           opening_balance_date: The date of the opening balance of this customer, in ISO 8601 format
               (YYYY-MM-DD).
@@ -1121,6 +1196,8 @@ class AsyncCustomersResource(AsyncAPIResource):
               resale. This number does not affect sales tax calculations or reports in
               QuickBooks.
 
+              Maximum length: 15 characters.
+
           sales_representative_id: The customer's sales representative. Sales representatives can be employees,
               vendors, or other names in QuickBooks.
 
@@ -1144,9 +1221,13 @@ class AsyncCustomersResource(AsyncAPIResource):
           salutation: The formal salutation title that precedes the name of the contact person for
               this customer, such as "Mr.", "Ms.", or "Dr.".
 
+              Maximum length: 15 characters.
+
           shipping_address: The customer's shipping address.
 
           tax_registration_number: The customer's tax registration number, for use in Canada or the UK.
+
+              Maximum length: 30 characters.
 
           terms_id: The customer's payment terms, defining when payment is due and any applicable
               discounts.
@@ -1342,11 +1423,15 @@ class AsyncCustomersResource(AsyncAPIResource):
               the account number may not be visible in the user interface, but it can still be
               set and retrieved through the API.
 
+              Maximum length: 99 characters.
+
           additional_contacts: Additional alternate contacts for this customer.
 
           additional_notes: Additional notes about this customer.
 
           alternate_contact: The name of a alternate contact person for this customer.
+
+              Maximum length: 41 characters.
 
           alternate_phone: The customer's alternate telephone number.
 
@@ -1359,6 +1444,8 @@ class AsyncCustomersResource(AsyncAPIResource):
 
           cc_email: An email address to carbon copy (CC) on communications with this customer.
 
+              Maximum length: 1023 characters.
+
           class_id: The customer's class. Classes can be used to categorize objects into meaningful
               segments, such as department, location, or type of work. In QuickBooks, class
               tracking is off by default.
@@ -1370,12 +1457,17 @@ class AsyncCustomersResource(AsyncAPIResource):
 
           contact: The name of the primary contact person for this customer.
 
+              Maximum length: 41 characters.
+
           credit_card: The customer's credit card information, including card type, number, and
               expiration date, used for processing credit card payments.
 
           credit_limit: The customer's credit limit, represented as a decimal string. This is the
               maximum amount of money this customer can spend before being billed. If `null`,
               there is no credit limit.
+
+              Decimal string format: exactly 2 decimal places when cents are included and up
+              to 13 digits before the decimal point (for example, "123.45").
 
           currency_id: The customer's currency. For built-in currencies, the name and code are standard
               ISO 4217 international values. For user-defined currencies, all values are
@@ -1388,6 +1480,8 @@ class AsyncCustomersResource(AsyncAPIResource):
               such as industry or region.
 
           email: The customer's email address.
+
+              Maximum length: 1023 characters.
 
           fax: The customer's fax number.
 
@@ -1403,6 +1497,8 @@ class AsyncCustomersResource(AsyncAPIResource):
           job_description: A brief description of this customer's job, if this object is a job (i.e.,
               sub-customer).
 
+              Maximum length: 99 characters.
+
           job_end_date: The actual completion date of this customer's job, if applicable, in ISO 8601
               format (YYYY-MM-DD).
 
@@ -1415,6 +1511,8 @@ class AsyncCustomersResource(AsyncAPIResource):
           job_status: The status of this customer's job, if this object is a job (i.e., sub-customer).
 
           job_title: The job title of the contact person for this customer.
+
+              Maximum length: 41 characters.
 
           job_type_id: The type or category of this customer's job, if this object is a job (i.e.,
               sub-customer). Useful for classifying into meaningful segments (e.g., repair,
@@ -1437,6 +1535,8 @@ class AsyncCustomersResource(AsyncAPIResource):
               Maximum length: 41 characters.
 
           note: A note or comment about this customer.
+
+              Maximum length: 4095 characters.
 
           parent_id: The parent customer one level above this one in the hierarchy. For example, if
               this customer has a `fullName` of "ABC Corporation:Website Redesign Project",
@@ -1462,6 +1562,8 @@ class AsyncCustomersResource(AsyncAPIResource):
               resale. This number does not affect sales tax calculations or reports in
               QuickBooks.
 
+              Maximum length: 15 characters.
+
           sales_representative_id: The customer's sales representative. Sales representatives can be employees,
               vendors, or other names in QuickBooks.
 
@@ -1485,9 +1587,13 @@ class AsyncCustomersResource(AsyncAPIResource):
           salutation: The formal salutation title that precedes the name of the contact person for
               this customer, such as "Mr.", "Ms.", or "Dr.".
 
+              Maximum length: 15 characters.
+
           shipping_address: The customer's shipping address.
 
           tax_registration_number: The customer's tax registration number, for use in Canada or the UK.
+
+              Maximum length: 30 characters.
 
           terms_id: The customer's payment terms, defining when payment is due and any applicable
               discounts.

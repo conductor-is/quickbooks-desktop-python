@@ -102,6 +102,8 @@ class SalesReceiptsResource(SyncAPIResource):
 
           check_number: The check number of a check received for this sales receipt.
 
+              Maximum length: 25 characters.
+
           class_id: The sales receipt's class. Classes can be used to categorize objects into
               meaningful segments, such as department, location, or type of work. In
               QuickBooks, class tracking is off by default. A class defined here is
@@ -164,6 +166,8 @@ class SalesReceiptsResource(SyncAPIResource):
           memo: A memo or note for this sales receipt that appears in reports, but not on the
               sales receipt.
 
+              Maximum length: 4095 characters.
+
           other_custom_field: A built-in custom field for additional information specific to this sales
               receipt. Unlike the user-defined fields in the `customFields` array, this is a
               standard QuickBooks field that exists for all sales receipts for convenience.
@@ -171,6 +175,8 @@ class SalesReceiptsResource(SyncAPIResource):
               other standard QuickBooks fields. Unlike `otherCustomField1` and
               `otherCustomField2`, which are line item fields, this exists at the transaction
               level. Hidden by default in the QuickBooks UI.
+
+              Maximum length: 29 characters.
 
           payment_method_id: The sales receipt's payment method (e.g., cash, check, credit card).
 
@@ -385,6 +391,8 @@ class SalesReceiptsResource(SyncAPIResource):
 
           check_number: The check number of a check received for this sales receipt.
 
+              Maximum length: 25 characters.
+
           class_id: The sales receipt's class. Classes can be used to categorize objects into
               meaningful segments, such as department, location, or type of work. In
               QuickBooks, class tracking is off by default. A class defined here is
@@ -455,6 +463,8 @@ class SalesReceiptsResource(SyncAPIResource):
           memo: A memo or note for this sales receipt that appears in reports, but not on the
               sales receipt.
 
+              Maximum length: 4095 characters.
+
           other_custom_field: A built-in custom field for additional information specific to this sales
               receipt. Unlike the user-defined fields in the `customFields` array, this is a
               standard QuickBooks field that exists for all sales receipts for convenience.
@@ -462,6 +472,8 @@ class SalesReceiptsResource(SyncAPIResource):
               other standard QuickBooks fields. Unlike `otherCustomField1` and
               `otherCustomField2`, which are line item fields, this exists at the transaction
               level. Hidden by default in the QuickBooks UI.
+
+              Maximum length: 29 characters.
 
           payment_method_id: The sales receipt's payment method (e.g., cash, check, credit card).
 
@@ -910,6 +922,8 @@ class AsyncSalesReceiptsResource(AsyncAPIResource):
 
           check_number: The check number of a check received for this sales receipt.
 
+              Maximum length: 25 characters.
+
           class_id: The sales receipt's class. Classes can be used to categorize objects into
               meaningful segments, such as department, location, or type of work. In
               QuickBooks, class tracking is off by default. A class defined here is
@@ -972,6 +986,8 @@ class AsyncSalesReceiptsResource(AsyncAPIResource):
           memo: A memo or note for this sales receipt that appears in reports, but not on the
               sales receipt.
 
+              Maximum length: 4095 characters.
+
           other_custom_field: A built-in custom field for additional information specific to this sales
               receipt. Unlike the user-defined fields in the `customFields` array, this is a
               standard QuickBooks field that exists for all sales receipts for convenience.
@@ -979,6 +995,8 @@ class AsyncSalesReceiptsResource(AsyncAPIResource):
               other standard QuickBooks fields. Unlike `otherCustomField1` and
               `otherCustomField2`, which are line item fields, this exists at the transaction
               level. Hidden by default in the QuickBooks UI.
+
+              Maximum length: 29 characters.
 
           payment_method_id: The sales receipt's payment method (e.g., cash, check, credit card).
 
@@ -1193,6 +1211,8 @@ class AsyncSalesReceiptsResource(AsyncAPIResource):
 
           check_number: The check number of a check received for this sales receipt.
 
+              Maximum length: 25 characters.
+
           class_id: The sales receipt's class. Classes can be used to categorize objects into
               meaningful segments, such as department, location, or type of work. In
               QuickBooks, class tracking is off by default. A class defined here is
@@ -1263,6 +1283,8 @@ class AsyncSalesReceiptsResource(AsyncAPIResource):
           memo: A memo or note for this sales receipt that appears in reports, but not on the
               sales receipt.
 
+              Maximum length: 4095 characters.
+
           other_custom_field: A built-in custom field for additional information specific to this sales
               receipt. Unlike the user-defined fields in the `customFields` array, this is a
               standard QuickBooks field that exists for all sales receipts for convenience.
@@ -1270,6 +1292,8 @@ class AsyncSalesReceiptsResource(AsyncAPIResource):
               other standard QuickBooks fields. Unlike `otherCustomField1` and
               `otherCustomField2`, which are line item fields, this exists at the transaction
               level. Hidden by default in the QuickBooks UI.
+
+              Maximum length: 29 characters.
 
           payment_method_id: The sales receipt's payment method (e.g., cash, check, credit card).
 

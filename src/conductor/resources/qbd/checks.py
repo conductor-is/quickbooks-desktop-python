@@ -123,6 +123,8 @@ class ChecksResource(SyncAPIResource):
 
           memo: The memo that is printed on this check.
 
+              Maximum length: 4095 characters.
+
           payee_id: The person or company who will receive this check.
 
           ref_number: The case-sensitive user-defined reference number for this check, which can be
@@ -348,6 +350,8 @@ class ChecksResource(SyncAPIResource):
                  them unchanged.
 
           memo: The memo that is printed on this check.
+
+              Maximum length: 4095 characters.
 
           payee_id: The person or company who will receive this check.
 
@@ -783,6 +787,8 @@ class AsyncChecksResource(AsyncAPIResource):
 
           memo: The memo that is printed on this check.
 
+              Maximum length: 4095 characters.
+
           payee_id: The person or company who will receive this check.
 
           ref_number: The case-sensitive user-defined reference number for this check, which can be
@@ -1008,6 +1014,8 @@ class AsyncChecksResource(AsyncAPIResource):
                  them unchanged.
 
           memo: The memo that is printed on this check.
+
+              Maximum length: 4095 characters.
 
           payee_id: The person or company who will receive this check.
 

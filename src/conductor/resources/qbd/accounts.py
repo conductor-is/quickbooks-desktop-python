@@ -116,8 +116,12 @@ class AccountsResource(SyncAPIResource):
               the account number may not be visible in the user interface, but it can still be
               set and retrieved through the API.
 
+              Maximum length: 7 characters.
+
           bank_account_number: The bank account number or identifying note for this account. Access to this
               field may be restricted based on permissions.
+
+              Maximum length: 25 characters.
 
           currency_id: The account's currency. For built-in currencies, the name and code are standard
               ISO 4217 international values. For user-defined currencies, all values are
@@ -125,12 +129,18 @@ class AccountsResource(SyncAPIResource):
 
           description: A description of this account.
 
+              Maximum length: 200 characters.
+
           is_active: Indicates whether this account is active. Inactive objects are typically hidden
               from views and reports in QuickBooks. Defaults to `true`.
 
           opening_balance: The amount of money in, or the value of, this account as of
-              `openingBalanceDate`. On a bank statement, this would be the amount of money in
-              the account at the beginning of the statement period.
+              `openingBalanceDate`, represented as a decimal string. On a bank statement, this
+              would be the amount of money in the account at the beginning of the statement
+              period.
+
+              Decimal string format: exactly 2 decimal places when cents are included and up
+              to 13 digits before the decimal point (for example, "123.45").
 
           opening_balance_date: The date of the opening balance of this account, in ISO 8601 format
               (YYYY-MM-DD).
@@ -297,6 +307,8 @@ class AccountsResource(SyncAPIResource):
               the account number may not be visible in the user interface, but it can still be
               set and retrieved through the API.
 
+              Maximum length: 7 characters.
+
           account_type: The classification of this account, indicating its purpose within the chart of
               accounts.
 
@@ -306,11 +318,15 @@ class AccountsResource(SyncAPIResource):
           bank_account_number: The bank account number or identifying note for this account. Access to this
               field may be restricted based on permissions.
 
+              Maximum length: 25 characters.
+
           currency_id: The account's currency. For built-in currencies, the name and code are standard
               ISO 4217 international values. For user-defined currencies, all values are
               editable.
 
           description: A description of this account.
+
+              Maximum length: 200 characters.
 
           is_active: Indicates whether this account is active. Inactive objects are typically hidden
               from views and reports in QuickBooks. Defaults to `true`.
@@ -324,8 +340,12 @@ class AccountsResource(SyncAPIResource):
               Maximum length: 31 characters.
 
           opening_balance: The amount of money in, or the value of, this account as of
-              `openingBalanceDate`. On a bank statement, this would be the amount of money in
-              the account at the beginning of the statement period.
+              `openingBalanceDate`, represented as a decimal string. On a bank statement, this
+              would be the amount of money in the account at the beginning of the statement
+              period.
+
+              Decimal string format: exactly 2 decimal places when cents are included and up
+              to 13 digits before the decimal point (for example, "123.45").
 
           opening_balance_date: The date of the opening balance of this account, in ISO 8601 format
               (YYYY-MM-DD).
@@ -652,8 +672,12 @@ class AsyncAccountsResource(AsyncAPIResource):
               the account number may not be visible in the user interface, but it can still be
               set and retrieved through the API.
 
+              Maximum length: 7 characters.
+
           bank_account_number: The bank account number or identifying note for this account. Access to this
               field may be restricted based on permissions.
+
+              Maximum length: 25 characters.
 
           currency_id: The account's currency. For built-in currencies, the name and code are standard
               ISO 4217 international values. For user-defined currencies, all values are
@@ -661,12 +685,18 @@ class AsyncAccountsResource(AsyncAPIResource):
 
           description: A description of this account.
 
+              Maximum length: 200 characters.
+
           is_active: Indicates whether this account is active. Inactive objects are typically hidden
               from views and reports in QuickBooks. Defaults to `true`.
 
           opening_balance: The amount of money in, or the value of, this account as of
-              `openingBalanceDate`. On a bank statement, this would be the amount of money in
-              the account at the beginning of the statement period.
+              `openingBalanceDate`, represented as a decimal string. On a bank statement, this
+              would be the amount of money in the account at the beginning of the statement
+              period.
+
+              Decimal string format: exactly 2 decimal places when cents are included and up
+              to 13 digits before the decimal point (for example, "123.45").
 
           opening_balance_date: The date of the opening balance of this account, in ISO 8601 format
               (YYYY-MM-DD).
@@ -833,6 +863,8 @@ class AsyncAccountsResource(AsyncAPIResource):
               the account number may not be visible in the user interface, but it can still be
               set and retrieved through the API.
 
+              Maximum length: 7 characters.
+
           account_type: The classification of this account, indicating its purpose within the chart of
               accounts.
 
@@ -842,11 +874,15 @@ class AsyncAccountsResource(AsyncAPIResource):
           bank_account_number: The bank account number or identifying note for this account. Access to this
               field may be restricted based on permissions.
 
+              Maximum length: 25 characters.
+
           currency_id: The account's currency. For built-in currencies, the name and code are standard
               ISO 4217 international values. For user-defined currencies, all values are
               editable.
 
           description: A description of this account.
+
+              Maximum length: 200 characters.
 
           is_active: Indicates whether this account is active. Inactive objects are typically hidden
               from views and reports in QuickBooks. Defaults to `true`.
@@ -860,8 +896,12 @@ class AsyncAccountsResource(AsyncAPIResource):
               Maximum length: 31 characters.
 
           opening_balance: The amount of money in, or the value of, this account as of
-              `openingBalanceDate`. On a bank statement, this would be the amount of money in
-              the account at the beginning of the statement period.
+              `openingBalanceDate`, represented as a decimal string. On a bank statement, this
+              would be the amount of money in the account at the beginning of the statement
+              period.
+
+              Decimal string format: exactly 2 decimal places when cents are included and up
+              to 13 digits before the decimal point (for example, "123.45").
 
           opening_balance_date: The date of the opening balance of this account, in ISO 8601 format
               (YYYY-MM-DD).

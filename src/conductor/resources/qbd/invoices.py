@@ -179,6 +179,8 @@ class InvoicesResource(SyncAPIResource):
           memo: A memo or note for this invoice that appears in reports, but not on the invoice.
               Use `customerMessage` to add a note to this invoice.
 
+              Maximum length: 4095 characters.
+
           other_custom_field: A built-in custom field for additional information specific to this invoice.
               Unlike the user-defined fields in the `customFields` array, this is a standard
               QuickBooks field that exists for all invoices for convenience. Developers often
@@ -186,6 +188,8 @@ class InvoicesResource(SyncAPIResource):
               QuickBooks fields. Unlike `otherCustomField1` and `otherCustomField2`, which are
               line item fields, this exists at the transaction level. Hidden by default in the
               QuickBooks UI.
+
+              Maximum length: 29 characters.
 
           purchase_order_number: The customer's Purchase Order (PO) number associated with this invoice. This
               field is often used to cross-reference the invoice with the customer's
@@ -481,6 +485,8 @@ class InvoicesResource(SyncAPIResource):
           memo: A memo or note for this invoice that appears in reports, but not on the invoice.
               Use `customerMessage` to add a note to this invoice.
 
+              Maximum length: 4095 characters.
+
           other_custom_field: A built-in custom field for additional information specific to this invoice.
               Unlike the user-defined fields in the `customFields` array, this is a standard
               QuickBooks field that exists for all invoices for convenience. Developers often
@@ -488,6 +494,8 @@ class InvoicesResource(SyncAPIResource):
               QuickBooks fields. Unlike `otherCustomField1` and `otherCustomField2`, which are
               line item fields, this exists at the transaction level. Hidden by default in the
               QuickBooks UI.
+
+              Maximum length: 29 characters.
 
           purchase_order_number: The customer's Purchase Order (PO) number associated with this invoice. This
               field is often used to cross-reference the invoice with the customer's
@@ -1035,6 +1043,8 @@ class AsyncInvoicesResource(AsyncAPIResource):
           memo: A memo or note for this invoice that appears in reports, but not on the invoice.
               Use `customerMessage` to add a note to this invoice.
 
+              Maximum length: 4095 characters.
+
           other_custom_field: A built-in custom field for additional information specific to this invoice.
               Unlike the user-defined fields in the `customFields` array, this is a standard
               QuickBooks field that exists for all invoices for convenience. Developers often
@@ -1042,6 +1052,8 @@ class AsyncInvoicesResource(AsyncAPIResource):
               QuickBooks fields. Unlike `otherCustomField1` and `otherCustomField2`, which are
               line item fields, this exists at the transaction level. Hidden by default in the
               QuickBooks UI.
+
+              Maximum length: 29 characters.
 
           purchase_order_number: The customer's Purchase Order (PO) number associated with this invoice. This
               field is often used to cross-reference the invoice with the customer's
@@ -1337,6 +1349,8 @@ class AsyncInvoicesResource(AsyncAPIResource):
           memo: A memo or note for this invoice that appears in reports, but not on the invoice.
               Use `customerMessage` to add a note to this invoice.
 
+              Maximum length: 4095 characters.
+
           other_custom_field: A built-in custom field for additional information specific to this invoice.
               Unlike the user-defined fields in the `customFields` array, this is a standard
               QuickBooks field that exists for all invoices for convenience. Developers often
@@ -1344,6 +1358,8 @@ class AsyncInvoicesResource(AsyncAPIResource):
               QuickBooks fields. Unlike `otherCustomField1` and `otherCustomField2`, which are
               line item fields, this exists at the transaction level. Hidden by default in the
               QuickBooks UI.
+
+              Maximum length: 29 characters.
 
           purchase_order_number: The customer's Purchase Order (PO) number associated with this invoice. This
               field is often used to cross-reference the invoice with the customer's

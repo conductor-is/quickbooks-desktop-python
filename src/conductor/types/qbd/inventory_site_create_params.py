@@ -29,10 +29,16 @@ class InventorySiteCreateParams(TypedDict, total=False):
     """The inventory site's address."""
 
     description: str
-    """A description of this inventory site."""
+    """A description of this inventory site.
+
+    Maximum length: 100 characters.
+    """
 
     email: str
-    """The inventory site's email address."""
+    """The inventory site's email address.
+
+    Maximum length: 1023 characters.
+    """
 
     is_active: Annotated[bool, PropertyInfo(alias="isActive")]
     """Indicates whether this inventory site is active.
@@ -55,7 +61,10 @@ class Address(TypedDict, total=False):
     """
 
     country: str
-    """The country name of the site address."""
+    """The country name of the site address.
+
+    Maximum length: 31 characters.
+    """
 
     line1: str
     """The first line of the site address (e.g., street, PO Box, or company name).

@@ -108,10 +108,14 @@ class BuildAssembliesResource(SyncAPIResource):
           lot_number: The lot number of the item associated with this build assembly. Used for
               tracking groups of inventory items that are purchased or manufactured together.
 
+              Maximum length: 40 characters.
+
           mark_pending_if_required: When `true`, the build assembly will be marked pending if there are insufficient
               quantities to complete the build assembly.
 
           memo: A memo or note for this build assembly.
+
+              Maximum length: 4095 characters.
 
           ref_number: The case-sensitive user-defined reference number for this build assembly, which
               can be used to identify the transaction in QuickBooks. This value is not
@@ -123,6 +127,8 @@ class BuildAssembliesResource(SyncAPIResource):
 
           serial_number: The serial number of the item associated with this build assembly. This is used
               for tracking individual units of serialized inventory items.
+
+              Maximum length: 4095 characters.
 
           extra_headers: Send extra headers
 
@@ -253,10 +259,14 @@ class BuildAssembliesResource(SyncAPIResource):
           lot_number: The lot number of the item associated with this build assembly. Used for
               tracking groups of inventory items that are purchased or manufactured together.
 
+              Maximum length: 40 characters.
+
           mark_pending_if_required: When `true`, the build assembly will be marked pending if there are insufficient
               quantities to complete the build assembly.
 
           memo: A memo or note for this build assembly.
+
+              Maximum length: 4095 characters.
 
           quantity_to_build: The number of build assembly to be built. The transaction will fail if the
               number specified here exceeds the number of on-hand components.
@@ -273,6 +283,8 @@ class BuildAssembliesResource(SyncAPIResource):
 
           serial_number: The serial number of the item associated with this build assembly. This is used
               for tracking individual units of serialized inventory items.
+
+              Maximum length: 4095 characters.
 
           transaction_date: The date of this build assembly, in ISO 8601 format (YYYY-MM-DD).
 
@@ -616,10 +628,14 @@ class AsyncBuildAssembliesResource(AsyncAPIResource):
           lot_number: The lot number of the item associated with this build assembly. Used for
               tracking groups of inventory items that are purchased or manufactured together.
 
+              Maximum length: 40 characters.
+
           mark_pending_if_required: When `true`, the build assembly will be marked pending if there are insufficient
               quantities to complete the build assembly.
 
           memo: A memo or note for this build assembly.
+
+              Maximum length: 4095 characters.
 
           ref_number: The case-sensitive user-defined reference number for this build assembly, which
               can be used to identify the transaction in QuickBooks. This value is not
@@ -631,6 +647,8 @@ class AsyncBuildAssembliesResource(AsyncAPIResource):
 
           serial_number: The serial number of the item associated with this build assembly. This is used
               for tracking individual units of serialized inventory items.
+
+              Maximum length: 4095 characters.
 
           extra_headers: Send extra headers
 
@@ -761,10 +779,14 @@ class AsyncBuildAssembliesResource(AsyncAPIResource):
           lot_number: The lot number of the item associated with this build assembly. Used for
               tracking groups of inventory items that are purchased or manufactured together.
 
+              Maximum length: 40 characters.
+
           mark_pending_if_required: When `true`, the build assembly will be marked pending if there are insufficient
               quantities to complete the build assembly.
 
           memo: A memo or note for this build assembly.
+
+              Maximum length: 4095 characters.
 
           quantity_to_build: The number of build assembly to be built. The transaction will fail if the
               number specified here exceeds the number of on-hand components.
@@ -781,6 +803,8 @@ class AsyncBuildAssembliesResource(AsyncAPIResource):
 
           serial_number: The serial number of the item associated with this build assembly. This is used
               for tracking individual units of serialized inventory items.
+
+              Maximum length: 4095 characters.
 
           transaction_date: The date of this build assembly, in ISO 8601 format (YYYY-MM-DD).
 

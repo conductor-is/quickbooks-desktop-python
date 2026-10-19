@@ -91,8 +91,11 @@ class PerItemPriceLevel(TypedDict, total=False):
     custom_price: Annotated[str, PropertyInfo(alias="customPrice")]
     """
     The fixed amount custom price for this per-item price level that overrides the
-    standard price for the specified item. Used when setting an absolute price value
-    for the item in this price level.
+    standard price for the specified item, represented as a decimal string. Used
+    when setting an absolute price value for the item in this price level.
+
+    Decimal string format: up to 5 decimal places and up to 10 digits before the
+    decimal point (for example, "123.45").
     """
 
     custom_price_percent: Annotated[str, PropertyInfo(alias="customPricePercent")]

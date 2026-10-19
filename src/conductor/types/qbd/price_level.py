@@ -56,8 +56,8 @@ class PerItemPriceLevel(BaseModel):
     custom_price: Optional[str] = FieldInfo(alias="customPrice", default=None)
     """
     The fixed amount custom price for this per-item price level that overrides the
-    standard price for the specified item. Used when setting an absolute price value
-    for the item in this price level.
+    standard price for the specified item, represented as a decimal string. Used
+    when setting an absolute price value for the item in this price level.
     """
 
     custom_price_percent: Optional[str] = FieldInfo(alias="customPricePercent", default=None)

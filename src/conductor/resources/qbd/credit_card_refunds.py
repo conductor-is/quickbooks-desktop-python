@@ -110,6 +110,8 @@ class CreditCardRefundsResource(SyncAPIResource):
 
           memo: A memo or note for this credit card refund.
 
+              Maximum length: 4095 characters.
+
           payment_method_id: The credit card refund's payment method (e.g., cash, check, credit card).
 
               **NOTE**: If this credit card refund contains credit card transaction data
@@ -566,6 +568,8 @@ class AsyncCreditCardRefundsResource(AsyncAPIResource):
               QuickBooks will return an error.
 
           memo: A memo or note for this credit card refund.
+
+              Maximum length: 4095 characters.
 
           payment_method_id: The credit card refund's payment method (e.g., cash, check, credit card).
 

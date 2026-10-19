@@ -121,6 +121,8 @@ class BillCheckPaymentsResource(SyncAPIResource):
 
           memo: A memo or note for this bill check payment.
 
+              Maximum length: 4095 characters.
+
           payables_account_id: The Accounts-Payable (A/P) account to which this bill check payment is assigned,
               used for accounts-payable tracking. If omitted, QuickBooks Desktop uses the
               default A/P account configured in the company file.
@@ -279,6 +281,8 @@ class BillCheckPaymentsResource(SyncAPIResource):
               for QuickBooks to print.
 
           memo: A memo or note for this bill check payment.
+
+              Maximum length: 4095 characters.
 
           ref_number: The case-sensitive user-defined reference number for this bill check payment,
               which can be used to identify the transaction in QuickBooks. This value is not
@@ -686,6 +690,8 @@ class AsyncBillCheckPaymentsResource(AsyncAPIResource):
 
           memo: A memo or note for this bill check payment.
 
+              Maximum length: 4095 characters.
+
           payables_account_id: The Accounts-Payable (A/P) account to which this bill check payment is assigned,
               used for accounts-payable tracking. If omitted, QuickBooks Desktop uses the
               default A/P account configured in the company file.
@@ -844,6 +850,8 @@ class AsyncBillCheckPaymentsResource(AsyncAPIResource):
               for QuickBooks to print.
 
           memo: A memo or note for this bill check payment.
+
+              Maximum length: 4095 characters.
 
           ref_number: The case-sensitive user-defined reference number for this bill check payment,
               which can be used to identify the transaction in QuickBooks. This value is not

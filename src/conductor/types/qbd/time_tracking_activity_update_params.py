@@ -76,7 +76,10 @@ class TimeTrackingActivityUpdateParams(TypedDict, total=False):
     """
 
     note: str
-    """A note or comment about this time tracking activity."""
+    """A note or comment about this time tracking activity.
+
+    Maximum length: 4095 characters.
+    """
 
     payroll_wage_item_id: Annotated[str, PropertyInfo(alias="payrollWageItemId")]
     """

@@ -85,6 +85,8 @@ class TransfersResource(SyncAPIResource):
 
           memo: A memo or note for this transfer.
 
+              Maximum length: 4095 characters.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -198,6 +200,8 @@ class TransfersResource(SyncAPIResource):
               tracking is off by default.
 
           memo: A memo or note for this transfer.
+
+              Maximum length: 4095 characters.
 
           source_account_id: The account from which money will be transferred.
 
@@ -412,6 +416,8 @@ class AsyncTransfersResource(AsyncAPIResource):
 
           memo: A memo or note for this transfer.
 
+              Maximum length: 4095 characters.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -525,6 +531,8 @@ class AsyncTransfersResource(AsyncAPIResource):
               tracking is off by default.
 
           memo: A memo or note for this transfer.
+
+              Maximum length: 4095 characters.
 
           source_account_id: The account from which money will be transferred.
 

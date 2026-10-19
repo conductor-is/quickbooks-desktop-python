@@ -145,6 +145,8 @@ class CreditMemosResource(SyncAPIResource):
           memo: A memo or note for this credit memo that appears in the account register and
               customer register, but not on the credit memo itself.
 
+              Maximum length: 4095 characters.
+
           other_custom_field: A built-in custom field for additional information specific to this credit memo.
               Unlike the user-defined fields in the `customFields` array, this is a standard
               QuickBooks field that exists for all credit memos for convenience. Developers
@@ -152,6 +154,8 @@ class CreditMemosResource(SyncAPIResource):
               standard QuickBooks fields. Unlike `otherCustomField1` and `otherCustomField2`,
               which are line item fields, this exists at the transaction level. Hidden by
               default in the QuickBooks UI.
+
+              Maximum length: 29 characters.
 
           purchase_order_number: The customer's Purchase Order (PO) number associated with this credit memo. This
               field is often used to cross-reference the credit memo with the customer's
@@ -424,6 +428,8 @@ class CreditMemosResource(SyncAPIResource):
           memo: A memo or note for this credit memo that appears in the account register and
               customer register, but not on the credit memo itself.
 
+              Maximum length: 4095 characters.
+
           other_custom_field: A built-in custom field for additional information specific to this credit memo.
               Unlike the user-defined fields in the `customFields` array, this is a standard
               QuickBooks field that exists for all credit memos for convenience. Developers
@@ -431,6 +437,8 @@ class CreditMemosResource(SyncAPIResource):
               standard QuickBooks fields. Unlike `otherCustomField1` and `otherCustomField2`,
               which are line item fields, this exists at the transaction level. Hidden by
               default in the QuickBooks UI.
+
+              Maximum length: 29 characters.
 
           purchase_order_number: The customer's Purchase Order (PO) number associated with this credit memo. This
               field is often used to cross-reference the credit memo with the customer's
@@ -932,6 +940,8 @@ class AsyncCreditMemosResource(AsyncAPIResource):
           memo: A memo or note for this credit memo that appears in the account register and
               customer register, but not on the credit memo itself.
 
+              Maximum length: 4095 characters.
+
           other_custom_field: A built-in custom field for additional information specific to this credit memo.
               Unlike the user-defined fields in the `customFields` array, this is a standard
               QuickBooks field that exists for all credit memos for convenience. Developers
@@ -939,6 +949,8 @@ class AsyncCreditMemosResource(AsyncAPIResource):
               standard QuickBooks fields. Unlike `otherCustomField1` and `otherCustomField2`,
               which are line item fields, this exists at the transaction level. Hidden by
               default in the QuickBooks UI.
+
+              Maximum length: 29 characters.
 
           purchase_order_number: The customer's Purchase Order (PO) number associated with this credit memo. This
               field is often used to cross-reference the credit memo with the customer's
@@ -1211,6 +1223,8 @@ class AsyncCreditMemosResource(AsyncAPIResource):
           memo: A memo or note for this credit memo that appears in the account register and
               customer register, but not on the credit memo itself.
 
+              Maximum length: 4095 characters.
+
           other_custom_field: A built-in custom field for additional information specific to this credit memo.
               Unlike the user-defined fields in the `customFields` array, this is a standard
               QuickBooks field that exists for all credit memos for convenience. Developers
@@ -1218,6 +1232,8 @@ class AsyncCreditMemosResource(AsyncAPIResource):
               standard QuickBooks fields. Unlike `otherCustomField1` and `otherCustomField2`,
               which are line item fields, this exists at the transaction level. Hidden by
               default in the QuickBooks UI.
+
+              Maximum length: 29 characters.
 
           purchase_order_number: The customer's Purchase Order (PO) number associated with this credit memo. This
               field is often used to cross-reference the credit memo with the customer's

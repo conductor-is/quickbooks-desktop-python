@@ -41,6 +41,8 @@ class CustomerUpdateParams(TypedDict, total=False):
     Note that if the "Use Account Numbers" preference is turned off in QuickBooks,
     the account number may not be visible in the user interface, but it can still be
     set and retrieved through the API.
+
+    Maximum length: 99 characters.
     """
 
     additional_contacts: Annotated[Iterable[AdditionalContact], PropertyInfo(alias="additionalContacts")]
@@ -50,7 +52,10 @@ class CustomerUpdateParams(TypedDict, total=False):
     """Additional notes about this customer."""
 
     alternate_contact: Annotated[str, PropertyInfo(alias="alternateContact")]
-    """The name of a alternate contact person for this customer."""
+    """The name of a alternate contact person for this customer.
+
+    Maximum length: 41 characters.
+    """
 
     alternate_phone: Annotated[str, PropertyInfo(alias="alternatePhone")]
     """The customer's alternate telephone number.
@@ -70,7 +75,10 @@ class CustomerUpdateParams(TypedDict, total=False):
     """The customer's billing address."""
 
     cc_email: Annotated[str, PropertyInfo(alias="ccEmail")]
-    """An email address to carbon copy (CC) on communications with this customer."""
+    """An email address to carbon copy (CC) on communications with this customer.
+
+    Maximum length: 1023 characters.
+    """
 
     class_id: Annotated[str, PropertyInfo(alias="classId")]
     """The customer's class.
@@ -89,7 +97,10 @@ class CustomerUpdateParams(TypedDict, total=False):
     """
 
     contact: str
-    """The name of the primary contact person for this customer."""
+    """The name of the primary contact person for this customer.
+
+    Maximum length: 41 characters.
+    """
 
     credit_card: Annotated[CreditCard, PropertyInfo(alias="creditCard")]
     """
@@ -102,6 +113,9 @@ class CustomerUpdateParams(TypedDict, total=False):
 
     This is the maximum amount of money this customer can spend before being billed.
     If `null`, there is no credit limit.
+
+    Decimal string format: exactly 2 decimal places when cents are included and up
+    to 13 digits before the decimal point (for example, "123.45").
     """
 
     currency_id: Annotated[str, PropertyInfo(alias="currencyId")]
@@ -124,7 +138,10 @@ class CustomerUpdateParams(TypedDict, total=False):
     """
 
     email: str
-    """The customer's email address."""
+    """The customer's email address.
+
+    Maximum length: 1023 characters.
+    """
 
     fax: str
     """The customer's fax number.
@@ -149,6 +166,8 @@ class CustomerUpdateParams(TypedDict, total=False):
     """
     A brief description of this customer's job, if this object is a job (i.e.,
     sub-customer).
+
+    Maximum length: 99 characters.
     """
 
     job_end_date: Annotated[Union[str, date], PropertyInfo(alias="jobEndDate", format="iso8601")]
@@ -177,7 +196,10 @@ class CustomerUpdateParams(TypedDict, total=False):
     """
 
     job_title: Annotated[str, PropertyInfo(alias="jobTitle")]
-    """The job title of the contact person for this customer."""
+    """The job title of the contact person for this customer.
+
+    Maximum length: 41 characters.
+    """
 
     job_type_id: Annotated[str, PropertyInfo(alias="jobTypeId")]
     """
@@ -211,7 +233,10 @@ class CustomerUpdateParams(TypedDict, total=False):
     """
 
     note: str
-    """A note or comment about this customer."""
+    """A note or comment about this customer.
+
+    Maximum length: 4095 characters.
+    """
 
     parent_id: Annotated[str, PropertyInfo(alias="parentId")]
     """The parent customer one level above this one in the hierarchy.
@@ -252,6 +277,8 @@ class CustomerUpdateParams(TypedDict, total=False):
     The customer's resale number, used if the customer is purchasing items for
     resale. This number does not affect sales tax calculations or reports in
     QuickBooks.
+
+    Maximum length: 15 characters.
     """
 
     sales_representative_id: Annotated[str, PropertyInfo(alias="salesRepresentativeId")]
@@ -288,13 +315,18 @@ class CustomerUpdateParams(TypedDict, total=False):
     """
     The formal salutation title that precedes the name of the contact person for
     this customer, such as "Mr.", "Ms.", or "Dr.".
+
+    Maximum length: 15 characters.
     """
 
     shipping_address: Annotated[ShippingAddress, PropertyInfo(alias="shippingAddress")]
     """The customer's shipping address."""
 
     tax_registration_number: Annotated[str, PropertyInfo(alias="taxRegistrationNumber")]
-    """The customer's tax registration number, for use in Canada or the UK."""
+    """The customer's tax registration number, for use in Canada or the UK.
+
+    Maximum length: 30 characters.
+    """
 
     terms_id: Annotated[str, PropertyInfo(alias="termsId")]
     """
@@ -305,10 +337,16 @@ class CustomerUpdateParams(TypedDict, total=False):
 
 class AdditionalContactCustomContactField(TypedDict, total=False):
     name: Required[str]
-    """The name of the contact field (e.g., "old address", "secondary phone")."""
+    """The name of the contact field (e.g., "old address", "secondary phone").
+
+    Maximum length: 40 characters.
+    """
 
     value: Required[str]
-    """The value of the contact field."""
+    """The value of the contact field.
+
+    Maximum length: 255 characters.
+    """
 
 
 class AdditionalContact(TypedDict, total=False):
@@ -338,7 +376,10 @@ class AdditionalContact(TypedDict, total=False):
     """
 
     job_title: Annotated[str, PropertyInfo(alias="jobTitle")]
-    """The contact's job title."""
+    """The contact's job title.
+
+    Maximum length: 41 characters.
+    """
 
     last_name: Annotated[str, PropertyInfo(alias="lastName")]
     """The contact's last name.
@@ -356,6 +397,8 @@ class AdditionalContact(TypedDict, total=False):
     """
     The contact's formal salutation title that precedes their name, such as "Mr.",
     "Ms.", or "Dr.".
+
+    Maximum length: 15 characters.
     """
 
 
@@ -364,7 +407,10 @@ class AdditionalNote(TypedDict, total=False):
     """The ID of the note to update."""
 
     note: Required[str]
-    """The text of this note."""
+    """The text of this note.
+
+    Maximum length: 4095 characters.
+    """
 
 
 class AlternateShippingAddress(TypedDict, total=False):
@@ -387,7 +433,10 @@ class AlternateShippingAddress(TypedDict, total=False):
     """
 
     country: str
-    """The country name of the shipping address."""
+    """The country name of the shipping address.
+
+    Maximum length: 31 characters.
+    """
 
     is_default_shipping_address: Annotated[bool, PropertyInfo(alias="isDefaultShippingAddress")]
     """Indicates whether this shipping address is the default shipping address."""
@@ -428,6 +477,8 @@ class AlternateShippingAddress(TypedDict, total=False):
     """
     A note written at the bottom of the shipping address in the form in which it
     appears, such as the invoice form.
+
+    Maximum length: 41 characters.
     """
 
     postal_code: Annotated[str, PropertyInfo(alias="postalCode")]
@@ -453,7 +504,10 @@ class BillingAddress(TypedDict, total=False):
     """
 
     country: str
-    """The country name of the address."""
+    """The country name of the address.
+
+    Maximum length: 31 characters.
+    """
 
     line1: str
     """The first line of the address (e.g., street, PO Box, or company name).
@@ -491,6 +545,8 @@ class BillingAddress(TypedDict, total=False):
     """
     A note written at the bottom of the address in the form in which it appears,
     such as the invoice form.
+
+    Maximum length: 41 characters.
     """
 
     postal_code: Annotated[str, PropertyInfo(alias="postalCode")]
@@ -512,7 +568,10 @@ class CreditCard(TypedDict, total=False):
     """
 
     address: str
-    """The card's billing address."""
+    """The card's billing address.
+
+    Maximum length: 41 characters.
+    """
 
     expiration_month: Annotated[float, PropertyInfo(alias="expirationMonth")]
     """The month when the credit card expires."""
@@ -521,21 +580,36 @@ class CreditCard(TypedDict, total=False):
     """The year when the credit card expires."""
 
     name: str
-    """The cardholder's name on the card."""
+    """The cardholder's name on the card.
+
+    Maximum length: 41 characters.
+    """
 
     number: str
-    """The credit card number. Must be masked with lower case "x" and no dashes."""
+    """The credit card number. Must be masked with lower case "x" and no dashes.
+
+    Maximum length: 25 characters.
+    """
 
     postal_code: Annotated[str, PropertyInfo(alias="postalCode")]
-    """The card's billing address ZIP or postal code."""
+    """The card's billing address ZIP or postal code.
+
+    Maximum length: 41 characters.
+    """
 
 
 class CustomContactField(TypedDict, total=False):
     name: Required[str]
-    """The name of the contact field (e.g., "old address", "secondary phone")."""
+    """The name of the contact field (e.g., "old address", "secondary phone").
+
+    Maximum length: 40 characters.
+    """
 
     value: Required[str]
-    """The value of the contact field."""
+    """The value of the contact field.
+
+    Maximum length: 255 characters.
+    """
 
 
 class ShippingAddress(TypedDict, total=False):
@@ -548,7 +622,10 @@ class ShippingAddress(TypedDict, total=False):
     """
 
     country: str
-    """The country name of the address."""
+    """The country name of the address.
+
+    Maximum length: 31 characters.
+    """
 
     line1: str
     """The first line of the address (e.g., street, PO Box, or company name).
@@ -586,6 +663,8 @@ class ShippingAddress(TypedDict, total=False):
     """
     A note written at the bottom of the address in the form in which it appears,
     such as the invoice form.
+
+    Maximum length: 41 characters.
     """
 
     postal_code: Annotated[str, PropertyInfo(alias="postalCode")]

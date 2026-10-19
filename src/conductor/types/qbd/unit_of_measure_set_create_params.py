@@ -128,6 +128,9 @@ class RelatedUnit(TypedDict, total=False):
 
     For example, if the base unit is "box" and this related unit is "case" with
     `conversionRatio` = "10", that means there are 10 boxes in one case.
+
+    Decimal string format: up to 5 decimal places and up to 10 digits before the
+    decimal point (for example, "123.45").
     """
 
     name: Required[str]

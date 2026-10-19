@@ -43,6 +43,8 @@ class EmployeeUpdateParams(TypedDict, total=False):
     Note that if the "Use Account Numbers" preference is turned off in QuickBooks,
     the account number may not be visible in the user interface, but it can still be
     set and retrieved through the API.
+
+    Maximum length: 99 characters.
     """
 
     additional_notes: Annotated[Iterable[AdditionalNote], PropertyInfo(alias="additionalNotes")]
@@ -89,6 +91,8 @@ class EmployeeUpdateParams(TypedDict, total=False):
 
     Found in the "employment job details" section of the employee's record in
     QuickBooks.
+
+    Maximum length: 31 characters.
     """
 
     description: str
@@ -96,16 +100,24 @@ class EmployeeUpdateParams(TypedDict, total=False):
 
     Found in the "employment job details" section of the employee's record in
     QuickBooks.
+
+    Maximum length: 64 characters.
     """
 
     disability_description: Annotated[str, PropertyInfo(alias="disabilityDescription")]
-    """A description of this employee's disability."""
+    """A description of this employee's disability.
+
+    Maximum length: 25 characters.
+    """
 
     disability_status: Annotated[Literal["disabled", "non_disabled"], PropertyInfo(alias="disabilityStatus")]
     """Indicates whether this employee is disabled."""
 
     email: str
-    """The employee's email address."""
+    """The employee's email address.
+
+    Maximum length: 1023 characters.
+    """
 
     emergency_contact: Annotated[EmergencyContact, PropertyInfo(alias="emergencyContact")]
     """The employee's emergency contacts."""
@@ -162,7 +174,10 @@ class EmployeeUpdateParams(TypedDict, total=False):
     """
 
     job_title: Annotated[str, PropertyInfo(alias="jobTitle")]
-    """The employee's job title."""
+    """The employee's job title.
+
+    Maximum length: 41 characters.
+    """
 
     key_employee_status: Annotated[Literal["key_employee", "non_key_employee"], PropertyInfo(alias="keyEmployeeStatus")]
     """Indicates whether this employee is a key employee."""
@@ -189,7 +204,10 @@ class EmployeeUpdateParams(TypedDict, total=False):
     """
 
     note: str
-    """A note or comment about this employee."""
+    """A note or comment about this employee.
+
+    Maximum length: 4095 characters.
+    """
 
     original_hire_date: Annotated[Union[str, date], PropertyInfo(alias="originalHireDate", format="iso8601")]
     """The original hire date for this employee, in ISO 8601 format (YYYY-MM-DD)."""
@@ -207,7 +225,10 @@ class EmployeeUpdateParams(TypedDict, total=False):
     """
 
     pager_pin: Annotated[str, PropertyInfo(alias="pagerPin")]
-    """The employee's pager PIN."""
+    """The employee's pager PIN.
+
+    Maximum length: 10 characters.
+    """
 
     phone: str
     """The employee's primary telephone number.
@@ -219,12 +240,16 @@ class EmployeeUpdateParams(TypedDict, total=False):
     """The name to use when printing this employee from QuickBooks.
 
     By default, this is the same as the `name` field.
+
+    Maximum length: 41 characters.
     """
 
     salutation: str
     """
     The employee's formal salutation title that precedes their name, such as "Mr.",
     "Ms.", or "Dr.".
+
+    Maximum length: 15 characters.
     """
 
     supervisor_id: Annotated[str, PropertyInfo(alias="supervisorId")]
@@ -239,6 +264,9 @@ class EmployeeUpdateParams(TypedDict, total=False):
 
     Found in the "employment job details" section of the employee's record in
     QuickBooks.
+
+    Decimal string format: exactly 2 decimal places when cents are included and up
+    to 13 digits before the decimal point (for example, "123.45").
     """
 
     termination_date: Annotated[Union[str, date], PropertyInfo(alias="terminationDate", format="iso8601")]
@@ -267,7 +295,10 @@ class AdditionalNote(TypedDict, total=False):
     """The ID of the note to update."""
 
     note: Required[str]
-    """The text of this note."""
+    """The text of this note.
+
+    Maximum length: 4095 characters.
+    """
 
 
 class Address(TypedDict, total=False):
@@ -400,20 +431,32 @@ class Address(TypedDict, total=False):
 
 class CustomContactField(TypedDict, total=False):
     name: Required[str]
-    """The name of the contact field (e.g., "old address", "secondary phone")."""
+    """The name of the contact field (e.g., "old address", "secondary phone").
+
+    Maximum length: 40 characters.
+    """
 
     value: Required[str]
-    """The value of the contact field."""
+    """The value of the contact field.
+
+    Maximum length: 255 characters.
+    """
 
 
 class EmergencyContactPrimaryContact(TypedDict, total=False):
     """The employee's primary emergency contact."""
 
     name: Required[str]
-    """The name of the contact field (e.g., "old address", "secondary phone")."""
+    """The name of the contact field (e.g., "old address", "secondary phone").
+
+    Maximum length: 40 characters.
+    """
 
     value: Required[str]
-    """The value of the contact field."""
+    """The value of the contact field.
+
+    Maximum length: 255 characters.
+    """
 
     relation: Literal[
         "brother", "daughter", "father", "friend", "mother", "other", "partner", "sister", "son", "spouse"
@@ -425,10 +468,16 @@ class EmergencyContactSecondaryContact(TypedDict, total=False):
     """The employee's secondary emergency contact."""
 
     name: Required[str]
-    """The name of the contact field (e.g., "old address", "secondary phone")."""
+    """The name of the contact field (e.g., "old address", "secondary phone").
+
+    Maximum length: 40 characters.
+    """
 
     value: Required[str]
-    """The value of the contact field."""
+    """The value of the contact field.
+
+    Maximum length: 255 characters.
+    """
 
     relation: Literal[
         "brother", "daughter", "father", "friend", "mother", "other", "partner", "sister", "son", "spouse"

@@ -139,6 +139,8 @@ class ReceivePaymentsResource(SyncAPIResource):
           memo: A memo or note for this receive-payment that will be displayed at the beginning
               of reports containing details about this receive-payment.
 
+              Maximum length: 4095 characters.
+
           payment_method_id: The receive-payment's payment method (e.g., cash, check, credit card).
 
               **NOTE**: If this receive-payment contains credit card transaction data supplied
@@ -306,6 +308,8 @@ class ReceivePaymentsResource(SyncAPIResource):
 
           memo: A memo or note for this receive-payment that will be displayed at the beginning
               of reports containing details about this receive-payment.
+
+              Maximum length: 4095 characters.
 
           payment_method_id: The receive-payment's payment method (e.g., cash, check, credit card).
 
@@ -710,6 +714,8 @@ class AsyncReceivePaymentsResource(AsyncAPIResource):
           memo: A memo or note for this receive-payment that will be displayed at the beginning
               of reports containing details about this receive-payment.
 
+              Maximum length: 4095 characters.
+
           payment_method_id: The receive-payment's payment method (e.g., cash, check, credit card).
 
               **NOTE**: If this receive-payment contains credit card transaction data supplied
@@ -877,6 +883,8 @@ class AsyncReceivePaymentsResource(AsyncAPIResource):
 
           memo: A memo or note for this receive-payment that will be displayed at the beginning
               of reports containing details about this receive-payment.
+
+              Maximum length: 4095 characters.
 
           payment_method_id: The receive-payment's payment method (e.g., cash, check, credit card).
 

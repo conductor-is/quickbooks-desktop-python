@@ -95,6 +95,8 @@ class DiscountItemsResource(SyncAPIResource):
           description: The discount item's description that will appear on sales forms that include
               this item.
 
+              Maximum length: 4095 characters.
+
           discount_rate: The monetary amount to subtract from the total or subtotal when applying this
               discount item to a transaction, represented as a decimal string.
 
@@ -264,6 +266,8 @@ class DiscountItemsResource(SyncAPIResource):
 
           description: The discount item's description that will appear on sales forms that include
               this item.
+
+              Maximum length: 4095 characters.
 
           discount_rate: The monetary amount to subtract from the total or subtotal when applying this
               discount item to a transaction, represented as a decimal string.
@@ -583,6 +587,8 @@ class AsyncDiscountItemsResource(AsyncAPIResource):
           description: The discount item's description that will appear on sales forms that include
               this item.
 
+              Maximum length: 4095 characters.
+
           discount_rate: The monetary amount to subtract from the total or subtotal when applying this
               discount item to a transaction, represented as a decimal string.
 
@@ -752,6 +758,8 @@ class AsyncDiscountItemsResource(AsyncAPIResource):
 
           description: The discount item's description that will appear on sales forms that include
               this item.
+
+              Maximum length: 4095 characters.
 
           discount_rate: The monetary amount to subtract from the total or subtotal when applying this
               discount item to a transaction, represented as a decimal string.

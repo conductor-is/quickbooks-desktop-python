@@ -504,7 +504,8 @@ class LineGroupLine(BaseModel):
     markup_rate: Optional[str] = FieldInfo(alias="markupRate", default=None)
     """
     The markup that will be passed on to the customer for this item on this estimate
-    line. `amount = (quantity * rate) * (1 + markupRate)`
+    line, represented as a decimal string.
+    `amount = (quantity * rate) * (1 + markupRate)`
     """
 
     markup_rate_percent: Optional[str] = FieldInfo(alias="markupRatePercent", default=None)
@@ -921,7 +922,8 @@ class Line(BaseModel):
     markup_rate: Optional[str] = FieldInfo(alias="markupRate", default=None)
     """
     The markup that will be passed on to the customer for this item on this estimate
-    line. `amount = (quantity * rate) * (1 + markupRate)`
+    line, represented as a decimal string.
+    `amount = (quantity * rate) * (1 + markupRate)`
     """
 
     markup_rate_percent: Optional[str] = FieldInfo(alias="markupRatePercent", default=None)

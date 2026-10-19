@@ -40,4 +40,7 @@ class TransferCreateParams(TypedDict, total=False):
     """
 
     memo: str
-    """A memo or note for this transfer."""
+    """A memo or note for this transfer.
+
+    Maximum length: 4095 characters.
+    """

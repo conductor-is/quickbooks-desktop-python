@@ -80,6 +80,8 @@ class SubtotalItemsResource(SyncAPIResource):
           description: The subtotal item's description that will appear on sales forms that include
               this item.
 
+              Maximum length: 4095 characters.
+
           external_id: A globally unique identifier (GUID) you, the developer, can provide for tracking
               this object in your external system. This field is immutable and can only be set
               during object creation.
@@ -194,6 +196,8 @@ class SubtotalItemsResource(SyncAPIResource):
 
           description: The subtotal item's description that will appear on sales forms that include
               this item.
+
+              Maximum length: 4095 characters.
 
           is_active: Indicates whether this subtotal item is active. Inactive objects are typically
               hidden from views and reports in QuickBooks. Defaults to `true`.
@@ -446,6 +450,8 @@ class AsyncSubtotalItemsResource(AsyncAPIResource):
           description: The subtotal item's description that will appear on sales forms that include
               this item.
 
+              Maximum length: 4095 characters.
+
           external_id: A globally unique identifier (GUID) you, the developer, can provide for tracking
               this object in your external system. This field is immutable and can only be set
               during object creation.
@@ -560,6 +566,8 @@ class AsyncSubtotalItemsResource(AsyncAPIResource):
 
           description: The subtotal item's description that will appear on sales forms that include
               this item.
+
+              Maximum length: 4095 characters.
 
           is_active: Indicates whether this subtotal item is active. Inactive objects are typically
               hidden from views and reports in QuickBooks. Defaults to `true`.

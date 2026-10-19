@@ -29,13 +29,18 @@ class OtherNameUpdateParams(TypedDict, total=False):
     Note that if the "Use Account Numbers" preference is turned off in QuickBooks,
     the account number may not be visible in the user interface, but it can still be
     set and retrieved through the API.
+
+    Maximum length: 99 characters.
     """
 
     address: Address
     """The other-name's address."""
 
     alternate_contact: Annotated[str, PropertyInfo(alias="alternateContact")]
-    """The name of a alternate contact person for this other-name."""
+    """The name of a alternate contact person for this other-name.
+
+    Maximum length: 41 characters.
+    """
 
     alternate_phone: Annotated[str, PropertyInfo(alias="alternatePhone")]
     """The other-name's alternate telephone number.
@@ -52,10 +57,16 @@ class OtherNameUpdateParams(TypedDict, total=False):
     """
 
     contact: str
-    """The name of the primary contact person for this other-name."""
+    """The name of the primary contact person for this other-name.
+
+    Maximum length: 41 characters.
+    """
 
     email: str
-    """The other-name's email address."""
+    """The other-name's email address.
+
+    Maximum length: 1023 characters.
+    """
 
     fax: str
     """The other-name's fax number.
@@ -97,11 +108,14 @@ class OtherNameUpdateParams(TypedDict, total=False):
     hierarchical objects, which is why `name` is unique for them but not for objects
     that have parents.
 
-    Maximum length: 31 characters.
+    Maximum length: 41 characters.
     """
 
     note: str
-    """A note or comment about this other-name."""
+    """A note or comment about this other-name.
+
+    Maximum length: 4095 characters.
+    """
 
     phone: str
     """The other-name's primary telephone number.
@@ -113,6 +127,8 @@ class OtherNameUpdateParams(TypedDict, total=False):
     """
     The formal salutation title that precedes the name of the contact person for
     this other-name, such as "Mr.", "Ms.", or "Dr.".
+
+    Maximum length: 15 characters.
     """
 
 
@@ -126,7 +142,10 @@ class Address(TypedDict, total=False):
     """
 
     country: str
-    """The country name of the address."""
+    """The country name of the address.
+
+    Maximum length: 31 characters.
+    """
 
     line1: str
     """The first line of the address (e.g., street, PO Box, or company name).
@@ -164,6 +183,8 @@ class Address(TypedDict, total=False):
     """
     A note written at the bottom of the address in the form in which it appears,
     such as the invoice form.
+
+    Maximum length: 41 characters.
     """
 
     postal_code: Annotated[str, PropertyInfo(alias="postalCode")]

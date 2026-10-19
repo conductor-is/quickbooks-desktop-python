@@ -104,6 +104,8 @@ class SalesTaxPaymentChecksResource(SyncAPIResource):
 
           memo: A memo or note for this sales-tax payment check.
 
+              Maximum length: 4095 characters.
+
           ref_number: The case-sensitive user-defined reference number for this sales-tax payment
               check, which can be used to identify the transaction in QuickBooks. This value
               is not required to be unique and can be arbitrarily changed by the QuickBooks
@@ -233,6 +235,8 @@ class SalesTaxPaymentChecksResource(SyncAPIResource):
               documents for QuickBooks to print.
 
           memo: A memo or note for this sales-tax payment check.
+
+              Maximum length: 4095 characters.
 
           ref_number: The case-sensitive user-defined reference number for this sales-tax payment
               check, which can be used to identify the transaction in QuickBooks. This value
@@ -622,6 +626,8 @@ class AsyncSalesTaxPaymentChecksResource(AsyncAPIResource):
 
           memo: A memo or note for this sales-tax payment check.
 
+              Maximum length: 4095 characters.
+
           ref_number: The case-sensitive user-defined reference number for this sales-tax payment
               check, which can be used to identify the transaction in QuickBooks. This value
               is not required to be unique and can be arbitrarily changed by the QuickBooks
@@ -751,6 +757,8 @@ class AsyncSalesTaxPaymentChecksResource(AsyncAPIResource):
               documents for QuickBooks to print.
 
           memo: A memo or note for this sales-tax payment check.
+
+              Maximum length: 4095 characters.
 
           ref_number: The case-sensitive user-defined reference number for this sales-tax payment
               check, which can be used to identify the transaction in QuickBooks. This value

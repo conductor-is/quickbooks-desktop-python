@@ -123,7 +123,10 @@ class Line(TypedDict, total=False):
     """The type of journal line (debit or credit)."""
 
     memo: str
-    """A memo or note for this journal line."""
+    """A memo or note for this journal line.
+
+    Maximum length: 4095 characters.
+    """
 
     sales_tax_item_id: Annotated[str, PropertyInfo(alias="salesTaxItemId")]
     """

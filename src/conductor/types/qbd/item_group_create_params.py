@@ -39,6 +39,8 @@ class ItemGroupCreateParams(TypedDict, total=False):
     """
     The item group's description that will appear on sales forms that include this
     item.
+
+    Maximum length: 4095 characters.
     """
 
     external_id: Annotated[str, PropertyInfo(alias="externalId")]
@@ -82,7 +84,10 @@ class Barcode(TypedDict, total=False):
     """Indicates whether to assign the barcode even if it is already used."""
 
     value: str
-    """The item's barcode value."""
+    """The item's barcode value.
+
+    Maximum length: 50 characters.
+    """
 
 
 class Line(TypedDict, total=False):
@@ -107,4 +112,6 @@ class Line(TypedDict, total=False):
     """The unit-of-measure used for the `quantity` in this item group line.
 
     Must be a valid unit within the item's available units of measure.
+
+    Maximum length: 31 characters.
     """

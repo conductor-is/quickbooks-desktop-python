@@ -87,6 +87,8 @@ class ItemGroupsResource(SyncAPIResource):
           description: The item group's description that will appear on sales forms that include this
               item.
 
+              Maximum length: 4095 characters.
+
           external_id: A globally unique identifier (GUID) you, the developer, can provide for tracking
               this object in your external system. This field is immutable and can only be set
               during object creation.
@@ -221,6 +223,8 @@ class ItemGroupsResource(SyncAPIResource):
 
           description: The item group's description that will appear on sales forms that include this
               item.
+
+              Maximum length: 4095 characters.
 
           force_unit_of_measure_change: Indicates whether to allow changing the item group's unit-of-measure set (using
               the `unitOfMeasureSetId` field) when the base unit of the new unit-of-measure
@@ -505,6 +509,8 @@ class AsyncItemGroupsResource(AsyncAPIResource):
           description: The item group's description that will appear on sales forms that include this
               item.
 
+              Maximum length: 4095 characters.
+
           external_id: A globally unique identifier (GUID) you, the developer, can provide for tracking
               this object in your external system. This field is immutable and can only be set
               during object creation.
@@ -639,6 +645,8 @@ class AsyncItemGroupsResource(AsyncAPIResource):
 
           description: The item group's description that will appear on sales forms that include this
               item.
+
+              Maximum length: 4095 characters.
 
           force_unit_of_measure_change: Indicates whether to allow changing the item group's unit-of-measure set (using
               the `unitOfMeasureSetId` field) when the base unit of the new unit-of-measure

@@ -113,6 +113,8 @@ class BillCreditCardPaymentsResource(SyncAPIResource):
 
           memo: A memo or note for this bill credit card payment.
 
+              Maximum length: 4095 characters.
+
           payables_account_id: The Accounts-Payable (A/P) account to which this bill credit card payment is
               assigned, used for accounts-payable tracking. If omitted, QuickBooks Desktop
               uses the default A/P account configured in the company file.
@@ -563,6 +565,8 @@ class AsyncBillCreditCardPaymentsResource(AsyncAPIResource):
               QuickBooks will return an error.
 
           memo: A memo or note for this bill credit card payment.
+
+              Maximum length: 4095 characters.
 
           payables_account_id: The Accounts-Payable (A/P) account to which this bill credit card payment is
               assigned, used for accounts-payable tracking. If omitted, QuickBooks Desktop

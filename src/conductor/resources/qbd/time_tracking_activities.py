@@ -121,6 +121,8 @@ class TimeTrackingActivitiesResource(SyncAPIResource):
 
           note: A note or comment about this time tracking activity.
 
+              Maximum length: 4095 characters.
+
           payroll_wage_item_id: The payroll wage item (e.g., Regular Pay, Overtime Pay) to use for this time
               tracking activity. This field can only be used for time tracking if: (1) the
               person specified in `entity` is an employee in QuickBooks, and (2) the "Use time
@@ -283,6 +285,8 @@ class TimeTrackingActivitiesResource(SyncAPIResource):
               billed. If `billingStatus` is set to "billable", this field is required.
 
           note: A note or comment about this time tracking activity.
+
+              Maximum length: 4095 characters.
 
           payroll_wage_item_id: The payroll wage item (e.g., Regular Pay, Overtime Pay) to use for this time
               tracking activity. This field can only be used for time tracking if: (1) the
@@ -588,6 +592,8 @@ class AsyncTimeTrackingActivitiesResource(AsyncAPIResource):
 
           note: A note or comment about this time tracking activity.
 
+              Maximum length: 4095 characters.
+
           payroll_wage_item_id: The payroll wage item (e.g., Regular Pay, Overtime Pay) to use for this time
               tracking activity. This field can only be used for time tracking if: (1) the
               person specified in `entity` is an employee in QuickBooks, and (2) the "Use time
@@ -750,6 +756,8 @@ class AsyncTimeTrackingActivitiesResource(AsyncAPIResource):
               billed. If `billingStatus` is set to "billable", this field is required.
 
           note: A note or comment about this time tracking activity.
+
+              Maximum length: 4095 characters.
 
           payroll_wage_item_id: The payroll wage item (e.g., Regular Pay, Overtime Pay) to use for this time
               tracking activity. This field can only be used for time tracking if: (1) the

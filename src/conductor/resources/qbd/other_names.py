@@ -83,7 +83,7 @@ class OtherNamesResource(SyncAPIResource):
               hierarchical objects, which is why `name` is unique for them but not for objects
               that have parents.
 
-              Maximum length: 31 characters.
+              Maximum length: 41 characters.
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
@@ -94,9 +94,13 @@ class OtherNamesResource(SyncAPIResource):
               the account number may not be visible in the user interface, but it can still be
               set and retrieved through the API.
 
+              Maximum length: 99 characters.
+
           address: The other-name's address.
 
           alternate_contact: The name of a alternate contact person for this other-name.
+
+              Maximum length: 41 characters.
 
           alternate_phone: The other-name's alternate telephone number.
 
@@ -109,7 +113,11 @@ class OtherNamesResource(SyncAPIResource):
 
           contact: The name of the primary contact person for this other-name.
 
+              Maximum length: 41 characters.
+
           email: The other-name's email address.
+
+              Maximum length: 1023 characters.
 
           external_id: A globally unique identifier (GUID) you, the developer, can provide for tracking
               this object in your external system. This field is immutable and can only be set
@@ -139,12 +147,16 @@ class OtherNamesResource(SyncAPIResource):
 
           note: A note or comment about this other-name.
 
+              Maximum length: 4095 characters.
+
           phone: The other-name's primary telephone number.
 
               Maximum length: 21 characters.
 
           salutation: The formal salutation title that precedes the name of the contact person for
               this other-name, such as "Mr.", "Ms.", or "Dr.".
+
+              Maximum length: 15 characters.
 
           extra_headers: Send extra headers
 
@@ -277,9 +289,13 @@ class OtherNamesResource(SyncAPIResource):
               the account number may not be visible in the user interface, but it can still be
               set and retrieved through the API.
 
+              Maximum length: 99 characters.
+
           address: The other-name's address.
 
           alternate_contact: The name of a alternate contact person for this other-name.
+
+              Maximum length: 41 characters.
 
           alternate_phone: The other-name's alternate telephone number.
 
@@ -292,7 +308,11 @@ class OtherNamesResource(SyncAPIResource):
 
           contact: The name of the primary contact person for this other-name.
 
+              Maximum length: 41 characters.
+
           email: The other-name's email address.
+
+              Maximum length: 1023 characters.
 
           fax: The other-name's fax number.
 
@@ -320,9 +340,11 @@ class OtherNamesResource(SyncAPIResource):
               hierarchical objects, which is why `name` is unique for them but not for objects
               that have parents.
 
-              Maximum length: 31 characters.
+              Maximum length: 41 characters.
 
           note: A note or comment about this other-name.
+
+              Maximum length: 4095 characters.
 
           phone: The other-name's primary telephone number.
 
@@ -330,6 +352,8 @@ class OtherNamesResource(SyncAPIResource):
 
           salutation: The formal salutation title that precedes the name of the contact person for
               this other-name, such as "Mr.", "Ms.", or "Dr.".
+
+              Maximum length: 15 characters.
 
           extra_headers: Send extra headers
 
@@ -580,7 +604,7 @@ class AsyncOtherNamesResource(AsyncAPIResource):
               hierarchical objects, which is why `name` is unique for them but not for objects
               that have parents.
 
-              Maximum length: 31 characters.
+              Maximum length: 41 characters.
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
@@ -591,9 +615,13 @@ class AsyncOtherNamesResource(AsyncAPIResource):
               the account number may not be visible in the user interface, but it can still be
               set and retrieved through the API.
 
+              Maximum length: 99 characters.
+
           address: The other-name's address.
 
           alternate_contact: The name of a alternate contact person for this other-name.
+
+              Maximum length: 41 characters.
 
           alternate_phone: The other-name's alternate telephone number.
 
@@ -606,7 +634,11 @@ class AsyncOtherNamesResource(AsyncAPIResource):
 
           contact: The name of the primary contact person for this other-name.
 
+              Maximum length: 41 characters.
+
           email: The other-name's email address.
+
+              Maximum length: 1023 characters.
 
           external_id: A globally unique identifier (GUID) you, the developer, can provide for tracking
               this object in your external system. This field is immutable and can only be set
@@ -636,12 +668,16 @@ class AsyncOtherNamesResource(AsyncAPIResource):
 
           note: A note or comment about this other-name.
 
+              Maximum length: 4095 characters.
+
           phone: The other-name's primary telephone number.
 
               Maximum length: 21 characters.
 
           salutation: The formal salutation title that precedes the name of the contact person for
               this other-name, such as "Mr.", "Ms.", or "Dr.".
+
+              Maximum length: 15 characters.
 
           extra_headers: Send extra headers
 
@@ -774,9 +810,13 @@ class AsyncOtherNamesResource(AsyncAPIResource):
               the account number may not be visible in the user interface, but it can still be
               set and retrieved through the API.
 
+              Maximum length: 99 characters.
+
           address: The other-name's address.
 
           alternate_contact: The name of a alternate contact person for this other-name.
+
+              Maximum length: 41 characters.
 
           alternate_phone: The other-name's alternate telephone number.
 
@@ -789,7 +829,11 @@ class AsyncOtherNamesResource(AsyncAPIResource):
 
           contact: The name of the primary contact person for this other-name.
 
+              Maximum length: 41 characters.
+
           email: The other-name's email address.
+
+              Maximum length: 1023 characters.
 
           fax: The other-name's fax number.
 
@@ -817,9 +861,11 @@ class AsyncOtherNamesResource(AsyncAPIResource):
               hierarchical objects, which is why `name` is unique for them but not for objects
               that have parents.
 
-              Maximum length: 31 characters.
+              Maximum length: 41 characters.
 
           note: A note or comment about this other-name.
+
+              Maximum length: 4095 characters.
 
           phone: The other-name's primary telephone number.
 
@@ -827,6 +873,8 @@ class AsyncOtherNamesResource(AsyncAPIResource):
 
           salutation: The formal salutation title that precedes the name of the contact person for
               this other-name, such as "Mr.", "Ms.", or "Dr.".
+
+              Maximum length: 15 characters.
 
           extra_headers: Send extra headers
 

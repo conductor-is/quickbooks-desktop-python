@@ -110,6 +110,8 @@ class CreditMemoCreateParams(TypedDict, total=False):
     """
     A memo or note for this credit memo that appears in the account register and
     customer register, but not on the credit memo itself.
+
+    Maximum length: 4095 characters.
     """
 
     other_custom_field: Annotated[str, PropertyInfo(alias="otherCustomField")]
@@ -121,6 +123,8 @@ class CreditMemoCreateParams(TypedDict, total=False):
     standard QuickBooks fields. Unlike `otherCustomField1` and `otherCustomField2`,
     which are line item fields, this exists at the transaction level. Hidden by
     default in the QuickBooks UI.
+
+    Maximum length: 29 characters.
     """
 
     purchase_order_number: Annotated[str, PropertyInfo(alias="purchaseOrderNumber")]
@@ -222,7 +226,10 @@ class BillingAddress(TypedDict, total=False):
     """
 
     country: str
-    """The country name of the address."""
+    """The country name of the address.
+
+    Maximum length: 31 characters.
+    """
 
     line1: str
     """The first line of the address (e.g., street, PO Box, or company name).
@@ -260,6 +267,8 @@ class BillingAddress(TypedDict, total=False):
     """
     A note written at the bottom of the address in the form in which it appears,
     such as the invoice form.
+
+    Maximum length: 41 characters.
     """
 
     postal_code: Annotated[str, PropertyInfo(alias="postalCode")]
@@ -280,6 +289,8 @@ class LineGroupCustomField(TypedDict, total=False):
     """The name of the custom field, unique for the specified `ownerId`.
 
     For public custom fields, this name is visible as a label in the QuickBooks UI.
+
+    Maximum length: 31 characters.
     """
 
     owner_id: Required[Annotated[str, PropertyInfo(alias="ownerId")]]
@@ -346,6 +357,8 @@ class LineGroup(TypedDict, total=False):
     """The unit-of-measure used for the `quantity` in this credit memo line group.
 
     Must be a valid unit within the item's available units of measure.
+
+    Maximum length: 31 characters.
     """
 
 
@@ -354,6 +367,8 @@ class LineCustomField(TypedDict, total=False):
     """The name of the custom field, unique for the specified `ownerId`.
 
     For public custom fields, this name is visible as a label in the QuickBooks UI.
+
+    Maximum length: 31 characters.
     """
 
     owner_id: Required[Annotated[str, PropertyInfo(alias="ownerId")]]
@@ -404,7 +419,10 @@ class Line(TypedDict, total=False):
     """
 
     description: str
-    """A description of this credit memo line."""
+    """A description of this credit memo line.
+
+    Maximum length: 4095 characters.
+    """
 
     inventory_site_id: Annotated[str, PropertyInfo(alias="inventorySiteId")]
     """
@@ -431,6 +449,8 @@ class Line(TypedDict, total=False):
 
     Used for tracking groups of inventory items that are purchased or manufactured
     together.
+
+    Maximum length: 40 characters.
     """
 
     other_custom_field1: Annotated[str, PropertyInfo(alias="otherCustomField1")]
@@ -440,6 +460,8 @@ class Line(TypedDict, total=False):
     standard QuickBooks field that exists for all credit memo lines for convenience.
     Developers often use this field for tracking information that doesn't fit into
     other standard QuickBooks fields. Hidden by default in the QuickBooks UI.
+
+    Maximum length: 29 characters.
     """
 
     other_custom_field2: Annotated[str, PropertyInfo(alias="otherCustomField2")]
@@ -450,6 +472,8 @@ class Line(TypedDict, total=False):
     convenience. Like `otherCustomField1`, developers often use this field for
     tracking information that doesn't fit into other standard QuickBooks fields.
     Hidden by default in the QuickBooks UI.
+
+    Maximum length: 29 characters.
     """
 
     override_item_account_id: Annotated[str, PropertyInfo(alias="overrideItemAccountId")]
@@ -509,6 +533,8 @@ class Line(TypedDict, total=False):
     """The serial number of the item associated with this credit memo line.
 
     This is used for tracking individual units of serialized inventory items.
+
+    Maximum length: 4095 characters.
     """
 
     service_date: Annotated[Union[str, date], PropertyInfo(alias="serviceDate", format="iso8601")]
@@ -522,6 +548,8 @@ class Line(TypedDict, total=False):
     """The unit-of-measure used for the `quantity` in this credit memo line.
 
     Must be a valid unit within the item's available units of measure.
+
+    Maximum length: 31 characters.
     """
 
 
@@ -535,7 +563,10 @@ class ShippingAddress(TypedDict, total=False):
     """
 
     country: str
-    """The country name of the address."""
+    """The country name of the address.
+
+    Maximum length: 31 characters.
+    """
 
     line1: str
     """The first line of the address (e.g., street, PO Box, or company name).
@@ -573,6 +604,8 @@ class ShippingAddress(TypedDict, total=False):
     """
     A note written at the bottom of the address in the form in which it appears,
     such as the invoice form.
+
+    Maximum length: 41 characters.
     """
 
     postal_code: Annotated[str, PropertyInfo(alias="postalCode")]
