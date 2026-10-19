@@ -250,6 +250,9 @@ class UnitOfMeasureSetsResource(SyncAPIResource):
           name_from: Filter for unit-of-measure sets whose `name` is alphabetically greater than or
               equal to this value.
 
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
+
           names: Filter for specific unit-of-measure sets by their name(s), case-insensitive.
               Like `id`, `name` is a unique identifier for an unit-of-measure set.
 
@@ -267,6 +270,9 @@ class UnitOfMeasureSetsResource(SyncAPIResource):
 
           name_to: Filter for unit-of-measure sets whose `name` is alphabetically less than or
               equal to this value.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
 
           status: Filter for unit-of-measure sets that are active, inactive, or both.
 
@@ -554,6 +560,9 @@ class AsyncUnitOfMeasureSetsResource(AsyncAPIResource):
           name_from: Filter for unit-of-measure sets whose `name` is alphabetically greater than or
               equal to this value.
 
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
+
           names: Filter for specific unit-of-measure sets by their name(s), case-insensitive.
               Like `id`, `name` is a unique identifier for an unit-of-measure set.
 
@@ -571,6 +580,9 @@ class AsyncUnitOfMeasureSetsResource(AsyncAPIResource):
 
           name_to: Filter for unit-of-measure sets whose `name` is alphabetically less than or
               equal to this value.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
 
           status: Filter for unit-of-measure sets that are active, inactive, or both.
 

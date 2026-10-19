@@ -356,6 +356,9 @@ class ItemGroupsResource(SyncAPIResource):
           name_from: Filter for item groups whose `name` is alphabetically greater than or equal to
               this value.
 
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
+
           names: Filter for specific item groups by their name(s), case-insensitive. Like `id`,
               `name` is a unique identifier for an item group.
 
@@ -373,6 +376,9 @@ class ItemGroupsResource(SyncAPIResource):
 
           name_to: Filter for item groups whose `name` is alphabetically less than or equal to this
               value.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
 
           status: Filter for item groups that are active, inactive, or both.
 
@@ -768,6 +774,9 @@ class AsyncItemGroupsResource(AsyncAPIResource):
           name_from: Filter for item groups whose `name` is alphabetically greater than or equal to
               this value.
 
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
+
           names: Filter for specific item groups by their name(s), case-insensitive. Like `id`,
               `name` is a unique identifier for an item group.
 
@@ -785,6 +794,9 @@ class AsyncItemGroupsResource(AsyncAPIResource):
 
           name_to: Filter for item groups whose `name` is alphabetically less than or equal to this
               value.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
 
           status: Filter for item groups that are active, inactive, or both.
 

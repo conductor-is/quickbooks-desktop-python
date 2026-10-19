@@ -485,6 +485,9 @@ class AccountsResource(SyncAPIResource):
           name_from: Filter for accounts whose `name` is alphabetically greater than or equal to this
               value.
 
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
+
           name_starts_with: Filter for accounts whose `name` starts with this substring, case-insensitive.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
@@ -492,6 +495,9 @@ class AccountsResource(SyncAPIResource):
 
           name_to: Filter for accounts whose `name` is alphabetically less than or equal to this
               value.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
 
           status: Filter for accounts that are active, inactive, or both.
 
@@ -1015,6 +1021,9 @@ class AsyncAccountsResource(AsyncAPIResource):
           name_from: Filter for accounts whose `name` is alphabetically greater than or equal to this
               value.
 
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
+
           name_starts_with: Filter for accounts whose `name` starts with this substring, case-insensitive.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
@@ -1022,6 +1031,9 @@ class AsyncAccountsResource(AsyncAPIResource):
 
           name_to: Filter for accounts whose `name` is alphabetically less than or equal to this
               value.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
 
           status: Filter for accounts that are active, inactive, or both.
 

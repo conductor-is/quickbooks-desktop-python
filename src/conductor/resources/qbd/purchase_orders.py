@@ -599,6 +599,9 @@ class PurchaseOrdersResource(SyncAPIResource):
               a numerical comparison for values that contain only digits; otherwise, uses a
               lexicographical comparison.
 
+              **NOTE**: If you use this parameter, you cannot also use `refNumberContains`,
+              `refNumberStartsWith`, or `refNumberEndsWith`.
+
           ref_numbers: Filter for specific purchase orders by their ref-number(s), case-sensitive. In
               QuickBooks, ref-numbers are not required to be unique and can be arbitrarily
               changed by the QuickBooks user.
@@ -618,6 +621,9 @@ class PurchaseOrdersResource(SyncAPIResource):
               value. If omitted, the range will end with the last number of the list. Uses a
               numerical comparison for values that contain only digits; otherwise, uses a
               lexicographical comparison.
+
+              **NOTE**: If you use this parameter, you cannot also use `refNumberContains`,
+              `refNumberStartsWith`, or `refNumberEndsWith`.
 
           transaction_date_from: Filter for purchase orders whose `date` field is on or after this date, in ISO
               8601 format (YYYY-MM-DD).
@@ -1316,6 +1322,9 @@ class AsyncPurchaseOrdersResource(AsyncAPIResource):
               a numerical comparison for values that contain only digits; otherwise, uses a
               lexicographical comparison.
 
+              **NOTE**: If you use this parameter, you cannot also use `refNumberContains`,
+              `refNumberStartsWith`, or `refNumberEndsWith`.
+
           ref_numbers: Filter for specific purchase orders by their ref-number(s), case-sensitive. In
               QuickBooks, ref-numbers are not required to be unique and can be arbitrarily
               changed by the QuickBooks user.
@@ -1335,6 +1344,9 @@ class AsyncPurchaseOrdersResource(AsyncAPIResource):
               value. If omitted, the range will end with the last number of the list. Uses a
               numerical comparison for values that contain only digits; otherwise, uses a
               lexicographical comparison.
+
+              **NOTE**: If you use this parameter, you cannot also use `refNumberContains`,
+              `refNumberStartsWith`, or `refNumberEndsWith`.
 
           transaction_date_from: Filter for purchase orders whose `date` field is on or after this date, in ISO
               8601 format (YYYY-MM-DD).

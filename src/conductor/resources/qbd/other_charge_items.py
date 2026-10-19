@@ -399,6 +399,9 @@ class OtherChargeItemsResource(SyncAPIResource):
           name_from: Filter for other charge items whose `name` is alphabetically greater than or
               equal to this value.
 
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
+
           name_starts_with: Filter for other charge items whose `name` starts with this substring,
               case-insensitive.
 
@@ -407,6 +410,9 @@ class OtherChargeItemsResource(SyncAPIResource):
 
           name_to: Filter for other charge items whose `name` is alphabetically less than or equal
               to this value.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
 
           status: Filter for other charge items that are active, inactive, or both.
 
@@ -847,6 +853,9 @@ class AsyncOtherChargeItemsResource(AsyncAPIResource):
           name_from: Filter for other charge items whose `name` is alphabetically greater than or
               equal to this value.
 
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
+
           name_starts_with: Filter for other charge items whose `name` starts with this substring,
               case-insensitive.
 
@@ -855,6 +864,9 @@ class AsyncOtherChargeItemsResource(AsyncAPIResource):
 
           name_to: Filter for other charge items whose `name` is alphabetically less than or equal
               to this value.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
 
           status: Filter for other charge items that are active, inactive, or both.
 

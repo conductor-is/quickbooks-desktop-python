@@ -210,6 +210,9 @@ class ShippingMethodsResource(SyncAPIResource):
           name_from: Filter for shipping methods whose `name` is alphabetically greater than or equal
               to this value.
 
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
+
           names: Filter for specific shipping methods by their name(s), case-insensitive. Like
               `id`, `name` is a unique identifier for a shipping method.
 
@@ -227,6 +230,9 @@ class ShippingMethodsResource(SyncAPIResource):
 
           name_to: Filter for shipping methods whose `name` is alphabetically less than or equal to
               this value.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
 
           status: Filter for shipping methods that are active, inactive, or both.
 
@@ -475,6 +481,9 @@ class AsyncShippingMethodsResource(AsyncAPIResource):
           name_from: Filter for shipping methods whose `name` is alphabetically greater than or equal
               to this value.
 
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
+
           names: Filter for specific shipping methods by their name(s), case-insensitive. Like
               `id`, `name` is a unique identifier for a shipping method.
 
@@ -492,6 +501,9 @@ class AsyncShippingMethodsResource(AsyncAPIResource):
 
           name_to: Filter for shipping methods whose `name` is alphabetically less than or equal to
               this value.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
 
           status: Filter for shipping methods that are active, inactive, or both.
 

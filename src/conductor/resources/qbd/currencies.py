@@ -312,6 +312,9 @@ class CurrenciesResource(SyncAPIResource):
           name_from: Filter for currencies whose `name` is alphabetically greater than or equal to
               this value.
 
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
+
           names: Filter for specific currencies by their name(s), case-insensitive. Like `id`,
               `name` is a unique identifier for a currency.
 
@@ -328,6 +331,9 @@ class CurrenciesResource(SyncAPIResource):
 
           name_to: Filter for currencies whose `name` is alphabetically less than or equal to this
               value.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
 
           status: Filter for currencies that are active, inactive, or both.
 
@@ -678,6 +684,9 @@ class AsyncCurrenciesResource(AsyncAPIResource):
           name_from: Filter for currencies whose `name` is alphabetically greater than or equal to
               this value.
 
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
+
           names: Filter for specific currencies by their name(s), case-insensitive. Like `id`,
               `name` is a unique identifier for a currency.
 
@@ -694,6 +703,9 @@ class AsyncCurrenciesResource(AsyncAPIResource):
 
           name_to: Filter for currencies whose `name` is alphabetically less than or equal to this
               value.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
 
           status: Filter for currencies that are active, inactive, or both.
 

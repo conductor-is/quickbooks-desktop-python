@@ -238,6 +238,9 @@ class PaymentMethodsResource(SyncAPIResource):
           name_from: Filter for payment methods whose `name` is alphabetically greater than or equal
               to this value.
 
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
+
           names: Filter for specific payment methods by their name(s), case-insensitive. Like
               `id`, `name` is a unique identifier for a payment method.
 
@@ -255,6 +258,9 @@ class PaymentMethodsResource(SyncAPIResource):
 
           name_to: Filter for payment methods whose `name` is alphabetically less than or equal to
               this value.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
 
           payment_method_type: Filter for payment methods of this type.
 
@@ -534,6 +540,9 @@ class AsyncPaymentMethodsResource(AsyncAPIResource):
           name_from: Filter for payment methods whose `name` is alphabetically greater than or equal
               to this value.
 
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
+
           names: Filter for specific payment methods by their name(s), case-insensitive. Like
               `id`, `name` is a unique identifier for a payment method.
 
@@ -551,6 +560,9 @@ class AsyncPaymentMethodsResource(AsyncAPIResource):
 
           name_to: Filter for payment methods whose `name` is alphabetically less than or equal to
               this value.
+
+              **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+              `nameStartsWith`, or `nameEndsWith`.
 
           payment_method_type: Filter for payment methods of this type.
 

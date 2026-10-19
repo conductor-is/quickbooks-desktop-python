@@ -61,6 +61,9 @@ class PaymentMethodListParams(TypedDict, total=False):
     """
     Filter for payment methods whose `name` is alphabetically greater than or equal
     to this value.
+
+    **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+    `nameStartsWith`, or `nameEndsWith`.
     """
 
     names: SequenceNotStr[str]
@@ -88,6 +91,9 @@ class PaymentMethodListParams(TypedDict, total=False):
     """
     Filter for payment methods whose `name` is alphabetically less than or equal to
     this value.
+
+    **NOTE**: If you use this parameter, you cannot also use `nameContains`,
+    `nameStartsWith`, or `nameEndsWith`.
     """
 
     payment_method_type: Annotated[
