@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.92.2](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.92.1...v1.92.2) (2026-10-19)
+
+
+### Bug Fixes
+
+* **api:** reject name and refNumber range filters mixed with match filters ([a299fef](https://github.com/conductor-is/quickbooks-desktop-python/commit/a299fef261564479ded8cb644866ac57e638623f))
+
+
+### Chores
+
+* **api:** tidy full-input access in list query param mappings ([1799b3e](https://github.com/conductor-is/quickbooks-desktop-python/commit/1799b3e5e3649c373d00734684799e9d544a2b81))
+
 ## [1.92.1](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.92.0...v1.92.1) (2026-10-15)
 
 
