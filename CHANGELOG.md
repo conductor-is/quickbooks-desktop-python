@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.92.3](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.92.2...v1.92.3) (2026-10-23)
+
+
+### Documentation
+
+* **api-ref:** explain paging by name and cursor lifetime ([d521c14](https://github.com/conductor-is/quickbooks-desktop-python/commit/d521c1430ca870872a64c8727d9834492fd3235a))
+
 ## [1.92.2](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.92.1...v1.92.2) (2026-10-19)
 
 
