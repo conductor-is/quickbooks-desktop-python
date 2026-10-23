@@ -276,6 +276,12 @@ class SubtotalItemsResource(SyncAPIResource):
               `nextCursor` value returned in the previous response to request subsequent
               results.
 
+              **IMPORTANT**: The cursor is the same value for every page, and requests that
+              send it are not idempotent: each one returns the next page. Send each request
+              within 10 seconds of the previous response. If you miss that window or a request
+              fails, start over without a cursor. To make a run resumable, see
+              [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
+
           ids: Filter for specific subtotal items by their QuickBooks-assigned unique
               identifier(s).
 
@@ -304,8 +310,14 @@ class SubtotalItemsResource(SyncAPIResource):
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameStartsWith`.
 
-          name_from: Filter for subtotal items whose `name` is alphabetically greater than or equal
-              to this value.
+          name_from: Filter for subtotal items whose `name` sorts at or after this value (inclusive),
+              compared case-insensitively in QuickBooks' sort order: punctuation first, then
+              digits, then letters.
+
+              When you set `nameFrom` or `nameTo`, QuickBooks returns subtotal items sorted by
+              `name` in that order; without either, the order is not guaranteed. To page
+              through subtotal items by name, see
+              [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains`,
               `nameStartsWith`, or `nameEndsWith`.
@@ -325,8 +337,13 @@ class SubtotalItemsResource(SyncAPIResource):
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameEndsWith`.
 
-          name_to: Filter for subtotal items whose `name` is alphabetically less than or equal to
-              this value.
+          name_to: Filter for subtotal items whose `name` sorts at or before this value
+              (inclusive), compared case-insensitively in QuickBooks' sort order: punctuation
+              first, then digits, then letters. If you also set `nameFrom`, it must not sort
+              after this value, or QuickBooks returns an error.
+
+              When you set `nameFrom` or `nameTo`, QuickBooks returns subtotal items sorted by
+              `name` in that order; without either, the order is not guaranteed.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains`,
               `nameStartsWith`, or `nameEndsWith`.
@@ -646,6 +663,12 @@ class AsyncSubtotalItemsResource(AsyncAPIResource):
               `nextCursor` value returned in the previous response to request subsequent
               results.
 
+              **IMPORTANT**: The cursor is the same value for every page, and requests that
+              send it are not idempotent: each one returns the next page. Send each request
+              within 10 seconds of the previous response. If you miss that window or a request
+              fails, start over without a cursor. To make a run resumable, see
+              [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
+
           ids: Filter for specific subtotal items by their QuickBooks-assigned unique
               identifier(s).
 
@@ -674,8 +697,14 @@ class AsyncSubtotalItemsResource(AsyncAPIResource):
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameStartsWith`.
 
-          name_from: Filter for subtotal items whose `name` is alphabetically greater than or equal
-              to this value.
+          name_from: Filter for subtotal items whose `name` sorts at or after this value (inclusive),
+              compared case-insensitively in QuickBooks' sort order: punctuation first, then
+              digits, then letters.
+
+              When you set `nameFrom` or `nameTo`, QuickBooks returns subtotal items sorted by
+              `name` in that order; without either, the order is not guaranteed. To page
+              through subtotal items by name, see
+              [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains`,
               `nameStartsWith`, or `nameEndsWith`.
@@ -695,8 +724,13 @@ class AsyncSubtotalItemsResource(AsyncAPIResource):
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameEndsWith`.
 
-          name_to: Filter for subtotal items whose `name` is alphabetically less than or equal to
-              this value.
+          name_to: Filter for subtotal items whose `name` sorts at or before this value
+              (inclusive), compared case-insensitively in QuickBooks' sort order: punctuation
+              first, then digits, then letters. If you also set `nameFrom`, it must not sort
+              after this value, or QuickBooks returns an error.
+
+              When you set `nameFrom` or `nameTo`, QuickBooks returns subtotal items sorted by
+              `name` in that order; without either, the order is not guaranteed.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains`,
               `nameStartsWith`, or `nameEndsWith`.

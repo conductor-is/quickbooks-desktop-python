@@ -303,13 +303,10 @@ class PriceLevelsResource(SyncAPIResource):
           limit: The maximum number of objects to return.
 
               **IMPORTANT**: QuickBooks Desktop does not support cursor-based pagination for
-              price levels. This parameter will limit the response size, but you cannot fetch
-              subsequent results using a cursor. For pagination, use the name-range parameters
-              instead (e.g., `nameFrom=A&nameTo=B`).
+              price levels, so this parameter only limits the response size.
 
               When this parameter is omitted, the endpoint returns all price levels without
-              limit, unlike paginated endpoints which default to 150 records. This is
-              acceptable because price levels typically have low record counts.
+              limit, unlike paginated endpoints which default to 150 records.
 
           name_contains: Filter for price levels whose `name` contains this substring, case-insensitive.
 
@@ -321,8 +318,14 @@ class PriceLevelsResource(SyncAPIResource):
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameStartsWith`.
 
-          name_from: Filter for price levels whose `name` is alphabetically greater than or equal to
-              this value.
+          name_from: Filter for price levels whose `name` sorts at or after this value (inclusive),
+              compared case-insensitively in QuickBooks' sort order: punctuation first, then
+              digits, then letters.
+
+              **IMPORTANT**: Even when you set `nameFrom` or `nameTo`, QuickBooks does not
+              return price levels sorted by name: it returns fixed-percentage price levels
+              first, then per-item price levels, each group sorted by name. Do not use these
+              parameters to page through price levels.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains`,
               `nameStartsWith`, or `nameEndsWith`.
@@ -342,8 +345,15 @@ class PriceLevelsResource(SyncAPIResource):
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameEndsWith`.
 
-          name_to: Filter for price levels whose `name` is alphabetically less than or equal to
-              this value.
+          name_to: Filter for price levels whose `name` sorts at or before this value (inclusive),
+              compared case-insensitively in QuickBooks' sort order: punctuation first, then
+              digits, then letters. If you also set `nameFrom`, it must not sort after this
+              value, or QuickBooks returns an error.
+
+              **IMPORTANT**: Even when you set `nameFrom` or `nameTo`, QuickBooks does not
+              return price levels sorted by name: it returns fixed-percentage price levels
+              first, then per-item price levels, each group sorted by name. Do not use these
+              parameters to page through price levels.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains`,
               `nameStartsWith`, or `nameEndsWith`.
@@ -689,13 +699,10 @@ class AsyncPriceLevelsResource(AsyncAPIResource):
           limit: The maximum number of objects to return.
 
               **IMPORTANT**: QuickBooks Desktop does not support cursor-based pagination for
-              price levels. This parameter will limit the response size, but you cannot fetch
-              subsequent results using a cursor. For pagination, use the name-range parameters
-              instead (e.g., `nameFrom=A&nameTo=B`).
+              price levels, so this parameter only limits the response size.
 
               When this parameter is omitted, the endpoint returns all price levels without
-              limit, unlike paginated endpoints which default to 150 records. This is
-              acceptable because price levels typically have low record counts.
+              limit, unlike paginated endpoints which default to 150 records.
 
           name_contains: Filter for price levels whose `name` contains this substring, case-insensitive.
 
@@ -707,8 +714,14 @@ class AsyncPriceLevelsResource(AsyncAPIResource):
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameStartsWith`.
 
-          name_from: Filter for price levels whose `name` is alphabetically greater than or equal to
-              this value.
+          name_from: Filter for price levels whose `name` sorts at or after this value (inclusive),
+              compared case-insensitively in QuickBooks' sort order: punctuation first, then
+              digits, then letters.
+
+              **IMPORTANT**: Even when you set `nameFrom` or `nameTo`, QuickBooks does not
+              return price levels sorted by name: it returns fixed-percentage price levels
+              first, then per-item price levels, each group sorted by name. Do not use these
+              parameters to page through price levels.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains`,
               `nameStartsWith`, or `nameEndsWith`.
@@ -728,8 +741,15 @@ class AsyncPriceLevelsResource(AsyncAPIResource):
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameEndsWith`.
 
-          name_to: Filter for price levels whose `name` is alphabetically less than or equal to
-              this value.
+          name_to: Filter for price levels whose `name` sorts at or before this value (inclusive),
+              compared case-insensitively in QuickBooks' sort order: punctuation first, then
+              digits, then letters. If you also set `nameFrom`, it must not sort after this
+              value, or QuickBooks returns an error.
+
+              **IMPORTANT**: Even when you set `nameFrom` or `nameTo`, QuickBooks does not
+              return price levels sorted by name: it returns fixed-percentage price levels
+              first, then per-item price levels, each group sorted by name. Do not use these
+              parameters to page through price levels.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains`,
               `nameStartsWith`, or `nameEndsWith`.

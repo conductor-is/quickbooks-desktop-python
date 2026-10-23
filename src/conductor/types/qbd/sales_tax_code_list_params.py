@@ -30,13 +30,12 @@ class SalesTaxCodeListParams(TypedDict, total=False):
     """The maximum number of objects to return.
 
     **IMPORTANT**: QuickBooks Desktop does not support cursor-based pagination for
-    sales-tax codes. This parameter will limit the response size, but you cannot
-    fetch subsequent results using a cursor. For pagination, use the name-range
-    parameters instead (e.g., `nameFrom=A&nameTo=B`).
+    sales-tax codes, so this parameter only limits the response size. To page
+    through sales-tax codes by name, see
+    [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
 
     When this parameter is omitted, the endpoint returns all sales-tax codes without
-    limit, unlike paginated endpoints which default to 150 records. This is
-    acceptable because sales-tax codes typically have low record counts.
+    limit, unlike paginated endpoints which default to 150 records.
     """
 
     name_contains: Annotated[str, PropertyInfo(alias="nameContains")]
@@ -59,8 +58,14 @@ class SalesTaxCodeListParams(TypedDict, total=False):
 
     name_from: Annotated[str, PropertyInfo(alias="nameFrom")]
     """
-    Filter for sales-tax codes whose `name` is alphabetically greater than or equal
-    to this value.
+    Filter for sales-tax codes whose `name` sorts at or after this value
+    (inclusive), compared case-insensitively in QuickBooks' sort order: punctuation
+    first, then digits, then letters.
+
+    When you set `nameFrom` or `nameTo`, QuickBooks returns sales-tax codes sorted
+    by `name` in that order; without either, the order is not guaranteed. To page
+    through sales-tax codes by name, see
+    [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
 
     **NOTE**: If you use this parameter, you cannot also use `nameContains`,
     `nameStartsWith`, or `nameEndsWith`.
@@ -89,8 +94,13 @@ class SalesTaxCodeListParams(TypedDict, total=False):
 
     name_to: Annotated[str, PropertyInfo(alias="nameTo")]
     """
-    Filter for sales-tax codes whose `name` is alphabetically less than or equal to
-    this value.
+    Filter for sales-tax codes whose `name` sorts at or before this value
+    (inclusive), compared case-insensitively in QuickBooks' sort order: punctuation
+    first, then digits, then letters. If you also set `nameFrom`, it must not sort
+    after this value, or QuickBooks returns an error.
+
+    When you set `nameFrom` or `nameTo`, QuickBooks returns sales-tax codes sorted
+    by `name` in that order; without either, the order is not guaranteed.
 
     **NOTE**: If you use this parameter, you cannot also use `nameContains`,
     `nameStartsWith`, or `nameEndsWith`.

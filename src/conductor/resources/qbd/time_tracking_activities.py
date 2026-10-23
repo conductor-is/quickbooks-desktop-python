@@ -369,6 +369,11 @@ class TimeTrackingActivitiesResource(SyncAPIResource):
               `nextCursor` value returned in the previous response to request subsequent
               results.
 
+              **IMPORTANT**: The cursor is the same value for every page, and requests that
+              send it are not idempotent: each one returns the next page. Send each request
+              within 10 seconds of the previous response. If you miss that window or a request
+              fails, start over without a cursor.
+
           entity_ids: Filter for time tracking activities tracking the time of these employees,
               vendors, or persons on QuickBooks's "Other Names" list.
 
@@ -839,6 +844,11 @@ class AsyncTimeTrackingActivitiesResource(AsyncAPIResource):
               `limit` parameter. Do not include this parameter on the first call. Use the
               `nextCursor` value returned in the previous response to request subsequent
               results.
+
+              **IMPORTANT**: The cursor is the same value for every page, and requests that
+              send it are not idempotent: each one returns the next page. Send each request
+              within 10 seconds of the previous response. If you miss that window or a request
+              fails, start over without a cursor.
 
           entity_ids: Filter for time tracking activities tracking the time of these employees,
               vendors, or persons on QuickBooks's "Other Names" list.

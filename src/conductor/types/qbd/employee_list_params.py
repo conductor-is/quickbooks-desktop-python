@@ -28,13 +28,12 @@ class EmployeeListParams(TypedDict, total=False):
     """The maximum number of objects to return.
 
     **IMPORTANT**: QuickBooks Desktop does not support cursor-based pagination for
-    employees. This parameter will limit the response size, but you cannot fetch
-    subsequent results using a cursor. For pagination, use the name-range parameters
-    instead (e.g., `nameFrom=A&nameTo=B`).
+    employees, so this parameter only limits the response size. To page through
+    employees by name, see
+    [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
 
     When this parameter is omitted, the endpoint returns all employees without
-    limit, unlike paginated endpoints which default to 150 records. This is
-    acceptable because employees typically have low record counts.
+    limit, unlike paginated endpoints which default to 150 records.
     """
 
     name_contains: Annotated[str, PropertyInfo(alias="nameContains")]
@@ -53,8 +52,14 @@ class EmployeeListParams(TypedDict, total=False):
 
     name_from: Annotated[str, PropertyInfo(alias="nameFrom")]
     """
-    Filter for employees whose `name` is alphabetically greater than or equal to
-    this value.
+    Filter for employees whose `name` sorts at or after this value (inclusive),
+    compared case-insensitively in QuickBooks' sort order: punctuation first, then
+    digits, then letters.
+
+    When you set `nameFrom` or `nameTo`, QuickBooks returns employees sorted by
+    `name` in that order; without either, the order is not guaranteed. To page
+    through employees by name, see
+    [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
 
     **NOTE**: If you use this parameter, you cannot also use `nameContains`,
     `nameStartsWith`, or `nameEndsWith`.
@@ -81,8 +86,13 @@ class EmployeeListParams(TypedDict, total=False):
 
     name_to: Annotated[str, PropertyInfo(alias="nameTo")]
     """
-    Filter for employees whose `name` is alphabetically less than or equal to this
-    value.
+    Filter for employees whose `name` sorts at or before this value (inclusive),
+    compared case-insensitively in QuickBooks' sort order: punctuation first, then
+    digits, then letters. If you also set `nameFrom`, it must not sort after this
+    value, or QuickBooks returns an error.
+
+    When you set `nameFrom` or `nameTo`, QuickBooks returns employees sorted by
+    `name` in that order; without either, the order is not guaranteed.
 
     **NOTE**: If you use this parameter, you cannot also use `nameContains`,
     `nameStartsWith`, or `nameEndsWith`.

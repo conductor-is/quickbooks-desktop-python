@@ -227,13 +227,10 @@ class UnitOfMeasureSetsResource(SyncAPIResource):
           limit: The maximum number of objects to return.
 
               **IMPORTANT**: QuickBooks Desktop does not support cursor-based pagination for
-              unit-of-measure sets. This parameter will limit the response size, but you
-              cannot fetch subsequent results using a cursor. For pagination, use the
-              name-range parameters instead (e.g., `nameFrom=A&nameTo=B`).
+              unit-of-measure sets, so this parameter only limits the response size.
 
               When this parameter is omitted, the endpoint returns all unit-of-measure sets
-              without limit, unlike paginated endpoints which default to 150 records. This is
-              acceptable because unit-of-measure sets typically have low record counts.
+              without limit, unlike paginated endpoints which default to 150 records.
 
           name_contains: Filter for unit-of-measure sets whose `name` contains this substring,
               case-insensitive.
@@ -247,8 +244,9 @@ class UnitOfMeasureSetsResource(SyncAPIResource):
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameStartsWith`.
 
-          name_from: Filter for unit-of-measure sets whose `name` is alphabetically greater than or
-              equal to this value.
+          name_from: Filter for unit-of-measure sets whose `name` sorts at or after this value
+              (inclusive), compared case-insensitively in QuickBooks' sort order: punctuation
+              first, then digits, then letters.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains`,
               `nameStartsWith`, or `nameEndsWith`.
@@ -268,8 +266,10 @@ class UnitOfMeasureSetsResource(SyncAPIResource):
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameEndsWith`.
 
-          name_to: Filter for unit-of-measure sets whose `name` is alphabetically less than or
-              equal to this value.
+          name_to: Filter for unit-of-measure sets whose `name` sorts at or before this value
+              (inclusive), compared case-insensitively in QuickBooks' sort order: punctuation
+              first, then digits, then letters. If you also set `nameFrom`, it must not sort
+              after this value, or QuickBooks returns an error.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains`,
               `nameStartsWith`, or `nameEndsWith`.
@@ -537,13 +537,10 @@ class AsyncUnitOfMeasureSetsResource(AsyncAPIResource):
           limit: The maximum number of objects to return.
 
               **IMPORTANT**: QuickBooks Desktop does not support cursor-based pagination for
-              unit-of-measure sets. This parameter will limit the response size, but you
-              cannot fetch subsequent results using a cursor. For pagination, use the
-              name-range parameters instead (e.g., `nameFrom=A&nameTo=B`).
+              unit-of-measure sets, so this parameter only limits the response size.
 
               When this parameter is omitted, the endpoint returns all unit-of-measure sets
-              without limit, unlike paginated endpoints which default to 150 records. This is
-              acceptable because unit-of-measure sets typically have low record counts.
+              without limit, unlike paginated endpoints which default to 150 records.
 
           name_contains: Filter for unit-of-measure sets whose `name` contains this substring,
               case-insensitive.
@@ -557,8 +554,9 @@ class AsyncUnitOfMeasureSetsResource(AsyncAPIResource):
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameStartsWith`.
 
-          name_from: Filter for unit-of-measure sets whose `name` is alphabetically greater than or
-              equal to this value.
+          name_from: Filter for unit-of-measure sets whose `name` sorts at or after this value
+              (inclusive), compared case-insensitively in QuickBooks' sort order: punctuation
+              first, then digits, then letters.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains`,
               `nameStartsWith`, or `nameEndsWith`.
@@ -578,8 +576,10 @@ class AsyncUnitOfMeasureSetsResource(AsyncAPIResource):
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameEndsWith`.
 
-          name_to: Filter for unit-of-measure sets whose `name` is alphabetically less than or
-              equal to this value.
+          name_to: Filter for unit-of-measure sets whose `name` sorts at or before this value
+              (inclusive), compared case-insensitively in QuickBooks' sort order: punctuation
+              first, then digits, then letters. If you also set `nameFrom`, it must not sort
+              after this value, or QuickBooks returns an error.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains`,
               `nameStartsWith`, or `nameEndsWith`.

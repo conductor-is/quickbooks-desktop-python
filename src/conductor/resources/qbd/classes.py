@@ -274,13 +274,12 @@ class ClassesResource(SyncAPIResource):
           limit: The maximum number of objects to return.
 
               **IMPORTANT**: QuickBooks Desktop does not support cursor-based pagination for
-              classes. This parameter will limit the response size, but you cannot fetch
-              subsequent results using a cursor. For pagination, use the name-range parameters
-              instead (e.g., `nameFrom=A&nameTo=B`).
+              classes, so this parameter only limits the response size. To page through
+              classes by name, see
+              [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
 
               When this parameter is omitted, the endpoint returns all classes without limit,
-              unlike paginated endpoints which default to 150 records. This is acceptable
-              because classes typically have low record counts.
+              unlike paginated endpoints which default to 150 records.
 
           name_contains: Filter for classes whose `name` contains this substring, case-insensitive.
 
@@ -292,8 +291,14 @@ class ClassesResource(SyncAPIResource):
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameStartsWith`.
 
-          name_from: Filter for classes whose `name` is alphabetically greater than or equal to this
-              value.
+          name_from: Filter for classes whose `fullName` sorts at or after this value (inclusive),
+              compared case-insensitively in QuickBooks' sort order: punctuation first, then
+              digits, then letters.
+
+              When you set `nameFrom` or `nameTo`, QuickBooks returns classes sorted by
+              `fullName` in that order; without either, the order is not guaranteed. To page
+              through classes by name, see
+              [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains`,
               `nameStartsWith`, or `nameEndsWith`.
@@ -303,8 +308,13 @@ class ClassesResource(SyncAPIResource):
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameEndsWith`.
 
-          name_to: Filter for classes whose `name` is alphabetically less than or equal to this
-              value.
+          name_to: Filter for classes whose `fullName` sorts at or before this value (inclusive),
+              compared case-insensitively in QuickBooks' sort order: punctuation first, then
+              digits, then letters. If you also set `nameFrom`, it must not sort after this
+              value, or QuickBooks returns an error.
+
+              When you set `nameFrom` or `nameTo`, QuickBooks returns classes sorted by
+              `fullName` in that order; without either, the order is not guaranteed.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains`,
               `nameStartsWith`, or `nameEndsWith`.
@@ -620,13 +630,12 @@ class AsyncClassesResource(AsyncAPIResource):
           limit: The maximum number of objects to return.
 
               **IMPORTANT**: QuickBooks Desktop does not support cursor-based pagination for
-              classes. This parameter will limit the response size, but you cannot fetch
-              subsequent results using a cursor. For pagination, use the name-range parameters
-              instead (e.g., `nameFrom=A&nameTo=B`).
+              classes, so this parameter only limits the response size. To page through
+              classes by name, see
+              [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
 
               When this parameter is omitted, the endpoint returns all classes without limit,
-              unlike paginated endpoints which default to 150 records. This is acceptable
-              because classes typically have low record counts.
+              unlike paginated endpoints which default to 150 records.
 
           name_contains: Filter for classes whose `name` contains this substring, case-insensitive.
 
@@ -638,8 +647,14 @@ class AsyncClassesResource(AsyncAPIResource):
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameStartsWith`.
 
-          name_from: Filter for classes whose `name` is alphabetically greater than or equal to this
-              value.
+          name_from: Filter for classes whose `fullName` sorts at or after this value (inclusive),
+              compared case-insensitively in QuickBooks' sort order: punctuation first, then
+              digits, then letters.
+
+              When you set `nameFrom` or `nameTo`, QuickBooks returns classes sorted by
+              `fullName` in that order; without either, the order is not guaranteed. To page
+              through classes by name, see
+              [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains`,
               `nameStartsWith`, or `nameEndsWith`.
@@ -649,8 +664,13 @@ class AsyncClassesResource(AsyncAPIResource):
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameEndsWith`.
 
-          name_to: Filter for classes whose `name` is alphabetically less than or equal to this
-              value.
+          name_to: Filter for classes whose `fullName` sorts at or before this value (inclusive),
+              compared case-insensitively in QuickBooks' sort order: punctuation first, then
+              digits, then letters. If you also set `nameFrom`, it must not sort after this
+              value, or QuickBooks returns an error.
+
+              When you set `nameFrom` or `nameTo`, QuickBooks returns classes sorted by
+              `fullName` in that order; without either, the order is not guaranteed.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains`,
               `nameStartsWith`, or `nameEndsWith`.

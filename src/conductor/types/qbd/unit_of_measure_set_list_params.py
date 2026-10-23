@@ -30,13 +30,10 @@ class UnitOfMeasureSetListParams(TypedDict, total=False):
     """The maximum number of objects to return.
 
     **IMPORTANT**: QuickBooks Desktop does not support cursor-based pagination for
-    unit-of-measure sets. This parameter will limit the response size, but you
-    cannot fetch subsequent results using a cursor. For pagination, use the
-    name-range parameters instead (e.g., `nameFrom=A&nameTo=B`).
+    unit-of-measure sets, so this parameter only limits the response size.
 
     When this parameter is omitted, the endpoint returns all unit-of-measure sets
-    without limit, unlike paginated endpoints which default to 150 records. This is
-    acceptable because unit-of-measure sets typically have low record counts.
+    without limit, unlike paginated endpoints which default to 150 records.
     """
 
     name_contains: Annotated[str, PropertyInfo(alias="nameContains")]
@@ -59,8 +56,9 @@ class UnitOfMeasureSetListParams(TypedDict, total=False):
 
     name_from: Annotated[str, PropertyInfo(alias="nameFrom")]
     """
-    Filter for unit-of-measure sets whose `name` is alphabetically greater than or
-    equal to this value.
+    Filter for unit-of-measure sets whose `name` sorts at or after this value
+    (inclusive), compared case-insensitively in QuickBooks' sort order: punctuation
+    first, then digits, then letters.
 
     **NOTE**: If you use this parameter, you cannot also use `nameContains`,
     `nameStartsWith`, or `nameEndsWith`.
@@ -89,8 +87,10 @@ class UnitOfMeasureSetListParams(TypedDict, total=False):
 
     name_to: Annotated[str, PropertyInfo(alias="nameTo")]
     """
-    Filter for unit-of-measure sets whose `name` is alphabetically less than or
-    equal to this value.
+    Filter for unit-of-measure sets whose `name` sorts at or before this value
+    (inclusive), compared case-insensitively in QuickBooks' sort order: punctuation
+    first, then digits, then letters. If you also set `nameFrom`, it must not sort
+    after this value, or QuickBooks returns an error.
 
     **NOTE**: If you use this parameter, you cannot also use `nameContains`,
     `nameStartsWith`, or `nameEndsWith`.

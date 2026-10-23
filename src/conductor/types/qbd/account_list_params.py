@@ -69,13 +69,10 @@ class AccountListParams(TypedDict, total=False):
     """The maximum number of objects to return.
 
     **IMPORTANT**: QuickBooks Desktop does not support cursor-based pagination for
-    accounts. This parameter will limit the response size, but you cannot fetch
-    subsequent results using a cursor. For pagination, use the name-range parameters
-    instead (e.g., `nameFrom=A&nameTo=B`).
+    accounts, so this parameter only limits the response size.
 
     When this parameter is omitted, the endpoint returns all accounts without limit,
-    unlike paginated endpoints which default to 150 records. This is acceptable
-    because accounts typically have low record counts.
+    unlike paginated endpoints which default to 150 records.
     """
 
     name_contains: Annotated[str, PropertyInfo(alias="nameContains")]
@@ -94,8 +91,13 @@ class AccountListParams(TypedDict, total=False):
 
     name_from: Annotated[str, PropertyInfo(alias="nameFrom")]
     """
-    Filter for accounts whose `name` is alphabetically greater than or equal to this
-    value.
+    Filter for accounts whose `fullName` sorts at or after this value (inclusive),
+    compared case-insensitively in QuickBooks' sort order: punctuation first, then
+    digits, then letters.
+
+    **IMPORTANT**: Even when you set `nameFrom` or `nameTo`, QuickBooks returns
+    accounts in its own internal order, not sorted by name. Do not use these
+    parameters to page through accounts.
 
     **NOTE**: If you use this parameter, you cannot also use `nameContains`,
     `nameStartsWith`, or `nameEndsWith`.
@@ -110,8 +112,14 @@ class AccountListParams(TypedDict, total=False):
 
     name_to: Annotated[str, PropertyInfo(alias="nameTo")]
     """
-    Filter for accounts whose `name` is alphabetically less than or equal to this
-    value.
+    Filter for accounts whose `fullName` sorts at or before this value (inclusive),
+    compared case-insensitively in QuickBooks' sort order: punctuation first, then
+    digits, then letters. If you also set `nameFrom`, it must not sort after this
+    value, or QuickBooks returns an error.
+
+    **IMPORTANT**: Even when you set `nameFrom` or `nameTo`, QuickBooks returns
+    accounts in its own internal order, not sorted by name. Do not use these
+    parameters to page through accounts.
 
     **NOTE**: If you use this parameter, you cannot also use `nameContains`,
     `nameStartsWith`, or `nameEndsWith`.
