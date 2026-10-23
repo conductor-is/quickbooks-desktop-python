@@ -260,13 +260,10 @@ class SalesRepresentativesResource(SyncAPIResource):
           limit: The maximum number of objects to return.
 
               **IMPORTANT**: QuickBooks Desktop does not support cursor-based pagination for
-              sales representatives. This parameter will limit the response size, but you
-              cannot fetch subsequent results using a cursor. For pagination, use the
-              name-range parameters instead (e.g., `nameFrom=A&nameTo=B`).
+              sales representatives, so this parameter only limits the response size.
 
               When this parameter is omitted, the endpoint returns all sales representatives
-              without limit, unlike paginated endpoints which default to 150 records. This is
-              acceptable because sales representatives typically have low record counts.
+              without limit, unlike paginated endpoints which default to 150 records.
 
           name_contains: Filter for sales representatives whose `name` contains this substring,
               case-insensitive.
@@ -280,8 +277,9 @@ class SalesRepresentativesResource(SyncAPIResource):
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameStartsWith`.
 
-          name_from: Filter for sales representatives whose `name` is alphabetically greater than or
-              equal to this value.
+          name_from: Filter for sales representatives whose `initial` sorts at or after this value
+              (inclusive), compared case-insensitively in QuickBooks' sort order: punctuation
+              first, then digits, then letters.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains`,
               `nameStartsWith`, or `nameEndsWith`.
@@ -301,8 +299,10 @@ class SalesRepresentativesResource(SyncAPIResource):
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameEndsWith`.
 
-          name_to: Filter for sales representatives whose `name` is alphabetically less than or
-              equal to this value.
+          name_to: Filter for sales representatives whose `initial` sorts at or before this value
+              (inclusive), compared case-insensitively in QuickBooks' sort order: punctuation
+              first, then digits, then letters. If you also set `nameFrom`, it must not sort
+              after this value, or QuickBooks returns an error.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains`,
               `nameStartsWith`, or `nameEndsWith`.
@@ -600,13 +600,10 @@ class AsyncSalesRepresentativesResource(AsyncAPIResource):
           limit: The maximum number of objects to return.
 
               **IMPORTANT**: QuickBooks Desktop does not support cursor-based pagination for
-              sales representatives. This parameter will limit the response size, but you
-              cannot fetch subsequent results using a cursor. For pagination, use the
-              name-range parameters instead (e.g., `nameFrom=A&nameTo=B`).
+              sales representatives, so this parameter only limits the response size.
 
               When this parameter is omitted, the endpoint returns all sales representatives
-              without limit, unlike paginated endpoints which default to 150 records. This is
-              acceptable because sales representatives typically have low record counts.
+              without limit, unlike paginated endpoints which default to 150 records.
 
           name_contains: Filter for sales representatives whose `name` contains this substring,
               case-insensitive.
@@ -620,8 +617,9 @@ class AsyncSalesRepresentativesResource(AsyncAPIResource):
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameStartsWith`.
 
-          name_from: Filter for sales representatives whose `name` is alphabetically greater than or
-              equal to this value.
+          name_from: Filter for sales representatives whose `initial` sorts at or after this value
+              (inclusive), compared case-insensitively in QuickBooks' sort order: punctuation
+              first, then digits, then letters.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains`,
               `nameStartsWith`, or `nameEndsWith`.
@@ -641,8 +639,10 @@ class AsyncSalesRepresentativesResource(AsyncAPIResource):
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameEndsWith`.
 
-          name_to: Filter for sales representatives whose `name` is alphabetically less than or
-              equal to this value.
+          name_to: Filter for sales representatives whose `initial` sorts at or before this value
+              (inclusive), compared case-insensitively in QuickBooks' sort order: punctuation
+              first, then digits, then letters. If you also set `nameFrom`, it must not sort
+              after this value, or QuickBooks returns an error.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains`,
               `nameStartsWith`, or `nameEndsWith`.

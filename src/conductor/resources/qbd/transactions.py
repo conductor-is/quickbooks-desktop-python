@@ -185,6 +185,11 @@ class TransactionsResource(SyncAPIResource):
               `nextCursor` value returned in the previous response to request subsequent
               results.
 
+              **IMPORTANT**: The cursor is the same value for every page, and requests that
+              send it are not idempotent: each one returns the next page. Send each request
+              within 10 seconds of the previous response. If you miss that window or a request
+              fails, start over without a cursor.
+
           detail_level: Specify whether to return all matching transaction and transaction-line objects
               (`all`), only transaction objects (`transactions_without_lines`, the default),
               or only transaction-line objects (`transaction_lines_only`.
@@ -517,6 +522,11 @@ class AsyncTransactionsResource(AsyncAPIResource):
               `limit` parameter. Do not include this parameter on the first call. Use the
               `nextCursor` value returned in the previous response to request subsequent
               results.
+
+              **IMPORTANT**: The cursor is the same value for every page, and requests that
+              send it are not idempotent: each one returns the next page. Send each request
+              within 10 seconds of the previous response. If you miss that window or a request
+              fails, start over without a cursor.
 
           detail_level: Specify whether to return all matching transaction and transaction-line objects
               (`all`), only transaction objects (`transactions_without_lines`, the default),

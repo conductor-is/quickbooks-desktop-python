@@ -319,8 +319,9 @@ class InventorySitesResource(SyncAPIResource):
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameStartsWith`.
 
-          name_from: Filter for inventory sites whose `name` is alphabetically greater than or equal
-              to this value.
+          name_from: Filter for inventory sites whose `name` sorts at or after this value
+              (inclusive), compared case-insensitively in QuickBooks' sort order: punctuation
+              first, then digits, then letters.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains`,
               `nameStartsWith`, or `nameEndsWith`.
@@ -340,8 +341,10 @@ class InventorySitesResource(SyncAPIResource):
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameEndsWith`.
 
-          name_to: Filter for inventory sites whose `name` is alphabetically less than or equal to
-              this value.
+          name_to: Filter for inventory sites whose `name` sorts at or before this value
+              (inclusive), compared case-insensitively in QuickBooks' sort order: punctuation
+              first, then digits, then letters. If you also set `nameFrom`, it must not sort
+              after this value, or QuickBooks returns an error.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains`,
               `nameStartsWith`, or `nameEndsWith`.
@@ -701,8 +704,9 @@ class AsyncInventorySitesResource(AsyncAPIResource):
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameStartsWith`.
 
-          name_from: Filter for inventory sites whose `name` is alphabetically greater than or equal
-              to this value.
+          name_from: Filter for inventory sites whose `name` sorts at or after this value
+              (inclusive), compared case-insensitively in QuickBooks' sort order: punctuation
+              first, then digits, then letters.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains`,
               `nameStartsWith`, or `nameEndsWith`.
@@ -722,8 +726,10 @@ class AsyncInventorySitesResource(AsyncAPIResource):
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameEndsWith`.
 
-          name_to: Filter for inventory sites whose `name` is alphabetically less than or equal to
-              this value.
+          name_to: Filter for inventory sites whose `name` sorts at or before this value
+              (inclusive), compared case-insensitively in QuickBooks' sort order: punctuation
+              first, then digits, then letters. If you also set `nameFrom`, it must not sort
+              after this value, or QuickBooks returns an error.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains`,
               `nameStartsWith`, or `nameEndsWith`.

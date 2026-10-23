@@ -212,13 +212,12 @@ class DateDrivenTermsResource(SyncAPIResource):
           limit: The maximum number of objects to return.
 
               **IMPORTANT**: QuickBooks Desktop does not support cursor-based pagination for
-              date-driven terms. This parameter will limit the response size, but you cannot
-              fetch subsequent results using a cursor. For pagination, use the name-range
-              parameters instead (e.g., `nameFrom=A&nameTo=B`).
+              date-driven terms, so this parameter only limits the response size. To page
+              through date-driven terms by name, see
+              [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
 
               When this parameter is omitted, the endpoint returns all date-driven terms
-              without limit, unlike paginated endpoints which default to 150 records. This is
-              acceptable because date-driven terms typically have low record counts.
+              without limit, unlike paginated endpoints which default to 150 records.
 
           name_contains: Filter for date-driven terms whose `name` contains this substring,
               case-insensitive.
@@ -232,8 +231,14 @@ class DateDrivenTermsResource(SyncAPIResource):
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameStartsWith`.
 
-          name_from: Filter for date-driven terms whose `name` is alphabetically greater than or
-              equal to this value.
+          name_from: Filter for date-driven terms whose `name` sorts at or after this value
+              (inclusive), compared case-insensitively in QuickBooks' sort order: punctuation
+              first, then digits, then letters.
+
+              When you set `nameFrom` or `nameTo`, QuickBooks returns date-driven terms sorted
+              by `name` in that order; without either, the order is not guaranteed. To page
+              through date-driven terms by name, see
+              [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains`,
               `nameStartsWith`, or `nameEndsWith`.
@@ -253,8 +258,13 @@ class DateDrivenTermsResource(SyncAPIResource):
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameEndsWith`.
 
-          name_to: Filter for date-driven terms whose `name` is alphabetically less than or equal
-              to this value.
+          name_to: Filter for date-driven terms whose `name` sorts at or before this value
+              (inclusive), compared case-insensitively in QuickBooks' sort order: punctuation
+              first, then digits, then letters. If you also set `nameFrom`, it must not sort
+              after this value, or QuickBooks returns an error.
+
+              When you set `nameFrom` or `nameTo`, QuickBooks returns date-driven terms sorted
+              by `name` in that order; without either, the order is not guaranteed.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains`,
               `nameStartsWith`, or `nameEndsWith`.
@@ -508,13 +518,12 @@ class AsyncDateDrivenTermsResource(AsyncAPIResource):
           limit: The maximum number of objects to return.
 
               **IMPORTANT**: QuickBooks Desktop does not support cursor-based pagination for
-              date-driven terms. This parameter will limit the response size, but you cannot
-              fetch subsequent results using a cursor. For pagination, use the name-range
-              parameters instead (e.g., `nameFrom=A&nameTo=B`).
+              date-driven terms, so this parameter only limits the response size. To page
+              through date-driven terms by name, see
+              [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
 
               When this parameter is omitted, the endpoint returns all date-driven terms
-              without limit, unlike paginated endpoints which default to 150 records. This is
-              acceptable because date-driven terms typically have low record counts.
+              without limit, unlike paginated endpoints which default to 150 records.
 
           name_contains: Filter for date-driven terms whose `name` contains this substring,
               case-insensitive.
@@ -528,8 +537,14 @@ class AsyncDateDrivenTermsResource(AsyncAPIResource):
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameStartsWith`.
 
-          name_from: Filter for date-driven terms whose `name` is alphabetically greater than or
-              equal to this value.
+          name_from: Filter for date-driven terms whose `name` sorts at or after this value
+              (inclusive), compared case-insensitively in QuickBooks' sort order: punctuation
+              first, then digits, then letters.
+
+              When you set `nameFrom` or `nameTo`, QuickBooks returns date-driven terms sorted
+              by `name` in that order; without either, the order is not guaranteed. To page
+              through date-driven terms by name, see
+              [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains`,
               `nameStartsWith`, or `nameEndsWith`.
@@ -549,8 +564,13 @@ class AsyncDateDrivenTermsResource(AsyncAPIResource):
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameEndsWith`.
 
-          name_to: Filter for date-driven terms whose `name` is alphabetically less than or equal
-              to this value.
+          name_to: Filter for date-driven terms whose `name` sorts at or before this value
+              (inclusive), compared case-insensitively in QuickBooks' sort order: punctuation
+              first, then digits, then letters. If you also set `nameFrom`, it must not sort
+              after this value, or QuickBooks returns an error.
+
+              When you set `nameFrom` or `nameTo`, QuickBooks returns date-driven terms sorted
+              by `name` in that order; without either, the order is not guaranteed.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains`,
               `nameStartsWith`, or `nameEndsWith`.

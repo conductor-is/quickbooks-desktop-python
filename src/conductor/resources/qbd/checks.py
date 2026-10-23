@@ -461,6 +461,11 @@ class ChecksResource(SyncAPIResource):
               `nextCursor` value returned in the previous response to request subsequent
               results.
 
+              **IMPORTANT**: The cursor is the same value for every page, and requests that
+              send it are not idempotent: each one returns the next page. Send each request
+              within 10 seconds of the previous response. If you miss that window or a request
+              fails, start over without a cursor.
+
           ids: Filter for specific checks by their QuickBooks-assigned unique identifier(s).
 
               **IMPORTANT**: If you include this parameter, QuickBooks will ignore all other
@@ -1124,6 +1129,11 @@ class AsyncChecksResource(AsyncAPIResource):
               `limit` parameter. Do not include this parameter on the first call. Use the
               `nextCursor` value returned in the previous response to request subsequent
               results.
+
+              **IMPORTANT**: The cursor is the same value for every page, and requests that
+              send it are not idempotent: each one returns the next page. Send each request
+              within 10 seconds of the previous response. If you miss that window or a request
+              fails, start over without a cursor.
 
           ids: Filter for specific checks by their QuickBooks-assigned unique identifier(s).
 
