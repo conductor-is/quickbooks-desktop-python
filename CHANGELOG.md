@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.92.4](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.92.3...v1.92.4) (2026-10-27)
+
+
+### Bug Fixes
+
+* **qbd:** explain error 3270 and require a credit card account type ([3f21460](https://github.com/conductor-is/quickbooks-desktop-python/commit/3f21460a769cc4d66774334d9b6a8e3f14f5d418))
+
 ## [1.92.3](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.92.2...v1.92.3) (2026-10-23)
 
 
