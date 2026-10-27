@@ -209,7 +209,7 @@ class AppliedToTransaction(BaseModel):
 class CreditCardAccount(BaseModel):
     """The credit card account to which this bill credit card payment is being charged.
 
-    This bill credit card payment will decrease the balance of this account.
+    This bill credit card payment will increase the balance owed on this account.
     """
 
     id: Optional[str] = None
@@ -361,7 +361,7 @@ class BillCreditCardPayment(BaseModel):
     credit_card_account: CreditCardAccount = FieldInfo(alias="creditCardAccount")
     """The credit card account to which this bill credit card payment is being charged.
 
-    This bill credit card payment will decrease the balance of this account.
+    This bill credit card payment will increase the balance owed on this account.
     """
 
     currency: Optional[Currency] = None
