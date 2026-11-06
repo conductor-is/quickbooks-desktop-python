@@ -29,8 +29,11 @@ class PriceLevelListParams(TypedDict, total=False):
     request will return an error.
     """
 
-    item_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="itemIds")]
-    """Filter for price levels containing these items."""
+    item_id: Annotated[str, PropertyInfo(alias="itemId")]
+    """Filter for price levels containing this item.
+
+    QuickBooks Desktop accepts only one item for this filter.
+    """
 
     limit: int
     """The maximum number of objects to return.

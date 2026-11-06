@@ -260,7 +260,7 @@ class PriceLevelsResource(SyncAPIResource):
         conductor_end_user_id: str,
         currency_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
-        item_ids: SequenceNotStr[str] | Omit = omit,
+        item_id: str | Omit = omit,
         limit: int | Omit = omit,
         name_contains: str | Omit = omit,
         name_ends_with: str | Omit = omit,
@@ -298,7 +298,8 @@ class PriceLevelsResource(SyncAPIResource):
               **NOTE**: If any of the values you specify in this parameter are not found, the
               request will return an error.
 
-          item_ids: Filter for price levels containing these items.
+          item_id: Filter for price levels containing this item. QuickBooks Desktop accepts only
+              one item for this filter.
 
           limit: The maximum number of objects to return.
 
@@ -402,7 +403,7 @@ class PriceLevelsResource(SyncAPIResource):
                     {
                         "currency_ids": currency_ids,
                         "ids": ids,
-                        "item_ids": item_ids,
+                        "item_id": item_id,
                         "limit": limit,
                         "name_contains": name_contains,
                         "name_ends_with": name_ends_with,
@@ -656,7 +657,7 @@ class AsyncPriceLevelsResource(AsyncAPIResource):
         conductor_end_user_id: str,
         currency_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
-        item_ids: SequenceNotStr[str] | Omit = omit,
+        item_id: str | Omit = omit,
         limit: int | Omit = omit,
         name_contains: str | Omit = omit,
         name_ends_with: str | Omit = omit,
@@ -694,7 +695,8 @@ class AsyncPriceLevelsResource(AsyncAPIResource):
               **NOTE**: If any of the values you specify in this parameter are not found, the
               request will return an error.
 
-          item_ids: Filter for price levels containing these items.
+          item_id: Filter for price levels containing this item. QuickBooks Desktop accepts only
+              one item for this filter.
 
           limit: The maximum number of objects to return.
 
@@ -798,7 +800,7 @@ class AsyncPriceLevelsResource(AsyncAPIResource):
                     {
                         "currency_ids": currency_ids,
                         "ids": ids,
-                        "item_ids": item_ids,
+                        "item_id": item_id,
                         "limit": limit,
                         "name_contains": name_contains,
                         "name_ends_with": name_ends_with,
