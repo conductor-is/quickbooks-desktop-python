@@ -4,6 +4,11 @@ set -e
 
 cd "$(dirname "$0")/.."
 
+if [ "$1" == "--install" ]; then
+  npm exec --package=@stdy/cli@0.22.1 -- steady --version
+  exit 0
+fi
+
 if [[ -n "$1" && "$1" != '--'* ]]; then
   URL="$1"
   shift
