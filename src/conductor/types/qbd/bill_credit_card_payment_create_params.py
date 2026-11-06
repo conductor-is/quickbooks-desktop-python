@@ -30,7 +30,11 @@ class BillCreditCardPaymentCreateParams(TypedDict, total=False):
     credit_card_account_id: Required[Annotated[str, PropertyInfo(alias="creditCardAccountId")]]
     """The credit card account to which this bill credit card payment is being charged.
 
-    This bill credit card payment will decrease the balance of this account.
+    This bill credit card payment will increase the balance owed on this account.
+    This account's `accountType` must be `credit_card`. To pay bills from a bank
+    account, including a debit card or a card the company file tracks as a bank
+    account, use `POST /quickbooks-desktop/bill-check-payments` with `bankAccountId`
+    instead.
     """
 
     transaction_date: Required[Annotated[Union[str, date], PropertyInfo(alias="transactionDate", format="iso8601")]]
