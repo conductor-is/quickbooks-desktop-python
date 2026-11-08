@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/conductor-is/quickbooks-desktop-python/compare/v2.0.0...v2.0.1) (2026-11-08)
+
+
+### Documentation
+
+* **readme:** describe the hosted MCP server ([49372ca](https://github.com/conductor-is/quickbooks-desktop-python/commit/49372ca14b1de0edcc89bc365c4af19ca8cea01f))
+
 ## [2.0.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v1.92.3...v2.0.0) (2026-11-04)
 
 
