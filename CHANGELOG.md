@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.2](https://github.com/conductor-is/quickbooks-desktop-python/compare/v2.0.1...v2.0.2) (2026-11-12)
+
+
+### Bug Fixes
+
+* **qbd:** handle sales representatives without an entity ([cbe5e18](https://github.com/conductor-is/quickbooks-desktop-python/commit/cbe5e181f3717181172c2ffa90c0d8ca1cad953c))
+
 ## [2.0.1](https://github.com/conductor-is/quickbooks-desktop-python/compare/v2.0.0...v2.0.1) (2026-11-08)
 
 
