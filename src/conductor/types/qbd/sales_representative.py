@@ -45,7 +45,7 @@ class SalesRepresentative(BaseModel):
     timezone of the end-user's computer.
     """
 
-    entity: Entity
+    entity: Optional[Entity] = None
     """
     The sales representative's corresponding person entity in QuickBooks, stored as
     either an employee, vendor, or other-name entry.
