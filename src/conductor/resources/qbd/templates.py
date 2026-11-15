@@ -50,10 +50,11 @@ class TemplatesResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> TemplateListResponse:
-        """Returns a list of templates.
+        """
+        Returns a list of templates.
 
-        Use the `cursor` parameter to paginate through the
-        results.
+        **NOTE:** QuickBooks Desktop does not support pagination for templates; hence,
+        there is no `cursor` parameter. Users typically have few templates.
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.
@@ -107,10 +108,11 @@ class AsyncTemplatesResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> TemplateListResponse:
-        """Returns a list of templates.
+        """
+        Returns a list of templates.
 
-        Use the `cursor` parameter to paginate through the
-        results.
+        **NOTE:** QuickBooks Desktop does not support pagination for templates; hence,
+        there is no `cursor` parameter. Users typically have few templates.
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.

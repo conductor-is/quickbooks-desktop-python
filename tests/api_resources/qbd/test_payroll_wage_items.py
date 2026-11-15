@@ -9,8 +9,10 @@ import pytest
 
 from conductor import Conductor, AsyncConductor
 from tests.utils import assert_matches_type
-from conductor.types.qbd import PayrollWageItem
-from conductor.pagination import SyncCursorPage, AsyncCursorPage
+from conductor.types.qbd import (
+    PayrollWageItem,
+    PayrollWageItemListResponse,
+)
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
@@ -119,15 +121,14 @@ class TestPayrollWageItems:
         payroll_wage_item = client.qbd.payroll_wage_items.list(
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
-        assert_matches_type(SyncCursorPage[PayrollWageItem], payroll_wage_item, path=["response"])
+        assert_matches_type(PayrollWageItemListResponse, payroll_wage_item, path=["response"])
 
     @parametrize
     def test_method_list_with_all_params(self, client: Conductor) -> None:
         payroll_wage_item = client.qbd.payroll_wage_items.list(
             conductor_end_user_id="end_usr_1234567abcdefg",
-            cursor="12345678-abcd-abcd-example-1234567890ab",
             ids=["80000001-1234567890"],
-            limit=150,
+            limit=10,
             name_contains="ABC",
             name_ends_with="ABC",
             name_from="A",
@@ -138,7 +139,7 @@ class TestPayrollWageItems:
             updated_after="2025-01-01T12:34:56+00:00",
             updated_before="2025-02-01T12:34:56+00:00",
         )
-        assert_matches_type(SyncCursorPage[PayrollWageItem], payroll_wage_item, path=["response"])
+        assert_matches_type(PayrollWageItemListResponse, payroll_wage_item, path=["response"])
 
     @parametrize
     def test_raw_response_list(self, client: Conductor) -> None:
@@ -149,7 +150,7 @@ class TestPayrollWageItems:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         payroll_wage_item = response.parse()
-        assert_matches_type(SyncCursorPage[PayrollWageItem], payroll_wage_item, path=["response"])
+        assert_matches_type(PayrollWageItemListResponse, payroll_wage_item, path=["response"])
 
     @parametrize
     def test_streaming_response_list(self, client: Conductor) -> None:
@@ -160,7 +161,7 @@ class TestPayrollWageItems:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             payroll_wage_item = response.parse()
-            assert_matches_type(SyncCursorPage[PayrollWageItem], payroll_wage_item, path=["response"])
+            assert_matches_type(PayrollWageItemListResponse, payroll_wage_item, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -271,15 +272,14 @@ class TestAsyncPayrollWageItems:
         payroll_wage_item = await async_client.qbd.payroll_wage_items.list(
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
-        assert_matches_type(AsyncCursorPage[PayrollWageItem], payroll_wage_item, path=["response"])
+        assert_matches_type(PayrollWageItemListResponse, payroll_wage_item, path=["response"])
 
     @parametrize
     async def test_method_list_with_all_params(self, async_client: AsyncConductor) -> None:
         payroll_wage_item = await async_client.qbd.payroll_wage_items.list(
             conductor_end_user_id="end_usr_1234567abcdefg",
-            cursor="12345678-abcd-abcd-example-1234567890ab",
             ids=["80000001-1234567890"],
-            limit=150,
+            limit=10,
             name_contains="ABC",
             name_ends_with="ABC",
             name_from="A",
@@ -290,7 +290,7 @@ class TestAsyncPayrollWageItems:
             updated_after="2025-01-01T12:34:56+00:00",
             updated_before="2025-02-01T12:34:56+00:00",
         )
-        assert_matches_type(AsyncCursorPage[PayrollWageItem], payroll_wage_item, path=["response"])
+        assert_matches_type(PayrollWageItemListResponse, payroll_wage_item, path=["response"])
 
     @parametrize
     async def test_raw_response_list(self, async_client: AsyncConductor) -> None:
@@ -301,7 +301,7 @@ class TestAsyncPayrollWageItems:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         payroll_wage_item = await response.parse()
-        assert_matches_type(AsyncCursorPage[PayrollWageItem], payroll_wage_item, path=["response"])
+        assert_matches_type(PayrollWageItemListResponse, payroll_wage_item, path=["response"])
 
     @parametrize
     async def test_streaming_response_list(self, async_client: AsyncConductor) -> None:
@@ -312,6 +312,6 @@ class TestAsyncPayrollWageItems:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             payroll_wage_item = await response.parse()
-            assert_matches_type(AsyncCursorPage[PayrollWageItem], payroll_wage_item, path=["response"])
+            assert_matches_type(PayrollWageItemListResponse, payroll_wage_item, path=["response"])
 
         assert cast(Any, response.is_closed) is True
