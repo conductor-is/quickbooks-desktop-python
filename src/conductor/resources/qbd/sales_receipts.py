@@ -626,7 +626,7 @@ class SalesReceiptsResource(SyncAPIResource):
 
               **IMPORTANT**: The cursor is the same value for every page, and requests that
               send it are not idempotent: each one returns the next page. Send each request
-              within 10 seconds of the previous response. If you miss that window or a request
+              within 30 seconds of the previous response. If you miss that window or a request
               fails, start over without a cursor.
 
           customer_ids: Filter for sales receipts created for these customers.
@@ -1451,7 +1451,7 @@ class AsyncSalesReceiptsResource(AsyncAPIResource):
 
               **IMPORTANT**: The cursor is the same value for every page, and requests that
               send it are not idempotent: each one returns the next page. Send each request
-              within 10 seconds of the previous response. If you miss that window or a request
+              within 30 seconds of the previous response. If you miss that window or a request
               fails, start over without a cursor.
 
           customer_ids: Filter for sales receipts created for these customers.

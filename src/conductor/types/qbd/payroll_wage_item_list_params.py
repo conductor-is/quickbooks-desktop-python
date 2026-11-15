@@ -23,7 +23,7 @@ class PayrollWageItemListParams(TypedDict, total=False):
 
     **IMPORTANT**: The cursor is the same value for every page, and requests that
     send it are not idempotent: each one returns the next page. Send each request
-    within 10 seconds of the previous response. If you miss that window or a request
+    within 30 seconds of the previous response. If you miss that window or a request
     fails, start over without a cursor. To make a run resumable, see
     [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
     """
