@@ -418,7 +418,7 @@ class CreditCardCreditsResource(SyncAPIResource):
 
               **IMPORTANT**: The cursor is the same value for every page, and requests that
               send it are not idempotent: each one returns the next page. Send each request
-              within 30 seconds of the previous response. If you miss that window or a request
+              within 20 seconds of the previous response. If you miss that window or a request
               fails, start over without a cursor.
 
           ids: Filter for specific credit card credits by their QuickBooks-assigned unique
@@ -1032,7 +1032,7 @@ class AsyncCreditCardCreditsResource(AsyncAPIResource):
 
               **IMPORTANT**: The cursor is the same value for every page, and requests that
               send it are not idempotent: each one returns the next page. Send each request
-              within 30 seconds of the previous response. If you miss that window or a request
+              within 20 seconds of the previous response. If you miss that window or a request
               fails, start over without a cursor.
 
           ids: Filter for specific credit card credits by their QuickBooks-assigned unique
