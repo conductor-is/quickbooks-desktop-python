@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v2.0.2...v2.1.0) (2026-11-15)
+
+
+### Features
+
+* **qbd:** keep a pagination cursor usable for 20 seconds ([69edb8f](https://github.com/conductor-is/quickbooks-desktop-python/commit/69edb8fcc299a59480eb960e3ada96c6ee51446f))
+
 ## [2.0.2](https://github.com/conductor-is/quickbooks-desktop-python/compare/v2.0.1...v2.0.2) (2026-11-12)
 
 
