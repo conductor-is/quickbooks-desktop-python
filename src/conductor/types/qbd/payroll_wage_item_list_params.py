@@ -14,20 +14,6 @@ class PayrollWageItemListParams(TypedDict, total=False):
     conductor_end_user_id: Required[Annotated[str, PropertyInfo(alias="Conductor-End-User-Id")]]
     """The ID of the End-User to receive this request."""
 
-    cursor: str
-    """
-    The pagination token to fetch the next set of results when paginating with the
-    `limit` parameter. Do not include this parameter on the first call. Use the
-    `nextCursor` value returned in the previous response to request subsequent
-    results.
-
-    **IMPORTANT**: The cursor is the same value for every page, and requests that
-    send it are not idempotent: each one returns the next page. Send each request
-    within 20 seconds of the previous response. If you miss that window or a request
-    fails, start over without a cursor. To make a run resumable, see
-    [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
-    """
-
     ids: SequenceNotStr[str]
     """
     Filter for specific payroll wage items by their QuickBooks-assigned unique
@@ -43,11 +29,13 @@ class PayrollWageItemListParams(TypedDict, total=False):
     limit: int
     """The maximum number of objects to return.
 
-    Accepts values ranging from 1 to 150, defaults to 150. When used with
-    cursor-based pagination, this parameter controls how many results are returned
-    per page. To paginate through results, combine this with the `cursor` parameter.
-    Each response will include a `nextCursor` value that can be passed to subsequent
-    requests to retrieve the next page of results.
+    **IMPORTANT**: QuickBooks Desktop does not support cursor-based pagination for
+    payroll wage items, so this parameter only limits the response size. To page
+    through payroll wage items by name, see
+    [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
+
+    When this parameter is omitted, the endpoint returns all payroll wage items
+    without limit, unlike paginated endpoints which default to 150 records.
     """
 
     name_contains: Annotated[str, PropertyInfo(alias="nameContains")]

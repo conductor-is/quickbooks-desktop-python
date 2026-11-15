@@ -646,14 +646,14 @@ Methods:
 Types:
 
 ```python
-from conductor.types.qbd import PayrollWageItem
+from conductor.types.qbd import PayrollWageItem, PayrollWageItemListResponse
 ```
 
 Methods:
 
 - <code title="post /quickbooks-desktop/payroll-wage-items">conductor.qbd.payroll_wage_items.<a href="./src/conductor/resources/qbd/payroll_wage_items.py">create</a>(\*\*<a href="src/conductor/types/qbd/payroll_wage_item_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/payroll_wage_item.py">PayrollWageItem</a></code>
 - <code title="get /quickbooks-desktop/payroll-wage-items/{id}">conductor.qbd.payroll_wage_items.<a href="./src/conductor/resources/qbd/payroll_wage_items.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/payroll_wage_item.py">PayrollWageItem</a></code>
-- <code title="get /quickbooks-desktop/payroll-wage-items">conductor.qbd.payroll_wage_items.<a href="./src/conductor/resources/qbd/payroll_wage_items.py">list</a>(\*\*<a href="src/conductor/types/qbd/payroll_wage_item_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/payroll_wage_item.py">SyncCursorPage[PayrollWageItem]</a></code>
+- <code title="get /quickbooks-desktop/payroll-wage-items">conductor.qbd.payroll_wage_items.<a href="./src/conductor/resources/qbd/payroll_wage_items.py">list</a>(\*\*<a href="src/conductor/types/qbd/payroll_wage_item_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/payroll_wage_item_list_response.py">PayrollWageItemListResponse</a></code>
 
 ## Preferences
 

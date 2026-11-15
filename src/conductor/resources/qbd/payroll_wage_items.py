@@ -17,9 +17,9 @@ from ..._response import (
     async_to_streamed_response_wrapper,
 )
 from ...types.qbd import payroll_wage_item_list_params, payroll_wage_item_create_params
-from ...pagination import SyncCursorPage, AsyncCursorPage
-from ..._base_client import AsyncPaginator, make_request_options
+from ..._base_client import make_request_options
 from ...types.qbd.payroll_wage_item import PayrollWageItem
+from ...types.qbd.payroll_wage_item_list_response import PayrollWageItemListResponse
 
 __all__ = ["PayrollWageItemsResource", "AsyncPayrollWageItemsResource"]
 
@@ -189,7 +189,6 @@ class PayrollWageItemsResource(SyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
-        cursor: str | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         limit: int | Omit = omit,
         name_contains: str | Omit = omit,
@@ -207,25 +206,16 @@ class PayrollWageItemsResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> SyncCursorPage[PayrollWageItem]:
-        """Returns a list of payroll wage items.
+    ) -> PayrollWageItemListResponse:
+        """
+        Returns a list of payroll wage items.
 
-        Use the `cursor` parameter to paginate
-        through the results.
+        **NOTE:** QuickBooks Desktop does not support pagination for payroll wage items;
+        hence, there is no `cursor` parameter. Users typically have few payroll wage
+        items.
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.
-
-          cursor: The pagination token to fetch the next set of results when paginating with the
-              `limit` parameter. Do not include this parameter on the first call. Use the
-              `nextCursor` value returned in the previous response to request subsequent
-              results.
-
-              **IMPORTANT**: The cursor is the same value for every page, and requests that
-              send it are not idempotent: each one returns the next page. Send each request
-              within 20 seconds of the previous response. If you miss that window or a request
-              fails, start over without a cursor. To make a run resumable, see
-              [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
 
           ids: Filter for specific payroll wage items by their QuickBooks-assigned unique
               identifier(s).
@@ -236,12 +226,15 @@ class PayrollWageItemsResource(SyncAPIResource):
               **NOTE**: If any of the values you specify in this parameter are not found, the
               request will return an error.
 
-          limit: The maximum number of objects to return. Accepts values ranging from 1 to 150,
-              defaults to 150. When used with cursor-based pagination, this parameter controls
-              how many results are returned per page. To paginate through results, combine
-              this with the `cursor` parameter. Each response will include a `nextCursor`
-              value that can be passed to subsequent requests to retrieve the next page of
-              results.
+          limit: The maximum number of objects to return.
+
+              **IMPORTANT**: QuickBooks Desktop does not support cursor-based pagination for
+              payroll wage items, so this parameter only limits the response size. To page
+              through payroll wage items by name, see
+              [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
+
+              When this parameter is omitted, the endpoint returns all payroll wage items
+              without limit, unlike paginated endpoints which default to 150 records.
 
           name_contains: Filter for payroll wage items whose `name` contains this substring,
               case-insensitive.
@@ -326,9 +319,8 @@ class PayrollWageItemsResource(SyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
-        return self._get_api_list(
+        return self._get(
             "/quickbooks-desktop/payroll-wage-items",
-            page=SyncCursorPage[PayrollWageItem],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -336,7 +328,6 @@ class PayrollWageItemsResource(SyncAPIResource):
                 timeout=timeout,
                 query=maybe_transform(
                     {
-                        "cursor": cursor,
                         "ids": ids,
                         "limit": limit,
                         "name_contains": name_contains,
@@ -352,7 +343,7 @@ class PayrollWageItemsResource(SyncAPIResource):
                     payroll_wage_item_list_params.PayrollWageItemListParams,
                 ),
             ),
-            model=PayrollWageItem,
+            cast_to=PayrollWageItemListResponse,
         )
 
 
@@ -517,11 +508,10 @@ class AsyncPayrollWageItemsResource(AsyncAPIResource):
             cast_to=PayrollWageItem,
         )
 
-    def list(
+    async def list(
         self,
         *,
         conductor_end_user_id: str,
-        cursor: str | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         limit: int | Omit = omit,
         name_contains: str | Omit = omit,
@@ -539,25 +529,16 @@ class AsyncPayrollWageItemsResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> AsyncPaginator[PayrollWageItem, AsyncCursorPage[PayrollWageItem]]:
-        """Returns a list of payroll wage items.
+    ) -> PayrollWageItemListResponse:
+        """
+        Returns a list of payroll wage items.
 
-        Use the `cursor` parameter to paginate
-        through the results.
+        **NOTE:** QuickBooks Desktop does not support pagination for payroll wage items;
+        hence, there is no `cursor` parameter. Users typically have few payroll wage
+        items.
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.
-
-          cursor: The pagination token to fetch the next set of results when paginating with the
-              `limit` parameter. Do not include this parameter on the first call. Use the
-              `nextCursor` value returned in the previous response to request subsequent
-              results.
-
-              **IMPORTANT**: The cursor is the same value for every page, and requests that
-              send it are not idempotent: each one returns the next page. Send each request
-              within 20 seconds of the previous response. If you miss that window or a request
-              fails, start over without a cursor. To make a run resumable, see
-              [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
 
           ids: Filter for specific payroll wage items by their QuickBooks-assigned unique
               identifier(s).
@@ -568,12 +549,15 @@ class AsyncPayrollWageItemsResource(AsyncAPIResource):
               **NOTE**: If any of the values you specify in this parameter are not found, the
               request will return an error.
 
-          limit: The maximum number of objects to return. Accepts values ranging from 1 to 150,
-              defaults to 150. When used with cursor-based pagination, this parameter controls
-              how many results are returned per page. To paginate through results, combine
-              this with the `cursor` parameter. Each response will include a `nextCursor`
-              value that can be passed to subsequent requests to retrieve the next page of
-              results.
+          limit: The maximum number of objects to return.
+
+              **IMPORTANT**: QuickBooks Desktop does not support cursor-based pagination for
+              payroll wage items, so this parameter only limits the response size. To page
+              through payroll wage items by name, see
+              [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
+
+              When this parameter is omitted, the endpoint returns all payroll wage items
+              without limit, unlike paginated endpoints which default to 150 records.
 
           name_contains: Filter for payroll wage items whose `name` contains this substring,
               case-insensitive.
@@ -658,17 +642,15 @@ class AsyncPayrollWageItemsResource(AsyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
-        return self._get_api_list(
+        return await self._get(
             "/quickbooks-desktop/payroll-wage-items",
-            page=AsyncCursorPage[PayrollWageItem],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=maybe_transform(
+                query=await async_maybe_transform(
                     {
-                        "cursor": cursor,
                         "ids": ids,
                         "limit": limit,
                         "name_contains": name_contains,
@@ -684,7 +666,7 @@ class AsyncPayrollWageItemsResource(AsyncAPIResource):
                     payroll_wage_item_list_params.PayrollWageItemListParams,
                 ),
             ),
-            model=PayrollWageItem,
+            cast_to=PayrollWageItemListResponse,
         )
 
 
