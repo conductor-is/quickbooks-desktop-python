@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.0.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v2.1.0...v3.0.0) (2026-11-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* **api:** list payroll wage items and templates without a cursor
+
+### Bug Fixes
+
+* **api:** list payroll wage items and templates without a cursor ([e5a466b](https://github.com/conductor-is/quickbooks-desktop-python/commit/e5a466b7344e8e58f0e62408d5d2c876836c57b9))
+
 ## [2.1.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v2.0.2...v2.1.0) (2026-11-15)
 
 
