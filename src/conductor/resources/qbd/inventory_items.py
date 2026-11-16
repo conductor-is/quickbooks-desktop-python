@@ -586,9 +586,8 @@ class InventoryItemsResource(SyncAPIResource):
 
           name_starts_with: Filter for inventory items whose `fullName` starts with this substring,
               case-insensitive. To get everything under a parent, pass the parent's `fullName`
-              followed by a colon, such as "ABC:". For inventory items under a parent, the
-              start of their own `name` does not match, because their `fullName` begins with
-              their parents' names; use `nameContains` instead.
+              followed by a colon, such as "ABC:". Records under a parent are not matched by
+              the start of their own `name`; use `nameContains`.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameEndsWith`.
@@ -596,9 +595,7 @@ class InventoryItemsResource(SyncAPIResource):
           name_to: Filter for inventory items whose `fullName` sorts at or before this value
               (inclusive), compared case-insensitively in QuickBooks' sort order: punctuation
               first, then digits, then letters. If you also set `nameFrom`, it must not sort
-              after this value, or QuickBooks returns an error. To get everything under a
-              parent, use `nameStartsWith` with the parent's `fullName` followed by a colon,
-              such as "ABC:", instead of a range.
+              after this value, or QuickBooks returns an error.
 
               When you set `nameFrom` or `nameTo`, QuickBooks returns inventory items sorted
               by `fullName` in that order; without either, the order is not guaranteed.
@@ -1230,9 +1227,8 @@ class AsyncInventoryItemsResource(AsyncAPIResource):
 
           name_starts_with: Filter for inventory items whose `fullName` starts with this substring,
               case-insensitive. To get everything under a parent, pass the parent's `fullName`
-              followed by a colon, such as "ABC:". For inventory items under a parent, the
-              start of their own `name` does not match, because their `fullName` begins with
-              their parents' names; use `nameContains` instead.
+              followed by a colon, such as "ABC:". Records under a parent are not matched by
+              the start of their own `name`; use `nameContains`.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameEndsWith`.
@@ -1240,9 +1236,7 @@ class AsyncInventoryItemsResource(AsyncAPIResource):
           name_to: Filter for inventory items whose `fullName` sorts at or before this value
               (inclusive), compared case-insensitively in QuickBooks' sort order: punctuation
               first, then digits, then letters. If you also set `nameFrom`, it must not sort
-              after this value, or QuickBooks returns an error. To get everything under a
-              parent, use `nameStartsWith` with the parent's `fullName` followed by a colon,
-              such as "ABC:", instead of a range.
+              after this value, or QuickBooks returns an error.
 
               When you set `nameFrom` or `nameTo`, QuickBooks returns inventory items sorted
               by `fullName` in that order; without either, the order is not guaranteed.
