@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.1.1](https://github.com/conductor-is/quickbooks-desktop-python/compare/v3.1.0...v3.1.1) (2026-11-16)
+
+
+### Bug Fixes
+
+* **api:** describe name filters as matching the full name ([0395eaa](https://github.com/conductor-is/quickbooks-desktop-python/commit/0395eaa600e092fcae4ce2d2e2b26c506696f5eb))
+* **api:** describe name filters as matching the full name ([9c57955](https://github.com/conductor-is/quickbooks-desktop-python/commit/9c579554858f1c97c887e50915c6b7a9672419d2))
+
 ## [3.1.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v3.0.0...v3.1.0) (2026-11-16)
 
 
