@@ -38,7 +38,7 @@ class SalesRepresentativeListParams(TypedDict, total=False):
 
     name_contains: Annotated[str, PropertyInfo(alias="nameContains")]
     """
-    Filter for sales representatives whose `name` contains this substring,
+    Filter for sales representatives whose `initial` contains this substring,
     case-insensitive.
 
     **NOTE**: If you use this parameter, you cannot also use `nameStartsWith` or
@@ -47,7 +47,7 @@ class SalesRepresentativeListParams(TypedDict, total=False):
 
     name_ends_with: Annotated[str, PropertyInfo(alias="nameEndsWith")]
     """
-    Filter for sales representatives whose `name` ends with this substring,
+    Filter for sales representatives whose `initial` ends with this substring,
     case-insensitive.
 
     **NOTE**: If you use this parameter, you cannot also use `nameContains` or
@@ -78,7 +78,7 @@ class SalesRepresentativeListParams(TypedDict, total=False):
 
     name_starts_with: Annotated[str, PropertyInfo(alias="nameStartsWith")]
     """
-    Filter for sales representatives whose `name` starts with this substring,
+    Filter for sales representatives whose `initial` starts with this substring,
     case-insensitive.
 
     **NOTE**: If you use this parameter, you cannot also use `nameContains` or

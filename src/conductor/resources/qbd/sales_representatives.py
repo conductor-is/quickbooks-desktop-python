@@ -265,13 +265,13 @@ class SalesRepresentativesResource(SyncAPIResource):
               When this parameter is omitted, the endpoint returns all sales representatives
               without limit, unlike paginated endpoints which default to 150 records.
 
-          name_contains: Filter for sales representatives whose `name` contains this substring,
+          name_contains: Filter for sales representatives whose `initial` contains this substring,
               case-insensitive.
 
               **NOTE**: If you use this parameter, you cannot also use `nameStartsWith` or
               `nameEndsWith`.
 
-          name_ends_with: Filter for sales representatives whose `name` ends with this substring,
+          name_ends_with: Filter for sales representatives whose `initial` ends with this substring,
               case-insensitive.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
@@ -293,7 +293,7 @@ class SalesRepresentativesResource(SyncAPIResource):
               **NOTE**: If any of the values you specify in this parameter are not found, the
               request will return an error.
 
-          name_starts_with: Filter for sales representatives whose `name` starts with this substring,
+          name_starts_with: Filter for sales representatives whose `initial` starts with this substring,
               case-insensitive.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
@@ -605,13 +605,13 @@ class AsyncSalesRepresentativesResource(AsyncAPIResource):
               When this parameter is omitted, the endpoint returns all sales representatives
               without limit, unlike paginated endpoints which default to 150 records.
 
-          name_contains: Filter for sales representatives whose `name` contains this substring,
+          name_contains: Filter for sales representatives whose `initial` contains this substring,
               case-insensitive.
 
               **NOTE**: If you use this parameter, you cannot also use `nameStartsWith` or
               `nameEndsWith`.
 
-          name_ends_with: Filter for sales representatives whose `name` ends with this substring,
+          name_ends_with: Filter for sales representatives whose `initial` ends with this substring,
               case-insensitive.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
@@ -633,7 +633,7 @@ class AsyncSalesRepresentativesResource(AsyncAPIResource):
               **NOTE**: If any of the values you specify in this parameter are not found, the
               request will return an error.
 
-          name_starts_with: Filter for sales representatives whose `name` starts with this substring,
+          name_starts_with: Filter for sales representatives whose `initial` starts with this substring,
               case-insensitive.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
