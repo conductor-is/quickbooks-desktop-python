@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v3.0.0...v3.1.0) (2026-11-16)
+
+
+### Features
+
+* **api:** add hasMore and remainingCount to list pages ([f5a9f88](https://github.com/conductor-is/quickbooks-desktop-python/commit/f5a9f88cfb152bf35dc1f37ba02ab9bc4dd15b24))
+
 ## [3.0.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v2.1.0...v3.0.0) (2026-11-15)
 
 
