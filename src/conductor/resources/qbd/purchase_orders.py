@@ -462,7 +462,8 @@ class PurchaseOrdersResource(SyncAPIResource):
 
               Maximum length: 13 characters.
 
-          shipping_address: The purchase order's shipping address.
+          shipping_address: The purchase order's shipping address. Address fields you omit keep their stored
+              values; send a field as an empty string to clear it.
 
           shipping_method_id: The shipping method used for this purchase order, such as standard mail or
               overnight delivery.
@@ -475,7 +476,8 @@ class PurchaseOrdersResource(SyncAPIResource):
 
           transaction_date: The date of this purchase order, in ISO 8601 format (YYYY-MM-DD).
 
-          vendor_address: The address of the vendor who sent this purchase order.
+          vendor_address: The address of the vendor who sent this purchase order. Address fields you omit
+              keep their stored values; send a field as an empty string to clear it.
 
           vendor_id: The vendor who sent this purchase order for goods or services purchased.
 
@@ -1206,7 +1208,8 @@ class AsyncPurchaseOrdersResource(AsyncAPIResource):
 
               Maximum length: 13 characters.
 
-          shipping_address: The purchase order's shipping address.
+          shipping_address: The purchase order's shipping address. Address fields you omit keep their stored
+              values; send a field as an empty string to clear it.
 
           shipping_method_id: The shipping method used for this purchase order, such as standard mail or
               overnight delivery.
@@ -1219,7 +1222,8 @@ class AsyncPurchaseOrdersResource(AsyncAPIResource):
 
           transaction_date: The date of this purchase order, in ISO 8601 format (YYYY-MM-DD).
 
-          vendor_address: The address of the vendor who sent this purchase order.
+          vendor_address: The address of the vendor who sent this purchase order. Address fields you omit
+              keep their stored values; send a field as an empty string to clear it.
 
           vendor_id: The vendor who sent this purchase order for goods or services purchased.
 

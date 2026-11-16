@@ -386,7 +386,8 @@ class BillsResource(SyncAPIResource):
 
           transaction_date: The date of this bill, in ISO 8601 format (YYYY-MM-DD).
 
-          vendor_address: The address of the vendor who sent this bill.
+          vendor_address: The address of the vendor who sent this bill. Address fields you omit keep their
+              stored values; send a field as an empty string to clear it.
 
           vendor_id: The vendor who sent this bill for goods or services purchased.
 
@@ -1069,7 +1070,8 @@ class AsyncBillsResource(AsyncAPIResource):
 
           transaction_date: The date of this bill, in ISO 8601 format (YYYY-MM-DD).
 
-          vendor_address: The address of the vendor who sent this bill.
+          vendor_address: The address of the vendor who sent this bill. Address fields you omit keep their
+              stored values; send a field as an empty string to clear it.
 
           vendor_id: The vendor who sent this bill for goods or services purchased.
 

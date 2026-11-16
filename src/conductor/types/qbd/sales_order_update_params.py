@@ -24,7 +24,11 @@ class SalesOrderUpdateParams(TypedDict, total=False):
     """The ID of the End-User to receive this request."""
 
     billing_address: Annotated[BillingAddress, PropertyInfo(alias="billingAddress")]
-    """The sales order's billing address."""
+    """The sales order's billing address.
+
+    Address fields you omit keep their stored values; send a field as an empty
+    string to clear it.
+    """
 
     class_id: Annotated[str, PropertyInfo(alias="classId")]
     """The sales order's class.
@@ -199,7 +203,11 @@ class SalesOrderUpdateParams(TypedDict, total=False):
     """
 
     shipping_address: Annotated[ShippingAddress, PropertyInfo(alias="shippingAddress")]
-    """The sales order's shipping address."""
+    """The sales order's shipping address.
+
+    Address fields you omit keep their stored values; send a field as an empty
+    string to clear it.
+    """
 
     shipping_date: Annotated[Union[str, date], PropertyInfo(alias="shippingDate", format="iso8601")]
     """
@@ -224,7 +232,10 @@ class SalesOrderUpdateParams(TypedDict, total=False):
 
 
 class BillingAddress(TypedDict, total=False):
-    """The sales order's billing address."""
+    """The sales order's billing address.
+
+    Address fields you omit keep their stored values; send a field as an empty string to clear it.
+    """
 
     city: str
     """The city, district, suburb, town, or village name of the address.
@@ -724,7 +735,10 @@ class Line(TypedDict, total=False):
 
 
 class ShippingAddress(TypedDict, total=False):
-    """The sales order's shipping address."""
+    """The sales order's shipping address.
+
+    Address fields you omit keep their stored values; send a field as an empty string to clear it.
+    """
 
     city: str
     """The city, district, suburb, town, or village name of the address.

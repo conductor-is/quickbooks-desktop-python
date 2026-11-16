@@ -149,7 +149,11 @@ class BillUpdateParams(TypedDict, total=False):
     """The date of this bill, in ISO 8601 format (YYYY-MM-DD)."""
 
     vendor_address: Annotated[VendorAddress, PropertyInfo(alias="vendorAddress")]
-    """The address of the vendor who sent this bill."""
+    """The address of the vendor who sent this bill.
+
+    Address fields you omit keep their stored values; send a field as an empty
+    string to clear it.
+    """
 
     vendor_id: Annotated[str, PropertyInfo(alias="vendorId")]
     """The vendor who sent this bill for goods or services purchased."""
@@ -608,7 +612,10 @@ class ItemLine(TypedDict, total=False):
 
 
 class VendorAddress(TypedDict, total=False):
-    """The address of the vendor who sent this bill."""
+    """The address of the vendor who sent this bill.
+
+    Address fields you omit keep their stored values; send a field as an empty string to clear it.
+    """
 
     city: str
     """The city, district, suburb, town, or village name of the address.

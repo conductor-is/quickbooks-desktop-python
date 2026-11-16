@@ -24,7 +24,11 @@ class SalesTaxPaymentCheckUpdateParams(TypedDict, total=False):
     """The ID of the End-User to receive this request."""
 
     address: Address
-    """The address that is printed on the sales-tax payment check."""
+    """The address that is printed on the sales-tax payment check.
+
+    Address fields you omit keep their stored values; send a field as an empty
+    string to clear it.
+    """
 
     bank_account_id: Annotated[str, PropertyInfo(alias="bankAccountId")]
     """
@@ -62,7 +66,10 @@ class SalesTaxPaymentCheckUpdateParams(TypedDict, total=False):
 
 
 class Address(TypedDict, total=False):
-    """The address that is printed on the sales-tax payment check."""
+    """The address that is printed on the sales-tax payment check.
+
+    Address fields you omit keep their stored values; send a field as an empty string to clear it.
+    """
 
     city: str
     """The city, district, suburb, town, or village name of the address.

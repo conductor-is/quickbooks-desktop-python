@@ -32,7 +32,11 @@ class CheckUpdateParams(TypedDict, total=False):
     """The ID of the End-User to receive this request."""
 
     address: Address
-    """The address that is printed on the check."""
+    """The address that is printed on the check.
+
+    Address fields you omit keep their stored values; send a field as an empty
+    string to clear it.
+    """
 
     apply_to_transactions: Annotated[Iterable[ApplyToTransaction], PropertyInfo(alias="applyToTransactions")]
     """Transactions to be paid by this check.
@@ -170,7 +174,10 @@ class CheckUpdateParams(TypedDict, total=False):
 
 
 class Address(TypedDict, total=False):
-    """The address that is printed on the check."""
+    """The address that is printed on the check.
+
+    Address fields you omit keep their stored values; send a field as an empty string to clear it.
+    """
 
     city: str
     """The city, district, suburb, town, or village name of the address.
