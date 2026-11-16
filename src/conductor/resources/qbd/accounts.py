@@ -489,12 +489,12 @@ class AccountsResource(SyncAPIResource):
               When this parameter is omitted, the endpoint returns all accounts without limit,
               unlike paginated endpoints which default to 150 records.
 
-          name_contains: Filter for accounts whose `name` contains this substring, case-insensitive.
+          name_contains: Filter for accounts whose `fullName` contains this substring, case-insensitive.
 
               **NOTE**: If you use this parameter, you cannot also use `nameStartsWith` or
               `nameEndsWith`.
 
-          name_ends_with: Filter for accounts whose `name` ends with this substring, case-insensitive.
+          name_ends_with: Filter for accounts whose `fullName` ends with this substring, case-insensitive.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameStartsWith`.
@@ -510,7 +510,11 @@ class AccountsResource(SyncAPIResource):
               **NOTE**: If you use this parameter, you cannot also use `nameContains`,
               `nameStartsWith`, or `nameEndsWith`.
 
-          name_starts_with: Filter for accounts whose `name` starts with this substring, case-insensitive.
+          name_starts_with: Filter for accounts whose `fullName` starts with this substring,
+              case-insensitive. To get everything under a parent, pass the parent's `fullName`
+              followed by a colon, such as "ABC:". For accounts under a parent, the start of
+              their own `name` does not match, because their `fullName` begins with their
+              parents' names; use `nameContains` instead.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameEndsWith`.
@@ -518,7 +522,9 @@ class AccountsResource(SyncAPIResource):
           name_to: Filter for accounts whose `fullName` sorts at or before this value (inclusive),
               compared case-insensitively in QuickBooks' sort order: punctuation first, then
               digits, then letters. If you also set `nameFrom`, it must not sort after this
-              value, or QuickBooks returns an error.
+              value, or QuickBooks returns an error. To get everything under a parent, use
+              `nameStartsWith` with the parent's `fullName` followed by a colon, such as
+              "ABC:", instead of a range.
 
               **IMPORTANT**: Even when you set `nameFrom` or `nameTo`, QuickBooks returns
               accounts in its own internal order, not sorted by name. Do not use these
@@ -1053,12 +1059,12 @@ class AsyncAccountsResource(AsyncAPIResource):
               When this parameter is omitted, the endpoint returns all accounts without limit,
               unlike paginated endpoints which default to 150 records.
 
-          name_contains: Filter for accounts whose `name` contains this substring, case-insensitive.
+          name_contains: Filter for accounts whose `fullName` contains this substring, case-insensitive.
 
               **NOTE**: If you use this parameter, you cannot also use `nameStartsWith` or
               `nameEndsWith`.
 
-          name_ends_with: Filter for accounts whose `name` ends with this substring, case-insensitive.
+          name_ends_with: Filter for accounts whose `fullName` ends with this substring, case-insensitive.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameStartsWith`.
@@ -1074,7 +1080,11 @@ class AsyncAccountsResource(AsyncAPIResource):
               **NOTE**: If you use this parameter, you cannot also use `nameContains`,
               `nameStartsWith`, or `nameEndsWith`.
 
-          name_starts_with: Filter for accounts whose `name` starts with this substring, case-insensitive.
+          name_starts_with: Filter for accounts whose `fullName` starts with this substring,
+              case-insensitive. To get everything under a parent, pass the parent's `fullName`
+              followed by a colon, such as "ABC:". For accounts under a parent, the start of
+              their own `name` does not match, because their `fullName` begins with their
+              parents' names; use `nameContains` instead.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameEndsWith`.
@@ -1082,7 +1092,9 @@ class AsyncAccountsResource(AsyncAPIResource):
           name_to: Filter for accounts whose `fullName` sorts at or before this value (inclusive),
               compared case-insensitively in QuickBooks' sort order: punctuation first, then
               digits, then letters. If you also set `nameFrom`, it must not sort after this
-              value, or QuickBooks returns an error.
+              value, or QuickBooks returns an error. To get everything under a parent, use
+              `nameStartsWith` with the parent's `fullName` followed by a colon, such as
+              "ABC:", instead of a range.
 
               **IMPORTANT**: Even when you set `nameFrom` or `nameTo`, QuickBooks returns
               accounts in its own internal order, not sorted by name. Do not use these

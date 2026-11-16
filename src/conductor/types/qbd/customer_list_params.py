@@ -84,14 +84,16 @@ class CustomerListParams(TypedDict, total=False):
     """
 
     name_contains: Annotated[str, PropertyInfo(alias="nameContains")]
-    """Filter for customers whose `name` contains this substring, case-insensitive.
+    """Filter for customers whose `fullName` contains this substring, case-insensitive.
 
     **NOTE**: If you use this parameter, you cannot also use `nameStartsWith` or
     `nameEndsWith`.
     """
 
     name_ends_with: Annotated[str, PropertyInfo(alias="nameEndsWith")]
-    """Filter for customers whose `name` ends with this substring, case-insensitive.
+    """
+    Filter for customers whose `fullName` ends with this substring,
+    case-insensitive.
 
     **NOTE**: If you use this parameter, you cannot also use `nameContains` or
     `nameStartsWith`.
@@ -113,7 +115,12 @@ class CustomerListParams(TypedDict, total=False):
     """
 
     name_starts_with: Annotated[str, PropertyInfo(alias="nameStartsWith")]
-    """Filter for customers whose `name` starts with this substring, case-insensitive.
+    """
+    Filter for customers whose `fullName` starts with this substring,
+    case-insensitive. To get everything under a parent, pass the parent's `fullName`
+    followed by a colon, such as "ABC:". For customers under a parent, the start of
+    their own `name` does not match, because their `fullName` begins with their
+    parents' names; use `nameContains` instead.
 
     **NOTE**: If you use this parameter, you cannot also use `nameContains` or
     `nameEndsWith`.
@@ -124,7 +131,9 @@ class CustomerListParams(TypedDict, total=False):
     Filter for customers whose `fullName` sorts at or before this value (inclusive),
     compared case-insensitively in QuickBooks' sort order: punctuation first, then
     digits, then letters. If you also set `nameFrom`, it must not sort after this
-    value, or QuickBooks returns an error.
+    value, or QuickBooks returns an error. To get everything under a parent, use
+    `nameStartsWith` with the parent's `fullName` followed by a colon, such as
+    "ABC:", instead of a range.
 
     When you set `nameFrom` or `nameTo`, QuickBooks returns customers sorted by
     `fullName` in that order; without either, the order is not guaranteed.
