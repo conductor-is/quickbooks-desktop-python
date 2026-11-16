@@ -186,7 +186,11 @@ class PurchaseOrderUpdateParams(TypedDict, total=False):
     """
 
     shipping_address: Annotated[ShippingAddress, PropertyInfo(alias="shippingAddress")]
-    """The purchase order's shipping address."""
+    """The purchase order's shipping address.
+
+    Address fields you omit keep their stored values; send a field as an empty
+    string to clear it.
+    """
 
     shipping_method_id: Annotated[str, PropertyInfo(alias="shippingMethodId")]
     """
@@ -210,7 +214,11 @@ class PurchaseOrderUpdateParams(TypedDict, total=False):
     """The date of this purchase order, in ISO 8601 format (YYYY-MM-DD)."""
 
     vendor_address: Annotated[VendorAddress, PropertyInfo(alias="vendorAddress")]
-    """The address of the vendor who sent this purchase order."""
+    """The address of the vendor who sent this purchase order.
+
+    Address fields you omit keep their stored values; send a field as an empty
+    string to clear it.
+    """
 
     vendor_id: Annotated[str, PropertyInfo(alias="vendorId")]
     """The vendor who sent this purchase order for goods or services purchased."""
@@ -633,7 +641,10 @@ class Line(TypedDict, total=False):
 
 
 class ShippingAddress(TypedDict, total=False):
-    """The purchase order's shipping address."""
+    """The purchase order's shipping address.
+
+    Address fields you omit keep their stored values; send a field as an empty string to clear it.
+    """
 
     city: str
     """The city, district, suburb, town, or village name of the address.
@@ -701,7 +712,10 @@ class ShippingAddress(TypedDict, total=False):
 
 
 class VendorAddress(TypedDict, total=False):
-    """The address of the vendor who sent this purchase order."""
+    """The address of the vendor who sent this purchase order.
+
+    Address fields you omit keep their stored values; send a field as an empty string to clear it.
+    """
 
     city: str
     """The city, district, suburb, town, or village name of the address.

@@ -275,7 +275,8 @@ class ChecksResource(SyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          address: The address that is printed on the check.
+          address: The address that is printed on the check. Address fields you omit keep their
+              stored values; send a field as an empty string to clear it.
 
           apply_to_transactions: Transactions to be paid by this check. This will create a link between this
               check and the specified transactions.
@@ -944,7 +945,8 @@ class AsyncChecksResource(AsyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          address: The address that is printed on the check.
+          address: The address that is printed on the check. Address fields you omit keep their
+              stored values; send a field as an empty string to clear it.
 
           apply_to_transactions: Transactions to be paid by this check. This will create a link between this
               check and the specified transactions.

@@ -517,7 +517,8 @@ class CustomersResource(SyncAPIResource):
           alternate_shipping_addresses: A list of additional shipping addresses for this customer. Useful when the
               customer has multiple shipping locations.
 
-          billing_address: The customer's billing address.
+          billing_address: The customer's billing address. Address fields you omit keep their stored
+              values; send a field as an empty string to clear it.
 
           cc_email: An email address to carbon copy (CC) on communications with this customer.
 
@@ -666,7 +667,8 @@ class CustomersResource(SyncAPIResource):
 
               Maximum length: 15 characters.
 
-          shipping_address: The customer's shipping address.
+          shipping_address: The customer's shipping address. Address fields you omit keep their stored
+              values; send a field as an empty string to clear it.
 
           tax_registration_number: The customer's tax registration number, for use in Canada or the UK.
 
@@ -1461,7 +1463,8 @@ class AsyncCustomersResource(AsyncAPIResource):
           alternate_shipping_addresses: A list of additional shipping addresses for this customer. Useful when the
               customer has multiple shipping locations.
 
-          billing_address: The customer's billing address.
+          billing_address: The customer's billing address. Address fields you omit keep their stored
+              values; send a field as an empty string to clear it.
 
           cc_email: An email address to carbon copy (CC) on communications with this customer.
 
@@ -1610,7 +1613,8 @@ class AsyncCustomersResource(AsyncAPIResource):
 
               Maximum length: 15 characters.
 
-          shipping_address: The customer's shipping address.
+          shipping_address: The customer's shipping address. Address fields you omit keep their stored
+              values; send a field as an empty string to clear it.
 
           tax_registration_number: The customer's tax registration number, for use in Canada or the UK.
 

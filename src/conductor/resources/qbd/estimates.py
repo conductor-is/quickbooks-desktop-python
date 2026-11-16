@@ -334,7 +334,8 @@ class EstimatesResource(SyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          billing_address: The estimate's billing address.
+          billing_address: The estimate's billing address. Address fields you omit keep their stored
+              values; send a field as an empty string to clear it.
 
           class_id: The estimate's class. Classes can be used to categorize objects into meaningful
               segments, such as department, location, or type of work. In QuickBooks, class
@@ -447,7 +448,8 @@ class EstimatesResource(SyncAPIResource):
 
               Maximum length: 13 characters.
 
-          shipping_address: The estimate's shipping address.
+          shipping_address: The estimate's shipping address. Address fields you omit keep their stored
+              values; send a field as an empty string to clear it.
 
           terms_id: The estimate's payment terms, defining when payment is due and any applicable
               discounts.
@@ -1046,7 +1048,8 @@ class AsyncEstimatesResource(AsyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          billing_address: The estimate's billing address.
+          billing_address: The estimate's billing address. Address fields you omit keep their stored
+              values; send a field as an empty string to clear it.
 
           class_id: The estimate's class. Classes can be used to categorize objects into meaningful
               segments, such as department, location, or type of work. In QuickBooks, class
@@ -1159,7 +1162,8 @@ class AsyncEstimatesResource(AsyncAPIResource):
 
               Maximum length: 13 characters.
 
-          shipping_address: The estimate's shipping address.
+          shipping_address: The estimate's shipping address. Address fields you omit keep their stored
+              values; send a field as an empty string to clear it.
 
           terms_id: The estimate's payment terms, defining when payment is due and any applicable
               discounts.
