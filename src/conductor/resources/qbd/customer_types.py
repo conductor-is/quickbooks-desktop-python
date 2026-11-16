@@ -210,13 +210,13 @@ class CustomerTypesResource(SyncAPIResource):
               When this parameter is omitted, the endpoint returns all customer types without
               limit, unlike paginated endpoints which default to 150 records.
 
-          name_contains: Filter for customer types whose `name` contains this substring,
+          name_contains: Filter for customer types whose `fullName` contains this substring,
               case-insensitive.
 
               **NOTE**: If you use this parameter, you cannot also use `nameStartsWith` or
               `nameEndsWith`.
 
-          name_ends_with: Filter for customer types whose `name` ends with this substring,
+          name_ends_with: Filter for customer types whose `fullName` ends with this substring,
               case-insensitive.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
@@ -234,8 +234,11 @@ class CustomerTypesResource(SyncAPIResource):
               **NOTE**: If you use this parameter, you cannot also use `nameContains`,
               `nameStartsWith`, or `nameEndsWith`.
 
-          name_starts_with: Filter for customer types whose `name` starts with this substring,
-              case-insensitive.
+          name_starts_with: Filter for customer types whose `fullName` starts with this substring,
+              case-insensitive. To get everything under a parent, pass the parent's `fullName`
+              followed by a colon, such as "ABC:". For customer types under a parent, the
+              start of their own `name` does not match, because their `fullName` begins with
+              their parents' names; use `nameContains` instead.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameEndsWith`.
@@ -243,7 +246,9 @@ class CustomerTypesResource(SyncAPIResource):
           name_to: Filter for customer types whose `fullName` sorts at or before this value
               (inclusive), compared case-insensitively in QuickBooks' sort order: punctuation
               first, then digits, then letters. If you also set `nameFrom`, it must not sort
-              after this value, or QuickBooks returns an error.
+              after this value, or QuickBooks returns an error. To get everything under a
+              parent, use `nameStartsWith` with the parent's `fullName` followed by a colon,
+              such as "ABC:", instead of a range.
 
               When you set `nameFrom` or `nameTo`, QuickBooks returns customer types sorted by
               `fullName` in that order; without either, the order is not guaranteed.
@@ -498,13 +503,13 @@ class AsyncCustomerTypesResource(AsyncAPIResource):
               When this parameter is omitted, the endpoint returns all customer types without
               limit, unlike paginated endpoints which default to 150 records.
 
-          name_contains: Filter for customer types whose `name` contains this substring,
+          name_contains: Filter for customer types whose `fullName` contains this substring,
               case-insensitive.
 
               **NOTE**: If you use this parameter, you cannot also use `nameStartsWith` or
               `nameEndsWith`.
 
-          name_ends_with: Filter for customer types whose `name` ends with this substring,
+          name_ends_with: Filter for customer types whose `fullName` ends with this substring,
               case-insensitive.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
@@ -522,8 +527,11 @@ class AsyncCustomerTypesResource(AsyncAPIResource):
               **NOTE**: If you use this parameter, you cannot also use `nameContains`,
               `nameStartsWith`, or `nameEndsWith`.
 
-          name_starts_with: Filter for customer types whose `name` starts with this substring,
-              case-insensitive.
+          name_starts_with: Filter for customer types whose `fullName` starts with this substring,
+              case-insensitive. To get everything under a parent, pass the parent's `fullName`
+              followed by a colon, such as "ABC:". For customer types under a parent, the
+              start of their own `name` does not match, because their `fullName` begins with
+              their parents' names; use `nameContains` instead.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameEndsWith`.
@@ -531,7 +539,9 @@ class AsyncCustomerTypesResource(AsyncAPIResource):
           name_to: Filter for customer types whose `fullName` sorts at or before this value
               (inclusive), compared case-insensitively in QuickBooks' sort order: punctuation
               first, then digits, then letters. If you also set `nameFrom`, it must not sort
-              after this value, or QuickBooks returns an error.
+              after this value, or QuickBooks returns an error. To get everything under a
+              parent, use `nameStartsWith` with the parent's `fullName` followed by a colon,
+              such as "ABC:", instead of a range.
 
               When you set `nameFrom` or `nameTo`, QuickBooks returns customer types sorted by
               `fullName` in that order; without either, the order is not guaranteed.

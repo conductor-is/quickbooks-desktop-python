@@ -281,12 +281,12 @@ class ClassesResource(SyncAPIResource):
               When this parameter is omitted, the endpoint returns all classes without limit,
               unlike paginated endpoints which default to 150 records.
 
-          name_contains: Filter for classes whose `name` contains this substring, case-insensitive.
+          name_contains: Filter for classes whose `fullName` contains this substring, case-insensitive.
 
               **NOTE**: If you use this parameter, you cannot also use `nameStartsWith` or
               `nameEndsWith`.
 
-          name_ends_with: Filter for classes whose `name` ends with this substring, case-insensitive.
+          name_ends_with: Filter for classes whose `fullName` ends with this substring, case-insensitive.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameStartsWith`.
@@ -303,7 +303,11 @@ class ClassesResource(SyncAPIResource):
               **NOTE**: If you use this parameter, you cannot also use `nameContains`,
               `nameStartsWith`, or `nameEndsWith`.
 
-          name_starts_with: Filter for classes whose `name` starts with this substring, case-insensitive.
+          name_starts_with: Filter for classes whose `fullName` starts with this substring,
+              case-insensitive. To get everything under a parent, pass the parent's `fullName`
+              followed by a colon, such as "ABC:". For classes under a parent, the start of
+              their own `name` does not match, because their `fullName` begins with their
+              parents' names; use `nameContains` instead.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameEndsWith`.
@@ -311,7 +315,9 @@ class ClassesResource(SyncAPIResource):
           name_to: Filter for classes whose `fullName` sorts at or before this value (inclusive),
               compared case-insensitively in QuickBooks' sort order: punctuation first, then
               digits, then letters. If you also set `nameFrom`, it must not sort after this
-              value, or QuickBooks returns an error.
+              value, or QuickBooks returns an error. To get everything under a parent, use
+              `nameStartsWith` with the parent's `fullName` followed by a colon, such as
+              "ABC:", instead of a range.
 
               When you set `nameFrom` or `nameTo`, QuickBooks returns classes sorted by
               `fullName` in that order; without either, the order is not guaranteed.
@@ -637,12 +643,12 @@ class AsyncClassesResource(AsyncAPIResource):
               When this parameter is omitted, the endpoint returns all classes without limit,
               unlike paginated endpoints which default to 150 records.
 
-          name_contains: Filter for classes whose `name` contains this substring, case-insensitive.
+          name_contains: Filter for classes whose `fullName` contains this substring, case-insensitive.
 
               **NOTE**: If you use this parameter, you cannot also use `nameStartsWith` or
               `nameEndsWith`.
 
-          name_ends_with: Filter for classes whose `name` ends with this substring, case-insensitive.
+          name_ends_with: Filter for classes whose `fullName` ends with this substring, case-insensitive.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameStartsWith`.
@@ -659,7 +665,11 @@ class AsyncClassesResource(AsyncAPIResource):
               **NOTE**: If you use this parameter, you cannot also use `nameContains`,
               `nameStartsWith`, or `nameEndsWith`.
 
-          name_starts_with: Filter for classes whose `name` starts with this substring, case-insensitive.
+          name_starts_with: Filter for classes whose `fullName` starts with this substring,
+              case-insensitive. To get everything under a parent, pass the parent's `fullName`
+              followed by a colon, such as "ABC:". For classes under a parent, the start of
+              their own `name` does not match, because their `fullName` begins with their
+              parents' names; use `nameContains` instead.
 
               **NOTE**: If you use this parameter, you cannot also use `nameContains` or
               `nameEndsWith`.
@@ -667,7 +677,9 @@ class AsyncClassesResource(AsyncAPIResource):
           name_to: Filter for classes whose `fullName` sorts at or before this value (inclusive),
               compared case-insensitively in QuickBooks' sort order: punctuation first, then
               digits, then letters. If you also set `nameFrom`, it must not sort after this
-              value, or QuickBooks returns an error.
+              value, or QuickBooks returns an error. To get everything under a parent, use
+              `nameStartsWith` with the parent's `fullName` followed by a colon, such as
+              "ABC:", instead of a range.
 
               When you set `nameFrom` or `nameTo`, QuickBooks returns classes sorted by
               `fullName` in that order; without either, the order is not guaranteed.
