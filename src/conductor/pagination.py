@@ -15,6 +15,8 @@ _T = TypeVar("_T")
 class SyncCursorPage(BaseSyncPage[_T], BasePage[_T], Generic[_T]):
     data: List[_T]
     next_cursor: Optional[str] = FieldInfo(alias="nextCursor", default=None)
+    has_more: Optional[bool] = FieldInfo(alias="hasMore", default=None)
+    remaining_count: Optional[int] = FieldInfo(alias="remainingCount", default=None)
 
     @override
     def _get_page_items(self) -> List[_T]:
@@ -22,6 +24,14 @@ class SyncCursorPage(BaseSyncPage[_T], BasePage[_T], Generic[_T]):
         if not data:
             return []
         return data
+
+    @override
+    def has_next_page(self) -> bool:
+        has_more = self.has_more
+        if has_more is not None and has_more is False:
+            return False
+
+        return super().has_next_page()
 
     @override
     def next_page_info(self) -> Optional[PageInfo]:
@@ -35,6 +45,8 @@ class SyncCursorPage(BaseSyncPage[_T], BasePage[_T], Generic[_T]):
 class AsyncCursorPage(BaseAsyncPage[_T], BasePage[_T], Generic[_T]):
     data: List[_T]
     next_cursor: Optional[str] = FieldInfo(alias="nextCursor", default=None)
+    has_more: Optional[bool] = FieldInfo(alias="hasMore", default=None)
+    remaining_count: Optional[int] = FieldInfo(alias="remainingCount", default=None)
 
     @override
     def _get_page_items(self) -> List[_T]:
@@ -42,6 +54,14 @@ class AsyncCursorPage(BaseAsyncPage[_T], BasePage[_T], Generic[_T]):
         if not data:
             return []
         return data
+
+    @override
+    def has_next_page(self) -> bool:
+        has_more = self.has_more
+        if has_more is not None and has_more is False:
+            return False
+
+        return super().has_next_page()
 
     @override
     def next_page_info(self) -> Optional[PageInfo]:
