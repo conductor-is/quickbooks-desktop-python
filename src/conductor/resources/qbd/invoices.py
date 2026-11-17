@@ -424,8 +424,10 @@ class InvoicesResource(SyncAPIResource):
               invoices, you must also specify the parameter `includeLinkedTransactions=true`
               to see the `linkedTransactions` response field.
 
-          billing_address: The invoice's billing address. Address fields you omit keep their stored values;
-              send a field as an empty string to clear it.
+          billing_address: The invoice's billing address.
+
+              **NOTE**: Address fields you omit keep their stored values; send a field as an
+              empty string to clear it.
 
           class_id: The invoice's class. Classes can be used to categorize objects into meaningful
               segments, such as department, location, or type of work. In QuickBooks, class
@@ -552,8 +554,10 @@ class InvoicesResource(SyncAPIResource):
 
               Maximum length: 13 characters.
 
-          shipping_address: The invoice's shipping address. Address fields you omit keep their stored
-              values; send a field as an empty string to clear it.
+          shipping_address: The invoice's shipping address.
+
+              **NOTE**: Address fields you omit keep their stored values; send a field as an
+              empty string to clear it.
 
           shipping_date: The date when the products or services for this invoice were shipped or are
               expected to be shipped, in ISO 8601 format (YYYY-MM-DD).
@@ -1295,8 +1299,10 @@ class AsyncInvoicesResource(AsyncAPIResource):
               invoices, you must also specify the parameter `includeLinkedTransactions=true`
               to see the `linkedTransactions` response field.
 
-          billing_address: The invoice's billing address. Address fields you omit keep their stored values;
-              send a field as an empty string to clear it.
+          billing_address: The invoice's billing address.
+
+              **NOTE**: Address fields you omit keep their stored values; send a field as an
+              empty string to clear it.
 
           class_id: The invoice's class. Classes can be used to categorize objects into meaningful
               segments, such as department, location, or type of work. In QuickBooks, class
@@ -1423,8 +1429,10 @@ class AsyncInvoicesResource(AsyncAPIResource):
 
               Maximum length: 13 characters.
 
-          shipping_address: The invoice's shipping address. Address fields you omit keep their stored
-              values; send a field as an empty string to clear it.
+          shipping_address: The invoice's shipping address.
+
+              **NOTE**: Address fields you omit keep their stored values; send a field as an
+              empty string to clear it.
 
           shipping_date: The date when the products or services for this invoice were shipped or are
               expected to be shipped, in ISO 8601 format (YYYY-MM-DD).

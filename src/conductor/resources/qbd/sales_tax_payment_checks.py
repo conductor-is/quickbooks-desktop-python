@@ -225,8 +225,10 @@ class SalesTaxPaymentChecksResource(SyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          address: The address that is printed on the sales-tax payment check. Address fields you
-              omit keep their stored values; send a field as an empty string to clear it.
+          address: The address that is printed on the sales-tax payment check.
+
+              **NOTE**: Address fields you omit keep their stored values; send a field as an
+              empty string to clear it.
 
           bank_account_id: The bank account from which the funds are being drawn for this sales-tax payment
               check; e.g., Checking or Savings. This sales-tax payment check will decrease the
@@ -753,8 +755,10 @@ class AsyncSalesTaxPaymentChecksResource(AsyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          address: The address that is printed on the sales-tax payment check. Address fields you
-              omit keep their stored values; send a field as an empty string to clear it.
+          address: The address that is printed on the sales-tax payment check.
+
+              **NOTE**: Address fields you omit keep their stored values; send a field as an
+              empty string to clear it.
 
           bank_account_id: The bank account from which the funds are being drawn for this sales-tax payment
               check; e.g., Checking or Savings. This sales-tax payment check will decrease the

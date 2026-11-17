@@ -74,8 +74,8 @@ class CustomerUpdateParams(TypedDict, total=False):
     billing_address: Annotated[BillingAddress, PropertyInfo(alias="billingAddress")]
     """The customer's billing address.
 
-    Address fields you omit keep their stored values; send a field as an empty
-    string to clear it.
+    **NOTE**: Address fields you omit keep their stored values; send a field as an
+    empty string to clear it.
     """
 
     cc_email: Annotated[str, PropertyInfo(alias="ccEmail")]
@@ -326,8 +326,8 @@ class CustomerUpdateParams(TypedDict, total=False):
     shipping_address: Annotated[ShippingAddress, PropertyInfo(alias="shippingAddress")]
     """The customer's shipping address.
 
-    Address fields you omit keep their stored values; send a field as an empty
-    string to clear it.
+    **NOTE**: Address fields you omit keep their stored values; send a field as an
+    empty string to clear it.
     """
 
     tax_registration_number: Annotated[str, PropertyInfo(alias="taxRegistrationNumber")]
@@ -505,7 +505,7 @@ class AlternateShippingAddress(TypedDict, total=False):
 class BillingAddress(TypedDict, total=False):
     """The customer's billing address.
 
-    Address fields you omit keep their stored values; send a field as an empty string to clear it.
+    **NOTE**: Address fields you omit keep their stored values; send a field as an empty string to clear it.
     """
 
     city: str
@@ -626,7 +626,7 @@ class CustomContactField(TypedDict, total=False):
 class ShippingAddress(TypedDict, total=False):
     """The customer's shipping address.
 
-    Address fields you omit keep their stored values; send a field as an empty string to clear it.
+    **NOTE**: Address fields you omit keep their stored values; send a field as an empty string to clear it.
     """
 
     city: str
