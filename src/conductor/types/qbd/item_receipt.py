@@ -81,13 +81,9 @@ class CustomField(BaseModel):
 
     owner_id: str = FieldInfo(alias="ownerId")
     """
-    The identifier of the owner of the custom field, which QuickBooks internally
-    calls a "data extension". For public custom fields visible in the UI, such as
-    those added by the QuickBooks user, this is always "0". For private custom
-    fields that are only visible to the application that created them, this is a
-    valid GUID identifying the owning application. Internally, Conductor always
-    fetches all public custom fields (those with an `ownerId` of "0") for all
-    objects.
+    The owner of this custom field: `"0"` for a public custom field, which
+    QuickBooks users define and see, or an application's GUID in braces for a
+    private custom field, which appears only in requests that name that owner.
     """
 
     type: Literal[
@@ -105,7 +101,10 @@ class CustomField(BaseModel):
     value: str
     """The value of this custom field.
 
-    The maximum length depends on the field's data type.
+    QuickBooks keeps at most 30 characters of a public custom field's value: it
+    refuses a longer one on a customer or item, and on a transaction or line it
+    stores only the first 30 without an error. A private custom field's limit
+    depends on its type.
     """
 
 
@@ -160,13 +159,9 @@ class ExpenseLineCustomField(BaseModel):
 
     owner_id: str = FieldInfo(alias="ownerId")
     """
-    The identifier of the owner of the custom field, which QuickBooks internally
-    calls a "data extension". For public custom fields visible in the UI, such as
-    those added by the QuickBooks user, this is always "0". For private custom
-    fields that are only visible to the application that created them, this is a
-    valid GUID identifying the owning application. Internally, Conductor always
-    fetches all public custom fields (those with an `ownerId` of "0") for all
-    objects.
+    The owner of this custom field: `"0"` for a public custom field, which
+    QuickBooks users define and see, or an application's GUID in braces for a
+    private custom field, which appears only in requests that name that owner.
     """
 
     type: Literal[
@@ -184,7 +179,10 @@ class ExpenseLineCustomField(BaseModel):
     value: str
     """The value of this custom field.
 
-    The maximum length depends on the field's data type.
+    QuickBooks keeps at most 30 characters of a public custom field's value: it
+    refuses a longer one on a customer or item, and on a transaction or line it
+    stores only the first 30 without an error. A private custom field's limit
+    depends on its type.
     """
 
 
@@ -287,8 +285,11 @@ class ExpenseLine(BaseModel):
 
     custom_fields: List[ExpenseLineCustomField] = FieldInfo(alias="customFields")
     """
-    The custom fields for the expense line object, added as user-defined data
-    extensions, not included in the standard QuickBooks object.
+    The custom fields that have a value on this expense line, for the owners named
+    in the request's `customFieldOwnerIds` (by default, the public custom fields).
+
+    **NOTE**: The response to an update returns this as an empty array even when
+    values exist; retrieve the record to see them.
     """
 
     memo: Optional[str] = None
@@ -335,13 +336,9 @@ class ItemGroupLineCustomField(BaseModel):
 
     owner_id: str = FieldInfo(alias="ownerId")
     """
-    The identifier of the owner of the custom field, which QuickBooks internally
-    calls a "data extension". For public custom fields visible in the UI, such as
-    those added by the QuickBooks user, this is always "0". For private custom
-    fields that are only visible to the application that created them, this is a
-    valid GUID identifying the owning application. Internally, Conductor always
-    fetches all public custom fields (those with an `ownerId` of "0") for all
-    objects.
+    The owner of this custom field: `"0"` for a public custom field, which
+    QuickBooks users define and see, or an application's GUID in braces for a
+    private custom field, which appears only in requests that name that owner.
     """
 
     type: Literal[
@@ -359,7 +356,10 @@ class ItemGroupLineCustomField(BaseModel):
     value: str
     """The value of this custom field.
 
-    The maximum length depends on the field's data type.
+    QuickBooks keeps at most 30 characters of a public custom field's value: it
+    refuses a longer one on a customer or item, and on a transaction or line it
+    stores only the first 30 without an error. A private custom field's limit
+    depends on its type.
     """
 
 
@@ -431,13 +431,9 @@ class ItemGroupLineItemLineCustomField(BaseModel):
 
     owner_id: str = FieldInfo(alias="ownerId")
     """
-    The identifier of the owner of the custom field, which QuickBooks internally
-    calls a "data extension". For public custom fields visible in the UI, such as
-    those added by the QuickBooks user, this is always "0". For private custom
-    fields that are only visible to the application that created them, this is a
-    valid GUID identifying the owning application. Internally, Conductor always
-    fetches all public custom fields (those with an `ownerId` of "0") for all
-    objects.
+    The owner of this custom field: `"0"` for a public custom field, which
+    QuickBooks users define and see, or an application's GUID in braces for a
+    private custom field, which appears only in requests that name that owner.
     """
 
     type: Literal[
@@ -455,7 +451,10 @@ class ItemGroupLineItemLineCustomField(BaseModel):
     value: str
     """The value of this custom field.
 
-    The maximum length depends on the field's data type.
+    QuickBooks keeps at most 30 characters of a public custom field's value: it
+    refuses a longer one on a customer or item, and on a transaction or line it
+    stores only the first 30 without an error. A private custom field's limit
+    depends on its type.
     """
 
 
@@ -628,8 +627,11 @@ class ItemGroupLineItemLine(BaseModel):
 
     custom_fields: List[ItemGroupLineItemLineCustomField] = FieldInfo(alias="customFields")
     """
-    The custom fields for the item line object, added as user-defined data
-    extensions, not included in the standard QuickBooks object.
+    The custom fields that have a value on this item line, for the owners named in
+    the request's `customFieldOwnerIds` (by default, the public custom fields).
+
+    **NOTE**: The response to an update returns this as an empty array even when
+    values exist; retrieve the record to see them.
     """
 
     description: Optional[str] = None
@@ -764,9 +766,9 @@ class ItemGroupLine(BaseModel):
     """
 
     custom_fields: List[ItemGroupLineCustomField] = FieldInfo(alias="customFields")
-    """
-    The custom fields for the item group line object, added as user-defined data
-    extensions, not included in the standard QuickBooks object.
+    """The custom field values to set on this item group line when it is created.
+
+    To change them afterward, use the set-custom-fields endpoint of the transaction.
     """
 
     description: Optional[str] = None
@@ -874,13 +876,9 @@ class ItemLineCustomField(BaseModel):
 
     owner_id: str = FieldInfo(alias="ownerId")
     """
-    The identifier of the owner of the custom field, which QuickBooks internally
-    calls a "data extension". For public custom fields visible in the UI, such as
-    those added by the QuickBooks user, this is always "0". For private custom
-    fields that are only visible to the application that created them, this is a
-    valid GUID identifying the owning application. Internally, Conductor always
-    fetches all public custom fields (those with an `ownerId` of "0") for all
-    objects.
+    The owner of this custom field: `"0"` for a public custom field, which
+    QuickBooks users define and see, or an application's GUID in braces for a
+    private custom field, which appears only in requests that name that owner.
     """
 
     type: Literal[
@@ -898,7 +896,10 @@ class ItemLineCustomField(BaseModel):
     value: str
     """The value of this custom field.
 
-    The maximum length depends on the field's data type.
+    QuickBooks keeps at most 30 characters of a public custom field's value: it
+    refuses a longer one on a customer or item, and on a transaction or line it
+    stores only the first 30 without an error. A private custom field's limit
+    depends on its type.
     """
 
 
@@ -1071,8 +1072,11 @@ class ItemLine(BaseModel):
 
     custom_fields: List[ItemLineCustomField] = FieldInfo(alias="customFields")
     """
-    The custom fields for the item line object, added as user-defined data
-    extensions, not included in the standard QuickBooks object.
+    The custom fields that have a value on this item line, for the owners named in
+    the request's `customFieldOwnerIds` (by default, the public custom fields).
+
+    **NOTE**: The response to an update returns this as an empty array even when
+    values exist; retrieve the record to see them.
     """
 
     description: Optional[str] = None
@@ -1345,8 +1349,11 @@ class ItemReceipt(BaseModel):
 
     custom_fields: List[CustomField] = FieldInfo(alias="customFields")
     """
-    The custom fields for the item receipt object, added as user-defined data
-    extensions, not included in the standard QuickBooks object.
+    The custom fields that have a value on this item receipt, for the owners named
+    in the request's `customFieldOwnerIds` (by default, the public custom fields).
+
+    **NOTE**: The response to an update returns this as an empty array even when
+    values exist; retrieve the record to see them.
     """
 
     exchange_rate: Optional[float] = FieldInfo(alias="exchangeRate", default=None)

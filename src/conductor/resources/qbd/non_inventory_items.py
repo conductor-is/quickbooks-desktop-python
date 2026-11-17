@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from typing import Iterable
 from typing_extensions import Literal
 
 import httpx
@@ -20,6 +21,8 @@ from ...types.qbd import (
     non_inventory_item_list_params,
     non_inventory_item_create_params,
     non_inventory_item_update_params,
+    non_inventory_item_retrieve_params,
+    non_inventory_item_set_custom_fields_params,
 )
 from ...pagination import SyncCursorPage, AsyncCursorPage
 from ..._base_client import AsyncPaginator, make_request_options
@@ -182,6 +185,7 @@ class NonInventoryItemsResource(SyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -202,6 +206,12 @@ class NonInventoryItemsResource(SyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on non-inventory items. Defaults to
+              `["0"]`, the owner of public custom fields, which QuickBooks users define and
+              see. To get an application's private custom fields, add its owner ID, a GUID in
+              braces. Only the owners you list are returned, so keep `"0"` in the list to also
+              get the public ones.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -216,7 +226,14 @@ class NonInventoryItemsResource(SyncAPIResource):
         return self._get(
             path_template("/quickbooks-desktop/non-inventory-items/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids},
+                    non_inventory_item_retrieve_params.NonInventoryItemRetrieveParams,
+                ),
             ),
             cast_to=NonInventoryItem,
         )
@@ -379,6 +396,7 @@ class NonInventoryItemsResource(SyncAPIResource):
         conductor_end_user_id: str,
         class_ids: SequenceNotStr[str] | Omit = omit,
         cursor: str | Omit = omit,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         full_names: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         limit: int | Omit = omit,
@@ -418,6 +436,12 @@ class NonInventoryItemsResource(SyncAPIResource):
               within 20 seconds of the previous response. If you miss that window or a request
               fails, start over without a cursor. To make a run resumable, see
               [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
+
+          custom_field_owner_ids: The owners whose custom fields to return on non-inventory items. Defaults to
+              `["0"]`, the owner of public custom fields, which QuickBooks users define and
+              see. To get an application's private custom fields, add its owner ID, a GUID in
+              braces. Only the owners you list are returned, so keep `"0"` in the list to also
+              get the public ones.
 
           full_names: Filter for specific non-inventory items by their full-name(s), case-insensitive.
               Like `id`, `fullName` is a unique identifier for a non-inventory item, formed by
@@ -536,6 +560,7 @@ class NonInventoryItemsResource(SyncAPIResource):
                     {
                         "class_ids": class_ids,
                         "cursor": cursor,
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "full_names": full_names,
                         "ids": ids,
                         "limit": limit,
@@ -552,6 +577,65 @@ class NonInventoryItemsResource(SyncAPIResource):
                 ),
             ),
             model=NonInventoryItem,
+        )
+
+    def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[non_inventory_item_set_custom_fields_params.CustomField] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> NonInventoryItem:
+        """Sets or clears custom field values on a non-inventory item.
+
+        A value replaces the
+        custom field's current value if it has one, and an empty string clears it.
+        Custom fields you leave out keep their values, and no `revisionNumber` is
+        needed.
+
+        If QuickBooks refuses or does not store any value, the request fails with an
+        error that names each of those custom fields. The values QuickBooks did save
+        stay saved, and the error says how many. Sending the same request again is safe.
+
+        **NOTE**: This request changes the non-inventory item's `revisionNumber`, so use
+        the one in its response for your next update.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the non-inventory item to set
+              custom fields on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the non-inventory item. Custom fields
+              you leave out keep their values.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return self._post(
+            path_template("/quickbooks-desktop/non-inventory-items/{id}/set-custom-fields", id=id),
+            body=maybe_transform(
+                {"custom_fields": custom_fields},
+                non_inventory_item_set_custom_fields_params.NonInventoryItemSetCustomFieldsParams,
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=NonInventoryItem,
         )
 
 
@@ -709,6 +793,7 @@ class AsyncNonInventoryItemsResource(AsyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -729,6 +814,12 @@ class AsyncNonInventoryItemsResource(AsyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on non-inventory items. Defaults to
+              `["0"]`, the owner of public custom fields, which QuickBooks users define and
+              see. To get an application's private custom fields, add its owner ID, a GUID in
+              braces. Only the owners you list are returned, so keep `"0"` in the list to also
+              get the public ones.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -743,7 +834,14 @@ class AsyncNonInventoryItemsResource(AsyncAPIResource):
         return await self._get(
             path_template("/quickbooks-desktop/non-inventory-items/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=await async_maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids},
+                    non_inventory_item_retrieve_params.NonInventoryItemRetrieveParams,
+                ),
             ),
             cast_to=NonInventoryItem,
         )
@@ -906,6 +1004,7 @@ class AsyncNonInventoryItemsResource(AsyncAPIResource):
         conductor_end_user_id: str,
         class_ids: SequenceNotStr[str] | Omit = omit,
         cursor: str | Omit = omit,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         full_names: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         limit: int | Omit = omit,
@@ -945,6 +1044,12 @@ class AsyncNonInventoryItemsResource(AsyncAPIResource):
               within 20 seconds of the previous response. If you miss that window or a request
               fails, start over without a cursor. To make a run resumable, see
               [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
+
+          custom_field_owner_ids: The owners whose custom fields to return on non-inventory items. Defaults to
+              `["0"]`, the owner of public custom fields, which QuickBooks users define and
+              see. To get an application's private custom fields, add its owner ID, a GUID in
+              braces. Only the owners you list are returned, so keep `"0"` in the list to also
+              get the public ones.
 
           full_names: Filter for specific non-inventory items by their full-name(s), case-insensitive.
               Like `id`, `fullName` is a unique identifier for a non-inventory item, formed by
@@ -1063,6 +1168,7 @@ class AsyncNonInventoryItemsResource(AsyncAPIResource):
                     {
                         "class_ids": class_ids,
                         "cursor": cursor,
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "full_names": full_names,
                         "ids": ids,
                         "limit": limit,
@@ -1079,6 +1185,65 @@ class AsyncNonInventoryItemsResource(AsyncAPIResource):
                 ),
             ),
             model=NonInventoryItem,
+        )
+
+    async def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[non_inventory_item_set_custom_fields_params.CustomField] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> NonInventoryItem:
+        """Sets or clears custom field values on a non-inventory item.
+
+        A value replaces the
+        custom field's current value if it has one, and an empty string clears it.
+        Custom fields you leave out keep their values, and no `revisionNumber` is
+        needed.
+
+        If QuickBooks refuses or does not store any value, the request fails with an
+        error that names each of those custom fields. The values QuickBooks did save
+        stay saved, and the error says how many. Sending the same request again is safe.
+
+        **NOTE**: This request changes the non-inventory item's `revisionNumber`, so use
+        the one in its response for your next update.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the non-inventory item to set
+              custom fields on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the non-inventory item. Custom fields
+              you leave out keep their values.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return await self._post(
+            path_template("/quickbooks-desktop/non-inventory-items/{id}/set-custom-fields", id=id),
+            body=await async_maybe_transform(
+                {"custom_fields": custom_fields},
+                non_inventory_item_set_custom_fields_params.NonInventoryItemSetCustomFieldsParams,
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=NonInventoryItem,
         )
 
 
@@ -1098,6 +1263,9 @@ class NonInventoryItemsResourceWithRawResponse:
         self.list = to_raw_response_wrapper(
             non_inventory_items.list,
         )
+        self.set_custom_fields = to_raw_response_wrapper(
+            non_inventory_items.set_custom_fields,
+        )
 
 
 class AsyncNonInventoryItemsResourceWithRawResponse:
@@ -1115,6 +1283,9 @@ class AsyncNonInventoryItemsResourceWithRawResponse:
         )
         self.list = async_to_raw_response_wrapper(
             non_inventory_items.list,
+        )
+        self.set_custom_fields = async_to_raw_response_wrapper(
+            non_inventory_items.set_custom_fields,
         )
 
 
@@ -1134,6 +1305,9 @@ class NonInventoryItemsResourceWithStreamingResponse:
         self.list = to_streamed_response_wrapper(
             non_inventory_items.list,
         )
+        self.set_custom_fields = to_streamed_response_wrapper(
+            non_inventory_items.set_custom_fields,
+        )
 
 
 class AsyncNonInventoryItemsResourceWithStreamingResponse:
@@ -1151,4 +1325,7 @@ class AsyncNonInventoryItemsResourceWithStreamingResponse:
         )
         self.list = async_to_streamed_response_wrapper(
             non_inventory_items.list,
+        )
+        self.set_custom_fields = async_to_streamed_response_wrapper(
+            non_inventory_items.set_custom_fields,
         )

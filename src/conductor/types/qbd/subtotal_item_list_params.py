@@ -28,6 +28,15 @@ class SubtotalItemListParams(TypedDict, total=False):
     [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
     """
 
+    custom_field_owner_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="customFieldOwnerIds")]
+    """The owners whose custom fields to return on subtotal items.
+
+    Defaults to `["0"]`, the owner of public custom fields, which QuickBooks users
+    define and see. To get an application's private custom fields, add its owner ID,
+    a GUID in braces. Only the owners you list are returned, so keep `"0"` in the
+    list to also get the public ones.
+    """
+
     ids: SequenceNotStr[str]
     """
     Filter for specific subtotal items by their QuickBooks-assigned unique

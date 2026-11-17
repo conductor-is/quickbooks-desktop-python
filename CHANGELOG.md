@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.2](https://github.com/conductor-is/quickbooks-desktop-python/compare/v3.1.1...v3.1.2) (2026-11-17)
+
+
+### Bug Fixes
+
+* **api:** say an update keeps the address fields it omits ([4246881](https://github.com/conductor-is/quickbooks-desktop-python/commit/4246881100a6adac87d89c7a54a25c995113007d))
+
 ## [3.1.1](https://github.com/conductor-is/quickbooks-desktop-python/compare/v3.1.0...v3.1.1) (2026-11-16)
 
 
