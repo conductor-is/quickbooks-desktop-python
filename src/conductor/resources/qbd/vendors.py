@@ -490,8 +490,10 @@ class VendorsResource(SyncAPIResource):
 
               Maximum length: 21 characters.
 
-          billing_address: The vendor's billing address. Address fields you omit keep their stored values;
-              send a field as an empty string to clear it.
+          billing_address: The vendor's billing address.
+
+              **NOTE**: Address fields you omit keep their stored values; send a field as an
+              empty string to clear it.
 
           billing_rate_id: The vendor's billing rate, used to override service item rates in time tracking
               activities.
@@ -619,8 +621,10 @@ class VendorsResource(SyncAPIResource):
 
               Maximum length: 15 characters.
 
-          shipping_address: The vendor's shipping address. Address fields you omit keep their stored values;
-              send a field as an empty string to clear it.
+          shipping_address: The vendor's shipping address.
+
+              **NOTE**: Address fields you omit keep their stored values; send a field as an
+              empty string to clear it.
 
           tax_identification_number: The vendor's tax identification number (e.g., EIN or SSN).
 
@@ -1371,8 +1375,10 @@ class AsyncVendorsResource(AsyncAPIResource):
 
               Maximum length: 21 characters.
 
-          billing_address: The vendor's billing address. Address fields you omit keep their stored values;
-              send a field as an empty string to clear it.
+          billing_address: The vendor's billing address.
+
+              **NOTE**: Address fields you omit keep their stored values; send a field as an
+              empty string to clear it.
 
           billing_rate_id: The vendor's billing rate, used to override service item rates in time tracking
               activities.
@@ -1500,8 +1506,10 @@ class AsyncVendorsResource(AsyncAPIResource):
 
               Maximum length: 15 characters.
 
-          shipping_address: The vendor's shipping address. Address fields you omit keep their stored values;
-              send a field as an empty string to clear it.
+          shipping_address: The vendor's shipping address.
+
+              **NOTE**: Address fields you omit keep their stored values; send a field as an
+              empty string to clear it.
 
           tax_identification_number: The vendor's tax identification number (e.g., EIN or SSN).
 

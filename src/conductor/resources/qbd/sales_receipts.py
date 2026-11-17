@@ -387,8 +387,10 @@ class SalesReceiptsResource(SyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          billing_address: The sales receipt's billing address. Address fields you omit keep their stored
-              values; send a field as an empty string to clear it.
+          billing_address: The sales receipt's billing address.
+
+              **NOTE**: Address fields you omit keep their stored values; send a field as an
+              empty string to clear it.
 
           check_number: The check number of a check received for this sales receipt.
 
@@ -519,8 +521,10 @@ class SalesReceiptsResource(SyncAPIResource):
 
               Maximum length: 13 characters.
 
-          shipping_address: The sales receipt's shipping address. Address fields you omit keep their stored
-              values; send a field as an empty string to clear it.
+          shipping_address: The sales receipt's shipping address.
+
+              **NOTE**: Address fields you omit keep their stored values; send a field as an
+              empty string to clear it.
 
           shipping_date: The date when the products or services for this sales receipt were shipped or
               are expected to be shipped, in ISO 8601 format (YYYY-MM-DD).
@@ -1214,8 +1218,10 @@ class AsyncSalesReceiptsResource(AsyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          billing_address: The sales receipt's billing address. Address fields you omit keep their stored
-              values; send a field as an empty string to clear it.
+          billing_address: The sales receipt's billing address.
+
+              **NOTE**: Address fields you omit keep their stored values; send a field as an
+              empty string to clear it.
 
           check_number: The check number of a check received for this sales receipt.
 
@@ -1346,8 +1352,10 @@ class AsyncSalesReceiptsResource(AsyncAPIResource):
 
               Maximum length: 13 characters.
 
-          shipping_address: The sales receipt's shipping address. Address fields you omit keep their stored
-              values; send a field as an empty string to clear it.
+          shipping_address: The sales receipt's shipping address.
+
+              **NOTE**: Address fields you omit keep their stored values; send a field as an
+              empty string to clear it.
 
           shipping_date: The date when the products or services for this sales receipt were shipped or
               are expected to be shipped, in ISO 8601 format (YYYY-MM-DD).

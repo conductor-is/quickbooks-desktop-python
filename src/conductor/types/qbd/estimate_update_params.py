@@ -26,8 +26,8 @@ class EstimateUpdateParams(TypedDict, total=False):
     billing_address: Annotated[BillingAddress, PropertyInfo(alias="billingAddress")]
     """The estimate's billing address.
 
-    Address fields you omit keep their stored values; send a field as an empty
-    string to clear it.
+    **NOTE**: Address fields you omit keep their stored values; send a field as an
+    empty string to clear it.
     """
 
     class_id: Annotated[str, PropertyInfo(alias="classId")]
@@ -196,8 +196,8 @@ class EstimateUpdateParams(TypedDict, total=False):
     shipping_address: Annotated[ShippingAddress, PropertyInfo(alias="shippingAddress")]
     """The estimate's shipping address.
 
-    Address fields you omit keep their stored values; send a field as an empty
-    string to clear it.
+    **NOTE**: Address fields you omit keep their stored values; send a field as an
+    empty string to clear it.
     """
 
     terms_id: Annotated[str, PropertyInfo(alias="termsId")]
@@ -213,7 +213,7 @@ class EstimateUpdateParams(TypedDict, total=False):
 class BillingAddress(TypedDict, total=False):
     """The estimate's billing address.
 
-    Address fields you omit keep their stored values; send a field as an empty string to clear it.
+    **NOTE**: Address fields you omit keep their stored values; send a field as an empty string to clear it.
     """
 
     city: str
@@ -710,7 +710,7 @@ class Line(TypedDict, total=False):
 class ShippingAddress(TypedDict, total=False):
     """The estimate's shipping address.
 
-    Address fields you omit keep their stored values; send a field as an empty string to clear it.
+    **NOTE**: Address fields you omit keep their stored values; send a field as an empty string to clear it.
     """
 
     city: str

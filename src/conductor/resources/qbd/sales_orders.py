@@ -369,8 +369,10 @@ class SalesOrdersResource(SyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          billing_address: The sales order's billing address. Address fields you omit keep their stored
-              values; send a field as an empty string to clear it.
+          billing_address: The sales order's billing address.
+
+              **NOTE**: Address fields you omit keep their stored values; send a field as an
+              empty string to clear it.
 
           class_id: The sales order's class. Classes can be used to categorize objects into
               meaningful segments, such as department, location, or type of work. In
@@ -489,8 +491,10 @@ class SalesOrdersResource(SyncAPIResource):
 
               Maximum length: 13 characters.
 
-          shipping_address: The sales order's shipping address. Address fields you omit keep their stored
-              values; send a field as an empty string to clear it.
+          shipping_address: The sales order's shipping address.
+
+              **NOTE**: Address fields you omit keep their stored values; send a field as an
+              empty string to clear it.
 
           shipping_date: The date when the products or services for this sales order were shipped or are
               expected to be shipped, in ISO 8601 format (YYYY-MM-DD).
@@ -1131,8 +1135,10 @@ class AsyncSalesOrdersResource(AsyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
-          billing_address: The sales order's billing address. Address fields you omit keep their stored
-              values; send a field as an empty string to clear it.
+          billing_address: The sales order's billing address.
+
+              **NOTE**: Address fields you omit keep their stored values; send a field as an
+              empty string to clear it.
 
           class_id: The sales order's class. Classes can be used to categorize objects into
               meaningful segments, such as department, location, or type of work. In
@@ -1251,8 +1257,10 @@ class AsyncSalesOrdersResource(AsyncAPIResource):
 
               Maximum length: 13 characters.
 
-          shipping_address: The sales order's shipping address. Address fields you omit keep their stored
-              values; send a field as an empty string to clear it.
+          shipping_address: The sales order's shipping address.
+
+              **NOTE**: Address fields you omit keep their stored values; send a field as an
+              empty string to clear it.
 
           shipping_date: The date when the products or services for this sales order were shipped or are
               expected to be shipped, in ISO 8601 format (YYYY-MM-DD).
