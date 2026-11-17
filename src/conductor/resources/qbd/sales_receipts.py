@@ -17,7 +17,13 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ...types.qbd import sales_receipt_list_params, sales_receipt_create_params, sales_receipt_update_params
+from ...types.qbd import (
+    sales_receipt_list_params,
+    sales_receipt_create_params,
+    sales_receipt_update_params,
+    sales_receipt_retrieve_params,
+    sales_receipt_set_custom_fields_params,
+)
 from ...pagination import SyncCursorPage, AsyncCursorPage
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.qbd.sales_receipt import SalesReceipt
@@ -290,6 +296,7 @@ class SalesReceiptsResource(SyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -309,6 +316,12 @@ class SalesReceiptsResource(SyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on sales receipts. Defaults to `["0"]`,
+              the owner of public custom fields, which QuickBooks users define and see. To get
+              an application's private custom fields, add its owner ID, a GUID in braces. Only
+              the owners you list are returned, so keep `"0"` in the list to also get the
+              public ones.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -323,7 +336,14 @@ class SalesReceiptsResource(SyncAPIResource):
         return self._get(
             path_template("/quickbooks-desktop/sales-receipts/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids},
+                    sales_receipt_retrieve_params.SalesReceiptRetrieveParams,
+                ),
             ),
             cast_to=SalesReceipt,
         )
@@ -593,6 +613,7 @@ class SalesReceiptsResource(SyncAPIResource):
         currency_ids: SequenceNotStr[str] | Omit = omit,
         cursor: str | Omit = omit,
         customer_ids: SequenceNotStr[str] | Omit = omit,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         include_line_items: bool | Omit = omit,
         limit: int | Omit = omit,
@@ -636,6 +657,12 @@ class SalesReceiptsResource(SyncAPIResource):
               fails, start over without a cursor.
 
           customer_ids: Filter for sales receipts created for these customers.
+
+          custom_field_owner_ids: The owners whose custom fields to return on sales receipts. Defaults to `["0"]`,
+              the owner of public custom fields, which QuickBooks users define and see. To get
+              an application's private custom fields, add its owner ID, a GUID in braces. Only
+              the owners you list are returned, so keep `"0"` in the list to also get the
+              public ones.
 
           ids: Filter for specific sales receipts by their QuickBooks-assigned unique
               identifier(s).
@@ -755,6 +782,7 @@ class SalesReceiptsResource(SyncAPIResource):
                         "currency_ids": currency_ids,
                         "cursor": cursor,
                         "customer_ids": customer_ids,
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "ids": ids,
                         "include_line_items": include_line_items,
                         "limit": limit,
@@ -814,6 +842,73 @@ class SalesReceiptsResource(SyncAPIResource):
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
             cast_to=SalesReceiptDeleteResponse,
+        )
+
+    def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[sales_receipt_set_custom_fields_params.CustomField] | Omit = omit,
+        lines: Iterable[sales_receipt_set_custom_fields_params.Line] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> SalesReceipt:
+        """Sets or clears custom field values on a sales receipt and its lines.
+
+        A value
+        replaces the custom field's current value if it has one, and an empty string
+        clears it. Custom fields you leave out keep their values, and no
+        `revisionNumber` is needed. Item custom fields go on lines; customer, vendor,
+        and employee custom fields go on the sales receipt itself.
+
+        If QuickBooks refuses or does not store any value, the request fails with an
+        error that names each of those custom fields. The values QuickBooks did save
+        stay saved, and the error says how many. Sending the same request again is safe.
+
+        **NOTE**: This request changes the sales receipt's `revisionNumber`, so use the
+        one in its response for your next update.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the sales receipt to set custom
+              fields on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the sales receipt itself, not on its
+              lines. Custom fields you leave out keep their values.
+
+          lines: The lines of the sales receipt whose custom field values to set or clear. Lines
+              you leave out are not changed.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return self._post(
+            path_template("/quickbooks-desktop/sales-receipts/{id}/set-custom-fields", id=id),
+            body=maybe_transform(
+                {
+                    "custom_fields": custom_fields,
+                    "lines": lines,
+                },
+                sales_receipt_set_custom_fields_params.SalesReceiptSetCustomFieldsParams,
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=SalesReceipt,
         )
 
     def void(
@@ -1121,6 +1216,7 @@ class AsyncSalesReceiptsResource(AsyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -1140,6 +1236,12 @@ class AsyncSalesReceiptsResource(AsyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on sales receipts. Defaults to `["0"]`,
+              the owner of public custom fields, which QuickBooks users define and see. To get
+              an application's private custom fields, add its owner ID, a GUID in braces. Only
+              the owners you list are returned, so keep `"0"` in the list to also get the
+              public ones.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -1154,7 +1256,14 @@ class AsyncSalesReceiptsResource(AsyncAPIResource):
         return await self._get(
             path_template("/quickbooks-desktop/sales-receipts/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=await async_maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids},
+                    sales_receipt_retrieve_params.SalesReceiptRetrieveParams,
+                ),
             ),
             cast_to=SalesReceipt,
         )
@@ -1424,6 +1533,7 @@ class AsyncSalesReceiptsResource(AsyncAPIResource):
         currency_ids: SequenceNotStr[str] | Omit = omit,
         cursor: str | Omit = omit,
         customer_ids: SequenceNotStr[str] | Omit = omit,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         include_line_items: bool | Omit = omit,
         limit: int | Omit = omit,
@@ -1467,6 +1577,12 @@ class AsyncSalesReceiptsResource(AsyncAPIResource):
               fails, start over without a cursor.
 
           customer_ids: Filter for sales receipts created for these customers.
+
+          custom_field_owner_ids: The owners whose custom fields to return on sales receipts. Defaults to `["0"]`,
+              the owner of public custom fields, which QuickBooks users define and see. To get
+              an application's private custom fields, add its owner ID, a GUID in braces. Only
+              the owners you list are returned, so keep `"0"` in the list to also get the
+              public ones.
 
           ids: Filter for specific sales receipts by their QuickBooks-assigned unique
               identifier(s).
@@ -1586,6 +1702,7 @@ class AsyncSalesReceiptsResource(AsyncAPIResource):
                         "currency_ids": currency_ids,
                         "cursor": cursor,
                         "customer_ids": customer_ids,
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "ids": ids,
                         "include_line_items": include_line_items,
                         "limit": limit,
@@ -1645,6 +1762,73 @@ class AsyncSalesReceiptsResource(AsyncAPIResource):
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
             cast_to=SalesReceiptDeleteResponse,
+        )
+
+    async def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[sales_receipt_set_custom_fields_params.CustomField] | Omit = omit,
+        lines: Iterable[sales_receipt_set_custom_fields_params.Line] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> SalesReceipt:
+        """Sets or clears custom field values on a sales receipt and its lines.
+
+        A value
+        replaces the custom field's current value if it has one, and an empty string
+        clears it. Custom fields you leave out keep their values, and no
+        `revisionNumber` is needed. Item custom fields go on lines; customer, vendor,
+        and employee custom fields go on the sales receipt itself.
+
+        If QuickBooks refuses or does not store any value, the request fails with an
+        error that names each of those custom fields. The values QuickBooks did save
+        stay saved, and the error says how many. Sending the same request again is safe.
+
+        **NOTE**: This request changes the sales receipt's `revisionNumber`, so use the
+        one in its response for your next update.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the sales receipt to set custom
+              fields on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the sales receipt itself, not on its
+              lines. Custom fields you leave out keep their values.
+
+          lines: The lines of the sales receipt whose custom field values to set or clear. Lines
+              you leave out are not changed.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return await self._post(
+            path_template("/quickbooks-desktop/sales-receipts/{id}/set-custom-fields", id=id),
+            body=await async_maybe_transform(
+                {
+                    "custom_fields": custom_fields,
+                    "lines": lines,
+                },
+                sales_receipt_set_custom_fields_params.SalesReceiptSetCustomFieldsParams,
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=SalesReceipt,
         )
 
     async def void(
@@ -1708,6 +1892,9 @@ class SalesReceiptsResourceWithRawResponse:
         self.delete = to_raw_response_wrapper(
             sales_receipts.delete,
         )
+        self.set_custom_fields = to_raw_response_wrapper(
+            sales_receipts.set_custom_fields,
+        )
         self.void = to_raw_response_wrapper(
             sales_receipts.void,
         )
@@ -1731,6 +1918,9 @@ class AsyncSalesReceiptsResourceWithRawResponse:
         )
         self.delete = async_to_raw_response_wrapper(
             sales_receipts.delete,
+        )
+        self.set_custom_fields = async_to_raw_response_wrapper(
+            sales_receipts.set_custom_fields,
         )
         self.void = async_to_raw_response_wrapper(
             sales_receipts.void,
@@ -1756,6 +1946,9 @@ class SalesReceiptsResourceWithStreamingResponse:
         self.delete = to_streamed_response_wrapper(
             sales_receipts.delete,
         )
+        self.set_custom_fields = to_streamed_response_wrapper(
+            sales_receipts.set_custom_fields,
+        )
         self.void = to_streamed_response_wrapper(
             sales_receipts.void,
         )
@@ -1779,6 +1972,9 @@ class AsyncSalesReceiptsResourceWithStreamingResponse:
         )
         self.delete = async_to_streamed_response_wrapper(
             sales_receipts.delete,
+        )
+        self.set_custom_fields = async_to_streamed_response_wrapper(
+            sales_receipts.set_custom_fields,
         )
         self.void = async_to_streamed_response_wrapper(
             sales_receipts.void,
