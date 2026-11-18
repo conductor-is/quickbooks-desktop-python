@@ -18,7 +18,13 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ...types.qbd import vendor_list_params, vendor_create_params, vendor_update_params
+from ...types.qbd import (
+    vendor_list_params,
+    vendor_create_params,
+    vendor_update_params,
+    vendor_retrieve_params,
+    vendor_set_custom_fields_params,
+)
 from ...pagination import SyncCursorPage, AsyncCursorPage
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.qbd.vendor import Vendor
@@ -362,6 +368,7 @@ class VendorsResource(SyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -381,6 +388,12 @@ class VendorsResource(SyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on vendors. Defaults to `["0"]`, the
+              owner of public custom fields, which QuickBooks users define and see. To get an
+              application's private custom fields, add its owner ID, a GUID in braces. Only
+              the owners you list are returned, so keep `"0"` in the list to also get the
+              public ones.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -395,7 +408,13 @@ class VendorsResource(SyncAPIResource):
         return self._get(
             path_template("/quickbooks-desktop/vendors/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids}, vendor_retrieve_params.VendorRetrieveParams
+                ),
             ),
             cast_to=Vendor,
         )
@@ -715,6 +734,7 @@ class VendorsResource(SyncAPIResource):
         class_ids: SequenceNotStr[str] | Omit = omit,
         currency_ids: SequenceNotStr[str] | Omit = omit,
         cursor: str | Omit = omit,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         limit: int | Omit = omit,
         name_contains: str | Omit = omit,
@@ -761,6 +781,12 @@ class VendorsResource(SyncAPIResource):
               within 20 seconds of the previous response. If you miss that window or a request
               fails, start over without a cursor. To make a run resumable, see
               [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
+
+          custom_field_owner_ids: The owners whose custom fields to return on vendors. Defaults to `["0"]`, the
+              owner of public custom fields, which QuickBooks users define and see. To get an
+              application's private custom fields, add its owner ID, a GUID in braces. Only
+              the owners you list are returned, so keep `"0"` in the list to also get the
+              public ones.
 
           ids: Filter for specific vendors by their QuickBooks-assigned unique identifier(s).
 
@@ -887,6 +913,7 @@ class VendorsResource(SyncAPIResource):
                         "class_ids": class_ids,
                         "currency_ids": currency_ids,
                         "cursor": cursor,
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "ids": ids,
                         "limit": limit,
                         "name_contains": name_contains,
@@ -908,6 +935,62 @@ class VendorsResource(SyncAPIResource):
                 ),
             ),
             model=Vendor,
+        )
+
+    def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[vendor_set_custom_fields_params.CustomField] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> Vendor:
+        """Sets or clears custom field values on a vendor.
+
+        A value replaces the custom
+        field's current value if it has one, and an empty string clears it. Custom
+        fields you leave out keep their values, and no `revisionNumber` is needed.
+
+        If QuickBooks refuses or does not store any value, the request fails with an
+        error that names each of those custom fields. The values QuickBooks did save
+        stay saved, and the error says how many. Sending the same request again is safe.
+
+        **NOTE**: This request changes the vendor's `revisionNumber`, so use the one in
+        its response for your next update.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the vendor to set custom fields on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the vendor. Custom fields you leave
+              out keep their values.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return self._post(
+            path_template("/quickbooks-desktop/vendors/{id}/set-custom-fields", id=id),
+            body=maybe_transform(
+                {"custom_fields": custom_fields}, vendor_set_custom_fields_params.VendorSetCustomFieldsParams
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=Vendor,
         )
 
 
@@ -1247,6 +1330,7 @@ class AsyncVendorsResource(AsyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -1266,6 +1350,12 @@ class AsyncVendorsResource(AsyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on vendors. Defaults to `["0"]`, the
+              owner of public custom fields, which QuickBooks users define and see. To get an
+              application's private custom fields, add its owner ID, a GUID in braces. Only
+              the owners you list are returned, so keep `"0"` in the list to also get the
+              public ones.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -1280,7 +1370,13 @@ class AsyncVendorsResource(AsyncAPIResource):
         return await self._get(
             path_template("/quickbooks-desktop/vendors/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=await async_maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids}, vendor_retrieve_params.VendorRetrieveParams
+                ),
             ),
             cast_to=Vendor,
         )
@@ -1600,6 +1696,7 @@ class AsyncVendorsResource(AsyncAPIResource):
         class_ids: SequenceNotStr[str] | Omit = omit,
         currency_ids: SequenceNotStr[str] | Omit = omit,
         cursor: str | Omit = omit,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         limit: int | Omit = omit,
         name_contains: str | Omit = omit,
@@ -1646,6 +1743,12 @@ class AsyncVendorsResource(AsyncAPIResource):
               within 20 seconds of the previous response. If you miss that window or a request
               fails, start over without a cursor. To make a run resumable, see
               [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
+
+          custom_field_owner_ids: The owners whose custom fields to return on vendors. Defaults to `["0"]`, the
+              owner of public custom fields, which QuickBooks users define and see. To get an
+              application's private custom fields, add its owner ID, a GUID in braces. Only
+              the owners you list are returned, so keep `"0"` in the list to also get the
+              public ones.
 
           ids: Filter for specific vendors by their QuickBooks-assigned unique identifier(s).
 
@@ -1772,6 +1875,7 @@ class AsyncVendorsResource(AsyncAPIResource):
                         "class_ids": class_ids,
                         "currency_ids": currency_ids,
                         "cursor": cursor,
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "ids": ids,
                         "limit": limit,
                         "name_contains": name_contains,
@@ -1795,6 +1899,62 @@ class AsyncVendorsResource(AsyncAPIResource):
             model=Vendor,
         )
 
+    async def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[vendor_set_custom_fields_params.CustomField] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> Vendor:
+        """Sets or clears custom field values on a vendor.
+
+        A value replaces the custom
+        field's current value if it has one, and an empty string clears it. Custom
+        fields you leave out keep their values, and no `revisionNumber` is needed.
+
+        If QuickBooks refuses or does not store any value, the request fails with an
+        error that names each of those custom fields. The values QuickBooks did save
+        stay saved, and the error says how many. Sending the same request again is safe.
+
+        **NOTE**: This request changes the vendor's `revisionNumber`, so use the one in
+        its response for your next update.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the vendor to set custom fields on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the vendor. Custom fields you leave
+              out keep their values.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return await self._post(
+            path_template("/quickbooks-desktop/vendors/{id}/set-custom-fields", id=id),
+            body=await async_maybe_transform(
+                {"custom_fields": custom_fields}, vendor_set_custom_fields_params.VendorSetCustomFieldsParams
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=Vendor,
+        )
+
 
 class VendorsResourceWithRawResponse:
     def __init__(self, vendors: VendorsResource) -> None:
@@ -1811,6 +1971,9 @@ class VendorsResourceWithRawResponse:
         )
         self.list = to_raw_response_wrapper(
             vendors.list,
+        )
+        self.set_custom_fields = to_raw_response_wrapper(
+            vendors.set_custom_fields,
         )
 
 
@@ -1830,6 +1993,9 @@ class AsyncVendorsResourceWithRawResponse:
         self.list = async_to_raw_response_wrapper(
             vendors.list,
         )
+        self.set_custom_fields = async_to_raw_response_wrapper(
+            vendors.set_custom_fields,
+        )
 
 
 class VendorsResourceWithStreamingResponse:
@@ -1848,6 +2014,9 @@ class VendorsResourceWithStreamingResponse:
         self.list = to_streamed_response_wrapper(
             vendors.list,
         )
+        self.set_custom_fields = to_streamed_response_wrapper(
+            vendors.set_custom_fields,
+        )
 
 
 class AsyncVendorsResourceWithStreamingResponse:
@@ -1865,4 +2034,7 @@ class AsyncVendorsResourceWithStreamingResponse:
         )
         self.list = async_to_streamed_response_wrapper(
             vendors.list,
+        )
+        self.set_custom_fields = async_to_streamed_response_wrapper(
+            vendors.set_custom_fields,
         )

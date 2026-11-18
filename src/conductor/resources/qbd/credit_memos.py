@@ -17,7 +17,13 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ...types.qbd import credit_memo_list_params, credit_memo_create_params, credit_memo_update_params
+from ...types.qbd import (
+    credit_memo_list_params,
+    credit_memo_create_params,
+    credit_memo_update_params,
+    credit_memo_retrieve_params,
+    credit_memo_set_custom_fields_params,
+)
 from ...pagination import SyncCursorPage, AsyncCursorPage
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.qbd.credit_memo import CreditMemo
@@ -268,6 +274,7 @@ class CreditMemosResource(SyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -289,6 +296,12 @@ class CreditMemosResource(SyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on credit memos. Defaults to `["0"]`,
+              the owner of public custom fields, which QuickBooks users define and see. To get
+              an application's private custom fields, add its owner ID, a GUID in braces. Only
+              the owners you list are returned, so keep `"0"` in the list to also get the
+              public ones.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -303,7 +316,14 @@ class CreditMemosResource(SyncAPIResource):
         return self._get(
             path_template("/quickbooks-desktop/credit-memos/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids},
+                    credit_memo_retrieve_params.CreditMemoRetrieveParams,
+                ),
             ),
             cast_to=CreditMemo,
         )
@@ -562,6 +582,7 @@ class CreditMemosResource(SyncAPIResource):
         currency_ids: SequenceNotStr[str] | Omit = omit,
         cursor: str | Omit = omit,
         customer_ids: SequenceNotStr[str] | Omit = omit,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         include_line_items: bool | Omit = omit,
         include_linked_transactions: bool | Omit = omit,
@@ -607,6 +628,12 @@ class CreditMemosResource(SyncAPIResource):
 
           customer_ids: Filter for credit memos created for these customers. These are the customers who
               are owed money.
+
+          custom_field_owner_ids: The owners whose custom fields to return on credit memos. Defaults to `["0"]`,
+              the owner of public custom fields, which QuickBooks users define and see. To get
+              an application's private custom fields, add its owner ID, a GUID in braces. Only
+              the owners you list are returned, so keep `"0"` in the list to also get the
+              public ones.
 
           ids: Filter for specific credit memos by their QuickBooks-assigned unique
               identifier(s).
@@ -729,6 +756,7 @@ class CreditMemosResource(SyncAPIResource):
                         "currency_ids": currency_ids,
                         "cursor": cursor,
                         "customer_ids": customer_ids,
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "ids": ids,
                         "include_line_items": include_line_items,
                         "include_linked_transactions": include_linked_transactions,
@@ -789,6 +817,73 @@ class CreditMemosResource(SyncAPIResource):
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
             cast_to=CreditMemoDeleteResponse,
+        )
+
+    def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[credit_memo_set_custom_fields_params.CustomField] | Omit = omit,
+        lines: Iterable[credit_memo_set_custom_fields_params.Line] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> CreditMemo:
+        """Sets or clears custom field values on a credit memo and its lines.
+
+        A value
+        replaces the custom field's current value if it has one, and an empty string
+        clears it. Custom fields you leave out keep their values, and no
+        `revisionNumber` is needed. Item custom fields go on lines; customer, vendor,
+        and employee custom fields go on the credit memo itself.
+
+        If QuickBooks refuses or does not store any value, the request fails with an
+        error that names each of those custom fields. The values QuickBooks did save
+        stay saved, and the error says how many. Sending the same request again is safe.
+
+        **NOTE**: This request changes the credit memo's `revisionNumber`, so use the
+        one in its response for your next update.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the credit memo to set custom
+              fields on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the credit memo itself, not on its
+              lines. Custom fields you leave out keep their values.
+
+          lines: The lines of the credit memo whose custom field values to set or clear. Lines
+              you leave out are not changed.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return self._post(
+            path_template("/quickbooks-desktop/credit-memos/{id}/set-custom-fields", id=id),
+            body=maybe_transform(
+                {
+                    "custom_fields": custom_fields,
+                    "lines": lines,
+                },
+                credit_memo_set_custom_fields_params.CreditMemoSetCustomFieldsParams,
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=CreditMemo,
         )
 
     def void(
@@ -1074,6 +1169,7 @@ class AsyncCreditMemosResource(AsyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -1095,6 +1191,12 @@ class AsyncCreditMemosResource(AsyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on credit memos. Defaults to `["0"]`,
+              the owner of public custom fields, which QuickBooks users define and see. To get
+              an application's private custom fields, add its owner ID, a GUID in braces. Only
+              the owners you list are returned, so keep `"0"` in the list to also get the
+              public ones.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -1109,7 +1211,14 @@ class AsyncCreditMemosResource(AsyncAPIResource):
         return await self._get(
             path_template("/quickbooks-desktop/credit-memos/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=await async_maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids},
+                    credit_memo_retrieve_params.CreditMemoRetrieveParams,
+                ),
             ),
             cast_to=CreditMemo,
         )
@@ -1368,6 +1477,7 @@ class AsyncCreditMemosResource(AsyncAPIResource):
         currency_ids: SequenceNotStr[str] | Omit = omit,
         cursor: str | Omit = omit,
         customer_ids: SequenceNotStr[str] | Omit = omit,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         include_line_items: bool | Omit = omit,
         include_linked_transactions: bool | Omit = omit,
@@ -1413,6 +1523,12 @@ class AsyncCreditMemosResource(AsyncAPIResource):
 
           customer_ids: Filter for credit memos created for these customers. These are the customers who
               are owed money.
+
+          custom_field_owner_ids: The owners whose custom fields to return on credit memos. Defaults to `["0"]`,
+              the owner of public custom fields, which QuickBooks users define and see. To get
+              an application's private custom fields, add its owner ID, a GUID in braces. Only
+              the owners you list are returned, so keep `"0"` in the list to also get the
+              public ones.
 
           ids: Filter for specific credit memos by their QuickBooks-assigned unique
               identifier(s).
@@ -1535,6 +1651,7 @@ class AsyncCreditMemosResource(AsyncAPIResource):
                         "currency_ids": currency_ids,
                         "cursor": cursor,
                         "customer_ids": customer_ids,
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "ids": ids,
                         "include_line_items": include_line_items,
                         "include_linked_transactions": include_linked_transactions,
@@ -1595,6 +1712,73 @@ class AsyncCreditMemosResource(AsyncAPIResource):
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
             cast_to=CreditMemoDeleteResponse,
+        )
+
+    async def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[credit_memo_set_custom_fields_params.CustomField] | Omit = omit,
+        lines: Iterable[credit_memo_set_custom_fields_params.Line] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> CreditMemo:
+        """Sets or clears custom field values on a credit memo and its lines.
+
+        A value
+        replaces the custom field's current value if it has one, and an empty string
+        clears it. Custom fields you leave out keep their values, and no
+        `revisionNumber` is needed. Item custom fields go on lines; customer, vendor,
+        and employee custom fields go on the credit memo itself.
+
+        If QuickBooks refuses or does not store any value, the request fails with an
+        error that names each of those custom fields. The values QuickBooks did save
+        stay saved, and the error says how many. Sending the same request again is safe.
+
+        **NOTE**: This request changes the credit memo's `revisionNumber`, so use the
+        one in its response for your next update.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the credit memo to set custom
+              fields on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the credit memo itself, not on its
+              lines. Custom fields you leave out keep their values.
+
+          lines: The lines of the credit memo whose custom field values to set or clear. Lines
+              you leave out are not changed.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return await self._post(
+            path_template("/quickbooks-desktop/credit-memos/{id}/set-custom-fields", id=id),
+            body=await async_maybe_transform(
+                {
+                    "custom_fields": custom_fields,
+                    "lines": lines,
+                },
+                credit_memo_set_custom_fields_params.CreditMemoSetCustomFieldsParams,
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=CreditMemo,
         )
 
     async def void(
@@ -1658,6 +1842,9 @@ class CreditMemosResourceWithRawResponse:
         self.delete = to_raw_response_wrapper(
             credit_memos.delete,
         )
+        self.set_custom_fields = to_raw_response_wrapper(
+            credit_memos.set_custom_fields,
+        )
         self.void = to_raw_response_wrapper(
             credit_memos.void,
         )
@@ -1681,6 +1868,9 @@ class AsyncCreditMemosResourceWithRawResponse:
         )
         self.delete = async_to_raw_response_wrapper(
             credit_memos.delete,
+        )
+        self.set_custom_fields = async_to_raw_response_wrapper(
+            credit_memos.set_custom_fields,
         )
         self.void = async_to_raw_response_wrapper(
             credit_memos.void,
@@ -1706,6 +1896,9 @@ class CreditMemosResourceWithStreamingResponse:
         self.delete = to_streamed_response_wrapper(
             credit_memos.delete,
         )
+        self.set_custom_fields = to_streamed_response_wrapper(
+            credit_memos.set_custom_fields,
+        )
         self.void = to_streamed_response_wrapper(
             credit_memos.void,
         )
@@ -1729,6 +1922,9 @@ class AsyncCreditMemosResourceWithStreamingResponse:
         )
         self.delete = async_to_streamed_response_wrapper(
             credit_memos.delete,
+        )
+        self.set_custom_fields = async_to_streamed_response_wrapper(
+            credit_memos.set_custom_fields,
         )
         self.void = async_to_streamed_response_wrapper(
             credit_memos.void,
