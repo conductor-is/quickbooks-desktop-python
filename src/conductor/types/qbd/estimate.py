@@ -1238,7 +1238,7 @@ class Estimate(BaseModel):
     values. For user-defined currencies, all values are editable.
     """
 
-    customer: Optional[Customer] = None
+    customer: Customer
     """The customer or customer-job associated with this estimate."""
 
     customer_message: Optional[CustomerMessage] = FieldInfo(alias="customerMessage", default=None)
