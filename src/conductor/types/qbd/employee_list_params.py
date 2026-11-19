@@ -14,6 +14,15 @@ class EmployeeListParams(TypedDict, total=False):
     conductor_end_user_id: Required[Annotated[str, PropertyInfo(alias="Conductor-End-User-Id")]]
     """The ID of the End-User to receive this request."""
 
+    custom_field_owner_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="customFieldOwnerIds")]
+    """The owners whose custom fields to return on employees.
+
+    Defaults to `["0"]`, the owner of public custom fields, which QuickBooks users
+    define and see. To get an application's private custom fields, add its owner ID,
+    a GUID in braces. Only the owners you list are returned, so keep `"0"` in the
+    list to also get the public ones.
+    """
+
     ids: SequenceNotStr[str]
     """Filter for specific employees by their QuickBooks-assigned unique identifier(s).
 

@@ -35,6 +35,15 @@ class CheckListParams(TypedDict, total=False):
     fails, start over without a cursor.
     """
 
+    custom_field_owner_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="customFieldOwnerIds")]
+    """The owners whose custom fields to return on checks.
+
+    Defaults to `["0"]`, the owner of public custom fields, which QuickBooks users
+    define and see. To get an application's private custom fields, add its owner ID,
+    a GUID in braces. Only the owners you list are returned, so keep `"0"` in the
+    list to also get the public ones.
+    """
+
     ids: SequenceNotStr[str]
     """Filter for specific checks by their QuickBooks-assigned unique identifier(s).
 
