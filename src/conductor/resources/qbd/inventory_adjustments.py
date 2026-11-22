@@ -21,6 +21,8 @@ from ...types.qbd import (
     inventory_adjustment_list_params,
     inventory_adjustment_create_params,
     inventory_adjustment_update_params,
+    inventory_adjustment_retrieve_params,
+    inventory_adjustment_set_custom_fields_params,
 )
 from ..._base_client import make_request_options
 from ...types.qbd.inventory_adjustment import InventoryAdjustment
@@ -153,6 +155,7 @@ class InventoryAdjustmentsResource(SyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -174,6 +177,12 @@ class InventoryAdjustmentsResource(SyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on inventory adjustments. Defaults to
+              `["0"]`, the owner of public custom fields, which QuickBooks users define and
+              see. To get an application's private custom fields, add its owner ID, a GUID in
+              braces. Only the owners you list are returned, so keep `"0"` in the list to also
+              get the public ones.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -188,7 +197,14 @@ class InventoryAdjustmentsResource(SyncAPIResource):
         return self._get(
             path_template("/quickbooks-desktop/inventory-adjustments/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids},
+                    inventory_adjustment_retrieve_params.InventoryAdjustmentRetrieveParams,
+                ),
             ),
             cast_to=InventoryAdjustment,
         )
@@ -214,8 +230,10 @@ class InventoryAdjustmentsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> InventoryAdjustment:
-        """
-        Updates an existing inventory adjustment.
+        """Updates an existing inventory adjustment.
+
+        To set or clear custom field values,
+        use the set-custom-fields endpoint.
 
         **NOTE:** If you include `lines`, QuickBooks Desktop replaces that line list
         with the array you send, so include unchanged lines you want to keep and use
@@ -311,6 +329,7 @@ class InventoryAdjustmentsResource(SyncAPIResource):
         conductor_end_user_id: str,
         account_ids: SequenceNotStr[str] | Omit = omit,
         customer_ids: SequenceNotStr[str] | Omit = omit,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         include_line_items: bool | Omit = omit,
         item_ids: SequenceNotStr[str] | Omit = omit,
@@ -345,6 +364,12 @@ class InventoryAdjustmentsResource(SyncAPIResource):
           account_ids: Filter for inventory adjustments associated with these accounts.
 
           customer_ids: Filter for inventory adjustments associated with these customers.
+
+          custom_field_owner_ids: The owners whose custom fields to return on inventory adjustments. Defaults to
+              `["0"]`, the owner of public custom fields, which QuickBooks users define and
+              see. To get an application's private custom fields, add its owner ID, a GUID in
+              braces. Only the owners you list are returned, so keep `"0"` in the list to also
+              get the public ones.
 
           ids: Filter for specific inventory adjustments by their QuickBooks-assigned unique
               identifier(s).
@@ -464,6 +489,7 @@ class InventoryAdjustmentsResource(SyncAPIResource):
                     {
                         "account_ids": account_ids,
                         "customer_ids": customer_ids,
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "ids": ids,
                         "include_line_items": include_line_items,
                         "item_ids": item_ids,
@@ -525,6 +551,66 @@ class InventoryAdjustmentsResource(SyncAPIResource):
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
             cast_to=InventoryAdjustmentDeleteResponse,
+        )
+
+    def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[inventory_adjustment_set_custom_fields_params.CustomField] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> InventoryAdjustment:
+        """Sets or clears custom field values on an inventory adjustment.
+
+        A value replaces
+        the custom field's current value if it has one, and an empty string clears it.
+        Custom fields you leave out keep their values, and no `revisionNumber` is
+        needed.
+
+        If QuickBooks does not save every value, or the inventory adjustment cannot be
+        returned, the request fails with an error that names the custom fields
+        QuickBooks did not save and any whose outcome could not be confirmed. The values
+        QuickBooks did save stay saved. Sending the same request again is safe.
+
+        **NOTE**: This request changes the inventory adjustment's `revisionNumber`, so
+        use the one in its response for your next update.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the inventory adjustment to set
+              custom fields on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the inventory adjustment itself, not
+              on its lines. Custom fields you leave out keep their values.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return self._post(
+            path_template("/quickbooks-desktop/inventory-adjustments/{id}/set-custom-fields", id=id),
+            body=maybe_transform(
+                {"custom_fields": custom_fields},
+                inventory_adjustment_set_custom_fields_params.InventoryAdjustmentSetCustomFieldsParams,
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=InventoryAdjustment,
         )
 
     def void(
@@ -691,6 +777,7 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -712,6 +799,12 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on inventory adjustments. Defaults to
+              `["0"]`, the owner of public custom fields, which QuickBooks users define and
+              see. To get an application's private custom fields, add its owner ID, a GUID in
+              braces. Only the owners you list are returned, so keep `"0"` in the list to also
+              get the public ones.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -726,7 +819,14 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
         return await self._get(
             path_template("/quickbooks-desktop/inventory-adjustments/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=await async_maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids},
+                    inventory_adjustment_retrieve_params.InventoryAdjustmentRetrieveParams,
+                ),
             ),
             cast_to=InventoryAdjustment,
         )
@@ -752,8 +852,10 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> InventoryAdjustment:
-        """
-        Updates an existing inventory adjustment.
+        """Updates an existing inventory adjustment.
+
+        To set or clear custom field values,
+        use the set-custom-fields endpoint.
 
         **NOTE:** If you include `lines`, QuickBooks Desktop replaces that line list
         with the array you send, so include unchanged lines you want to keep and use
@@ -849,6 +951,7 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
         conductor_end_user_id: str,
         account_ids: SequenceNotStr[str] | Omit = omit,
         customer_ids: SequenceNotStr[str] | Omit = omit,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         include_line_items: bool | Omit = omit,
         item_ids: SequenceNotStr[str] | Omit = omit,
@@ -883,6 +986,12 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
           account_ids: Filter for inventory adjustments associated with these accounts.
 
           customer_ids: Filter for inventory adjustments associated with these customers.
+
+          custom_field_owner_ids: The owners whose custom fields to return on inventory adjustments. Defaults to
+              `["0"]`, the owner of public custom fields, which QuickBooks users define and
+              see. To get an application's private custom fields, add its owner ID, a GUID in
+              braces. Only the owners you list are returned, so keep `"0"` in the list to also
+              get the public ones.
 
           ids: Filter for specific inventory adjustments by their QuickBooks-assigned unique
               identifier(s).
@@ -1002,6 +1111,7 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
                     {
                         "account_ids": account_ids,
                         "customer_ids": customer_ids,
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "ids": ids,
                         "include_line_items": include_line_items,
                         "item_ids": item_ids,
@@ -1065,6 +1175,66 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
             cast_to=InventoryAdjustmentDeleteResponse,
         )
 
+    async def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[inventory_adjustment_set_custom_fields_params.CustomField] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> InventoryAdjustment:
+        """Sets or clears custom field values on an inventory adjustment.
+
+        A value replaces
+        the custom field's current value if it has one, and an empty string clears it.
+        Custom fields you leave out keep their values, and no `revisionNumber` is
+        needed.
+
+        If QuickBooks does not save every value, or the inventory adjustment cannot be
+        returned, the request fails with an error that names the custom fields
+        QuickBooks did not save and any whose outcome could not be confirmed. The values
+        QuickBooks did save stay saved. Sending the same request again is safe.
+
+        **NOTE**: This request changes the inventory adjustment's `revisionNumber`, so
+        use the one in its response for your next update.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the inventory adjustment to set
+              custom fields on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the inventory adjustment itself, not
+              on its lines. Custom fields you leave out keep their values.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return await self._post(
+            path_template("/quickbooks-desktop/inventory-adjustments/{id}/set-custom-fields", id=id),
+            body=await async_maybe_transform(
+                {"custom_fields": custom_fields},
+                inventory_adjustment_set_custom_fields_params.InventoryAdjustmentSetCustomFieldsParams,
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=InventoryAdjustment,
+        )
+
     async def void(
         self,
         id: str,
@@ -1126,6 +1296,9 @@ class InventoryAdjustmentsResourceWithRawResponse:
         self.delete = to_raw_response_wrapper(
             inventory_adjustments.delete,
         )
+        self.set_custom_fields = to_raw_response_wrapper(
+            inventory_adjustments.set_custom_fields,
+        )
         self.void = to_raw_response_wrapper(
             inventory_adjustments.void,
         )
@@ -1149,6 +1322,9 @@ class AsyncInventoryAdjustmentsResourceWithRawResponse:
         )
         self.delete = async_to_raw_response_wrapper(
             inventory_adjustments.delete,
+        )
+        self.set_custom_fields = async_to_raw_response_wrapper(
+            inventory_adjustments.set_custom_fields,
         )
         self.void = async_to_raw_response_wrapper(
             inventory_adjustments.void,
@@ -1174,6 +1350,9 @@ class InventoryAdjustmentsResourceWithStreamingResponse:
         self.delete = to_streamed_response_wrapper(
             inventory_adjustments.delete,
         )
+        self.set_custom_fields = to_streamed_response_wrapper(
+            inventory_adjustments.set_custom_fields,
+        )
         self.void = to_streamed_response_wrapper(
             inventory_adjustments.void,
         )
@@ -1197,6 +1376,9 @@ class AsyncInventoryAdjustmentsResourceWithStreamingResponse:
         )
         self.delete = async_to_streamed_response_wrapper(
             inventory_adjustments.delete,
+        )
+        self.set_custom_fields = async_to_streamed_response_wrapper(
+            inventory_adjustments.set_custom_fields,
         )
         self.void = async_to_streamed_response_wrapper(
             inventory_adjustments.void,
