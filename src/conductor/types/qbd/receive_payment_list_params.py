@@ -38,6 +38,15 @@ class ReceivePaymentListParams(TypedDict, total=False):
     customer_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="customerIds")]
     """Filter for receive-payments received from these customers."""
 
+    custom_field_owner_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="customFieldOwnerIds")]
+    """The owners whose custom fields to return on receive-payments.
+
+    Defaults to `["0"]`, the owner of public custom fields, which QuickBooks users
+    define and see. To get an application's private custom fields, add its owner ID,
+    a GUID in braces. Only the owners you list are returned, so keep `"0"` in the
+    list to also get the public ones.
+    """
+
     ids: SequenceNotStr[str]
     """
     Filter for specific receive-payments by their QuickBooks-assigned unique
