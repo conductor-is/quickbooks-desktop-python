@@ -17,7 +17,13 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ...types.qbd import estimate_list_params, estimate_create_params, estimate_update_params
+from ...types.qbd import (
+    estimate_list_params,
+    estimate_create_params,
+    estimate_update_params,
+    estimate_retrieve_params,
+    estimate_set_custom_fields_params,
+)
 from ...pagination import SyncCursorPage, AsyncCursorPage
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.qbd.estimate import Estimate
@@ -241,6 +247,7 @@ class EstimatesResource(SyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -262,6 +269,12 @@ class EstimatesResource(SyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on estimates. Defaults to `["0"]`, the
+              owner of public custom fields, which QuickBooks users define and see. To get an
+              application's private custom fields, add its owner ID, a GUID in braces. Only
+              the owners you list are returned, so keep `"0"` in the list to also get the
+              public ones.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -276,7 +289,13 @@ class EstimatesResource(SyncAPIResource):
         return self._get(
             path_template("/quickbooks-desktop/estimates/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids}, estimate_retrieve_params.EstimateRetrieveParams
+                ),
             ),
             cast_to=Estimate,
         )
@@ -317,8 +336,10 @@ class EstimatesResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Estimate:
-        """
-        Updates an existing estimate.
+        """Updates an existing estimate.
+
+        To set or clear custom field values, use the
+        set-custom-fields endpoint.
 
         **NOTE:** If you include `lines` or `lineGroups`, QuickBooks Desktop replaces
         each included line list with the array you send, so include unchanged lines you
@@ -516,6 +537,7 @@ class EstimatesResource(SyncAPIResource):
         currency_ids: SequenceNotStr[str] | Omit = omit,
         cursor: str | Omit = omit,
         customer_ids: SequenceNotStr[str] | Omit = omit,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         include_line_items: bool | Omit = omit,
         include_linked_transactions: bool | Omit = omit,
@@ -560,6 +582,12 @@ class EstimatesResource(SyncAPIResource):
               fails, start over without a cursor.
 
           customer_ids: Filter for estimates created for these customers.
+
+          custom_field_owner_ids: The owners whose custom fields to return on estimates. Defaults to `["0"]`, the
+              owner of public custom fields, which QuickBooks users define and see. To get an
+              application's private custom fields, add its owner ID, a GUID in braces. Only
+              the owners you list are returned, so keep `"0"` in the list to also get the
+              public ones.
 
           ids: Filter for specific estimates by their QuickBooks-assigned unique identifier(s).
 
@@ -681,6 +709,7 @@ class EstimatesResource(SyncAPIResource):
                         "currency_ids": currency_ids,
                         "cursor": cursor,
                         "customer_ids": customer_ids,
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "ids": ids,
                         "include_line_items": include_line_items,
                         "include_linked_transactions": include_linked_transactions,
@@ -741,6 +770,75 @@ class EstimatesResource(SyncAPIResource):
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
             cast_to=EstimateDeleteResponse,
+        )
+
+    def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[estimate_set_custom_fields_params.CustomField] | Omit = omit,
+        lines: Iterable[estimate_set_custom_fields_params.Line] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> Estimate:
+        """Sets or clears custom field values on an estimate and its lines.
+
+        A value
+        replaces the custom field's current value if it has one, and an empty string
+        clears it. Custom fields you leave out keep their values, and no
+        `revisionNumber` is needed. Item custom fields go on lines, and customer,
+        vendor, and employee custom fields on the estimate itself, each only if its
+        definition's `objectTypes` includes this type of transaction.
+
+        If QuickBooks does not save every value, or the estimate cannot be returned, the
+        request fails with an error that names the custom fields QuickBooks did not save
+        and any whose outcome could not be confirmed. The values QuickBooks did save
+        stay saved. Sending the same request again is safe.
+
+        **NOTE**: This request changes the estimate's `revisionNumber`, so use the one
+        in its response for your next update.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the estimate to set custom fields
+              on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the estimate itself, not on its
+              lines. Custom fields you leave out keep their values.
+
+          lines: The lines of the estimate whose custom field values to set or clear. Lines you
+              leave out are not changed.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return self._post(
+            path_template("/quickbooks-desktop/estimates/{id}/set-custom-fields", id=id),
+            body=maybe_transform(
+                {
+                    "custom_fields": custom_fields,
+                    "lines": lines,
+                },
+                estimate_set_custom_fields_params.EstimateSetCustomFieldsParams,
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=Estimate,
         )
 
 
@@ -959,6 +1057,7 @@ class AsyncEstimatesResource(AsyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -980,6 +1079,12 @@ class AsyncEstimatesResource(AsyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on estimates. Defaults to `["0"]`, the
+              owner of public custom fields, which QuickBooks users define and see. To get an
+              application's private custom fields, add its owner ID, a GUID in braces. Only
+              the owners you list are returned, so keep `"0"` in the list to also get the
+              public ones.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -994,7 +1099,13 @@ class AsyncEstimatesResource(AsyncAPIResource):
         return await self._get(
             path_template("/quickbooks-desktop/estimates/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=await async_maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids}, estimate_retrieve_params.EstimateRetrieveParams
+                ),
             ),
             cast_to=Estimate,
         )
@@ -1035,8 +1146,10 @@ class AsyncEstimatesResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Estimate:
-        """
-        Updates an existing estimate.
+        """Updates an existing estimate.
+
+        To set or clear custom field values, use the
+        set-custom-fields endpoint.
 
         **NOTE:** If you include `lines` or `lineGroups`, QuickBooks Desktop replaces
         each included line list with the array you send, so include unchanged lines you
@@ -1234,6 +1347,7 @@ class AsyncEstimatesResource(AsyncAPIResource):
         currency_ids: SequenceNotStr[str] | Omit = omit,
         cursor: str | Omit = omit,
         customer_ids: SequenceNotStr[str] | Omit = omit,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         include_line_items: bool | Omit = omit,
         include_linked_transactions: bool | Omit = omit,
@@ -1278,6 +1392,12 @@ class AsyncEstimatesResource(AsyncAPIResource):
               fails, start over without a cursor.
 
           customer_ids: Filter for estimates created for these customers.
+
+          custom_field_owner_ids: The owners whose custom fields to return on estimates. Defaults to `["0"]`, the
+              owner of public custom fields, which QuickBooks users define and see. To get an
+              application's private custom fields, add its owner ID, a GUID in braces. Only
+              the owners you list are returned, so keep `"0"` in the list to also get the
+              public ones.
 
           ids: Filter for specific estimates by their QuickBooks-assigned unique identifier(s).
 
@@ -1399,6 +1519,7 @@ class AsyncEstimatesResource(AsyncAPIResource):
                         "currency_ids": currency_ids,
                         "cursor": cursor,
                         "customer_ids": customer_ids,
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "ids": ids,
                         "include_line_items": include_line_items,
                         "include_linked_transactions": include_linked_transactions,
@@ -1461,6 +1582,75 @@ class AsyncEstimatesResource(AsyncAPIResource):
             cast_to=EstimateDeleteResponse,
         )
 
+    async def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[estimate_set_custom_fields_params.CustomField] | Omit = omit,
+        lines: Iterable[estimate_set_custom_fields_params.Line] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> Estimate:
+        """Sets or clears custom field values on an estimate and its lines.
+
+        A value
+        replaces the custom field's current value if it has one, and an empty string
+        clears it. Custom fields you leave out keep their values, and no
+        `revisionNumber` is needed. Item custom fields go on lines, and customer,
+        vendor, and employee custom fields on the estimate itself, each only if its
+        definition's `objectTypes` includes this type of transaction.
+
+        If QuickBooks does not save every value, or the estimate cannot be returned, the
+        request fails with an error that names the custom fields QuickBooks did not save
+        and any whose outcome could not be confirmed. The values QuickBooks did save
+        stay saved. Sending the same request again is safe.
+
+        **NOTE**: This request changes the estimate's `revisionNumber`, so use the one
+        in its response for your next update.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the estimate to set custom fields
+              on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the estimate itself, not on its
+              lines. Custom fields you leave out keep their values.
+
+          lines: The lines of the estimate whose custom field values to set or clear. Lines you
+              leave out are not changed.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return await self._post(
+            path_template("/quickbooks-desktop/estimates/{id}/set-custom-fields", id=id),
+            body=await async_maybe_transform(
+                {
+                    "custom_fields": custom_fields,
+                    "lines": lines,
+                },
+                estimate_set_custom_fields_params.EstimateSetCustomFieldsParams,
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=Estimate,
+        )
+
 
 class EstimatesResourceWithRawResponse:
     def __init__(self, estimates: EstimatesResource) -> None:
@@ -1480,6 +1670,9 @@ class EstimatesResourceWithRawResponse:
         )
         self.delete = to_raw_response_wrapper(
             estimates.delete,
+        )
+        self.set_custom_fields = to_raw_response_wrapper(
+            estimates.set_custom_fields,
         )
 
 
@@ -1502,6 +1695,9 @@ class AsyncEstimatesResourceWithRawResponse:
         self.delete = async_to_raw_response_wrapper(
             estimates.delete,
         )
+        self.set_custom_fields = async_to_raw_response_wrapper(
+            estimates.set_custom_fields,
+        )
 
 
 class EstimatesResourceWithStreamingResponse:
@@ -1523,6 +1719,9 @@ class EstimatesResourceWithStreamingResponse:
         self.delete = to_streamed_response_wrapper(
             estimates.delete,
         )
+        self.set_custom_fields = to_streamed_response_wrapper(
+            estimates.set_custom_fields,
+        )
 
 
 class AsyncEstimatesResourceWithStreamingResponse:
@@ -1543,4 +1742,7 @@ class AsyncEstimatesResourceWithStreamingResponse:
         )
         self.delete = async_to_streamed_response_wrapper(
             estimates.delete,
+        )
+        self.set_custom_fields = async_to_streamed_response_wrapper(
+            estimates.set_custom_fields,
         )
