@@ -9,7 +9,9 @@ import pytest
 
 from conductor import Conductor, AsyncConductor
 from tests.utils import assert_matches_type
-from conductor.types.qbd import ItemGroup
+from conductor.types.qbd import (
+    ItemGroup,
+)
 from conductor.pagination import SyncCursorPage, AsyncCursorPage
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
@@ -85,6 +87,15 @@ class TestItemGroups:
         item_group = client.qbd.item_groups.retrieve(
             id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
+        )
+        assert_matches_type(ItemGroup, item_group, path=["response"])
+
+    @parametrize
+    def test_method_retrieve_with_all_params(self, client: Conductor) -> None:
+        item_group = client.qbd.item_groups.retrieve(
+            id="80000001-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+            custom_field_owner_ids=["0"],
         )
         assert_matches_type(ItemGroup, item_group, path=["response"])
 
@@ -208,6 +219,7 @@ class TestItemGroups:
         item_group = client.qbd.item_groups.list(
             conductor_end_user_id="end_usr_1234567abcdefg",
             cursor="12345678-abcd-abcd-example-1234567890ab",
+            custom_field_owner_ids=["0"],
             ids=["80000001-1234567890"],
             limit=150,
             name_contains="ABC",
@@ -245,6 +257,63 @@ class TestItemGroups:
             assert_matches_type(SyncCursorPage[ItemGroup], item_group, path=["response"])
 
         assert cast(Any, response.is_closed) is True
+
+    @parametrize
+    def test_method_set_custom_fields(self, client: Conductor) -> None:
+        item_group = client.qbd.item_groups.set_custom_fields(
+            id="80000001-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+        )
+        assert_matches_type(ItemGroup, item_group, path=["response"])
+
+    @parametrize
+    def test_method_set_custom_fields_with_all_params(self, client: Conductor) -> None:
+        item_group = client.qbd.item_groups.set_custom_fields(
+            id="80000001-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+            custom_fields=[
+                {
+                    "name": "Customer Rating",
+                    "value": "Gold",
+                    "owner_id": "0",
+                }
+            ],
+        )
+        assert_matches_type(ItemGroup, item_group, path=["response"])
+
+    @parametrize
+    def test_raw_response_set_custom_fields(self, client: Conductor) -> None:
+        response = client.qbd.item_groups.with_raw_response.set_custom_fields(
+            id="80000001-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        item_group = response.parse()
+        assert_matches_type(ItemGroup, item_group, path=["response"])
+
+    @parametrize
+    def test_streaming_response_set_custom_fields(self, client: Conductor) -> None:
+        with client.qbd.item_groups.with_streaming_response.set_custom_fields(
+            id="80000001-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            item_group = response.parse()
+            assert_matches_type(ItemGroup, item_group, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @parametrize
+    def test_path_params_set_custom_fields(self, client: Conductor) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
+            client.qbd.item_groups.with_raw_response.set_custom_fields(
+                id="",
+                conductor_end_user_id="end_usr_1234567abcdefg",
+            )
 
 
 class TestAsyncItemGroups:
@@ -319,6 +388,15 @@ class TestAsyncItemGroups:
         item_group = await async_client.qbd.item_groups.retrieve(
             id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
+        )
+        assert_matches_type(ItemGroup, item_group, path=["response"])
+
+    @parametrize
+    async def test_method_retrieve_with_all_params(self, async_client: AsyncConductor) -> None:
+        item_group = await async_client.qbd.item_groups.retrieve(
+            id="80000001-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+            custom_field_owner_ids=["0"],
         )
         assert_matches_type(ItemGroup, item_group, path=["response"])
 
@@ -442,6 +520,7 @@ class TestAsyncItemGroups:
         item_group = await async_client.qbd.item_groups.list(
             conductor_end_user_id="end_usr_1234567abcdefg",
             cursor="12345678-abcd-abcd-example-1234567890ab",
+            custom_field_owner_ids=["0"],
             ids=["80000001-1234567890"],
             limit=150,
             name_contains="ABC",
@@ -479,3 +558,60 @@ class TestAsyncItemGroups:
             assert_matches_type(AsyncCursorPage[ItemGroup], item_group, path=["response"])
 
         assert cast(Any, response.is_closed) is True
+
+    @parametrize
+    async def test_method_set_custom_fields(self, async_client: AsyncConductor) -> None:
+        item_group = await async_client.qbd.item_groups.set_custom_fields(
+            id="80000001-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+        )
+        assert_matches_type(ItemGroup, item_group, path=["response"])
+
+    @parametrize
+    async def test_method_set_custom_fields_with_all_params(self, async_client: AsyncConductor) -> None:
+        item_group = await async_client.qbd.item_groups.set_custom_fields(
+            id="80000001-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+            custom_fields=[
+                {
+                    "name": "Customer Rating",
+                    "value": "Gold",
+                    "owner_id": "0",
+                }
+            ],
+        )
+        assert_matches_type(ItemGroup, item_group, path=["response"])
+
+    @parametrize
+    async def test_raw_response_set_custom_fields(self, async_client: AsyncConductor) -> None:
+        response = await async_client.qbd.item_groups.with_raw_response.set_custom_fields(
+            id="80000001-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        item_group = await response.parse()
+        assert_matches_type(ItemGroup, item_group, path=["response"])
+
+    @parametrize
+    async def test_streaming_response_set_custom_fields(self, async_client: AsyncConductor) -> None:
+        async with async_client.qbd.item_groups.with_streaming_response.set_custom_fields(
+            id="80000001-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            item_group = await response.parse()
+            assert_matches_type(ItemGroup, item_group, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @parametrize
+    async def test_path_params_set_custom_fields(self, async_client: AsyncConductor) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
+            await async_client.qbd.item_groups.with_raw_response.set_custom_fields(
+                id="",
+                conductor_end_user_id="end_usr_1234567abcdefg",
+            )

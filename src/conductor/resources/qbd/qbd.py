@@ -478,6 +478,14 @@ from .sales_tax_group_items import (
     SalesTaxGroupItemsResourceWithStreamingResponse,
     AsyncSalesTaxGroupItemsResourceWithStreamingResponse,
 )
+from .custom_field_definitions import (
+    CustomFieldDefinitionsResource,
+    AsyncCustomFieldDefinitionsResource,
+    CustomFieldDefinitionsResourceWithRawResponse,
+    AsyncCustomFieldDefinitionsResourceWithRawResponse,
+    CustomFieldDefinitionsResourceWithStreamingResponse,
+    AsyncCustomFieldDefinitionsResourceWithStreamingResponse,
+)
 from .inventory_assembly_items import (
     InventoryAssemblyItemsResource,
     AsyncInventoryAssemblyItemsResource,
@@ -575,6 +583,10 @@ class QbdResource(SyncAPIResource):
     @cached_property
     def currencies(self) -> CurrenciesResource:
         return CurrenciesResource(self._client)
+
+    @cached_property
+    def custom_field_definitions(self) -> CustomFieldDefinitionsResource:
+        return CustomFieldDefinitionsResource(self._client)
 
     @cached_property
     def customer_types(self) -> CustomerTypesResource:
@@ -883,6 +895,10 @@ class AsyncQbdResource(AsyncAPIResource):
     @cached_property
     def currencies(self) -> AsyncCurrenciesResource:
         return AsyncCurrenciesResource(self._client)
+
+    @cached_property
+    def custom_field_definitions(self) -> AsyncCustomFieldDefinitionsResource:
+        return AsyncCustomFieldDefinitionsResource(self._client)
 
     @cached_property
     def customer_types(self) -> AsyncCustomerTypesResource:
@@ -1200,6 +1216,10 @@ class QbdResourceWithRawResponse:
         return CurrenciesResourceWithRawResponse(self._qbd.currencies)
 
     @cached_property
+    def custom_field_definitions(self) -> CustomFieldDefinitionsResourceWithRawResponse:
+        return CustomFieldDefinitionsResourceWithRawResponse(self._qbd.custom_field_definitions)
+
+    @cached_property
     def customer_types(self) -> CustomerTypesResourceWithRawResponse:
         return CustomerTypesResourceWithRawResponse(self._qbd.customer_types)
 
@@ -1455,6 +1475,10 @@ class AsyncQbdResourceWithRawResponse:
     @cached_property
     def currencies(self) -> AsyncCurrenciesResourceWithRawResponse:
         return AsyncCurrenciesResourceWithRawResponse(self._qbd.currencies)
+
+    @cached_property
+    def custom_field_definitions(self) -> AsyncCustomFieldDefinitionsResourceWithRawResponse:
+        return AsyncCustomFieldDefinitionsResourceWithRawResponse(self._qbd.custom_field_definitions)
 
     @cached_property
     def customer_types(self) -> AsyncCustomerTypesResourceWithRawResponse:
@@ -1714,6 +1738,10 @@ class QbdResourceWithStreamingResponse:
         return CurrenciesResourceWithStreamingResponse(self._qbd.currencies)
 
     @cached_property
+    def custom_field_definitions(self) -> CustomFieldDefinitionsResourceWithStreamingResponse:
+        return CustomFieldDefinitionsResourceWithStreamingResponse(self._qbd.custom_field_definitions)
+
+    @cached_property
     def customer_types(self) -> CustomerTypesResourceWithStreamingResponse:
         return CustomerTypesResourceWithStreamingResponse(self._qbd.customer_types)
 
@@ -1969,6 +1997,10 @@ class AsyncQbdResourceWithStreamingResponse:
     @cached_property
     def currencies(self) -> AsyncCurrenciesResourceWithStreamingResponse:
         return AsyncCurrenciesResourceWithStreamingResponse(self._qbd.currencies)
+
+    @cached_property
+    def custom_field_definitions(self) -> AsyncCustomFieldDefinitionsResourceWithStreamingResponse:
+        return AsyncCustomFieldDefinitionsResourceWithStreamingResponse(self._qbd.custom_field_definitions)
 
     @cached_property
     def customer_types(self) -> AsyncCustomerTypesResourceWithStreamingResponse:
