@@ -472,6 +472,14 @@ from .sales_tax_group_items import (
     SalesTaxGroupItemsResourceWithStreamingResponse,
     AsyncSalesTaxGroupItemsResourceWithStreamingResponse,
 )
+from .custom_field_definitions import (
+    CustomFieldDefinitionsResource,
+    AsyncCustomFieldDefinitionsResource,
+    CustomFieldDefinitionsResourceWithRawResponse,
+    AsyncCustomFieldDefinitionsResourceWithRawResponse,
+    CustomFieldDefinitionsResourceWithStreamingResponse,
+    AsyncCustomFieldDefinitionsResourceWithStreamingResponse,
+)
 from .inventory_assembly_items import (
     InventoryAssemblyItemsResource,
     AsyncInventoryAssemblyItemsResource,
@@ -596,6 +604,12 @@ __all__ = [
     "AsyncCurrenciesResourceWithRawResponse",
     "CurrenciesResourceWithStreamingResponse",
     "AsyncCurrenciesResourceWithStreamingResponse",
+    "CustomFieldDefinitionsResource",
+    "AsyncCustomFieldDefinitionsResource",
+    "CustomFieldDefinitionsResourceWithRawResponse",
+    "AsyncCustomFieldDefinitionsResourceWithRawResponse",
+    "CustomFieldDefinitionsResourceWithStreamingResponse",
+    "AsyncCustomFieldDefinitionsResourceWithStreamingResponse",
     "CustomerTypesResource",
     "AsyncCustomerTypesResource",
     "CustomerTypesResourceWithRawResponse",
