@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from typing import Iterable
 from typing_extensions import Literal
 
 import httpx
@@ -21,6 +22,7 @@ from ...types.qbd import (
     other_name_create_params,
     other_name_update_params,
     other_name_retrieve_params,
+    other_name_set_custom_fields_params,
 )
 from ..._base_client import make_request_options
 from ...types.qbd.other_name import OtherName
@@ -583,6 +585,65 @@ class OtherNamesResource(SyncAPIResource):
             cast_to=OtherNameListResponse,
         )
 
+    def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[other_name_set_custom_fields_params.CustomField] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> OtherName:
+        """Sets or clears custom field values on an other-name.
+
+        Each value you send
+        replaces the existing value of its custom field. To clear a custom field's
+        existing value, send an empty string. Custom fields you omit from your request
+        keep their existing values.
+
+        If the request fails, QuickBooks may still have saved some of the values you
+        sent, because it saves each value separately. The error names the custom fields
+        QuickBooks did not save. You can safely send the same request again.
+
+        **NOTE**: This request has no `revisionNumber` parameter, but it still updates
+        the other-name's `revisionNumber`. Use the `revisionNumber` returned in the
+        response for your next update.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the other-name to set custom fields
+              on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the other-name. Custom fields you
+              leave out keep their values.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return self._post(
+            path_template("/quickbooks-desktop/other-names/{id}/set-custom-fields", id=id),
+            body=maybe_transform(
+                {"custom_fields": custom_fields}, other_name_set_custom_fields_params.OtherNameSetCustomFieldsParams
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=OtherName,
+        )
+
 
 class AsyncOtherNamesResource(AsyncAPIResource):
     @cached_property
@@ -1138,6 +1199,65 @@ class AsyncOtherNamesResource(AsyncAPIResource):
             cast_to=OtherNameListResponse,
         )
 
+    async def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[other_name_set_custom_fields_params.CustomField] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> OtherName:
+        """Sets or clears custom field values on an other-name.
+
+        Each value you send
+        replaces the existing value of its custom field. To clear a custom field's
+        existing value, send an empty string. Custom fields you omit from your request
+        keep their existing values.
+
+        If the request fails, QuickBooks may still have saved some of the values you
+        sent, because it saves each value separately. The error names the custom fields
+        QuickBooks did not save. You can safely send the same request again.
+
+        **NOTE**: This request has no `revisionNumber` parameter, but it still updates
+        the other-name's `revisionNumber`. Use the `revisionNumber` returned in the
+        response for your next update.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the other-name to set custom fields
+              on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the other-name. Custom fields you
+              leave out keep their values.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return await self._post(
+            path_template("/quickbooks-desktop/other-names/{id}/set-custom-fields", id=id),
+            body=await async_maybe_transform(
+                {"custom_fields": custom_fields}, other_name_set_custom_fields_params.OtherNameSetCustomFieldsParams
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=OtherName,
+        )
+
 
 class OtherNamesResourceWithRawResponse:
     def __init__(self, other_names: OtherNamesResource) -> None:
@@ -1154,6 +1274,9 @@ class OtherNamesResourceWithRawResponse:
         )
         self.list = to_raw_response_wrapper(
             other_names.list,
+        )
+        self.set_custom_fields = to_raw_response_wrapper(
+            other_names.set_custom_fields,
         )
 
 
@@ -1173,6 +1296,9 @@ class AsyncOtherNamesResourceWithRawResponse:
         self.list = async_to_raw_response_wrapper(
             other_names.list,
         )
+        self.set_custom_fields = async_to_raw_response_wrapper(
+            other_names.set_custom_fields,
+        )
 
 
 class OtherNamesResourceWithStreamingResponse:
@@ -1191,6 +1317,9 @@ class OtherNamesResourceWithStreamingResponse:
         self.list = to_streamed_response_wrapper(
             other_names.list,
         )
+        self.set_custom_fields = to_streamed_response_wrapper(
+            other_names.set_custom_fields,
+        )
 
 
 class AsyncOtherNamesResourceWithStreamingResponse:
@@ -1208,4 +1337,7 @@ class AsyncOtherNamesResourceWithStreamingResponse:
         )
         self.list = async_to_streamed_response_wrapper(
             other_names.list,
+        )
+        self.set_custom_fields = async_to_streamed_response_wrapper(
+            other_names.set_custom_fields,
         )

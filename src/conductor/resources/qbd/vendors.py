@@ -18,7 +18,13 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ...types.qbd import vendor_list_params, vendor_create_params, vendor_update_params, vendor_retrieve_params
+from ...types.qbd import (
+    vendor_list_params,
+    vendor_create_params,
+    vendor_update_params,
+    vendor_retrieve_params,
+    vendor_set_custom_fields_params,
+)
 from ...pagination import SyncCursorPage, AsyncCursorPage
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.qbd.vendor import Vendor
@@ -931,6 +937,64 @@ class VendorsResource(SyncAPIResource):
             model=Vendor,
         )
 
+    def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[vendor_set_custom_fields_params.CustomField] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> Vendor:
+        """Sets or clears custom field values on a vendor.
+
+        Each value you send replaces the
+        existing value of its custom field. To clear a custom field's existing value,
+        send an empty string. Custom fields you omit from your request keep their
+        existing values.
+
+        If the request fails, QuickBooks may still have saved some of the values you
+        sent, because it saves each value separately. The error names the custom fields
+        QuickBooks did not save. You can safely send the same request again.
+
+        **NOTE**: This request has no `revisionNumber` parameter, but it still updates
+        the vendor's `revisionNumber`. Use the `revisionNumber` returned in the response
+        for your next update.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the vendor to set custom fields on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the vendor. Custom fields you leave
+              out keep their values.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return self._post(
+            path_template("/quickbooks-desktop/vendors/{id}/set-custom-fields", id=id),
+            body=maybe_transform(
+                {"custom_fields": custom_fields}, vendor_set_custom_fields_params.VendorSetCustomFieldsParams
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=Vendor,
+        )
+
 
 class AsyncVendorsResource(AsyncAPIResource):
     @cached_property
@@ -1837,6 +1901,64 @@ class AsyncVendorsResource(AsyncAPIResource):
             model=Vendor,
         )
 
+    async def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[vendor_set_custom_fields_params.CustomField] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> Vendor:
+        """Sets or clears custom field values on a vendor.
+
+        Each value you send replaces the
+        existing value of its custom field. To clear a custom field's existing value,
+        send an empty string. Custom fields you omit from your request keep their
+        existing values.
+
+        If the request fails, QuickBooks may still have saved some of the values you
+        sent, because it saves each value separately. The error names the custom fields
+        QuickBooks did not save. You can safely send the same request again.
+
+        **NOTE**: This request has no `revisionNumber` parameter, but it still updates
+        the vendor's `revisionNumber`. Use the `revisionNumber` returned in the response
+        for your next update.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the vendor to set custom fields on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the vendor. Custom fields you leave
+              out keep their values.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return await self._post(
+            path_template("/quickbooks-desktop/vendors/{id}/set-custom-fields", id=id),
+            body=await async_maybe_transform(
+                {"custom_fields": custom_fields}, vendor_set_custom_fields_params.VendorSetCustomFieldsParams
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=Vendor,
+        )
+
 
 class VendorsResourceWithRawResponse:
     def __init__(self, vendors: VendorsResource) -> None:
@@ -1853,6 +1975,9 @@ class VendorsResourceWithRawResponse:
         )
         self.list = to_raw_response_wrapper(
             vendors.list,
+        )
+        self.set_custom_fields = to_raw_response_wrapper(
+            vendors.set_custom_fields,
         )
 
 
@@ -1872,6 +1997,9 @@ class AsyncVendorsResourceWithRawResponse:
         self.list = async_to_raw_response_wrapper(
             vendors.list,
         )
+        self.set_custom_fields = async_to_raw_response_wrapper(
+            vendors.set_custom_fields,
+        )
 
 
 class VendorsResourceWithStreamingResponse:
@@ -1890,6 +2018,9 @@ class VendorsResourceWithStreamingResponse:
         self.list = to_streamed_response_wrapper(
             vendors.list,
         )
+        self.set_custom_fields = to_streamed_response_wrapper(
+            vendors.set_custom_fields,
+        )
 
 
 class AsyncVendorsResourceWithStreamingResponse:
@@ -1907,4 +2038,7 @@ class AsyncVendorsResourceWithStreamingResponse:
         )
         self.list = async_to_streamed_response_wrapper(
             vendors.list,
+        )
+        self.set_custom_fields = async_to_streamed_response_wrapper(
+            vendors.set_custom_fields,
         )
