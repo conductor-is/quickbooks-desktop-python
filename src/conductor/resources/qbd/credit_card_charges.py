@@ -22,6 +22,7 @@ from ...types.qbd import (
     credit_card_charge_create_params,
     credit_card_charge_update_params,
     credit_card_charge_retrieve_params,
+    credit_card_charge_set_custom_fields_params,
 )
 from ...pagination import SyncCursorPage, AsyncCursorPage
 from ..._base_client import AsyncPaginator, make_request_options
@@ -251,7 +252,8 @@ class CreditCardChargesResource(SyncAPIResource):
         """
         Updates an existing credit card charge so you can adjust the credit card
         account, payee, memo, transaction date, and expense or item lines. The total is
-        recalculated from the line details.
+        recalculated from the line details. To set or clear custom field values, use the
+        set-custom-fields endpoint.
 
         **NOTE:** If you include `expenseLines`, `itemLines`, or `itemGroupLines`,
         QuickBooks Desktop replaces each included line list with the array you send, so
@@ -633,6 +635,75 @@ class CreditCardChargesResource(SyncAPIResource):
             cast_to=CreditCardChargeDeleteResponse,
         )
 
+    def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[credit_card_charge_set_custom_fields_params.CustomField] | Omit = omit,
+        lines: Iterable[credit_card_charge_set_custom_fields_params.Line] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> CreditCardCharge:
+        """Sets or clears custom field values on a credit card charge and its lines.
+
+        A
+        value replaces the custom field's current value if it has one, and an empty
+        string clears it. Custom fields you leave out keep their values, and no
+        `revisionNumber` is needed. Item custom fields go on lines, and customer,
+        vendor, and employee custom fields on the credit card charge itself, each only
+        if its definition's `objectTypes` includes this type of transaction.
+
+        If QuickBooks does not save every value, or the credit card charge cannot be
+        returned, the request fails with an error that names the custom fields
+        QuickBooks did not save and any whose outcome could not be confirmed. The values
+        QuickBooks did save stay saved. Sending the same request again is safe.
+
+        **NOTE**: This request changes the credit card charge's `revisionNumber`, so use
+        the one in its response for your next update.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the credit card charge to set
+              custom fields on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the credit card charge itself, not on
+              its lines. Custom fields you leave out keep their values.
+
+          lines: The lines of the credit card charge whose custom field values to set or clear.
+              Lines you leave out are not changed.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return self._post(
+            path_template("/quickbooks-desktop/credit-card-charges/{id}/set-custom-fields", id=id),
+            body=maybe_transform(
+                {
+                    "custom_fields": custom_fields,
+                    "lines": lines,
+                },
+                credit_card_charge_set_custom_fields_params.CreditCardChargeSetCustomFieldsParams,
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=CreditCardCharge,
+        )
+
     def void(
         self,
         id: str,
@@ -894,7 +965,8 @@ class AsyncCreditCardChargesResource(AsyncAPIResource):
         """
         Updates an existing credit card charge so you can adjust the credit card
         account, payee, memo, transaction date, and expense or item lines. The total is
-        recalculated from the line details.
+        recalculated from the line details. To set or clear custom field values, use the
+        set-custom-fields endpoint.
 
         **NOTE:** If you include `expenseLines`, `itemLines`, or `itemGroupLines`,
         QuickBooks Desktop replaces each included line list with the array you send, so
@@ -1276,6 +1348,75 @@ class AsyncCreditCardChargesResource(AsyncAPIResource):
             cast_to=CreditCardChargeDeleteResponse,
         )
 
+    async def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[credit_card_charge_set_custom_fields_params.CustomField] | Omit = omit,
+        lines: Iterable[credit_card_charge_set_custom_fields_params.Line] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> CreditCardCharge:
+        """Sets or clears custom field values on a credit card charge and its lines.
+
+        A
+        value replaces the custom field's current value if it has one, and an empty
+        string clears it. Custom fields you leave out keep their values, and no
+        `revisionNumber` is needed. Item custom fields go on lines, and customer,
+        vendor, and employee custom fields on the credit card charge itself, each only
+        if its definition's `objectTypes` includes this type of transaction.
+
+        If QuickBooks does not save every value, or the credit card charge cannot be
+        returned, the request fails with an error that names the custom fields
+        QuickBooks did not save and any whose outcome could not be confirmed. The values
+        QuickBooks did save stay saved. Sending the same request again is safe.
+
+        **NOTE**: This request changes the credit card charge's `revisionNumber`, so use
+        the one in its response for your next update.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the credit card charge to set
+              custom fields on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the credit card charge itself, not on
+              its lines. Custom fields you leave out keep their values.
+
+          lines: The lines of the credit card charge whose custom field values to set or clear.
+              Lines you leave out are not changed.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return await self._post(
+            path_template("/quickbooks-desktop/credit-card-charges/{id}/set-custom-fields", id=id),
+            body=await async_maybe_transform(
+                {
+                    "custom_fields": custom_fields,
+                    "lines": lines,
+                },
+                credit_card_charge_set_custom_fields_params.CreditCardChargeSetCustomFieldsParams,
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=CreditCardCharge,
+        )
+
     async def void(
         self,
         id: str,
@@ -1337,6 +1478,9 @@ class CreditCardChargesResourceWithRawResponse:
         self.delete = to_raw_response_wrapper(
             credit_card_charges.delete,
         )
+        self.set_custom_fields = to_raw_response_wrapper(
+            credit_card_charges.set_custom_fields,
+        )
         self.void = to_raw_response_wrapper(
             credit_card_charges.void,
         )
@@ -1360,6 +1504,9 @@ class AsyncCreditCardChargesResourceWithRawResponse:
         )
         self.delete = async_to_raw_response_wrapper(
             credit_card_charges.delete,
+        )
+        self.set_custom_fields = async_to_raw_response_wrapper(
+            credit_card_charges.set_custom_fields,
         )
         self.void = async_to_raw_response_wrapper(
             credit_card_charges.void,
@@ -1385,6 +1532,9 @@ class CreditCardChargesResourceWithStreamingResponse:
         self.delete = to_streamed_response_wrapper(
             credit_card_charges.delete,
         )
+        self.set_custom_fields = to_streamed_response_wrapper(
+            credit_card_charges.set_custom_fields,
+        )
         self.void = to_streamed_response_wrapper(
             credit_card_charges.void,
         )
@@ -1408,6 +1558,9 @@ class AsyncCreditCardChargesResourceWithStreamingResponse:
         )
         self.delete = async_to_streamed_response_wrapper(
             credit_card_charges.delete,
+        )
+        self.set_custom_fields = async_to_streamed_response_wrapper(
+            credit_card_charges.set_custom_fields,
         )
         self.void = async_to_streamed_response_wrapper(
             credit_card_charges.void,
