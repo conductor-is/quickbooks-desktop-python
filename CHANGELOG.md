@@ -1,5 +1,18 @@
 # Changelog
 
+## [3.3.1](https://github.com/conductor-is/quickbooks-desktop-python/compare/v3.3.0...v3.3.1) (2026-11-23)
+
+
+### Bug Fixes
+
+* **api:** require customFields where set-custom-fields takes no lines ([b0d1b43](https://github.com/conductor-is/quickbooks-desktop-python/commit/b0d1b433db08e86426cae595722faa2df8ca0011))
+* **api:** word multi-field rules the same way in errors and docs ([96fa00c](https://github.com/conductor-is/quickbooks-desktop-python/commit/96fa00ca8e247dfe5d9647ea9d7d1cb9dc4c5352))
+
+
+### Chores
+
+* **api:** use one order for a resource's operations ([5ef8bd4](https://github.com/conductor-is/quickbooks-desktop-python/commit/5ef8bd4a6ed84e99440b2a130273ac48628cd1b0))
+
 ## [3.3.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v3.2.0...v3.3.0) (2026-11-23)
 
 
