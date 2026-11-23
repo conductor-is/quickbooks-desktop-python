@@ -220,6 +220,7 @@ from .sales_tax_code_update_params import SalesTaxCodeUpdateParams as SalesTaxCo
 from .sales_tax_item_create_params import SalesTaxItemCreateParams as SalesTaxItemCreateParams
 from .sales_tax_item_update_params import SalesTaxItemUpdateParams as SalesTaxItemUpdateParams
 from .service_item_retrieve_params import ServiceItemRetrieveParams as ServiceItemRetrieveParams
+from .bill_set_custom_fields_params import BillSetCustomFieldsParams as BillSetCustomFieldsParams
 from .discount_item_retrieve_params import DiscountItemRetrieveParams as DiscountItemRetrieveParams
 from .journal_entry_delete_response import JournalEntryDeleteResponse as JournalEntryDeleteResponse
 from .journal_entry_retrieve_params import JournalEntryRetrieveParams as JournalEntryRetrieveParams
@@ -240,6 +241,7 @@ from .account_tax_line_list_response import AccountTaxLineListResponse as Accoun
 from .bill_check_payment_list_params import BillCheckPaymentListParams as BillCheckPaymentListParams
 from .build_assembly_delete_response import BuildAssemblyDeleteResponse as BuildAssemblyDeleteResponse
 from .build_assembly_retrieve_params import BuildAssemblyRetrieveParams as BuildAssemblyRetrieveParams
+from .check_set_custom_fields_params import CheckSetCustomFieldsParams as CheckSetCustomFieldsParams
 from .credit_card_charge_list_params import CreditCardChargeListParams as CreditCardChargeListParams
 from .credit_card_credit_list_params import CreditCardCreditListParams as CreditCardCreditListParams
 from .credit_card_refund_list_params import CreditCardRefundListParams as CreditCardRefundListParams
@@ -259,6 +261,8 @@ from .payroll_wage_item_list_response import PayrollWageItemListResponse as Payr
 from .receive_payment_delete_response import ReceivePaymentDeleteResponse as ReceivePaymentDeleteResponse
 from .receive_payment_retrieve_params import ReceivePaymentRetrieveParams as ReceivePaymentRetrieveParams
 from .unit_of_measure_set_list_params import UnitOfMeasureSetListParams as UnitOfMeasureSetListParams
+from .vendor_set_custom_fields_params import VendorSetCustomFieldsParams as VendorSetCustomFieldsParams
+from .account_set_custom_fields_params import AccountSetCustomFieldsParams as AccountSetCustomFieldsParams
 from .bill_check_payment_create_params import BillCheckPaymentCreateParams as BillCheckPaymentCreateParams
 from .bill_check_payment_update_params import BillCheckPaymentUpdateParams as BillCheckPaymentUpdateParams
 from .bill_check_payment_void_response import BillCheckPaymentVoidResponse as BillCheckPaymentVoidResponse
@@ -270,13 +274,18 @@ from .credit_card_credit_update_params import CreditCardCreditUpdateParams as Cr
 from .credit_card_credit_void_response import CreditCardCreditVoidResponse as CreditCardCreditVoidResponse
 from .credit_card_refund_create_params import CreditCardRefundCreateParams as CreditCardRefundCreateParams
 from .credit_card_refund_void_response import CreditCardRefundVoidResponse as CreditCardRefundVoidResponse
+from .deposit_set_custom_fields_params import DepositSetCustomFieldsParams as DepositSetCustomFieldsParams
 from .inventory_adjustment_list_params import InventoryAdjustmentListParams as InventoryAdjustmentListParams
+from .invoice_set_custom_fields_params import InvoiceSetCustomFieldsParams as InvoiceSetCustomFieldsParams
 from .non_inventory_item_create_params import NonInventoryItemCreateParams as NonInventoryItemCreateParams
 from .non_inventory_item_update_params import NonInventoryItemUpdateParams as NonInventoryItemUpdateParams
 from .sales_representative_list_params import SalesRepresentativeListParams as SalesRepresentativeListParams
 from .sales_tax_group_item_list_params import SalesTaxGroupItemListParams as SalesTaxGroupItemListParams
+from .customer_set_custom_fields_params import CustomerSetCustomFieldsParams as CustomerSetCustomFieldsParams
 from .deleted_list_object_list_response import DeletedListObjectListResponse as DeletedListObjectListResponse
 from .deleted_transaction_list_response import DeletedTransactionListResponse as DeletedTransactionListResponse
+from .employee_set_custom_fields_params import EmployeeSetCustomFieldsParams as EmployeeSetCustomFieldsParams
+from .estimate_set_custom_fields_params import EstimateSetCustomFieldsParams as EstimateSetCustomFieldsParams
 from .other_charge_item_retrieve_params import OtherChargeItemRetrieveParams as OtherChargeItemRetrieveParams
 from .payments_to_deposit_list_response import PaymentsToDepositListResponse as PaymentsToDepositListResponse
 from .unit_of_measure_set_create_params import UnitOfMeasureSetCreateParams as UnitOfMeasureSetCreateParams
@@ -302,10 +311,14 @@ from .sales_tax_group_item_update_params import SalesTaxGroupItemUpdateParams as
 from .time_tracking_activity_list_params import TimeTrackingActivityListParams as TimeTrackingActivityListParams
 from .custom_field_definition_list_params import CustomFieldDefinitionListParams as CustomFieldDefinitionListParams
 from .inventory_assembly_item_list_params import InventoryAssemblyItemListParams as InventoryAssemblyItemListParams
+from .item_group_set_custom_fields_params import ItemGroupSetCustomFieldsParams as ItemGroupSetCustomFieldsParams
+from .other_name_set_custom_fields_params import OtherNameSetCustomFieldsParams as OtherNameSetCustomFieldsParams
 from .sales_tax_payment_check_list_params import SalesTaxPaymentCheckListParams as SalesTaxPaymentCheckListParams
 from .bill_credit_card_payment_list_params import BillCreditCardPaymentListParams as BillCreditCardPaymentListParams
+from .credit_memo_set_custom_fields_params import CreditMemoSetCustomFieldsParams as CreditMemoSetCustomFieldsParams
 from .inventory_adjustment_delete_response import InventoryAdjustmentDeleteResponse as InventoryAdjustmentDeleteResponse
 from .inventory_adjustment_retrieve_params import InventoryAdjustmentRetrieveParams as InventoryAdjustmentRetrieveParams
+from .sales_order_set_custom_fields_params import SalesOrderSetCustomFieldsParams as SalesOrderSetCustomFieldsParams
 from .sales_tax_group_item_retrieve_params import SalesTaxGroupItemRetrieveParams as SalesTaxGroupItemRetrieveParams
 from .time_tracking_activity_create_params import TimeTrackingActivityCreateParams as TimeTrackingActivityCreateParams
 from .time_tracking_activity_update_params import TimeTrackingActivityUpdateParams as TimeTrackingActivityUpdateParams
@@ -327,23 +340,52 @@ from .inventory_assembly_item_create_params import (
 from .inventory_assembly_item_update_params import (
     InventoryAssemblyItemUpdateParams as InventoryAssemblyItemUpdateParams,
 )
+from .item_receipt_set_custom_fields_params import ItemReceiptSetCustomFieldsParams as ItemReceiptSetCustomFieldsParams
 from .sales_tax_payment_check_create_params import SalesTaxPaymentCheckCreateParams as SalesTaxPaymentCheckCreateParams
 from .sales_tax_payment_check_update_params import SalesTaxPaymentCheckUpdateParams as SalesTaxPaymentCheckUpdateParams
 from .sales_tax_payment_check_void_response import SalesTaxPaymentCheckVoidResponse as SalesTaxPaymentCheckVoidResponse
+from .service_item_set_custom_fields_params import ServiceItemSetCustomFieldsParams as ServiceItemSetCustomFieldsParams
 from .bill_credit_card_payment_create_params import (
     BillCreditCardPaymentCreateParams as BillCreditCardPaymentCreateParams,
 )
 from .bill_credit_card_payment_void_response import (
     BillCreditCardPaymentVoidResponse as BillCreditCardPaymentVoidResponse,
 )
+from .discount_item_set_custom_fields_params import (
+    DiscountItemSetCustomFieldsParams as DiscountItemSetCustomFieldsParams,
+)
+from .journal_entry_set_custom_fields_params import (
+    JournalEntrySetCustomFieldsParams as JournalEntrySetCustomFieldsParams,
+)
+from .sales_receipt_set_custom_fields_params import (
+    SalesReceiptSetCustomFieldsParams as SalesReceiptSetCustomFieldsParams,
+)
+from .subtotal_item_set_custom_fields_params import (
+    SubtotalItemSetCustomFieldsParams as SubtotalItemSetCustomFieldsParams,
+)
 from .time_tracking_activity_delete_response import (
     TimeTrackingActivityDeleteResponse as TimeTrackingActivityDeleteResponse,
+)
+from .vendor_credit_set_custom_fields_params import (
+    VendorCreditSetCustomFieldsParams as VendorCreditSetCustomFieldsParams,
+)
+from .build_assembly_set_custom_fields_params import (
+    BuildAssemblySetCustomFieldsParams as BuildAssemblySetCustomFieldsParams,
 )
 from .custom_field_definition_delete_response import (
     CustomFieldDefinitionDeleteResponse as CustomFieldDefinitionDeleteResponse,
 )
 from .inventory_assembly_item_retrieve_params import (
     InventoryAssemblyItemRetrieveParams as InventoryAssemblyItemRetrieveParams,
+)
+from .inventory_item_set_custom_fields_params import (
+    InventoryItemSetCustomFieldsParams as InventoryItemSetCustomFieldsParams,
+)
+from .purchase_order_set_custom_fields_params import (
+    PurchaseOrderSetCustomFieldsParams as PurchaseOrderSetCustomFieldsParams,
+)
+from .sales_tax_item_set_custom_fields_params import (
+    SalesTaxItemSetCustomFieldsParams as SalesTaxItemSetCustomFieldsParams,
 )
 from .sales_tax_payment_check_delete_response import (
     SalesTaxPaymentCheckDeleteResponse as SalesTaxPaymentCheckDeleteResponse,
@@ -356,4 +398,40 @@ from .bill_credit_card_payment_delete_response import (
 )
 from .bill_credit_card_payment_retrieve_params import (
     BillCreditCardPaymentRetrieveParams as BillCreditCardPaymentRetrieveParams,
+)
+from .receive_payment_set_custom_fields_params import (
+    ReceivePaymentSetCustomFieldsParams as ReceivePaymentSetCustomFieldsParams,
+)
+from .other_charge_item_set_custom_fields_params import (
+    OtherChargeItemSetCustomFieldsParams as OtherChargeItemSetCustomFieldsParams,
+)
+from .bill_check_payment_set_custom_fields_params import (
+    BillCheckPaymentSetCustomFieldsParams as BillCheckPaymentSetCustomFieldsParams,
+)
+from .credit_card_charge_set_custom_fields_params import (
+    CreditCardChargeSetCustomFieldsParams as CreditCardChargeSetCustomFieldsParams,
+)
+from .credit_card_credit_set_custom_fields_params import (
+    CreditCardCreditSetCustomFieldsParams as CreditCardCreditSetCustomFieldsParams,
+)
+from .credit_card_refund_set_custom_fields_params import (
+    CreditCardRefundSetCustomFieldsParams as CreditCardRefundSetCustomFieldsParams,
+)
+from .non_inventory_item_set_custom_fields_params import (
+    NonInventoryItemSetCustomFieldsParams as NonInventoryItemSetCustomFieldsParams,
+)
+from .inventory_adjustment_set_custom_fields_params import (
+    InventoryAdjustmentSetCustomFieldsParams as InventoryAdjustmentSetCustomFieldsParams,
+)
+from .sales_tax_group_item_set_custom_fields_params import (
+    SalesTaxGroupItemSetCustomFieldsParams as SalesTaxGroupItemSetCustomFieldsParams,
+)
+from .inventory_assembly_item_set_custom_fields_params import (
+    InventoryAssemblyItemSetCustomFieldsParams as InventoryAssemblyItemSetCustomFieldsParams,
+)
+from .sales_tax_payment_check_set_custom_fields_params import (
+    SalesTaxPaymentCheckSetCustomFieldsParams as SalesTaxPaymentCheckSetCustomFieldsParams,
+)
+from .bill_credit_card_payment_set_custom_fields_params import (
+    BillCreditCardPaymentSetCustomFieldsParams as BillCreditCardPaymentSetCustomFieldsParams,
 )
