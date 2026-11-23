@@ -148,15 +148,11 @@ class ItemSitesResource(SyncAPIResource):
 
           item_ids: Filter for item sites for these items.
 
-              **NOTE:** QuickBooks Desktop only supports `itemType` or item/site filters for
-              item-sites requests, not both. Do not use `itemType` together with `itemIds` or
-              `siteIds`.
+              **NOTE**: If you use this parameter, you cannot also use `itemType`.
 
           item_type: Filter for item sites that match this item type.
 
-              **NOTE:** QuickBooks Desktop only supports `itemType` or item/site filters for
-              item-sites requests, not both. Do not use `itemType` together with `itemIds` or
-              `siteIds`.
+              **NOTE**: If you use this parameter, you cannot also use `itemIds` or `siteIds`.
 
           limit: The maximum number of objects to return. Accepts values ranging from 1 to 150,
               defaults to 150. When used with cursor-based pagination, this parameter controls
@@ -168,9 +164,7 @@ class ItemSitesResource(SyncAPIResource):
           site_ids: Filter for item sites at these sites. A site represents a physical location,
               such as a warehouse or store.
 
-              **NOTE:** QuickBooks Desktop only supports `itemType` or item/site filters for
-              item-sites requests, not both. Do not use `itemType` together with `itemIds` or
-              `siteIds`.
+              **NOTE**: If you use this parameter, you cannot also use `itemType`.
 
           status: Filter for item sites that are active, inactive, or both.
 
@@ -332,15 +326,11 @@ class AsyncItemSitesResource(AsyncAPIResource):
 
           item_ids: Filter for item sites for these items.
 
-              **NOTE:** QuickBooks Desktop only supports `itemType` or item/site filters for
-              item-sites requests, not both. Do not use `itemType` together with `itemIds` or
-              `siteIds`.
+              **NOTE**: If you use this parameter, you cannot also use `itemType`.
 
           item_type: Filter for item sites that match this item type.
 
-              **NOTE:** QuickBooks Desktop only supports `itemType` or item/site filters for
-              item-sites requests, not both. Do not use `itemType` together with `itemIds` or
-              `siteIds`.
+              **NOTE**: If you use this parameter, you cannot also use `itemIds` or `siteIds`.
 
           limit: The maximum number of objects to return. Accepts values ranging from 1 to 150,
               defaults to 150. When used with cursor-based pagination, this parameter controls
@@ -352,9 +342,7 @@ class AsyncItemSitesResource(AsyncAPIResource):
           site_ids: Filter for item sites at these sites. A site represents a physical location,
               such as a warehouse or store.
 
-              **NOTE:** QuickBooks Desktop only supports `itemType` or item/site filters for
-              item-sites requests, not both. Do not use `itemType` together with `itemIds` or
-              `siteIds`.
+              **NOTE**: If you use this parameter, you cannot also use `itemType`.
 
           status: Filter for item sites that are active, inactive, or both.
 

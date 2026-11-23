@@ -240,7 +240,7 @@ class ItemGroupsResource(SyncAPIResource):
           barcode: The item group's barcode.
 
           clear_item_lines: When `true`, removes all existing item lines associated with this item group. To
-              modify or add individual item lines, use the field `itemLines` instead.
+              modify or add individual item lines, use the field `lines` instead.
 
           description: The item group's description that will appear on sales forms that include this
               item.
@@ -762,7 +762,7 @@ class AsyncItemGroupsResource(AsyncAPIResource):
           barcode: The item group's barcode.
 
           clear_item_lines: When `true`, removes all existing item lines associated with this item group. To
-              modify or add individual item lines, use the field `itemLines` instead.
+              modify or add individual item lines, use the field `lines` instead.
 
           description: The item group's description that will appear on sales forms that include this
               item.

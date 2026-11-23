@@ -51,7 +51,7 @@ class InventoryAssemblyItemUpdateParams(TypedDict, total=False):
     clear_item_lines: Annotated[bool, PropertyInfo(alias="clearItemLines")]
     """
     When `true`, removes all existing item lines associated with this inventory
-    assembly item. To modify or add individual item lines, use the field `itemLines`
+    assembly item. To modify or add individual item lines, use the field `lines`
     instead.
     """
 

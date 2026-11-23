@@ -28,7 +28,7 @@ class ItemGroupUpdateParams(TypedDict, total=False):
     clear_item_lines: Annotated[bool, PropertyInfo(alias="clearItemLines")]
     """When `true`, removes all existing item lines associated with this item group.
 
-    To modify or add individual item lines, use the field `itemLines` instead.
+    To modify or add individual item lines, use the field `lines` instead.
     """
 
     description: str

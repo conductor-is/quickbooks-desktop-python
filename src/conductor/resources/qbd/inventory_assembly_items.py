@@ -377,7 +377,7 @@ class InventoryAssemblyItemsResource(SyncAPIResource):
               QuickBooks, class tracking is off by default.
 
           clear_item_lines: When `true`, removes all existing item lines associated with this inventory
-              assembly item. To modify or add individual item lines, use the field `itemLines`
+              assembly item. To modify or add individual item lines, use the field `lines`
               instead.
 
           cogs_account_id: The Cost of Goods Sold (COGS) account for this inventory assembly item, tracking
@@ -1119,7 +1119,7 @@ class AsyncInventoryAssemblyItemsResource(AsyncAPIResource):
               QuickBooks, class tracking is off by default.
 
           clear_item_lines: When `true`, removes all existing item lines associated with this inventory
-              assembly item. To modify or add individual item lines, use the field `itemLines`
+              assembly item. To modify or add individual item lines, use the field `lines`
               instead.
 
           cogs_account_id: The Cost of Goods Sold (COGS) account for this inventory assembly item, tracking
