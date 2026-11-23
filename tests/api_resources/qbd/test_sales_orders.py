@@ -169,6 +169,15 @@ class TestSalesOrders:
         assert_matches_type(SalesOrder, sales_order, path=["response"])
 
     @parametrize
+    def test_method_retrieve_with_all_params(self, client: Conductor) -> None:
+        sales_order = client.qbd.sales_orders.retrieve(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+            custom_field_owner_ids=["0"],
+        )
+        assert_matches_type(SalesOrder, sales_order, path=["response"])
+
+    @parametrize
     def test_raw_response_retrieve(self, client: Conductor) -> None:
         response = client.qbd.sales_orders.with_raw_response.retrieve(
             id="123ABC-1234567890",
@@ -376,6 +385,7 @@ class TestSalesOrders:
             currency_ids=["80000001-1234567890"],
             cursor="12345678-abcd-abcd-example-1234567890ab",
             customer_ids=["80000001-1234567890"],
+            custom_field_owner_ids=["0"],
             ids=["123ABC-1234567890"],
             include_line_items=True,
             include_linked_transactions=False,
@@ -455,6 +465,75 @@ class TestSalesOrders:
     def test_path_params_delete(self, client: Conductor) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
             client.qbd.sales_orders.with_raw_response.delete(
+                id="",
+                conductor_end_user_id="end_usr_1234567abcdefg",
+            )
+
+    @parametrize
+    def test_method_set_custom_fields(self, client: Conductor) -> None:
+        sales_order = client.qbd.sales_orders.set_custom_fields(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+        )
+        assert_matches_type(SalesOrder, sales_order, path=["response"])
+
+    @parametrize
+    def test_method_set_custom_fields_with_all_params(self, client: Conductor) -> None:
+        sales_order = client.qbd.sales_orders.set_custom_fields(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+            custom_fields=[
+                {
+                    "name": "Customer Rating",
+                    "value": "Gold",
+                    "owner_id": "0",
+                }
+            ],
+            lines=[
+                {
+                    "id": "123ABC-1234567890",
+                    "custom_fields": [
+                        {
+                            "name": "Customer Rating",
+                            "value": "Gold",
+                            "owner_id": "0",
+                        }
+                    ],
+                }
+            ],
+        )
+        assert_matches_type(SalesOrder, sales_order, path=["response"])
+
+    @parametrize
+    def test_raw_response_set_custom_fields(self, client: Conductor) -> None:
+        response = client.qbd.sales_orders.with_raw_response.set_custom_fields(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        sales_order = response.parse()
+        assert_matches_type(SalesOrder, sales_order, path=["response"])
+
+    @parametrize
+    def test_streaming_response_set_custom_fields(self, client: Conductor) -> None:
+        with client.qbd.sales_orders.with_streaming_response.set_custom_fields(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            sales_order = response.parse()
+            assert_matches_type(SalesOrder, sales_order, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @parametrize
+    def test_path_params_set_custom_fields(self, client: Conductor) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
+            client.qbd.sales_orders.with_raw_response.set_custom_fields(
                 id="",
                 conductor_end_user_id="end_usr_1234567abcdefg",
             )
@@ -608,6 +687,15 @@ class TestAsyncSalesOrders:
         sales_order = await async_client.qbd.sales_orders.retrieve(
             id="123ABC-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
+        )
+        assert_matches_type(SalesOrder, sales_order, path=["response"])
+
+    @parametrize
+    async def test_method_retrieve_with_all_params(self, async_client: AsyncConductor) -> None:
+        sales_order = await async_client.qbd.sales_orders.retrieve(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+            custom_field_owner_ids=["0"],
         )
         assert_matches_type(SalesOrder, sales_order, path=["response"])
 
@@ -819,6 +907,7 @@ class TestAsyncSalesOrders:
             currency_ids=["80000001-1234567890"],
             cursor="12345678-abcd-abcd-example-1234567890ab",
             customer_ids=["80000001-1234567890"],
+            custom_field_owner_ids=["0"],
             ids=["123ABC-1234567890"],
             include_line_items=True,
             include_linked_transactions=False,
@@ -898,6 +987,75 @@ class TestAsyncSalesOrders:
     async def test_path_params_delete(self, async_client: AsyncConductor) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
             await async_client.qbd.sales_orders.with_raw_response.delete(
+                id="",
+                conductor_end_user_id="end_usr_1234567abcdefg",
+            )
+
+    @parametrize
+    async def test_method_set_custom_fields(self, async_client: AsyncConductor) -> None:
+        sales_order = await async_client.qbd.sales_orders.set_custom_fields(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+        )
+        assert_matches_type(SalesOrder, sales_order, path=["response"])
+
+    @parametrize
+    async def test_method_set_custom_fields_with_all_params(self, async_client: AsyncConductor) -> None:
+        sales_order = await async_client.qbd.sales_orders.set_custom_fields(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+            custom_fields=[
+                {
+                    "name": "Customer Rating",
+                    "value": "Gold",
+                    "owner_id": "0",
+                }
+            ],
+            lines=[
+                {
+                    "id": "123ABC-1234567890",
+                    "custom_fields": [
+                        {
+                            "name": "Customer Rating",
+                            "value": "Gold",
+                            "owner_id": "0",
+                        }
+                    ],
+                }
+            ],
+        )
+        assert_matches_type(SalesOrder, sales_order, path=["response"])
+
+    @parametrize
+    async def test_raw_response_set_custom_fields(self, async_client: AsyncConductor) -> None:
+        response = await async_client.qbd.sales_orders.with_raw_response.set_custom_fields(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        sales_order = await response.parse()
+        assert_matches_type(SalesOrder, sales_order, path=["response"])
+
+    @parametrize
+    async def test_streaming_response_set_custom_fields(self, async_client: AsyncConductor) -> None:
+        async with async_client.qbd.sales_orders.with_streaming_response.set_custom_fields(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            sales_order = await response.parse()
+            assert_matches_type(SalesOrder, sales_order, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @parametrize
+    async def test_path_params_set_custom_fields(self, async_client: AsyncConductor) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
+            await async_client.qbd.sales_orders.with_raw_response.set_custom_fields(
                 id="",
                 conductor_end_user_id="end_usr_1234567abcdefg",
             )

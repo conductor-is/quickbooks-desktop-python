@@ -17,7 +17,13 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ...types.qbd import item_group_list_params, item_group_create_params, item_group_update_params
+from ...types.qbd import (
+    item_group_list_params,
+    item_group_create_params,
+    item_group_update_params,
+    item_group_retrieve_params,
+    item_group_set_custom_fields_params,
+)
 from ...pagination import SyncCursorPage, AsyncCursorPage
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.qbd.item_group import ItemGroup
@@ -143,6 +149,7 @@ class ItemGroupsResource(SyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -162,6 +169,14 @@ class ItemGroupsResource(SyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on item groups. Defaults to `["0"]`,
+              the owner of public custom fields, which QuickBooks users define and see. To get
+              an application's private custom fields, add its owner ID, a GUID in braces. Only
+              the owners you list are returned, so keep `"0"` in the list to also get the
+              public ones. QuickBooks refuses the whole request if a private owner you list
+              has no custom field defined for item groups, so list an owner only for record
+              types that have its custom fields.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -176,7 +191,14 @@ class ItemGroupsResource(SyncAPIResource):
         return self._get(
             path_template("/quickbooks-desktop/item-groups/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids},
+                    item_group_retrieve_params.ItemGroupRetrieveParams,
+                ),
             ),
             cast_to=ItemGroup,
         )
@@ -203,8 +225,10 @@ class ItemGroupsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ItemGroup:
-        """
-        Updates an existing item group.
+        """Updates an existing item group.
+
+        To set or clear custom field values, use the
+        set-custom-fields endpoint.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the item group to update.
@@ -300,6 +324,7 @@ class ItemGroupsResource(SyncAPIResource):
         *,
         conductor_end_user_id: str,
         cursor: str | Omit = omit,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         limit: int | Omit = omit,
         name_contains: str | Omit = omit,
@@ -336,6 +361,14 @@ class ItemGroupsResource(SyncAPIResource):
               within 20 seconds of the previous response. If you miss that window or a request
               fails, start over without a cursor. To make a run resumable, see
               [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
+
+          custom_field_owner_ids: The owners whose custom fields to return on item groups. Defaults to `["0"]`,
+              the owner of public custom fields, which QuickBooks users define and see. To get
+              an application's private custom fields, add its owner ID, a GUID in braces. Only
+              the owners you list are returned, so keep `"0"` in the list to also get the
+              public ones. QuickBooks refuses the whole request if a private owner you list
+              has no custom field defined for item groups, so list an owner only for record
+              types that have its custom fields.
 
           ids: Filter for specific item groups by their QuickBooks-assigned unique
               identifier(s).
@@ -445,6 +478,7 @@ class ItemGroupsResource(SyncAPIResource):
                 query=maybe_transform(
                     {
                         "cursor": cursor,
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "ids": ids,
                         "limit": limit,
                         "name_contains": name_contains,
@@ -461,6 +495,64 @@ class ItemGroupsResource(SyncAPIResource):
                 ),
             ),
             model=ItemGroup,
+        )
+
+    def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[item_group_set_custom_fields_params.CustomField] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> ItemGroup:
+        """Sets or clears custom field values on an item group.
+
+        A value replaces the custom
+        field's current value if it has one, and an empty string clears it. Custom
+        fields you leave out keep their values, and no `revisionNumber` is needed.
+
+        If QuickBooks does not save every value, or the item group cannot be returned,
+        the request fails with an error that names the custom fields QuickBooks did not
+        save and any whose outcome could not be confirmed. The values QuickBooks did
+        save stay saved. Sending the same request again is safe.
+
+        **NOTE**: This request changes the item group's `revisionNumber`, so use the one
+        in its response for your next update.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the item group to set custom fields
+              on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the item group. Custom fields you
+              leave out keep their values.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return self._post(
+            path_template("/quickbooks-desktop/item-groups/{id}/set-custom-fields", id=id),
+            body=maybe_transform(
+                {"custom_fields": custom_fields}, item_group_set_custom_fields_params.ItemGroupSetCustomFieldsParams
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=ItemGroup,
         )
 
 
@@ -582,6 +674,7 @@ class AsyncItemGroupsResource(AsyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -601,6 +694,14 @@ class AsyncItemGroupsResource(AsyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on item groups. Defaults to `["0"]`,
+              the owner of public custom fields, which QuickBooks users define and see. To get
+              an application's private custom fields, add its owner ID, a GUID in braces. Only
+              the owners you list are returned, so keep `"0"` in the list to also get the
+              public ones. QuickBooks refuses the whole request if a private owner you list
+              has no custom field defined for item groups, so list an owner only for record
+              types that have its custom fields.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -615,7 +716,14 @@ class AsyncItemGroupsResource(AsyncAPIResource):
         return await self._get(
             path_template("/quickbooks-desktop/item-groups/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=await async_maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids},
+                    item_group_retrieve_params.ItemGroupRetrieveParams,
+                ),
             ),
             cast_to=ItemGroup,
         )
@@ -642,8 +750,10 @@ class AsyncItemGroupsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ItemGroup:
-        """
-        Updates an existing item group.
+        """Updates an existing item group.
+
+        To set or clear custom field values, use the
+        set-custom-fields endpoint.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the item group to update.
@@ -739,6 +849,7 @@ class AsyncItemGroupsResource(AsyncAPIResource):
         *,
         conductor_end_user_id: str,
         cursor: str | Omit = omit,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         limit: int | Omit = omit,
         name_contains: str | Omit = omit,
@@ -775,6 +886,14 @@ class AsyncItemGroupsResource(AsyncAPIResource):
               within 20 seconds of the previous response. If you miss that window or a request
               fails, start over without a cursor. To make a run resumable, see
               [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
+
+          custom_field_owner_ids: The owners whose custom fields to return on item groups. Defaults to `["0"]`,
+              the owner of public custom fields, which QuickBooks users define and see. To get
+              an application's private custom fields, add its owner ID, a GUID in braces. Only
+              the owners you list are returned, so keep `"0"` in the list to also get the
+              public ones. QuickBooks refuses the whole request if a private owner you list
+              has no custom field defined for item groups, so list an owner only for record
+              types that have its custom fields.
 
           ids: Filter for specific item groups by their QuickBooks-assigned unique
               identifier(s).
@@ -884,6 +1003,7 @@ class AsyncItemGroupsResource(AsyncAPIResource):
                 query=maybe_transform(
                     {
                         "cursor": cursor,
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "ids": ids,
                         "limit": limit,
                         "name_contains": name_contains,
@@ -900,6 +1020,64 @@ class AsyncItemGroupsResource(AsyncAPIResource):
                 ),
             ),
             model=ItemGroup,
+        )
+
+    async def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[item_group_set_custom_fields_params.CustomField] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> ItemGroup:
+        """Sets or clears custom field values on an item group.
+
+        A value replaces the custom
+        field's current value if it has one, and an empty string clears it. Custom
+        fields you leave out keep their values, and no `revisionNumber` is needed.
+
+        If QuickBooks does not save every value, or the item group cannot be returned,
+        the request fails with an error that names the custom fields QuickBooks did not
+        save and any whose outcome could not be confirmed. The values QuickBooks did
+        save stay saved. Sending the same request again is safe.
+
+        **NOTE**: This request changes the item group's `revisionNumber`, so use the one
+        in its response for your next update.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the item group to set custom fields
+              on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the item group. Custom fields you
+              leave out keep their values.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return await self._post(
+            path_template("/quickbooks-desktop/item-groups/{id}/set-custom-fields", id=id),
+            body=await async_maybe_transform(
+                {"custom_fields": custom_fields}, item_group_set_custom_fields_params.ItemGroupSetCustomFieldsParams
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=ItemGroup,
         )
 
 
@@ -919,6 +1097,9 @@ class ItemGroupsResourceWithRawResponse:
         self.list = to_raw_response_wrapper(
             item_groups.list,
         )
+        self.set_custom_fields = to_raw_response_wrapper(
+            item_groups.set_custom_fields,
+        )
 
 
 class AsyncItemGroupsResourceWithRawResponse:
@@ -936,6 +1117,9 @@ class AsyncItemGroupsResourceWithRawResponse:
         )
         self.list = async_to_raw_response_wrapper(
             item_groups.list,
+        )
+        self.set_custom_fields = async_to_raw_response_wrapper(
+            item_groups.set_custom_fields,
         )
 
 
@@ -955,6 +1139,9 @@ class ItemGroupsResourceWithStreamingResponse:
         self.list = to_streamed_response_wrapper(
             item_groups.list,
         )
+        self.set_custom_fields = to_streamed_response_wrapper(
+            item_groups.set_custom_fields,
+        )
 
 
 class AsyncItemGroupsResourceWithStreamingResponse:
@@ -972,4 +1159,7 @@ class AsyncItemGroupsResourceWithStreamingResponse:
         )
         self.list = async_to_streamed_response_wrapper(
             item_groups.list,
+        )
+        self.set_custom_fields = async_to_streamed_response_wrapper(
+            item_groups.set_custom_fields,
         )

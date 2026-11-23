@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from typing import Iterable
 from typing_extensions import Literal
 
 import httpx
@@ -20,6 +21,8 @@ from ...types.qbd import (
     sales_tax_group_item_list_params,
     sales_tax_group_item_create_params,
     sales_tax_group_item_update_params,
+    sales_tax_group_item_retrieve_params,
+    sales_tax_group_item_set_custom_fields_params,
 )
 from ...pagination import SyncCursorPage, AsyncCursorPage
 from ..._base_client import AsyncPaginator, make_request_options
@@ -134,6 +137,7 @@ class SalesTaxGroupItemsResource(SyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -155,6 +159,14 @@ class SalesTaxGroupItemsResource(SyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on sales-tax group items. Defaults to
+              `["0"]`, the owner of public custom fields, which QuickBooks users define and
+              see. To get an application's private custom fields, add its owner ID, a GUID in
+              braces. Only the owners you list are returned, so keep `"0"` in the list to also
+              get the public ones. QuickBooks refuses the whole request if a private owner you
+              list has no custom field defined for sales-tax group items, so list an owner
+              only for record types that have its custom fields.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -169,7 +181,14 @@ class SalesTaxGroupItemsResource(SyncAPIResource):
         return self._get(
             path_template("/quickbooks-desktop/sales-tax-group-items/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids},
+                    sales_tax_group_item_retrieve_params.SalesTaxGroupItemRetrieveParams,
+                ),
             ),
             cast_to=SalesTaxGroupItem,
         )
@@ -192,8 +211,10 @@ class SalesTaxGroupItemsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SalesTaxGroupItem:
-        """
-        Updates an existing sales-tax group item.
+        """Updates an existing sales-tax group item.
+
+        To set or clear custom field values,
+        use the set-custom-fields endpoint.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the sales-tax group item to update.
@@ -263,6 +284,7 @@ class SalesTaxGroupItemsResource(SyncAPIResource):
         *,
         conductor_end_user_id: str,
         cursor: str | Omit = omit,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         limit: int | Omit = omit,
         name_contains: str | Omit = omit,
@@ -299,6 +321,14 @@ class SalesTaxGroupItemsResource(SyncAPIResource):
               within 20 seconds of the previous response. If you miss that window or a request
               fails, start over without a cursor. To make a run resumable, see
               [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
+
+          custom_field_owner_ids: The owners whose custom fields to return on sales-tax group items. Defaults to
+              `["0"]`, the owner of public custom fields, which QuickBooks users define and
+              see. To get an application's private custom fields, add its owner ID, a GUID in
+              braces. Only the owners you list are returned, so keep `"0"` in the list to also
+              get the public ones. QuickBooks refuses the whole request if a private owner you
+              list has no custom field defined for sales-tax group items, so list an owner
+              only for record types that have its custom fields.
 
           ids: Filter for specific sales-tax group items by their QuickBooks-assigned unique
               identifier(s).
@@ -410,6 +440,7 @@ class SalesTaxGroupItemsResource(SyncAPIResource):
                 query=maybe_transform(
                     {
                         "cursor": cursor,
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "ids": ids,
                         "limit": limit,
                         "name_contains": name_contains,
@@ -426,6 +457,66 @@ class SalesTaxGroupItemsResource(SyncAPIResource):
                 ),
             ),
             model=SalesTaxGroupItem,
+        )
+
+    def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[sales_tax_group_item_set_custom_fields_params.CustomField] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> SalesTaxGroupItem:
+        """Sets or clears custom field values on a sales-tax group item.
+
+        A value replaces
+        the custom field's current value if it has one, and an empty string clears it.
+        Custom fields you leave out keep their values, and no `revisionNumber` is
+        needed.
+
+        If QuickBooks does not save every value, or the sales-tax group item cannot be
+        returned, the request fails with an error that names the custom fields
+        QuickBooks did not save and any whose outcome could not be confirmed. The values
+        QuickBooks did save stay saved. Sending the same request again is safe.
+
+        **NOTE**: This request changes the sales-tax group item's `revisionNumber`, so
+        use the one in its response for your next update.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the sales-tax group item to set
+              custom fields on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the sales-tax group item. Custom
+              fields you leave out keep their values.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return self._post(
+            path_template("/quickbooks-desktop/sales-tax-group-items/{id}/set-custom-fields", id=id),
+            body=maybe_transform(
+                {"custom_fields": custom_fields},
+                sales_tax_group_item_set_custom_fields_params.SalesTaxGroupItemSetCustomFieldsParams,
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=SalesTaxGroupItem,
         )
 
 
@@ -535,6 +626,7 @@ class AsyncSalesTaxGroupItemsResource(AsyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -556,6 +648,14 @@ class AsyncSalesTaxGroupItemsResource(AsyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on sales-tax group items. Defaults to
+              `["0"]`, the owner of public custom fields, which QuickBooks users define and
+              see. To get an application's private custom fields, add its owner ID, a GUID in
+              braces. Only the owners you list are returned, so keep `"0"` in the list to also
+              get the public ones. QuickBooks refuses the whole request if a private owner you
+              list has no custom field defined for sales-tax group items, so list an owner
+              only for record types that have its custom fields.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -570,7 +670,14 @@ class AsyncSalesTaxGroupItemsResource(AsyncAPIResource):
         return await self._get(
             path_template("/quickbooks-desktop/sales-tax-group-items/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=await async_maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids},
+                    sales_tax_group_item_retrieve_params.SalesTaxGroupItemRetrieveParams,
+                ),
             ),
             cast_to=SalesTaxGroupItem,
         )
@@ -593,8 +700,10 @@ class AsyncSalesTaxGroupItemsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SalesTaxGroupItem:
-        """
-        Updates an existing sales-tax group item.
+        """Updates an existing sales-tax group item.
+
+        To set or clear custom field values,
+        use the set-custom-fields endpoint.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the sales-tax group item to update.
@@ -664,6 +773,7 @@ class AsyncSalesTaxGroupItemsResource(AsyncAPIResource):
         *,
         conductor_end_user_id: str,
         cursor: str | Omit = omit,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         limit: int | Omit = omit,
         name_contains: str | Omit = omit,
@@ -700,6 +810,14 @@ class AsyncSalesTaxGroupItemsResource(AsyncAPIResource):
               within 20 seconds of the previous response. If you miss that window or a request
               fails, start over without a cursor. To make a run resumable, see
               [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
+
+          custom_field_owner_ids: The owners whose custom fields to return on sales-tax group items. Defaults to
+              `["0"]`, the owner of public custom fields, which QuickBooks users define and
+              see. To get an application's private custom fields, add its owner ID, a GUID in
+              braces. Only the owners you list are returned, so keep `"0"` in the list to also
+              get the public ones. QuickBooks refuses the whole request if a private owner you
+              list has no custom field defined for sales-tax group items, so list an owner
+              only for record types that have its custom fields.
 
           ids: Filter for specific sales-tax group items by their QuickBooks-assigned unique
               identifier(s).
@@ -811,6 +929,7 @@ class AsyncSalesTaxGroupItemsResource(AsyncAPIResource):
                 query=maybe_transform(
                     {
                         "cursor": cursor,
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "ids": ids,
                         "limit": limit,
                         "name_contains": name_contains,
@@ -827,6 +946,66 @@ class AsyncSalesTaxGroupItemsResource(AsyncAPIResource):
                 ),
             ),
             model=SalesTaxGroupItem,
+        )
+
+    async def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[sales_tax_group_item_set_custom_fields_params.CustomField] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> SalesTaxGroupItem:
+        """Sets or clears custom field values on a sales-tax group item.
+
+        A value replaces
+        the custom field's current value if it has one, and an empty string clears it.
+        Custom fields you leave out keep their values, and no `revisionNumber` is
+        needed.
+
+        If QuickBooks does not save every value, or the sales-tax group item cannot be
+        returned, the request fails with an error that names the custom fields
+        QuickBooks did not save and any whose outcome could not be confirmed. The values
+        QuickBooks did save stay saved. Sending the same request again is safe.
+
+        **NOTE**: This request changes the sales-tax group item's `revisionNumber`, so
+        use the one in its response for your next update.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the sales-tax group item to set
+              custom fields on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the sales-tax group item. Custom
+              fields you leave out keep their values.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return await self._post(
+            path_template("/quickbooks-desktop/sales-tax-group-items/{id}/set-custom-fields", id=id),
+            body=await async_maybe_transform(
+                {"custom_fields": custom_fields},
+                sales_tax_group_item_set_custom_fields_params.SalesTaxGroupItemSetCustomFieldsParams,
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=SalesTaxGroupItem,
         )
 
 
@@ -846,6 +1025,9 @@ class SalesTaxGroupItemsResourceWithRawResponse:
         self.list = to_raw_response_wrapper(
             sales_tax_group_items.list,
         )
+        self.set_custom_fields = to_raw_response_wrapper(
+            sales_tax_group_items.set_custom_fields,
+        )
 
 
 class AsyncSalesTaxGroupItemsResourceWithRawResponse:
@@ -863,6 +1045,9 @@ class AsyncSalesTaxGroupItemsResourceWithRawResponse:
         )
         self.list = async_to_raw_response_wrapper(
             sales_tax_group_items.list,
+        )
+        self.set_custom_fields = async_to_raw_response_wrapper(
+            sales_tax_group_items.set_custom_fields,
         )
 
 
@@ -882,6 +1067,9 @@ class SalesTaxGroupItemsResourceWithStreamingResponse:
         self.list = to_streamed_response_wrapper(
             sales_tax_group_items.list,
         )
+        self.set_custom_fields = to_streamed_response_wrapper(
+            sales_tax_group_items.set_custom_fields,
+        )
 
 
 class AsyncSalesTaxGroupItemsResourceWithStreamingResponse:
@@ -899,4 +1087,7 @@ class AsyncSalesTaxGroupItemsResourceWithStreamingResponse:
         )
         self.list = async_to_streamed_response_wrapper(
             sales_tax_group_items.list,
+        )
+        self.set_custom_fields = async_to_streamed_response_wrapper(
+            sales_tax_group_items.set_custom_fields,
         )
