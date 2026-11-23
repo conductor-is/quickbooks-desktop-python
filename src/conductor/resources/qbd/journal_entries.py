@@ -22,6 +22,7 @@ from ...types.qbd import (
     journal_entry_create_params,
     journal_entry_update_params,
     journal_entry_retrieve_params,
+    journal_entry_set_custom_fields_params,
 )
 from ...pagination import SyncCursorPage, AsyncCursorPage
 from ..._base_client import AsyncPaginator, make_request_options
@@ -556,6 +557,66 @@ class JournalEntriesResource(SyncAPIResource):
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
             cast_to=JournalEntryDeleteResponse,
+        )
+
+    def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[journal_entry_set_custom_fields_params.CustomField] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> JournalEntry:
+        """Sets or clears custom field values on a journal entry.
+
+        Each value you send
+        replaces the existing value of its custom field. To clear a custom field's
+        existing value, send an empty string. Custom fields you omit from your request
+        keep their existing values.
+
+        If the request fails, QuickBooks may still have saved some of the values you
+        sent, because it saves each value separately. The error names the custom fields
+        QuickBooks did not save. You can safely send the same request again.
+
+        **NOTE**: This request has no `revisionNumber` parameter, but it still updates
+        the journal entry's `revisionNumber`. Use the `revisionNumber` returned in the
+        response for your next update.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the journal entry to set custom
+              fields on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the journal entry itself, not on its
+              lines. Custom fields you leave out keep their values.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return self._post(
+            path_template("/quickbooks-desktop/journal-entries/{id}/set-custom-fields", id=id),
+            body=maybe_transform(
+                {"custom_fields": custom_fields},
+                journal_entry_set_custom_fields_params.JournalEntrySetCustomFieldsParams,
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=JournalEntry,
         )
 
     def void(
@@ -1126,6 +1187,66 @@ class AsyncJournalEntriesResource(AsyncAPIResource):
             cast_to=JournalEntryDeleteResponse,
         )
 
+    async def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[journal_entry_set_custom_fields_params.CustomField] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> JournalEntry:
+        """Sets or clears custom field values on a journal entry.
+
+        Each value you send
+        replaces the existing value of its custom field. To clear a custom field's
+        existing value, send an empty string. Custom fields you omit from your request
+        keep their existing values.
+
+        If the request fails, QuickBooks may still have saved some of the values you
+        sent, because it saves each value separately. The error names the custom fields
+        QuickBooks did not save. You can safely send the same request again.
+
+        **NOTE**: This request has no `revisionNumber` parameter, but it still updates
+        the journal entry's `revisionNumber`. Use the `revisionNumber` returned in the
+        response for your next update.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the journal entry to set custom
+              fields on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the journal entry itself, not on its
+              lines. Custom fields you leave out keep their values.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return await self._post(
+            path_template("/quickbooks-desktop/journal-entries/{id}/set-custom-fields", id=id),
+            body=await async_maybe_transform(
+                {"custom_fields": custom_fields},
+                journal_entry_set_custom_fields_params.JournalEntrySetCustomFieldsParams,
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=JournalEntry,
+        )
+
     async def void(
         self,
         id: str,
@@ -1187,6 +1308,9 @@ class JournalEntriesResourceWithRawResponse:
         self.delete = to_raw_response_wrapper(
             journal_entries.delete,
         )
+        self.set_custom_fields = to_raw_response_wrapper(
+            journal_entries.set_custom_fields,
+        )
         self.void = to_raw_response_wrapper(
             journal_entries.void,
         )
@@ -1210,6 +1334,9 @@ class AsyncJournalEntriesResourceWithRawResponse:
         )
         self.delete = async_to_raw_response_wrapper(
             journal_entries.delete,
+        )
+        self.set_custom_fields = async_to_raw_response_wrapper(
+            journal_entries.set_custom_fields,
         )
         self.void = async_to_raw_response_wrapper(
             journal_entries.void,
@@ -1235,6 +1362,9 @@ class JournalEntriesResourceWithStreamingResponse:
         self.delete = to_streamed_response_wrapper(
             journal_entries.delete,
         )
+        self.set_custom_fields = to_streamed_response_wrapper(
+            journal_entries.set_custom_fields,
+        )
         self.void = to_streamed_response_wrapper(
             journal_entries.void,
         )
@@ -1258,6 +1388,9 @@ class AsyncJournalEntriesResourceWithStreamingResponse:
         )
         self.delete = async_to_streamed_response_wrapper(
             journal_entries.delete,
+        )
+        self.set_custom_fields = async_to_streamed_response_wrapper(
+            journal_entries.set_custom_fields,
         )
         self.void = async_to_streamed_response_wrapper(
             journal_entries.void,
