@@ -1,5 +1,14 @@
 # Changelog
 
+## [3.1.3](https://github.com/conductor-is/quickbooks-desktop-python/compare/v3.1.2...v3.1.3) (2026-11-19)
+
+
+### Bug Fixes
+
+* **qbd:** handle estimates without a customer ([c61f9b6](https://github.com/conductor-is/quickbooks-desktop-python/commit/c61f9b617ff130e82978db6a6dfa3aa7712d00ac))
+* **qbd:** refuse an estimate returned without its customer ([2cbb464](https://github.com/conductor-is/quickbooks-desktop-python/commit/2cbb464e08190b03f23cfa5e36d488d11346d211))
+* **qbd:** refuse responses that drop a record's customer or entity ([b055432](https://github.com/conductor-is/quickbooks-desktop-python/commit/b05543257267db6b5a95373e01b5996d46a88d67))
+
 ## [3.1.2](https://github.com/conductor-is/quickbooks-desktop-python/compare/v3.1.1...v3.1.2) (2026-11-17)
 
 
