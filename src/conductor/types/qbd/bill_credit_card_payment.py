@@ -275,10 +275,7 @@ class CustomField(BaseModel):
     """The data type of this custom field."""
 
     value: str
-    """The value of this custom field.
-
-    The maximum length depends on the field's data type.
-    """
+    """The value of this custom field."""
 
 
 class PayablesAccount(BaseModel):
@@ -369,8 +366,13 @@ class BillCreditCardPayment(BaseModel):
 
     custom_fields: List[CustomField] = FieldInfo(alias="customFields")
     """
-    The custom fields for the bill credit card payment object, added as user-defined
-    data extensions, not included in the standard QuickBooks object.
+    The custom fields that have a value on this bill credit card payment, for the
+    owners named in the request's `customFieldOwnerIds` (by default, the public
+    custom fields).
+
+    **NOTE**: To set or clear custom field values, use the set-custom-fields
+    endpoint. An update cannot change them, and its response returns this as an
+    empty array even when values exist; retrieve the record to see them.
     """
 
     exchange_rate: Optional[float] = FieldInfo(alias="exchangeRate", default=None)
