@@ -1,5 +1,18 @@
 # Changelog
 
+## [3.3.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v3.2.0...v3.3.0) (2026-11-23)
+
+
+### Features
+
+* **api:** choose whose custom fields list and retrieve return ([6a39858](https://github.com/conductor-is/quickbooks-desktop-python/commit/6a3985823183509dfe110592e73bad9d9dcae45c))
+* **api:** set custom field values on records and their lines ([478aa3d](https://github.com/conductor-is/quickbooks-desktop-python/commit/478aa3d6632942e574a4a2e6377a4f2405682277))
+
+
+### Bug Fixes
+
+* **api:** refuse over-long public custom field values on create ([6ee73e3](https://github.com/conductor-is/quickbooks-desktop-python/commit/6ee73e3fe2c0d99da472585da8f4cbbc16256017))
+
 ## [3.2.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v3.1.3...v3.2.0) (2026-11-23)
 
 
