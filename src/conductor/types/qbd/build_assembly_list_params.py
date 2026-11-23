@@ -29,6 +29,16 @@ class BuildAssemblyListParams(TypedDict, total=False):
     fails, start over without a cursor.
     """
 
+    custom_field_owner_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="customFieldOwnerIds")]
+    """The owners whose custom fields to return on build assemblies.
+
+    Defaults to `["0"]`, the public custom fields people create and see in
+    QuickBooks. For an application's private custom fields, list its owner ID, a
+    GUID in braces. Only listed owners are returned, so keep `"0"` for the public
+    ones. QuickBooks rejects the whole request if a listed private owner has no
+    custom fields for build assemblies.
+    """
+
     ids: SequenceNotStr[str]
     """
     Filter for specific build assemblies by their QuickBooks-assigned unique

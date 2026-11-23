@@ -193,7 +193,10 @@ class CustomField(BaseModel):
     value: str
     """The value of this custom field.
 
-    The maximum length depends on the field's data type.
+    QuickBooks keeps at most 30 characters of a public custom field's value: it
+    refuses a longer one on a customer or item, and on a transaction or line it
+    stores only the first 30 without an error. A private custom field's limit
+    depends on its type.
     """
 
 
@@ -246,7 +249,10 @@ class LineGroupCustomField(BaseModel):
     value: str
     """The value of this custom field.
 
-    The maximum length depends on the field's data type.
+    QuickBooks keeps at most 30 characters of a public custom field's value: it
+    refuses a longer one on a customer or item, and on a transaction or line it
+    stores only the first 30 without an error. A private custom field's limit
+    depends on its type.
     """
 
 
@@ -320,7 +326,10 @@ class LineGroupLineCustomField(BaseModel):
     value: str
     """The value of this custom field.
 
-    The maximum length depends on the field's data type.
+    QuickBooks keeps at most 30 characters of a public custom field's value: it
+    refuses a longer one on a customer or item, and on a transaction or line it
+    stores only the first 30 without an error. A private custom field's limit
+    depends on its type.
     """
 
 
@@ -460,8 +469,13 @@ class LineGroupLine(BaseModel):
 
     custom_fields: List[LineGroupLineCustomField] = FieldInfo(alias="customFields")
     """
-    The custom fields for the estimate line object, added as user-defined data
-    extensions, not included in the standard QuickBooks object.
+    The custom fields that have a value on this estimate line, for the owners named
+    in the request's `customFieldOwnerIds` (by default, the public custom fields).
+
+    **NOTE**: To set or clear custom field values, use the set-custom-fields
+    endpoint of the transaction. An update cannot change them, and its response
+    returns this as an empty array even when values exist; retrieve the transaction
+    to see them.
     """
 
     description: Optional[str] = None
@@ -616,8 +630,14 @@ class LineGroup(BaseModel):
 
     custom_fields: List[LineGroupCustomField] = FieldInfo(alias="customFields")
     """
-    The custom fields for the estimate line group object, added as user-defined data
-    extensions, not included in the standard QuickBooks object.
+    The custom fields that have a value on this estimate line group, for the owners
+    named in the request's `customFieldOwnerIds` (by default, the public custom
+    fields).
+
+    **NOTE**: To set or clear custom field values, use the set-custom-fields
+    endpoint of the transaction. An update cannot change them, and its response
+    returns this as an empty array even when values exist; retrieve the transaction
+    to see them.
     """
 
     description: Optional[str] = None
@@ -734,7 +754,10 @@ class LineCustomField(BaseModel):
     value: str
     """The value of this custom field.
 
-    The maximum length depends on the field's data type.
+    QuickBooks keeps at most 30 characters of a public custom field's value: it
+    refuses a longer one on a customer or item, and on a transaction or line it
+    stores only the first 30 without an error. A private custom field's limit
+    depends on its type.
     """
 
 
@@ -874,8 +897,13 @@ class Line(BaseModel):
 
     custom_fields: List[LineCustomField] = FieldInfo(alias="customFields")
     """
-    The custom fields for the estimate line object, added as user-defined data
-    extensions, not included in the standard QuickBooks object.
+    The custom fields that have a value on this estimate line, for the owners named
+    in the request's `customFieldOwnerIds` (by default, the public custom fields).
+
+    **NOTE**: To set or clear custom field values, use the set-custom-fields
+    endpoint of the transaction. An update cannot change them, and its response
+    returns this as an empty array even when values exist; retrieve the transaction
+    to see them.
     """
 
     description: Optional[str] = None
@@ -1230,8 +1258,12 @@ class Estimate(BaseModel):
 
     custom_fields: List[CustomField] = FieldInfo(alias="customFields")
     """
-    The custom fields for the estimate object, added as user-defined data
-    extensions, not included in the standard QuickBooks object.
+    The custom fields that have a value on this estimate, for the owners named in
+    the request's `customFieldOwnerIds` (by default, the public custom fields).
+
+    **NOTE**: To set or clear custom field values, use the set-custom-fields
+    endpoint. An update cannot change them, and its response returns this as an
+    empty array even when values exist; retrieve the record to see them.
     """
 
     document_template: Optional[DocumentTemplate] = FieldInfo(alias="documentTemplate", default=None)
