@@ -17,7 +17,13 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ...types.qbd import vendor_credit_list_params, vendor_credit_create_params, vendor_credit_update_params
+from ...types.qbd import (
+    vendor_credit_list_params,
+    vendor_credit_create_params,
+    vendor_credit_update_params,
+    vendor_credit_retrieve_params,
+    vendor_credit_set_custom_fields_params,
+)
 from ...pagination import SyncCursorPage, AsyncCursorPage
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.qbd.vendor_credit import VendorCredit
@@ -167,6 +173,7 @@ class VendorCreditsResource(SyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -188,6 +195,14 @@ class VendorCreditsResource(SyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on vendor credits. Defaults to `["0"]`,
+              the owner of public custom fields, which QuickBooks users define and see. To get
+              an application's private custom fields, add its owner ID, a GUID in braces. Only
+              the owners you list are returned, so keep `"0"` in the list to also get the
+              public ones. QuickBooks refuses the whole request if a private owner you list
+              has no custom field defined for vendor credits, so list an owner only for record
+              types that have its custom fields.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -202,7 +217,14 @@ class VendorCreditsResource(SyncAPIResource):
         return self._get(
             path_template("/quickbooks-desktop/vendor-credits/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids},
+                    vendor_credit_retrieve_params.VendorCreditRetrieveParams,
+                ),
             ),
             cast_to=VendorCredit,
         )
@@ -234,7 +256,8 @@ class VendorCreditsResource(SyncAPIResource):
     ) -> VendorCredit:
         """
         Updates a vendor credit before you apply it to bills, letting you adjust the
-        amounts, memo, or line allocations that make up the credit.
+        amounts, memo, or line allocations that make up the credit. To set or clear
+        custom field values, use the set-custom-fields endpoint.
 
         **NOTE:** If you include `expenseLines`, `itemLines`, or `itemGroupLines`,
         QuickBooks Desktop replaces each included line list with the array you send, so
@@ -382,6 +405,7 @@ class VendorCreditsResource(SyncAPIResource):
         account_ids: SequenceNotStr[str] | Omit = omit,
         currency_ids: SequenceNotStr[str] | Omit = omit,
         cursor: str | Omit = omit,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         include_line_items: bool | Omit = omit,
         include_linked_transactions: bool | Omit = omit,
@@ -425,6 +449,14 @@ class VendorCreditsResource(SyncAPIResource):
               send it are not idempotent: each one returns the next page. Send each request
               within 20 seconds of the previous response. If you miss that window or a request
               fails, start over without a cursor.
+
+          custom_field_owner_ids: The owners whose custom fields to return on vendor credits. Defaults to `["0"]`,
+              the owner of public custom fields, which QuickBooks users define and see. To get
+              an application's private custom fields, add its owner ID, a GUID in braces. Only
+              the owners you list are returned, so keep `"0"` in the list to also get the
+              public ones. QuickBooks refuses the whole request if a private owner you list
+              has no custom field defined for vendor credits, so list an owner only for record
+              types that have its custom fields.
 
           ids: Filter for specific vendor credits by their QuickBooks-assigned unique
               identifier(s).
@@ -549,6 +581,7 @@ class VendorCreditsResource(SyncAPIResource):
                         "account_ids": account_ids,
                         "currency_ids": currency_ids,
                         "cursor": cursor,
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "ids": ids,
                         "include_line_items": include_line_items,
                         "include_linked_transactions": include_linked_transactions,
@@ -610,6 +643,75 @@ class VendorCreditsResource(SyncAPIResource):
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
             cast_to=VendorCreditDeleteResponse,
+        )
+
+    def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[vendor_credit_set_custom_fields_params.CustomField] | Omit = omit,
+        lines: Iterable[vendor_credit_set_custom_fields_params.Line] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> VendorCredit:
+        """Sets or clears custom field values on a vendor credit and its lines.
+
+        A value
+        replaces the custom field's current value if it has one, and an empty string
+        clears it. Custom fields you leave out keep their values, and no
+        `revisionNumber` is needed. Item custom fields go on lines, and customer,
+        vendor, and employee custom fields on the vendor credit itself, each only if its
+        definition's `objectTypes` includes this type of transaction.
+
+        If QuickBooks does not save every value, or the vendor credit cannot be
+        returned, the request fails with an error that names the custom fields
+        QuickBooks did not save and any whose outcome could not be confirmed. The values
+        QuickBooks did save stay saved. Sending the same request again is safe.
+
+        **NOTE**: This request changes the vendor credit's `revisionNumber`, so use the
+        one in its response for your next update.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the vendor credit to set custom
+              fields on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the vendor credit itself, not on its
+              lines. Custom fields you leave out keep their values.
+
+          lines: The lines of the vendor credit whose custom field values to set or clear. Lines
+              you leave out are not changed.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return self._post(
+            path_template("/quickbooks-desktop/vendor-credits/{id}/set-custom-fields", id=id),
+            body=maybe_transform(
+                {
+                    "custom_fields": custom_fields,
+                    "lines": lines,
+                },
+                vendor_credit_set_custom_fields_params.VendorCreditSetCustomFieldsParams,
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=VendorCredit,
         )
 
     def void(
@@ -794,6 +896,7 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -815,6 +918,14 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on vendor credits. Defaults to `["0"]`,
+              the owner of public custom fields, which QuickBooks users define and see. To get
+              an application's private custom fields, add its owner ID, a GUID in braces. Only
+              the owners you list are returned, so keep `"0"` in the list to also get the
+              public ones. QuickBooks refuses the whole request if a private owner you list
+              has no custom field defined for vendor credits, so list an owner only for record
+              types that have its custom fields.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -829,7 +940,14 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
         return await self._get(
             path_template("/quickbooks-desktop/vendor-credits/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=await async_maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids},
+                    vendor_credit_retrieve_params.VendorCreditRetrieveParams,
+                ),
             ),
             cast_to=VendorCredit,
         )
@@ -861,7 +979,8 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
     ) -> VendorCredit:
         """
         Updates a vendor credit before you apply it to bills, letting you adjust the
-        amounts, memo, or line allocations that make up the credit.
+        amounts, memo, or line allocations that make up the credit. To set or clear
+        custom field values, use the set-custom-fields endpoint.
 
         **NOTE:** If you include `expenseLines`, `itemLines`, or `itemGroupLines`,
         QuickBooks Desktop replaces each included line list with the array you send, so
@@ -1009,6 +1128,7 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
         account_ids: SequenceNotStr[str] | Omit = omit,
         currency_ids: SequenceNotStr[str] | Omit = omit,
         cursor: str | Omit = omit,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         include_line_items: bool | Omit = omit,
         include_linked_transactions: bool | Omit = omit,
@@ -1052,6 +1172,14 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
               send it are not idempotent: each one returns the next page. Send each request
               within 20 seconds of the previous response. If you miss that window or a request
               fails, start over without a cursor.
+
+          custom_field_owner_ids: The owners whose custom fields to return on vendor credits. Defaults to `["0"]`,
+              the owner of public custom fields, which QuickBooks users define and see. To get
+              an application's private custom fields, add its owner ID, a GUID in braces. Only
+              the owners you list are returned, so keep `"0"` in the list to also get the
+              public ones. QuickBooks refuses the whole request if a private owner you list
+              has no custom field defined for vendor credits, so list an owner only for record
+              types that have its custom fields.
 
           ids: Filter for specific vendor credits by their QuickBooks-assigned unique
               identifier(s).
@@ -1176,6 +1304,7 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
                         "account_ids": account_ids,
                         "currency_ids": currency_ids,
                         "cursor": cursor,
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "ids": ids,
                         "include_line_items": include_line_items,
                         "include_linked_transactions": include_linked_transactions,
@@ -1239,6 +1368,75 @@ class AsyncVendorCreditsResource(AsyncAPIResource):
             cast_to=VendorCreditDeleteResponse,
         )
 
+    async def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[vendor_credit_set_custom_fields_params.CustomField] | Omit = omit,
+        lines: Iterable[vendor_credit_set_custom_fields_params.Line] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> VendorCredit:
+        """Sets or clears custom field values on a vendor credit and its lines.
+
+        A value
+        replaces the custom field's current value if it has one, and an empty string
+        clears it. Custom fields you leave out keep their values, and no
+        `revisionNumber` is needed. Item custom fields go on lines, and customer,
+        vendor, and employee custom fields on the vendor credit itself, each only if its
+        definition's `objectTypes` includes this type of transaction.
+
+        If QuickBooks does not save every value, or the vendor credit cannot be
+        returned, the request fails with an error that names the custom fields
+        QuickBooks did not save and any whose outcome could not be confirmed. The values
+        QuickBooks did save stay saved. Sending the same request again is safe.
+
+        **NOTE**: This request changes the vendor credit's `revisionNumber`, so use the
+        one in its response for your next update.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the vendor credit to set custom
+              fields on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the vendor credit itself, not on its
+              lines. Custom fields you leave out keep their values.
+
+          lines: The lines of the vendor credit whose custom field values to set or clear. Lines
+              you leave out are not changed.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return await self._post(
+            path_template("/quickbooks-desktop/vendor-credits/{id}/set-custom-fields", id=id),
+            body=await async_maybe_transform(
+                {
+                    "custom_fields": custom_fields,
+                    "lines": lines,
+                },
+                vendor_credit_set_custom_fields_params.VendorCreditSetCustomFieldsParams,
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=VendorCredit,
+        )
+
     async def void(
         self,
         id: str,
@@ -1300,6 +1498,9 @@ class VendorCreditsResourceWithRawResponse:
         self.delete = to_raw_response_wrapper(
             vendor_credits.delete,
         )
+        self.set_custom_fields = to_raw_response_wrapper(
+            vendor_credits.set_custom_fields,
+        )
         self.void = to_raw_response_wrapper(
             vendor_credits.void,
         )
@@ -1323,6 +1524,9 @@ class AsyncVendorCreditsResourceWithRawResponse:
         )
         self.delete = async_to_raw_response_wrapper(
             vendor_credits.delete,
+        )
+        self.set_custom_fields = async_to_raw_response_wrapper(
+            vendor_credits.set_custom_fields,
         )
         self.void = async_to_raw_response_wrapper(
             vendor_credits.void,
@@ -1348,6 +1552,9 @@ class VendorCreditsResourceWithStreamingResponse:
         self.delete = to_streamed_response_wrapper(
             vendor_credits.delete,
         )
+        self.set_custom_fields = to_streamed_response_wrapper(
+            vendor_credits.set_custom_fields,
+        )
         self.void = to_streamed_response_wrapper(
             vendor_credits.void,
         )
@@ -1371,6 +1578,9 @@ class AsyncVendorCreditsResourceWithStreamingResponse:
         )
         self.delete = async_to_streamed_response_wrapper(
             vendor_credits.delete,
+        )
+        self.set_custom_fields = async_to_streamed_response_wrapper(
+            vendor_credits.set_custom_fields,
         )
         self.void = async_to_streamed_response_wrapper(
             vendor_credits.void,

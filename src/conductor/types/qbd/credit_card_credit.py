@@ -117,7 +117,10 @@ class CustomField(BaseModel):
     value: str
     """The value of this custom field.
 
-    The maximum length depends on the field's data type.
+    QuickBooks keeps at most 30 characters of a public custom field's value: it
+    refuses a longer one on a customer or item, and on a transaction or line it
+    stores only the first 30 without an error. A private custom field's limit
+    depends on its type.
     """
 
 
@@ -192,7 +195,10 @@ class ExpenseLineCustomField(BaseModel):
     value: str
     """The value of this custom field.
 
-    The maximum length depends on the field's data type.
+    QuickBooks keeps at most 30 characters of a public custom field's value: it
+    refuses a longer one on a customer or item, and on a transaction or line it
+    stores only the first 30 without an error. A private custom field's limit
+    depends on its type.
     """
 
 
@@ -295,8 +301,13 @@ class ExpenseLine(BaseModel):
 
     custom_fields: List[ExpenseLineCustomField] = FieldInfo(alias="customFields")
     """
-    The custom fields for the expense line object, added as user-defined data
-    extensions, not included in the standard QuickBooks object.
+    The custom fields that have a value on this expense line, for the owners named
+    in the request's `customFieldOwnerIds` (by default, the public custom fields).
+
+    **NOTE**: To set or clear custom field values, use the set-custom-fields
+    endpoint of the transaction. An update cannot change them, and its response
+    returns this as an empty array even when values exist; retrieve the transaction
+    to see them.
     """
 
     memo: Optional[str] = None
@@ -363,7 +374,10 @@ class ItemGroupLineCustomField(BaseModel):
     value: str
     """The value of this custom field.
 
-    The maximum length depends on the field's data type.
+    QuickBooks keeps at most 30 characters of a public custom field's value: it
+    refuses a longer one on a customer or item, and on a transaction or line it
+    stores only the first 30 without an error. A private custom field's limit
+    depends on its type.
     """
 
 
@@ -455,7 +469,10 @@ class ItemGroupLineItemLineCustomField(BaseModel):
     value: str
     """The value of this custom field.
 
-    The maximum length depends on the field's data type.
+    QuickBooks keeps at most 30 characters of a public custom field's value: it
+    refuses a longer one on a customer or item, and on a transaction or line it
+    stores only the first 30 without an error. A private custom field's limit
+    depends on its type.
     """
 
 
@@ -628,8 +645,13 @@ class ItemGroupLineItemLine(BaseModel):
 
     custom_fields: List[ItemGroupLineItemLineCustomField] = FieldInfo(alias="customFields")
     """
-    The custom fields for the item line object, added as user-defined data
-    extensions, not included in the standard QuickBooks object.
+    The custom fields that have a value on this item line, for the owners named in
+    the request's `customFieldOwnerIds` (by default, the public custom fields).
+
+    **NOTE**: To set or clear custom field values, use the set-custom-fields
+    endpoint of the transaction. An update cannot change them, and its response
+    returns this as an empty array even when values exist; retrieve the transaction
+    to see them.
     """
 
     description: Optional[str] = None
@@ -765,8 +787,14 @@ class ItemGroupLine(BaseModel):
 
     custom_fields: List[ItemGroupLineCustomField] = FieldInfo(alias="customFields")
     """
-    The custom fields for the item group line object, added as user-defined data
-    extensions, not included in the standard QuickBooks object.
+    The custom fields that have a value on this item group line, for the owners
+    named in the request's `customFieldOwnerIds` (by default, the public custom
+    fields).
+
+    **NOTE**: To set or clear custom field values, use the set-custom-fields
+    endpoint of the transaction. An update cannot change them, and its response
+    returns this as an empty array even when values exist; retrieve the transaction
+    to see them.
     """
 
     description: Optional[str] = None
@@ -894,7 +922,10 @@ class ItemLineCustomField(BaseModel):
     value: str
     """The value of this custom field.
 
-    The maximum length depends on the field's data type.
+    QuickBooks keeps at most 30 characters of a public custom field's value: it
+    refuses a longer one on a customer or item, and on a transaction or line it
+    stores only the first 30 without an error. A private custom field's limit
+    depends on its type.
     """
 
 
@@ -1067,8 +1098,13 @@ class ItemLine(BaseModel):
 
     custom_fields: List[ItemLineCustomField] = FieldInfo(alias="customFields")
     """
-    The custom fields for the item line object, added as user-defined data
-    extensions, not included in the standard QuickBooks object.
+    The custom fields that have a value on this item line, for the owners named in
+    the request's `customFieldOwnerIds` (by default, the public custom fields).
+
+    **NOTE**: To set or clear custom field values, use the set-custom-fields
+    endpoint of the transaction. An update cannot change them, and its response
+    returns this as an empty array even when values exist; retrieve the transaction
+    to see them.
     """
 
     description: Optional[str] = None
@@ -1252,8 +1288,13 @@ class CreditCardCredit(BaseModel):
 
     custom_fields: List[CustomField] = FieldInfo(alias="customFields")
     """
-    The custom fields for the credit card credit object, added as user-defined data
-    extensions, not included in the standard QuickBooks object.
+    The custom fields that have a value on this credit card credit, for the owners
+    named in the request's `customFieldOwnerIds` (by default, the public custom
+    fields).
+
+    **NOTE**: To set or clear custom field values, use the set-custom-fields
+    endpoint. An update cannot change them, and its response returns this as an
+    empty array even when values exist; retrieve the record to see them.
     """
 
     exchange_rate: Optional[float] = FieldInfo(alias="exchangeRate", default=None)
