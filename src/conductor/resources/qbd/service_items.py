@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from typing import Iterable
 from typing_extensions import Literal
 
 import httpx
@@ -21,6 +22,7 @@ from ...types.qbd import (
     service_item_create_params,
     service_item_update_params,
     service_item_retrieve_params,
+    service_item_set_custom_fields_params,
 )
 from ...pagination import SyncCursorPage, AsyncCursorPage
 from ..._base_client import AsyncPaginator, make_request_options
@@ -256,7 +258,8 @@ class ServiceItemsResource(SyncAPIResource):
         QuickBooks won’t let you convert a sell-only service into a buy-and-sell
         service (or the reverse); create a separate item instead. If you’re switching
         the unit of measure, set `forceUnitOfMeasureChange` so QuickBooks replaces it on
-        existing forms.
+        existing forms. To set or clear custom field values, use the set-custom-fields
+        endpoint.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the service item to update.
@@ -558,6 +561,65 @@ class ServiceItemsResource(SyncAPIResource):
             model=ServiceItem,
         )
 
+    def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[service_item_set_custom_fields_params.CustomField] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> ServiceItem:
+        """Sets or clears custom field values on a service item.
+
+        A value replaces the
+        custom field's current value if it has one, and an empty string clears it.
+        Custom fields you leave out keep their values, and no `revisionNumber` is
+        needed.
+
+        If QuickBooks does not save every value, or the service item cannot be returned,
+        the request fails with an error that names the custom fields QuickBooks did not
+        save and any whose outcome could not be confirmed. The values QuickBooks did
+        save stay saved. Sending the same request again is safe.
+
+        **NOTE**: This request changes the service item's `revisionNumber`, so use the
+        one in its response for your next update.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the service item to set custom
+              fields on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the service item. Custom fields you
+              leave out keep their values.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return self._post(
+            path_template("/quickbooks-desktop/service-items/{id}/set-custom-fields", id=id),
+            body=maybe_transform(
+                {"custom_fields": custom_fields}, service_item_set_custom_fields_params.ServiceItemSetCustomFieldsParams
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=ServiceItem,
+        )
+
 
 class AsyncServiceItemsResource(AsyncAPIResource):
     @cached_property
@@ -786,7 +848,8 @@ class AsyncServiceItemsResource(AsyncAPIResource):
         QuickBooks won’t let you convert a sell-only service into a buy-and-sell
         service (or the reverse); create a separate item instead. If you’re switching
         the unit of measure, set `forceUnitOfMeasureChange` so QuickBooks replaces it on
-        existing forms.
+        existing forms. To set or clear custom field values, use the set-custom-fields
+        endpoint.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the service item to update.
@@ -1088,6 +1151,65 @@ class AsyncServiceItemsResource(AsyncAPIResource):
             model=ServiceItem,
         )
 
+    async def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[service_item_set_custom_fields_params.CustomField] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> ServiceItem:
+        """Sets or clears custom field values on a service item.
+
+        A value replaces the
+        custom field's current value if it has one, and an empty string clears it.
+        Custom fields you leave out keep their values, and no `revisionNumber` is
+        needed.
+
+        If QuickBooks does not save every value, or the service item cannot be returned,
+        the request fails with an error that names the custom fields QuickBooks did not
+        save and any whose outcome could not be confirmed. The values QuickBooks did
+        save stay saved. Sending the same request again is safe.
+
+        **NOTE**: This request changes the service item's `revisionNumber`, so use the
+        one in its response for your next update.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the service item to set custom
+              fields on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the service item. Custom fields you
+              leave out keep their values.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return await self._post(
+            path_template("/quickbooks-desktop/service-items/{id}/set-custom-fields", id=id),
+            body=await async_maybe_transform(
+                {"custom_fields": custom_fields}, service_item_set_custom_fields_params.ServiceItemSetCustomFieldsParams
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=ServiceItem,
+        )
+
 
 class ServiceItemsResourceWithRawResponse:
     def __init__(self, service_items: ServiceItemsResource) -> None:
@@ -1104,6 +1226,9 @@ class ServiceItemsResourceWithRawResponse:
         )
         self.list = to_raw_response_wrapper(
             service_items.list,
+        )
+        self.set_custom_fields = to_raw_response_wrapper(
+            service_items.set_custom_fields,
         )
 
 
@@ -1123,6 +1248,9 @@ class AsyncServiceItemsResourceWithRawResponse:
         self.list = async_to_raw_response_wrapper(
             service_items.list,
         )
+        self.set_custom_fields = async_to_raw_response_wrapper(
+            service_items.set_custom_fields,
+        )
 
 
 class ServiceItemsResourceWithStreamingResponse:
@@ -1141,6 +1269,9 @@ class ServiceItemsResourceWithStreamingResponse:
         self.list = to_streamed_response_wrapper(
             service_items.list,
         )
+        self.set_custom_fields = to_streamed_response_wrapper(
+            service_items.set_custom_fields,
+        )
 
 
 class AsyncServiceItemsResourceWithStreamingResponse:
@@ -1158,4 +1289,7 @@ class AsyncServiceItemsResourceWithStreamingResponse:
         )
         self.list = async_to_streamed_response_wrapper(
             service_items.list,
+        )
+        self.set_custom_fields = async_to_streamed_response_wrapper(
+            service_items.set_custom_fields,
         )
