@@ -38,6 +38,16 @@ class SalesReceiptListParams(TypedDict, total=False):
     customer_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="customerIds")]
     """Filter for sales receipts created for these customers."""
 
+    custom_field_owner_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="customFieldOwnerIds")]
+    """The owners whose custom fields to return on sales receipts.
+
+    Defaults to `["0"]`, the public custom fields people create and see in
+    QuickBooks. For an application's private custom fields, list its owner ID, a
+    GUID in braces. Only listed owners are returned, so keep `"0"` for the public
+    ones. QuickBooks rejects the whole request if a listed private owner has no
+    custom fields for sales receipts.
+    """
+
     ids: SequenceNotStr[str]
     """
     Filter for specific sales receipts by their QuickBooks-assigned unique

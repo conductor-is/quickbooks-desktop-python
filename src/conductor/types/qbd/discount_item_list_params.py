@@ -34,6 +34,16 @@ class DiscountItemListParams(TypedDict, total=False):
     [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
     """
 
+    custom_field_owner_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="customFieldOwnerIds")]
+    """The owners whose custom fields to return on discount items.
+
+    Defaults to `["0"]`, the public custom fields people create and see in
+    QuickBooks. For an application's private custom fields, list its owner ID, a
+    GUID in braces. Only listed owners are returned, so keep `"0"` for the public
+    ones. QuickBooks rejects the whole request if a listed private owner has no
+    custom fields for discount items.
+    """
+
     full_names: Annotated[SequenceNotStr[str], PropertyInfo(alias="fullNames")]
     """Filter for specific discount items by their full-name(s), case-insensitive.
 

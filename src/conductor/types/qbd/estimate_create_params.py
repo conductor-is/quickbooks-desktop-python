@@ -274,7 +274,8 @@ class LineGroupCustomField(TypedDict, total=False):
     value: Required[str]
     """The value of this custom field.
 
-    The maximum length depends on the field's data type.
+    A public custom field's value can have at most 30 characters, the most
+    QuickBooks keeps.
     """
 
 
@@ -287,9 +288,9 @@ class LineGroup(TypedDict, total=False):
     """
 
     custom_fields: Annotated[Iterable[LineGroupCustomField], PropertyInfo(alias="customFields")]
-    """
-    The custom fields for the estimate line group object, added as user-defined data
-    extensions, not included in the standard QuickBooks object.
+    """The custom field values to set on this estimate line group when it is created.
+
+    To change them afterward, use the set-custom-fields endpoint of the transaction.
     """
 
     inventory_site_id: Annotated[str, PropertyInfo(alias="inventorySiteId")]
@@ -341,7 +342,8 @@ class LineCustomField(TypedDict, total=False):
     value: Required[str]
     """The value of this custom field.
 
-    The maximum length depends on the field's data type.
+    A public custom field's value can have at most 30 characters, the most
+    QuickBooks keeps.
     """
 
 
@@ -372,9 +374,9 @@ class Line(TypedDict, total=False):
     """
 
     custom_fields: Annotated[Iterable[LineCustomField], PropertyInfo(alias="customFields")]
-    """
-    The custom fields for the estimate line object, added as user-defined data
-    extensions, not included in the standard QuickBooks object.
+    """The custom field values to set on this estimate line when it is created.
+
+    To change them afterward, use the set-custom-fields endpoint of the transaction.
     """
 
     description: str

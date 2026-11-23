@@ -41,6 +41,16 @@ class CreditMemoListParams(TypedDict, total=False):
     These are the customers who are owed money.
     """
 
+    custom_field_owner_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="customFieldOwnerIds")]
+    """The owners whose custom fields to return on credit memos.
+
+    Defaults to `["0"]`, the public custom fields people create and see in
+    QuickBooks. For an application's private custom fields, list its owner ID, a
+    GUID in braces. Only listed owners are returned, so keep `"0"` for the public
+    ones. QuickBooks rejects the whole request if a listed private owner has no
+    custom fields for credit memos.
+    """
+
     ids: SequenceNotStr[str]
     """
     Filter for specific credit memos by their QuickBooks-assigned unique
