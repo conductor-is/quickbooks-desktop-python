@@ -115,6 +115,7 @@ from .time_tracking_activity import TimeTrackingActivity as TimeTrackingActivity
 from .transfer_create_params import TransferCreateParams as TransferCreateParams
 from .transfer_update_params import TransferUpdateParams as TransferUpdateParams
 from .credit_memo_list_params import CreditMemoListParams as CreditMemoListParams
+from .custom_field_definition import CustomFieldDefinition as CustomFieldDefinition
 from .deposit_delete_response import DepositDeleteResponse as DepositDeleteResponse
 from .inventory_assembly_item import InventoryAssemblyItem as InventoryAssemblyItem
 from .invoice_delete_response import InvoiceDeleteResponse as InvoiceDeleteResponse
@@ -268,12 +269,25 @@ from .sales_representative_update_params import SalesRepresentativeUpdateParams 
 from .sales_tax_group_item_create_params import SalesTaxGroupItemCreateParams as SalesTaxGroupItemCreateParams
 from .sales_tax_group_item_update_params import SalesTaxGroupItemUpdateParams as SalesTaxGroupItemUpdateParams
 from .time_tracking_activity_list_params import TimeTrackingActivityListParams as TimeTrackingActivityListParams
+from .custom_field_definition_list_params import CustomFieldDefinitionListParams as CustomFieldDefinitionListParams
 from .inventory_assembly_item_list_params import InventoryAssemblyItemListParams as InventoryAssemblyItemListParams
 from .sales_tax_payment_check_list_params import SalesTaxPaymentCheckListParams as SalesTaxPaymentCheckListParams
 from .bill_credit_card_payment_list_params import BillCreditCardPaymentListParams as BillCreditCardPaymentListParams
 from .inventory_adjustment_delete_response import InventoryAdjustmentDeleteResponse as InventoryAdjustmentDeleteResponse
 from .time_tracking_activity_create_params import TimeTrackingActivityCreateParams as TimeTrackingActivityCreateParams
 from .time_tracking_activity_update_params import TimeTrackingActivityUpdateParams as TimeTrackingActivityUpdateParams
+from .custom_field_definition_create_params import (
+    CustomFieldDefinitionCreateParams as CustomFieldDefinitionCreateParams,
+)
+from .custom_field_definition_delete_params import (
+    CustomFieldDefinitionDeleteParams as CustomFieldDefinitionDeleteParams,
+)
+from .custom_field_definition_list_response import (
+    CustomFieldDefinitionListResponse as CustomFieldDefinitionListResponse,
+)
+from .custom_field_definition_update_params import (
+    CustomFieldDefinitionUpdateParams as CustomFieldDefinitionUpdateParams,
+)
 from .inventory_assembly_item_create_params import (
     InventoryAssemblyItemCreateParams as InventoryAssemblyItemCreateParams,
 )
@@ -291,6 +305,9 @@ from .bill_credit_card_payment_void_response import (
 )
 from .time_tracking_activity_delete_response import (
     TimeTrackingActivityDeleteResponse as TimeTrackingActivityDeleteResponse,
+)
+from .custom_field_definition_delete_response import (
+    CustomFieldDefinitionDeleteResponse as CustomFieldDefinitionDeleteResponse,
 )
 from .sales_tax_payment_check_delete_response import (
     SalesTaxPaymentCheckDeleteResponse as SalesTaxPaymentCheckDeleteResponse,
