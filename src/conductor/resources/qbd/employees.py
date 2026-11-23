@@ -18,7 +18,13 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ...types.qbd import employee_list_params, employee_create_params, employee_update_params, employee_retrieve_params
+from ...types.qbd import (
+    employee_list_params,
+    employee_create_params,
+    employee_update_params,
+    employee_retrieve_params,
+    employee_set_custom_fields_params,
+)
 from ..._base_client import make_request_options
 from ...types.qbd.employee import Employee
 from ...types.qbd.employee_list_response import EmployeeListResponse
@@ -865,6 +871,59 @@ class EmployeesResource(SyncAPIResource):
             cast_to=EmployeeListResponse,
         )
 
+    def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[employee_set_custom_fields_params.CustomField] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> Employee:
+        """Sets or clears custom field values on an employee.
+
+        A value replaces any current
+        one, an empty string clears it, and fields you leave out are not changed.
+
+        No `revisionNumber` is needed, but your next update needs the new one from the
+        response. If QuickBooks does not save a value, the request fails without undoing
+        the others, and retrying is safe.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the employee to set custom fields
+              on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the employee. Custom fields you leave
+              out keep their values.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return self._post(
+            path_template("/quickbooks-desktop/employees/{id}/set-custom-fields", id=id),
+            body=maybe_transform(
+                {"custom_fields": custom_fields}, employee_set_custom_fields_params.EmployeeSetCustomFieldsParams
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=Employee,
+        )
+
 
 class AsyncEmployeesResource(AsyncAPIResource):
     @cached_property
@@ -1705,6 +1764,59 @@ class AsyncEmployeesResource(AsyncAPIResource):
             cast_to=EmployeeListResponse,
         )
 
+    async def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[employee_set_custom_fields_params.CustomField] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> Employee:
+        """Sets or clears custom field values on an employee.
+
+        A value replaces any current
+        one, an empty string clears it, and fields you leave out are not changed.
+
+        No `revisionNumber` is needed, but your next update needs the new one from the
+        response. If QuickBooks does not save a value, the request fails without undoing
+        the others, and retrying is safe.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the employee to set custom fields
+              on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the employee. Custom fields you leave
+              out keep their values.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return await self._post(
+            path_template("/quickbooks-desktop/employees/{id}/set-custom-fields", id=id),
+            body=await async_maybe_transform(
+                {"custom_fields": custom_fields}, employee_set_custom_fields_params.EmployeeSetCustomFieldsParams
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=Employee,
+        )
+
 
 class EmployeesResourceWithRawResponse:
     def __init__(self, employees: EmployeesResource) -> None:
@@ -1721,6 +1833,9 @@ class EmployeesResourceWithRawResponse:
         )
         self.list = to_raw_response_wrapper(
             employees.list,
+        )
+        self.set_custom_fields = to_raw_response_wrapper(
+            employees.set_custom_fields,
         )
 
 
@@ -1740,6 +1855,9 @@ class AsyncEmployeesResourceWithRawResponse:
         self.list = async_to_raw_response_wrapper(
             employees.list,
         )
+        self.set_custom_fields = async_to_raw_response_wrapper(
+            employees.set_custom_fields,
+        )
 
 
 class EmployeesResourceWithStreamingResponse:
@@ -1758,6 +1876,9 @@ class EmployeesResourceWithStreamingResponse:
         self.list = to_streamed_response_wrapper(
             employees.list,
         )
+        self.set_custom_fields = to_streamed_response_wrapper(
+            employees.set_custom_fields,
+        )
 
 
 class AsyncEmployeesResourceWithStreamingResponse:
@@ -1775,4 +1896,7 @@ class AsyncEmployeesResourceWithStreamingResponse:
         )
         self.list = async_to_streamed_response_wrapper(
             employees.list,
+        )
+        self.set_custom_fields = async_to_streamed_response_wrapper(
+            employees.set_custom_fields,
         )
