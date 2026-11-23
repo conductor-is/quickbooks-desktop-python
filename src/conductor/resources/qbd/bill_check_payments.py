@@ -121,6 +121,9 @@ class BillCheckPaymentsResource(SyncAPIResource):
           is_queued_for_print: Indicates whether this bill check payment is included in the queue of documents
               for QuickBooks to print.
 
+              **IMPORTANT**: You cannot specify both `isQueuedForPrint` and `refNumber` for a
+              bill check payment.
+
           memo: A memo or note for this bill check payment.
 
               Maximum length: 4095 characters.
@@ -139,6 +142,9 @@ class BillCheckPaymentsResource(SyncAPIResource):
               QuickBooks (i.e., it does _not_ auto-increment).
 
               **IMPORTANT**: For checks, this field is the check number.
+
+              **IMPORTANT**: You cannot specify both `isQueuedForPrint` and `refNumber` for a
+              bill check payment.
 
               Maximum length: 11 characters.
 
@@ -297,6 +303,9 @@ class BillCheckPaymentsResource(SyncAPIResource):
           is_queued_for_print: Indicates whether this bill check payment is included in the queue of documents
               for QuickBooks to print.
 
+              **IMPORTANT**: You cannot specify both `isQueuedForPrint` and `refNumber` for a
+              bill check payment.
+
           memo: A memo or note for this bill check payment.
 
               Maximum length: 4095 characters.
@@ -306,6 +315,9 @@ class BillCheckPaymentsResource(SyncAPIResource):
               required to be unique and can be arbitrarily changed by the QuickBooks user.
 
               **IMPORTANT**: For checks, this field is the check number.
+
+              **IMPORTANT**: You cannot specify both `isQueuedForPrint` and `refNumber` for a
+              bill check payment.
 
               Maximum length: 11 characters.
 
@@ -467,16 +479,22 @@ class BillCheckPaymentsResource(SyncAPIResource):
           transaction_date_from: Filter for bill check payments whose `date` field is on or after this date, in
               ISO 8601 format (YYYY-MM-DD).
 
-              **NOTE:** QuickBooks Desktop interprets this date as the **start of the
+              **NOTE**: QuickBooks Desktop interprets this date as the **start of the
               specified day** in the local timezone of the end-user's computer (e.g.,
               `2025-01-01` → `2025-01-01T00:00:00`).
+
+              **NOTE**: If you use this parameter, you cannot also use `updatedAfter` or
+              `updatedBefore`.
 
           transaction_date_to: Filter for bill check payments whose `date` field is on or before this date, in
               ISO 8601 format (YYYY-MM-DD).
 
-              **NOTE:** QuickBooks Desktop interprets this date as the **end of the specified
+              **NOTE**: QuickBooks Desktop interprets this date as the **end of the specified
               day** in the local timezone of the end-user's computer (e.g., `2025-01-01` →
               `2025-01-01T23:59:59`).
+
+              **NOTE**: If you use this parameter, you cannot also use `updatedAfter` or
+              `updatedBefore`.
 
           updated_after: Filter for bill check payments updated on or after this date/time. Accepts the
               following ISO 8601 formats:
@@ -779,6 +797,9 @@ class AsyncBillCheckPaymentsResource(AsyncAPIResource):
           is_queued_for_print: Indicates whether this bill check payment is included in the queue of documents
               for QuickBooks to print.
 
+              **IMPORTANT**: You cannot specify both `isQueuedForPrint` and `refNumber` for a
+              bill check payment.
+
           memo: A memo or note for this bill check payment.
 
               Maximum length: 4095 characters.
@@ -797,6 +818,9 @@ class AsyncBillCheckPaymentsResource(AsyncAPIResource):
               QuickBooks (i.e., it does _not_ auto-increment).
 
               **IMPORTANT**: For checks, this field is the check number.
+
+              **IMPORTANT**: You cannot specify both `isQueuedForPrint` and `refNumber` for a
+              bill check payment.
 
               Maximum length: 11 characters.
 
@@ -955,6 +979,9 @@ class AsyncBillCheckPaymentsResource(AsyncAPIResource):
           is_queued_for_print: Indicates whether this bill check payment is included in the queue of documents
               for QuickBooks to print.
 
+              **IMPORTANT**: You cannot specify both `isQueuedForPrint` and `refNumber` for a
+              bill check payment.
+
           memo: A memo or note for this bill check payment.
 
               Maximum length: 4095 characters.
@@ -964,6 +991,9 @@ class AsyncBillCheckPaymentsResource(AsyncAPIResource):
               required to be unique and can be arbitrarily changed by the QuickBooks user.
 
               **IMPORTANT**: For checks, this field is the check number.
+
+              **IMPORTANT**: You cannot specify both `isQueuedForPrint` and `refNumber` for a
+              bill check payment.
 
               Maximum length: 11 characters.
 
@@ -1125,16 +1155,22 @@ class AsyncBillCheckPaymentsResource(AsyncAPIResource):
           transaction_date_from: Filter for bill check payments whose `date` field is on or after this date, in
               ISO 8601 format (YYYY-MM-DD).
 
-              **NOTE:** QuickBooks Desktop interprets this date as the **start of the
+              **NOTE**: QuickBooks Desktop interprets this date as the **start of the
               specified day** in the local timezone of the end-user's computer (e.g.,
               `2025-01-01` → `2025-01-01T00:00:00`).
+
+              **NOTE**: If you use this parameter, you cannot also use `updatedAfter` or
+              `updatedBefore`.
 
           transaction_date_to: Filter for bill check payments whose `date` field is on or before this date, in
               ISO 8601 format (YYYY-MM-DD).
 
-              **NOTE:** QuickBooks Desktop interprets this date as the **end of the specified
+              **NOTE**: QuickBooks Desktop interprets this date as the **end of the specified
               day** in the local timezone of the end-user's computer (e.g., `2025-01-01` →
               `2025-01-01T23:59:59`).
+
+              **NOTE**: If you use this parameter, you cannot also use `updatedAfter` or
+              `updatedBefore`.
 
           updated_after: Filter for bill check payments updated on or after this date/time. Accepts the
               following ISO 8601 formats:
