@@ -151,10 +151,7 @@ class CustomField(BaseModel):
     """The data type of this custom field."""
 
     value: str
-    """The value of this custom field.
-
-    The maximum length depends on the field's data type.
-    """
+    """The value of this custom field."""
 
 
 class LegalAddress(BaseModel):
@@ -266,10 +263,7 @@ class Company(BaseModel):
     """
 
     custom_fields: List[CustomField] = FieldInfo(alias="customFields")
-    """
-    The custom fields for the company object, added as user-defined data extensions,
-    not included in the standard QuickBooks object.
-    """
+    """The public custom fields that have a value on this company."""
 
     ein: Optional[str] = None
     """The company's Employer Identification Number."""

@@ -117,10 +117,7 @@ class CustomField(BaseModel):
     """The data type of this custom field."""
 
     value: str
-    """The value of this custom field.
-
-    The maximum length depends on the field's data type.
-    """
+    """The value of this custom field."""
 
 
 class ExpenseLineAccount(BaseModel):
@@ -192,10 +189,7 @@ class ExpenseLineCustomField(BaseModel):
     """The data type of this custom field."""
 
     value: str
-    """The value of this custom field.
-
-    The maximum length depends on the field's data type.
-    """
+    """The value of this custom field."""
 
 
 class ExpenseLinePayee(BaseModel):
@@ -297,8 +291,13 @@ class ExpenseLine(BaseModel):
 
     custom_fields: List[ExpenseLineCustomField] = FieldInfo(alias="customFields")
     """
-    The custom fields for the expense line object, added as user-defined data
-    extensions, not included in the standard QuickBooks object.
+    The custom fields that have a value on this expense line, for the owners named
+    in the request's `customFieldOwnerIds` (by default, the public custom fields).
+
+    **NOTE**: To set or clear custom field values, use the set-custom-fields
+    endpoint of the transaction. An update cannot change them, and its response
+    returns this as an empty array even when values exist; retrieve the transaction
+    to see them.
     """
 
     memo: Optional[str] = None
@@ -363,10 +362,7 @@ class ItemGroupLineCustomField(BaseModel):
     """The data type of this custom field."""
 
     value: str
-    """The value of this custom field.
-
-    The maximum length depends on the field's data type.
-    """
+    """The value of this custom field."""
 
 
 class ItemGroupLineItemGroup(BaseModel):
@@ -455,10 +451,7 @@ class ItemGroupLineItemLineCustomField(BaseModel):
     """The data type of this custom field."""
 
     value: str
-    """The value of this custom field.
-
-    The maximum length depends on the field's data type.
-    """
+    """The value of this custom field."""
 
 
 class ItemGroupLineItemLineInventorySite(BaseModel):
@@ -630,8 +623,13 @@ class ItemGroupLineItemLine(BaseModel):
 
     custom_fields: List[ItemGroupLineItemLineCustomField] = FieldInfo(alias="customFields")
     """
-    The custom fields for the item line object, added as user-defined data
-    extensions, not included in the standard QuickBooks object.
+    The custom fields that have a value on this item line, for the owners named in
+    the request's `customFieldOwnerIds` (by default, the public custom fields).
+
+    **NOTE**: To set or clear custom field values, use the set-custom-fields
+    endpoint of the transaction. An update cannot change them, and its response
+    returns this as an empty array even when values exist; retrieve the transaction
+    to see them.
     """
 
     description: Optional[str] = None
@@ -767,8 +765,14 @@ class ItemGroupLine(BaseModel):
 
     custom_fields: List[ItemGroupLineCustomField] = FieldInfo(alias="customFields")
     """
-    The custom fields for the item group line object, added as user-defined data
-    extensions, not included in the standard QuickBooks object.
+    The custom fields that have a value on this item group line, for the owners
+    named in the request's `customFieldOwnerIds` (by default, the public custom
+    fields).
+
+    **NOTE**: To set or clear custom field values, use the set-custom-fields
+    endpoint of the transaction. An update cannot change them, and its response
+    returns this as an empty array even when values exist; retrieve the transaction
+    to see them.
     """
 
     description: Optional[str] = None
@@ -894,10 +898,7 @@ class ItemLineCustomField(BaseModel):
     """The data type of this custom field."""
 
     value: str
-    """The value of this custom field.
-
-    The maximum length depends on the field's data type.
-    """
+    """The value of this custom field."""
 
 
 class ItemLineInventorySite(BaseModel):
@@ -1069,8 +1070,13 @@ class ItemLine(BaseModel):
 
     custom_fields: List[ItemLineCustomField] = FieldInfo(alias="customFields")
     """
-    The custom fields for the item line object, added as user-defined data
-    extensions, not included in the standard QuickBooks object.
+    The custom fields that have a value on this item line, for the owners named in
+    the request's `customFieldOwnerIds` (by default, the public custom fields).
+
+    **NOTE**: To set or clear custom field values, use the set-custom-fields
+    endpoint of the transaction. An update cannot change them, and its response
+    returns this as an empty array even when values exist; retrieve the transaction
+    to see them.
     """
 
     description: Optional[str] = None
@@ -1257,8 +1263,13 @@ class CreditCardCharge(BaseModel):
 
     custom_fields: List[CustomField] = FieldInfo(alias="customFields")
     """
-    The custom fields for the credit card charge object, added as user-defined data
-    extensions, not included in the standard QuickBooks object.
+    The custom fields that have a value on this credit card charge, for the owners
+    named in the request's `customFieldOwnerIds` (by default, the public custom
+    fields).
+
+    **NOTE**: To set or clear custom field values, use the set-custom-fields
+    endpoint. An update cannot change them, and its response returns this as an
+    empty array even when values exist; retrieve the record to see them.
     """
 
     exchange_rate: Optional[float] = FieldInfo(alias="exchangeRate", default=None)
