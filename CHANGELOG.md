@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.0](https://github.com/conductor-is/quickbooks-desktop-python/compare/v3.1.3...v3.2.0) (2026-11-23)
+
+
+### Features
+
+* **api:** manage custom field definitions ([2c18367](https://github.com/conductor-is/quickbooks-desktop-python/commit/2c18367330cb4a9432cbc0e58ec3e19db48f2c27))
+
 ## [3.1.3](https://github.com/conductor-is/quickbooks-desktop-python/compare/v3.1.2...v3.1.3) (2026-11-19)
 
 

@@ -99,6 +99,15 @@ class TestNonInventoryItems:
         assert_matches_type(NonInventoryItem, non_inventory_item, path=["response"])
 
     @parametrize
+    def test_method_retrieve_with_all_params(self, client: Conductor) -> None:
+        non_inventory_item = client.qbd.non_inventory_items.retrieve(
+            id="80000001-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+            custom_field_owner_ids=["0"],
+        )
+        assert_matches_type(NonInventoryItem, non_inventory_item, path=["response"])
+
+    @parametrize
     def test_raw_response_retrieve(self, client: Conductor) -> None:
         response = client.qbd.non_inventory_items.with_raw_response.retrieve(
             id="80000001-1234567890",
@@ -232,6 +241,7 @@ class TestNonInventoryItems:
             conductor_end_user_id="end_usr_1234567abcdefg",
             class_ids=["80000001-1234567890"],
             cursor="12345678-abcd-abcd-example-1234567890ab",
+            custom_field_owner_ids=["0"],
             full_names=["Office Supplies:Printer Ink Cartridge"],
             ids=["80000001-1234567890"],
             limit=150,
@@ -351,6 +361,15 @@ class TestAsyncNonInventoryItems:
         non_inventory_item = await async_client.qbd.non_inventory_items.retrieve(
             id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
+        )
+        assert_matches_type(NonInventoryItem, non_inventory_item, path=["response"])
+
+    @parametrize
+    async def test_method_retrieve_with_all_params(self, async_client: AsyncConductor) -> None:
+        non_inventory_item = await async_client.qbd.non_inventory_items.retrieve(
+            id="80000001-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+            custom_field_owner_ids=["0"],
         )
         assert_matches_type(NonInventoryItem, non_inventory_item, path=["response"])
 
@@ -488,6 +507,7 @@ class TestAsyncNonInventoryItems:
             conductor_end_user_id="end_usr_1234567abcdefg",
             class_ids=["80000001-1234567890"],
             cursor="12345678-abcd-abcd-example-1234567890ab",
+            custom_field_owner_ids=["0"],
             full_names=["Office Supplies:Printer Ink Cartridge"],
             ids=["80000001-1234567890"],
             limit=150,

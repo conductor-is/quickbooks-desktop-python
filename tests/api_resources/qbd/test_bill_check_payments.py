@@ -107,6 +107,15 @@ class TestBillCheckPayments:
         assert_matches_type(BillCheckPayment, bill_check_payment, path=["response"])
 
     @parametrize
+    def test_method_retrieve_with_all_params(self, client: Conductor) -> None:
+        bill_check_payment = client.qbd.bill_check_payments.retrieve(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+            custom_field_owner_ids=["0"],
+        )
+        assert_matches_type(BillCheckPayment, bill_check_payment, path=["response"])
+
+    @parametrize
     def test_raw_response_retrieve(self, client: Conductor) -> None:
         response = client.qbd.bill_check_payments.with_raw_response.retrieve(
             id="123ABC-1234567890",
@@ -232,6 +241,7 @@ class TestBillCheckPayments:
             account_ids=["80000001-1234567890"],
             currency_ids=["80000001-1234567890"],
             cursor="12345678-abcd-abcd-example-1234567890ab",
+            custom_field_owner_ids=["0"],
             ids=["123ABC-1234567890"],
             include_line_items=True,
             limit=150,
@@ -447,6 +457,15 @@ class TestAsyncBillCheckPayments:
         assert_matches_type(BillCheckPayment, bill_check_payment, path=["response"])
 
     @parametrize
+    async def test_method_retrieve_with_all_params(self, async_client: AsyncConductor) -> None:
+        bill_check_payment = await async_client.qbd.bill_check_payments.retrieve(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+            custom_field_owner_ids=["0"],
+        )
+        assert_matches_type(BillCheckPayment, bill_check_payment, path=["response"])
+
+    @parametrize
     async def test_raw_response_retrieve(self, async_client: AsyncConductor) -> None:
         response = await async_client.qbd.bill_check_payments.with_raw_response.retrieve(
             id="123ABC-1234567890",
@@ -572,6 +591,7 @@ class TestAsyncBillCheckPayments:
             account_ids=["80000001-1234567890"],
             currency_ids=["80000001-1234567890"],
             cursor="12345678-abcd-abcd-example-1234567890ab",
+            custom_field_owner_ids=["0"],
             ids=["123ABC-1234567890"],
             include_line_items=True,
             limit=150,

@@ -115,6 +115,15 @@ class TestInventoryAdjustments:
         assert_matches_type(InventoryAdjustment, inventory_adjustment, path=["response"])
 
     @parametrize
+    def test_method_retrieve_with_all_params(self, client: Conductor) -> None:
+        inventory_adjustment = client.qbd.inventory_adjustments.retrieve(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+            custom_field_owner_ids=["0"],
+        )
+        assert_matches_type(InventoryAdjustment, inventory_adjustment, path=["response"])
+
+    @parametrize
     def test_raw_response_retrieve(self, client: Conductor) -> None:
         response = client.qbd.inventory_adjustments.with_raw_response.retrieve(
             id="123ABC-1234567890",
@@ -236,6 +245,7 @@ class TestInventoryAdjustments:
             conductor_end_user_id="end_usr_1234567abcdefg",
             account_ids=["80000001-1234567890"],
             customer_ids=["80000001-1234567890"],
+            custom_field_owner_ids=["0"],
             ids=["123ABC-1234567890"],
             include_line_items=True,
             item_ids=["80000001-1234567890"],
@@ -459,6 +469,15 @@ class TestAsyncInventoryAdjustments:
         assert_matches_type(InventoryAdjustment, inventory_adjustment, path=["response"])
 
     @parametrize
+    async def test_method_retrieve_with_all_params(self, async_client: AsyncConductor) -> None:
+        inventory_adjustment = await async_client.qbd.inventory_adjustments.retrieve(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+            custom_field_owner_ids=["0"],
+        )
+        assert_matches_type(InventoryAdjustment, inventory_adjustment, path=["response"])
+
+    @parametrize
     async def test_raw_response_retrieve(self, async_client: AsyncConductor) -> None:
         response = await async_client.qbd.inventory_adjustments.with_raw_response.retrieve(
             id="123ABC-1234567890",
@@ -580,6 +599,7 @@ class TestAsyncInventoryAdjustments:
             conductor_end_user_id="end_usr_1234567abcdefg",
             account_ids=["80000001-1234567890"],
             customer_ids=["80000001-1234567890"],
+            custom_field_owner_ids=["0"],
             ids=["123ABC-1234567890"],
             include_line_items=True,
             item_ids=["80000001-1234567890"],

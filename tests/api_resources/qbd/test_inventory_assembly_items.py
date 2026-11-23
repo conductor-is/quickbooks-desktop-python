@@ -112,6 +112,15 @@ class TestInventoryAssemblyItems:
         assert_matches_type(InventoryAssemblyItem, inventory_assembly_item, path=["response"])
 
     @parametrize
+    def test_method_retrieve_with_all_params(self, client: Conductor) -> None:
+        inventory_assembly_item = client.qbd.inventory_assembly_items.retrieve(
+            id="80000001-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+            custom_field_owner_ids=["0"],
+        )
+        assert_matches_type(InventoryAssemblyItem, inventory_assembly_item, path=["response"])
+
+    @parametrize
     def test_raw_response_retrieve(self, client: Conductor) -> None:
         response = client.qbd.inventory_assembly_items.with_raw_response.retrieve(
             id="80000001-1234567890",
@@ -245,6 +254,7 @@ class TestInventoryAssemblyItems:
             conductor_end_user_id="end_usr_1234567abcdefg",
             class_ids=["80000001-1234567890"],
             cursor="12345678-abcd-abcd-example-1234567890ab",
+            custom_field_owner_ids=["0"],
             full_names=["Assemblies:Deluxe Kit"],
             ids=["80000001-1234567890"],
             limit=150,
@@ -376,6 +386,15 @@ class TestAsyncInventoryAssemblyItems:
         inventory_assembly_item = await async_client.qbd.inventory_assembly_items.retrieve(
             id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
+        )
+        assert_matches_type(InventoryAssemblyItem, inventory_assembly_item, path=["response"])
+
+    @parametrize
+    async def test_method_retrieve_with_all_params(self, async_client: AsyncConductor) -> None:
+        inventory_assembly_item = await async_client.qbd.inventory_assembly_items.retrieve(
+            id="80000001-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+            custom_field_owner_ids=["0"],
         )
         assert_matches_type(InventoryAssemblyItem, inventory_assembly_item, path=["response"])
 
@@ -513,6 +532,7 @@ class TestAsyncInventoryAssemblyItems:
             conductor_end_user_id="end_usr_1234567abcdefg",
             class_ids=["80000001-1234567890"],
             cursor="12345678-abcd-abcd-example-1234567890ab",
+            custom_field_owner_ids=["0"],
             full_names=["Assemblies:Deluxe Kit"],
             ids=["80000001-1234567890"],
             limit=150,

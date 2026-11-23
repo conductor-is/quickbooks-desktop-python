@@ -86,6 +86,15 @@ class TestAccounts:
         assert_matches_type(Account, account, path=["response"])
 
     @parametrize
+    def test_method_retrieve_with_all_params(self, client: Conductor) -> None:
+        account = client.qbd.accounts.retrieve(
+            id="80000001-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+            custom_field_owner_ids=["0"],
+        )
+        assert_matches_type(Account, account, path=["response"])
+
+    @parametrize
     def test_raw_response_retrieve(self, client: Conductor) -> None:
         response = client.qbd.accounts.with_raw_response.retrieve(
             id="80000001-1234567890",
@@ -199,6 +208,7 @@ class TestAccounts:
             conductor_end_user_id="end_usr_1234567abcdefg",
             account_type="income",
             currency_ids=["80000001-1234567890"],
+            custom_field_owner_ids=["0"],
             full_names=["Corporate:Accounts-Payable"],
             ids=["80000001-1234567890"],
             limit=10,
@@ -304,6 +314,15 @@ class TestAsyncAccounts:
         account = await async_client.qbd.accounts.retrieve(
             id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
+        )
+        assert_matches_type(Account, account, path=["response"])
+
+    @parametrize
+    async def test_method_retrieve_with_all_params(self, async_client: AsyncConductor) -> None:
+        account = await async_client.qbd.accounts.retrieve(
+            id="80000001-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+            custom_field_owner_ids=["0"],
         )
         assert_matches_type(Account, account, path=["response"])
 
@@ -421,6 +440,7 @@ class TestAsyncAccounts:
             conductor_end_user_id="end_usr_1234567abcdefg",
             account_type="income",
             currency_ids=["80000001-1234567890"],
+            custom_field_owner_ids=["0"],
             full_names=["Corporate:Accounts-Payable"],
             ids=["80000001-1234567890"],
             limit=10,

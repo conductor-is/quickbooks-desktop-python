@@ -17,7 +17,7 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ...types.qbd import check_list_params, check_create_params, check_update_params
+from ...types.qbd import check_list_params, check_create_params, check_update_params, check_retrieve_params
 from ...pagination import SyncCursorPage, AsyncCursorPage
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.qbd.check import Check
@@ -188,6 +188,7 @@ class ChecksResource(SyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -209,6 +210,12 @@ class ChecksResource(SyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on checks. Defaults to `["0"]`, the
+              public custom fields people create and see in QuickBooks. For an application's
+              private custom fields, list its owner ID, a GUID in braces. Only listed owners
+              are returned, so keep `"0"` for the public ones. QuickBooks rejects the whole
+              request if a listed private owner has no custom fields for checks.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -223,7 +230,13 @@ class ChecksResource(SyncAPIResource):
         return self._get(
             path_template("/quickbooks-desktop/checks/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids}, check_retrieve_params.CheckRetrieveParams
+                ),
             ),
             cast_to=Check,
         )
@@ -425,6 +438,7 @@ class ChecksResource(SyncAPIResource):
         account_ids: SequenceNotStr[str] | Omit = omit,
         currency_ids: SequenceNotStr[str] | Omit = omit,
         cursor: str | Omit = omit,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         include_line_items: bool | Omit = omit,
         include_linked_transactions: bool | Omit = omit,
@@ -468,6 +482,12 @@ class ChecksResource(SyncAPIResource):
               send it are not idempotent: each one returns the next page. Send each request
               within 20 seconds of the previous response. If you miss that window or a request
               fails, start over without a cursor.
+
+          custom_field_owner_ids: The owners whose custom fields to return on checks. Defaults to `["0"]`, the
+              public custom fields people create and see in QuickBooks. For an application's
+              private custom fields, list its owner ID, a GUID in braces. Only listed owners
+              are returned, so keep `"0"` for the public ones. QuickBooks rejects the whole
+              request if a listed private owner has no custom fields for checks.
 
           ids: Filter for specific checks by their QuickBooks-assigned unique identifier(s).
 
@@ -594,6 +614,7 @@ class ChecksResource(SyncAPIResource):
                         "account_ids": account_ids,
                         "currency_ids": currency_ids,
                         "cursor": cursor,
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "ids": ids,
                         "include_line_items": include_line_items,
                         "include_linked_transactions": include_linked_transactions,
@@ -860,6 +881,7 @@ class AsyncChecksResource(AsyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -881,6 +903,12 @@ class AsyncChecksResource(AsyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on checks. Defaults to `["0"]`, the
+              public custom fields people create and see in QuickBooks. For an application's
+              private custom fields, list its owner ID, a GUID in braces. Only listed owners
+              are returned, so keep `"0"` for the public ones. QuickBooks rejects the whole
+              request if a listed private owner has no custom fields for checks.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -895,7 +923,13 @@ class AsyncChecksResource(AsyncAPIResource):
         return await self._get(
             path_template("/quickbooks-desktop/checks/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=await async_maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids}, check_retrieve_params.CheckRetrieveParams
+                ),
             ),
             cast_to=Check,
         )
@@ -1097,6 +1131,7 @@ class AsyncChecksResource(AsyncAPIResource):
         account_ids: SequenceNotStr[str] | Omit = omit,
         currency_ids: SequenceNotStr[str] | Omit = omit,
         cursor: str | Omit = omit,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         include_line_items: bool | Omit = omit,
         include_linked_transactions: bool | Omit = omit,
@@ -1140,6 +1175,12 @@ class AsyncChecksResource(AsyncAPIResource):
               send it are not idempotent: each one returns the next page. Send each request
               within 20 seconds of the previous response. If you miss that window or a request
               fails, start over without a cursor.
+
+          custom_field_owner_ids: The owners whose custom fields to return on checks. Defaults to `["0"]`, the
+              public custom fields people create and see in QuickBooks. For an application's
+              private custom fields, list its owner ID, a GUID in braces. Only listed owners
+              are returned, so keep `"0"` for the public ones. QuickBooks rejects the whole
+              request if a listed private owner has no custom fields for checks.
 
           ids: Filter for specific checks by their QuickBooks-assigned unique identifier(s).
 
@@ -1266,6 +1307,7 @@ class AsyncChecksResource(AsyncAPIResource):
                         "account_ids": account_ids,
                         "currency_ids": currency_ids,
                         "cursor": cursor,
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "ids": ids,
                         "include_line_items": include_line_items,
                         "include_linked_transactions": include_linked_transactions,

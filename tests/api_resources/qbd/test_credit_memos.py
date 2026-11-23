@@ -169,6 +169,15 @@ class TestCreditMemos:
         assert_matches_type(CreditMemo, credit_memo, path=["response"])
 
     @parametrize
+    def test_method_retrieve_with_all_params(self, client: Conductor) -> None:
+        credit_memo = client.qbd.credit_memos.retrieve(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+            custom_field_owner_ids=["0"],
+        )
+        assert_matches_type(CreditMemo, credit_memo, path=["response"])
+
+    @parametrize
     def test_raw_response_retrieve(self, client: Conductor) -> None:
         response = client.qbd.credit_memos.with_raw_response.retrieve(
             id="123ABC-1234567890",
@@ -375,6 +384,7 @@ class TestCreditMemos:
             currency_ids=["80000001-1234567890"],
             cursor="12345678-abcd-abcd-example-1234567890ab",
             customer_ids=["80000001-1234567890"],
+            custom_field_owner_ids=["0"],
             ids=["123ABC-1234567890"],
             include_line_items=True,
             include_linked_transactions=False,
@@ -652,6 +662,15 @@ class TestAsyncCreditMemos:
         assert_matches_type(CreditMemo, credit_memo, path=["response"])
 
     @parametrize
+    async def test_method_retrieve_with_all_params(self, async_client: AsyncConductor) -> None:
+        credit_memo = await async_client.qbd.credit_memos.retrieve(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+            custom_field_owner_ids=["0"],
+        )
+        assert_matches_type(CreditMemo, credit_memo, path=["response"])
+
+    @parametrize
     async def test_raw_response_retrieve(self, async_client: AsyncConductor) -> None:
         response = await async_client.qbd.credit_memos.with_raw_response.retrieve(
             id="123ABC-1234567890",
@@ -858,6 +877,7 @@ class TestAsyncCreditMemos:
             currency_ids=["80000001-1234567890"],
             cursor="12345678-abcd-abcd-example-1234567890ab",
             customer_ids=["80000001-1234567890"],
+            custom_field_owner_ids=["0"],
             ids=["123ABC-1234567890"],
             include_line_items=True,
             include_linked_transactions=False,

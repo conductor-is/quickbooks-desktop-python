@@ -163,6 +163,15 @@ class TestEstimates:
         assert_matches_type(Estimate, estimate, path=["response"])
 
     @parametrize
+    def test_method_retrieve_with_all_params(self, client: Conductor) -> None:
+        estimate = client.qbd.estimates.retrieve(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+            custom_field_owner_ids=["0"],
+        )
+        assert_matches_type(Estimate, estimate, path=["response"])
+
+    @parametrize
     def test_raw_response_retrieve(self, client: Conductor) -> None:
         response = client.qbd.estimates.with_raw_response.retrieve(
             id="123ABC-1234567890",
@@ -364,6 +373,7 @@ class TestEstimates:
             currency_ids=["80000001-1234567890"],
             cursor="12345678-abcd-abcd-example-1234567890ab",
             customer_ids=["80000001-1234567890"],
+            custom_field_owner_ids=["0"],
             ids=["123ABC-1234567890"],
             include_line_items=True,
             include_linked_transactions=False,
@@ -594,6 +604,15 @@ class TestAsyncEstimates:
         assert_matches_type(Estimate, estimate, path=["response"])
 
     @parametrize
+    async def test_method_retrieve_with_all_params(self, async_client: AsyncConductor) -> None:
+        estimate = await async_client.qbd.estimates.retrieve(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+            custom_field_owner_ids=["0"],
+        )
+        assert_matches_type(Estimate, estimate, path=["response"])
+
+    @parametrize
     async def test_raw_response_retrieve(self, async_client: AsyncConductor) -> None:
         response = await async_client.qbd.estimates.with_raw_response.retrieve(
             id="123ABC-1234567890",
@@ -795,6 +814,7 @@ class TestAsyncEstimates:
             currency_ids=["80000001-1234567890"],
             cursor="12345678-abcd-abcd-example-1234567890ab",
             customer_ids=["80000001-1234567890"],
+            custom_field_owner_ids=["0"],
             ids=["123ABC-1234567890"],
             include_line_items=True,
             include_linked_transactions=False,

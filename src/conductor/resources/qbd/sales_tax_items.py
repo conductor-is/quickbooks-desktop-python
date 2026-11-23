@@ -16,7 +16,12 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ...types.qbd import sales_tax_item_list_params, sales_tax_item_create_params, sales_tax_item_update_params
+from ...types.qbd import (
+    sales_tax_item_list_params,
+    sales_tax_item_create_params,
+    sales_tax_item_update_params,
+    sales_tax_item_retrieve_params,
+)
 from ...pagination import SyncCursorPage, AsyncCursorPage
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.qbd.sales_tax_item import SalesTaxItem
@@ -149,6 +154,7 @@ class SalesTaxItemsResource(SyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -168,6 +174,13 @@ class SalesTaxItemsResource(SyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on sales-tax items. Defaults to
+              `["0"]`, the public custom fields people create and see in QuickBooks. For an
+              application's private custom fields, list its owner ID, a GUID in braces. Only
+              listed owners are returned, so keep `"0"` for the public ones. QuickBooks
+              rejects the whole request if a listed private owner has no custom fields for
+              sales-tax items.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -182,7 +195,14 @@ class SalesTaxItemsResource(SyncAPIResource):
         return self._get(
             path_template("/quickbooks-desktop/sales-tax-items/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids},
+                    sales_tax_item_retrieve_params.SalesTaxItemRetrieveParams,
+                ),
             ),
             cast_to=SalesTaxItem,
         )
@@ -296,6 +316,7 @@ class SalesTaxItemsResource(SyncAPIResource):
         conductor_end_user_id: str,
         class_ids: SequenceNotStr[str] | Omit = omit,
         cursor: str | Omit = omit,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         limit: int | Omit = omit,
         name_contains: str | Omit = omit,
@@ -335,6 +356,13 @@ class SalesTaxItemsResource(SyncAPIResource):
               within 20 seconds of the previous response. If you miss that window or a request
               fails, start over without a cursor. To make a run resumable, see
               [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
+
+          custom_field_owner_ids: The owners whose custom fields to return on sales-tax items. Defaults to
+              `["0"]`, the public custom fields people create and see in QuickBooks. For an
+              application's private custom fields, list its owner ID, a GUID in braces. Only
+              listed owners are returned, so keep `"0"` for the public ones. QuickBooks
+              rejects the whole request if a listed private owner has no custom fields for
+              sales-tax items.
 
           ids: Filter for specific sales-tax items by their QuickBooks-assigned unique
               identifier(s).
@@ -447,6 +475,7 @@ class SalesTaxItemsResource(SyncAPIResource):
                     {
                         "class_ids": class_ids,
                         "cursor": cursor,
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "ids": ids,
                         "limit": limit,
                         "name_contains": name_contains,
@@ -591,6 +620,7 @@ class AsyncSalesTaxItemsResource(AsyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -610,6 +640,13 @@ class AsyncSalesTaxItemsResource(AsyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on sales-tax items. Defaults to
+              `["0"]`, the public custom fields people create and see in QuickBooks. For an
+              application's private custom fields, list its owner ID, a GUID in braces. Only
+              listed owners are returned, so keep `"0"` for the public ones. QuickBooks
+              rejects the whole request if a listed private owner has no custom fields for
+              sales-tax items.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -624,7 +661,14 @@ class AsyncSalesTaxItemsResource(AsyncAPIResource):
         return await self._get(
             path_template("/quickbooks-desktop/sales-tax-items/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=await async_maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids},
+                    sales_tax_item_retrieve_params.SalesTaxItemRetrieveParams,
+                ),
             ),
             cast_to=SalesTaxItem,
         )
@@ -738,6 +782,7 @@ class AsyncSalesTaxItemsResource(AsyncAPIResource):
         conductor_end_user_id: str,
         class_ids: SequenceNotStr[str] | Omit = omit,
         cursor: str | Omit = omit,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         limit: int | Omit = omit,
         name_contains: str | Omit = omit,
@@ -777,6 +822,13 @@ class AsyncSalesTaxItemsResource(AsyncAPIResource):
               within 20 seconds of the previous response. If you miss that window or a request
               fails, start over without a cursor. To make a run resumable, see
               [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
+
+          custom_field_owner_ids: The owners whose custom fields to return on sales-tax items. Defaults to
+              `["0"]`, the public custom fields people create and see in QuickBooks. For an
+              application's private custom fields, list its owner ID, a GUID in braces. Only
+              listed owners are returned, so keep `"0"` for the public ones. QuickBooks
+              rejects the whole request if a listed private owner has no custom fields for
+              sales-tax items.
 
           ids: Filter for specific sales-tax items by their QuickBooks-assigned unique
               identifier(s).
@@ -889,6 +941,7 @@ class AsyncSalesTaxItemsResource(AsyncAPIResource):
                     {
                         "class_ids": class_ids,
                         "cursor": cursor,
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "ids": ids,
                         "limit": limit,
                         "name_contains": name_contains,

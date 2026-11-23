@@ -10,7 +10,9 @@ import pytest
 from conductor import Conductor, AsyncConductor
 from tests.utils import assert_matches_type
 from conductor._utils import parse_date
-from conductor.types.qbd import Vendor
+from conductor.types.qbd import (
+    Vendor,
+)
 from conductor.pagination import SyncCursorPage, AsyncCursorPage
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
@@ -152,6 +154,15 @@ class TestVendors:
         vendor = client.qbd.vendors.retrieve(
             id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
+        )
+        assert_matches_type(Vendor, vendor, path=["response"])
+
+    @parametrize
+    def test_method_retrieve_with_all_params(self, client: Conductor) -> None:
+        vendor = client.qbd.vendors.retrieve(
+            id="80000001-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+            custom_field_owner_ids=["0"],
         )
         assert_matches_type(Vendor, vendor, path=["response"])
 
@@ -349,6 +360,7 @@ class TestVendors:
             class_ids=["80000001-1234567890"],
             currency_ids=["80000001-1234567890"],
             cursor="12345678-abcd-abcd-example-1234567890ab",
+            custom_field_owner_ids=["0"],
             ids=["80000001-1234567890"],
             limit=150,
             name_contains="ABC",
@@ -531,6 +543,15 @@ class TestAsyncVendors:
         vendor = await async_client.qbd.vendors.retrieve(
             id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
+        )
+        assert_matches_type(Vendor, vendor, path=["response"])
+
+    @parametrize
+    async def test_method_retrieve_with_all_params(self, async_client: AsyncConductor) -> None:
+        vendor = await async_client.qbd.vendors.retrieve(
+            id="80000001-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+            custom_field_owner_ids=["0"],
         )
         assert_matches_type(Vendor, vendor, path=["response"])
 
@@ -728,6 +749,7 @@ class TestAsyncVendors:
             class_ids=["80000001-1234567890"],
             currency_ids=["80000001-1234567890"],
             cursor="12345678-abcd-abcd-example-1234567890ab",
+            custom_field_owner_ids=["0"],
             ids=["80000001-1234567890"],
             limit=150,
             name_contains="ABC",

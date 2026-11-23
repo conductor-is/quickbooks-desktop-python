@@ -98,6 +98,15 @@ class TestOtherNames:
         assert_matches_type(OtherName, other_name, path=["response"])
 
     @parametrize
+    def test_method_retrieve_with_all_params(self, client: Conductor) -> None:
+        other_name = client.qbd.other_names.retrieve(
+            id="80000001-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+            custom_field_owner_ids=["0"],
+        )
+        assert_matches_type(OtherName, other_name, path=["response"])
+
+    @parametrize
     def test_raw_response_retrieve(self, client: Conductor) -> None:
         response = client.qbd.other_names.with_raw_response.retrieve(
             id="80000001-1234567890",
@@ -224,6 +233,7 @@ class TestOtherNames:
     def test_method_list_with_all_params(self, client: Conductor) -> None:
         other_name = client.qbd.other_names.list(
             conductor_end_user_id="end_usr_1234567abcdefg",
+            custom_field_owner_ids=["0"],
             ids=["80000001-1234567890"],
             limit=10,
             name_contains="ABC",
@@ -342,6 +352,15 @@ class TestAsyncOtherNames:
         other_name = await async_client.qbd.other_names.retrieve(
             id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
+        )
+        assert_matches_type(OtherName, other_name, path=["response"])
+
+    @parametrize
+    async def test_method_retrieve_with_all_params(self, async_client: AsyncConductor) -> None:
+        other_name = await async_client.qbd.other_names.retrieve(
+            id="80000001-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+            custom_field_owner_ids=["0"],
         )
         assert_matches_type(OtherName, other_name, path=["response"])
 
@@ -472,6 +491,7 @@ class TestAsyncOtherNames:
     async def test_method_list_with_all_params(self, async_client: AsyncConductor) -> None:
         other_name = await async_client.qbd.other_names.list(
             conductor_end_user_id="end_usr_1234567abcdefg",
+            custom_field_owner_ids=["0"],
             ids=["80000001-1234567890"],
             limit=10,
             name_contains="ABC",
