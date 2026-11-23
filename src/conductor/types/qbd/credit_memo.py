@@ -193,10 +193,7 @@ class CustomField(BaseModel):
     """The data type of this custom field."""
 
     value: str
-    """The value of this custom field.
-
-    The maximum length depends on the field's data type.
-    """
+    """The value of this custom field."""
 
 
 class DocumentTemplate(BaseModel):
@@ -246,10 +243,7 @@ class LineGroupCustomField(BaseModel):
     """The data type of this custom field."""
 
     value: str
-    """The value of this custom field.
-
-    The maximum length depends on the field's data type.
-    """
+    """The value of this custom field."""
 
 
 class LineGroupItemGroup(BaseModel):
@@ -320,10 +314,7 @@ class LineGroupLineCustomField(BaseModel):
     """The data type of this custom field."""
 
     value: str
-    """The value of this custom field.
-
-    The maximum length depends on the field's data type.
-    """
+    """The value of this custom field."""
 
 
 class LineGroupLineInventorySite(BaseModel):
@@ -752,10 +743,7 @@ class LineCustomField(BaseModel):
     """The data type of this custom field."""
 
     value: str
-    """The value of this custom field.
-
-    The maximum length depends on the field's data type.
-    """
+    """The value of this custom field."""
 
 
 class LineInventorySite(BaseModel):
