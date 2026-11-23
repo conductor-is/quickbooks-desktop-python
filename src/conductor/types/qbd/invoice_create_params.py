@@ -385,9 +385,9 @@ class LineGroup(TypedDict, total=False):
     """
 
     custom_fields: Annotated[Iterable[LineGroupCustomField], PropertyInfo(alias="customFields")]
-    """
-    The custom fields for the invoice line group object, added as user-defined data
-    extensions, not included in the standard QuickBooks object.
+    """The custom field values to set on this invoice line group when it is created.
+
+    To change them afterward, use the invoice's set-custom-fields endpoint.
     """
 
     inventory_site_id: Annotated[str, PropertyInfo(alias="inventorySiteId")]
@@ -495,9 +495,9 @@ class Line(TypedDict, total=False):
     """
 
     custom_fields: Annotated[Iterable[LineCustomField], PropertyInfo(alias="customFields")]
-    """
-    The custom fields for the invoice line object, added as user-defined data
-    extensions, not included in the standard QuickBooks object.
+    """The custom field values to set on this invoice line when it is created.
+
+    To change them afterward, use the invoice's set-custom-fields endpoint.
     """
 
     description: str
