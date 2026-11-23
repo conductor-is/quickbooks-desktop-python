@@ -457,22 +457,13 @@ class TestCustomers:
     def test_method_set_custom_fields(self, client: Conductor) -> None:
         customer = client.qbd.customers.set_custom_fields(
             id="80000001-1234567890",
-            conductor_end_user_id="end_usr_1234567abcdefg",
-        )
-        assert_matches_type(Customer, customer, path=["response"])
-
-    @parametrize
-    def test_method_set_custom_fields_with_all_params(self, client: Conductor) -> None:
-        customer = client.qbd.customers.set_custom_fields(
-            id="80000001-1234567890",
-            conductor_end_user_id="end_usr_1234567abcdefg",
             custom_fields=[
                 {
                     "name": "Customer Rating",
                     "value": "Gold",
-                    "owner_id": "0",
                 }
             ],
+            conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(Customer, customer, path=["response"])
 
@@ -480,6 +471,12 @@ class TestCustomers:
     def test_raw_response_set_custom_fields(self, client: Conductor) -> None:
         response = client.qbd.customers.with_raw_response.set_custom_fields(
             id="80000001-1234567890",
+            custom_fields=[
+                {
+                    "name": "Customer Rating",
+                    "value": "Gold",
+                }
+            ],
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -492,6 +489,12 @@ class TestCustomers:
     def test_streaming_response_set_custom_fields(self, client: Conductor) -> None:
         with client.qbd.customers.with_streaming_response.set_custom_fields(
             id="80000001-1234567890",
+            custom_fields=[
+                {
+                    "name": "Customer Rating",
+                    "value": "Gold",
+                }
+            ],
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -507,6 +510,12 @@ class TestCustomers:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
             client.qbd.customers.with_raw_response.set_custom_fields(
                 id="",
+                custom_fields=[
+                    {
+                        "name": "Customer Rating",
+                        "value": "Gold",
+                    }
+                ],
                 conductor_end_user_id="end_usr_1234567abcdefg",
             )
 
@@ -952,22 +961,13 @@ class TestAsyncCustomers:
     async def test_method_set_custom_fields(self, async_client: AsyncConductor) -> None:
         customer = await async_client.qbd.customers.set_custom_fields(
             id="80000001-1234567890",
-            conductor_end_user_id="end_usr_1234567abcdefg",
-        )
-        assert_matches_type(Customer, customer, path=["response"])
-
-    @parametrize
-    async def test_method_set_custom_fields_with_all_params(self, async_client: AsyncConductor) -> None:
-        customer = await async_client.qbd.customers.set_custom_fields(
-            id="80000001-1234567890",
-            conductor_end_user_id="end_usr_1234567abcdefg",
             custom_fields=[
                 {
                     "name": "Customer Rating",
                     "value": "Gold",
-                    "owner_id": "0",
                 }
             ],
+            conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(Customer, customer, path=["response"])
 
@@ -975,6 +975,12 @@ class TestAsyncCustomers:
     async def test_raw_response_set_custom_fields(self, async_client: AsyncConductor) -> None:
         response = await async_client.qbd.customers.with_raw_response.set_custom_fields(
             id="80000001-1234567890",
+            custom_fields=[
+                {
+                    "name": "Customer Rating",
+                    "value": "Gold",
+                }
+            ],
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -987,6 +993,12 @@ class TestAsyncCustomers:
     async def test_streaming_response_set_custom_fields(self, async_client: AsyncConductor) -> None:
         async with async_client.qbd.customers.with_streaming_response.set_custom_fields(
             id="80000001-1234567890",
+            custom_fields=[
+                {
+                    "name": "Customer Rating",
+                    "value": "Gold",
+                }
+            ],
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -1002,5 +1014,11 @@ class TestAsyncCustomers:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
             await async_client.qbd.customers.with_raw_response.set_custom_fields(
                 id="",
+                custom_fields=[
+                    {
+                        "name": "Customer Rating",
+                        "value": "Gold",
+                    }
+                ],
                 conductor_end_user_id="end_usr_1234567abcdefg",
             )
