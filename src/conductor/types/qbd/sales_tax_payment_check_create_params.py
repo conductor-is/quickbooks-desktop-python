@@ -55,6 +55,9 @@ class SalesTaxPaymentCheckCreateParams(TypedDict, total=False):
     """
     Indicates whether this sales-tax payment check is included in the queue of
     documents for QuickBooks to print.
+
+    **IMPORTANT**: You cannot specify both `isQueuedForPrint` and `refNumber` for a
+    sales-tax payment check.
     """
 
     memo: str
@@ -72,6 +75,9 @@ class SalesTaxPaymentCheckCreateParams(TypedDict, total=False):
     QuickBooks (i.e., it does _not_ auto-increment).
 
     **IMPORTANT**: For checks, this field is the check number.
+
+    **IMPORTANT**: You cannot specify both `isQueuedForPrint` and `refNumber` for a
+    sales-tax payment check.
 
     Maximum length: 11 characters.
     """

@@ -56,8 +56,8 @@ class ReceivePaymentCreateParams(TypedDict, total=False):
     **IMPORTANT**: The target invoice must have `isPaid=false`, otherwise,
     QuickBooks will report this object as "cannot be found".
 
-    **NOTE**: You must specify either `isAutoApply` or `applyToTransactions` when
-    creating a receive-payment, but never both.
+    **IMPORTANT**: You must specify either `isAutoApply` or `applyToTransactions`
+    when creating a receive-payment, but never both.
     """
 
     credit_card_transaction: Annotated[CreditCardTransaction, PropertyInfo(alias="creditCardTransaction")]
