@@ -263,10 +263,7 @@ class Company(BaseModel):
     """
 
     custom_fields: List[CustomField] = FieldInfo(alias="customFields")
-    """
-    The custom fields for the company object, added as user-defined data extensions,
-    not included in the standard QuickBooks object.
-    """
+    """The public custom fields that have a value on this company."""
 
     ein: Optional[str] = None
     """The company's Employer Identification Number."""
