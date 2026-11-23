@@ -393,8 +393,14 @@ class LineGroupLine(BaseModel):
 
     custom_fields: List[LineGroupLineCustomField] = FieldInfo(alias="customFields")
     """
-    The custom fields for the purchase order line object, added as user-defined data
-    extensions, not included in the standard QuickBooks object.
+    The custom fields that have a value on this purchase order line, for the owners
+    named in the request's `customFieldOwnerIds` (by default, the public custom
+    fields).
+
+    **NOTE**: To set or clear custom field values, use the purchase order's
+    set-custom-fields endpoint. An update cannot change them, and its response
+    returns this as an empty array even when values exist; retrieve the purchase
+    order to see them.
     """
 
     description: Optional[str] = None
@@ -562,8 +568,14 @@ class LineGroup(BaseModel):
 
     custom_fields: List[LineGroupCustomField] = FieldInfo(alias="customFields")
     """
-    The custom fields for the purchase order line group object, added as
-    user-defined data extensions, not included in the standard QuickBooks object.
+    The custom fields that have a value on this purchase order line group, for the
+    owners named in the request's `customFieldOwnerIds` (by default, the public
+    custom fields).
+
+    **NOTE**: To set or clear custom field values, use the purchase order's
+    set-custom-fields endpoint. An update cannot change them, and its response
+    returns this as an empty array even when values exist; retrieve the purchase
+    order to see them.
     """
 
     description: Optional[str] = None
@@ -822,8 +834,14 @@ class Line(BaseModel):
 
     custom_fields: List[LineCustomField] = FieldInfo(alias="customFields")
     """
-    The custom fields for the purchase order line object, added as user-defined data
-    extensions, not included in the standard QuickBooks object.
+    The custom fields that have a value on this purchase order line, for the owners
+    named in the request's `customFieldOwnerIds` (by default, the public custom
+    fields).
+
+    **NOTE**: To set or clear custom field values, use the purchase order's
+    set-custom-fields endpoint. An update cannot change them, and its response
+    returns this as an empty array even when values exist; retrieve the purchase
+    order to see them.
     """
 
     description: Optional[str] = None
@@ -1239,8 +1257,12 @@ class PurchaseOrder(BaseModel):
 
     custom_fields: List[CustomField] = FieldInfo(alias="customFields")
     """
-    The custom fields for the purchase order object, added as user-defined data
-    extensions, not included in the standard QuickBooks object.
+    The custom fields that have a value on this purchase order, for the owners named
+    in the request's `customFieldOwnerIds` (by default, the public custom fields).
+
+    **NOTE**: To set or clear custom field values, use the set-custom-fields
+    endpoint. An update cannot change them, and its response returns this as an
+    empty array even when values exist; retrieve the record to see them.
     """
 
     document_template: Optional[DocumentTemplate] = FieldInfo(alias="documentTemplate", default=None)
