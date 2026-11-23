@@ -284,22 +284,13 @@ class TestNonInventoryItems:
     def test_method_set_custom_fields(self, client: Conductor) -> None:
         non_inventory_item = client.qbd.non_inventory_items.set_custom_fields(
             id="80000001-1234567890",
-            conductor_end_user_id="end_usr_1234567abcdefg",
-        )
-        assert_matches_type(NonInventoryItem, non_inventory_item, path=["response"])
-
-    @parametrize
-    def test_method_set_custom_fields_with_all_params(self, client: Conductor) -> None:
-        non_inventory_item = client.qbd.non_inventory_items.set_custom_fields(
-            id="80000001-1234567890",
-            conductor_end_user_id="end_usr_1234567abcdefg",
             custom_fields=[
                 {
                     "name": "Customer Rating",
                     "value": "Gold",
-                    "owner_id": "0",
                 }
             ],
+            conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(NonInventoryItem, non_inventory_item, path=["response"])
 
@@ -307,6 +298,12 @@ class TestNonInventoryItems:
     def test_raw_response_set_custom_fields(self, client: Conductor) -> None:
         response = client.qbd.non_inventory_items.with_raw_response.set_custom_fields(
             id="80000001-1234567890",
+            custom_fields=[
+                {
+                    "name": "Customer Rating",
+                    "value": "Gold",
+                }
+            ],
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -319,6 +316,12 @@ class TestNonInventoryItems:
     def test_streaming_response_set_custom_fields(self, client: Conductor) -> None:
         with client.qbd.non_inventory_items.with_streaming_response.set_custom_fields(
             id="80000001-1234567890",
+            custom_fields=[
+                {
+                    "name": "Customer Rating",
+                    "value": "Gold",
+                }
+            ],
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -334,6 +337,12 @@ class TestNonInventoryItems:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
             client.qbd.non_inventory_items.with_raw_response.set_custom_fields(
                 id="",
+                custom_fields=[
+                    {
+                        "name": "Customer Rating",
+                        "value": "Gold",
+                    }
+                ],
                 conductor_end_user_id="end_usr_1234567abcdefg",
             )
 
@@ -607,22 +616,13 @@ class TestAsyncNonInventoryItems:
     async def test_method_set_custom_fields(self, async_client: AsyncConductor) -> None:
         non_inventory_item = await async_client.qbd.non_inventory_items.set_custom_fields(
             id="80000001-1234567890",
-            conductor_end_user_id="end_usr_1234567abcdefg",
-        )
-        assert_matches_type(NonInventoryItem, non_inventory_item, path=["response"])
-
-    @parametrize
-    async def test_method_set_custom_fields_with_all_params(self, async_client: AsyncConductor) -> None:
-        non_inventory_item = await async_client.qbd.non_inventory_items.set_custom_fields(
-            id="80000001-1234567890",
-            conductor_end_user_id="end_usr_1234567abcdefg",
             custom_fields=[
                 {
                     "name": "Customer Rating",
                     "value": "Gold",
-                    "owner_id": "0",
                 }
             ],
+            conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(NonInventoryItem, non_inventory_item, path=["response"])
 
@@ -630,6 +630,12 @@ class TestAsyncNonInventoryItems:
     async def test_raw_response_set_custom_fields(self, async_client: AsyncConductor) -> None:
         response = await async_client.qbd.non_inventory_items.with_raw_response.set_custom_fields(
             id="80000001-1234567890",
+            custom_fields=[
+                {
+                    "name": "Customer Rating",
+                    "value": "Gold",
+                }
+            ],
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -642,6 +648,12 @@ class TestAsyncNonInventoryItems:
     async def test_streaming_response_set_custom_fields(self, async_client: AsyncConductor) -> None:
         async with async_client.qbd.non_inventory_items.with_streaming_response.set_custom_fields(
             id="80000001-1234567890",
+            custom_fields=[
+                {
+                    "name": "Customer Rating",
+                    "value": "Gold",
+                }
+            ],
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -657,5 +669,11 @@ class TestAsyncNonInventoryItems:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
             await async_client.qbd.non_inventory_items.with_raw_response.set_custom_fields(
                 id="",
+                custom_fields=[
+                    {
+                        "name": "Customer Rating",
+                        "value": "Gold",
+                    }
+                ],
                 conductor_end_user_id="end_usr_1234567abcdefg",
             )

@@ -669,8 +669,14 @@ class CreditCardCreditsResource(SyncAPIResource):
           custom_fields: The custom field values to set or clear on the credit card credit itself, not on
               its lines. Custom fields you leave out keep their values.
 
+              **IMPORTANT**: You must specify `customFields`, `lines`, or both when setting
+              custom fields on a credit card credit.
+
           lines: The lines of the credit card credit whose custom field values to set or clear.
               Lines you leave out are not changed.
+
+              **IMPORTANT**: You must specify `customFields`, `lines`, or both when setting
+              custom fields on a credit card credit.
 
           extra_headers: Send extra headers
 
@@ -1376,8 +1382,14 @@ class AsyncCreditCardCreditsResource(AsyncAPIResource):
           custom_fields: The custom field values to set or clear on the credit card credit itself, not on
               its lines. Custom fields you leave out keep their values.
 
+              **IMPORTANT**: You must specify `customFields`, `lines`, or both when setting
+              custom fields on a credit card credit.
+
           lines: The lines of the credit card credit whose custom field values to set or clear.
               Lines you leave out are not changed.
+
+              **IMPORTANT**: You must specify `customFields`, `lines`, or both when setting
+              custom fields on a credit card credit.
 
           extra_headers: Send extra headers
 

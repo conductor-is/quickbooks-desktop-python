@@ -810,8 +810,14 @@ class EstimatesResource(SyncAPIResource):
           custom_fields: The custom field values to set or clear on the estimate itself, not on its
               lines. Custom fields you leave out keep their values.
 
+              **IMPORTANT**: You must specify `customFields`, `lines`, or both when setting
+              custom fields on an estimate.
+
           lines: The lines of the estimate whose custom field values to set or clear. Lines you
               leave out are not changed.
+
+              **IMPORTANT**: You must specify `customFields`, `lines`, or both when setting
+              custom fields on an estimate.
 
           extra_headers: Send extra headers
 
@@ -1618,8 +1624,14 @@ class AsyncEstimatesResource(AsyncAPIResource):
           custom_fields: The custom field values to set or clear on the estimate itself, not on its
               lines. Custom fields you leave out keep their values.
 
+              **IMPORTANT**: You must specify `customFields`, `lines`, or both when setting
+              custom fields on an estimate.
+
           lines: The lines of the estimate whose custom field values to set or clear. Lines you
               leave out are not changed.
+
+              **IMPORTANT**: You must specify `customFields`, `lines`, or both when setting
+              custom fields on an estimate.
 
           extra_headers: Send extra headers
 

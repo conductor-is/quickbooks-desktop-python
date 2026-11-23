@@ -18,12 +18,18 @@ class CreditCardChargeSetCustomFieldsParams(TypedDict, total=False):
     """
     The custom field values to set or clear on the credit card charge itself, not on
     its lines. Custom fields you leave out keep their values.
+
+    **IMPORTANT**: You must specify `customFields`, `lines`, or both when setting
+    custom fields on a credit card charge.
     """
 
     lines: Iterable[Line]
     """The lines of the credit card charge whose custom field values to set or clear.
 
     Lines you leave out are not changed.
+
+    **IMPORTANT**: You must specify `customFields`, `lines`, or both when setting
+    custom fields on a credit card charge.
     """
 
 
