@@ -100,10 +100,7 @@ class CustomField(BaseModel):
     """The data type of this custom field."""
 
     value: str
-    """The value of this custom field.
-
-    The maximum length depends on the field's data type.
-    """
+    """The value of this custom field."""
 
 
 class ExpenseLineAccount(BaseModel):
@@ -175,10 +172,7 @@ class ExpenseLineCustomField(BaseModel):
     """The data type of this custom field."""
 
     value: str
-    """The value of this custom field.
-
-    The maximum length depends on the field's data type.
-    """
+    """The value of this custom field."""
 
 
 class ExpenseLinePayee(BaseModel):
@@ -346,10 +340,7 @@ class ItemGroupLineCustomField(BaseModel):
     """The data type of this custom field."""
 
     value: str
-    """The value of this custom field.
-
-    The maximum length depends on the field's data type.
-    """
+    """The value of this custom field."""
 
 
 class ItemGroupLineItemGroup(BaseModel):
@@ -438,10 +429,7 @@ class ItemGroupLineItemLineCustomField(BaseModel):
     """The data type of this custom field."""
 
     value: str
-    """The value of this custom field.
-
-    The maximum length depends on the field's data type.
-    """
+    """The value of this custom field."""
 
 
 class ItemGroupLineItemLineInventorySite(BaseModel):
@@ -877,10 +865,7 @@ class ItemLineCustomField(BaseModel):
     """The data type of this custom field."""
 
     value: str
-    """The value of this custom field.
-
-    The maximum length depends on the field's data type.
-    """
+    """The value of this custom field."""
 
 
 class ItemLineInventorySite(BaseModel):

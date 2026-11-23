@@ -123,7 +123,7 @@ class ExpenseLineCustomField(TypedDict, total=False):
     value: Required[str]
     """The value of this custom field.
 
-    The maximum length depends on the field's data type.
+    A public custom field's value can have at most 30 characters.
     """
 
 
@@ -216,7 +216,7 @@ class ItemGroupLineCustomField(TypedDict, total=False):
     value: Required[str]
     """The value of this custom field.
 
-    The maximum length depends on the field's data type.
+    A public custom field's value can have at most 30 characters.
     """
 
 
@@ -282,7 +282,7 @@ class ItemLineCustomField(TypedDict, total=False):
     value: Required[str]
     """The value of this custom field.
 
-    The maximum length depends on the field's data type.
+    A public custom field's value can have at most 30 characters.
     """
 
 
