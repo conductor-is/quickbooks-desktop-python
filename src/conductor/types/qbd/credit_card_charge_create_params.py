@@ -161,9 +161,9 @@ class ExpenseLine(TypedDict, total=False):
     """
 
     custom_fields: Annotated[Iterable[ExpenseLineCustomField], PropertyInfo(alias="customFields")]
-    """
-    The custom fields for the expense line object, added as user-defined data
-    extensions, not included in the standard QuickBooks object.
+    """The custom field values to set on this expense line when it is created.
+
+    To change them afterward, use the set-custom-fields endpoint of the transaction.
     """
 
     memo: str
@@ -230,9 +230,9 @@ class ItemGroupLine(TypedDict, total=False):
     """
 
     custom_fields: Annotated[Iterable[ItemGroupLineCustomField], PropertyInfo(alias="customFields")]
-    """
-    The custom fields for the item group line object, added as user-defined data
-    extensions, not included in the standard QuickBooks object.
+    """The custom field values to set on this item group line when it is created.
+
+    To change them afterward, use the set-custom-fields endpoint of the transaction.
     """
 
     inventory_site_id: Annotated[str, PropertyInfo(alias="inventorySiteId")]
@@ -351,9 +351,9 @@ class ItemLine(TypedDict, total=False):
     """The customer or customer-job associated with this item line."""
 
     custom_fields: Annotated[Iterable[ItemLineCustomField], PropertyInfo(alias="customFields")]
-    """
-    The custom fields for the item line object, added as user-defined data
-    extensions, not included in the standard QuickBooks object.
+    """The custom field values to set on this item line when it is created.
+
+    To change them afterward, use the set-custom-fields endpoint of the transaction.
     """
 
     description: str

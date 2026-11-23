@@ -251,7 +251,8 @@ class CustomFieldDefinitionsResource(SyncAPIResource):
 
         Args:
           id: The `id` of the custom field definition, which is its name. QuickBooks matches
-              the name without regard to letter case.
+              the name without regard to letter case. For a private definition, also send its
+              `ownerId`; without it, the request acts on the public definition with this name.
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
@@ -380,7 +381,8 @@ class CustomFieldDefinitionsResource(SyncAPIResource):
 
         Args:
           id: The `id` of the custom field definition, which is its name. QuickBooks matches
-              the name without regard to letter case.
+              the name without regard to letter case. For a private definition, also send its
+              `ownerId`; without it, the request acts on the public definition with this name.
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
@@ -636,7 +638,8 @@ class AsyncCustomFieldDefinitionsResource(AsyncAPIResource):
 
         Args:
           id: The `id` of the custom field definition, which is its name. QuickBooks matches
-              the name without regard to letter case.
+              the name without regard to letter case. For a private definition, also send its
+              `ownerId`; without it, the request acts on the public definition with this name.
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
@@ -765,7 +768,8 @@ class AsyncCustomFieldDefinitionsResource(AsyncAPIResource):
 
         Args:
           id: The `id` of the custom field definition, which is its name. QuickBooks matches
-              the name without regard to letter case.
+              the name without regard to letter case. For a private definition, also send its
+              `ownerId`; without it, the request acts on the public definition with this name.
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
