@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from typing import Iterable
 from typing_extensions import Literal
 
 import httpx
@@ -16,7 +17,13 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ...types.qbd import other_name_list_params, other_name_create_params, other_name_update_params
+from ...types.qbd import (
+    other_name_list_params,
+    other_name_create_params,
+    other_name_update_params,
+    other_name_retrieve_params,
+    other_name_set_custom_fields_params,
+)
 from ..._base_client import make_request_options
 from ...types.qbd.other_name import OtherName
 from ...types.qbd.other_name_list_response import OtherNameListResponse
@@ -202,6 +209,7 @@ class OtherNamesResource(SyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -221,6 +229,14 @@ class OtherNamesResource(SyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on other-names. Defaults to `["0"]`,
+              the owner of public custom fields, which QuickBooks users define and see. To get
+              an application's private custom fields, add its owner ID, a GUID in braces. Only
+              the owners you list are returned, so keep `"0"` in the list to also get the
+              public ones. QuickBooks refuses the whole request if a private owner you list
+              has no custom field defined for other-names, so list an owner only for record
+              types that have its custom fields.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -235,7 +251,14 @@ class OtherNamesResource(SyncAPIResource):
         return self._get(
             path_template("/quickbooks-desktop/other-names/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids},
+                    other_name_retrieve_params.OtherNameRetrieveParams,
+                ),
             ),
             cast_to=OtherName,
         )
@@ -269,8 +292,10 @@ class OtherNamesResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> OtherName:
-        """
-        Updates an existing other-name.
+        """Updates an existing other-name.
+
+        To set or clear custom field values, use the
+        set-custom-fields endpoint.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the other-name to update.
@@ -400,6 +425,7 @@ class OtherNamesResource(SyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         limit: int | Omit = omit,
         name_contains: str | Omit = omit,
@@ -426,6 +452,14 @@ class OtherNamesResource(SyncAPIResource):
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_field_owner_ids: The owners whose custom fields to return on other-names. Defaults to `["0"]`,
+              the owner of public custom fields, which QuickBooks users define and see. To get
+              an application's private custom fields, add its owner ID, a GUID in braces. Only
+              the owners you list are returned, so keep `"0"` in the list to also get the
+              public ones. QuickBooks refuses the whole request if a private owner you list
+              has no custom field defined for other-names, so list an owner only for record
+              types that have its custom fields.
 
           ids: Filter for specific other-names by their QuickBooks-assigned unique
               identifier(s).
@@ -536,6 +570,7 @@ class OtherNamesResource(SyncAPIResource):
                 timeout=timeout,
                 query=maybe_transform(
                     {
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "ids": ids,
                         "limit": limit,
                         "name_contains": name_contains,
@@ -552,6 +587,64 @@ class OtherNamesResource(SyncAPIResource):
                 ),
             ),
             cast_to=OtherNameListResponse,
+        )
+
+    def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[other_name_set_custom_fields_params.CustomField] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> OtherName:
+        """Sets or clears custom field values on an other-name.
+
+        A value replaces the custom
+        field's current value if it has one, and an empty string clears it. Custom
+        fields you leave out keep their values, and no `revisionNumber` is needed.
+
+        If QuickBooks does not save every value, or the other-name cannot be returned,
+        the request fails with an error that names the custom fields QuickBooks did not
+        save and any whose outcome could not be confirmed. The values QuickBooks did
+        save stay saved. Sending the same request again is safe.
+
+        **NOTE**: This request changes the other-name's `revisionNumber`, so use the one
+        in its response for your next update.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the other-name to set custom fields
+              on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the other-name. Custom fields you
+              leave out keep their values.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return self._post(
+            path_template("/quickbooks-desktop/other-names/{id}/set-custom-fields", id=id),
+            body=maybe_transform(
+                {"custom_fields": custom_fields}, other_name_set_custom_fields_params.OtherNameSetCustomFieldsParams
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=OtherName,
         )
 
 
@@ -733,6 +826,7 @@ class AsyncOtherNamesResource(AsyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -752,6 +846,14 @@ class AsyncOtherNamesResource(AsyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on other-names. Defaults to `["0"]`,
+              the owner of public custom fields, which QuickBooks users define and see. To get
+              an application's private custom fields, add its owner ID, a GUID in braces. Only
+              the owners you list are returned, so keep `"0"` in the list to also get the
+              public ones. QuickBooks refuses the whole request if a private owner you list
+              has no custom field defined for other-names, so list an owner only for record
+              types that have its custom fields.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -766,7 +868,14 @@ class AsyncOtherNamesResource(AsyncAPIResource):
         return await self._get(
             path_template("/quickbooks-desktop/other-names/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=await async_maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids},
+                    other_name_retrieve_params.OtherNameRetrieveParams,
+                ),
             ),
             cast_to=OtherName,
         )
@@ -800,8 +909,10 @@ class AsyncOtherNamesResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> OtherName:
-        """
-        Updates an existing other-name.
+        """Updates an existing other-name.
+
+        To set or clear custom field values, use the
+        set-custom-fields endpoint.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the other-name to update.
@@ -931,6 +1042,7 @@ class AsyncOtherNamesResource(AsyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         limit: int | Omit = omit,
         name_contains: str | Omit = omit,
@@ -957,6 +1069,14 @@ class AsyncOtherNamesResource(AsyncAPIResource):
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_field_owner_ids: The owners whose custom fields to return on other-names. Defaults to `["0"]`,
+              the owner of public custom fields, which QuickBooks users define and see. To get
+              an application's private custom fields, add its owner ID, a GUID in braces. Only
+              the owners you list are returned, so keep `"0"` in the list to also get the
+              public ones. QuickBooks refuses the whole request if a private owner you list
+              has no custom field defined for other-names, so list an owner only for record
+              types that have its custom fields.
 
           ids: Filter for specific other-names by their QuickBooks-assigned unique
               identifier(s).
@@ -1067,6 +1187,7 @@ class AsyncOtherNamesResource(AsyncAPIResource):
                 timeout=timeout,
                 query=await async_maybe_transform(
                     {
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "ids": ids,
                         "limit": limit,
                         "name_contains": name_contains,
@@ -1083,6 +1204,64 @@ class AsyncOtherNamesResource(AsyncAPIResource):
                 ),
             ),
             cast_to=OtherNameListResponse,
+        )
+
+    async def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[other_name_set_custom_fields_params.CustomField] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> OtherName:
+        """Sets or clears custom field values on an other-name.
+
+        A value replaces the custom
+        field's current value if it has one, and an empty string clears it. Custom
+        fields you leave out keep their values, and no `revisionNumber` is needed.
+
+        If QuickBooks does not save every value, or the other-name cannot be returned,
+        the request fails with an error that names the custom fields QuickBooks did not
+        save and any whose outcome could not be confirmed. The values QuickBooks did
+        save stay saved. Sending the same request again is safe.
+
+        **NOTE**: This request changes the other-name's `revisionNumber`, so use the one
+        in its response for your next update.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the other-name to set custom fields
+              on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the other-name. Custom fields you
+              leave out keep their values.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return await self._post(
+            path_template("/quickbooks-desktop/other-names/{id}/set-custom-fields", id=id),
+            body=await async_maybe_transform(
+                {"custom_fields": custom_fields}, other_name_set_custom_fields_params.OtherNameSetCustomFieldsParams
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=OtherName,
         )
 
 
@@ -1102,6 +1281,9 @@ class OtherNamesResourceWithRawResponse:
         self.list = to_raw_response_wrapper(
             other_names.list,
         )
+        self.set_custom_fields = to_raw_response_wrapper(
+            other_names.set_custom_fields,
+        )
 
 
 class AsyncOtherNamesResourceWithRawResponse:
@@ -1119,6 +1301,9 @@ class AsyncOtherNamesResourceWithRawResponse:
         )
         self.list = async_to_raw_response_wrapper(
             other_names.list,
+        )
+        self.set_custom_fields = async_to_raw_response_wrapper(
+            other_names.set_custom_fields,
         )
 
 
@@ -1138,6 +1323,9 @@ class OtherNamesResourceWithStreamingResponse:
         self.list = to_streamed_response_wrapper(
             other_names.list,
         )
+        self.set_custom_fields = to_streamed_response_wrapper(
+            other_names.set_custom_fields,
+        )
 
 
 class AsyncOtherNamesResourceWithStreamingResponse:
@@ -1155,4 +1343,7 @@ class AsyncOtherNamesResourceWithStreamingResponse:
         )
         self.list = async_to_streamed_response_wrapper(
             other_names.list,
+        )
+        self.set_custom_fields = async_to_streamed_response_wrapper(
+            other_names.set_custom_fields,
         )

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from typing import Iterable
 from typing_extensions import Literal
 
 import httpx
@@ -16,7 +17,13 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ...types.qbd import other_charge_item_list_params, other_charge_item_create_params, other_charge_item_update_params
+from ...types.qbd import (
+    other_charge_item_list_params,
+    other_charge_item_create_params,
+    other_charge_item_update_params,
+    other_charge_item_retrieve_params,
+    other_charge_item_set_custom_fields_params,
+)
 from ...pagination import SyncCursorPage, AsyncCursorPage
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.qbd.other_charge_item import OtherChargeItem
@@ -161,6 +168,7 @@ class OtherChargeItemsResource(SyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -181,6 +189,14 @@ class OtherChargeItemsResource(SyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on other charge items. Defaults to
+              `["0"]`, the owner of public custom fields, which QuickBooks users define and
+              see. To get an application's private custom fields, add its owner ID, a GUID in
+              braces. Only the owners you list are returned, so keep `"0"` in the list to also
+              get the public ones. QuickBooks refuses the whole request if a private owner you
+              list has no custom field defined for other charge items, so list an owner only
+              for record types that have its custom fields.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -195,7 +211,14 @@ class OtherChargeItemsResource(SyncAPIResource):
         return self._get(
             path_template("/quickbooks-desktop/other-charge-items/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids},
+                    other_charge_item_retrieve_params.OtherChargeItemRetrieveParams,
+                ),
             ),
             cast_to=OtherChargeItem,
         )
@@ -221,8 +244,10 @@ class OtherChargeItemsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> OtherChargeItem:
-        """
-        Updates an existing other charge item.
+        """Updates an existing other charge item.
+
+        To set or clear custom field values, use
+        the set-custom-fields endpoint.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the other charge item to update.
@@ -321,6 +346,7 @@ class OtherChargeItemsResource(SyncAPIResource):
         conductor_end_user_id: str,
         class_ids: SequenceNotStr[str] | Omit = omit,
         cursor: str | Omit = omit,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         full_names: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         limit: int | Omit = omit,
@@ -360,6 +386,14 @@ class OtherChargeItemsResource(SyncAPIResource):
               within 20 seconds of the previous response. If you miss that window or a request
               fails, start over without a cursor. To make a run resumable, see
               [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
+
+          custom_field_owner_ids: The owners whose custom fields to return on other charge items. Defaults to
+              `["0"]`, the owner of public custom fields, which QuickBooks users define and
+              see. To get an application's private custom fields, add its owner ID, a GUID in
+              braces. Only the owners you list are returned, so keep `"0"` in the list to also
+              get the public ones. QuickBooks refuses the whole request if a private owner you
+              list has no custom field defined for other charge items, so list an owner only
+              for record types that have its custom fields.
 
           full_names: Filter for specific other charge items by their full-name(s), case-insensitive.
               Like `id`, `fullName` is a unique identifier for an other charge item, formed by
@@ -478,6 +512,7 @@ class OtherChargeItemsResource(SyncAPIResource):
                     {
                         "class_ids": class_ids,
                         "cursor": cursor,
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "full_names": full_names,
                         "ids": ids,
                         "limit": limit,
@@ -494,6 +529,66 @@ class OtherChargeItemsResource(SyncAPIResource):
                 ),
             ),
             model=OtherChargeItem,
+        )
+
+    def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[other_charge_item_set_custom_fields_params.CustomField] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> OtherChargeItem:
+        """Sets or clears custom field values on an other charge item.
+
+        A value replaces the
+        custom field's current value if it has one, and an empty string clears it.
+        Custom fields you leave out keep their values, and no `revisionNumber` is
+        needed.
+
+        If QuickBooks does not save every value, or the other charge item cannot be
+        returned, the request fails with an error that names the custom fields
+        QuickBooks did not save and any whose outcome could not be confirmed. The values
+        QuickBooks did save stay saved. Sending the same request again is safe.
+
+        **NOTE**: This request changes the other charge item's `revisionNumber`, so use
+        the one in its response for your next update.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the other charge item to set custom
+              fields on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the other charge item. Custom fields
+              you leave out keep their values.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return self._post(
+            path_template("/quickbooks-desktop/other-charge-items/{id}/set-custom-fields", id=id),
+            body=maybe_transform(
+                {"custom_fields": custom_fields},
+                other_charge_item_set_custom_fields_params.OtherChargeItemSetCustomFieldsParams,
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=OtherChargeItem,
         )
 
 
@@ -634,6 +729,7 @@ class AsyncOtherChargeItemsResource(AsyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -654,6 +750,14 @@ class AsyncOtherChargeItemsResource(AsyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on other charge items. Defaults to
+              `["0"]`, the owner of public custom fields, which QuickBooks users define and
+              see. To get an application's private custom fields, add its owner ID, a GUID in
+              braces. Only the owners you list are returned, so keep `"0"` in the list to also
+              get the public ones. QuickBooks refuses the whole request if a private owner you
+              list has no custom field defined for other charge items, so list an owner only
+              for record types that have its custom fields.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -668,7 +772,14 @@ class AsyncOtherChargeItemsResource(AsyncAPIResource):
         return await self._get(
             path_template("/quickbooks-desktop/other-charge-items/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=await async_maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids},
+                    other_charge_item_retrieve_params.OtherChargeItemRetrieveParams,
+                ),
             ),
             cast_to=OtherChargeItem,
         )
@@ -694,8 +805,10 @@ class AsyncOtherChargeItemsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> OtherChargeItem:
-        """
-        Updates an existing other charge item.
+        """Updates an existing other charge item.
+
+        To set or clear custom field values, use
+        the set-custom-fields endpoint.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the other charge item to update.
@@ -794,6 +907,7 @@ class AsyncOtherChargeItemsResource(AsyncAPIResource):
         conductor_end_user_id: str,
         class_ids: SequenceNotStr[str] | Omit = omit,
         cursor: str | Omit = omit,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         full_names: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         limit: int | Omit = omit,
@@ -833,6 +947,14 @@ class AsyncOtherChargeItemsResource(AsyncAPIResource):
               within 20 seconds of the previous response. If you miss that window or a request
               fails, start over without a cursor. To make a run resumable, see
               [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
+
+          custom_field_owner_ids: The owners whose custom fields to return on other charge items. Defaults to
+              `["0"]`, the owner of public custom fields, which QuickBooks users define and
+              see. To get an application's private custom fields, add its owner ID, a GUID in
+              braces. Only the owners you list are returned, so keep `"0"` in the list to also
+              get the public ones. QuickBooks refuses the whole request if a private owner you
+              list has no custom field defined for other charge items, so list an owner only
+              for record types that have its custom fields.
 
           full_names: Filter for specific other charge items by their full-name(s), case-insensitive.
               Like `id`, `fullName` is a unique identifier for an other charge item, formed by
@@ -951,6 +1073,7 @@ class AsyncOtherChargeItemsResource(AsyncAPIResource):
                     {
                         "class_ids": class_ids,
                         "cursor": cursor,
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "full_names": full_names,
                         "ids": ids,
                         "limit": limit,
@@ -967,6 +1090,66 @@ class AsyncOtherChargeItemsResource(AsyncAPIResource):
                 ),
             ),
             model=OtherChargeItem,
+        )
+
+    async def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[other_charge_item_set_custom_fields_params.CustomField] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> OtherChargeItem:
+        """Sets or clears custom field values on an other charge item.
+
+        A value replaces the
+        custom field's current value if it has one, and an empty string clears it.
+        Custom fields you leave out keep their values, and no `revisionNumber` is
+        needed.
+
+        If QuickBooks does not save every value, or the other charge item cannot be
+        returned, the request fails with an error that names the custom fields
+        QuickBooks did not save and any whose outcome could not be confirmed. The values
+        QuickBooks did save stay saved. Sending the same request again is safe.
+
+        **NOTE**: This request changes the other charge item's `revisionNumber`, so use
+        the one in its response for your next update.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the other charge item to set custom
+              fields on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the other charge item. Custom fields
+              you leave out keep their values.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return await self._post(
+            path_template("/quickbooks-desktop/other-charge-items/{id}/set-custom-fields", id=id),
+            body=await async_maybe_transform(
+                {"custom_fields": custom_fields},
+                other_charge_item_set_custom_fields_params.OtherChargeItemSetCustomFieldsParams,
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=OtherChargeItem,
         )
 
 
@@ -986,6 +1169,9 @@ class OtherChargeItemsResourceWithRawResponse:
         self.list = to_raw_response_wrapper(
             other_charge_items.list,
         )
+        self.set_custom_fields = to_raw_response_wrapper(
+            other_charge_items.set_custom_fields,
+        )
 
 
 class AsyncOtherChargeItemsResourceWithRawResponse:
@@ -1003,6 +1189,9 @@ class AsyncOtherChargeItemsResourceWithRawResponse:
         )
         self.list = async_to_raw_response_wrapper(
             other_charge_items.list,
+        )
+        self.set_custom_fields = async_to_raw_response_wrapper(
+            other_charge_items.set_custom_fields,
         )
 
 
@@ -1022,6 +1211,9 @@ class OtherChargeItemsResourceWithStreamingResponse:
         self.list = to_streamed_response_wrapper(
             other_charge_items.list,
         )
+        self.set_custom_fields = to_streamed_response_wrapper(
+            other_charge_items.set_custom_fields,
+        )
 
 
 class AsyncOtherChargeItemsResourceWithStreamingResponse:
@@ -1039,4 +1231,7 @@ class AsyncOtherChargeItemsResourceWithStreamingResponse:
         )
         self.list = async_to_streamed_response_wrapper(
             other_charge_items.list,
+        )
+        self.set_custom_fields = async_to_streamed_response_wrapper(
+            other_charge_items.set_custom_fields,
         )
