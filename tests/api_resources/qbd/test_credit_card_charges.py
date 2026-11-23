@@ -424,6 +424,75 @@ class TestCreditCardCharges:
             )
 
     @parametrize
+    def test_method_set_custom_fields(self, client: Conductor) -> None:
+        credit_card_charge = client.qbd.credit_card_charges.set_custom_fields(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+        )
+        assert_matches_type(CreditCardCharge, credit_card_charge, path=["response"])
+
+    @parametrize
+    def test_method_set_custom_fields_with_all_params(self, client: Conductor) -> None:
+        credit_card_charge = client.qbd.credit_card_charges.set_custom_fields(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+            custom_fields=[
+                {
+                    "name": "Customer Rating",
+                    "value": "Gold",
+                    "owner_id": "0",
+                }
+            ],
+            lines=[
+                {
+                    "id": "123ABC-1234567890",
+                    "custom_fields": [
+                        {
+                            "name": "Customer Rating",
+                            "value": "Gold",
+                            "owner_id": "0",
+                        }
+                    ],
+                }
+            ],
+        )
+        assert_matches_type(CreditCardCharge, credit_card_charge, path=["response"])
+
+    @parametrize
+    def test_raw_response_set_custom_fields(self, client: Conductor) -> None:
+        response = client.qbd.credit_card_charges.with_raw_response.set_custom_fields(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        credit_card_charge = response.parse()
+        assert_matches_type(CreditCardCharge, credit_card_charge, path=["response"])
+
+    @parametrize
+    def test_streaming_response_set_custom_fields(self, client: Conductor) -> None:
+        with client.qbd.credit_card_charges.with_streaming_response.set_custom_fields(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            credit_card_charge = response.parse()
+            assert_matches_type(CreditCardCharge, credit_card_charge, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @parametrize
+    def test_path_params_set_custom_fields(self, client: Conductor) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
+            client.qbd.credit_card_charges.with_raw_response.set_custom_fields(
+                id="",
+                conductor_end_user_id="end_usr_1234567abcdefg",
+            )
+
+    @parametrize
     def test_method_void(self, client: Conductor) -> None:
         credit_card_charge = client.qbd.credit_card_charges.void(
             id="123ABC-1234567890",
@@ -867,6 +936,75 @@ class TestAsyncCreditCardCharges:
     async def test_path_params_delete(self, async_client: AsyncConductor) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
             await async_client.qbd.credit_card_charges.with_raw_response.delete(
+                id="",
+                conductor_end_user_id="end_usr_1234567abcdefg",
+            )
+
+    @parametrize
+    async def test_method_set_custom_fields(self, async_client: AsyncConductor) -> None:
+        credit_card_charge = await async_client.qbd.credit_card_charges.set_custom_fields(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+        )
+        assert_matches_type(CreditCardCharge, credit_card_charge, path=["response"])
+
+    @parametrize
+    async def test_method_set_custom_fields_with_all_params(self, async_client: AsyncConductor) -> None:
+        credit_card_charge = await async_client.qbd.credit_card_charges.set_custom_fields(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+            custom_fields=[
+                {
+                    "name": "Customer Rating",
+                    "value": "Gold",
+                    "owner_id": "0",
+                }
+            ],
+            lines=[
+                {
+                    "id": "123ABC-1234567890",
+                    "custom_fields": [
+                        {
+                            "name": "Customer Rating",
+                            "value": "Gold",
+                            "owner_id": "0",
+                        }
+                    ],
+                }
+            ],
+        )
+        assert_matches_type(CreditCardCharge, credit_card_charge, path=["response"])
+
+    @parametrize
+    async def test_raw_response_set_custom_fields(self, async_client: AsyncConductor) -> None:
+        response = await async_client.qbd.credit_card_charges.with_raw_response.set_custom_fields(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        credit_card_charge = await response.parse()
+        assert_matches_type(CreditCardCharge, credit_card_charge, path=["response"])
+
+    @parametrize
+    async def test_streaming_response_set_custom_fields(self, async_client: AsyncConductor) -> None:
+        async with async_client.qbd.credit_card_charges.with_streaming_response.set_custom_fields(
+            id="123ABC-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            credit_card_charge = await response.parse()
+            assert_matches_type(CreditCardCharge, credit_card_charge, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @parametrize
+    async def test_path_params_set_custom_fields(self, async_client: AsyncConductor) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
+            await async_client.qbd.credit_card_charges.with_raw_response.set_custom_fields(
                 id="",
                 conductor_end_user_id="end_usr_1234567abcdefg",
             )
