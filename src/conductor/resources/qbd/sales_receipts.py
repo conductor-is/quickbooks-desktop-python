@@ -886,8 +886,14 @@ class SalesReceiptsResource(SyncAPIResource):
           custom_fields: The custom field values to set or clear on the sales receipt itself, not on its
               lines. Custom fields you leave out keep their values.
 
+              **IMPORTANT**: You must specify `customFields`, `lines`, or both when setting
+              custom fields on a sales receipt.
+
           lines: The lines of the sales receipt whose custom field values to set or clear. Lines
               you leave out are not changed.
+
+              **IMPORTANT**: You must specify `customFields`, `lines`, or both when setting
+              custom fields on a sales receipt.
 
           extra_headers: Send extra headers
 
@@ -1810,8 +1816,14 @@ class AsyncSalesReceiptsResource(AsyncAPIResource):
           custom_fields: The custom field values to set or clear on the sales receipt itself, not on its
               lines. Custom fields you leave out keep their values.
 
+              **IMPORTANT**: You must specify `customFields`, `lines`, or both when setting
+              custom fields on a sales receipt.
+
           lines: The lines of the sales receipt whose custom field values to set or clear. Lines
               you leave out are not changed.
+
+              **IMPORTANT**: You must specify `customFields`, `lines`, or both when setting
+              custom fields on a sales receipt.
 
           extra_headers: Send extra headers
 

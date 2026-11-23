@@ -723,8 +723,14 @@ class ChecksResource(SyncAPIResource):
           custom_fields: The custom field values to set or clear on the check itself, not on its lines.
               Custom fields you leave out keep their values.
 
+              **IMPORTANT**: You must specify `customFields`, `lines`, or both when setting
+              custom fields on a check.
+
           lines: The lines of the check whose custom field values to set or clear. Lines you
               leave out are not changed.
+
+              **IMPORTANT**: You must specify `customFields`, `lines`, or both when setting
+              custom fields on a check.
 
           extra_headers: Send extra headers
 
@@ -1484,8 +1490,14 @@ class AsyncChecksResource(AsyncAPIResource):
           custom_fields: The custom field values to set or clear on the check itself, not on its lines.
               Custom fields you leave out keep their values.
 
+              **IMPORTANT**: You must specify `customFields`, `lines`, or both when setting
+              custom fields on a check.
+
           lines: The lines of the check whose custom field values to set or clear. Lines you
               leave out are not changed.
+
+              **IMPORTANT**: You must specify `customFields`, `lines`, or both when setting
+              custom fields on a check.
 
           extra_headers: Send extra headers
 

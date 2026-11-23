@@ -11,14 +11,14 @@ __all__ = ["SalesTaxGroupItemSetCustomFieldsParams", "CustomField"]
 
 
 class SalesTaxGroupItemSetCustomFieldsParams(TypedDict, total=False):
-    conductor_end_user_id: Required[Annotated[str, PropertyInfo(alias="Conductor-End-User-Id")]]
-    """The ID of the End-User to receive this request."""
-
-    custom_fields: Annotated[Iterable[CustomField], PropertyInfo(alias="customFields")]
+    custom_fields: Required[Annotated[Iterable[CustomField], PropertyInfo(alias="customFields")]]
     """The custom field values to set or clear on the sales-tax group item.
 
     Custom fields you leave out keep their values.
     """
+
+    conductor_end_user_id: Required[Annotated[str, PropertyInfo(alias="Conductor-End-User-Id")]]
+    """The ID of the End-User to receive this request."""
 
 
 class CustomField(TypedDict, total=False):
