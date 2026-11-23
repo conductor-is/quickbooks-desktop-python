@@ -294,6 +294,25 @@ Methods:
 - <code title="post /quickbooks-desktop/currencies/{id}">conductor.qbd.currencies.<a href="./src/conductor/resources/qbd/currencies.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/currency_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/currency.py">Currency</a></code>
 - <code title="get /quickbooks-desktop/currencies">conductor.qbd.currencies.<a href="./src/conductor/resources/qbd/currencies.py">list</a>(\*\*<a href="src/conductor/types/qbd/currency_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/currency_list_response.py">CurrencyListResponse</a></code>
 
+## CustomFieldDefinitions
+
+Types:
+
+```python
+from conductor.types.qbd import (
+    CustomFieldDefinition,
+    CustomFieldDefinitionListResponse,
+    CustomFieldDefinitionDeleteResponse,
+)
+```
+
+Methods:
+
+- <code title="post /quickbooks-desktop/custom-field-definitions">conductor.qbd.custom_field_definitions.<a href="./src/conductor/resources/qbd/custom_field_definitions.py">create</a>(\*\*<a href="src/conductor/types/qbd/custom_field_definition_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/custom_field_definition.py">CustomFieldDefinition</a></code>
+- <code title="post /quickbooks-desktop/custom-field-definitions/{id}">conductor.qbd.custom_field_definitions.<a href="./src/conductor/resources/qbd/custom_field_definitions.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/custom_field_definition_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/custom_field_definition.py">CustomFieldDefinition</a></code>
+- <code title="get /quickbooks-desktop/custom-field-definitions">conductor.qbd.custom_field_definitions.<a href="./src/conductor/resources/qbd/custom_field_definitions.py">list</a>(\*\*<a href="src/conductor/types/qbd/custom_field_definition_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/custom_field_definition_list_response.py">CustomFieldDefinitionListResponse</a></code>
+- <code title="delete /quickbooks-desktop/custom-field-definitions/{id}">conductor.qbd.custom_field_definitions.<a href="./src/conductor/resources/qbd/custom_field_definitions.py">delete</a>(id, \*\*<a href="src/conductor/types/qbd/custom_field_definition_delete_params.py">params</a>) -> <a href="./src/conductor/types/qbd/custom_field_definition_delete_response.py">CustomFieldDefinitionDeleteResponse</a></code>
+
 ## CustomerTypes
 
 Types:
