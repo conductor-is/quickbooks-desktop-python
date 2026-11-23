@@ -316,9 +316,10 @@ class LineGroup(TypedDict, total=False):
     """
 
     custom_fields: Annotated[Iterable[LineGroupCustomField], PropertyInfo(alias="customFields")]
-    """
-    The custom fields for the credit memo line group object, added as user-defined
-    data extensions, not included in the standard QuickBooks object.
+    """The custom field values to set on this credit memo line group when it is
+    created.
+
+    To change them afterward, use the set-custom-fields endpoint of the transaction.
     """
 
     inventory_site_id: Annotated[str, PropertyInfo(alias="inventorySiteId")]
@@ -405,9 +406,9 @@ class Line(TypedDict, total=False):
     """
 
     custom_fields: Annotated[Iterable[LineCustomField], PropertyInfo(alias="customFields")]
-    """
-    The custom fields for the credit memo line object, added as user-defined data
-    extensions, not included in the standard QuickBooks object.
+    """The custom field values to set on this credit memo line when it is created.
+
+    To change them afterward, use the set-custom-fields endpoint of the transaction.
     """
 
     description: str

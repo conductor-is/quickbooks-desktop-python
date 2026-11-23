@@ -21,6 +21,7 @@ from ...types.qbd import (
     bill_credit_card_payment_list_params,
     bill_credit_card_payment_create_params,
     bill_credit_card_payment_retrieve_params,
+    bill_credit_card_payment_set_custom_fields_params,
 )
 from ...pagination import SyncCursorPage, AsyncCursorPage
 from ..._base_client import AsyncPaginator, make_request_options
@@ -472,6 +473,61 @@ class BillCreditCardPaymentsResource(SyncAPIResource):
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
             cast_to=BillCreditCardPaymentDeleteResponse,
+        )
+
+    def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[bill_credit_card_payment_set_custom_fields_params.CustomField] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> BillCreditCardPayment:
+        """Sets or clears custom field values on a bill credit card payment.
+
+        A value
+        replaces any current one, an empty string clears it, and fields you leave out
+        are not changed.
+
+        No `revisionNumber` is needed, but your next update needs the new one from the
+        response. If QuickBooks does not save a value, the request fails without undoing
+        the others, and retrying is safe.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the bill credit card payment to set
+              custom fields on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the bill credit card payment itself,
+              not on its lines. Custom fields you leave out keep their values.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return self._post(
+            path_template("/quickbooks-desktop/bill-credit-card-payments/{id}/set-custom-fields", id=id),
+            body=maybe_transform(
+                {"custom_fields": custom_fields},
+                bill_credit_card_payment_set_custom_fields_params.BillCreditCardPaymentSetCustomFieldsParams,
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=BillCreditCardPayment,
         )
 
     def void(
@@ -960,6 +1016,61 @@ class AsyncBillCreditCardPaymentsResource(AsyncAPIResource):
             cast_to=BillCreditCardPaymentDeleteResponse,
         )
 
+    async def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[bill_credit_card_payment_set_custom_fields_params.CustomField] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> BillCreditCardPayment:
+        """Sets or clears custom field values on a bill credit card payment.
+
+        A value
+        replaces any current one, an empty string clears it, and fields you leave out
+        are not changed.
+
+        No `revisionNumber` is needed, but your next update needs the new one from the
+        response. If QuickBooks does not save a value, the request fails without undoing
+        the others, and retrying is safe.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the bill credit card payment to set
+              custom fields on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the bill credit card payment itself,
+              not on its lines. Custom fields you leave out keep their values.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return await self._post(
+            path_template("/quickbooks-desktop/bill-credit-card-payments/{id}/set-custom-fields", id=id),
+            body=await async_maybe_transform(
+                {"custom_fields": custom_fields},
+                bill_credit_card_payment_set_custom_fields_params.BillCreditCardPaymentSetCustomFieldsParams,
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=BillCreditCardPayment,
+        )
+
     async def void(
         self,
         id: str,
@@ -1019,6 +1130,9 @@ class BillCreditCardPaymentsResourceWithRawResponse:
         self.delete = to_raw_response_wrapper(
             bill_credit_card_payments.delete,
         )
+        self.set_custom_fields = to_raw_response_wrapper(
+            bill_credit_card_payments.set_custom_fields,
+        )
         self.void = to_raw_response_wrapper(
             bill_credit_card_payments.void,
         )
@@ -1039,6 +1153,9 @@ class AsyncBillCreditCardPaymentsResourceWithRawResponse:
         )
         self.delete = async_to_raw_response_wrapper(
             bill_credit_card_payments.delete,
+        )
+        self.set_custom_fields = async_to_raw_response_wrapper(
+            bill_credit_card_payments.set_custom_fields,
         )
         self.void = async_to_raw_response_wrapper(
             bill_credit_card_payments.void,
@@ -1061,6 +1178,9 @@ class BillCreditCardPaymentsResourceWithStreamingResponse:
         self.delete = to_streamed_response_wrapper(
             bill_credit_card_payments.delete,
         )
+        self.set_custom_fields = to_streamed_response_wrapper(
+            bill_credit_card_payments.set_custom_fields,
+        )
         self.void = to_streamed_response_wrapper(
             bill_credit_card_payments.void,
         )
@@ -1081,6 +1201,9 @@ class AsyncBillCreditCardPaymentsResourceWithStreamingResponse:
         )
         self.delete = async_to_streamed_response_wrapper(
             bill_credit_card_payments.delete,
+        )
+        self.set_custom_fields = async_to_streamed_response_wrapper(
+            bill_credit_card_payments.set_custom_fields,
         )
         self.void = async_to_streamed_response_wrapper(
             bill_credit_card_payments.void,
