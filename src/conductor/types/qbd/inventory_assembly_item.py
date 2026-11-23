@@ -327,8 +327,13 @@ class InventoryAssemblyItem(BaseModel):
 
     custom_fields: List[CustomField] = FieldInfo(alias="customFields")
     """
-    The custom fields for the inventory assembly item object, added as user-defined
-    data extensions, not included in the standard QuickBooks object.
+    The custom fields that have a value on this inventory assembly item, for the
+    owners named in the request's `customFieldOwnerIds` (by default, the public
+    custom fields).
+
+    **NOTE**: To set or clear custom field values, use the set-custom-fields
+    endpoint. An update cannot change them, and its response returns this as an
+    empty array even when values exist; retrieve the record to see them.
     """
 
     external_id: Optional[str] = FieldInfo(alias="externalId", default=None)
