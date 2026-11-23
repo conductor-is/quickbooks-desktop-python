@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Union
+from typing import Union, Iterable
 from datetime import date
 from typing_extensions import Literal
 
@@ -18,7 +18,13 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ...types.qbd import account_list_params, account_create_params, account_update_params, account_retrieve_params
+from ...types.qbd import (
+    account_list_params,
+    account_create_params,
+    account_update_params,
+    account_retrieve_params,
+    account_set_custom_fields_params,
+)
 from ..._base_client import make_request_options
 from ...types.qbd.account import Account
 from ...types.qbd.account_list_response import AccountListResponse
@@ -301,7 +307,8 @@ class AccountsResource(SyncAPIResource):
 
         You can rename the account, adjust
         numbering, or change supported attributes, but QuickBooks won’t let you convert
-        it to a non-posting type via the API.
+        it to a non-posting type via the API. To set or clear custom field values, use
+        the set-custom-fields endpoint.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the account to update.
@@ -613,6 +620,64 @@ class AccountsResource(SyncAPIResource):
             cast_to=AccountListResponse,
         )
 
+    def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[account_set_custom_fields_params.CustomField] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> Account:
+        """Sets or clears custom field values on an account.
+
+        A value replaces the custom
+        field's current value if it has one, and an empty string clears it. Custom
+        fields you leave out keep their values, and no `revisionNumber` is needed.
+
+        If QuickBooks does not save every value, or the account cannot be returned, the
+        request fails with an error that names the custom fields QuickBooks did not save
+        and any whose outcome could not be confirmed. The values QuickBooks did save
+        stay saved. Sending the same request again is safe.
+
+        **NOTE**: This request changes the account's `revisionNumber`, so use the one in
+        its response for your next update.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the account to set custom fields
+              on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the account. Custom fields you leave
+              out keep their values.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return self._post(
+            path_template("/quickbooks-desktop/accounts/{id}/set-custom-fields", id=id),
+            body=maybe_transform(
+                {"custom_fields": custom_fields}, account_set_custom_fields_params.AccountSetCustomFieldsParams
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=Account,
+        )
+
 
 class AsyncAccountsResource(AsyncAPIResource):
     @cached_property
@@ -889,7 +954,8 @@ class AsyncAccountsResource(AsyncAPIResource):
 
         You can rename the account, adjust
         numbering, or change supported attributes, but QuickBooks won’t let you convert
-        it to a non-posting type via the API.
+        it to a non-posting type via the API. To set or clear custom field values, use
+        the set-custom-fields endpoint.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the account to update.
@@ -1201,6 +1267,64 @@ class AsyncAccountsResource(AsyncAPIResource):
             cast_to=AccountListResponse,
         )
 
+    async def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[account_set_custom_fields_params.CustomField] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> Account:
+        """Sets or clears custom field values on an account.
+
+        A value replaces the custom
+        field's current value if it has one, and an empty string clears it. Custom
+        fields you leave out keep their values, and no `revisionNumber` is needed.
+
+        If QuickBooks does not save every value, or the account cannot be returned, the
+        request fails with an error that names the custom fields QuickBooks did not save
+        and any whose outcome could not be confirmed. The values QuickBooks did save
+        stay saved. Sending the same request again is safe.
+
+        **NOTE**: This request changes the account's `revisionNumber`, so use the one in
+        its response for your next update.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the account to set custom fields
+              on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the account. Custom fields you leave
+              out keep their values.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return await self._post(
+            path_template("/quickbooks-desktop/accounts/{id}/set-custom-fields", id=id),
+            body=await async_maybe_transform(
+                {"custom_fields": custom_fields}, account_set_custom_fields_params.AccountSetCustomFieldsParams
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=Account,
+        )
+
 
 class AccountsResourceWithRawResponse:
     def __init__(self, accounts: AccountsResource) -> None:
@@ -1217,6 +1341,9 @@ class AccountsResourceWithRawResponse:
         )
         self.list = to_raw_response_wrapper(
             accounts.list,
+        )
+        self.set_custom_fields = to_raw_response_wrapper(
+            accounts.set_custom_fields,
         )
 
 
@@ -1236,6 +1363,9 @@ class AsyncAccountsResourceWithRawResponse:
         self.list = async_to_raw_response_wrapper(
             accounts.list,
         )
+        self.set_custom_fields = async_to_raw_response_wrapper(
+            accounts.set_custom_fields,
+        )
 
 
 class AccountsResourceWithStreamingResponse:
@@ -1254,6 +1384,9 @@ class AccountsResourceWithStreamingResponse:
         self.list = to_streamed_response_wrapper(
             accounts.list,
         )
+        self.set_custom_fields = to_streamed_response_wrapper(
+            accounts.set_custom_fields,
+        )
 
 
 class AsyncAccountsResourceWithStreamingResponse:
@@ -1271,4 +1404,7 @@ class AsyncAccountsResourceWithStreamingResponse:
         )
         self.list = async_to_streamed_response_wrapper(
             accounts.list,
+        )
+        self.set_custom_fields = async_to_streamed_response_wrapper(
+            accounts.set_custom_fields,
         )
