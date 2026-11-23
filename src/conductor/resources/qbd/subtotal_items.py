@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from typing import Iterable
 from typing_extensions import Literal
 
 import httpx
@@ -16,7 +17,13 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ...types.qbd import subtotal_item_list_params, subtotal_item_create_params, subtotal_item_update_params
+from ...types.qbd import (
+    subtotal_item_list_params,
+    subtotal_item_create_params,
+    subtotal_item_update_params,
+    subtotal_item_retrieve_params,
+    subtotal_item_set_custom_fields_params,
+)
 from ...pagination import SyncCursorPage, AsyncCursorPage
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.qbd.subtotal_item import SubtotalItem
@@ -124,6 +131,7 @@ class SubtotalItemsResource(SyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -143,6 +151,13 @@ class SubtotalItemsResource(SyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on subtotal items. Defaults to `["0"]`,
+              the public custom fields people create and see in QuickBooks. For an
+              application's private custom fields, list its owner ID, a GUID in braces. Only
+              listed owners are returned, so keep `"0"` for the public ones. QuickBooks
+              rejects the whole request if a listed private owner has no custom fields for
+              subtotal items.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -157,7 +172,14 @@ class SubtotalItemsResource(SyncAPIResource):
         return self._get(
             path_template("/quickbooks-desktop/subtotal-items/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids},
+                    subtotal_item_retrieve_params.SubtotalItemRetrieveParams,
+                ),
             ),
             cast_to=SubtotalItem,
         )
@@ -179,8 +201,10 @@ class SubtotalItemsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SubtotalItem:
-        """
-        Updates an existing subtotal item.
+        """Updates an existing subtotal item.
+
+        To set or clear custom field values, use the
+        set-custom-fields endpoint.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the subtotal item to update.
@@ -245,6 +269,7 @@ class SubtotalItemsResource(SyncAPIResource):
         *,
         conductor_end_user_id: str,
         cursor: str | Omit = omit,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         limit: int | Omit = omit,
         name_contains: str | Omit = omit,
@@ -281,6 +306,13 @@ class SubtotalItemsResource(SyncAPIResource):
               within 20 seconds of the previous response. If you miss that window or a request
               fails, start over without a cursor. To make a run resumable, see
               [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
+
+          custom_field_owner_ids: The owners whose custom fields to return on subtotal items. Defaults to `["0"]`,
+              the public custom fields people create and see in QuickBooks. For an
+              application's private custom fields, list its owner ID, a GUID in braces. Only
+              listed owners are returned, so keep `"0"` for the public ones. QuickBooks
+              rejects the whole request if a listed private owner has no custom fields for
+              subtotal items.
 
           ids: Filter for specific subtotal items by their QuickBooks-assigned unique
               identifier(s).
@@ -392,6 +424,7 @@ class SubtotalItemsResource(SyncAPIResource):
                 query=maybe_transform(
                     {
                         "cursor": cursor,
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "ids": ids,
                         "limit": limit,
                         "name_contains": name_contains,
@@ -408,6 +441,66 @@ class SubtotalItemsResource(SyncAPIResource):
                 ),
             ),
             model=SubtotalItem,
+        )
+
+    def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[subtotal_item_set_custom_fields_params.CustomField] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> SubtotalItem:
+        """Sets or clears custom field values on a subtotal item.
+
+        A value replaces the
+        custom field's current value if it has one, and an empty string clears it.
+        Custom fields you leave out keep their values, and no `revisionNumber` is
+        needed.
+
+        If QuickBooks does not save every value, or the subtotal item cannot be
+        returned, the request fails with an error that names the custom fields
+        QuickBooks did not save and any whose outcome could not be confirmed. The values
+        QuickBooks did save stay saved. Sending the same request again is safe.
+
+        **NOTE**: This request changes the subtotal item's `revisionNumber`, so use the
+        one in its response for your next update.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the subtotal item to set custom
+              fields on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the subtotal item. Custom fields you
+              leave out keep their values.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return self._post(
+            path_template("/quickbooks-desktop/subtotal-items/{id}/set-custom-fields", id=id),
+            body=maybe_transform(
+                {"custom_fields": custom_fields},
+                subtotal_item_set_custom_fields_params.SubtotalItemSetCustomFieldsParams,
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=SubtotalItem,
         )
 
 
@@ -511,6 +604,7 @@ class AsyncSubtotalItemsResource(AsyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -530,6 +624,13 @@ class AsyncSubtotalItemsResource(AsyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on subtotal items. Defaults to `["0"]`,
+              the public custom fields people create and see in QuickBooks. For an
+              application's private custom fields, list its owner ID, a GUID in braces. Only
+              listed owners are returned, so keep `"0"` for the public ones. QuickBooks
+              rejects the whole request if a listed private owner has no custom fields for
+              subtotal items.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -544,7 +645,14 @@ class AsyncSubtotalItemsResource(AsyncAPIResource):
         return await self._get(
             path_template("/quickbooks-desktop/subtotal-items/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=await async_maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids},
+                    subtotal_item_retrieve_params.SubtotalItemRetrieveParams,
+                ),
             ),
             cast_to=SubtotalItem,
         )
@@ -566,8 +674,10 @@ class AsyncSubtotalItemsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SubtotalItem:
-        """
-        Updates an existing subtotal item.
+        """Updates an existing subtotal item.
+
+        To set or clear custom field values, use the
+        set-custom-fields endpoint.
 
         Args:
           id: The QuickBooks-assigned unique identifier of the subtotal item to update.
@@ -632,6 +742,7 @@ class AsyncSubtotalItemsResource(AsyncAPIResource):
         *,
         conductor_end_user_id: str,
         cursor: str | Omit = omit,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         limit: int | Omit = omit,
         name_contains: str | Omit = omit,
@@ -668,6 +779,13 @@ class AsyncSubtotalItemsResource(AsyncAPIResource):
               within 20 seconds of the previous response. If you miss that window or a request
               fails, start over without a cursor. To make a run resumable, see
               [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
+
+          custom_field_owner_ids: The owners whose custom fields to return on subtotal items. Defaults to `["0"]`,
+              the public custom fields people create and see in QuickBooks. For an
+              application's private custom fields, list its owner ID, a GUID in braces. Only
+              listed owners are returned, so keep `"0"` for the public ones. QuickBooks
+              rejects the whole request if a listed private owner has no custom fields for
+              subtotal items.
 
           ids: Filter for specific subtotal items by their QuickBooks-assigned unique
               identifier(s).
@@ -779,6 +897,7 @@ class AsyncSubtotalItemsResource(AsyncAPIResource):
                 query=maybe_transform(
                     {
                         "cursor": cursor,
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "ids": ids,
                         "limit": limit,
                         "name_contains": name_contains,
@@ -795,6 +914,66 @@ class AsyncSubtotalItemsResource(AsyncAPIResource):
                 ),
             ),
             model=SubtotalItem,
+        )
+
+    async def set_custom_fields(
+        self,
+        id: str,
+        *,
+        conductor_end_user_id: str,
+        custom_fields: Iterable[subtotal_item_set_custom_fields_params.CustomField] | Omit = omit,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> SubtotalItem:
+        """Sets or clears custom field values on a subtotal item.
+
+        A value replaces the
+        custom field's current value if it has one, and an empty string clears it.
+        Custom fields you leave out keep their values, and no `revisionNumber` is
+        needed.
+
+        If QuickBooks does not save every value, or the subtotal item cannot be
+        returned, the request fails with an error that names the custom fields
+        QuickBooks did not save and any whose outcome could not be confirmed. The values
+        QuickBooks did save stay saved. Sending the same request again is safe.
+
+        **NOTE**: This request changes the subtotal item's `revisionNumber`, so use the
+        one in its response for your next update.
+
+        Args:
+          id: The QuickBooks-assigned unique identifier of the subtotal item to set custom
+              fields on.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_fields: The custom field values to set or clear on the subtotal item. Custom fields you
+              leave out keep their values.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        extra_headers = {"Conductor-End-User-Id": conductor_end_user_id, **(extra_headers or {})}
+        return await self._post(
+            path_template("/quickbooks-desktop/subtotal-items/{id}/set-custom-fields", id=id),
+            body=await async_maybe_transform(
+                {"custom_fields": custom_fields},
+                subtotal_item_set_custom_fields_params.SubtotalItemSetCustomFieldsParams,
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=SubtotalItem,
         )
 
 
@@ -814,6 +993,9 @@ class SubtotalItemsResourceWithRawResponse:
         self.list = to_raw_response_wrapper(
             subtotal_items.list,
         )
+        self.set_custom_fields = to_raw_response_wrapper(
+            subtotal_items.set_custom_fields,
+        )
 
 
 class AsyncSubtotalItemsResourceWithRawResponse:
@@ -831,6 +1013,9 @@ class AsyncSubtotalItemsResourceWithRawResponse:
         )
         self.list = async_to_raw_response_wrapper(
             subtotal_items.list,
+        )
+        self.set_custom_fields = async_to_raw_response_wrapper(
+            subtotal_items.set_custom_fields,
         )
 
 
@@ -850,6 +1035,9 @@ class SubtotalItemsResourceWithStreamingResponse:
         self.list = to_streamed_response_wrapper(
             subtotal_items.list,
         )
+        self.set_custom_fields = to_streamed_response_wrapper(
+            subtotal_items.set_custom_fields,
+        )
 
 
 class AsyncSubtotalItemsResourceWithStreamingResponse:
@@ -867,4 +1055,7 @@ class AsyncSubtotalItemsResourceWithStreamingResponse:
         )
         self.list = async_to_streamed_response_wrapper(
             subtotal_items.list,
+        )
+        self.set_custom_fields = async_to_streamed_response_wrapper(
+            subtotal_items.set_custom_fields,
         )
