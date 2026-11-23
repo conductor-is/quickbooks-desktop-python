@@ -62,6 +62,9 @@ class BillCheckPaymentUpdateParams(TypedDict, total=False):
     """
     Indicates whether this bill check payment is included in the queue of documents
     for QuickBooks to print.
+
+    **IMPORTANT**: You cannot specify both `isQueuedForPrint` and `refNumber` for a
+    bill check payment.
     """
 
     memo: str
@@ -77,6 +80,9 @@ class BillCheckPaymentUpdateParams(TypedDict, total=False):
     required to be unique and can be arbitrarily changed by the QuickBooks user.
 
     **IMPORTANT**: For checks, this field is the check number.
+
+    **IMPORTANT**: You cannot specify both `isQueuedForPrint` and `refNumber` for a
+    bill check payment.
 
     Maximum length: 11 characters.
     """
