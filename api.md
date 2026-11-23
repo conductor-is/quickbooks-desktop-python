@@ -66,9 +66,10 @@ from conductor.types.qbd import Account, AccountListResponse
 Methods:
 
 - <code title="post /quickbooks-desktop/accounts">conductor.qbd.accounts.<a href="./src/conductor/resources/qbd/accounts.py">create</a>(\*\*<a href="src/conductor/types/qbd/account_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/account.py">Account</a></code>
-- <code title="get /quickbooks-desktop/accounts/{id}">conductor.qbd.accounts.<a href="./src/conductor/resources/qbd/accounts.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/account.py">Account</a></code>
+- <code title="get /quickbooks-desktop/accounts/{id}">conductor.qbd.accounts.<a href="./src/conductor/resources/qbd/accounts.py">retrieve</a>(id, \*\*<a href="src/conductor/types/qbd/account_retrieve_params.py">params</a>) -> <a href="./src/conductor/types/qbd/account.py">Account</a></code>
 - <code title="post /quickbooks-desktop/accounts/{id}">conductor.qbd.accounts.<a href="./src/conductor/resources/qbd/accounts.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/account_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/account.py">Account</a></code>
 - <code title="get /quickbooks-desktop/accounts">conductor.qbd.accounts.<a href="./src/conductor/resources/qbd/accounts.py">list</a>(\*\*<a href="src/conductor/types/qbd/account_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/account_list_response.py">AccountListResponse</a></code>
+- <code title="post /quickbooks-desktop/accounts/{id}/set-custom-fields">conductor.qbd.accounts.<a href="./src/conductor/resources/qbd/accounts.py">set_custom_fields</a>(id, \*\*<a href="src/conductor/types/qbd/account_set_custom_fields_params.py">params</a>) -> <a href="./src/conductor/types/qbd/account.py">Account</a></code>
 
 ## BillCheckPayments
 
@@ -85,10 +86,11 @@ from conductor.types.qbd import (
 Methods:
 
 - <code title="post /quickbooks-desktop/bill-check-payments">conductor.qbd.bill_check_payments.<a href="./src/conductor/resources/qbd/bill_check_payments.py">create</a>(\*\*<a href="src/conductor/types/qbd/bill_check_payment_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/bill_check_payment.py">BillCheckPayment</a></code>
-- <code title="get /quickbooks-desktop/bill-check-payments/{id}">conductor.qbd.bill_check_payments.<a href="./src/conductor/resources/qbd/bill_check_payments.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/bill_check_payment.py">BillCheckPayment</a></code>
+- <code title="get /quickbooks-desktop/bill-check-payments/{id}">conductor.qbd.bill_check_payments.<a href="./src/conductor/resources/qbd/bill_check_payments.py">retrieve</a>(id, \*\*<a href="src/conductor/types/qbd/bill_check_payment_retrieve_params.py">params</a>) -> <a href="./src/conductor/types/qbd/bill_check_payment.py">BillCheckPayment</a></code>
 - <code title="post /quickbooks-desktop/bill-check-payments/{id}">conductor.qbd.bill_check_payments.<a href="./src/conductor/resources/qbd/bill_check_payments.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/bill_check_payment_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/bill_check_payment.py">BillCheckPayment</a></code>
 - <code title="get /quickbooks-desktop/bill-check-payments">conductor.qbd.bill_check_payments.<a href="./src/conductor/resources/qbd/bill_check_payments.py">list</a>(\*\*<a href="src/conductor/types/qbd/bill_check_payment_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/bill_check_payment.py">SyncCursorPage[BillCheckPayment]</a></code>
 - <code title="delete /quickbooks-desktop/bill-check-payments/{id}">conductor.qbd.bill_check_payments.<a href="./src/conductor/resources/qbd/bill_check_payments.py">delete</a>(id) -> <a href="./src/conductor/types/qbd/bill_check_payment_delete_response.py">BillCheckPaymentDeleteResponse</a></code>
+- <code title="post /quickbooks-desktop/bill-check-payments/{id}/set-custom-fields">conductor.qbd.bill_check_payments.<a href="./src/conductor/resources/qbd/bill_check_payments.py">set_custom_fields</a>(id, \*\*<a href="src/conductor/types/qbd/bill_check_payment_set_custom_fields_params.py">params</a>) -> <a href="./src/conductor/types/qbd/bill_check_payment.py">BillCheckPayment</a></code>
 - <code title="post /quickbooks-desktop/bill-check-payments/{id}/void">conductor.qbd.bill_check_payments.<a href="./src/conductor/resources/qbd/bill_check_payments.py">void</a>(id) -> <a href="./src/conductor/types/qbd/bill_check_payment_void_response.py">BillCheckPaymentVoidResponse</a></code>
 
 ## BillCreditCardPayments
@@ -106,9 +108,10 @@ from conductor.types.qbd import (
 Methods:
 
 - <code title="post /quickbooks-desktop/bill-credit-card-payments">conductor.qbd.bill_credit_card_payments.<a href="./src/conductor/resources/qbd/bill_credit_card_payments.py">create</a>(\*\*<a href="src/conductor/types/qbd/bill_credit_card_payment_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/bill_credit_card_payment.py">BillCreditCardPayment</a></code>
-- <code title="get /quickbooks-desktop/bill-credit-card-payments/{id}">conductor.qbd.bill_credit_card_payments.<a href="./src/conductor/resources/qbd/bill_credit_card_payments.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/bill_credit_card_payment.py">BillCreditCardPayment</a></code>
+- <code title="get /quickbooks-desktop/bill-credit-card-payments/{id}">conductor.qbd.bill_credit_card_payments.<a href="./src/conductor/resources/qbd/bill_credit_card_payments.py">retrieve</a>(id, \*\*<a href="src/conductor/types/qbd/bill_credit_card_payment_retrieve_params.py">params</a>) -> <a href="./src/conductor/types/qbd/bill_credit_card_payment.py">BillCreditCardPayment</a></code>
 - <code title="get /quickbooks-desktop/bill-credit-card-payments">conductor.qbd.bill_credit_card_payments.<a href="./src/conductor/resources/qbd/bill_credit_card_payments.py">list</a>(\*\*<a href="src/conductor/types/qbd/bill_credit_card_payment_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/bill_credit_card_payment.py">SyncCursorPage[BillCreditCardPayment]</a></code>
 - <code title="delete /quickbooks-desktop/bill-credit-card-payments/{id}">conductor.qbd.bill_credit_card_payments.<a href="./src/conductor/resources/qbd/bill_credit_card_payments.py">delete</a>(id) -> <a href="./src/conductor/types/qbd/bill_credit_card_payment_delete_response.py">BillCreditCardPaymentDeleteResponse</a></code>
+- <code title="post /quickbooks-desktop/bill-credit-card-payments/{id}/set-custom-fields">conductor.qbd.bill_credit_card_payments.<a href="./src/conductor/resources/qbd/bill_credit_card_payments.py">set_custom_fields</a>(id, \*\*<a href="src/conductor/types/qbd/bill_credit_card_payment_set_custom_fields_params.py">params</a>) -> <a href="./src/conductor/types/qbd/bill_credit_card_payment.py">BillCreditCardPayment</a></code>
 - <code title="post /quickbooks-desktop/bill-credit-card-payments/{id}/void">conductor.qbd.bill_credit_card_payments.<a href="./src/conductor/resources/qbd/bill_credit_card_payments.py">void</a>(id) -> <a href="./src/conductor/types/qbd/bill_credit_card_payment_void_response.py">BillCreditCardPaymentVoidResponse</a></code>
 
 ## Bills
@@ -122,10 +125,11 @@ from conductor.types.qbd import Bill, BillDeleteResponse, BillVoidResponse
 Methods:
 
 - <code title="post /quickbooks-desktop/bills">conductor.qbd.bills.<a href="./src/conductor/resources/qbd/bills.py">create</a>(\*\*<a href="src/conductor/types/qbd/bill_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/bill.py">Bill</a></code>
-- <code title="get /quickbooks-desktop/bills/{id}">conductor.qbd.bills.<a href="./src/conductor/resources/qbd/bills.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/bill.py">Bill</a></code>
+- <code title="get /quickbooks-desktop/bills/{id}">conductor.qbd.bills.<a href="./src/conductor/resources/qbd/bills.py">retrieve</a>(id, \*\*<a href="src/conductor/types/qbd/bill_retrieve_params.py">params</a>) -> <a href="./src/conductor/types/qbd/bill.py">Bill</a></code>
 - <code title="post /quickbooks-desktop/bills/{id}">conductor.qbd.bills.<a href="./src/conductor/resources/qbd/bills.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/bill_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/bill.py">Bill</a></code>
 - <code title="get /quickbooks-desktop/bills">conductor.qbd.bills.<a href="./src/conductor/resources/qbd/bills.py">list</a>(\*\*<a href="src/conductor/types/qbd/bill_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/bill.py">SyncCursorPage[Bill]</a></code>
 - <code title="delete /quickbooks-desktop/bills/{id}">conductor.qbd.bills.<a href="./src/conductor/resources/qbd/bills.py">delete</a>(id) -> <a href="./src/conductor/types/qbd/bill_delete_response.py">BillDeleteResponse</a></code>
+- <code title="post /quickbooks-desktop/bills/{id}/set-custom-fields">conductor.qbd.bills.<a href="./src/conductor/resources/qbd/bills.py">set_custom_fields</a>(id, \*\*<a href="src/conductor/types/qbd/bill_set_custom_fields_params.py">params</a>) -> <a href="./src/conductor/types/qbd/bill.py">Bill</a></code>
 - <code title="post /quickbooks-desktop/bills/{id}/void">conductor.qbd.bills.<a href="./src/conductor/resources/qbd/bills.py">void</a>(id) -> <a href="./src/conductor/types/qbd/bill_void_response.py">BillVoidResponse</a></code>
 
 ## BillsToPay
@@ -151,10 +155,11 @@ from conductor.types.qbd import BuildAssembly, BuildAssemblyDeleteResponse
 Methods:
 
 - <code title="post /quickbooks-desktop/build-assemblies">conductor.qbd.build_assemblies.<a href="./src/conductor/resources/qbd/build_assemblies.py">create</a>(\*\*<a href="src/conductor/types/qbd/build_assembly_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/build_assembly.py">BuildAssembly</a></code>
-- <code title="get /quickbooks-desktop/build-assemblies/{id}">conductor.qbd.build_assemblies.<a href="./src/conductor/resources/qbd/build_assemblies.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/build_assembly.py">BuildAssembly</a></code>
+- <code title="get /quickbooks-desktop/build-assemblies/{id}">conductor.qbd.build_assemblies.<a href="./src/conductor/resources/qbd/build_assemblies.py">retrieve</a>(id, \*\*<a href="src/conductor/types/qbd/build_assembly_retrieve_params.py">params</a>) -> <a href="./src/conductor/types/qbd/build_assembly.py">BuildAssembly</a></code>
 - <code title="post /quickbooks-desktop/build-assemblies/{id}">conductor.qbd.build_assemblies.<a href="./src/conductor/resources/qbd/build_assemblies.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/build_assembly_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/build_assembly.py">BuildAssembly</a></code>
 - <code title="get /quickbooks-desktop/build-assemblies">conductor.qbd.build_assemblies.<a href="./src/conductor/resources/qbd/build_assemblies.py">list</a>(\*\*<a href="src/conductor/types/qbd/build_assembly_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/build_assembly.py">SyncCursorPage[BuildAssembly]</a></code>
 - <code title="delete /quickbooks-desktop/build-assemblies/{id}">conductor.qbd.build_assemblies.<a href="./src/conductor/resources/qbd/build_assemblies.py">delete</a>(id) -> <a href="./src/conductor/types/qbd/build_assembly_delete_response.py">BuildAssemblyDeleteResponse</a></code>
+- <code title="post /quickbooks-desktop/build-assemblies/{id}/set-custom-fields">conductor.qbd.build_assemblies.<a href="./src/conductor/resources/qbd/build_assemblies.py">set_custom_fields</a>(id, \*\*<a href="src/conductor/types/qbd/build_assembly_set_custom_fields_params.py">params</a>) -> <a href="./src/conductor/types/qbd/build_assembly.py">BuildAssembly</a></code>
 
 ## Checks
 
@@ -167,10 +172,11 @@ from conductor.types.qbd import Check, CheckDeleteResponse, CheckVoidResponse
 Methods:
 
 - <code title="post /quickbooks-desktop/checks">conductor.qbd.checks.<a href="./src/conductor/resources/qbd/checks.py">create</a>(\*\*<a href="src/conductor/types/qbd/check_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/check.py">Check</a></code>
-- <code title="get /quickbooks-desktop/checks/{id}">conductor.qbd.checks.<a href="./src/conductor/resources/qbd/checks.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/check.py">Check</a></code>
+- <code title="get /quickbooks-desktop/checks/{id}">conductor.qbd.checks.<a href="./src/conductor/resources/qbd/checks.py">retrieve</a>(id, \*\*<a href="src/conductor/types/qbd/check_retrieve_params.py">params</a>) -> <a href="./src/conductor/types/qbd/check.py">Check</a></code>
 - <code title="post /quickbooks-desktop/checks/{id}">conductor.qbd.checks.<a href="./src/conductor/resources/qbd/checks.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/check_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/check.py">Check</a></code>
 - <code title="get /quickbooks-desktop/checks">conductor.qbd.checks.<a href="./src/conductor/resources/qbd/checks.py">list</a>(\*\*<a href="src/conductor/types/qbd/check_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/check.py">SyncCursorPage[Check]</a></code>
 - <code title="delete /quickbooks-desktop/checks/{id}">conductor.qbd.checks.<a href="./src/conductor/resources/qbd/checks.py">delete</a>(id) -> <a href="./src/conductor/types/qbd/check_delete_response.py">CheckDeleteResponse</a></code>
+- <code title="post /quickbooks-desktop/checks/{id}/set-custom-fields">conductor.qbd.checks.<a href="./src/conductor/resources/qbd/checks.py">set_custom_fields</a>(id, \*\*<a href="src/conductor/types/qbd/check_set_custom_fields_params.py">params</a>) -> <a href="./src/conductor/types/qbd/check.py">Check</a></code>
 - <code title="post /quickbooks-desktop/checks/{id}/void">conductor.qbd.checks.<a href="./src/conductor/resources/qbd/checks.py">void</a>(id) -> <a href="./src/conductor/types/qbd/check_void_response.py">CheckVoidResponse</a></code>
 
 ## Classes
@@ -215,10 +221,11 @@ from conductor.types.qbd import (
 Methods:
 
 - <code title="post /quickbooks-desktop/credit-card-charges">conductor.qbd.credit_card_charges.<a href="./src/conductor/resources/qbd/credit_card_charges.py">create</a>(\*\*<a href="src/conductor/types/qbd/credit_card_charge_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/credit_card_charge.py">CreditCardCharge</a></code>
-- <code title="get /quickbooks-desktop/credit-card-charges/{id}">conductor.qbd.credit_card_charges.<a href="./src/conductor/resources/qbd/credit_card_charges.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/credit_card_charge.py">CreditCardCharge</a></code>
+- <code title="get /quickbooks-desktop/credit-card-charges/{id}">conductor.qbd.credit_card_charges.<a href="./src/conductor/resources/qbd/credit_card_charges.py">retrieve</a>(id, \*\*<a href="src/conductor/types/qbd/credit_card_charge_retrieve_params.py">params</a>) -> <a href="./src/conductor/types/qbd/credit_card_charge.py">CreditCardCharge</a></code>
 - <code title="post /quickbooks-desktop/credit-card-charges/{id}">conductor.qbd.credit_card_charges.<a href="./src/conductor/resources/qbd/credit_card_charges.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/credit_card_charge_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/credit_card_charge.py">CreditCardCharge</a></code>
 - <code title="get /quickbooks-desktop/credit-card-charges">conductor.qbd.credit_card_charges.<a href="./src/conductor/resources/qbd/credit_card_charges.py">list</a>(\*\*<a href="src/conductor/types/qbd/credit_card_charge_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/credit_card_charge.py">SyncCursorPage[CreditCardCharge]</a></code>
 - <code title="delete /quickbooks-desktop/credit-card-charges/{id}">conductor.qbd.credit_card_charges.<a href="./src/conductor/resources/qbd/credit_card_charges.py">delete</a>(id) -> <a href="./src/conductor/types/qbd/credit_card_charge_delete_response.py">CreditCardChargeDeleteResponse</a></code>
+- <code title="post /quickbooks-desktop/credit-card-charges/{id}/set-custom-fields">conductor.qbd.credit_card_charges.<a href="./src/conductor/resources/qbd/credit_card_charges.py">set_custom_fields</a>(id, \*\*<a href="src/conductor/types/qbd/credit_card_charge_set_custom_fields_params.py">params</a>) -> <a href="./src/conductor/types/qbd/credit_card_charge.py">CreditCardCharge</a></code>
 - <code title="post /quickbooks-desktop/credit-card-charges/{id}/void">conductor.qbd.credit_card_charges.<a href="./src/conductor/resources/qbd/credit_card_charges.py">void</a>(id) -> <a href="./src/conductor/types/qbd/credit_card_charge_void_response.py">CreditCardChargeVoidResponse</a></code>
 
 ## CreditCardCredits
@@ -236,10 +243,11 @@ from conductor.types.qbd import (
 Methods:
 
 - <code title="post /quickbooks-desktop/credit-card-credits">conductor.qbd.credit_card_credits.<a href="./src/conductor/resources/qbd/credit_card_credits.py">create</a>(\*\*<a href="src/conductor/types/qbd/credit_card_credit_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/credit_card_credit.py">CreditCardCredit</a></code>
-- <code title="get /quickbooks-desktop/credit-card-credits/{id}">conductor.qbd.credit_card_credits.<a href="./src/conductor/resources/qbd/credit_card_credits.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/credit_card_credit.py">CreditCardCredit</a></code>
+- <code title="get /quickbooks-desktop/credit-card-credits/{id}">conductor.qbd.credit_card_credits.<a href="./src/conductor/resources/qbd/credit_card_credits.py">retrieve</a>(id, \*\*<a href="src/conductor/types/qbd/credit_card_credit_retrieve_params.py">params</a>) -> <a href="./src/conductor/types/qbd/credit_card_credit.py">CreditCardCredit</a></code>
 - <code title="post /quickbooks-desktop/credit-card-credits/{id}">conductor.qbd.credit_card_credits.<a href="./src/conductor/resources/qbd/credit_card_credits.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/credit_card_credit_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/credit_card_credit.py">CreditCardCredit</a></code>
 - <code title="get /quickbooks-desktop/credit-card-credits">conductor.qbd.credit_card_credits.<a href="./src/conductor/resources/qbd/credit_card_credits.py">list</a>(\*\*<a href="src/conductor/types/qbd/credit_card_credit_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/credit_card_credit.py">SyncCursorPage[CreditCardCredit]</a></code>
 - <code title="delete /quickbooks-desktop/credit-card-credits/{id}">conductor.qbd.credit_card_credits.<a href="./src/conductor/resources/qbd/credit_card_credits.py">delete</a>(id) -> <a href="./src/conductor/types/qbd/credit_card_credit_delete_response.py">CreditCardCreditDeleteResponse</a></code>
+- <code title="post /quickbooks-desktop/credit-card-credits/{id}/set-custom-fields">conductor.qbd.credit_card_credits.<a href="./src/conductor/resources/qbd/credit_card_credits.py">set_custom_fields</a>(id, \*\*<a href="src/conductor/types/qbd/credit_card_credit_set_custom_fields_params.py">params</a>) -> <a href="./src/conductor/types/qbd/credit_card_credit.py">CreditCardCredit</a></code>
 - <code title="post /quickbooks-desktop/credit-card-credits/{id}/void">conductor.qbd.credit_card_credits.<a href="./src/conductor/resources/qbd/credit_card_credits.py">void</a>(id) -> <a href="./src/conductor/types/qbd/credit_card_credit_void_response.py">CreditCardCreditVoidResponse</a></code>
 
 ## CreditCardRefunds
@@ -257,9 +265,10 @@ from conductor.types.qbd import (
 Methods:
 
 - <code title="post /quickbooks-desktop/credit-card-refunds">conductor.qbd.credit_card_refunds.<a href="./src/conductor/resources/qbd/credit_card_refunds.py">create</a>(\*\*<a href="src/conductor/types/qbd/credit_card_refund_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/credit_card_refund.py">CreditCardRefund</a></code>
-- <code title="get /quickbooks-desktop/credit-card-refunds/{id}">conductor.qbd.credit_card_refunds.<a href="./src/conductor/resources/qbd/credit_card_refunds.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/credit_card_refund.py">CreditCardRefund</a></code>
+- <code title="get /quickbooks-desktop/credit-card-refunds/{id}">conductor.qbd.credit_card_refunds.<a href="./src/conductor/resources/qbd/credit_card_refunds.py">retrieve</a>(id, \*\*<a href="src/conductor/types/qbd/credit_card_refund_retrieve_params.py">params</a>) -> <a href="./src/conductor/types/qbd/credit_card_refund.py">CreditCardRefund</a></code>
 - <code title="get /quickbooks-desktop/credit-card-refunds">conductor.qbd.credit_card_refunds.<a href="./src/conductor/resources/qbd/credit_card_refunds.py">list</a>(\*\*<a href="src/conductor/types/qbd/credit_card_refund_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/credit_card_refund.py">SyncCursorPage[CreditCardRefund]</a></code>
 - <code title="delete /quickbooks-desktop/credit-card-refunds/{id}">conductor.qbd.credit_card_refunds.<a href="./src/conductor/resources/qbd/credit_card_refunds.py">delete</a>(id) -> <a href="./src/conductor/types/qbd/credit_card_refund_delete_response.py">CreditCardRefundDeleteResponse</a></code>
+- <code title="post /quickbooks-desktop/credit-card-refunds/{id}/set-custom-fields">conductor.qbd.credit_card_refunds.<a href="./src/conductor/resources/qbd/credit_card_refunds.py">set_custom_fields</a>(id, \*\*<a href="src/conductor/types/qbd/credit_card_refund_set_custom_fields_params.py">params</a>) -> <a href="./src/conductor/types/qbd/credit_card_refund.py">CreditCardRefund</a></code>
 - <code title="post /quickbooks-desktop/credit-card-refunds/{id}/void">conductor.qbd.credit_card_refunds.<a href="./src/conductor/resources/qbd/credit_card_refunds.py">void</a>(id) -> <a href="./src/conductor/types/qbd/credit_card_refund_void_response.py">CreditCardRefundVoidResponse</a></code>
 
 ## CreditMemos
@@ -273,10 +282,11 @@ from conductor.types.qbd import CreditMemo, CreditMemoDeleteResponse, CreditMemo
 Methods:
 
 - <code title="post /quickbooks-desktop/credit-memos">conductor.qbd.credit_memos.<a href="./src/conductor/resources/qbd/credit_memos.py">create</a>(\*\*<a href="src/conductor/types/qbd/credit_memo_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/credit_memo.py">CreditMemo</a></code>
-- <code title="get /quickbooks-desktop/credit-memos/{id}">conductor.qbd.credit_memos.<a href="./src/conductor/resources/qbd/credit_memos.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/credit_memo.py">CreditMemo</a></code>
+- <code title="get /quickbooks-desktop/credit-memos/{id}">conductor.qbd.credit_memos.<a href="./src/conductor/resources/qbd/credit_memos.py">retrieve</a>(id, \*\*<a href="src/conductor/types/qbd/credit_memo_retrieve_params.py">params</a>) -> <a href="./src/conductor/types/qbd/credit_memo.py">CreditMemo</a></code>
 - <code title="post /quickbooks-desktop/credit-memos/{id}">conductor.qbd.credit_memos.<a href="./src/conductor/resources/qbd/credit_memos.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/credit_memo_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/credit_memo.py">CreditMemo</a></code>
 - <code title="get /quickbooks-desktop/credit-memos">conductor.qbd.credit_memos.<a href="./src/conductor/resources/qbd/credit_memos.py">list</a>(\*\*<a href="src/conductor/types/qbd/credit_memo_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/credit_memo.py">SyncCursorPage[CreditMemo]</a></code>
 - <code title="delete /quickbooks-desktop/credit-memos/{id}">conductor.qbd.credit_memos.<a href="./src/conductor/resources/qbd/credit_memos.py">delete</a>(id) -> <a href="./src/conductor/types/qbd/credit_memo_delete_response.py">CreditMemoDeleteResponse</a></code>
+- <code title="post /quickbooks-desktop/credit-memos/{id}/set-custom-fields">conductor.qbd.credit_memos.<a href="./src/conductor/resources/qbd/credit_memos.py">set_custom_fields</a>(id, \*\*<a href="src/conductor/types/qbd/credit_memo_set_custom_fields_params.py">params</a>) -> <a href="./src/conductor/types/qbd/credit_memo.py">CreditMemo</a></code>
 - <code title="post /quickbooks-desktop/credit-memos/{id}/void">conductor.qbd.credit_memos.<a href="./src/conductor/resources/qbd/credit_memos.py">void</a>(id) -> <a href="./src/conductor/types/qbd/credit_memo_void_response.py">CreditMemoVoidResponse</a></code>
 
 ## Currencies
@@ -338,9 +348,10 @@ from conductor.types.qbd import Customer
 Methods:
 
 - <code title="post /quickbooks-desktop/customers">conductor.qbd.customers.<a href="./src/conductor/resources/qbd/customers.py">create</a>(\*\*<a href="src/conductor/types/qbd/customer_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/customer.py">Customer</a></code>
-- <code title="get /quickbooks-desktop/customers/{id}">conductor.qbd.customers.<a href="./src/conductor/resources/qbd/customers.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/customer.py">Customer</a></code>
+- <code title="get /quickbooks-desktop/customers/{id}">conductor.qbd.customers.<a href="./src/conductor/resources/qbd/customers.py">retrieve</a>(id, \*\*<a href="src/conductor/types/qbd/customer_retrieve_params.py">params</a>) -> <a href="./src/conductor/types/qbd/customer.py">Customer</a></code>
 - <code title="post /quickbooks-desktop/customers/{id}">conductor.qbd.customers.<a href="./src/conductor/resources/qbd/customers.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/customer_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/customer.py">Customer</a></code>
 - <code title="get /quickbooks-desktop/customers">conductor.qbd.customers.<a href="./src/conductor/resources/qbd/customers.py">list</a>(\*\*<a href="src/conductor/types/qbd/customer_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/customer.py">SyncCursorPage[Customer]</a></code>
+- <code title="post /quickbooks-desktop/customers/{id}/set-custom-fields">conductor.qbd.customers.<a href="./src/conductor/resources/qbd/customers.py">set_custom_fields</a>(id, \*\*<a href="src/conductor/types/qbd/customer_set_custom_fields_params.py">params</a>) -> <a href="./src/conductor/types/qbd/customer.py">Customer</a></code>
 
 ## DateDrivenTerms
 
@@ -391,10 +402,11 @@ from conductor.types.qbd import Deposit, DepositDeleteResponse, DepositVoidRespo
 Methods:
 
 - <code title="post /quickbooks-desktop/deposits">conductor.qbd.deposits.<a href="./src/conductor/resources/qbd/deposits.py">create</a>(\*\*<a href="src/conductor/types/qbd/deposit_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/deposit.py">Deposit</a></code>
-- <code title="get /quickbooks-desktop/deposits/{id}">conductor.qbd.deposits.<a href="./src/conductor/resources/qbd/deposits.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/deposit.py">Deposit</a></code>
+- <code title="get /quickbooks-desktop/deposits/{id}">conductor.qbd.deposits.<a href="./src/conductor/resources/qbd/deposits.py">retrieve</a>(id, \*\*<a href="src/conductor/types/qbd/deposit_retrieve_params.py">params</a>) -> <a href="./src/conductor/types/qbd/deposit.py">Deposit</a></code>
 - <code title="post /quickbooks-desktop/deposits/{id}">conductor.qbd.deposits.<a href="./src/conductor/resources/qbd/deposits.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/deposit_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/deposit.py">Deposit</a></code>
 - <code title="get /quickbooks-desktop/deposits">conductor.qbd.deposits.<a href="./src/conductor/resources/qbd/deposits.py">list</a>(\*\*<a href="src/conductor/types/qbd/deposit_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/deposit.py">SyncCursorPage[Deposit]</a></code>
 - <code title="delete /quickbooks-desktop/deposits/{id}">conductor.qbd.deposits.<a href="./src/conductor/resources/qbd/deposits.py">delete</a>(id) -> <a href="./src/conductor/types/qbd/deposit_delete_response.py">DepositDeleteResponse</a></code>
+- <code title="post /quickbooks-desktop/deposits/{id}/set-custom-fields">conductor.qbd.deposits.<a href="./src/conductor/resources/qbd/deposits.py">set_custom_fields</a>(id, \*\*<a href="src/conductor/types/qbd/deposit_set_custom_fields_params.py">params</a>) -> <a href="./src/conductor/types/qbd/deposit.py">Deposit</a></code>
 - <code title="post /quickbooks-desktop/deposits/{id}/void">conductor.qbd.deposits.<a href="./src/conductor/resources/qbd/deposits.py">void</a>(id) -> <a href="./src/conductor/types/qbd/deposit_void_response.py">DepositVoidResponse</a></code>
 
 ## DiscountItems
@@ -408,9 +420,10 @@ from conductor.types.qbd import DiscountItem
 Methods:
 
 - <code title="post /quickbooks-desktop/discount-items">conductor.qbd.discount_items.<a href="./src/conductor/resources/qbd/discount_items.py">create</a>(\*\*<a href="src/conductor/types/qbd/discount_item_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/discount_item.py">DiscountItem</a></code>
-- <code title="get /quickbooks-desktop/discount-items/{id}">conductor.qbd.discount_items.<a href="./src/conductor/resources/qbd/discount_items.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/discount_item.py">DiscountItem</a></code>
+- <code title="get /quickbooks-desktop/discount-items/{id}">conductor.qbd.discount_items.<a href="./src/conductor/resources/qbd/discount_items.py">retrieve</a>(id, \*\*<a href="src/conductor/types/qbd/discount_item_retrieve_params.py">params</a>) -> <a href="./src/conductor/types/qbd/discount_item.py">DiscountItem</a></code>
 - <code title="post /quickbooks-desktop/discount-items/{id}">conductor.qbd.discount_items.<a href="./src/conductor/resources/qbd/discount_items.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/discount_item_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/discount_item.py">DiscountItem</a></code>
 - <code title="get /quickbooks-desktop/discount-items">conductor.qbd.discount_items.<a href="./src/conductor/resources/qbd/discount_items.py">list</a>(\*\*<a href="src/conductor/types/qbd/discount_item_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/discount_item.py">SyncCursorPage[DiscountItem]</a></code>
+- <code title="post /quickbooks-desktop/discount-items/{id}/set-custom-fields">conductor.qbd.discount_items.<a href="./src/conductor/resources/qbd/discount_items.py">set_custom_fields</a>(id, \*\*<a href="src/conductor/types/qbd/discount_item_set_custom_fields_params.py">params</a>) -> <a href="./src/conductor/types/qbd/discount_item.py">DiscountItem</a></code>
 
 ## Employees
 
@@ -423,9 +436,10 @@ from conductor.types.qbd import Employee, EmployeeListResponse
 Methods:
 
 - <code title="post /quickbooks-desktop/employees">conductor.qbd.employees.<a href="./src/conductor/resources/qbd/employees.py">create</a>(\*\*<a href="src/conductor/types/qbd/employee_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/employee.py">Employee</a></code>
-- <code title="get /quickbooks-desktop/employees/{id}">conductor.qbd.employees.<a href="./src/conductor/resources/qbd/employees.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/employee.py">Employee</a></code>
+- <code title="get /quickbooks-desktop/employees/{id}">conductor.qbd.employees.<a href="./src/conductor/resources/qbd/employees.py">retrieve</a>(id, \*\*<a href="src/conductor/types/qbd/employee_retrieve_params.py">params</a>) -> <a href="./src/conductor/types/qbd/employee.py">Employee</a></code>
 - <code title="post /quickbooks-desktop/employees/{id}">conductor.qbd.employees.<a href="./src/conductor/resources/qbd/employees.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/employee_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/employee.py">Employee</a></code>
 - <code title="get /quickbooks-desktop/employees">conductor.qbd.employees.<a href="./src/conductor/resources/qbd/employees.py">list</a>(\*\*<a href="src/conductor/types/qbd/employee_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/employee_list_response.py">EmployeeListResponse</a></code>
+- <code title="post /quickbooks-desktop/employees/{id}/set-custom-fields">conductor.qbd.employees.<a href="./src/conductor/resources/qbd/employees.py">set_custom_fields</a>(id, \*\*<a href="src/conductor/types/qbd/employee_set_custom_fields_params.py">params</a>) -> <a href="./src/conductor/types/qbd/employee.py">Employee</a></code>
 
 ## Estimates
 
@@ -438,10 +452,11 @@ from conductor.types.qbd import Estimate, EstimateDeleteResponse
 Methods:
 
 - <code title="post /quickbooks-desktop/estimates">conductor.qbd.estimates.<a href="./src/conductor/resources/qbd/estimates.py">create</a>(\*\*<a href="src/conductor/types/qbd/estimate_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/estimate.py">Estimate</a></code>
-- <code title="get /quickbooks-desktop/estimates/{id}">conductor.qbd.estimates.<a href="./src/conductor/resources/qbd/estimates.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/estimate.py">Estimate</a></code>
+- <code title="get /quickbooks-desktop/estimates/{id}">conductor.qbd.estimates.<a href="./src/conductor/resources/qbd/estimates.py">retrieve</a>(id, \*\*<a href="src/conductor/types/qbd/estimate_retrieve_params.py">params</a>) -> <a href="./src/conductor/types/qbd/estimate.py">Estimate</a></code>
 - <code title="post /quickbooks-desktop/estimates/{id}">conductor.qbd.estimates.<a href="./src/conductor/resources/qbd/estimates.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/estimate_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/estimate.py">Estimate</a></code>
 - <code title="get /quickbooks-desktop/estimates">conductor.qbd.estimates.<a href="./src/conductor/resources/qbd/estimates.py">list</a>(\*\*<a href="src/conductor/types/qbd/estimate_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/estimate.py">SyncCursorPage[Estimate]</a></code>
 - <code title="delete /quickbooks-desktop/estimates/{id}">conductor.qbd.estimates.<a href="./src/conductor/resources/qbd/estimates.py">delete</a>(id) -> <a href="./src/conductor/types/qbd/estimate_delete_response.py">EstimateDeleteResponse</a></code>
+- <code title="post /quickbooks-desktop/estimates/{id}/set-custom-fields">conductor.qbd.estimates.<a href="./src/conductor/resources/qbd/estimates.py">set_custom_fields</a>(id, \*\*<a href="src/conductor/types/qbd/estimate_set_custom_fields_params.py">params</a>) -> <a href="./src/conductor/types/qbd/estimate.py">Estimate</a></code>
 
 ## InventoryAdjustments
 
@@ -459,10 +474,11 @@ from conductor.types.qbd import (
 Methods:
 
 - <code title="post /quickbooks-desktop/inventory-adjustments">conductor.qbd.inventory_adjustments.<a href="./src/conductor/resources/qbd/inventory_adjustments.py">create</a>(\*\*<a href="src/conductor/types/qbd/inventory_adjustment_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/inventory_adjustment.py">InventoryAdjustment</a></code>
-- <code title="get /quickbooks-desktop/inventory-adjustments/{id}">conductor.qbd.inventory_adjustments.<a href="./src/conductor/resources/qbd/inventory_adjustments.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/inventory_adjustment.py">InventoryAdjustment</a></code>
+- <code title="get /quickbooks-desktop/inventory-adjustments/{id}">conductor.qbd.inventory_adjustments.<a href="./src/conductor/resources/qbd/inventory_adjustments.py">retrieve</a>(id, \*\*<a href="src/conductor/types/qbd/inventory_adjustment_retrieve_params.py">params</a>) -> <a href="./src/conductor/types/qbd/inventory_adjustment.py">InventoryAdjustment</a></code>
 - <code title="post /quickbooks-desktop/inventory-adjustments/{id}">conductor.qbd.inventory_adjustments.<a href="./src/conductor/resources/qbd/inventory_adjustments.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/inventory_adjustment_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/inventory_adjustment.py">InventoryAdjustment</a></code>
 - <code title="get /quickbooks-desktop/inventory-adjustments">conductor.qbd.inventory_adjustments.<a href="./src/conductor/resources/qbd/inventory_adjustments.py">list</a>(\*\*<a href="src/conductor/types/qbd/inventory_adjustment_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/inventory_adjustment_list_response.py">InventoryAdjustmentListResponse</a></code>
 - <code title="delete /quickbooks-desktop/inventory-adjustments/{id}">conductor.qbd.inventory_adjustments.<a href="./src/conductor/resources/qbd/inventory_adjustments.py">delete</a>(id) -> <a href="./src/conductor/types/qbd/inventory_adjustment_delete_response.py">InventoryAdjustmentDeleteResponse</a></code>
+- <code title="post /quickbooks-desktop/inventory-adjustments/{id}/set-custom-fields">conductor.qbd.inventory_adjustments.<a href="./src/conductor/resources/qbd/inventory_adjustments.py">set_custom_fields</a>(id, \*\*<a href="src/conductor/types/qbd/inventory_adjustment_set_custom_fields_params.py">params</a>) -> <a href="./src/conductor/types/qbd/inventory_adjustment.py">InventoryAdjustment</a></code>
 - <code title="post /quickbooks-desktop/inventory-adjustments/{id}/void">conductor.qbd.inventory_adjustments.<a href="./src/conductor/resources/qbd/inventory_adjustments.py">void</a>(id) -> <a href="./src/conductor/types/qbd/inventory_adjustment_void_response.py">InventoryAdjustmentVoidResponse</a></code>
 
 ## InventoryAssemblyItems
@@ -476,9 +492,10 @@ from conductor.types.qbd import InventoryAssemblyItem
 Methods:
 
 - <code title="post /quickbooks-desktop/inventory-assembly-items">conductor.qbd.inventory_assembly_items.<a href="./src/conductor/resources/qbd/inventory_assembly_items.py">create</a>(\*\*<a href="src/conductor/types/qbd/inventory_assembly_item_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/inventory_assembly_item.py">InventoryAssemblyItem</a></code>
-- <code title="get /quickbooks-desktop/inventory-assembly-items/{id}">conductor.qbd.inventory_assembly_items.<a href="./src/conductor/resources/qbd/inventory_assembly_items.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/inventory_assembly_item.py">InventoryAssemblyItem</a></code>
+- <code title="get /quickbooks-desktop/inventory-assembly-items/{id}">conductor.qbd.inventory_assembly_items.<a href="./src/conductor/resources/qbd/inventory_assembly_items.py">retrieve</a>(id, \*\*<a href="src/conductor/types/qbd/inventory_assembly_item_retrieve_params.py">params</a>) -> <a href="./src/conductor/types/qbd/inventory_assembly_item.py">InventoryAssemblyItem</a></code>
 - <code title="post /quickbooks-desktop/inventory-assembly-items/{id}">conductor.qbd.inventory_assembly_items.<a href="./src/conductor/resources/qbd/inventory_assembly_items.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/inventory_assembly_item_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/inventory_assembly_item.py">InventoryAssemblyItem</a></code>
 - <code title="get /quickbooks-desktop/inventory-assembly-items">conductor.qbd.inventory_assembly_items.<a href="./src/conductor/resources/qbd/inventory_assembly_items.py">list</a>(\*\*<a href="src/conductor/types/qbd/inventory_assembly_item_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/inventory_assembly_item.py">SyncCursorPage[InventoryAssemblyItem]</a></code>
+- <code title="post /quickbooks-desktop/inventory-assembly-items/{id}/set-custom-fields">conductor.qbd.inventory_assembly_items.<a href="./src/conductor/resources/qbd/inventory_assembly_items.py">set_custom_fields</a>(id, \*\*<a href="src/conductor/types/qbd/inventory_assembly_item_set_custom_fields_params.py">params</a>) -> <a href="./src/conductor/types/qbd/inventory_assembly_item.py">InventoryAssemblyItem</a></code>
 
 ## InventoryItems
 
@@ -491,9 +508,10 @@ from conductor.types.qbd import InventoryItem
 Methods:
 
 - <code title="post /quickbooks-desktop/inventory-items">conductor.qbd.inventory_items.<a href="./src/conductor/resources/qbd/inventory_items.py">create</a>(\*\*<a href="src/conductor/types/qbd/inventory_item_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/inventory_item.py">InventoryItem</a></code>
-- <code title="get /quickbooks-desktop/inventory-items/{id}">conductor.qbd.inventory_items.<a href="./src/conductor/resources/qbd/inventory_items.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/inventory_item.py">InventoryItem</a></code>
+- <code title="get /quickbooks-desktop/inventory-items/{id}">conductor.qbd.inventory_items.<a href="./src/conductor/resources/qbd/inventory_items.py">retrieve</a>(id, \*\*<a href="src/conductor/types/qbd/inventory_item_retrieve_params.py">params</a>) -> <a href="./src/conductor/types/qbd/inventory_item.py">InventoryItem</a></code>
 - <code title="post /quickbooks-desktop/inventory-items/{id}">conductor.qbd.inventory_items.<a href="./src/conductor/resources/qbd/inventory_items.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/inventory_item_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/inventory_item.py">InventoryItem</a></code>
 - <code title="get /quickbooks-desktop/inventory-items">conductor.qbd.inventory_items.<a href="./src/conductor/resources/qbd/inventory_items.py">list</a>(\*\*<a href="src/conductor/types/qbd/inventory_item_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/inventory_item.py">SyncCursorPage[InventoryItem]</a></code>
+- <code title="post /quickbooks-desktop/inventory-items/{id}/set-custom-fields">conductor.qbd.inventory_items.<a href="./src/conductor/resources/qbd/inventory_items.py">set_custom_fields</a>(id, \*\*<a href="src/conductor/types/qbd/inventory_item_set_custom_fields_params.py">params</a>) -> <a href="./src/conductor/types/qbd/inventory_item.py">InventoryItem</a></code>
 
 ## InventorySites
 
@@ -521,10 +539,11 @@ from conductor.types.qbd import Invoice, InvoiceDeleteResponse, InvoiceVoidRespo
 Methods:
 
 - <code title="post /quickbooks-desktop/invoices">conductor.qbd.invoices.<a href="./src/conductor/resources/qbd/invoices.py">create</a>(\*\*<a href="src/conductor/types/qbd/invoice_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/invoice.py">Invoice</a></code>
-- <code title="get /quickbooks-desktop/invoices/{id}">conductor.qbd.invoices.<a href="./src/conductor/resources/qbd/invoices.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/invoice.py">Invoice</a></code>
+- <code title="get /quickbooks-desktop/invoices/{id}">conductor.qbd.invoices.<a href="./src/conductor/resources/qbd/invoices.py">retrieve</a>(id, \*\*<a href="src/conductor/types/qbd/invoice_retrieve_params.py">params</a>) -> <a href="./src/conductor/types/qbd/invoice.py">Invoice</a></code>
 - <code title="post /quickbooks-desktop/invoices/{id}">conductor.qbd.invoices.<a href="./src/conductor/resources/qbd/invoices.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/invoice_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/invoice.py">Invoice</a></code>
 - <code title="get /quickbooks-desktop/invoices">conductor.qbd.invoices.<a href="./src/conductor/resources/qbd/invoices.py">list</a>(\*\*<a href="src/conductor/types/qbd/invoice_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/invoice.py">SyncCursorPage[Invoice]</a></code>
 - <code title="delete /quickbooks-desktop/invoices/{id}">conductor.qbd.invoices.<a href="./src/conductor/resources/qbd/invoices.py">delete</a>(id) -> <a href="./src/conductor/types/qbd/invoice_delete_response.py">InvoiceDeleteResponse</a></code>
+- <code title="post /quickbooks-desktop/invoices/{id}/set-custom-fields">conductor.qbd.invoices.<a href="./src/conductor/resources/qbd/invoices.py">set_custom_fields</a>(id, \*\*<a href="src/conductor/types/qbd/invoice_set_custom_fields_params.py">params</a>) -> <a href="./src/conductor/types/qbd/invoice.py">Invoice</a></code>
 - <code title="post /quickbooks-desktop/invoices/{id}/void">conductor.qbd.invoices.<a href="./src/conductor/resources/qbd/invoices.py">void</a>(id) -> <a href="./src/conductor/types/qbd/invoice_void_response.py">InvoiceVoidResponse</a></code>
 
 ## ItemGroups
@@ -538,9 +557,10 @@ from conductor.types.qbd import ItemGroup
 Methods:
 
 - <code title="post /quickbooks-desktop/item-groups">conductor.qbd.item_groups.<a href="./src/conductor/resources/qbd/item_groups.py">create</a>(\*\*<a href="src/conductor/types/qbd/item_group_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/item_group.py">ItemGroup</a></code>
-- <code title="get /quickbooks-desktop/item-groups/{id}">conductor.qbd.item_groups.<a href="./src/conductor/resources/qbd/item_groups.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/item_group.py">ItemGroup</a></code>
+- <code title="get /quickbooks-desktop/item-groups/{id}">conductor.qbd.item_groups.<a href="./src/conductor/resources/qbd/item_groups.py">retrieve</a>(id, \*\*<a href="src/conductor/types/qbd/item_group_retrieve_params.py">params</a>) -> <a href="./src/conductor/types/qbd/item_group.py">ItemGroup</a></code>
 - <code title="post /quickbooks-desktop/item-groups/{id}">conductor.qbd.item_groups.<a href="./src/conductor/resources/qbd/item_groups.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/item_group_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/item_group.py">ItemGroup</a></code>
 - <code title="get /quickbooks-desktop/item-groups">conductor.qbd.item_groups.<a href="./src/conductor/resources/qbd/item_groups.py">list</a>(\*\*<a href="src/conductor/types/qbd/item_group_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/item_group.py">SyncCursorPage[ItemGroup]</a></code>
+- <code title="post /quickbooks-desktop/item-groups/{id}/set-custom-fields">conductor.qbd.item_groups.<a href="./src/conductor/resources/qbd/item_groups.py">set_custom_fields</a>(id, \*\*<a href="src/conductor/types/qbd/item_group_set_custom_fields_params.py">params</a>) -> <a href="./src/conductor/types/qbd/item_group.py">ItemGroup</a></code>
 
 ## ItemReceipts
 
@@ -553,10 +573,11 @@ from conductor.types.qbd import ItemReceipt, ItemReceiptDeleteResponse, ItemRece
 Methods:
 
 - <code title="post /quickbooks-desktop/item-receipts">conductor.qbd.item_receipts.<a href="./src/conductor/resources/qbd/item_receipts.py">create</a>(\*\*<a href="src/conductor/types/qbd/item_receipt_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/item_receipt.py">ItemReceipt</a></code>
-- <code title="get /quickbooks-desktop/item-receipts/{id}">conductor.qbd.item_receipts.<a href="./src/conductor/resources/qbd/item_receipts.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/item_receipt.py">ItemReceipt</a></code>
+- <code title="get /quickbooks-desktop/item-receipts/{id}">conductor.qbd.item_receipts.<a href="./src/conductor/resources/qbd/item_receipts.py">retrieve</a>(id, \*\*<a href="src/conductor/types/qbd/item_receipt_retrieve_params.py">params</a>) -> <a href="./src/conductor/types/qbd/item_receipt.py">ItemReceipt</a></code>
 - <code title="post /quickbooks-desktop/item-receipts/{id}">conductor.qbd.item_receipts.<a href="./src/conductor/resources/qbd/item_receipts.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/item_receipt_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/item_receipt.py">ItemReceipt</a></code>
 - <code title="get /quickbooks-desktop/item-receipts">conductor.qbd.item_receipts.<a href="./src/conductor/resources/qbd/item_receipts.py">list</a>(\*\*<a href="src/conductor/types/qbd/item_receipt_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/item_receipt.py">SyncCursorPage[ItemReceipt]</a></code>
 - <code title="delete /quickbooks-desktop/item-receipts/{id}">conductor.qbd.item_receipts.<a href="./src/conductor/resources/qbd/item_receipts.py">delete</a>(id) -> <a href="./src/conductor/types/qbd/item_receipt_delete_response.py">ItemReceiptDeleteResponse</a></code>
+- <code title="post /quickbooks-desktop/item-receipts/{id}/set-custom-fields">conductor.qbd.item_receipts.<a href="./src/conductor/resources/qbd/item_receipts.py">set_custom_fields</a>(id, \*\*<a href="src/conductor/types/qbd/item_receipt_set_custom_fields_params.py">params</a>) -> <a href="./src/conductor/types/qbd/item_receipt.py">ItemReceipt</a></code>
 - <code title="post /quickbooks-desktop/item-receipts/{id}/void">conductor.qbd.item_receipts.<a href="./src/conductor/resources/qbd/item_receipts.py">void</a>(id) -> <a href="./src/conductor/types/qbd/item_receipt_void_response.py">ItemReceiptVoidResponse</a></code>
 
 ## ItemSites
@@ -583,10 +604,11 @@ from conductor.types.qbd import JournalEntry, JournalEntryDeleteResponse, Journa
 Methods:
 
 - <code title="post /quickbooks-desktop/journal-entries">conductor.qbd.journal_entries.<a href="./src/conductor/resources/qbd/journal_entries.py">create</a>(\*\*<a href="src/conductor/types/qbd/journal_entry_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/journal_entry.py">JournalEntry</a></code>
-- <code title="get /quickbooks-desktop/journal-entries/{id}">conductor.qbd.journal_entries.<a href="./src/conductor/resources/qbd/journal_entries.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/journal_entry.py">JournalEntry</a></code>
+- <code title="get /quickbooks-desktop/journal-entries/{id}">conductor.qbd.journal_entries.<a href="./src/conductor/resources/qbd/journal_entries.py">retrieve</a>(id, \*\*<a href="src/conductor/types/qbd/journal_entry_retrieve_params.py">params</a>) -> <a href="./src/conductor/types/qbd/journal_entry.py">JournalEntry</a></code>
 - <code title="post /quickbooks-desktop/journal-entries/{id}">conductor.qbd.journal_entries.<a href="./src/conductor/resources/qbd/journal_entries.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/journal_entry_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/journal_entry.py">JournalEntry</a></code>
 - <code title="get /quickbooks-desktop/journal-entries">conductor.qbd.journal_entries.<a href="./src/conductor/resources/qbd/journal_entries.py">list</a>(\*\*<a href="src/conductor/types/qbd/journal_entry_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/journal_entry.py">SyncCursorPage[JournalEntry]</a></code>
 - <code title="delete /quickbooks-desktop/journal-entries/{id}">conductor.qbd.journal_entries.<a href="./src/conductor/resources/qbd/journal_entries.py">delete</a>(id) -> <a href="./src/conductor/types/qbd/journal_entry_delete_response.py">JournalEntryDeleteResponse</a></code>
+- <code title="post /quickbooks-desktop/journal-entries/{id}/set-custom-fields">conductor.qbd.journal_entries.<a href="./src/conductor/resources/qbd/journal_entries.py">set_custom_fields</a>(id, \*\*<a href="src/conductor/types/qbd/journal_entry_set_custom_fields_params.py">params</a>) -> <a href="./src/conductor/types/qbd/journal_entry.py">JournalEntry</a></code>
 - <code title="post /quickbooks-desktop/journal-entries/{id}/void">conductor.qbd.journal_entries.<a href="./src/conductor/resources/qbd/journal_entries.py">void</a>(id) -> <a href="./src/conductor/types/qbd/journal_entry_void_response.py">JournalEntryVoidResponse</a></code>
 
 ## NonInventoryItems
@@ -600,9 +622,10 @@ from conductor.types.qbd import NonInventoryItem
 Methods:
 
 - <code title="post /quickbooks-desktop/non-inventory-items">conductor.qbd.non_inventory_items.<a href="./src/conductor/resources/qbd/non_inventory_items.py">create</a>(\*\*<a href="src/conductor/types/qbd/non_inventory_item_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/non_inventory_item.py">NonInventoryItem</a></code>
-- <code title="get /quickbooks-desktop/non-inventory-items/{id}">conductor.qbd.non_inventory_items.<a href="./src/conductor/resources/qbd/non_inventory_items.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/non_inventory_item.py">NonInventoryItem</a></code>
+- <code title="get /quickbooks-desktop/non-inventory-items/{id}">conductor.qbd.non_inventory_items.<a href="./src/conductor/resources/qbd/non_inventory_items.py">retrieve</a>(id, \*\*<a href="src/conductor/types/qbd/non_inventory_item_retrieve_params.py">params</a>) -> <a href="./src/conductor/types/qbd/non_inventory_item.py">NonInventoryItem</a></code>
 - <code title="post /quickbooks-desktop/non-inventory-items/{id}">conductor.qbd.non_inventory_items.<a href="./src/conductor/resources/qbd/non_inventory_items.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/non_inventory_item_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/non_inventory_item.py">NonInventoryItem</a></code>
 - <code title="get /quickbooks-desktop/non-inventory-items">conductor.qbd.non_inventory_items.<a href="./src/conductor/resources/qbd/non_inventory_items.py">list</a>(\*\*<a href="src/conductor/types/qbd/non_inventory_item_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/non_inventory_item.py">SyncCursorPage[NonInventoryItem]</a></code>
+- <code title="post /quickbooks-desktop/non-inventory-items/{id}/set-custom-fields">conductor.qbd.non_inventory_items.<a href="./src/conductor/resources/qbd/non_inventory_items.py">set_custom_fields</a>(id, \*\*<a href="src/conductor/types/qbd/non_inventory_item_set_custom_fields_params.py">params</a>) -> <a href="./src/conductor/types/qbd/non_inventory_item.py">NonInventoryItem</a></code>
 
 ## OtherChargeItems
 
@@ -615,9 +638,10 @@ from conductor.types.qbd import OtherChargeItem
 Methods:
 
 - <code title="post /quickbooks-desktop/other-charge-items">conductor.qbd.other_charge_items.<a href="./src/conductor/resources/qbd/other_charge_items.py">create</a>(\*\*<a href="src/conductor/types/qbd/other_charge_item_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/other_charge_item.py">OtherChargeItem</a></code>
-- <code title="get /quickbooks-desktop/other-charge-items/{id}">conductor.qbd.other_charge_items.<a href="./src/conductor/resources/qbd/other_charge_items.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/other_charge_item.py">OtherChargeItem</a></code>
+- <code title="get /quickbooks-desktop/other-charge-items/{id}">conductor.qbd.other_charge_items.<a href="./src/conductor/resources/qbd/other_charge_items.py">retrieve</a>(id, \*\*<a href="src/conductor/types/qbd/other_charge_item_retrieve_params.py">params</a>) -> <a href="./src/conductor/types/qbd/other_charge_item.py">OtherChargeItem</a></code>
 - <code title="post /quickbooks-desktop/other-charge-items/{id}">conductor.qbd.other_charge_items.<a href="./src/conductor/resources/qbd/other_charge_items.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/other_charge_item_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/other_charge_item.py">OtherChargeItem</a></code>
 - <code title="get /quickbooks-desktop/other-charge-items">conductor.qbd.other_charge_items.<a href="./src/conductor/resources/qbd/other_charge_items.py">list</a>(\*\*<a href="src/conductor/types/qbd/other_charge_item_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/other_charge_item.py">SyncCursorPage[OtherChargeItem]</a></code>
+- <code title="post /quickbooks-desktop/other-charge-items/{id}/set-custom-fields">conductor.qbd.other_charge_items.<a href="./src/conductor/resources/qbd/other_charge_items.py">set_custom_fields</a>(id, \*\*<a href="src/conductor/types/qbd/other_charge_item_set_custom_fields_params.py">params</a>) -> <a href="./src/conductor/types/qbd/other_charge_item.py">OtherChargeItem</a></code>
 
 ## OtherNames
 
@@ -630,9 +654,10 @@ from conductor.types.qbd import OtherName, OtherNameListResponse
 Methods:
 
 - <code title="post /quickbooks-desktop/other-names">conductor.qbd.other_names.<a href="./src/conductor/resources/qbd/other_names.py">create</a>(\*\*<a href="src/conductor/types/qbd/other_name_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/other_name.py">OtherName</a></code>
-- <code title="get /quickbooks-desktop/other-names/{id}">conductor.qbd.other_names.<a href="./src/conductor/resources/qbd/other_names.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/other_name.py">OtherName</a></code>
+- <code title="get /quickbooks-desktop/other-names/{id}">conductor.qbd.other_names.<a href="./src/conductor/resources/qbd/other_names.py">retrieve</a>(id, \*\*<a href="src/conductor/types/qbd/other_name_retrieve_params.py">params</a>) -> <a href="./src/conductor/types/qbd/other_name.py">OtherName</a></code>
 - <code title="post /quickbooks-desktop/other-names/{id}">conductor.qbd.other_names.<a href="./src/conductor/resources/qbd/other_names.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/other_name_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/other_name.py">OtherName</a></code>
 - <code title="get /quickbooks-desktop/other-names">conductor.qbd.other_names.<a href="./src/conductor/resources/qbd/other_names.py">list</a>(\*\*<a href="src/conductor/types/qbd/other_name_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/other_name_list_response.py">OtherNameListResponse</a></code>
+- <code title="post /quickbooks-desktop/other-names/{id}/set-custom-fields">conductor.qbd.other_names.<a href="./src/conductor/resources/qbd/other_names.py">set_custom_fields</a>(id, \*\*<a href="src/conductor/types/qbd/other_name_set_custom_fields_params.py">params</a>) -> <a href="./src/conductor/types/qbd/other_name.py">OtherName</a></code>
 
 ## PaymentMethods
 
@@ -712,10 +737,11 @@ from conductor.types.qbd import PurchaseOrder, PurchaseOrderDeleteResponse
 Methods:
 
 - <code title="post /quickbooks-desktop/purchase-orders">conductor.qbd.purchase_orders.<a href="./src/conductor/resources/qbd/purchase_orders.py">create</a>(\*\*<a href="src/conductor/types/qbd/purchase_order_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/purchase_order.py">PurchaseOrder</a></code>
-- <code title="get /quickbooks-desktop/purchase-orders/{id}">conductor.qbd.purchase_orders.<a href="./src/conductor/resources/qbd/purchase_orders.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/purchase_order.py">PurchaseOrder</a></code>
+- <code title="get /quickbooks-desktop/purchase-orders/{id}">conductor.qbd.purchase_orders.<a href="./src/conductor/resources/qbd/purchase_orders.py">retrieve</a>(id, \*\*<a href="src/conductor/types/qbd/purchase_order_retrieve_params.py">params</a>) -> <a href="./src/conductor/types/qbd/purchase_order.py">PurchaseOrder</a></code>
 - <code title="post /quickbooks-desktop/purchase-orders/{id}">conductor.qbd.purchase_orders.<a href="./src/conductor/resources/qbd/purchase_orders.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/purchase_order_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/purchase_order.py">PurchaseOrder</a></code>
 - <code title="get /quickbooks-desktop/purchase-orders">conductor.qbd.purchase_orders.<a href="./src/conductor/resources/qbd/purchase_orders.py">list</a>(\*\*<a href="src/conductor/types/qbd/purchase_order_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/purchase_order.py">SyncCursorPage[PurchaseOrder]</a></code>
 - <code title="delete /quickbooks-desktop/purchase-orders/{id}">conductor.qbd.purchase_orders.<a href="./src/conductor/resources/qbd/purchase_orders.py">delete</a>(id) -> <a href="./src/conductor/types/qbd/purchase_order_delete_response.py">PurchaseOrderDeleteResponse</a></code>
+- <code title="post /quickbooks-desktop/purchase-orders/{id}/set-custom-fields">conductor.qbd.purchase_orders.<a href="./src/conductor/resources/qbd/purchase_orders.py">set_custom_fields</a>(id, \*\*<a href="src/conductor/types/qbd/purchase_order_set_custom_fields_params.py">params</a>) -> <a href="./src/conductor/types/qbd/purchase_order.py">PurchaseOrder</a></code>
 
 ## ReceivePayments
 
@@ -728,10 +754,11 @@ from conductor.types.qbd import ReceivePayment, ReceivePaymentDeleteResponse
 Methods:
 
 - <code title="post /quickbooks-desktop/receive-payments">conductor.qbd.receive_payments.<a href="./src/conductor/resources/qbd/receive_payments.py">create</a>(\*\*<a href="src/conductor/types/qbd/receive_payment_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/receive_payment.py">ReceivePayment</a></code>
-- <code title="get /quickbooks-desktop/receive-payments/{id}">conductor.qbd.receive_payments.<a href="./src/conductor/resources/qbd/receive_payments.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/receive_payment.py">ReceivePayment</a></code>
+- <code title="get /quickbooks-desktop/receive-payments/{id}">conductor.qbd.receive_payments.<a href="./src/conductor/resources/qbd/receive_payments.py">retrieve</a>(id, \*\*<a href="src/conductor/types/qbd/receive_payment_retrieve_params.py">params</a>) -> <a href="./src/conductor/types/qbd/receive_payment.py">ReceivePayment</a></code>
 - <code title="post /quickbooks-desktop/receive-payments/{id}">conductor.qbd.receive_payments.<a href="./src/conductor/resources/qbd/receive_payments.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/receive_payment_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/receive_payment.py">ReceivePayment</a></code>
 - <code title="get /quickbooks-desktop/receive-payments">conductor.qbd.receive_payments.<a href="./src/conductor/resources/qbd/receive_payments.py">list</a>(\*\*<a href="src/conductor/types/qbd/receive_payment_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/receive_payment.py">SyncCursorPage[ReceivePayment]</a></code>
 - <code title="delete /quickbooks-desktop/receive-payments/{id}">conductor.qbd.receive_payments.<a href="./src/conductor/resources/qbd/receive_payments.py">delete</a>(id) -> <a href="./src/conductor/types/qbd/receive_payment_delete_response.py">ReceivePaymentDeleteResponse</a></code>
+- <code title="post /quickbooks-desktop/receive-payments/{id}/set-custom-fields">conductor.qbd.receive_payments.<a href="./src/conductor/resources/qbd/receive_payments.py">set_custom_fields</a>(id, \*\*<a href="src/conductor/types/qbd/receive_payment_set_custom_fields_params.py">params</a>) -> <a href="./src/conductor/types/qbd/receive_payment.py">ReceivePayment</a></code>
 
 ## Reports
 
@@ -765,10 +792,11 @@ from conductor.types.qbd import SalesOrder, SalesOrderDeleteResponse
 Methods:
 
 - <code title="post /quickbooks-desktop/sales-orders">conductor.qbd.sales_orders.<a href="./src/conductor/resources/qbd/sales_orders.py">create</a>(\*\*<a href="src/conductor/types/qbd/sales_order_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/sales_order.py">SalesOrder</a></code>
-- <code title="get /quickbooks-desktop/sales-orders/{id}">conductor.qbd.sales_orders.<a href="./src/conductor/resources/qbd/sales_orders.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/sales_order.py">SalesOrder</a></code>
+- <code title="get /quickbooks-desktop/sales-orders/{id}">conductor.qbd.sales_orders.<a href="./src/conductor/resources/qbd/sales_orders.py">retrieve</a>(id, \*\*<a href="src/conductor/types/qbd/sales_order_retrieve_params.py">params</a>) -> <a href="./src/conductor/types/qbd/sales_order.py">SalesOrder</a></code>
 - <code title="post /quickbooks-desktop/sales-orders/{id}">conductor.qbd.sales_orders.<a href="./src/conductor/resources/qbd/sales_orders.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/sales_order_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/sales_order.py">SalesOrder</a></code>
 - <code title="get /quickbooks-desktop/sales-orders">conductor.qbd.sales_orders.<a href="./src/conductor/resources/qbd/sales_orders.py">list</a>(\*\*<a href="src/conductor/types/qbd/sales_order_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/sales_order.py">SyncCursorPage[SalesOrder]</a></code>
 - <code title="delete /quickbooks-desktop/sales-orders/{id}">conductor.qbd.sales_orders.<a href="./src/conductor/resources/qbd/sales_orders.py">delete</a>(id) -> <a href="./src/conductor/types/qbd/sales_order_delete_response.py">SalesOrderDeleteResponse</a></code>
+- <code title="post /quickbooks-desktop/sales-orders/{id}/set-custom-fields">conductor.qbd.sales_orders.<a href="./src/conductor/resources/qbd/sales_orders.py">set_custom_fields</a>(id, \*\*<a href="src/conductor/types/qbd/sales_order_set_custom_fields_params.py">params</a>) -> <a href="./src/conductor/types/qbd/sales_order.py">SalesOrder</a></code>
 
 ## SalesReceipts
 
@@ -781,10 +809,11 @@ from conductor.types.qbd import SalesReceipt, SalesReceiptDeleteResponse, SalesR
 Methods:
 
 - <code title="post /quickbooks-desktop/sales-receipts">conductor.qbd.sales_receipts.<a href="./src/conductor/resources/qbd/sales_receipts.py">create</a>(\*\*<a href="src/conductor/types/qbd/sales_receipt_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/sales_receipt.py">SalesReceipt</a></code>
-- <code title="get /quickbooks-desktop/sales-receipts/{id}">conductor.qbd.sales_receipts.<a href="./src/conductor/resources/qbd/sales_receipts.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/sales_receipt.py">SalesReceipt</a></code>
+- <code title="get /quickbooks-desktop/sales-receipts/{id}">conductor.qbd.sales_receipts.<a href="./src/conductor/resources/qbd/sales_receipts.py">retrieve</a>(id, \*\*<a href="src/conductor/types/qbd/sales_receipt_retrieve_params.py">params</a>) -> <a href="./src/conductor/types/qbd/sales_receipt.py">SalesReceipt</a></code>
 - <code title="post /quickbooks-desktop/sales-receipts/{id}">conductor.qbd.sales_receipts.<a href="./src/conductor/resources/qbd/sales_receipts.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/sales_receipt_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/sales_receipt.py">SalesReceipt</a></code>
 - <code title="get /quickbooks-desktop/sales-receipts">conductor.qbd.sales_receipts.<a href="./src/conductor/resources/qbd/sales_receipts.py">list</a>(\*\*<a href="src/conductor/types/qbd/sales_receipt_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/sales_receipt.py">SyncCursorPage[SalesReceipt]</a></code>
 - <code title="delete /quickbooks-desktop/sales-receipts/{id}">conductor.qbd.sales_receipts.<a href="./src/conductor/resources/qbd/sales_receipts.py">delete</a>(id) -> <a href="./src/conductor/types/qbd/sales_receipt_delete_response.py">SalesReceiptDeleteResponse</a></code>
+- <code title="post /quickbooks-desktop/sales-receipts/{id}/set-custom-fields">conductor.qbd.sales_receipts.<a href="./src/conductor/resources/qbd/sales_receipts.py">set_custom_fields</a>(id, \*\*<a href="src/conductor/types/qbd/sales_receipt_set_custom_fields_params.py">params</a>) -> <a href="./src/conductor/types/qbd/sales_receipt.py">SalesReceipt</a></code>
 - <code title="post /quickbooks-desktop/sales-receipts/{id}/void">conductor.qbd.sales_receipts.<a href="./src/conductor/resources/qbd/sales_receipts.py">void</a>(id) -> <a href="./src/conductor/types/qbd/sales_receipt_void_response.py">SalesReceiptVoidResponse</a></code>
 
 ## SalesRepresentatives
@@ -828,9 +857,10 @@ from conductor.types.qbd import SalesTaxGroupItem
 Methods:
 
 - <code title="post /quickbooks-desktop/sales-tax-group-items">conductor.qbd.sales_tax_group_items.<a href="./src/conductor/resources/qbd/sales_tax_group_items.py">create</a>(\*\*<a href="src/conductor/types/qbd/sales_tax_group_item_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/sales_tax_group_item.py">SalesTaxGroupItem</a></code>
-- <code title="get /quickbooks-desktop/sales-tax-group-items/{id}">conductor.qbd.sales_tax_group_items.<a href="./src/conductor/resources/qbd/sales_tax_group_items.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/sales_tax_group_item.py">SalesTaxGroupItem</a></code>
+- <code title="get /quickbooks-desktop/sales-tax-group-items/{id}">conductor.qbd.sales_tax_group_items.<a href="./src/conductor/resources/qbd/sales_tax_group_items.py">retrieve</a>(id, \*\*<a href="src/conductor/types/qbd/sales_tax_group_item_retrieve_params.py">params</a>) -> <a href="./src/conductor/types/qbd/sales_tax_group_item.py">SalesTaxGroupItem</a></code>
 - <code title="post /quickbooks-desktop/sales-tax-group-items/{id}">conductor.qbd.sales_tax_group_items.<a href="./src/conductor/resources/qbd/sales_tax_group_items.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/sales_tax_group_item_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/sales_tax_group_item.py">SalesTaxGroupItem</a></code>
 - <code title="get /quickbooks-desktop/sales-tax-group-items">conductor.qbd.sales_tax_group_items.<a href="./src/conductor/resources/qbd/sales_tax_group_items.py">list</a>(\*\*<a href="src/conductor/types/qbd/sales_tax_group_item_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/sales_tax_group_item.py">SyncCursorPage[SalesTaxGroupItem]</a></code>
+- <code title="post /quickbooks-desktop/sales-tax-group-items/{id}/set-custom-fields">conductor.qbd.sales_tax_group_items.<a href="./src/conductor/resources/qbd/sales_tax_group_items.py">set_custom_fields</a>(id, \*\*<a href="src/conductor/types/qbd/sales_tax_group_item_set_custom_fields_params.py">params</a>) -> <a href="./src/conductor/types/qbd/sales_tax_group_item.py">SalesTaxGroupItem</a></code>
 
 ## SalesTaxItems
 
@@ -843,9 +873,10 @@ from conductor.types.qbd import SalesTaxItem
 Methods:
 
 - <code title="post /quickbooks-desktop/sales-tax-items">conductor.qbd.sales_tax_items.<a href="./src/conductor/resources/qbd/sales_tax_items.py">create</a>(\*\*<a href="src/conductor/types/qbd/sales_tax_item_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/sales_tax_item.py">SalesTaxItem</a></code>
-- <code title="get /quickbooks-desktop/sales-tax-items/{id}">conductor.qbd.sales_tax_items.<a href="./src/conductor/resources/qbd/sales_tax_items.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/sales_tax_item.py">SalesTaxItem</a></code>
+- <code title="get /quickbooks-desktop/sales-tax-items/{id}">conductor.qbd.sales_tax_items.<a href="./src/conductor/resources/qbd/sales_tax_items.py">retrieve</a>(id, \*\*<a href="src/conductor/types/qbd/sales_tax_item_retrieve_params.py">params</a>) -> <a href="./src/conductor/types/qbd/sales_tax_item.py">SalesTaxItem</a></code>
 - <code title="post /quickbooks-desktop/sales-tax-items/{id}">conductor.qbd.sales_tax_items.<a href="./src/conductor/resources/qbd/sales_tax_items.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/sales_tax_item_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/sales_tax_item.py">SalesTaxItem</a></code>
 - <code title="get /quickbooks-desktop/sales-tax-items">conductor.qbd.sales_tax_items.<a href="./src/conductor/resources/qbd/sales_tax_items.py">list</a>(\*\*<a href="src/conductor/types/qbd/sales_tax_item_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/sales_tax_item.py">SyncCursorPage[SalesTaxItem]</a></code>
+- <code title="post /quickbooks-desktop/sales-tax-items/{id}/set-custom-fields">conductor.qbd.sales_tax_items.<a href="./src/conductor/resources/qbd/sales_tax_items.py">set_custom_fields</a>(id, \*\*<a href="src/conductor/types/qbd/sales_tax_item_set_custom_fields_params.py">params</a>) -> <a href="./src/conductor/types/qbd/sales_tax_item.py">SalesTaxItem</a></code>
 
 ## SalesTaxPaymentChecks
 
@@ -862,10 +893,11 @@ from conductor.types.qbd import (
 Methods:
 
 - <code title="post /quickbooks-desktop/sales-tax-payment-checks">conductor.qbd.sales_tax_payment_checks.<a href="./src/conductor/resources/qbd/sales_tax_payment_checks.py">create</a>(\*\*<a href="src/conductor/types/qbd/sales_tax_payment_check_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/sales_tax_payment_check.py">SalesTaxPaymentCheck</a></code>
-- <code title="get /quickbooks-desktop/sales-tax-payment-checks/{id}">conductor.qbd.sales_tax_payment_checks.<a href="./src/conductor/resources/qbd/sales_tax_payment_checks.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/sales_tax_payment_check.py">SalesTaxPaymentCheck</a></code>
+- <code title="get /quickbooks-desktop/sales-tax-payment-checks/{id}">conductor.qbd.sales_tax_payment_checks.<a href="./src/conductor/resources/qbd/sales_tax_payment_checks.py">retrieve</a>(id, \*\*<a href="src/conductor/types/qbd/sales_tax_payment_check_retrieve_params.py">params</a>) -> <a href="./src/conductor/types/qbd/sales_tax_payment_check.py">SalesTaxPaymentCheck</a></code>
 - <code title="post /quickbooks-desktop/sales-tax-payment-checks/{id}">conductor.qbd.sales_tax_payment_checks.<a href="./src/conductor/resources/qbd/sales_tax_payment_checks.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/sales_tax_payment_check_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/sales_tax_payment_check.py">SalesTaxPaymentCheck</a></code>
 - <code title="get /quickbooks-desktop/sales-tax-payment-checks">conductor.qbd.sales_tax_payment_checks.<a href="./src/conductor/resources/qbd/sales_tax_payment_checks.py">list</a>(\*\*<a href="src/conductor/types/qbd/sales_tax_payment_check_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/sales_tax_payment_check.py">SyncCursorPage[SalesTaxPaymentCheck]</a></code>
 - <code title="delete /quickbooks-desktop/sales-tax-payment-checks/{id}">conductor.qbd.sales_tax_payment_checks.<a href="./src/conductor/resources/qbd/sales_tax_payment_checks.py">delete</a>(id) -> <a href="./src/conductor/types/qbd/sales_tax_payment_check_delete_response.py">SalesTaxPaymentCheckDeleteResponse</a></code>
+- <code title="post /quickbooks-desktop/sales-tax-payment-checks/{id}/set-custom-fields">conductor.qbd.sales_tax_payment_checks.<a href="./src/conductor/resources/qbd/sales_tax_payment_checks.py">set_custom_fields</a>(id, \*\*<a href="src/conductor/types/qbd/sales_tax_payment_check_set_custom_fields_params.py">params</a>) -> <a href="./src/conductor/types/qbd/sales_tax_payment_check.py">SalesTaxPaymentCheck</a></code>
 - <code title="post /quickbooks-desktop/sales-tax-payment-checks/{id}/void">conductor.qbd.sales_tax_payment_checks.<a href="./src/conductor/resources/qbd/sales_tax_payment_checks.py">void</a>(id) -> <a href="./src/conductor/types/qbd/sales_tax_payment_check_void_response.py">SalesTaxPaymentCheckVoidResponse</a></code>
 
 ## ServiceItems
@@ -879,9 +911,10 @@ from conductor.types.qbd import ServiceItem
 Methods:
 
 - <code title="post /quickbooks-desktop/service-items">conductor.qbd.service_items.<a href="./src/conductor/resources/qbd/service_items.py">create</a>(\*\*<a href="src/conductor/types/qbd/service_item_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/service_item.py">ServiceItem</a></code>
-- <code title="get /quickbooks-desktop/service-items/{id}">conductor.qbd.service_items.<a href="./src/conductor/resources/qbd/service_items.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/service_item.py">ServiceItem</a></code>
+- <code title="get /quickbooks-desktop/service-items/{id}">conductor.qbd.service_items.<a href="./src/conductor/resources/qbd/service_items.py">retrieve</a>(id, \*\*<a href="src/conductor/types/qbd/service_item_retrieve_params.py">params</a>) -> <a href="./src/conductor/types/qbd/service_item.py">ServiceItem</a></code>
 - <code title="post /quickbooks-desktop/service-items/{id}">conductor.qbd.service_items.<a href="./src/conductor/resources/qbd/service_items.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/service_item_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/service_item.py">ServiceItem</a></code>
 - <code title="get /quickbooks-desktop/service-items">conductor.qbd.service_items.<a href="./src/conductor/resources/qbd/service_items.py">list</a>(\*\*<a href="src/conductor/types/qbd/service_item_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/service_item.py">SyncCursorPage[ServiceItem]</a></code>
+- <code title="post /quickbooks-desktop/service-items/{id}/set-custom-fields">conductor.qbd.service_items.<a href="./src/conductor/resources/qbd/service_items.py">set_custom_fields</a>(id, \*\*<a href="src/conductor/types/qbd/service_item_set_custom_fields_params.py">params</a>) -> <a href="./src/conductor/types/qbd/service_item.py">ServiceItem</a></code>
 
 ## ShippingMethods
 
@@ -922,9 +955,10 @@ from conductor.types.qbd import SubtotalItem
 Methods:
 
 - <code title="post /quickbooks-desktop/subtotal-items">conductor.qbd.subtotal_items.<a href="./src/conductor/resources/qbd/subtotal_items.py">create</a>(\*\*<a href="src/conductor/types/qbd/subtotal_item_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/subtotal_item.py">SubtotalItem</a></code>
-- <code title="get /quickbooks-desktop/subtotal-items/{id}">conductor.qbd.subtotal_items.<a href="./src/conductor/resources/qbd/subtotal_items.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/subtotal_item.py">SubtotalItem</a></code>
+- <code title="get /quickbooks-desktop/subtotal-items/{id}">conductor.qbd.subtotal_items.<a href="./src/conductor/resources/qbd/subtotal_items.py">retrieve</a>(id, \*\*<a href="src/conductor/types/qbd/subtotal_item_retrieve_params.py">params</a>) -> <a href="./src/conductor/types/qbd/subtotal_item.py">SubtotalItem</a></code>
 - <code title="post /quickbooks-desktop/subtotal-items/{id}">conductor.qbd.subtotal_items.<a href="./src/conductor/resources/qbd/subtotal_items.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/subtotal_item_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/subtotal_item.py">SubtotalItem</a></code>
 - <code title="get /quickbooks-desktop/subtotal-items">conductor.qbd.subtotal_items.<a href="./src/conductor/resources/qbd/subtotal_items.py">list</a>(\*\*<a href="src/conductor/types/qbd/subtotal_item_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/subtotal_item.py">SyncCursorPage[SubtotalItem]</a></code>
+- <code title="post /quickbooks-desktop/subtotal-items/{id}/set-custom-fields">conductor.qbd.subtotal_items.<a href="./src/conductor/resources/qbd/subtotal_items.py">set_custom_fields</a>(id, \*\*<a href="src/conductor/types/qbd/subtotal_item_set_custom_fields_params.py">params</a>) -> <a href="./src/conductor/types/qbd/subtotal_item.py">SubtotalItem</a></code>
 
 ## Templates
 
@@ -1007,10 +1041,11 @@ from conductor.types.qbd import VendorCredit, VendorCreditDeleteResponse, Vendor
 Methods:
 
 - <code title="post /quickbooks-desktop/vendor-credits">conductor.qbd.vendor_credits.<a href="./src/conductor/resources/qbd/vendor_credits.py">create</a>(\*\*<a href="src/conductor/types/qbd/vendor_credit_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/vendor_credit.py">VendorCredit</a></code>
-- <code title="get /quickbooks-desktop/vendor-credits/{id}">conductor.qbd.vendor_credits.<a href="./src/conductor/resources/qbd/vendor_credits.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/vendor_credit.py">VendorCredit</a></code>
+- <code title="get /quickbooks-desktop/vendor-credits/{id}">conductor.qbd.vendor_credits.<a href="./src/conductor/resources/qbd/vendor_credits.py">retrieve</a>(id, \*\*<a href="src/conductor/types/qbd/vendor_credit_retrieve_params.py">params</a>) -> <a href="./src/conductor/types/qbd/vendor_credit.py">VendorCredit</a></code>
 - <code title="post /quickbooks-desktop/vendor-credits/{id}">conductor.qbd.vendor_credits.<a href="./src/conductor/resources/qbd/vendor_credits.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/vendor_credit_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/vendor_credit.py">VendorCredit</a></code>
 - <code title="get /quickbooks-desktop/vendor-credits">conductor.qbd.vendor_credits.<a href="./src/conductor/resources/qbd/vendor_credits.py">list</a>(\*\*<a href="src/conductor/types/qbd/vendor_credit_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/vendor_credit.py">SyncCursorPage[VendorCredit]</a></code>
 - <code title="delete /quickbooks-desktop/vendor-credits/{id}">conductor.qbd.vendor_credits.<a href="./src/conductor/resources/qbd/vendor_credits.py">delete</a>(id) -> <a href="./src/conductor/types/qbd/vendor_credit_delete_response.py">VendorCreditDeleteResponse</a></code>
+- <code title="post /quickbooks-desktop/vendor-credits/{id}/set-custom-fields">conductor.qbd.vendor_credits.<a href="./src/conductor/resources/qbd/vendor_credits.py">set_custom_fields</a>(id, \*\*<a href="src/conductor/types/qbd/vendor_credit_set_custom_fields_params.py">params</a>) -> <a href="./src/conductor/types/qbd/vendor_credit.py">VendorCredit</a></code>
 - <code title="post /quickbooks-desktop/vendor-credits/{id}/void">conductor.qbd.vendor_credits.<a href="./src/conductor/resources/qbd/vendor_credits.py">void</a>(id) -> <a href="./src/conductor/types/qbd/vendor_credit_void_response.py">VendorCreditVoidResponse</a></code>
 
 ## Vendors
@@ -1024,6 +1059,7 @@ from conductor.types.qbd import Vendor
 Methods:
 
 - <code title="post /quickbooks-desktop/vendors">conductor.qbd.vendors.<a href="./src/conductor/resources/qbd/vendors.py">create</a>(\*\*<a href="src/conductor/types/qbd/vendor_create_params.py">params</a>) -> <a href="./src/conductor/types/qbd/vendor.py">Vendor</a></code>
-- <code title="get /quickbooks-desktop/vendors/{id}">conductor.qbd.vendors.<a href="./src/conductor/resources/qbd/vendors.py">retrieve</a>(id) -> <a href="./src/conductor/types/qbd/vendor.py">Vendor</a></code>
+- <code title="get /quickbooks-desktop/vendors/{id}">conductor.qbd.vendors.<a href="./src/conductor/resources/qbd/vendors.py">retrieve</a>(id, \*\*<a href="src/conductor/types/qbd/vendor_retrieve_params.py">params</a>) -> <a href="./src/conductor/types/qbd/vendor.py">Vendor</a></code>
 - <code title="post /quickbooks-desktop/vendors/{id}">conductor.qbd.vendors.<a href="./src/conductor/resources/qbd/vendors.py">update</a>(id, \*\*<a href="src/conductor/types/qbd/vendor_update_params.py">params</a>) -> <a href="./src/conductor/types/qbd/vendor.py">Vendor</a></code>
 - <code title="get /quickbooks-desktop/vendors">conductor.qbd.vendors.<a href="./src/conductor/resources/qbd/vendors.py">list</a>(\*\*<a href="src/conductor/types/qbd/vendor_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/vendor.py">SyncCursorPage[Vendor]</a></code>
+- <code title="post /quickbooks-desktop/vendors/{id}/set-custom-fields">conductor.qbd.vendors.<a href="./src/conductor/resources/qbd/vendors.py">set_custom_fields</a>(id, \*\*<a href="src/conductor/types/qbd/vendor_set_custom_fields_params.py">params</a>) -> <a href="./src/conductor/types/qbd/vendor.py">Vendor</a></code>
