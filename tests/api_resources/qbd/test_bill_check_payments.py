@@ -329,22 +329,13 @@ class TestBillCheckPayments:
     def test_method_set_custom_fields(self, client: Conductor) -> None:
         bill_check_payment = client.qbd.bill_check_payments.set_custom_fields(
             id="123ABC-1234567890",
-            conductor_end_user_id="end_usr_1234567abcdefg",
-        )
-        assert_matches_type(BillCheckPayment, bill_check_payment, path=["response"])
-
-    @parametrize
-    def test_method_set_custom_fields_with_all_params(self, client: Conductor) -> None:
-        bill_check_payment = client.qbd.bill_check_payments.set_custom_fields(
-            id="123ABC-1234567890",
-            conductor_end_user_id="end_usr_1234567abcdefg",
             custom_fields=[
                 {
                     "name": "Customer Rating",
                     "value": "Gold",
-                    "owner_id": "0",
                 }
             ],
+            conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(BillCheckPayment, bill_check_payment, path=["response"])
 
@@ -352,6 +343,12 @@ class TestBillCheckPayments:
     def test_raw_response_set_custom_fields(self, client: Conductor) -> None:
         response = client.qbd.bill_check_payments.with_raw_response.set_custom_fields(
             id="123ABC-1234567890",
+            custom_fields=[
+                {
+                    "name": "Customer Rating",
+                    "value": "Gold",
+                }
+            ],
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -364,6 +361,12 @@ class TestBillCheckPayments:
     def test_streaming_response_set_custom_fields(self, client: Conductor) -> None:
         with client.qbd.bill_check_payments.with_streaming_response.set_custom_fields(
             id="123ABC-1234567890",
+            custom_fields=[
+                {
+                    "name": "Customer Rating",
+                    "value": "Gold",
+                }
+            ],
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -379,6 +382,12 @@ class TestBillCheckPayments:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
             client.qbd.bill_check_payments.with_raw_response.set_custom_fields(
                 id="",
+                custom_fields=[
+                    {
+                        "name": "Customer Rating",
+                        "value": "Gold",
+                    }
+                ],
                 conductor_end_user_id="end_usr_1234567abcdefg",
             )
 
@@ -736,22 +745,13 @@ class TestAsyncBillCheckPayments:
     async def test_method_set_custom_fields(self, async_client: AsyncConductor) -> None:
         bill_check_payment = await async_client.qbd.bill_check_payments.set_custom_fields(
             id="123ABC-1234567890",
-            conductor_end_user_id="end_usr_1234567abcdefg",
-        )
-        assert_matches_type(BillCheckPayment, bill_check_payment, path=["response"])
-
-    @parametrize
-    async def test_method_set_custom_fields_with_all_params(self, async_client: AsyncConductor) -> None:
-        bill_check_payment = await async_client.qbd.bill_check_payments.set_custom_fields(
-            id="123ABC-1234567890",
-            conductor_end_user_id="end_usr_1234567abcdefg",
             custom_fields=[
                 {
                     "name": "Customer Rating",
                     "value": "Gold",
-                    "owner_id": "0",
                 }
             ],
+            conductor_end_user_id="end_usr_1234567abcdefg",
         )
         assert_matches_type(BillCheckPayment, bill_check_payment, path=["response"])
 
@@ -759,6 +759,12 @@ class TestAsyncBillCheckPayments:
     async def test_raw_response_set_custom_fields(self, async_client: AsyncConductor) -> None:
         response = await async_client.qbd.bill_check_payments.with_raw_response.set_custom_fields(
             id="123ABC-1234567890",
+            custom_fields=[
+                {
+                    "name": "Customer Rating",
+                    "value": "Gold",
+                }
+            ],
             conductor_end_user_id="end_usr_1234567abcdefg",
         )
 
@@ -771,6 +777,12 @@ class TestAsyncBillCheckPayments:
     async def test_streaming_response_set_custom_fields(self, async_client: AsyncConductor) -> None:
         async with async_client.qbd.bill_check_payments.with_streaming_response.set_custom_fields(
             id="123ABC-1234567890",
+            custom_fields=[
+                {
+                    "name": "Customer Rating",
+                    "value": "Gold",
+                }
+            ],
             conductor_end_user_id="end_usr_1234567abcdefg",
         ) as response:
             assert not response.is_closed
@@ -786,6 +798,12 @@ class TestAsyncBillCheckPayments:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
             await async_client.qbd.bill_check_payments.with_raw_response.set_custom_fields(
                 id="",
+                custom_fields=[
+                    {
+                        "name": "Customer Rating",
+                        "value": "Gold",
+                    }
+                ],
                 conductor_end_user_id="end_usr_1234567abcdefg",
             )
 

@@ -18,12 +18,18 @@ class InvoiceSetCustomFieldsParams(TypedDict, total=False):
     """The custom field values to set or clear on the invoice itself, not on its lines.
 
     Custom fields you leave out keep their values.
+
+    **IMPORTANT**: You must specify `customFields`, `lines`, or both when setting
+    custom fields on an invoice.
     """
 
     lines: Iterable[Line]
     """The lines of the invoice whose custom field values to set or clear.
 
     Lines you leave out are not changed.
+
+    **IMPORTANT**: You must specify `customFields`, `lines`, or both when setting
+    custom fields on an invoice.
     """
 
 

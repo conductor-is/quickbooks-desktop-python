@@ -845,8 +845,14 @@ class PurchaseOrdersResource(SyncAPIResource):
           custom_fields: The custom field values to set or clear on the purchase order itself, not on its
               lines. Custom fields you leave out keep their values.
 
+              **IMPORTANT**: You must specify `customFields`, `lines`, or both when setting
+              custom fields on a purchase order.
+
           lines: The lines of the purchase order whose custom field values to set or clear. Lines
               you leave out are not changed.
+
+              **IMPORTANT**: You must specify `customFields`, `lines`, or both when setting
+              custom fields on a purchase order.
 
           extra_headers: Send extra headers
 
@@ -1688,8 +1694,14 @@ class AsyncPurchaseOrdersResource(AsyncAPIResource):
           custom_fields: The custom field values to set or clear on the purchase order itself, not on its
               lines. Custom fields you leave out keep their values.
 
+              **IMPORTANT**: You must specify `customFields`, `lines`, or both when setting
+              custom fields on a purchase order.
+
           lines: The lines of the purchase order whose custom field values to set or clear. Lines
               you leave out are not changed.
+
+              **IMPORTANT**: You must specify `customFields`, `lines`, or both when setting
+              custom fields on a purchase order.
 
           extra_headers: Send extra headers
 

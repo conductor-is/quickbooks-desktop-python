@@ -548,8 +548,8 @@ class SalesTaxPaymentChecksResource(SyncAPIResource):
         self,
         id: str,
         *,
+        custom_fields: Iterable[sales_tax_payment_check_set_custom_fields_params.CustomField],
         conductor_end_user_id: str,
-        custom_fields: Iterable[sales_tax_payment_check_set_custom_fields_params.CustomField] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -576,10 +576,10 @@ class SalesTaxPaymentChecksResource(SyncAPIResource):
           id: The QuickBooks-assigned unique identifier of the sales-tax payment check to set
               custom fields on.
 
-          conductor_end_user_id: The ID of the End-User to receive this request.
-
           custom_fields: The custom field values to set or clear on the sales-tax payment check itself,
               not on its lines. Custom fields you leave out keep their values.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 
@@ -1162,8 +1162,8 @@ class AsyncSalesTaxPaymentChecksResource(AsyncAPIResource):
         self,
         id: str,
         *,
+        custom_fields: Iterable[sales_tax_payment_check_set_custom_fields_params.CustomField],
         conductor_end_user_id: str,
-        custom_fields: Iterable[sales_tax_payment_check_set_custom_fields_params.CustomField] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -1190,10 +1190,10 @@ class AsyncSalesTaxPaymentChecksResource(AsyncAPIResource):
           id: The QuickBooks-assigned unique identifier of the sales-tax payment check to set
               custom fields on.
 
-          conductor_end_user_id: The ID of the End-User to receive this request.
-
           custom_fields: The custom field values to set or clear on the sales-tax payment check itself,
               not on its lines. Custom fields you leave out keep their values.
+
+          conductor_end_user_id: The ID of the End-User to receive this request.
 
           extra_headers: Send extra headers
 

@@ -862,8 +862,14 @@ class SalesOrdersResource(SyncAPIResource):
           custom_fields: The custom field values to set or clear on the sales order itself, not on its
               lines. Custom fields you leave out keep their values.
 
+              **IMPORTANT**: You must specify `customFields`, `lines`, or both when setting
+              custom fields on a sales order.
+
           lines: The lines of the sales order whose custom field values to set or clear. Lines
               you leave out are not changed.
+
+              **IMPORTANT**: You must specify `customFields`, `lines`, or both when setting
+              custom fields on a sales order.
 
           extra_headers: Send extra headers
 
@@ -1721,8 +1727,14 @@ class AsyncSalesOrdersResource(AsyncAPIResource):
           custom_fields: The custom field values to set or clear on the sales order itself, not on its
               lines. Custom fields you leave out keep their values.
 
+              **IMPORTANT**: You must specify `customFields`, `lines`, or both when setting
+              custom fields on a sales order.
+
           lines: The lines of the sales order whose custom field values to set or clear. Lines
               you leave out are not changed.
+
+              **IMPORTANT**: You must specify `customFields`, `lines`, or both when setting
+              custom fields on a sales order.
 
           extra_headers: Send extra headers
 
