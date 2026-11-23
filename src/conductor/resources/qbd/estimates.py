@@ -17,7 +17,7 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ...types.qbd import estimate_list_params, estimate_create_params, estimate_update_params
+from ...types.qbd import estimate_list_params, estimate_create_params, estimate_update_params, estimate_retrieve_params
 from ...pagination import SyncCursorPage, AsyncCursorPage
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.qbd.estimate import Estimate
@@ -241,6 +241,7 @@ class EstimatesResource(SyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -262,6 +263,12 @@ class EstimatesResource(SyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on estimates. Defaults to `["0"]`, the
+              public custom fields people create and see in QuickBooks. For an application's
+              private custom fields, list its owner ID, a GUID in braces. Only listed owners
+              are returned, so keep `"0"` for the public ones. QuickBooks rejects the whole
+              request if a listed private owner has no custom fields for estimates.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -276,7 +283,13 @@ class EstimatesResource(SyncAPIResource):
         return self._get(
             path_template("/quickbooks-desktop/estimates/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids}, estimate_retrieve_params.EstimateRetrieveParams
+                ),
             ),
             cast_to=Estimate,
         )
@@ -516,6 +529,7 @@ class EstimatesResource(SyncAPIResource):
         currency_ids: SequenceNotStr[str] | Omit = omit,
         cursor: str | Omit = omit,
         customer_ids: SequenceNotStr[str] | Omit = omit,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         include_line_items: bool | Omit = omit,
         include_linked_transactions: bool | Omit = omit,
@@ -560,6 +574,12 @@ class EstimatesResource(SyncAPIResource):
               fails, start over without a cursor.
 
           customer_ids: Filter for estimates created for these customers.
+
+          custom_field_owner_ids: The owners whose custom fields to return on estimates. Defaults to `["0"]`, the
+              public custom fields people create and see in QuickBooks. For an application's
+              private custom fields, list its owner ID, a GUID in braces. Only listed owners
+              are returned, so keep `"0"` for the public ones. QuickBooks rejects the whole
+              request if a listed private owner has no custom fields for estimates.
 
           ids: Filter for specific estimates by their QuickBooks-assigned unique identifier(s).
 
@@ -681,6 +701,7 @@ class EstimatesResource(SyncAPIResource):
                         "currency_ids": currency_ids,
                         "cursor": cursor,
                         "customer_ids": customer_ids,
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "ids": ids,
                         "include_line_items": include_line_items,
                         "include_linked_transactions": include_linked_transactions,
@@ -959,6 +980,7 @@ class AsyncEstimatesResource(AsyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -980,6 +1002,12 @@ class AsyncEstimatesResource(AsyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on estimates. Defaults to `["0"]`, the
+              public custom fields people create and see in QuickBooks. For an application's
+              private custom fields, list its owner ID, a GUID in braces. Only listed owners
+              are returned, so keep `"0"` for the public ones. QuickBooks rejects the whole
+              request if a listed private owner has no custom fields for estimates.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -994,7 +1022,13 @@ class AsyncEstimatesResource(AsyncAPIResource):
         return await self._get(
             path_template("/quickbooks-desktop/estimates/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=await async_maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids}, estimate_retrieve_params.EstimateRetrieveParams
+                ),
             ),
             cast_to=Estimate,
         )
@@ -1234,6 +1268,7 @@ class AsyncEstimatesResource(AsyncAPIResource):
         currency_ids: SequenceNotStr[str] | Omit = omit,
         cursor: str | Omit = omit,
         customer_ids: SequenceNotStr[str] | Omit = omit,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         include_line_items: bool | Omit = omit,
         include_linked_transactions: bool | Omit = omit,
@@ -1278,6 +1313,12 @@ class AsyncEstimatesResource(AsyncAPIResource):
               fails, start over without a cursor.
 
           customer_ids: Filter for estimates created for these customers.
+
+          custom_field_owner_ids: The owners whose custom fields to return on estimates. Defaults to `["0"]`, the
+              public custom fields people create and see in QuickBooks. For an application's
+              private custom fields, list its owner ID, a GUID in braces. Only listed owners
+              are returned, so keep `"0"` for the public ones. QuickBooks rejects the whole
+              request if a listed private owner has no custom fields for estimates.
 
           ids: Filter for specific estimates by their QuickBooks-assigned unique identifier(s).
 
@@ -1399,6 +1440,7 @@ class AsyncEstimatesResource(AsyncAPIResource):
                         "currency_ids": currency_ids,
                         "cursor": cursor,
                         "customer_ids": customer_ids,
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "ids": ids,
                         "include_line_items": include_line_items,
                         "include_linked_transactions": include_linked_transactions,

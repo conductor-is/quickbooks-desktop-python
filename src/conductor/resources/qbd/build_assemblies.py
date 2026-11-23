@@ -18,7 +18,12 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ...types.qbd import build_assembly_list_params, build_assembly_create_params, build_assembly_update_params
+from ...types.qbd import (
+    build_assembly_list_params,
+    build_assembly_create_params,
+    build_assembly_update_params,
+    build_assembly_retrieve_params,
+)
 from ...pagination import SyncCursorPage, AsyncCursorPage
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.qbd.build_assembly import BuildAssembly
@@ -169,6 +174,7 @@ class BuildAssembliesResource(SyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -189,6 +195,13 @@ class BuildAssembliesResource(SyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on build assemblies. Defaults to
+              `["0"]`, the public custom fields people create and see in QuickBooks. For an
+              application's private custom fields, list its owner ID, a GUID in braces. Only
+              listed owners are returned, so keep `"0"` for the public ones. QuickBooks
+              rejects the whole request if a listed private owner has no custom fields for
+              build assemblies.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -203,7 +216,14 @@ class BuildAssembliesResource(SyncAPIResource):
         return self._get(
             path_template("/quickbooks-desktop/build-assemblies/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids},
+                    build_assembly_retrieve_params.BuildAssemblyRetrieveParams,
+                ),
             ),
             cast_to=BuildAssembly,
         )
@@ -329,6 +349,7 @@ class BuildAssembliesResource(SyncAPIResource):
         *,
         conductor_end_user_id: str,
         cursor: str | Omit = omit,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         include_component_line_items: bool | Omit = omit,
         item_ids: SequenceNotStr[str] | Omit = omit,
@@ -368,6 +389,13 @@ class BuildAssembliesResource(SyncAPIResource):
               send it are not idempotent: each one returns the next page. Send each request
               within 20 seconds of the previous response. If you miss that window or a request
               fails, start over without a cursor.
+
+          custom_field_owner_ids: The owners whose custom fields to return on build assemblies. Defaults to
+              `["0"]`, the public custom fields people create and see in QuickBooks. For an
+              application's private custom fields, list its owner ID, a GUID in braces. Only
+              listed owners are returned, so keep `"0"` for the public ones. QuickBooks
+              rejects the whole request if a listed private owner has no custom fields for
+              build assemblies.
 
           ids: Filter for specific build assemblies by their QuickBooks-assigned unique
               identifier(s).
@@ -488,6 +516,7 @@ class BuildAssembliesResource(SyncAPIResource):
                 query=maybe_transform(
                     {
                         "cursor": cursor,
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "ids": ids,
                         "include_component_line_items": include_component_line_items,
                         "item_ids": item_ids,
@@ -694,6 +723,7 @@ class AsyncBuildAssembliesResource(AsyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -714,6 +744,13 @@ class AsyncBuildAssembliesResource(AsyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on build assemblies. Defaults to
+              `["0"]`, the public custom fields people create and see in QuickBooks. For an
+              application's private custom fields, list its owner ID, a GUID in braces. Only
+              listed owners are returned, so keep `"0"` for the public ones. QuickBooks
+              rejects the whole request if a listed private owner has no custom fields for
+              build assemblies.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -728,7 +765,14 @@ class AsyncBuildAssembliesResource(AsyncAPIResource):
         return await self._get(
             path_template("/quickbooks-desktop/build-assemblies/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=await async_maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids},
+                    build_assembly_retrieve_params.BuildAssemblyRetrieveParams,
+                ),
             ),
             cast_to=BuildAssembly,
         )
@@ -854,6 +898,7 @@ class AsyncBuildAssembliesResource(AsyncAPIResource):
         *,
         conductor_end_user_id: str,
         cursor: str | Omit = omit,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         include_component_line_items: bool | Omit = omit,
         item_ids: SequenceNotStr[str] | Omit = omit,
@@ -893,6 +938,13 @@ class AsyncBuildAssembliesResource(AsyncAPIResource):
               send it are not idempotent: each one returns the next page. Send each request
               within 20 seconds of the previous response. If you miss that window or a request
               fails, start over without a cursor.
+
+          custom_field_owner_ids: The owners whose custom fields to return on build assemblies. Defaults to
+              `["0"]`, the public custom fields people create and see in QuickBooks. For an
+              application's private custom fields, list its owner ID, a GUID in braces. Only
+              listed owners are returned, so keep `"0"` for the public ones. QuickBooks
+              rejects the whole request if a listed private owner has no custom fields for
+              build assemblies.
 
           ids: Filter for specific build assemblies by their QuickBooks-assigned unique
               identifier(s).
@@ -1013,6 +1065,7 @@ class AsyncBuildAssembliesResource(AsyncAPIResource):
                 query=maybe_transform(
                     {
                         "cursor": cursor,
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "ids": ids,
                         "include_component_line_items": include_component_line_items,
                         "item_ids": item_ids,

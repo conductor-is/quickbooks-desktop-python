@@ -40,6 +40,16 @@ class AccountListParams(TypedDict, total=False):
     currency_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="currencyIds")]
     """Filter for accounts in these currencies."""
 
+    custom_field_owner_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="customFieldOwnerIds")]
+    """The owners whose custom fields to return on accounts.
+
+    Defaults to `["0"]`, the public custom fields people create and see in
+    QuickBooks. For an application's private custom fields, list its owner ID, a
+    GUID in braces. Only listed owners are returned, so keep `"0"` for the public
+    ones. QuickBooks rejects the whole request if a listed private owner has no
+    custom fields for accounts.
+    """
+
     full_names: Annotated[SequenceNotStr[str], PropertyInfo(alias="fullNames")]
     """Filter for specific accounts by their full-name(s), case-insensitive.
 

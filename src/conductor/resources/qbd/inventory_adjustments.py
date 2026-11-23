@@ -21,6 +21,7 @@ from ...types.qbd import (
     inventory_adjustment_list_params,
     inventory_adjustment_create_params,
     inventory_adjustment_update_params,
+    inventory_adjustment_retrieve_params,
 )
 from ..._base_client import make_request_options
 from ...types.qbd.inventory_adjustment import InventoryAdjustment
@@ -153,6 +154,7 @@ class InventoryAdjustmentsResource(SyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -174,6 +176,13 @@ class InventoryAdjustmentsResource(SyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on inventory adjustments. Defaults to
+              `["0"]`, the public custom fields people create and see in QuickBooks. For an
+              application's private custom fields, list its owner ID, a GUID in braces. Only
+              listed owners are returned, so keep `"0"` for the public ones. QuickBooks
+              rejects the whole request if a listed private owner has no custom fields for
+              inventory adjustments.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -188,7 +197,14 @@ class InventoryAdjustmentsResource(SyncAPIResource):
         return self._get(
             path_template("/quickbooks-desktop/inventory-adjustments/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids},
+                    inventory_adjustment_retrieve_params.InventoryAdjustmentRetrieveParams,
+                ),
             ),
             cast_to=InventoryAdjustment,
         )
@@ -311,6 +327,7 @@ class InventoryAdjustmentsResource(SyncAPIResource):
         conductor_end_user_id: str,
         account_ids: SequenceNotStr[str] | Omit = omit,
         customer_ids: SequenceNotStr[str] | Omit = omit,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         include_line_items: bool | Omit = omit,
         item_ids: SequenceNotStr[str] | Omit = omit,
@@ -345,6 +362,13 @@ class InventoryAdjustmentsResource(SyncAPIResource):
           account_ids: Filter for inventory adjustments associated with these accounts.
 
           customer_ids: Filter for inventory adjustments associated with these customers.
+
+          custom_field_owner_ids: The owners whose custom fields to return on inventory adjustments. Defaults to
+              `["0"]`, the public custom fields people create and see in QuickBooks. For an
+              application's private custom fields, list its owner ID, a GUID in braces. Only
+              listed owners are returned, so keep `"0"` for the public ones. QuickBooks
+              rejects the whole request if a listed private owner has no custom fields for
+              inventory adjustments.
 
           ids: Filter for specific inventory adjustments by their QuickBooks-assigned unique
               identifier(s).
@@ -464,6 +488,7 @@ class InventoryAdjustmentsResource(SyncAPIResource):
                     {
                         "account_ids": account_ids,
                         "customer_ids": customer_ids,
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "ids": ids,
                         "include_line_items": include_line_items,
                         "item_ids": item_ids,
@@ -691,6 +716,7 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -712,6 +738,13 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on inventory adjustments. Defaults to
+              `["0"]`, the public custom fields people create and see in QuickBooks. For an
+              application's private custom fields, list its owner ID, a GUID in braces. Only
+              listed owners are returned, so keep `"0"` for the public ones. QuickBooks
+              rejects the whole request if a listed private owner has no custom fields for
+              inventory adjustments.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -726,7 +759,14 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
         return await self._get(
             path_template("/quickbooks-desktop/inventory-adjustments/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=await async_maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids},
+                    inventory_adjustment_retrieve_params.InventoryAdjustmentRetrieveParams,
+                ),
             ),
             cast_to=InventoryAdjustment,
         )
@@ -849,6 +889,7 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
         conductor_end_user_id: str,
         account_ids: SequenceNotStr[str] | Omit = omit,
         customer_ids: SequenceNotStr[str] | Omit = omit,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         include_line_items: bool | Omit = omit,
         item_ids: SequenceNotStr[str] | Omit = omit,
@@ -883,6 +924,13 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
           account_ids: Filter for inventory adjustments associated with these accounts.
 
           customer_ids: Filter for inventory adjustments associated with these customers.
+
+          custom_field_owner_ids: The owners whose custom fields to return on inventory adjustments. Defaults to
+              `["0"]`, the public custom fields people create and see in QuickBooks. For an
+              application's private custom fields, list its owner ID, a GUID in braces. Only
+              listed owners are returned, so keep `"0"` for the public ones. QuickBooks
+              rejects the whole request if a listed private owner has no custom fields for
+              inventory adjustments.
 
           ids: Filter for specific inventory adjustments by their QuickBooks-assigned unique
               identifier(s).
@@ -1002,6 +1050,7 @@ class AsyncInventoryAdjustmentsResource(AsyncAPIResource):
                     {
                         "account_ids": account_ids,
                         "customer_ids": customer_ids,
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "ids": ids,
                         "include_line_items": include_line_items,
                         "item_ids": item_ids,

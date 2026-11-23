@@ -18,7 +18,7 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ...types.qbd import employee_list_params, employee_create_params, employee_update_params
+from ...types.qbd import employee_list_params, employee_create_params, employee_update_params, employee_retrieve_params
 from ..._base_client import make_request_options
 from ...types.qbd.employee import Employee
 from ...types.qbd.employee_list_response import EmployeeListResponse
@@ -351,6 +351,7 @@ class EmployeesResource(SyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -370,6 +371,12 @@ class EmployeesResource(SyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on employees. Defaults to `["0"]`, the
+              public custom fields people create and see in QuickBooks. For an application's
+              private custom fields, list its owner ID, a GUID in braces. Only listed owners
+              are returned, so keep `"0"` for the public ones. QuickBooks rejects the whole
+              request if a listed private owner has no custom fields for employees.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -384,7 +391,13 @@ class EmployeesResource(SyncAPIResource):
         return self._get(
             path_template("/quickbooks-desktop/employees/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids}, employee_retrieve_params.EmployeeRetrieveParams
+                ),
             ),
             cast_to=Employee,
         )
@@ -692,6 +705,7 @@ class EmployeesResource(SyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         limit: int | Omit = omit,
         name_contains: str | Omit = omit,
@@ -718,6 +732,12 @@ class EmployeesResource(SyncAPIResource):
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_field_owner_ids: The owners whose custom fields to return on employees. Defaults to `["0"]`, the
+              public custom fields people create and see in QuickBooks. For an application's
+              private custom fields, list its owner ID, a GUID in braces. Only listed owners
+              are returned, so keep `"0"` for the public ones. QuickBooks rejects the whole
+              request if a listed private owner has no custom fields for employees.
 
           ids: Filter for specific employees by their QuickBooks-assigned unique identifier(s).
 
@@ -826,6 +846,7 @@ class EmployeesResource(SyncAPIResource):
                 timeout=timeout,
                 query=maybe_transform(
                     {
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "ids": ids,
                         "limit": limit,
                         "name_contains": name_contains,
@@ -1170,6 +1191,7 @@ class AsyncEmployeesResource(AsyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -1189,6 +1211,12 @@ class AsyncEmployeesResource(AsyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on employees. Defaults to `["0"]`, the
+              public custom fields people create and see in QuickBooks. For an application's
+              private custom fields, list its owner ID, a GUID in braces. Only listed owners
+              are returned, so keep `"0"` for the public ones. QuickBooks rejects the whole
+              request if a listed private owner has no custom fields for employees.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -1203,7 +1231,13 @@ class AsyncEmployeesResource(AsyncAPIResource):
         return await self._get(
             path_template("/quickbooks-desktop/employees/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=await async_maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids}, employee_retrieve_params.EmployeeRetrieveParams
+                ),
             ),
             cast_to=Employee,
         )
@@ -1511,6 +1545,7 @@ class AsyncEmployeesResource(AsyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         limit: int | Omit = omit,
         name_contains: str | Omit = omit,
@@ -1537,6 +1572,12 @@ class AsyncEmployeesResource(AsyncAPIResource):
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_field_owner_ids: The owners whose custom fields to return on employees. Defaults to `["0"]`, the
+              public custom fields people create and see in QuickBooks. For an application's
+              private custom fields, list its owner ID, a GUID in braces. Only listed owners
+              are returned, so keep `"0"` for the public ones. QuickBooks rejects the whole
+              request if a listed private owner has no custom fields for employees.
 
           ids: Filter for specific employees by their QuickBooks-assigned unique identifier(s).
 
@@ -1645,6 +1686,7 @@ class AsyncEmployeesResource(AsyncAPIResource):
                 timeout=timeout,
                 query=await async_maybe_transform(
                     {
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "ids": ids,
                         "limit": limit,
                         "name_contains": name_contains,

@@ -10,7 +10,9 @@ import pytest
 from conductor import Conductor, AsyncConductor
 from tests.utils import assert_matches_type
 from conductor._utils import parse_date
-from conductor.types.qbd import Customer
+from conductor.types.qbd import (
+    Customer,
+)
 from conductor.pagination import SyncCursorPage, AsyncCursorPage
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
@@ -176,6 +178,15 @@ class TestCustomers:
         customer = client.qbd.customers.retrieve(
             id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
+        )
+        assert_matches_type(Customer, customer, path=["response"])
+
+    @parametrize
+    def test_method_retrieve_with_all_params(self, client: Conductor) -> None:
+        customer = client.qbd.customers.retrieve(
+            id="80000001-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+            custom_field_owner_ids=["0"],
         )
         assert_matches_type(Customer, customer, path=["response"])
 
@@ -397,6 +408,7 @@ class TestCustomers:
             class_ids=["80000001-1234567890"],
             currency_ids=["80000001-1234567890"],
             cursor="12345678-abcd-abcd-example-1234567890ab",
+            custom_field_owner_ids=["0"],
             exclude_alternate_shipping_addresses=True,
             full_names=["ABC Corporation:Website Redesign Project"],
             ids=["80000001-1234567890"],
@@ -604,6 +616,15 @@ class TestAsyncCustomers:
         customer = await async_client.qbd.customers.retrieve(
             id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
+        )
+        assert_matches_type(Customer, customer, path=["response"])
+
+    @parametrize
+    async def test_method_retrieve_with_all_params(self, async_client: AsyncConductor) -> None:
+        customer = await async_client.qbd.customers.retrieve(
+            id="80000001-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+            custom_field_owner_ids=["0"],
         )
         assert_matches_type(Customer, customer, path=["response"])
 
@@ -825,6 +846,7 @@ class TestAsyncCustomers:
             class_ids=["80000001-1234567890"],
             currency_ids=["80000001-1234567890"],
             cursor="12345678-abcd-abcd-example-1234567890ab",
+            custom_field_owner_ids=["0"],
             exclude_alternate_shipping_addresses=True,
             full_names=["ABC Corporation:Website Redesign Project"],
             ids=["80000001-1234567890"],

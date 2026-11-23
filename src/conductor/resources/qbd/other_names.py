@@ -16,7 +16,12 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ...types.qbd import other_name_list_params, other_name_create_params, other_name_update_params
+from ...types.qbd import (
+    other_name_list_params,
+    other_name_create_params,
+    other_name_update_params,
+    other_name_retrieve_params,
+)
 from ..._base_client import make_request_options
 from ...types.qbd.other_name import OtherName
 from ...types.qbd.other_name_list_response import OtherNameListResponse
@@ -202,6 +207,7 @@ class OtherNamesResource(SyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -221,6 +227,13 @@ class OtherNamesResource(SyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on other-names. Defaults to `["0"]`,
+              the public custom fields people create and see in QuickBooks. For an
+              application's private custom fields, list its owner ID, a GUID in braces. Only
+              listed owners are returned, so keep `"0"` for the public ones. QuickBooks
+              rejects the whole request if a listed private owner has no custom fields for
+              other-names.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -235,7 +248,14 @@ class OtherNamesResource(SyncAPIResource):
         return self._get(
             path_template("/quickbooks-desktop/other-names/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids},
+                    other_name_retrieve_params.OtherNameRetrieveParams,
+                ),
             ),
             cast_to=OtherName,
         )
@@ -400,6 +420,7 @@ class OtherNamesResource(SyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         limit: int | Omit = omit,
         name_contains: str | Omit = omit,
@@ -426,6 +447,13 @@ class OtherNamesResource(SyncAPIResource):
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_field_owner_ids: The owners whose custom fields to return on other-names. Defaults to `["0"]`,
+              the public custom fields people create and see in QuickBooks. For an
+              application's private custom fields, list its owner ID, a GUID in braces. Only
+              listed owners are returned, so keep `"0"` for the public ones. QuickBooks
+              rejects the whole request if a listed private owner has no custom fields for
+              other-names.
 
           ids: Filter for specific other-names by their QuickBooks-assigned unique
               identifier(s).
@@ -536,6 +564,7 @@ class OtherNamesResource(SyncAPIResource):
                 timeout=timeout,
                 query=maybe_transform(
                     {
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "ids": ids,
                         "limit": limit,
                         "name_contains": name_contains,
@@ -733,6 +762,7 @@ class AsyncOtherNamesResource(AsyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -752,6 +782,13 @@ class AsyncOtherNamesResource(AsyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on other-names. Defaults to `["0"]`,
+              the public custom fields people create and see in QuickBooks. For an
+              application's private custom fields, list its owner ID, a GUID in braces. Only
+              listed owners are returned, so keep `"0"` for the public ones. QuickBooks
+              rejects the whole request if a listed private owner has no custom fields for
+              other-names.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -766,7 +803,14 @@ class AsyncOtherNamesResource(AsyncAPIResource):
         return await self._get(
             path_template("/quickbooks-desktop/other-names/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=await async_maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids},
+                    other_name_retrieve_params.OtherNameRetrieveParams,
+                ),
             ),
             cast_to=OtherName,
         )
@@ -931,6 +975,7 @@ class AsyncOtherNamesResource(AsyncAPIResource):
         self,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         limit: int | Omit = omit,
         name_contains: str | Omit = omit,
@@ -957,6 +1002,13 @@ class AsyncOtherNamesResource(AsyncAPIResource):
 
         Args:
           conductor_end_user_id: The ID of the End-User to receive this request.
+
+          custom_field_owner_ids: The owners whose custom fields to return on other-names. Defaults to `["0"]`,
+              the public custom fields people create and see in QuickBooks. For an
+              application's private custom fields, list its owner ID, a GUID in braces. Only
+              listed owners are returned, so keep `"0"` for the public ones. QuickBooks
+              rejects the whole request if a listed private owner has no custom fields for
+              other-names.
 
           ids: Filter for specific other-names by their QuickBooks-assigned unique
               identifier(s).
@@ -1067,6 +1119,7 @@ class AsyncOtherNamesResource(AsyncAPIResource):
                 timeout=timeout,
                 query=await async_maybe_transform(
                     {
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "ids": ids,
                         "limit": limit,
                         "name_contains": name_contains,

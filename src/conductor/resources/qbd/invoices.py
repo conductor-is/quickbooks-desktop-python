@@ -18,7 +18,7 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ...types.qbd import invoice_list_params, invoice_create_params, invoice_update_params
+from ...types.qbd import invoice_list_params, invoice_create_params, invoice_update_params, invoice_retrieve_params
 from ...pagination import SyncCursorPage, AsyncCursorPage
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.qbd.invoice import Invoice
@@ -315,6 +315,7 @@ class InvoicesResource(SyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -336,6 +337,12 @@ class InvoicesResource(SyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on invoices. Defaults to `["0"]`, the
+              public custom fields people create and see in QuickBooks. For an application's
+              private custom fields, list its owner ID, a GUID in braces. Only listed owners
+              are returned, so keep `"0"` for the public ones. QuickBooks rejects the whole
+              request if a listed private owner has no custom fields for invoices.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -350,7 +357,13 @@ class InvoicesResource(SyncAPIResource):
         return self._get(
             path_template("/quickbooks-desktop/invoices/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids}, invoice_retrieve_params.InvoiceRetrieveParams
+                ),
             ),
             cast_to=Invoice,
         )
@@ -630,6 +643,7 @@ class InvoicesResource(SyncAPIResource):
         currency_ids: SequenceNotStr[str] | Omit = omit,
         cursor: str | Omit = omit,
         customer_ids: SequenceNotStr[str] | Omit = omit,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         include_line_items: bool | Omit = omit,
         include_linked_transactions: bool | Omit = omit,
@@ -675,6 +689,12 @@ class InvoicesResource(SyncAPIResource):
               fails, start over without a cursor.
 
           customer_ids: Filter for invoices created for these customers.
+
+          custom_field_owner_ids: The owners whose custom fields to return on invoices. Defaults to `["0"]`, the
+              public custom fields people create and see in QuickBooks. For an application's
+              private custom fields, list its owner ID, a GUID in braces. Only listed owners
+              are returned, so keep `"0"` for the public ones. QuickBooks rejects the whole
+              request if a listed private owner has no custom fields for invoices.
 
           ids: Filter for specific invoices by their QuickBooks-assigned unique identifier(s).
 
@@ -798,6 +818,7 @@ class InvoicesResource(SyncAPIResource):
                         "currency_ids": currency_ids,
                         "cursor": cursor,
                         "customer_ids": customer_ids,
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "ids": ids,
                         "include_line_items": include_line_items,
                         "include_linked_transactions": include_linked_transactions,
@@ -1190,6 +1211,7 @@ class AsyncInvoicesResource(AsyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -1211,6 +1233,12 @@ class AsyncInvoicesResource(AsyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on invoices. Defaults to `["0"]`, the
+              public custom fields people create and see in QuickBooks. For an application's
+              private custom fields, list its owner ID, a GUID in braces. Only listed owners
+              are returned, so keep `"0"` for the public ones. QuickBooks rejects the whole
+              request if a listed private owner has no custom fields for invoices.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -1225,7 +1253,13 @@ class AsyncInvoicesResource(AsyncAPIResource):
         return await self._get(
             path_template("/quickbooks-desktop/invoices/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=await async_maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids}, invoice_retrieve_params.InvoiceRetrieveParams
+                ),
             ),
             cast_to=Invoice,
         )
@@ -1505,6 +1539,7 @@ class AsyncInvoicesResource(AsyncAPIResource):
         currency_ids: SequenceNotStr[str] | Omit = omit,
         cursor: str | Omit = omit,
         customer_ids: SequenceNotStr[str] | Omit = omit,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         include_line_items: bool | Omit = omit,
         include_linked_transactions: bool | Omit = omit,
@@ -1550,6 +1585,12 @@ class AsyncInvoicesResource(AsyncAPIResource):
               fails, start over without a cursor.
 
           customer_ids: Filter for invoices created for these customers.
+
+          custom_field_owner_ids: The owners whose custom fields to return on invoices. Defaults to `["0"]`, the
+              public custom fields people create and see in QuickBooks. For an application's
+              private custom fields, list its owner ID, a GUID in braces. Only listed owners
+              are returned, so keep `"0"` for the public ones. QuickBooks rejects the whole
+              request if a listed private owner has no custom fields for invoices.
 
           ids: Filter for specific invoices by their QuickBooks-assigned unique identifier(s).
 
@@ -1673,6 +1714,7 @@ class AsyncInvoicesResource(AsyncAPIResource):
                         "currency_ids": currency_ids,
                         "cursor": cursor,
                         "customer_ids": customer_ids,
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "ids": ids,
                         "include_line_items": include_line_items,
                         "include_linked_transactions": include_linked_transactions,

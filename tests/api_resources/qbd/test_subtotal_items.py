@@ -79,6 +79,15 @@ class TestSubtotalItems:
         assert_matches_type(SubtotalItem, subtotal_item, path=["response"])
 
     @parametrize
+    def test_method_retrieve_with_all_params(self, client: Conductor) -> None:
+        subtotal_item = client.qbd.subtotal_items.retrieve(
+            id="80000001-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+            custom_field_owner_ids=["0"],
+        )
+        assert_matches_type(SubtotalItem, subtotal_item, path=["response"])
+
+    @parametrize
     def test_raw_response_retrieve(self, client: Conductor) -> None:
         response = client.qbd.subtotal_items.with_raw_response.retrieve(
             id="80000001-1234567890",
@@ -187,6 +196,7 @@ class TestSubtotalItems:
         subtotal_item = client.qbd.subtotal_items.list(
             conductor_end_user_id="end_usr_1234567abcdefg",
             cursor="12345678-abcd-abcd-example-1234567890ab",
+            custom_field_owner_ids=["0"],
             ids=["80000001-1234567890"],
             limit=150,
             name_contains="ABC",
@@ -286,6 +296,15 @@ class TestAsyncSubtotalItems:
         subtotal_item = await async_client.qbd.subtotal_items.retrieve(
             id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
+        )
+        assert_matches_type(SubtotalItem, subtotal_item, path=["response"])
+
+    @parametrize
+    async def test_method_retrieve_with_all_params(self, async_client: AsyncConductor) -> None:
+        subtotal_item = await async_client.qbd.subtotal_items.retrieve(
+            id="80000001-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+            custom_field_owner_ids=["0"],
         )
         assert_matches_type(SubtotalItem, subtotal_item, path=["response"])
 
@@ -398,6 +417,7 @@ class TestAsyncSubtotalItems:
         subtotal_item = await async_client.qbd.subtotal_items.list(
             conductor_end_user_id="end_usr_1234567abcdefg",
             cursor="12345678-abcd-abcd-example-1234567890ab",
+            custom_field_owner_ids=["0"],
             ids=["80000001-1234567890"],
             limit=150,
             name_contains="ABC",

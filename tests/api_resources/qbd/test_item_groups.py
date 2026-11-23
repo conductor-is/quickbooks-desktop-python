@@ -9,7 +9,9 @@ import pytest
 
 from conductor import Conductor, AsyncConductor
 from tests.utils import assert_matches_type
-from conductor.types.qbd import ItemGroup
+from conductor.types.qbd import (
+    ItemGroup,
+)
 from conductor.pagination import SyncCursorPage, AsyncCursorPage
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
@@ -85,6 +87,15 @@ class TestItemGroups:
         item_group = client.qbd.item_groups.retrieve(
             id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
+        )
+        assert_matches_type(ItemGroup, item_group, path=["response"])
+
+    @parametrize
+    def test_method_retrieve_with_all_params(self, client: Conductor) -> None:
+        item_group = client.qbd.item_groups.retrieve(
+            id="80000001-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+            custom_field_owner_ids=["0"],
         )
         assert_matches_type(ItemGroup, item_group, path=["response"])
 
@@ -208,6 +219,7 @@ class TestItemGroups:
         item_group = client.qbd.item_groups.list(
             conductor_end_user_id="end_usr_1234567abcdefg",
             cursor="12345678-abcd-abcd-example-1234567890ab",
+            custom_field_owner_ids=["0"],
             ids=["80000001-1234567890"],
             limit=150,
             name_contains="ABC",
@@ -319,6 +331,15 @@ class TestAsyncItemGroups:
         item_group = await async_client.qbd.item_groups.retrieve(
             id="80000001-1234567890",
             conductor_end_user_id="end_usr_1234567abcdefg",
+        )
+        assert_matches_type(ItemGroup, item_group, path=["response"])
+
+    @parametrize
+    async def test_method_retrieve_with_all_params(self, async_client: AsyncConductor) -> None:
+        item_group = await async_client.qbd.item_groups.retrieve(
+            id="80000001-1234567890",
+            conductor_end_user_id="end_usr_1234567abcdefg",
+            custom_field_owner_ids=["0"],
         )
         assert_matches_type(ItemGroup, item_group, path=["response"])
 
@@ -442,6 +463,7 @@ class TestAsyncItemGroups:
         item_group = await async_client.qbd.item_groups.list(
             conductor_end_user_id="end_usr_1234567abcdefg",
             cursor="12345678-abcd-abcd-example-1234567890ab",
+            custom_field_owner_ids=["0"],
             ids=["80000001-1234567890"],
             limit=150,
             name_contains="ABC",

@@ -16,7 +16,12 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ...types.qbd import other_charge_item_list_params, other_charge_item_create_params, other_charge_item_update_params
+from ...types.qbd import (
+    other_charge_item_list_params,
+    other_charge_item_create_params,
+    other_charge_item_update_params,
+    other_charge_item_retrieve_params,
+)
 from ...pagination import SyncCursorPage, AsyncCursorPage
 from ..._base_client import AsyncPaginator, make_request_options
 from ...types.qbd.other_charge_item import OtherChargeItem
@@ -161,6 +166,7 @@ class OtherChargeItemsResource(SyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -181,6 +187,13 @@ class OtherChargeItemsResource(SyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on other charge items. Defaults to
+              `["0"]`, the public custom fields people create and see in QuickBooks. For an
+              application's private custom fields, list its owner ID, a GUID in braces. Only
+              listed owners are returned, so keep `"0"` for the public ones. QuickBooks
+              rejects the whole request if a listed private owner has no custom fields for
+              other charge items.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -195,7 +208,14 @@ class OtherChargeItemsResource(SyncAPIResource):
         return self._get(
             path_template("/quickbooks-desktop/other-charge-items/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids},
+                    other_charge_item_retrieve_params.OtherChargeItemRetrieveParams,
+                ),
             ),
             cast_to=OtherChargeItem,
         )
@@ -321,6 +341,7 @@ class OtherChargeItemsResource(SyncAPIResource):
         conductor_end_user_id: str,
         class_ids: SequenceNotStr[str] | Omit = omit,
         cursor: str | Omit = omit,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         full_names: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         limit: int | Omit = omit,
@@ -360,6 +381,13 @@ class OtherChargeItemsResource(SyncAPIResource):
               within 20 seconds of the previous response. If you miss that window or a request
               fails, start over without a cursor. To make a run resumable, see
               [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
+
+          custom_field_owner_ids: The owners whose custom fields to return on other charge items. Defaults to
+              `["0"]`, the public custom fields people create and see in QuickBooks. For an
+              application's private custom fields, list its owner ID, a GUID in braces. Only
+              listed owners are returned, so keep `"0"` for the public ones. QuickBooks
+              rejects the whole request if a listed private owner has no custom fields for
+              other charge items.
 
           full_names: Filter for specific other charge items by their full-name(s), case-insensitive.
               Like `id`, `fullName` is a unique identifier for an other charge item, formed by
@@ -478,6 +506,7 @@ class OtherChargeItemsResource(SyncAPIResource):
                     {
                         "class_ids": class_ids,
                         "cursor": cursor,
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "full_names": full_names,
                         "ids": ids,
                         "limit": limit,
@@ -634,6 +663,7 @@ class AsyncOtherChargeItemsResource(AsyncAPIResource):
         id: str,
         *,
         conductor_end_user_id: str,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -654,6 +684,13 @@ class AsyncOtherChargeItemsResource(AsyncAPIResource):
 
           conductor_end_user_id: The ID of the End-User to receive this request.
 
+          custom_field_owner_ids: The owners whose custom fields to return on other charge items. Defaults to
+              `["0"]`, the public custom fields people create and see in QuickBooks. For an
+              application's private custom fields, list its owner ID, a GUID in braces. Only
+              listed owners are returned, so keep `"0"` for the public ones. QuickBooks
+              rejects the whole request if a listed private owner has no custom fields for
+              other charge items.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -668,7 +705,14 @@ class AsyncOtherChargeItemsResource(AsyncAPIResource):
         return await self._get(
             path_template("/quickbooks-desktop/other-charge-items/{id}", id=id),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=await async_maybe_transform(
+                    {"custom_field_owner_ids": custom_field_owner_ids},
+                    other_charge_item_retrieve_params.OtherChargeItemRetrieveParams,
+                ),
             ),
             cast_to=OtherChargeItem,
         )
@@ -794,6 +838,7 @@ class AsyncOtherChargeItemsResource(AsyncAPIResource):
         conductor_end_user_id: str,
         class_ids: SequenceNotStr[str] | Omit = omit,
         cursor: str | Omit = omit,
+        custom_field_owner_ids: SequenceNotStr[str] | Omit = omit,
         full_names: SequenceNotStr[str] | Omit = omit,
         ids: SequenceNotStr[str] | Omit = omit,
         limit: int | Omit = omit,
@@ -833,6 +878,13 @@ class AsyncOtherChargeItemsResource(AsyncAPIResource):
               within 20 seconds of the previous response. If you miss that window or a request
               fails, start over without a cursor. To make a run resumable, see
               [Paging by name](https://docs.conductor.is/api-ref/pagination#paging-by-name).
+
+          custom_field_owner_ids: The owners whose custom fields to return on other charge items. Defaults to
+              `["0"]`, the public custom fields people create and see in QuickBooks. For an
+              application's private custom fields, list its owner ID, a GUID in braces. Only
+              listed owners are returned, so keep `"0"` for the public ones. QuickBooks
+              rejects the whole request if a listed private owner has no custom fields for
+              other charge items.
 
           full_names: Filter for specific other charge items by their full-name(s), case-insensitive.
               Like `id`, `fullName` is a unique identifier for an other charge item, formed by
@@ -951,6 +1003,7 @@ class AsyncOtherChargeItemsResource(AsyncAPIResource):
                     {
                         "class_ids": class_ids,
                         "cursor": cursor,
+                        "custom_field_owner_ids": custom_field_owner_ids,
                         "full_names": full_names,
                         "ids": ids,
                         "limit": limit,
