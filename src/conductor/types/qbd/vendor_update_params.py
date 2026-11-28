@@ -123,10 +123,15 @@ class VendorUpdateParams(TypedDict, total=False):
     """
     Additional custom contact fields for this vendor, such as phone numbers or email
     addresses.
+
+    Maximum: 8 items.
     """
 
     default_expense_account_ids: Annotated[SequenceNotStr[str], PropertyInfo(alias="defaultExpenseAccountIds")]
-    """The expense accounts to prefill when entering bills for this vendor."""
+    """The expense accounts to prefill when entering bills for this vendor.
+
+    Maximum: 3 items.
+    """
 
     email: str
     """The vendor's email address.
@@ -336,6 +341,8 @@ class AdditionalContact(TypedDict, total=False):
     """
     Additional custom contact fields for this contact, such as phone numbers or
     email addresses.
+
+    Maximum: 5 items.
     """
 
     first_name: Annotated[str, PropertyInfo(alias="firstName")]

@@ -151,6 +151,8 @@ class EmployeesResource(SyncAPIResource):
           custom_contact_fields: Additional custom contact fields for this employee, such as phone numbers or
               email addresses.
 
+              Maximum: 8 items.
+
           department: The employee's department. Found in the "employment job details" section of the
               employee's record in QuickBooks.
 
@@ -512,6 +514,8 @@ class EmployeesResource(SyncAPIResource):
 
           custom_contact_fields: Additional custom contact fields for this employee, such as phone numbers or
               email addresses.
+
+              Maximum: 8 items.
 
           department: The employee's department. Found in the "employment job details" section of the
               employee's record in QuickBooks.
@@ -1050,6 +1054,8 @@ class AsyncEmployeesResource(AsyncAPIResource):
           custom_contact_fields: Additional custom contact fields for this employee, such as phone numbers or
               email addresses.
 
+              Maximum: 8 items.
+
           department: The employee's department. Found in the "employment job details" section of the
               employee's record in QuickBooks.
 
@@ -1411,6 +1417,8 @@ class AsyncEmployeesResource(AsyncAPIResource):
 
           custom_contact_fields: Additional custom contact fields for this employee, such as phone numbers or
               email addresses.
+
+              Maximum: 8 items.
 
           department: The employee's department. Found in the "employment job details" section of the
               employee's record in QuickBooks.
