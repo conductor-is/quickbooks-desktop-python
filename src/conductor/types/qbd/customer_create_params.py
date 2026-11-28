@@ -73,8 +73,6 @@ class CustomerCreateParams(TypedDict, total=False):
     """A list of additional shipping addresses for this customer.
 
     Useful when the customer has multiple shipping locations.
-
-    Maximum: 50 items.
     """
 
     billing_address: Annotated[BillingAddress, PropertyInfo(alias="billingAddress")]
