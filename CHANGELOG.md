@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.3](https://github.com/conductor-is/quickbooks-desktop-python/compare/v3.3.2...v3.3.3) (2026-11-28)
+
+
+### Documentation
+
+* **api:** deprecate error.userFacingMessage in favor of error.message ([28369c2](https://github.com/conductor-is/quickbooks-desktop-python/commit/28369c22b56d6ee98645308280948a079e38f47a))
+
 ## [3.3.2](https://github.com/conductor-is/quickbooks-desktop-python/compare/v3.3.1...v3.3.2) (2026-11-28)
 
 
