@@ -149,8 +149,6 @@ class CustomersResource(SyncAPIResource):
           alternate_shipping_addresses: A list of additional shipping addresses for this customer. Useful when the
               customer has multiple shipping locations.
 
-              Maximum: 50 items.
-
           billing_address: The customer's billing address.
 
           cc_email: An email address to carbon copy (CC) on communications with this customer.
@@ -540,7 +538,10 @@ class CustomersResource(SyncAPIResource):
           alternate_shipping_addresses: A list of additional shipping addresses for this customer. Useful when the
               customer has multiple shipping locations.
 
-              Maximum: 50 items.
+              **NOTE**: Addresses are matched to the stored ones by `name`: an address with a
+              new `name` is added, one whose `name` matches replaces that stored address's
+              fields, and stored addresses you omit are kept. To add or change one address,
+              send only that address.
 
           billing_address: The customer's billing address.
 
@@ -1187,8 +1188,6 @@ class AsyncCustomersResource(AsyncAPIResource):
           alternate_shipping_addresses: A list of additional shipping addresses for this customer. Useful when the
               customer has multiple shipping locations.
 
-              Maximum: 50 items.
-
           billing_address: The customer's billing address.
 
           cc_email: An email address to carbon copy (CC) on communications with this customer.
@@ -1578,7 +1577,10 @@ class AsyncCustomersResource(AsyncAPIResource):
           alternate_shipping_addresses: A list of additional shipping addresses for this customer. Useful when the
               customer has multiple shipping locations.
 
-              Maximum: 50 items.
+              **NOTE**: Addresses are matched to the stored ones by `name`: an address with a
+              new `name` is added, one whose `name` matches replaces that stored address's
+              fields, and stored addresses you omit are kept. To add or change one address,
+              send only that address.
 
           billing_address: The customer's billing address.
 

@@ -883,11 +883,7 @@ Methods:
 Types:
 
 ```python
-from conductor.types.qbd import (
-    SalesTaxPaymentCheck,
-    SalesTaxPaymentCheckDeleteResponse,
-    SalesTaxPaymentCheckVoidResponse,
-)
+from conductor.types.qbd import SalesTaxPaymentCheck, SalesTaxPaymentCheckDeleteResponse
 ```
 
 Methods:
@@ -898,7 +894,6 @@ Methods:
 - <code title="get /quickbooks-desktop/sales-tax-payment-checks">conductor.qbd.sales_tax_payment_checks.<a href="./src/conductor/resources/qbd/sales_tax_payment_checks.py">list</a>(\*\*<a href="src/conductor/types/qbd/sales_tax_payment_check_list_params.py">params</a>) -> <a href="./src/conductor/types/qbd/sales_tax_payment_check.py">SyncCursorPage[SalesTaxPaymentCheck]</a></code>
 - <code title="delete /quickbooks-desktop/sales-tax-payment-checks/{id}">conductor.qbd.sales_tax_payment_checks.<a href="./src/conductor/resources/qbd/sales_tax_payment_checks.py">delete</a>(id) -> <a href="./src/conductor/types/qbd/sales_tax_payment_check_delete_response.py">SalesTaxPaymentCheckDeleteResponse</a></code>
 - <code title="post /quickbooks-desktop/sales-tax-payment-checks/{id}/set-custom-fields">conductor.qbd.sales_tax_payment_checks.<a href="./src/conductor/resources/qbd/sales_tax_payment_checks.py">set_custom_fields</a>(id, \*\*<a href="src/conductor/types/qbd/sales_tax_payment_check_set_custom_fields_params.py">params</a>) -> <a href="./src/conductor/types/qbd/sales_tax_payment_check.py">SalesTaxPaymentCheck</a></code>
-- <code title="post /quickbooks-desktop/sales-tax-payment-checks/{id}/void">conductor.qbd.sales_tax_payment_checks.<a href="./src/conductor/resources/qbd/sales_tax_payment_checks.py">void</a>(id) -> <a href="./src/conductor/types/qbd/sales_tax_payment_check_void_response.py">SalesTaxPaymentCheckVoidResponse</a></code>
 
 ## ServiceItems
 
