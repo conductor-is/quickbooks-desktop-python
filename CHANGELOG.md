@@ -1,5 +1,14 @@
 # Changelog
 
+## [3.3.2](https://github.com/conductor-is/quickbooks-desktop-python/compare/v3.3.1...v3.3.2) (2026-11-28)
+
+
+### Bug Fixes
+
+* **api:** accept more than 50 alternate shipping addresses per request ([3929cb6](https://github.com/conductor-is/quickbooks-desktop-python/commit/3929cb61e3ad2337c19c852111f6add92350c63f))
+* **api:** enforce QuickBooks count limits on three array fields ([cc94f6e](https://github.com/conductor-is/quickbooks-desktop-python/commit/cc94f6eb2fecbb88c46eecd18f2a7f5501f2fced))
+* **api:** remove the sales-tax payment check void endpoint ([3929cb6](https://github.com/conductor-is/quickbooks-desktop-python/commit/3929cb61e3ad2337c19c852111f6add92350c63f))
+
 ## [3.3.1](https://github.com/conductor-is/quickbooks-desktop-python/compare/v3.3.0...v3.3.1) (2026-11-23)
 
 
