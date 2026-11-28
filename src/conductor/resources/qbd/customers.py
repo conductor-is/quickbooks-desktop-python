@@ -149,6 +149,8 @@ class CustomersResource(SyncAPIResource):
           alternate_shipping_addresses: A list of additional shipping addresses for this customer. Useful when the
               customer has multiple shipping locations.
 
+              Maximum: 50 items.
+
           billing_address: The customer's billing address.
 
           cc_email: An email address to carbon copy (CC) on communications with this customer.
@@ -184,6 +186,8 @@ class CustomersResource(SyncAPIResource):
 
           custom_contact_fields: Additional custom contact fields for this customer, such as phone numbers or
               email addresses.
+
+              Maximum: 8 items.
 
           customer_type_id: The customer's type, used for categorizing customers into meaningful segments,
               such as industry or region.
@@ -536,6 +540,8 @@ class CustomersResource(SyncAPIResource):
           alternate_shipping_addresses: A list of additional shipping addresses for this customer. Useful when the
               customer has multiple shipping locations.
 
+              Maximum: 50 items.
+
           billing_address: The customer's billing address.
 
               **NOTE**: Address fields you omit keep their stored values; send a field as an
@@ -574,6 +580,8 @@ class CustomersResource(SyncAPIResource):
 
           custom_contact_fields: Additional custom contact fields for this customer, such as phone numbers or
               email addresses.
+
+              Maximum: 8 items.
 
           customer_type_id: The customer's type, used for categorizing customers into meaningful segments,
               such as industry or region.
@@ -1179,6 +1187,8 @@ class AsyncCustomersResource(AsyncAPIResource):
           alternate_shipping_addresses: A list of additional shipping addresses for this customer. Useful when the
               customer has multiple shipping locations.
 
+              Maximum: 50 items.
+
           billing_address: The customer's billing address.
 
           cc_email: An email address to carbon copy (CC) on communications with this customer.
@@ -1214,6 +1224,8 @@ class AsyncCustomersResource(AsyncAPIResource):
 
           custom_contact_fields: Additional custom contact fields for this customer, such as phone numbers or
               email addresses.
+
+              Maximum: 8 items.
 
           customer_type_id: The customer's type, used for categorizing customers into meaningful segments,
               such as industry or region.
@@ -1566,6 +1578,8 @@ class AsyncCustomersResource(AsyncAPIResource):
           alternate_shipping_addresses: A list of additional shipping addresses for this customer. Useful when the
               customer has multiple shipping locations.
 
+              Maximum: 50 items.
+
           billing_address: The customer's billing address.
 
               **NOTE**: Address fields you omit keep their stored values; send a field as an
@@ -1604,6 +1618,8 @@ class AsyncCustomersResource(AsyncAPIResource):
 
           custom_contact_fields: Additional custom contact fields for this customer, such as phone numbers or
               email addresses.
+
+              Maximum: 8 items.
 
           customer_type_id: The customer's type, used for categorizing customers into meaningful segments,
               such as industry or region.

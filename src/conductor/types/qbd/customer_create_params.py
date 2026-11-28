@@ -73,6 +73,8 @@ class CustomerCreateParams(TypedDict, total=False):
     """A list of additional shipping addresses for this customer.
 
     Useful when the customer has multiple shipping locations.
+
+    Maximum: 50 items.
     """
 
     billing_address: Annotated[BillingAddress, PropertyInfo(alias="billingAddress")]
@@ -133,6 +135,8 @@ class CustomerCreateParams(TypedDict, total=False):
     """
     Additional custom contact fields for this customer, such as phone numbers or
     email addresses.
+
+    Maximum: 8 items.
     """
 
     customer_type_id: Annotated[str, PropertyInfo(alias="customerTypeId")]
@@ -379,6 +383,8 @@ class AdditionalContact(TypedDict, total=False):
     """
     Additional custom contact fields for this contact, such as phone numbers or
     email addresses.
+
+    Maximum: 5 items.
     """
 
     job_title: Annotated[str, PropertyInfo(alias="jobTitle")]

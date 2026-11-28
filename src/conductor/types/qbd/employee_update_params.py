@@ -84,6 +84,8 @@ class EmployeeUpdateParams(TypedDict, total=False):
     """
     Additional custom contact fields for this employee, such as phone numbers or
     email addresses.
+
+    Maximum: 8 items.
     """
 
     department: str
